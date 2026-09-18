@@ -1,0 +1,174 @@
+# -*- coding: utf-8 -*-
+"""Parametrická polička na zárubeň — testovací návrh, jednotky mm.
+
+Spusťte jako makro ve FreeCADu. Vygeneruje editovatelný FCStd a STL.
+Rozměr desky 90 × 50 mm zadal uživatel. Ostatní hodnoty jsou návrhové.
+Uchycení, materiál, šrouby ani nosnost dosud nebyly ověřeny.
+Po otevření FCStd lze parametry měnit v tabulce Parametry; makro není
+potřeba pro následný přepočet (jen standardní objekty a výrazy FreeCADu).
+"""
+from pathlib import Path
+import json
+import FreeCAD as App
+import Part
+import Sketcher
+import MeshPart
+
+OUT = Path(__file__).resolve().parent
+VALUES = [
+    ("ShelfWidth", "Šířka desky", 90.0, "ZADÁNO uživatelem"),
+    ("ShelfDepth", "Hloubka desky", 50.0, "ZADÁNO uživatelem"),
+    ("PlateThickness", "Tloušťka desky", 4.0, "NÁVRH — ověřit"),
+    ("TabWidth", "Šířka jednoho montážního ramene", 16.0, "NÁVRH — ověřit"),
+    ("TabRise", "Výška ramene nad deskou", 30.0, "NÁVRH — ověřit"),
+    ("TabThickness", "Tloušťka zadních ramen", 4.0, "NÁVRH — ověřit"),
+    ("EdgeInset", "Odsazení ramene od boční hrany", 7.0, "NÁVRH — ověřit"),
+    ("HoleDiameter", "Průměr průchozího otvoru", 4.5, "NÁVRH — ověřit šroub"),
+    ("HoleRise", "Střed otvoru nad horní plochou desky", 18.0, "NÁVRH — ověřit"),
+    ("RibThickness", "Tloušťka bočních výztuh", 2.4, "NÁVRH — ověřit"),
+    ("RibReach", "Délka výztuhy před ramenem", 12.0, "NÁVRH — ověřit"),
+    ("RibRise", "Výška výztuhy nad deskou", 10.0, "NÁVRH — ověřit"),
+]
+
+doc = App.newDocument("PolickaNaZaruben")
+doc.Label = "Polička 90 × 50 — testovací návrh"
+sheet = doc.addObject("Spreadsheet::Sheet", "Parameters")
+sheet.Label = "Parametry (mm) — upravit sloupec B"
+sheet.set("A1", "Parametr")
+sheet.set("B1", "Hodnota")
+sheet.set("C1", "Původ / stav")
+sheet.setStyle("A1:C1", "bold", "add")
+sheet.setBackground("A1:C1", (0.85, 0.9, 0.94))
+for row, (alias, label, value, status) in enumerate(VALUES, 2):
+    sheet.set(f"A{row}", label)
+    sheet.set(f"B{row}", f"{value:g} mm")
+    sheet.setAlias(f"B{row}", alias)
+    sheet.set(f"C{row}", status)
+    sheet.setBackground(f"B{row}", (0.84, 0.95, 0.87) if row < 4 else (1.0, 0.94, 0.77))
+sheet.set("A15", "Rozteč otvorů (odvozená)")
+sheet.set("B15", "=ShelfWidth - 2 * EdgeInset - TabWidth")
+sheet.setAlias("B15", "HoleSpacing")
+sheet.set("C15", "60 mm při návrhových rozměrech")
+sheet.set("A16", "Celková výška (odvozená)")
+sheet.set("B16", "=PlateThickness + TabRise")
+sheet.setAlias("B16", "OverallHeight")
+sheet.set("A18", "STAV: pracovní testovací návrh, nosnost ani fit neověřeny")
+sheet.mergeCells("A18:C18")
+sheet.setColumnWidth("A", 330)
+sheet.setColumnWidth("B", 130)
+sheet.setColumnWidth("C", 265)
+doc.recompute()
+
+def param(alias):
+    return "Parameters." + alias
+
+def expr(obj, field, value):
+    obj.setExpression(field, value)
+
+def box(name, label, dims, position):
+    obj = doc.addObject("Part::Box", name)
+    obj.Label = label
+    for field, value in zip(("Length", "Width", "Height"), dims):
+        expr(obj, field, value)
+    for field, value in zip(("x", "y", "z"), position):
+        expr(obj, "Placement.Base." + field, value)
+    return obj
+
+base = box("ShelfPlate", "Deska 90 × 50", [param("ShelfWidth"), param("ShelfDepth"), param("PlateThickness")], ["0 mm"] * 3)
+tab_x = [param("EdgeInset"), param("ShelfWidth") + " - " + param("EdgeInset") + " - " + param("TabWidth")]
+tabs = []
+for index, x in enumerate(tab_x, 1):
+    tabs.append(box(f"MountTab{index}", f"Zadní rameno {index}", [param("TabWidth"), param("TabThickness"), param("OverallHeight")], [x, "0 mm", "0 mm"]))
+
+rib_shapes = []
+for tab_index, x in enumerate(tab_x, 1):
+    for side, x_rib in enumerate((x, x + " + " + param("TabWidth") + " - " + param("RibThickness")), 1):
+        sketch = doc.addObject("Sketcher::SketchObject", f"RibSketch{tab_index}_{side}")
+        sketch.Label = f"Profil výztuhy {tab_index}.{side}"
+        sketch.Placement.Rotation = App.Rotation(App.Vector(0, 1, 0), App.Vector(0, 0, 1), App.Vector(1, 0, 0), "ZXY")
+        expr(sketch, "Placement.Base.x", x_rib)
+        pts = [App.Vector(4, 4, 0), App.Vector(16, 4, 0), App.Vector(4, 14, 0)]
+        for i in range(3):
+            sketch.addGeometry(Part.LineSegment(pts[i], pts[(i + 1) % 3]), False)
+        for i in range(3):
+            sketch.addConstraint(Sketcher.Constraint("Coincident", i, 2, (i + 1) % 3, 1))
+        sketch.addConstraint(Sketcher.Constraint("Horizontal", 0))
+        sketch.addConstraint(Sketcher.Constraint("Vertical", 2))
+        for constraint, alias in [
+            (Sketcher.Constraint("DistanceX", 0, 1, 4.0), "TabThickness"),
+            (Sketcher.Constraint("DistanceY", 0, 1, 4.0), "PlateThickness"),
+            (Sketcher.Constraint("Distance", 0, 12.0), "RibReach"),
+            (Sketcher.Constraint("Distance", 2, 10.0), "RibRise"),
+        ]:
+            cid = sketch.addConstraint(constraint)
+            sketch.setExpression(f"Constraints[{cid}]", param(alias))
+        rib = doc.addObject("Part::Extrusion", f"Rib{tab_index}_{side}")
+        rib.Label = f"Boční výztuha {tab_index}.{side}"
+        rib.Base = sketch
+        rib.DirMode = "Normal"
+        rib.Solid = True
+        expr(rib, "LengthFwd", param("RibThickness"))
+        rib_shapes.append(rib)
+
+solid = doc.addObject("Part::MultiFuse", "ShelfUncut")
+solid.Label = "Deska + ramena + výztuhy"
+solid.Shapes = [base] + tabs + rib_shapes
+solid.Refine = True
+holes = []
+for index, x in enumerate(tab_x, 1):
+    hole = doc.addObject("Part::Cylinder", f"HoleTool{index}")
+    hole.Label = f"Průchozí otvor {index} — nástroj"
+    expr(hole, "Radius", param("HoleDiameter") + " / 2")
+    expr(hole, "Height", param("TabThickness") + " + 2 mm")
+    hole.Placement.Rotation = App.Rotation(App.Vector(1, 0, 0), 90)
+    expr(hole, "Placement.Base.x", x + " + " + param("TabWidth") + " / 2")
+    expr(hole, "Placement.Base.y", param("TabThickness") + " + 1 mm")
+    expr(hole, "Placement.Base.z", param("PlateThickness") + " + " + param("HoleRise"))
+    holes.append(hole)
+hole_pair = doc.addObject("Part::MultiFuse", "BothHoleTools")
+hole_pair.Label = "Dva průchozí otvory — nástroje"
+hole_pair.Shapes = holes
+finished = doc.addObject("Part::Cut", "Shelf")
+finished.Label = "Polička — 1 kus, 2 otvory"
+finished.Base = solid
+finished.Tool = hole_pair
+finished.Refine = True
+finished.addProperty("App::PropertyString", "DesignStatus", "Návrh")
+finished.DesignStatus = "TESTOVACÍ NÁVRH: pouze půdorys 90 × 50 mm je zadaný; ostatní rozměry jsou návrhové. Nosnost, šrouby, materiál a fit nejsou ověřeny."
+doc.recompute()
+bad = [(obj.Name, str(obj.State)) for obj in doc.Objects if "Invalid" in obj.State]
+if bad or not finished.Shape.isValid() or len(finished.Shape.Solids) != 1:
+    raise RuntimeError(f"Geometrie neprošla validací: {bad}, solids={len(finished.Shape.Solids)}")
+
+if App.GuiUp:
+    import FreeCADGui as Gui
+    for obj in doc.Objects:
+        if hasattr(obj, "ViewObject"):
+            obj.ViewObject.Visibility = obj == finished
+    finished.ViewObject.ShapeColor = (0.29, 0.64, 0.66)
+    finished.ViewObject.LineColor = (0.12, 0.23, 0.25)
+    finished.ViewObject.DisplayMode = "Flat Lines"
+    Gui.activeDocument().activeView().viewAxonometric()
+    Gui.activeDocument().activeView().fitAll()
+
+fcstd = OUT / "policka-90x50.FCStd"
+doc.saveAs(str(fcstd))
+mesh = MeshPart.meshFromShape(Shape=finished.Shape, LinearDeflection=0.05, AngularDeflection=0.12, Relative=False)
+mesh.write(str(OUT / "policka-90x50.stl"))
+bb = finished.Shape.BoundBox
+summary = {
+    "status": "TESTOVACÍ NÁVRH; fit a nosnost neověřeny",
+    "parameters_mm": {alias: value for alias, _, value, _ in VALUES},
+    "user_specified": ["ShelfWidth", "ShelfDepth"],
+    "overall_mm": [bb.XLength, bb.YLength, bb.ZLength],
+    "hole_spacing_mm": float(sheet.HoleSpacing.Value),
+    "hole_centres_xz_mm": [[15, 22], [75, 22]],
+    "solid_count": len(finished.Shape.Solids),
+    "valid_shape": finished.Shape.isValid(),
+    "volume_mm3": finished.Shape.Volume,
+    "stl_facets": mesh.CountFacets,
+    "mesh_closed": mesh.isSolid(),
+}
+(OUT / "kontrola-modelu.json").write_text(json.dumps(summary, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+print(json.dumps(summary, ensure_ascii=False))
+print("Vytvořeno:", fcstd)

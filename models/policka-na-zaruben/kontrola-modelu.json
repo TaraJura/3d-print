@@ -1,0 +1,42 @@
+{
+  "status": "TESTOVACÍ NÁVRH; fit a nosnost neověřeny",
+  "parameters_mm": {
+    "ShelfWidth": 90.0,
+    "ShelfDepth": 50.0,
+    "PlateThickness": 4.0,
+    "TabWidth": 16.0,
+    "TabRise": 30.0,
+    "TabThickness": 4.0,
+    "EdgeInset": 7.0,
+    "HoleDiameter": 4.5,
+    "HoleRise": 18.0,
+    "RibThickness": 2.4,
+    "RibReach": 12.0,
+    "RibRise": 10.0
+  },
+  "user_specified": [
+    "ShelfWidth",
+    "ShelfDepth"
+  ],
+  "overall_mm": [
+    90.0,
+    50.0,
+    34.0
+  ],
+  "hole_spacing_mm": 60.0,
+  "hole_centres_xz_mm": [
+    [
+      15,
+      22
+    ],
+    [
+      75,
+      22
+    ]
+  ],
+  "solid_count": 1,
+  "valid_shape": true,
+  "volume_mm3": 22288.765497529603,
+  "stl_facets": 924,
+  "mesh_closed": true
+}

@@ -1,0 +1,36 @@
+# Automatické zálohy FreeCADu; vlastní FCStd/STL/PNG se verzují.
+*.FCBak
+*.FCBak*
+*.FCStd[0-9]*
+*.fcstd[0-9]*
+*.bak
+*~
+
+# Dočasné soubory a cache.
+*.tmp
+*.temp
+*.swp
+*.swo
+*.lock
+__pycache__/
+*.py[cod]
+.cache/
+.pytest_cache/
+.DS_Store
+
+# Lokální běhové prostředí a instalátory.
+.venv/
+venv/
+runtime/
+squashfs-root/
+*.AppImage
+*.deb
+*.rpm
+*.run
+
+# Osobní nastavení a přístupové údaje nepatří do veřejného repozitáře.
+.env
+.env.*
+!.env.example
+credentials/
+secrets/
