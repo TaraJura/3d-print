@@ -20,6 +20,8 @@ Tiskárna je **Anycubic Kobra X s tryskou 0,4 mm**. K dispozici je bílý a čer
 
 První model je [polička na zárubeň 90 × 50 mm](models/policka-na-zaruben/README.md). Její geometrie byla ověřena a uživatel model otevřel i importoval do sliceru. Uživatel oznámil zahájení prvního tisku; **fyzický výsledek ani první vrstva zatím nejsou potvrzené**. U zkontrolovaného lokálního G-code není jednoznačně doloženo, že jde právě o úlohu běžící na tiskárně. Podrobnosti jsou v [deníku](docs/denik-tisku.md).
 
+Další model je [jednoduché autíčko s jedním motorem](models/jednoduche-auticko/README.md): čtyři kola, společná zadní náprava a ozubený převod. První FCStd a jednotlivé STL jsou vytvořené a geometricky zkontrolované. **Uživatel na dalším vytištěném vzorku potvrdil nasazení do otvoru označeného 2,2 mm. [Pastorek](models/jednoduche-auticko/stl/pastorek.stl), sestava a zdroj jsou podle toho upravené.** Další krok je tisk pastorku a ostatních dílů; fyzická montáž a jízda ještě ověřené nejsou.
+
 ## Jak zapisovat poznatky
 
 U nového údaje uvést původ: zadání uživatele, fyzické měření, údaj výrobce, kontrola souboru, návrhová hodnota nebo doporučení. Zadané rozměry nejsou automaticky měřením skutečného předmětu. Doporučení není potvrzené nastavení a kontrola modelu není důkaz úspěšného výtisku.

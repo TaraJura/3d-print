@@ -1,0 +1,1053 @@
+{
+  "status": "PRVNÍ PROTOTYP; uživatel potvrdil nasazení vzorku 2,2 mm, sestava a celý pastorek fyzicky neověřeny",
+  "units": "mm",
+  "parameters_mm": {
+    "FrameLength": 140.0,
+    "FrameWidth": 44.0,
+    "FrameThickness": 3.0,
+    "RearX": 25.0,
+    "FrontX": 115.0,
+    "AxleHeight": 18.0,
+    "WheelDiameter": 60.0,
+    "WheelThickness": 8.0,
+    "WheelOuterY": 37.5,
+    "WheelRim": 4.0,
+    "RearGearInnerRadius": 20.0,
+    "HubDiameter": 14.0,
+    "SpokeWidth": 4.0,
+    "AxleDiameter": 6.0,
+    "AxleLength": 80.0,
+    "BearingDiameter": 6.5,
+    "RearBoreDiameter": 6.2,
+    "AxleFlat": 2.0,
+    "BoreFlat": 2.1,
+    "BearingY": 18.0,
+    "BearingWidth": 8.0,
+    "BearingLength": 12.0,
+    "BearingTop": 24.0,
+    "FlangeDiameter": 11.0,
+    "FlangeThickness": 2.0,
+    "GrooveDiameter": 4.8,
+    "GrooveFromEnd": 2.0,
+    "GrooveWidth": 1.5,
+    "ClipThickness": 1.3,
+    "ClipBore": 4.9,
+    "ClipOuter": 10.0,
+    "ClipMouth": 4.3,
+    "SpacerOuter": 10.0,
+    "ShortSpacer": 2.1,
+    "LongSpacer": 7.1,
+    "MotorDiameter": 22.5,
+    "MotorLength": 26.0,
+    "MotorShaftDiameter": 2.2,
+    "MotorShaftLength": 6.0,
+    "MotorFrontY": -23.0,
+    "MotorSeatWidth": 6.0,
+    "MotorSeatWall": 2.5,
+    "SeatClearance": 0.15,
+    "StrapSlotX": 3.0,
+    "StrapSlotY": 3.2,
+    "StrapOffset": 16.0,
+    "GearModule": 0.9,
+    "GearThickness": 5.0,
+    "PinionThickness": 5.5,
+    "PinionBore": 2.2,
+    "GearCentreExtra": 0.2
+  },
+  "gear": {
+    "big_teeth": 54,
+    "small_teeth": 18,
+    "module_mm": 0.9,
+    "pressure_angle_deg": 20.0,
+    "ratio": 3.0,
+    "centre_distance_mm": 32.6,
+    "centre_extra_mm": 0.2,
+    "pinion_assembly_phase_deg": 10.0,
+    "rotation_samples": [
+      {
+        "large_angle_deg": 0.0,
+        "small_angle_deg": 10.0,
+        "intersection_mm3": 0.0
+      },
+      {
+        "large_angle_deg": 0.5555555555555556,
+        "small_angle_deg": 8.333333333333334,
+        "intersection_mm3": 0.0
+      },
+      {
+        "large_angle_deg": 1.1111111111111112,
+        "small_angle_deg": 6.666666666666666,
+        "intersection_mm3": 0.0
+      },
+      {
+        "large_angle_deg": 1.6666666666666667,
+        "small_angle_deg": 5.0,
+        "intersection_mm3": 0.0
+      },
+      {
+        "large_angle_deg": 2.2222222222222223,
+        "small_angle_deg": 3.333333333333333,
+        "intersection_mm3": 0.0
+      },
+      {
+        "large_angle_deg": 2.777777777777778,
+        "small_angle_deg": 1.6666666666666643,
+        "intersection_mm3": 0.0
+      },
+      {
+        "large_angle_deg": 3.3333333333333335,
+        "small_angle_deg": 0.0,
+        "intersection_mm3": 0.0
+      },
+      {
+        "large_angle_deg": 3.8888888888888893,
+        "small_angle_deg": -1.6666666666666679,
+        "intersection_mm3": 0.0
+      },
+      {
+        "large_angle_deg": 4.444444444444445,
+        "small_angle_deg": -3.333333333333334,
+        "intersection_mm3": 0.0
+      },
+      {
+        "large_angle_deg": 5.0,
+        "small_angle_deg": -5.0,
+        "intersection_mm3": 0.0
+      },
+      {
+        "large_angle_deg": 5.555555555555556,
+        "small_angle_deg": -6.666666666666671,
+        "intersection_mm3": 0.0
+      },
+      {
+        "large_angle_deg": 6.111111111111112,
+        "small_angle_deg": -8.333333333333332,
+        "intersection_mm3": 0.0
+      },
+      {
+        "large_angle_deg": 6.666666666666667,
+        "small_angle_deg": -10.0,
+        "intersection_mm3": 0.0
+      }
+    ],
+    "max_sampled_intersection_mm3": 0.0,
+    "collision_sample_pass": true,
+    "check_limit": "Skutečné celé hnací kolo proti finálnímu pastorku: 13 poloh přes jednu rozteč velkého kola; geometrická kontrola vzorku, nikoli fyzický test tiskových vůlí nebo funkce."
+  },
+  "motor_measurements": {
+    "body_diameter_mm": 22.5,
+    "body_length_mm": 26,
+    "original_shaft_diameter_estimate_mm": 1,
+    "shaft_diameter_mm": null,
+    "shaft_reference_diameter_mm": 2.2,
+    "shaft_length_mm": 6,
+    "source": "ruční měření uživatele; přesnost neověřena",
+    "shaft_profile": "kulatý otvor je pracovní předpoklad; tvar hřídele nepotvrzen",
+    "rpm_voltage_torque": "neznámé"
+  },
+  "assembly_notes": [
+    "Zadní osa změněna na souvislou D plochu od příruby k volnému konci: D kola lze navléknout; izolované D úseky by přes kruhový střed neprošly.",
+    "D otvor kola má radiální vůli 0,1 mm a plocha vůli 0,1 mm; montáž a tření neověřeny.",
+    "Uložení Ø6,5 / osy Ø6 jsou návrhové vůle.",
+    "Osy tisknout stojící na přírubě; přilnavost a pevnost vrstev nutno ověřit.",
+    "Drážka pojistky je Y38..39,5, pojistka Y38,1..39,4; pravé kolo končí Y37,5.",
+    "Levá příruba končí Y-38, levé kolo začíná Y-37,5.",
+    "Dvě malé stahovací pásky nutné pro uchycení motoru, nejsou tištěné ani potvrzené jako vlastněné. Otvory 3×3,2 mm; vybrat pásku s odpovídajícím průřezem.",
+    "Pásky procházejí svislými drážkami vedle sedel a vedou pod rámem; žádný úzký příčný tunel.",
+    "Zadní čelo motoru Y3 a prostor za ním jsou otevřené; skutečné kontakty nejsou rozměrově známé.",
+    "Pastorek: otvor Ø2,2 mm podle uživatelem potvrzeného nasazení vzorku; délka 5,5 mm. Těsnost po celé délce a přenos momentu dosud neověřeny. Referenční hřídel Ø2,2 je vizualizace CAD otvoru, nikoli měření motoru.",
+    "Ozubení není vlastní Python proxy: obrys vyžaduje při změně modulu/zubů/úhlu regeneraci makrem."
+  ],
+  "fit_result": {
+    "source": "hlášení uživatele 2026-09-19",
+    "selected_nominal_hole_mm": 2.2,
+    "reported_result": "hřídel motoru se vejde do otvoru označeného 2,2",
+    "shaft_actual_diameter_measured": false,
+    "pinion_full_depth_tested": false,
+    "torque_transfer_tested": false
+  },
+  "fit_sample": {
+    "status": "historický vzorek v1; uživatelská zkouška nevyhověla",
+    "hole_diameters_left_to_right_mm": [
+      0.9,
+      1.0,
+      1.1,
+      1.2,
+      1.3
+    ],
+    "hole_centres_xy_mm": [
+      [
+        5,
+        5
+      ],
+      [
+        11,
+        5
+      ],
+      [
+        17,
+        5
+      ],
+      [
+        23,
+        5
+      ],
+      [
+        29,
+        5
+      ]
+    ],
+    "orientation": "V poloze STL (Z nahoru) boční zářez vlevo u prvního otvoru 0,9 mm. Další otvory po 6 mm doprava.",
+    "thickness_mm": 5.5
+  },
+  "parts": {
+    "ram": {
+      "source_object": "Frame",
+      "copies": 1,
+      "bbox_mm": [
+        140.0,
+        44.0,
+        24.0
+      ],
+      "volume_mm3": 27870.502112230497,
+      "solid_count": 1,
+      "valid_shape": true,
+      "mesh_closed": true,
+      "facets": 2316,
+      "stl": "stl/ram.stl",
+      "print_orientation": "aktuální lokální orientace STL, nejnižší Z=0"
+    },
+    "kolo-zadni-ozubene": {
+      "source_object": "RearGearedWheel",
+      "copies": 1,
+      "bbox_mm": [
+        59.9865729685051,
+        59.9932861086164,
+        13.0
+      ],
+      "volume_mm3": 22596.435576052936,
+      "solid_count": 1,
+      "valid_shape": true,
+      "mesh_closed": true,
+      "facets": 16832,
+      "stl": "stl/kolo-zadni-ozubene.stl",
+      "print_orientation": "aktuální lokální orientace STL, nejnižší Z=0"
+    },
+    "kolo-zadni": {
+      "source_object": "RearWheel",
+      "copies": 1,
+      "bbox_mm": [
+        59.9865729685051,
+        59.9932861086164,
+        8.0
+      ],
+      "volume_mm3": 11527.066418641447,
+      "solid_count": 1,
+      "valid_shape": true,
+      "mesh_closed": true,
+      "facets": 1312,
+      "stl": "stl/kolo-zadni.stl",
+      "print_orientation": "aktuální lokální orientace STL, nejnižší Z=0"
+    },
+    "kolo-predni": {
+      "source_object": "FrontWheel",
+      "copies": 2,
+      "bbox_mm": [
+        59.9865729685051,
+        59.9932861086164,
+        8.0
+      ],
+      "volume_mm3": 11477.892396110323,
+      "solid_count": 1,
+      "valid_shape": true,
+      "mesh_closed": true,
+      "facets": 1416,
+      "stl": "stl/kolo-predni.stl",
+      "print_orientation": "aktuální lokální orientace STL, nejnižší Z=0"
+    },
+    "pastorek": {
+      "source_object": "Pinion",
+      "copies": 1,
+      "bbox_mm": [
+        18.000205328473907,
+        17.824655755273245,
+        5.5
+      ],
+      "volume_mm3": 1085.6814200530935,
+      "solid_count": 1,
+      "valid_shape": true,
+      "mesh_closed": true,
+      "facets": 6900,
+      "stl": "stl/pastorek.stl",
+      "print_orientation": "aktuální lokální orientace STL, nejnižší Z=0"
+    },
+    "osa-zadni": {
+      "source_object": "RearAxle",
+      "copies": 1,
+      "bbox_mm": [
+        10.99753837755927,
+        10.998769119913007,
+        80.0
+      ],
+      "volume_mm3": 2142.1585055901746,
+      "solid_count": 1,
+      "valid_shape": true,
+      "mesh_closed": true,
+      "facets": 1388,
+      "stl": "stl/osa-zadni.stl",
+      "print_orientation": "aktuální lokální orientace STL, nejnižší Z=0"
+    },
+    "osa-predni": {
+      "source_object": "FrontAxle",
+      "copies": 1,
+      "bbox_mm": [
+        10.99753837755927,
+        10.998769119913007,
+        80.0
+      ],
+      "volume_mm3": 2380.1962580657714,
+      "solid_count": 1,
+      "valid_shape": true,
+      "mesh_closed": true,
+      "facets": 1676,
+      "stl": "stl/osa-predni.stl",
+      "print_orientation": "aktuální lokální orientace STL, nejnižší Z=0"
+    },
+    "rozperka-kratka": {
+      "source_object": "ShortSpacer",
+      "copies": 1,
+      "bbox_mm": [
+        9.997762161417517,
+        9.998881018102734,
+        2.1
+      ],
+      "volume_mm3": 95.24916226602554,
+      "solid_count": 1,
+      "valid_shape": true,
+      "mesh_closed": true,
+      "facets": 840,
+      "stl": "stl/rozperka-kratka.stl",
+      "print_orientation": "aktuální lokální orientace STL, nejnižší Z=0"
+    },
+    "rozperka-dlouha": {
+      "source_object": "LongSpacer",
+      "copies": 3,
+      "bbox_mm": [
+        9.997762161417517,
+        9.998881018102734,
+        7.1
+      ],
+      "volume_mm3": 322.03288194703873,
+      "solid_count": 1,
+      "valid_shape": true,
+      "mesh_closed": true,
+      "facets": 840,
+      "stl": "stl/rozperka-dlouha.stl",
+      "print_orientation": "aktuální lokální orientace STL, nejnižší Z=0"
+    },
+    "pojistka": {
+      "source_object": "RetainingClip",
+      "copies": 2,
+      "bbox_mm": [
+        9.514144437210666,
+        9.999222261946356,
+        1.3
+      ],
+      "volume_mm3": 62.16263907083115,
+      "solid_count": 1,
+      "valid_shape": true,
+      "mesh_closed": true,
+      "facets": 644,
+      "stl": "stl/pojistka.stl",
+      "print_orientation": "aktuální lokální orientace STL, nejnižší Z=0"
+    },
+    "vzorek-hridele": {
+      "source_object": "ShaftFitSample",
+      "copies": 1,
+      "bbox_mm": [
+        36.0,
+        10.0,
+        5.5
+      ],
+      "volume_mm3": 1936.9339071230818,
+      "solid_count": 1,
+      "valid_shape": true,
+      "mesh_closed": true,
+      "facets": 2148,
+      "stl": "stl/vzorek-hridele.stl",
+      "print_orientation": "aktuální lokální orientace STL, nejnižší Z=0"
+    }
+  },
+  "assembly_object_names": [
+    "AssemblyFrame",
+    "AssemblyRearLeft",
+    "AssemblyRearRight",
+    "AssemblyFrontLeft",
+    "AssemblyFrontRight",
+    "AssemblyRearAxle",
+    "AssemblyFrontAxle",
+    "AssemblyRearShortSpacer",
+    "AssemblyRearLongSpacer",
+    "AssemblyFrontLeftSpacer",
+    "AssemblyFrontRightSpacer",
+    "AssemblyRearClip",
+    "AssemblyFrontClip",
+    "AssemblyPinion",
+    "MotorReference"
+  ],
+  "non_printable_objects": [
+    "MotorReference"
+  ],
+  "checked_interferences": [
+    {
+      "a": "AssemblyFrame",
+      "b": "AssemblyRearLeft",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFrame",
+      "b": "AssemblyRearRight",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFrame",
+      "b": "AssemblyFrontLeft",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFrame",
+      "b": "AssemblyFrontRight",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFrame",
+      "b": "AssemblyRearAxle",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFrame",
+      "b": "AssemblyFrontAxle",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFrame",
+      "b": "AssemblyRearShortSpacer",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFrame",
+      "b": "AssemblyRearLongSpacer",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFrame",
+      "b": "AssemblyFrontLeftSpacer",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFrame",
+      "b": "AssemblyFrontRightSpacer",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFrame",
+      "b": "AssemblyRearClip",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFrame",
+      "b": "AssemblyFrontClip",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFrame",
+      "b": "AssemblyPinion",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFrame",
+      "b": "MotorReference",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "AssemblyRearLeft",
+      "b": "AssemblyRearRight",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "AssemblyRearLeft",
+      "b": "AssemblyFrontLeft",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "AssemblyRearLeft",
+      "b": "AssemblyFrontRight",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "AssemblyRearLeft",
+      "b": "AssemblyRearAxle",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "AssemblyRearLeft",
+      "b": "AssemblyFrontAxle",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "AssemblyRearLeft",
+      "b": "AssemblyRearShortSpacer",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "AssemblyRearLeft",
+      "b": "AssemblyRearLongSpacer",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "AssemblyRearLeft",
+      "b": "AssemblyFrontLeftSpacer",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "AssemblyRearLeft",
+      "b": "AssemblyFrontRightSpacer",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "AssemblyRearLeft",
+      "b": "AssemblyRearClip",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "AssemblyRearLeft",
+      "b": "AssemblyFrontClip",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "AssemblyRearLeft",
+      "b": "AssemblyPinion",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "AssemblyRearLeft",
+      "b": "MotorReference",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "AssemblyRearRight",
+      "b": "AssemblyFrontLeft",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "AssemblyRearRight",
+      "b": "AssemblyFrontRight",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "AssemblyRearRight",
+      "b": "AssemblyRearAxle",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "AssemblyRearRight",
+      "b": "AssemblyFrontAxle",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "AssemblyRearRight",
+      "b": "AssemblyRearShortSpacer",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "AssemblyRearRight",
+      "b": "AssemblyRearLongSpacer",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "AssemblyRearRight",
+      "b": "AssemblyFrontLeftSpacer",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "AssemblyRearRight",
+      "b": "AssemblyFrontRightSpacer",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "AssemblyRearRight",
+      "b": "AssemblyRearClip",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "AssemblyRearRight",
+      "b": "AssemblyFrontClip",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "AssemblyRearRight",
+      "b": "AssemblyPinion",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "AssemblyRearRight",
+      "b": "MotorReference",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFrontLeft",
+      "b": "AssemblyFrontRight",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFrontLeft",
+      "b": "AssemblyRearAxle",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFrontLeft",
+      "b": "AssemblyFrontAxle",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFrontLeft",
+      "b": "AssemblyRearShortSpacer",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFrontLeft",
+      "b": "AssemblyRearLongSpacer",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFrontLeft",
+      "b": "AssemblyFrontLeftSpacer",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFrontLeft",
+      "b": "AssemblyFrontRightSpacer",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFrontLeft",
+      "b": "AssemblyRearClip",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFrontLeft",
+      "b": "AssemblyFrontClip",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFrontLeft",
+      "b": "AssemblyPinion",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFrontLeft",
+      "b": "MotorReference",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFrontRight",
+      "b": "AssemblyRearAxle",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFrontRight",
+      "b": "AssemblyFrontAxle",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFrontRight",
+      "b": "AssemblyRearShortSpacer",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFrontRight",
+      "b": "AssemblyRearLongSpacer",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFrontRight",
+      "b": "AssemblyFrontLeftSpacer",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFrontRight",
+      "b": "AssemblyFrontRightSpacer",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFrontRight",
+      "b": "AssemblyRearClip",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFrontRight",
+      "b": "AssemblyFrontClip",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFrontRight",
+      "b": "AssemblyPinion",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFrontRight",
+      "b": "MotorReference",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "AssemblyRearAxle",
+      "b": "AssemblyFrontAxle",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "AssemblyRearAxle",
+      "b": "AssemblyRearShortSpacer",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "AssemblyRearAxle",
+      "b": "AssemblyRearLongSpacer",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "AssemblyRearAxle",
+      "b": "AssemblyFrontLeftSpacer",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "AssemblyRearAxle",
+      "b": "AssemblyFrontRightSpacer",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "AssemblyRearAxle",
+      "b": "AssemblyRearClip",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "AssemblyRearAxle",
+      "b": "AssemblyFrontClip",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "AssemblyRearAxle",
+      "b": "AssemblyPinion",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "AssemblyRearAxle",
+      "b": "MotorReference",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFrontAxle",
+      "b": "AssemblyRearShortSpacer",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFrontAxle",
+      "b": "AssemblyRearLongSpacer",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFrontAxle",
+      "b": "AssemblyFrontLeftSpacer",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFrontAxle",
+      "b": "AssemblyFrontRightSpacer",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFrontAxle",
+      "b": "AssemblyRearClip",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFrontAxle",
+      "b": "AssemblyFrontClip",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFrontAxle",
+      "b": "AssemblyPinion",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFrontAxle",
+      "b": "MotorReference",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "AssemblyRearShortSpacer",
+      "b": "AssemblyRearLongSpacer",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "AssemblyRearShortSpacer",
+      "b": "AssemblyFrontLeftSpacer",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "AssemblyRearShortSpacer",
+      "b": "AssemblyFrontRightSpacer",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "AssemblyRearShortSpacer",
+      "b": "AssemblyRearClip",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "AssemblyRearShortSpacer",
+      "b": "AssemblyFrontClip",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "AssemblyRearShortSpacer",
+      "b": "AssemblyPinion",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "AssemblyRearShortSpacer",
+      "b": "MotorReference",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "AssemblyRearLongSpacer",
+      "b": "AssemblyFrontLeftSpacer",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "AssemblyRearLongSpacer",
+      "b": "AssemblyFrontRightSpacer",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "AssemblyRearLongSpacer",
+      "b": "AssemblyRearClip",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "AssemblyRearLongSpacer",
+      "b": "AssemblyFrontClip",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "AssemblyRearLongSpacer",
+      "b": "AssemblyPinion",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "AssemblyRearLongSpacer",
+      "b": "MotorReference",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFrontLeftSpacer",
+      "b": "AssemblyFrontRightSpacer",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFrontLeftSpacer",
+      "b": "AssemblyRearClip",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFrontLeftSpacer",
+      "b": "AssemblyFrontClip",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFrontLeftSpacer",
+      "b": "AssemblyPinion",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFrontLeftSpacer",
+      "b": "MotorReference",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFrontRightSpacer",
+      "b": "AssemblyRearClip",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFrontRightSpacer",
+      "b": "AssemblyFrontClip",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFrontRightSpacer",
+      "b": "AssemblyPinion",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFrontRightSpacer",
+      "b": "MotorReference",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "AssemblyRearClip",
+      "b": "AssemblyFrontClip",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "AssemblyRearClip",
+      "b": "AssemblyPinion",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "AssemblyRearClip",
+      "b": "MotorReference",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFrontClip",
+      "b": "AssemblyPinion",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFrontClip",
+      "b": "MotorReference",
+      "intersection_mm3": 0.0
+    },
+    {
+      "a": "AssemblyPinion",
+      "b": "MotorReference",
+      "intersection_mm3": 0.0
+    }
+  ],
+  "assembly_max_intersection_mm3": 0.0,
+  "assembly_collision_pass": true,
+  "document_invalid_objects": [],
+  "parametric_checks": [
+    {
+      "parameter": "AxleHeight",
+      "from_mm": 18.0,
+      "trial_mm": 19.0,
+      "trial_invalid_objects": [],
+      "trial_parts": {
+        "ram": {
+          "valid": true,
+          "solids": 1
+        },
+        "kolo-zadni-ozubene": {
+          "valid": true,
+          "solids": 1
+        },
+        "kolo-zadni": {
+          "valid": true,
+          "solids": 1
+        },
+        "kolo-predni": {
+          "valid": true,
+          "solids": 1
+        },
+        "pastorek": {
+          "valid": true,
+          "solids": 1
+        },
+        "osa-zadni": {
+          "valid": true,
+          "solids": 1
+        },
+        "osa-predni": {
+          "valid": true,
+          "solids": 1
+        },
+        "rozperka-kratka": {
+          "valid": true,
+          "solids": 1
+        },
+        "rozperka-dlouha": {
+          "valid": true,
+          "solids": 1
+        },
+        "pojistka": {
+          "valid": true,
+          "solids": 1
+        },
+        "vzorek-hridele": {
+          "valid": true,
+          "solids": 1
+        }
+      },
+      "trial_front_wheel_bbox_mm": [
+        60.0,
+        8.000000000000014,
+        60.0
+      ],
+      "trial_motor_centre_z_mm": 18.999999999999996,
+      "restored_max_volume_difference_mm3": 0.0,
+      "pass": true
+    },
+    {
+      "parameter": "WheelDiameter",
+      "from_mm": 60.0,
+      "trial_mm": 62.0,
+      "trial_invalid_objects": [],
+      "trial_parts": {
+        "ram": {
+          "valid": true,
+          "solids": 1
+        },
+        "kolo-zadni-ozubene": {
+          "valid": true,
+          "solids": 1
+        },
+        "kolo-zadni": {
+          "valid": true,
+          "solids": 1
+        },
+        "kolo-predni": {
+          "valid": true,
+          "solids": 1
+        },
+        "pastorek": {
+          "valid": true,
+          "solids": 1
+        },
+        "osa-zadni": {
+          "valid": true,
+          "solids": 1
+        },
+        "osa-predni": {
+          "valid": true,
+          "solids": 1
+        },
+        "rozperka-kratka": {
+          "valid": true,
+          "solids": 1
+        },
+        "rozperka-dlouha": {
+          "valid": true,
+          "solids": 1
+        },
+        "pojistka": {
+          "valid": true,
+          "solids": 1
+        },
+        "vzorek-hridele": {
+          "valid": true,
+          "solids": 1
+        }
+      },
+      "trial_front_wheel_bbox_mm": [
+        62.0,
+        8.000000000000014,
+        62.0
+      ],
+      "trial_motor_centre_z_mm": 17.999999999999996,
+      "restored_max_volume_difference_mm3": 0.0,
+      "pass": true
+    }
+  ]
+}

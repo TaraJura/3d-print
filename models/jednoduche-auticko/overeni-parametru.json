@@ -1,0 +1,77 @@
+{
+  "checks": [
+    {
+      "parameter": "PinionBore",
+      "test_value_mm": 2.4,
+      "before": {
+        "Pinion": {
+          "volume_mm3": 1085.681420053094,
+          "bbox_mm": [
+            18.001046308555907,
+            17.82465575527325,
+            5.5
+          ],
+          "valid_shape": true,
+          "solid_count": 1
+        },
+        "AssemblyPinion": {
+          "volume_mm3": 1085.6814200530937,
+          "bbox_mm": [
+            17.824655755273263,
+            5.500000000000007,
+            18.00104630855591
+          ],
+          "valid_shape": true,
+          "solid_count": 1
+        }
+      },
+      "changed": {
+        "Pinion": {
+          "volume_mm3": 1081.7073053463023,
+          "bbox_mm": [
+            18.001046308555907,
+            17.82465575527325,
+            5.5
+          ],
+          "valid_shape": true,
+          "solid_count": 1
+        },
+        "AssemblyPinion": {
+          "volume_mm3": 1081.7073053463034,
+          "bbox_mm": [
+            17.824655755273263,
+            5.500000000000007,
+            18.00104630855591
+          ],
+          "valid_shape": true,
+          "solid_count": 1
+        }
+      },
+      "restored": {
+        "Pinion": {
+          "volume_mm3": 1085.681420053094,
+          "bbox_mm": [
+            18.001046308555907,
+            17.82465575527325,
+            5.5
+          ],
+          "valid_shape": true,
+          "solid_count": 1
+        },
+        "AssemblyPinion": {
+          "volume_mm3": 1085.6814200530946,
+          "bbox_mm": [
+            17.824655755273263,
+            5.500000000000007,
+            18.00104630855591
+          ],
+          "valid_shape": true,
+          "solid_count": 1
+        }
+      },
+      "passed": true
+    }
+  ],
+  "passed": true,
+  "scope": "Uložený dokument otevřen samostatně, přepočítán a vrácen; FCStd nebyl uložen. Žádný fyzický test."
+}

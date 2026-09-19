@@ -1,0 +1,155 @@
+# -*- coding: utf-8 -*-
+"""Samostatný nízký vzorek pro rychlou zkoušku vstupu hřídelky. Spouštět ve skutečném FreeCADu.
+
+Přepisuje pouze vzorek-hridele-v2.FCStd, stl/vzorek-hridele-v2.stl
+a kontrola-vzorku-v2.json vedle tohoto makra. Původní autíčko nemění.
+Průměry měnit zde a regenerovat: popisky jsou uložené obrysy písma,
+takže otevření dokumentu nepotřebuje font ani vlastní Python proxy.
+"""
+from pathlib import Path
+import json
+import hashlib
+import FreeCAD as App
+import Part
+import Mesh
+import MeshPart
+App.ParamGet('User parameter:BaseApp/Preferences/Document').SetInt('CountBackupFiles', 0)
+
+OUT = Path(__file__).resolve().parent
+FONT = "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
+DIAMETERS = [1.8, 2.0, 2.2, 2.4, 2.6, 2.8, 3.0, 3.5, 4.0]
+WIDTH, DEPTH, THICKNESS = 54.0, 48.0, 2.0
+ENGRAVE = 0.6
+NAME = "VzorekHrideleV2"
+if NAME in App.listDocuments():
+    raise RuntimeError("Vzorek v2 už je otevřený. Nejprve uložte změny a zavřete jej.")
+doc = App.newDocument(NAME)
+doc.Label = "Vzorek hřídelky v2 — otvory 1,8 až 4,0 mm"
+sheet = doc.addObject("Spreadsheet::Sheet", "Parameters")
+sheet.Label = "Rozměry (mm); při změně průměrů regenerovat popisky makrem"
+for row, (alias, value) in enumerate([
+    ("Width", WIDTH), ("Depth", DEPTH), ("Thickness", THICKNESS),
+    ("EngravingDepth", ENGRAVE)
+] + [("Diameter%d" % (i + 1), d) for i, d in enumerate(DIAMETERS)], 1):
+    sheet.set("A%d" % row, alias)
+    sheet.set("B%d" % row, str(value) + " mm")
+    sheet.setAlias("B%d" % row, alias)
+sheet.setColumnWidth("A", 180)
+sheet.setColumnWidth("B", 110)
+base = doc.addObject("Part::Box", "Plate")
+for prop, alias in (("Length", "Width"), ("Width", "Depth"), ("Height", "Thickness")):
+    base.setExpression(prop, "Parameters." + alias)
+
+holes, positions, cutters = [], [], []
+for i, diameter in enumerate(DIAMETERS):
+    x, y = 9.0 + (i % 3) * 18, 11.0 + (i // 3) * 15
+    positions.append((x, y))
+    hole = doc.addObject("Part::Cylinder", "Hole%d" % (i + 1))
+    hole.Label = "Otvor %.1f mm" % diameter
+    hole.setExpression("Radius", "Parameters.Diameter%d / 2" % (i + 1))
+    hole.setExpression("Height", "Parameters.Thickness + 2 mm")
+    hole.Placement.Base = App.Vector(x, y, -1)
+    holes.append(hole)
+    # Use FreeCAD's own font outline API; counters in 0/8 remain uncut.
+    characters = Part.makeWireString("%.1f" % diameter, FONT, 3.4, 0.0)
+    faces = []
+    for character in characters:
+        wires = []
+        for wire in character:
+            connected = Part.Compound(wire.Edges).connectEdgesToWires()
+            wires.extend(w for w in connected.Wires if w.isClosed())
+        if wires:
+            faces.extend(Part.makeFace(wires, "Part::FaceMakerBullseye").Faces)
+    shape = Part.makeCompound(faces)
+    bb = shape.BoundBox
+    shape.translate(App.Vector(x - (bb.XMin + bb.XMax) / 2,
+                               y - 6 - (bb.YMin + bb.YMax) / 2, 0))
+    outline = doc.addObject("Part::Feature", "LabelOutline%d" % (i + 1))
+    outline.Label = "Obrys popisku %.1f" % diameter
+    outline.Shape = shape
+    outline.setExpression("Placement.Base.z", "Parameters.Thickness - Parameters.EngravingDepth")
+    text_cut = doc.addObject("Part::Extrusion", "LabelTool%d" % (i + 1))
+    text_cut.Base = outline
+    text_cut.DirMode = "Normal"
+    text_cut.Dir = App.Vector(0, 0, 1)
+    text_cut.setExpression("LengthFwd", "Parameters.EngravingDepth + 1 mm")
+    text_cut.Solid = True
+    cutters.append(text_cut)
+
+all_tools = doc.addObject("Part::Compound", "Tools")
+all_tools.Links = holes + cutters
+result = doc.addObject("Part::Cut", "Coupon")
+result.Label = "TISKNOUT — nízký vzorek v2, 54 × 48 × 2 mm"
+result.Base, result.Tool = base, all_tools
+result.Refine = True
+doc.recompute()
+shape = result.Shape
+assert shape.isValid() and len(shape.Solids) == 1, "Neplatný vzorek"
+
+def measured_holes(shape):
+    measured = []
+    for (x, y), diameter in zip(positions, DIAMETERS):
+        surfaces = [f.Surface for f in shape.Faces
+                    if isinstance(f.Surface, Part.Cylinder)
+                    and abs(f.Surface.Center.x - x) < 1e-6
+                    and abs(f.Surface.Center.y - y) < 1e-6]
+        actual = sorted(set(round(s.Radius * 2, 7) for s in surfaces))
+        assert actual == [diameter], (x, y, actual)
+        empty_core = Part.makeCylinder(diameter / 2 - 0.001, THICKNESS + 2,
+                                      App.Vector(x, y, -1))
+        intersection = shape.common(empty_core).Volume
+        assert intersection < 1e-7, "Otvor není průchozí"
+        measured.append({"center_xy_mm": [x, y], "measured_diameter_mm": actual[0],
+                         "through_core_intersection_mm3": intersection})
+    return measured
+
+measured = measured_holes(shape)
+initial_volume = shape.Volume
+# Test a new parametric relationship and restore before exporting.
+sheet.set("B3", "2.5 mm")
+doc.recompute()
+assert result.Shape.isValid() and abs(result.Shape.BoundBox.ZLength - 2.5) < 1e-6
+assert all(abs(c.Base.Placement.Base.z - 1.9) < 1e-6 for c in cutters)
+sheet.set("B3", "2.0 mm")
+doc.recompute()
+assert abs(result.Shape.Volume - initial_volume) < 1e-6
+shape = result.Shape
+mesh = MeshPart.meshFromShape(Shape=shape, LinearDeflection=0.015,
+                              AngularDeflection=0.08, Relative=False)
+assert mesh.isSolid(), "Otevřená STL síť"
+stl_path = OUT / "stl" / "vzorek-hridele-v2.stl"
+stl_path.parent.mkdir(exist_ok=True)
+mesh.write(str(stl_path))
+reloaded = Mesh.Mesh(str(stl_path))
+assert reloaded.isSolid()
+assert reloaded.countComponents() == 1
+bb = shape.BoundBox
+report = {
+    "model": "vzorek-hridele-v2", "units": "mm",
+    "purpose": "Nízký vzorek pro rychlou zkoušku vstupu hřídelky po nevyhovujícím fitu v1; nejde o ověření celé délky otvoru pastorku.",
+    "physical_fit_verified": False,
+    "pinion_bore_length_mm": 5.5,
+    "fit_scope": "Otvor vzorku je dlouhý jen 2 mm. Průchod zde nepotvrzuje fit v otvoru pastorku dlouhém 5,5 mm ani přenos momentu.",
+    "shaft_diameter_known": False,
+    "bbox_mm": [bb.XLength, bb.YLength, bb.ZLength],
+    "solid_count": len(shape.Solids), "shape_valid": shape.isValid(),
+    "volume_mm3": shape.Volume, "holes": measured,
+    "engraved_labels": ["%.1f" % d for d in DIAMETERS],
+    "engraving_depth_mm": ENGRAVE,
+    "parametric_check": {"thickness_mm": [2, 2.5, 2],
+                         "labels_followed_thickness": True,
+                         "restored_volume_difference_mm3": abs(shape.Volume - initial_volume)},
+    "mesh_closed_after_reload": reloaded.isSolid(),
+    "mesh_components": reloaded.countComponents(), "mesh_facets": reloaded.CountFacets,
+    "stl_sha256": hashlib.sha256(stl_path.read_bytes()).hexdigest(),
+    "print_orientation": "Rovná plocha na Z=0; zapuštěné číslice nahoru; měřítko 100 %.",
+    "limits": "Čísla označují nominální CAD průměry, nikoli skutečně vytištěné otvory ani změřenou hřídel. Popisky při změně průměrů regenerovat makrem."
+}
+(OUT / "kontrola-vzorku-v2.json").write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+if App.GuiUp:
+    for obj in doc.Objects:
+        if hasattr(obj, "Shape"):
+            obj.ViewObject.Visibility = obj == result
+doc.recompute()
+doc.saveAs(str(OUT / "vzorek-hridele-v2.FCStd"))
+print("VZOREK_V2_COMPLETE", flush=True)

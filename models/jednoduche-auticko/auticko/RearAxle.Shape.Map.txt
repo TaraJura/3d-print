@@ -1,0 +1,117 @@
+BeginElementMap v1
+24 PostfixCount 43
+Edge
+Face
+Vertex
+;:G(Face5;K-1;:H2fe:4,F);CUT;:H2fd:1c,V;:M;FUS;:H2ff:7,V;:H301,V
+;:H300,E;:H301,E
+;:H2fd,E;:M;FUS;:H2ff:7,E;:H301,E
+;:G(Face1;K-1;:H2fd:4,F);CUT;:H2fe:1c,V;:M;FUS;:H2ff:7,V;:H301,V
+;:G2(Face1;K-2;:H2fd:4,F);CUT;:H2fe:1d,V;:M;FUS;:H2ff:7,V;:H301,V
+;:M;CUT;:H2fe:7,E;:M;FUS;:H2ff:7,E;:G(Face2;:M;CUT;:H302:7,F;K-2;:H304:4,F);CUT;:H301:2d,V
+;:M;CUT;:H2fe:7,E;:M;FUS;:H2ff:7,E;:G2(Face3;:M;CUT;:H302:7,F;K-2;:H304:4,F);CUT;:H301:2e,V
+;:M;CUT;:H2fe:7,E;:M;FUS;:H2ff:7,E;:M2;CUT;:H301:8,E
+;:M;CUT;:H2fe:7,E;:M;FUS;:H2ff:7,E;:M;CUT;:H301:7,E
+;:G4(Face1;K-4;:H2fe:4,F);CUT;:H2fd:1d,E;:M;FUS;:H2ff:7,E;:H301,E
+;:G5(Face5;K-2;:H2fe:4,F);CUT;:H2fd:1d,E;:M;FUS;:H2ff:7,E;:H301,E
+;:G6(Face5;K-3;:H2fe:4,F);CUT;:H2fd:1d,E;:M;FUS;:H2ff:7,E;:H301,E
+;:H300,F;:H301,F
+;:M;CUT;:H2fd:7,F;:G(Face3;K-1;:H300:4,F);FUS;:H2ff:1c,E;:G(Face2;:M;CUT;:H302:7,F;K-1;:H304:4,F);CUT;:H301:2d,V
+;:M;CUT;:H2fd:7,F;:G(Face3;K-1;:H300:4,F);FUS;:H2ff:1c,E;:G2(Face3;:M;CUT;:H302:7,F;K-1;:H304:4,F);CUT;:H301:2e,V
+;:M;CUT;:H2fd:7,F;:G(Face3;K-1;:H300:4,F);FUS;:H2ff:1c,E;:M2;CUT;:H301:8,E
+;:M;CUT;:H2fd:7,F;:G(Face3;K-1;:H300:4,F);FUS;:H2ff:1c,E;:M;CUT;:H301:7,E
+;:M;CUT;:H2fd:7,F;:M;FUS;:H2ff:7,F;:H301,F
+;:M;CUT;:H303:7,F;:M;CUT;:H304:7,F
+;:G2(Face1;K-1;:H303:4,F);CUT;:H302:1d,E;:G(Face5;:M;CUT;:H2fe:7,F;:M(Face3;K2;:H300:3,F);FUS;:H2ff:1b,F;K-1;:H301:4,F);CUT;:H304:53,V
+;:G2(Face1;K-1;:H303:4,F);CUT;:H302:1d,E;:G2(Face5;:M;CUT;:H2fe:7,F;:M(Face3;K2;:H300:3,F);FUS;:H2ff:1b,F;K-2;:H301:4,F);CUT;:H304:54,V
+;:G2(Face1;K-1;:H303:4,F);CUT;:H302:1d,E;:M;CUT;:H304:7,E
+;:H2fd,F;:M(Face2;K2;:H300:3,F);FUS;:H2ff:1b,F;:G(Face2;:M;CUT;:H302:7,F;K-3;:H304:4,F);CUT;:H301:2d,E
+;:H2fd,F;:M(Face2;K2;:H300:3,F);FUS;:H2ff:1b,F;:G2(Face3;:M;CUT;:H302:7,F;K-3;:H304:4,F);CUT;:H301:2e,E
+;:H2fd,F;:M(Face2;K2;:H300:3,F);FUS;:H2ff:1b,F;:M2;CUT;:H301:8,F
+;:H2fd,F;:M(Face2;K2;:H300:3,F);FUS;:H2ff:1b,F;:M;CUT;:H301:7,F
+;:M;CUT;:H302:7,F;:M;CUT;:H304:7,F
+;:M;FUS;:H300:7,F;:H301,F
+;:G2(Face1;K-2;:H303:4,F);CUT;:H302:1d,E;:G(Face5;:M;CUT;:H2fe:7,F;:M(Face3;K2;:H300:3,F);FUS;:H2ff:1b,F;K-3;:H301:4,F);CUT;:H304:53,V
+;:G2(Face1;K-2;:H303:4,F);CUT;:H302:1d,E;:G2(Face5;:M;CUT;:H2fe:7,F;:M(Face3;K2;:H300:3,F);FUS;:H2ff:1b,F;K-4;:H301:4,F);CUT;:H304:54,V
+;:G2(Face1;K-2;:H303:4,F);CUT;:H302:1d,E;:M;CUT;:H304:7,E
+;:M;CUT;:H2fe:7,F;:M(Face3;K2;:H300:3,F);FUS;:H2ff:1b,F;:G10(Face1;:M;CUT;:H303:7,F;K-2;:H304:4,F);CUT;:H301:2f,E
+;:M;CUT;:H2fe:7,F;:M(Face3;K2;:H300:3,F);FUS;:H2ff:1b,F;:G5(Face2;:M;CUT;:H302:7,F;K-4;:H304:4,F);CUT;:H301:2e,E
+;:M;CUT;:H2fe:7,F;:M(Face3;K2;:H300:3,F);FUS;:H2ff:1b,F;:G6(Face2;:M;CUT;:H302:7,F;K-5;:H304:4,F);CUT;:H301:2e,E
+;:M;CUT;:H2fe:7,F;:M(Face3;K2;:H300:3,F);FUS;:H2ff:1b,F;:G7(Face3;:M;CUT;:H302:7,F;K-4;:H304:4,F);CUT;:H301:2e,E
+;:M;CUT;:H2fe:7,F;:M(Face3;K2;:H300:3,F);FUS;:H2ff:1b,F;:G8(Face3;:M;CUT;:H302:7,F;K-5;:H304:4,F);CUT;:H301:2e,E
+;:M;CUT;:H2fe:7,F;:M(Face3;K2;:H300:3,F);FUS;:H2ff:1b,F;:G9(Face1;:M;CUT;:H303:7,F;K-1;:H304:4,F);CUT;:H301:2e,E
+;:M;CUT;:H2fe:7,F;:M(Face3;K2;:H300:3,F);FUS;:H2ff:1b,F;:M;CUT;:H301:7,F
+;:H2fd,V;:M;FUS;:H2ff:7,V;:H301,V
+;:H300,V;:H301,V
+
+MapCount 1
+
+ElementMap 1 24 3
+
+Edge
+
+ChildCount 0
+
+NameCount 22
+0
+:1.1.5 0
+:1.2.5 0
+:1.3.5 0
+:1.2.6 0
+:2.1.f 0
+:2.2.1a 0
+:1.4.b 0
+:2.1.13 0
+:2.1.d 0
+:1.4.c 0
+:2.5.26 0
+:2.5.28 0
+:2.5.24 0
+:2.5.25 0
+:2.5.23 0
+:2.5.27 0
+:2.1.14 0
+:2.2.19 0
+:2.1.e 0
+:2.2.1b 0
+:2.3.22 0
+
+Face
+
+ChildCount 0
+
+NameCount 11
+0
+:2.1.10 0
+:2.2.1f 0
+:2.3.1f 0
+:2.2.1c 0
+:2.5.29 0
+:2.2.1e 0
+:2.1.15 0
+:2.2.1d 0
+:2.3.1e 0
+:2.1.16 0
+
+Vertex
+
+ChildCount 0
+
+NameCount 15
+0
+:3.1.2b 0
+:3.2.2b 0
+:3.1.2a 0
+:1.4.8 0
+:2.1.11 0
+:1.4.9 0
+:1.1.4 0
+:1.4.7 0
+:1.4.a 0
+:2.3.21 0
+:2.2.18 0
+:2.2.17 0
+:2.3.20 0
+:2.1.12 0
+
+EndMap

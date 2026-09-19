@@ -1,0 +1,118 @@
+{
+  "model": "vzorek-hridele-v2",
+  "units": "mm",
+  "purpose": "Nízký vzorek pro rychlou zkoušku vstupu hřídelky po nevyhovujícím fitu v1; nejde o ověření celé délky otvoru pastorku.",
+  "physical_fit_verified": false,
+  "pinion_bore_length_mm": 5.5,
+  "fit_scope": "Otvor vzorku je dlouhý jen 2 mm. Průchod zde nepotvrzuje fit v otvoru pastorku dlouhém 5,5 mm ani přenos momentu.",
+  "shaft_diameter_known": false,
+  "bbox_mm": [
+    54.0,
+    48.0,
+    2.0
+  ],
+  "solid_count": 1,
+  "shape_valid": true,
+  "volume_mm3": 5019.825028456634,
+  "holes": [
+    {
+      "center_xy_mm": [
+        9.0,
+        11.0
+      ],
+      "measured_diameter_mm": 1.8,
+      "through_core_intersection_mm3": 0.0
+    },
+    {
+      "center_xy_mm": [
+        27.0,
+        11.0
+      ],
+      "measured_diameter_mm": 2.0,
+      "through_core_intersection_mm3": 0.0
+    },
+    {
+      "center_xy_mm": [
+        45.0,
+        11.0
+      ],
+      "measured_diameter_mm": 2.2,
+      "through_core_intersection_mm3": 0.0
+    },
+    {
+      "center_xy_mm": [
+        9.0,
+        26.0
+      ],
+      "measured_diameter_mm": 2.4,
+      "through_core_intersection_mm3": 0.0
+    },
+    {
+      "center_xy_mm": [
+        27.0,
+        26.0
+      ],
+      "measured_diameter_mm": 2.6,
+      "through_core_intersection_mm3": 0.0
+    },
+    {
+      "center_xy_mm": [
+        45.0,
+        26.0
+      ],
+      "measured_diameter_mm": 2.8,
+      "through_core_intersection_mm3": 0.0
+    },
+    {
+      "center_xy_mm": [
+        9.0,
+        41.0
+      ],
+      "measured_diameter_mm": 3.0,
+      "through_core_intersection_mm3": 0.0
+    },
+    {
+      "center_xy_mm": [
+        27.0,
+        41.0
+      ],
+      "measured_diameter_mm": 3.5,
+      "through_core_intersection_mm3": 0.0
+    },
+    {
+      "center_xy_mm": [
+        45.0,
+        41.0
+      ],
+      "measured_diameter_mm": 4.0,
+      "through_core_intersection_mm3": 0.0
+    }
+  ],
+  "engraved_labels": [
+    "1.8",
+    "2.0",
+    "2.2",
+    "2.4",
+    "2.6",
+    "2.8",
+    "3.0",
+    "3.5",
+    "4.0"
+  ],
+  "engraving_depth_mm": 0.6,
+  "parametric_check": {
+    "thickness_mm": [
+      2,
+      2.5,
+      2
+    ],
+    "labels_followed_thickness": true,
+    "restored_volume_difference_mm3": 0.0
+  },
+  "mesh_closed_after_reload": true,
+  "mesh_components": 1,
+  "mesh_facets": 48850,
+  "stl_sha256": "e6e1571d85f846e1046ef8302e13f05997daabafa00842bba4b14172cfb4ca6c",
+  "print_orientation": "Rovná plocha na Z=0; zapuštěné číslice nahoru; měřítko 100 %.",
+  "limits": "Čísla označují nominální CAD průměry, nikoli skutečně vytištěné otvory ani změřenou hřídel. Popisky při změně průměrů regenerovat makrem."
+}

@@ -1,0 +1,98 @@
+# -*- coding: utf-8 -*-
+"""Uloží viditelnost sestavy a náhled ze skutečné geometrie ve FreeCAD GUI.
+
+Spouštět po auticko.FCMacro, v samostatném FreeCAD GUI. Nejde o systémový
+Python skript. Skript přepíše model-render.png a uloží auticko.FCStd.
+"""
+from pathlib import Path
+import json
+import FreeCAD as App
+import FreeCADGui as Gui
+from PySide import QtCore
+
+OUT = Path(__file__).resolve().parent
+doc = App.openDocument(str(OUT / "auticko.FCStd"))
+links = [obj for obj in doc.Objects if obj.TypeId == "App::Link"]
+if not links:
+    raise RuntimeError("V dokumentu chybí odkazy tvořící sestavu; náhled nebyl uložen.")
+
+
+def color_for(obj):
+    name = (obj.Name + " " + obj.Label).lower()
+    if "motor" in name:
+        return (0.65, 0.69, 0.74)
+    if any(word in name for word in ("frame", "chassis", "rám", "ram")):
+        return (0.18, 0.48, 0.66)
+    if any(word in name for word in ("gear", "pinion", "pastorek", "ozub")):
+        return (0.92, 0.61, 0.18)
+    if any(word in name for word in ("wheel", "kolo", "kola")):
+        return (0.22, 0.25, 0.29)
+    if any(word in name for word in ("axle", "osa", "náprava")):
+        return (0.73, 0.42, 0.22)
+    return (0.72, 0.74, 0.77)
+
+
+report = json.loads((OUT / "kontrola-modelu.json").read_text(encoding="utf-8"))
+shown_names = set(report.get("assembly_object_names", [obj.Name for obj in links]))
+shown_names.update(report.get("non_printable_objects", ["MotorReference"]))
+assembly = doc.getObject("Assembly")
+if assembly is not None:
+    assembly.ViewObject.Visibility = True
+for obj in doc.Objects:
+    if hasattr(obj, "Shape"):
+        obj.ViewObject.Visibility = obj.Name in shown_names
+for link in links:
+    source = link.LinkedObject
+    for obj in (source, link):
+        view_obj = obj.ViewObject
+        if "ShapeAppearance" in view_obj.PropertiesList:
+            material = view_obj.ShapeAppearance[0]
+            material.DiffuseColor = color_for(source)
+            view_obj.ShapeAppearance = [material]
+        if "ShapeMaterial" in view_obj.PropertiesList:
+            material = view_obj.ShapeMaterial
+            material.DiffuseColor = color_for(source)
+            view_obj.ShapeMaterial = material
+            if "OverrideMaterial" in view_obj.PropertiesList:
+                view_obj.OverrideMaterial = True
+        if "LineColor" in view_obj.PropertiesList:
+            view_obj.LineColor = (0.12, 0.16, 0.20)
+        if "LineWidth" in view_obj.PropertiesList:
+            view_obj.LineWidth = 1.1
+        if "DisplayMode" in view_obj.PropertiesList:
+            try:
+                view_obj.DisplayMode = "Flat Lines"
+            except Exception:
+                pass
+    link.ViewObject.Visibility = True
+motor = doc.getObject("MotorReference")
+if motor is not None:
+    motor.ViewObject.ShapeColor = color_for(motor)
+    motor.ViewObject.LineColor = (0.22, 0.25, 0.28)
+    motor.ViewObject.Visibility = True
+
+view = Gui.activeDocument().activeView()
+
+
+def set_view():
+    eye = App.Vector(0.8, -1.25, 0.95)
+    up = App.Vector(0, 0, 1)
+    right = up.cross(eye)
+    view.setCameraType("Orthographic")
+    view.setCameraOrientation(App.Rotation(right, up, eye, "ZXY").Q)
+    view.fitAll()
+    view.redraw()
+    Gui.updateGui()
+    QtCore.QTimer.singleShot(1400, capture)
+
+
+def capture():
+    view.saveImage(str(OUT / "model-render.png"), 1600, 1100, "White")
+    doc.recompute()
+    doc.save()
+    print("AUTICKO_RENDER_COMPLETE", flush=True)
+    App.closeDocument(doc.Name)
+    Gui.getMainWindow().close()
+
+
+QtCore.QTimer.singleShot(1000, set_view)

@@ -1,0 +1,47 @@
+BeginElementMap v1
+32 PostfixCount 3
+Edge
+Face
+Vertex
+
+MapCount 1
+
+ElementMap 1 32 3
+
+Edge
+
+ChildCount 6
+1 0 3 793 0 ;:H319,E 0
+1 3 3 794 0 ;:H31a,E 0
+1 6 3 795 0 ;:H31b,E 0
+1 9 3 796 0 ;:H31c,E 0
+1 12 3 797 0 ;:H31d,E 0
+1 15 12 798 0 ;:H31e,E 0
+
+NameCount 0
+
+Face
+
+ChildCount 6
+1 0 3 793 0 ;:H319,F 0
+1 3 3 794 0 ;:H31a,F 0
+1 6 3 795 0 ;:H31b,F 0
+1 9 3 796 0 ;:H31c,F 0
+1 12 3 797 0 ;:H31d,F 0
+1 15 6 798 0 ;:H31e,F 0
+
+NameCount 0
+
+Vertex
+
+ChildCount 6
+1 0 2 793 0 ;:H319,V 0
+1 2 2 794 0 ;:H31a,V 0
+1 4 2 795 0 ;:H31b,V 0
+1 6 2 796 0 ;:H31c,V 0
+1 8 2 797 0 ;:H31d,V 0
+1 10 8 798 0 ;:H31e,V 0
+
+NameCount 0
+
+EndMap

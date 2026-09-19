@@ -1,0 +1,62 @@
+# -*- coding: utf-8 -*-
+"""Read-only kontrola uloženého FCStd: změna parametrů a návrat bez uložení.
+
+Spustit ve FreeCADu/freecadcmd. Zapíše pouze overeni-parametru.json.
+Fyzické rozměry ani funkci výtisku tento test neověřuje.
+"""
+from pathlib import Path
+import json
+import FreeCAD as App
+
+OUT = Path(__file__).resolve().parent
+doc = App.openDocument(str(OUT / "auticko.FCStd"))
+sheet = doc.getObject("Parameters")
+checks = []
+
+
+def snapshot(names):
+    result = {}
+    for name in names:
+        shape = doc.getObject(name).Shape
+        result[name] = {
+            "volume_mm3": shape.Volume,
+            "bbox_mm": [shape.BoundBox.XLength, shape.BoundBox.YLength, shape.BoundBox.ZLength],
+            "valid_shape": shape.isValid(),
+            "solid_count": len(shape.Solids),
+        }
+    return result
+
+
+try:
+    for alias, test_value, names in (
+        ("PinionBore", 2.4, ("Pinion", "AssemblyPinion")),
+    ):
+        cell = sheet.getCellFromAlias(alias)
+        original = sheet.getContents(cell)
+        before = snapshot(names)
+        try:
+            sheet.set(cell, "=" + str(test_value) + " mm")
+            doc.recompute()
+            changed = snapshot(names)
+        finally:
+            sheet.set(cell, original)
+            doc.recompute()
+        restored = snapshot(names)
+        passed = all(
+            changed[name]["valid_shape"]
+            and changed[name]["solid_count"] == 1
+            and abs(changed[name]["volume_mm3"] - before[name]["volume_mm3"]) > 0.01
+            and restored[name]["valid_shape"]
+            and abs(restored[name]["volume_mm3"] - before[name]["volume_mm3"]) < 1e-5
+            for name in names
+        )
+        checks.append({"parameter": alias, "test_value_mm": test_value, "before": before,
+                       "changed": changed, "restored": restored, "passed": passed})
+    result = {"checks": checks, "passed": all(item["passed"] for item in checks),
+              "scope": "Uložený dokument otevřen samostatně, přepočítán a vrácen; FCStd nebyl uložen. Žádný fyzický test."}
+    (OUT / "overeni-parametru.json").write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    print("AUTICKO_PARAMETER_CHECK " + str(result["passed"]), flush=True)
+    if not result["passed"]:
+        raise RuntimeError("Parametrický přepočet neprošel; viz overeni-parametru.json.")
+finally:
+    App.closeDocument(doc.Name)

@@ -1,0 +1,107 @@
+{
+  "source": "prvni-motor.ino",
+  "sha256": "04429d8c23b01743c1ef7d769c449e56ffee600d4a31bb5141314fc96dc30209",
+  "board": "Arduino UNO R4 WiFi",
+  "fqbn": "arduino:renesas_uno:unor4wifi",
+  "arduino_cli": "1.5.1",
+  "core": "arduino:renesas_uno@1.6.0",
+  "compile_passed": true,
+  "flash_bytes": 67804,
+  "flash_capacity": 262144,
+  "global_ram_bytes": 8604,
+  "ram_capacity": 32768,
+  "browser_script_syntax_passed": true,
+  "host_http_cases_passed": 53,
+  "host_test_source": "tests/run_http_tests.py: skutečný zdroj + hostové náhrady Arduino/Wi-Fi API; simulace není fyzický test.",
+  "hardware_uploaded": true,
+  "physical_motor_tested": false,
+  "usb_board_detected": true,
+  "limitations": "Motor 1–6 V je pracovní předpoklad uživatele. Uživatel potvrdil zobrazení stránky a reakci LED Arduina na tlačítko, při testu neměl připojené externí součástky. Zdroj, odběr, skutečné zapojení a běh motoru dosud neověřeny.",
+  "usb_port": "/dev/ttyACM0",
+  "port_readable": true,
+  "port_writable": true,
+  "hardware_uploaded_scope": "Aktuální oprava pro mobilní HTTP hlavičky; agent ji úspěšně nahrál přes Arduino CLI na ověřenou UNO R4 WiFi.",
+  "user_blank_sketch_upload": {
+    "reported_success": true,
+    "reported_flash_bytes": 51824,
+    "local_source": "/tmp/.arduinoIDE-unsaved2026819-931374-10p4w5c.1jp7/sketch_sep19a/sketch_sep19a.ino",
+    "local_source_sha256": "f9aa9129c1cb3312ca4dab4722294f9ab2e060e7c17c78f209b81c091e5c368c",
+    "local_source_contains_only_empty_setup_loop": true,
+    "evidence": "Úspěch hlásí uživatel; lokálně ověřen obsah posledního sketche. Firmware nebyl čten zpět z desky."
+  },
+  "ide_open": {
+    "motor_sketch_opened": true,
+    "method": "AppImage s absolutní cestou .ino předanou existujícímu IDE; bez upload argumentů nebo příkazů.",
+    "application": "/home/novakj/Downloads/arduino-ide_2.3.10_Linux_64bit.AppImage",
+    "observed_windows": [
+      "sketch_sep19a | Arduino IDE 2.3.10",
+      "prvni-motor | Arduino IDE 2.3.10"
+    ],
+    "same_process_pid": 931315,
+    "window_evidence": "X11 _NET_WM_NAME a _NET_WM_PID; původní okno zachováno.",
+    "both_source_hashes_unchanged": true,
+    "upload_performed_by_agent": false,
+    "verification_date": "2026-09-19"
+  },
+  "user_motor_sketch_upload": {
+    "reported_success": true,
+    "reported_flash_bytes": 67820,
+    "reported_ram_bytes": 7580,
+    "written_bytes": 67828,
+    "pages": 17,
+    "local_bin_size_matches": true,
+    "local_build_sketch_matches": true,
+    "local_fqbn_matches": true,
+    "source_hash_unchanged": true,
+    "firmware_readback": false,
+    "source_sha256": "625f4cc0a86afce9cfa1ac59a5026f141a09e4e7b2745c42a7cbc22e637bee66"
+  },
+  "user_wifi_ssid_seen": true,
+  "wifi_ssid_seen_evidence": "Uživatel v nabídce Wi-Fi přečetl Auticko-test; připojení a webová stránka zatím nepotvrzené.",
+  "http_limits": {
+    "line_chars": 1024,
+    "total_bytes": 8192,
+    "receive_timeout_ms": 3000
+  },
+  "user_phone_http_error": {
+    "reported": true,
+    "wifi_connection_confirmed": true,
+    "http_response_confirmed": true,
+    "control_page_success_confirmed": true,
+    "actual_request_captured": false
+  },
+  "mobile_header_fix": {
+    "reproduced_on_old_source": true,
+    "old_line_limit": 128,
+    "android_chrome_accept_chars": 143,
+    "ios_safari_user_agent_chars": 147,
+    "source_sha256": "04429d8c23b01743c1ef7d769c449e56ffee600d4a31bb5141314fc96dc30209",
+    "compiled": true,
+    "hardware_uploaded": true,
+    "static_line_buffer_bytes": 1025,
+    "host_parser_cases": 53,
+    "host_full_loop_cases": 53
+  },
+  "host_full_loop_cases_passed": 53,
+  "agent_upload": {
+    "success": true,
+    "exit_code": 0,
+    "source_sha256": "04429d8c23b01743c1ef7d769c449e56ffee600d4a31bb5141314fc96dc30209",
+    "flash_bytes": 67804,
+    "written_bytes": 67812,
+    "pages": 17,
+    "port": "/dev/ttyACM0",
+    "board_verified_before_upload": "Arduino UNO R4 WiFi",
+    "motor_test_triggered": false,
+    "firmware_readback": false
+  },
+  "user_phone_control_test": {
+    "source": "hlášení uživatele po opravě",
+    "page_rendered": true,
+    "button_clicked": true,
+    "arduino_led_lit": true,
+    "external_components_connected": false,
+    "physical_motor_tested": false,
+    "physical_pulse_duration_measured": false
+  }
+}

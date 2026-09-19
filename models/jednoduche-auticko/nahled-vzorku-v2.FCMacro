@@ -1,0 +1,42 @@
+# -*- coding: utf-8 -*-
+"""Spustit v samostatném FreeCAD GUI po vzorek-hridele-v2.FCMacro.
+Uloží viditelnost FCStd a skutečný PNG náhled. Po dokončení GUI zavře.
+"""
+from pathlib import Path
+import FreeCAD as App
+import FreeCADGui as Gui
+from PySide import QtCore
+App.ParamGet('User parameter:BaseApp/Preferences/Document').SetInt('CountBackupFiles', 0)
+
+OUT = Path(__file__).resolve().parent
+doc = App.openDocument(str(OUT / "vzorek-hridele-v2.FCStd"))
+result = doc.getObject("Coupon")
+assert result.Shape.isValid() and len(result.Shape.Solids) == 1
+for obj in doc.Objects:
+    if hasattr(obj, "Shape"):
+        obj.ViewObject.Visibility = obj == result
+material = result.ViewObject.ShapeAppearance[0]
+material.DiffuseColor = (0.30, 0.64, 0.79)
+result.ViewObject.ShapeAppearance = [material]
+result.ViewObject.LineColor = (0.12, 0.25, 0.29)
+result.ViewObject.DisplayMode = "Flat Lines"
+view = Gui.activeDocument().activeView()
+
+def set_view():
+    eye, up = App.Vector(0, -0.6, 1.8), App.Vector(0, 0, 1)
+    view.setCameraType("Orthographic")
+    view.setCameraOrientation(App.Rotation(up.cross(eye), up, eye, "ZXY").Q)
+    view.fitAll()
+    view.redraw()
+    Gui.updateGui()
+    QtCore.QTimer.singleShot(1400, capture)
+
+def capture():
+    view.saveImage(str(OUT / "vzorek-hridele-v2.png"), 1400, 1100, "White")
+    doc.recompute()
+    doc.save()
+    print("VZOREK_V2_RENDER_COMPLETE", flush=True)
+    App.closeDocument(doc.Name)
+    Gui.getMainWindow().close()
+
+QtCore.QTimer.singleShot(1000, set_view)

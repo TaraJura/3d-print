@@ -1,0 +1,330 @@
+# -*- coding: utf-8 -*-
+"""Jednoduché autíčko: parametrický první prototyp, mm.
+Spustit skutečným FreeCADem. Výstupy vedle makra; přepisuje FCStd/STL/JSON.
+Tělo motoru a délka hřídele jsou uživatelské ruční měření. Otvor pastorku
+2,2 mm vychází z fyzické zkoušky vzorku; nejde o měření průměru hřídele.
+Ozubení je standardní Part obrys z přibaleného fcgear: modul/počty zubů
+vyžadují regeneraci makrem. Parametry běžných primitiv mají výrazy.
+Bez vlastních Python proxy tříd. Vzorek otvorů odzkoušen uživatelem;
+celý pastorek a fyzická montáž autíčka zatím neověřeny.
+"""
+from pathlib import Path
+import json, math, sys
+import FreeCAD as App
+import Part, MeshPart
+App.ParamGet('User parameter:BaseApp/Preferences/Document').SetInt('CountBackupFiles',0)
+
+OUT = Path(__file__).resolve().parent
+(OUT / 'stl').mkdir(exist_ok=True)
+try:
+    from fcgear import fcgear, involute
+except ImportError:
+    sys.path.append(str(Path(App.getResourceDir()) / 'Mod' / 'PartDesign'))
+    from fcgear import fcgear, involute
+
+PARAMS = [
+ ('FrameLength',140,'Délka rámu','návrh'),('FrameWidth',44,'Šířka rámu','návrh'),
+ ('FrameThickness',3,'Tloušťka rámu','návrh'),('RearX',25,'X zadní osy','návrh'),
+ ('FrontX',115,'X přední osy','návrh'),('AxleHeight',18,'Výška os nad rámem','návrh'),
+ ('WheelDiameter',60,'Průměr kol','návrh'),('WheelThickness',8,'Tloušťka kol','návrh'),
+ ('WheelOuterY',37.5,'Vnější strana kol od středu','návrh'),
+ ('WheelRim',4,'Šířka běžného ráfku','návrh'),('RearGearInnerRadius',20,'Vnitřní poloměr ráfku hnacího kola','návrh; musí podpírat ozubení'),
+ ('HubDiameter',14,'Průměr náboje','návrh'),('SpokeWidth',4,'Šířka paprsku','návrh'),
+ ('AxleDiameter',6,'Průměr tištěných os','návrh'),('AxleLength',80,'Délka tištěných os','návrh'),
+ ('BearingDiameter',6.5,'Otvor uložení os','návrh vůle; netestováno'),('RearBoreDiameter',6.2,'D otvor zadních kol','návrh vůle; netestováno'),
+ ('AxleFlat',2,'D plocha osy od středu','návrh'),('BoreFlat',2.1,'D plocha otvoru od středu','návrh'),
+ ('BearingY',18,'Y střed uložení','návrh'),('BearingWidth',8,'Šířka uložení v Y','návrh'),
+ ('BearingLength',12,'Délka bloku v X','návrh'),('BearingTop',24,'Horní hrana bloku','návrh'),
+ ('FlangeDiameter',11,'Průměr příruby osy','návrh'),('FlangeThickness',2,'Tloušťka příruby','návrh'),
+ ('GrooveDiameter',4.8,'Průměr drážky pojistky','návrh'),('GrooveFromEnd',2,'Začátek drážky od konce','návrh'),
+ ('GrooveWidth',1.5,'Šířka drážky','návrh'),('ClipThickness',1.3,'Tloušťka pojistky','návrh'),
+ ('ClipBore',4.9,'Otvor pojistky','návrh'),('ClipOuter',10,'Vnější průměr pojistky','návrh'),
+ ('ClipMouth',4.3,'Šířka vstupu pojistky','návrh; pružnost PLA neověřena'),
+ ('SpacerOuter',10,'Vnější průměr rozpěrek','návrh'),('ShortSpacer',2.1,'Krátká rozpěrka','návrh'),
+ ('LongSpacer',7.1,'Dlouhá rozpěrka','návrh'),
+ ('MotorDiameter',22.5,'Motor: průměr těla','měření uživatele; přesnost neověřena'),
+ ('MotorLength',26,'Motor: délka těla bez hřídele','měření uživatele; přesnost neověřena'),
+ ('MotorShaftDiameter',2.2,'Motor: průměr referenční hřídele','vizualizace podle zvoleného CAD otvoru; není měření hřídele'),
+ ('MotorShaftLength',6,'Motor: délka přední hřídele','měření uživatele; přesnost neověřena'),
+ ('MotorFrontY',-23,'Y předního čela motoru','návrh'),('MotorSeatWidth',6,'Šířka sedla','návrh'),
+ ('MotorSeatWall',2.5,'Boční tloušťka sedla','návrh'),('SeatClearance',0.15,'Radiální vůle sedla','návrh'),
+ ('StrapSlotX',3,'Délka drážky pásky v X','návrh'),('StrapSlotY',3.2,'Šířka drážky pásky v Y','návrh'),
+ ('StrapOffset',16,'Odsazení drážek od osy motoru','návrh'),
+ ('GearModule',0.9,'Modul ozubení','návrh; změna vyžaduje regeneraci makrem'),
+ ('GearThickness',5,'Tloušťka velkého ozubení','návrh'),('PinionThickness',5.5,'Tloušťka pastorku','návrh'),
+ ('PinionBore',2.2,'Otvor pastorku','uživatel potvrdil nasazení do vzorku 2,2 mm; celý pastorek neověřen'),
+ ('GearCentreExtra',0.2,'Zvětšení osové vzdálenosti','návrh vůle; netestováno'),
+]
+VALUES = {x[0]:float(x[1]) for x in PARAMS}
+BIG_TEETH, SMALL_TEETH, PRESSURE_ANGLE = 54,18,20.0
+SPOKES = 8
+D = App.newDocument('JednoducheAuticko')
+D.Label='Jednoduché autíčko — první prototyp'
+S = D.addObject('Spreadsheet::Sheet','Parameters'); S.Label='Parametry (mm) — sloupec B'
+S.set('A1','Parametr');S.set('B1','Hodnota');S.set('C1','Původ / omezení')
+S.setStyle('A1:C1','bold','add')
+for row,(alias,value,label,status) in enumerate(PARAMS,2):
+    S.set('A'+str(row),label);S.set('B'+str(row),f'={value:g} mm');S.setAlias('B'+str(row),alias);S.set('C'+str(row),status)
+    S.setBackground('B'+str(row),(0.82,0.94,0.86) if status.startswith('měření') else (1.,0.94,0.77))
+r=len(PARAMS)+3
+for alias,value,label in [('BigTeeth',BIG_TEETH,'Počet zubů velkého kola — regenerace'),('SmallTeeth',SMALL_TEETH,'Počet zubů pastorku — regenerace'),('PressureAngle',PRESSURE_ANGLE,'Úhel záběru ve stupních — regenerace')]:
+    S.set(f'A{r}',label);S.set(f'B{r}',str(value));S.setAlias(f'B{r}',alias);S.set(f'C{r}','změna vyžaduje úpravu konstant makra a regeneraci');r+=1
+for alias,formula,label in [('GearCentreDistance','=GearModule * (BigTeeth + SmallTeeth) / 2 + GearCentreExtra','Osová vzdálenost'),('MotorX','=RearX + GearCentreDistance','X osy motoru'),('GearRatio','=BigTeeth / SmallTeeth','Převod — experiment, rychlost neznámá')]:
+    S.set(f'A{r}',label);S.set(f'B{r}',formula);S.setAlias(f'B{r}',alias);r+=1
+S.setColumnWidth('A',380);S.setColumnWidth('B',140);S.setColumnWidth('C',470)
+D.recompute()
+
+def p(name): return 'Parameters.'+name
+
+def expr(obj,field,val):
+    if isinstance(val,(float,int)): setattr(obj,field,val)
+    else: obj.setExpression(field,val)
+
+def pos(obj,x=0,y=0,z=0):
+    for axis,val in zip('xyz',(x,y,z)):
+        obj.setExpression('Placement.Base.'+axis, str(val)+' mm' if isinstance(val,(float,int)) else val)
+    return obj
+
+all_sources=[]
+def box(name,dim,xyz=(0,0,0)):
+    o=D.addObject('Part::Box',name)
+    for field,val in zip(('Length','Width','Height'),dim):expr(o,field,val)
+    pos(o,*xyz);all_sources.append(o);return o
+
+def cyl(name,radius,height,xyz=(0,0,0),rot=None):
+    o=D.addObject('Part::Cylinder',name);expr(o,'Radius',radius);expr(o,'Height',height);pos(o,*xyz)
+    if rot is not None:o.Placement.Rotation=rot
+    all_sources.append(o);return o
+
+def fuse(name,objs):
+    if len(objs)==1:return objs[0]
+    o=D.addObject('Part::MultiFuse',name);o.Shapes=objs;o.Refine=True;all_sources.append(o);return o
+
+def cut(name,base,tool):
+    o=D.addObject('Part::Cut',name);o.Base=base;o.Tool=tool;o.Refine=True;all_sources.append(o);return o
+
+def intersection(name,a,b):
+    o=D.addObject('Part::Common',name);o.Base=a;o.Tool=b;o.Refine=True;all_sources.append(o);return o
+
+parts={};copies={};orient={}
+def register(key,obj,count,label):
+    obj.Label=label;parts[key]=obj;copies[key]=count;return obj
+
+# Rám s otevřenými U sedly a průchozími svislými drážkami pro dvě pásky.
+plate=box('FramePlate',(p('FrameLength'),p('FrameWidth'),p('FrameThickness')),(0,'-'+p('FrameWidth')+'/2',0))
+blocks=[];holes=[]
+rot_y=App.Rotation(App.Vector(1,0,0),-90)
+for tag,xx in [('Rear',p('RearX')),('Front',p('FrontX'))]:
+    for side in (-1,1):
+        yy=f'{side} * '+p('BearingY')+' - '+p('BearingWidth')+'/2'
+        blocks.append(box(f'{tag}Block{side+2}',(p('BearingLength'),p('BearingWidth'),p('BearingTop')+' - '+p('FrameThickness')),(xx+' - '+p('BearingLength')+'/2',yy,p('FrameThickness'))))
+        holes.append(cyl(f'{tag}BearingHole{side+2}',p('BearingDiameter')+'/2',p('BearingWidth')+' + 2 mm',(xx,yy+' - 1 mm',p('AxleHeight')),rot_y))
+seats=[];slots=[]
+for i,yy in enumerate((-18,-4),1):
+    width=p('MotorDiameter')+' + 2 * '+p('MotorSeatWall')
+    raw=box(f'MotorSeatBlock{i}',(width,p('MotorSeatWidth'),p('AxleHeight')+' - '+p('FrameThickness')),(p('MotorX')+' - ('+width+')/2',str(yy)+' mm - '+p('MotorSeatWidth')+'/2',p('FrameThickness')))
+    bore=cyl(f'MotorSeatCut{i}',p('MotorDiameter')+'/2 + '+p('SeatClearance'),p('MotorSeatWidth')+' + 2 mm',(p('MotorX'),str(yy)+' mm - '+p('MotorSeatWidth')+'/2 - 1 mm',p('AxleHeight')),rot_y)
+    seats.append(cut(f'MotorSeat{i}',raw,bore))
+    # Lokální plochý dosed: nominální spodní kontakt Z=18-11.25=6.75.
+    seats.append(box(f'MotorSeatContact{i}',('2 mm',p('MotorSeatWidth'),p('AxleHeight')+' - '+p('MotorDiameter')+'/2 - '+p('FrameThickness')),(p('MotorX')+' - 1 mm',str(yy)+' mm - '+p('MotorSeatWidth')+'/2',p('FrameThickness'))))
+    for side in (-1,1):
+        slots.append(box(f'StrapSlot{i}_{side+2}',(p('StrapSlotX'),p('StrapSlotY'),p('FrameThickness')+' + 2 mm'),(p('MotorX')+f' + {side} * '+p('StrapOffset')+' - '+p('StrapSlotX')+'/2',str(yy)+' mm - '+p('StrapSlotY')+'/2',-1)))
+frame=cut('Frame',fuse('FrameMaterial',[plate]+blocks+seats),fuse('FrameVoids',holes+slots))
+register('ram',frame,1,'Rám + 4 uložení + 2 sedla motoru')
+
+# Obrysy evolventního ozubení z implementace dodané s FreeCADem.
+def gear(name,teeth,height,z=0,phase=0):
+    w=fcgear.FCWireBuilder();involute.CreateExternalGear(w,VALUES['GearModule'],teeth,PRESSURE_ANGLE,split=True)
+    wire=Part.Wire([x.toShape() for x in w.wire])
+    o=D.addObject('Part::Feature',name+'Outline');o.Shape=wire
+    o.addProperty('App::PropertyString','Regeneration','Návod');o.Regeneration='Změna modulu, počtu zubů nebo úhlu: upravit makro a znovu spustit. Obrys bez vlastní Python proxy.'
+    ex=D.addObject('Part::Extrusion',name);ex.Base=o;ex.DirMode='Normal';ex.Solid=True;expr(ex,'LengthFwd',height);pos(ex,0,0,z)
+    ex.Placement.Rotation=App.Rotation(App.Vector(0,0,1),phase)
+    all_sources.extend([o,ex]);return ex
+
+biggear=gear('BigGear',BIG_TEETH,p('GearThickness'),p('WheelThickness'))
+smallgear=gear('PinionBlank',SMALL_TEETH,p('PinionThickness'))
+# D otvor = kruhový otvor omezený rovinou x=BoreFlat. Výška přes celý díl.
+def d_hole(name,height):
+    circle=cyl(name+'Round',p('RearBoreDiameter')+'/2',height,(0,0,-1))
+    limit=box(name+'Limit',('10 mm + '+p('BoreFlat'),'20 mm',height),(-10,-10,-1))
+    return intersection(name,circle,limit)
+
+# Paprsková kola: 8 plně podepřených paprsků, ráfek a náboj.
+def wheel(name,rear=False,geared=False):
+    h=p('WheelThickness')+(' + '+p('GearThickness') if geared else '')
+    inner=p('RearGearInnerRadius') if geared else p('WheelDiameter')+'/2 - '+p('WheelRim')
+    rim=cut(name+'Rim',cyl(name+'Outer',p('WheelDiameter')+'/2',p('WheelThickness')),cyl(name+'Inner',inner,p('WheelThickness')+' + 2 mm',(0,0,-1)))
+    items=[rim,cyl(name+'Hub',p('HubDiameter')+'/2',h)]
+    spoke_length=('2 * ('+p('RearGearInnerRadius')+' + 1 mm)') if geared else (p('WheelDiameter')+' - 2 * '+p('WheelRim'))
+    for i in range(SPOKES//2):
+        spoke=box(name+f'Spoke{i}',(spoke_length,p('SpokeWidth'),h),('-('+spoke_length+')/2','-'+p('SpokeWidth')+'/2',0))
+        # Rotation about wheel origin; placement translation must rotate too.
+        a=math.radians(i*180/(SPOKES//2));spoke.Placement.Rotation=App.Rotation(App.Vector(0,0,1),i*180/(SPOKES//2))
+        xx='('+spoke_length+')/2'
+        spoke.setExpression('Placement.Base.x',f'{-math.cos(a):.15g} * '+xx+f' + {math.sin(a):.15g} * '+p('SpokeWidth')+'/2')
+        spoke.setExpression('Placement.Base.y',f'{-math.sin(a):.15g} * '+xx+f' - {math.cos(a):.15g} * '+p('SpokeWidth')+'/2')
+        items.append(spoke)
+    if geared:
+        # Ring teeth above rear wheel rim; central spokes continue up through gear.
+        ring=cut(name+'GearRing',biggear,cyl(name+'GearRingOpening',p('RearGearInnerRadius'),h+' + 2 mm',(0,0,-1)))
+        items.append(ring)
+    blank=fuse(name+'Material',items)
+    hole=d_hole(name+'Bore',h+' + 2 mm') if rear else cyl(name+'Bore',p('BearingDiameter')+'/2',h+' + 2 mm',(0,0,-1))
+    return cut(name,blank,hole)
+
+rearleft=register('kolo-zadni-ozubene',wheel('RearGearedWheel',True,True),1,'Zadní levé kolo s ozubením — 54 zubů')
+rearright=register('kolo-zadni',wheel('RearWheel',True,False),1,'Zadní pravé kolo — D otvor')
+frontwheel=register('kolo-predni',wheel('FrontWheel',False,False),2,'Přední volné kolo — kruhový otvor')
+pinion=register('pastorek',cut('Pinion',smallgear,cyl('PinionHole',p('PinionBore')+'/2',p('PinionThickness')+' + 2 mm',(0,0,-1))),1,f'Pastorek — 18 zubů, otvor {VALUES["PinionBore"]:g} mm dle vzorku')
+
+# Osy stojí při exportu na přírubě. Zadní osa má souvislou D plochu:
+# jinak nelze D kola navléknout přes kruhové střední úseky.
+def axle(name,rear):
+    shaft=cyl(name+'Shaft',p('AxleDiameter')+'/2',p('AxleLength'))
+    if rear:
+        shaft=cut(name+'Dshaft',shaft,box(name+'FlatCut',('10 mm','20 mm',p('AxleLength')+' - '+p('FlangeThickness')+' + 1 mm'),(p('AxleFlat'),-10,p('FlangeThickness'))))
+    flange=cyl(name+'Flange',p('FlangeDiameter')+'/2',p('FlangeThickness'))
+    raw=fuse(name+'WithFlange',[shaft,flange])
+    outer=cyl(name+'GrooveOuter','6 mm',p('GrooveWidth'),(0,0,p('AxleLength')+' - '+p('GrooveFromEnd')))
+    core=cyl(name+'GrooveCore',p('GrooveDiameter')+'/2',p('GrooveWidth')+' + 2 mm',(0,0,p('AxleLength')+' - '+p('GrooveFromEnd')+' - 1 mm'))
+    return cut(name,raw,cut(name+'GrooveTool',outer,core))
+rearaxle=register('osa-zadni',axle('RearAxle',True),1,'Zadní osa — souvislá D plocha, příruba, drážka')
+frontaxle=register('osa-predni',axle('FrontAxle',False),1,'Přední osa — kruhová, příruba, drážka')
+
+def spacer(name,length):
+    return cut(name,cyl(name+'Outer',p('SpacerOuter')+'/2',length),cyl(name+'Hole',p('BearingDiameter')+'/2',length+' + 2 mm',(0,0,-1)))
+short=register('rozperka-kratka',spacer('ShortSpacer',p('ShortSpacer')),1,'Krátká rozpěrka 2,1 mm — zadní levá')
+long=register('rozperka-dlouha',spacer('LongSpacer',p('LongSpacer')),3,'Dlouhá rozpěrka 7,1 mm — 3×')
+clipring=cut('ClipRing',cyl('ClipOutside',p('ClipOuter')+'/2',p('ClipThickness')),cyl('ClipInside',p('ClipBore')+'/2',p('ClipThickness')+' + 2 mm',(0,0,-1)))
+clip=register('pojistka',cut('RetainingClip',clipring,box('ClipEntry',('10 mm',p('ClipMouth'),p('ClipThickness')+' + 2 mm'),(0,'-'+p('ClipMouth')+'/2',-1))),2,'Pružná C pojistka — 2×, vůle/odolnost neověřeny')
+
+# Vzorek: pět otvorů zleva doprava 0,9 až 1,3. Boční zářez
+# na levém konci označuje první (0,9 mm); měřítko a pořadí též v JSON.
+samplebase=box('FitSampleBase',('36 mm','10 mm',p('PinionThickness')))
+sampleholes=[cyl(f'FitHole{i}',diam/2,p('PinionThickness')+' + 2 mm',(5+i*6,5,-1)) for i,diam in enumerate((0.9,1.,1.1,1.2,1.3))]
+# Jednoznačný orientační zářez z boku u 0,9 mm (obdélníkový, bez fontu).
+sampleholes.append(box('FitSampleMark',('2 mm','3 mm',p('PinionThickness')+' + 2 mm'),(-1,3.5,-1)))
+sample=register('vzorek-hridele',cut('ShaftFitSample',samplebase,fuse('FitSampleVoids',sampleholes)),1,'Vzorek hřídele — zářez vlevo = otvor 0,9 mm')
+D.recompute()
+
+# Všechny jednotlivé tiskové zdroje jsou ve vlastních lokálních osách.
+sourcegroup=D.addObject('App::DocumentObjectGroup','PrintParts');sourcegroup.Label='Tiskové díly — skryté zdroje STL'
+sourcegroup.addObjects(list(parts.values()))
+assembly=D.addObject('App::DocumentObjectGroup','Assembly');assembly.Label='SESTAVA — první prototyp'
+links=[];link_by_name={}
+def link(name,src,x,y,z,rotation=None):
+    o=D.addObject('App::Link',name);o.setLink(src)
+    if rotation is not None:o.Placement.Rotation=rotation
+    pos(o,x,y,z);assembly.addObject(o);links.append(o);link_by_name[name]=o;return o
+link('AssemblyFrame',frame,0,0,0)
+# Rovina x lokálního kola zůstává globální x: D plochy jsou zarovnané s osou.
+link('AssemblyRearLeft',rearleft,p('RearX'),'-'+p('WheelOuterY'),p('AxleHeight'),rot_y)
+link('AssemblyRearRight',rearright,p('RearX'),p('WheelOuterY'),p('AxleHeight'),App.Rotation(App.Vector(1,0,0),90))
+link('AssemblyFrontLeft',frontwheel,p('FrontX'),'-'+p('WheelOuterY'),p('AxleHeight'),rot_y)
+link('AssemblyFrontRight',frontwheel,p('FrontX'),p('WheelOuterY'),p('AxleHeight'),App.Rotation(App.Vector(1,0,0),90))
+link('AssemblyRearAxle',rearaxle,p('RearX'),'-'+p('AxleLength')+'/2',p('AxleHeight'),rot_y)
+link('AssemblyFrontAxle',frontaxle,p('FrontX'),'-'+p('AxleLength')+'/2',p('AxleHeight'),rot_y)
+link('AssemblyRearShortSpacer',short,p('RearX'),'-'+p('BearingY')+' - '+p('BearingWidth')+'/2 - '+p('ShortSpacer')+' - 0.3 mm',p('AxleHeight'),rot_y)
+link('AssemblyRearLongSpacer',long,p('RearX'),p('BearingY')+' + '+p('BearingWidth')+'/2 + 0.2 mm',p('AxleHeight'),rot_y)
+link('AssemblyFrontLeftSpacer',long,p('FrontX'),'-'+p('BearingY')+' - '+p('BearingWidth')+'/2 - '+p('LongSpacer')+' - 0.2 mm',p('AxleHeight'),rot_y)
+link('AssemblyFrontRightSpacer',long,p('FrontX'),p('BearingY')+' + '+p('BearingWidth')+'/2 + 0.2 mm',p('AxleHeight'),rot_y)
+for tag,xx in [('Rear',p('RearX')),('Front',p('FrontX'))]:
+    link('Assembly'+tag+'Clip',clip,xx,p('AxleLength')+'/2 - '+p('GrooveFromEnd')+' + ('+p('GrooveWidth')+' - '+p('ClipThickness')+')/2',p('AxleHeight'),rot_y)
+# Ozubení má fázi doladěnou numerickou kontrolou níže.
+pinionlink=link('AssemblyPinion',pinion,p('MotorX'),p('MotorFrontY')+' - '+p('MotorShaftLength'),p('AxleHeight'),rot_y)
+# Netisknutelná motorová reference: uživatel potvrdil pouze tělo a přední hřídel.
+body=cyl('MotorBodyReference',p('MotorDiameter')+'/2',p('MotorLength'),(p('MotorX'),p('MotorFrontY'),p('AxleHeight')),rot_y)
+shaft=cyl('MotorShaftReference',p('MotorShaftDiameter')+'/2',p('MotorShaftLength'),(p('MotorX'),p('MotorFrontY')+' - '+p('MotorShaftLength'),p('AxleHeight')),rot_y)
+motor=fuse('MotorReference',[body,shaft]);motor.Label='MOTOR — netisknutelná reference; zadní kontakty nezmodelovány'
+assembly.addObject(motor)
+D.recompute()
+
+bad=[(o.Name,list(o.State)) for o in D.Objects if 'Invalid' in o.State]
+if bad: raise RuntimeError('Neplatné objekty: '+str(bad))
+
+# Ulož první funkční dokument před dražšími kontrolami.
+if App.GuiUp:
+    import FreeCADGui as Gui
+    for o in D.Objects:
+        if hasattr(o,'ViewObject'):o.ViewObject.Visibility=False
+    for o in links+[motor]:o.ViewObject.Visibility=True
+    assembly.ViewObject.Visibility=True
+    for o in links:o.ViewObject.ShapeColor=(0.80,0.84,0.88)
+    motor.ViewObject.ShapeColor=(0.55,0.57,0.60)
+    Gui.activeDocument().activeView().viewAxonometric();Gui.activeDocument().activeView().fitAll()
+D.recompute();D.saveAs(str(OUT/'auticko.FCStd'))
+print('PROGRESS: document saved',flush=True)
+
+report={'status':'PRVNÍ PROTOTYP; uživatel potvrdil nasazení vzorku 2,2 mm, sestava a celý pastorek fyzicky neověřeny',
+ 'units':'mm','parameters_mm':VALUES,'gear':{'big_teeth':BIG_TEETH,'small_teeth':SMALL_TEETH,'module_mm':VALUES['GearModule'],'pressure_angle_deg':PRESSURE_ANGLE,'ratio':BIG_TEETH/SMALL_TEETH,'centre_distance_mm':float(S.GearCentreDistance.Value),'centre_extra_mm':VALUES['GearCentreExtra']},
+ 'motor_measurements':{'body_diameter_mm':22.5,'body_length_mm':26,'original_shaft_diameter_estimate_mm':1,'shaft_diameter_mm':None,'shaft_reference_diameter_mm':VALUES['MotorShaftDiameter'],'shaft_length_mm':6,'source':'ruční měření uživatele; přesnost neověřena','shaft_profile':'kulatý otvor je pracovní předpoklad; tvar hřídele nepotvrzen','rpm_voltage_torque':'neznámé'},
+ 'assembly_notes':['Zadní osa změněna na souvislou D plochu od příruby k volnému konci: D kola lze navléknout; izolované D úseky by přes kruhový střed neprošly.','D otvor kola má radiální vůli 0,1 mm a plocha vůli 0,1 mm; montáž a tření neověřeny.','Uložení Ø6,5 / osy Ø6 jsou návrhové vůle.','Osy tisknout stojící na přírubě; přilnavost a pevnost vrstev nutno ověřit.','Drážka pojistky je Y38..39,5, pojistka Y38,1..39,4; pravé kolo končí Y37,5.','Levá příruba končí Y-38, levé kolo začíná Y-37,5.','Dvě malé stahovací pásky nutné pro uchycení motoru, nejsou tištěné ani potvrzené jako vlastněné. Otvory 3×3,2 mm; vybrat pásku s odpovídajícím průřezem.','Pásky procházejí svislými drážkami vedle sedel a vedou pod rámem; žádný úzký příčný tunel.','Zadní čelo motoru Y3 a prostor za ním jsou otevřené; skutečné kontakty nejsou rozměrově známé.','Pastorek: otvor Ø2,2 mm podle uživatelem potvrzeného nasazení vzorku; délka 5,5 mm. Těsnost po celé délce a přenos momentu dosud neověřeny. Referenční hřídel Ø2,2 je vizualizace CAD otvoru, nikoli měření motoru.','Ozubení není vlastní Python proxy: obrys vyžaduje při změně modulu/zubů/úhlu regeneraci makrem.'],
+ 'fit_result':{'source':'hlášení uživatele 2026-09-19','selected_nominal_hole_mm':2.2,'reported_result':'hřídel motoru se vejde do otvoru označeného 2,2','shaft_actual_diameter_measured':False,'pinion_full_depth_tested':False,'torque_transfer_tested':False},
+ 'fit_sample':{'status':'historický vzorek v1; uživatelská zkouška nevyhověla','hole_diameters_left_to_right_mm':[0.9,1.0,1.1,1.2,1.3],'hole_centres_xy_mm':[[5+i*6,5] for i in range(5)],'orientation':'V poloze STL (Z nahoru) boční zářez vlevo u prvního otvoru 0,9 mm. Další otvory po 6 mm doprava.','thickness_mm':5.5},'parts':{}}
+for key,obj in parts.items():
+    shape=obj.Shape
+    if shape.isNull() or not shape.isValid() or len(shape.Solids)!=1:raise RuntimeError(f'{key}: invalid shape, solids {len(shape.Solids)}')
+    mesh=MeshPart.meshFromShape(Shape=shape,LinearDeflection=0.05,AngularDeflection=0.12,Relative=False)
+    if not mesh.isSolid():raise RuntimeError(f'{key}: open mesh')
+    mesh.write(str(OUT/'stl'/(key+'.stl')))
+    bb=shape.BoundBox
+    report['parts'][key]={'source_object':obj.Name,'copies':copies[key],'bbox_mm':[bb.XLength,bb.YLength,bb.ZLength],'volume_mm3':shape.Volume,'solid_count':len(shape.Solids),'valid_shape':shape.isValid(),'mesh_closed':mesh.isSolid(),'facets':mesh.CountFacets,'stl':'stl/'+key+'.stl','print_orientation':'aktuální lokální orientace STL, nejnižší Z=0'}
+    print('PROGRESS: STL',key,flush=True)
+(OUT/'kontrola-modelu.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+print('PROGRESS: all exports saved',flush=True)
+
+# Fáze soukolí z jeho skutečné geometrie, poté vzorek otáčení jedné rozteče.
+bigshape=rearleft.Shape.copy();bigshape.Placement=App.Placement(App.Vector(VALUES['RearX'],-VALUES['WheelOuterY'],VALUES['AxleHeight']),rot_y).multiply(bigshape.Placement)
+# Test skutečného celého hnacího kola zahrnuje ráfek, náboj i paprsky.
+smallshape=pinion.Shape.copy();smallshape.Placement=App.Placement(App.Vector(float(S.MotorX.Value),VALUES['MotorFrontY']-VALUES['MotorShaftLength'],VALUES['AxleHeight']),rot_y).multiply(smallshape.Placement)
+bigcentre=App.Vector(VALUES['RearX'],0,VALUES['AxleHeight']);smallcentre=App.Vector(float(S.MotorX.Value),0,VALUES['AxleHeight'])
+def rotate_shape(shape,centre,degrees):
+    out=shape.copy();out.rotate(centre,App.Vector(0,1,0),degrees);return out
+
+def overlap(phase,a=0):
+    bg=rotate_shape(bigshape,bigcentre,a)
+    sm=rotate_shape(smallshape,smallcentre,phase-a*BIG_TEETH/SMALL_TEETH)
+    return bg.common(sm).Volume
+candidates=[(overlap(i*20/24),i*20/24) for i in range(24)]
+best=min(candidates)
+phase=best[1]
+pinionlink.Placement.Rotation=App.Rotation(App.Vector(0,1,0),phase).multiply(rot_y)
+D.recompute()
+checks=[]
+for angle in [i*(360/BIG_TEETH)/12 for i in range(13)]:checks.append({'large_angle_deg':angle,'small_angle_deg':phase-angle*BIG_TEETH/SMALL_TEETH,'intersection_mm3':overlap(phase,angle)})
+report['gear']['pinion_assembly_phase_deg']=phase
+report['gear']['rotation_samples']=checks
+report['gear']['max_sampled_intersection_mm3']=max(v['intersection_mm3'] for v in checks)
+report['gear']['collision_sample_pass']=report['gear']['max_sampled_intersection_mm3']<1e-6
+report['gear']['check_limit']='Skutečné celé hnací kolo proti finálnímu pastorku: 13 poloh přes jednu rozteč velkého kola; geometrická kontrola vzorku, nikoli fyzický test tiskových vůlí nebo funkce.'
+report['assembly_object_names']=[o.Name for o in links]+[motor.Name]
+report['non_printable_objects']=[motor.Name]
+report['checked_interferences']=[]
+# Celá sestava, všechny dvojice finálních tištěných dílů a reference motoru.
+assembly_solids=links+[motor]
+for i,a in enumerate(assembly_solids):
+    for b in assembly_solids[i+1:]:
+        vol=a.Shape.common(b.Shape).Volume
+        report['checked_interferences'].append({'a':a.Name,'b':b.Name,'intersection_mm3':vol})
+report['assembly_max_intersection_mm3']=max(c['intersection_mm3'] for c in report['checked_interferences'])
+report['assembly_collision_pass']=report['assembly_max_intersection_mm3']<1e-6
+report['document_invalid_objects']=[o.Name for o in D.Objects if 'Invalid' in o.State]
+report['parametric_checks']=[]
+original_volumes={key:obj.Shape.Volume for key,obj in parts.items()}
+for alias,trial in [('AxleHeight',19.0),('WheelDiameter',62.0)]:
+    row=next(i+2 for i,item in enumerate(PARAMS) if item[0]==alias)
+    S.set('B'+str(row),f'={trial:g} mm');D.recompute()
+    invalid=[o.Name for o in D.Objects if 'Invalid' in o.State]
+    checked={key:{'valid':obj.Shape.isValid(),'solids':len(obj.Shape.Solids)} for key,obj in parts.items()}
+    result={'parameter':alias,'from_mm':VALUES[alias],'trial_mm':trial,'trial_invalid_objects':invalid,'trial_parts':checked,
+            'trial_front_wheel_bbox_mm':[link_by_name['AssemblyFrontLeft'].Shape.BoundBox.XLength,link_by_name['AssemblyFrontLeft'].Shape.BoundBox.YLength,link_by_name['AssemblyFrontLeft'].Shape.BoundBox.ZLength],
+            'trial_motor_centre_z_mm':motor.Shape.BoundBox.Center.z}
+    S.set('B'+str(row),f'={VALUES[alias]:g} mm');D.recompute()
+    result['restored_max_volume_difference_mm3']=max(abs(obj.Shape.Volume-original_volumes[key]) for key,obj in parts.items())
+    result['pass']=not invalid and all(v['valid'] and v['solids']==1 for v in checked.values()) and result['restored_max_volume_difference_mm3']<1e-6
+    report['parametric_checks'].append(result)
+    if not result['pass']:raise RuntimeError('Parametrická kontrola selhala: '+alias)
+D.recompute();D.saveAs(str(OUT/'auticko.FCStd'))
+(OUT/'kontrola-modelu.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+print(json.dumps({'done':True,'parts':len(parts),'gear_phase_deg':phase,'max_gear_intersection_mm3':report['gear']['max_sampled_intersection_mm3'],'assembly_max_intersection_mm3':report['assembly_max_intersection_mm3']},ensure_ascii=False),flush=True)

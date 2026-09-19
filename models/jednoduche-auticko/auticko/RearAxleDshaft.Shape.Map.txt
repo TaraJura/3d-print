@@ -1,0 +1,69 @@
+BeginElementMap v1
+21 PostfixCount 20
+Edge
+Face
+Vertex
+;:G(Face5;K-1;:H2fe:4,F);CUT;:H2fd:1c,V
+;:M;CUT;:H2fd:7,E
+;:H2fd,E
+;:G(Face1;K-1;:H2fe:4,F);CUT;:H2fd:1c,V
+;:G2(Face1;K-2;:H2fe:4,F);CUT;:H2fd:1d,V
+;:G(Face1;K-1;:H2fd:4,F);CUT;:H2fe:1c,V
+;:G2(Face1;K-2;:H2fd:4,F);CUT;:H2fe:1d,V
+;:M;CUT;:H2fe:7,E
+;:G3(Face1;K-3;:H2fe:4,F);CUT;:H2fd:1d,E
+;:G4(Face1;K-4;:H2fe:4,F);CUT;:H2fd:1d,E
+;:G5(Face5;K-2;:H2fe:4,F);CUT;:H2fd:1d,E
+;:G6(Face5;K-3;:H2fe:4,F);CUT;:H2fd:1d,E
+;:M;CUT;:H2fd:7,F
+;:M;CUT;:H2fe:7,F
+;:H2fd,F
+;:G(Face1;K-5;:H2fe:4,F);CUT;:H2fd:1c,E
+;:H2fd,V
+
+MapCount 1
+
+ElementMap 1 21 3
+
+Edge
+
+ChildCount 0
+
+NameCount 10
+0
+:1.2.6 0
+:1.1.5 0
+:2.1.e 0
+:2.1.d 0
+:1.3.5 0
+:2.1.c 0
+:2.1.f 0
+:1.4.b 0
+:2.3.13 0
+
+Face
+
+ChildCount 0
+
+NameCount 6
+0
+:2.1.10 0
+:2.2.12 0
+:2.5.11 0
+:2.1.11 0
+:2.3.10 0
+
+Vertex
+
+ChildCount 0
+
+NameCount 7
+0
+:3.1.14 0
+:1.1.4 0
+:1.4.9 0
+:1.3.8 0
+:1.3.7 0
+:1.4.a 0
+
+EndMap

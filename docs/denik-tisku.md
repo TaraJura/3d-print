@@ -54,6 +54,30 @@ Slicer obsahoval varování `bed_temperature_too_high_than_filament` a `not_supp
 - Skutečná doba a spotřeba pouze pokud jsou známé, s uvedením zdroje.
 - Naměřené rozměry, uchycení ke konkrétní zárubni, použité šrouby a výsledek funkční zkoušky. Nosnost zatím netvrdit.
 
+## 2026-09-19 — autíčko, první vzorek otvorů pro hřídelku
+
+**Stav: uživatel potvrdil dokončení výtisku, funkční zkouška nevyhověla.** Podle jeho hlášení se hřídelka motoru nevejde ani do největšího otvoru. Jde o uživatelské pozorování, nikoli měření či fotografii zkontrolovanou agentem.
+
+Původní [vzorek v1](../models/jednoduche-auticko/stl/vzorek-hridele.stl) má CAD rozměry 36 × 10 × 5,5 mm a otvory Ø 0,9 / 1,0 / 1,1 / 1,2 / 1,3 mm. Nezávislá kontrola vrcholů exportovaného STL potvrdila největší otvor Ø 1,3 mm, průchozí přes celou tloušťku. Výsledek fyzického fitu neurčuje skutečný průměr hřídelky ani příčinu odchylky. Původní ruční údaj 1 mm zůstává nejistý; požadavek na „aspoň dva“ není nové přesné měření.
+
+Skutečný tiskový profil, měřítko importu, materiál/barva, čas, spotřeba a vazba na konkrétní G-code nebyly ověřeny. Naměřené rozměry výtisku nejsou známé.
+
+**Nová příprava:** samostatný [vzorek v2](../models/jednoduche-auticko/stl/vzorek-hridele-v2.stl), na pozdější výslovné přání uživatele snížený na **54 × 48 × 2 mm**, s označenými otvory Ø 1,8 / 2,0 / 2,2 / 2,4 / 2,6 / 2,8 / 3,0 / 3,5 / 4,0 mm. Je určený pouze k rychlé zkoušce vstupu hřídelky; průchod 2mm vzorkem neověřuje fit v otvoru pastorku dlouhém 5,5 mm. Doporučený postup je měřítko 100 %, zkouška od největšího otvoru k menším a zápis těsného fitu i případné vůle. Původní pastorek, model autíčka a vzorek v1 zůstaly beze změny.
+
+**Pozdější hlášení uživatele:** „poslal jsem to tam na tisknutí“. Není doloženo, který soubor nebo verzi odeslal; hlášení proto nepřiřazujeme k v2 ani k jeho aktuální 2mm variantě. Dokončení a fyzický výsledek tohoto dalšího tisku zatím nejsou potvrzené. Agent úlohu neodesílal a tiskárnu neovládal.
+
+## 2026-09-19 — autíčko, zkouška většího otvoru a úprava pastorku
+
+**Stav: uživatel potvrdil nasazení hřídelky do otvoru označeného 2,2 mm.** Výsledek pochází z jeho hlášení, nikoli z měření agentem. Potvrzuje dokončený zkušební kus a možnost nasazení do tohoto otvoru; přesná výška vytištěné verze, skutečný průměr otvoru, vůle a přenos momentu nejsou potvrzené. Hodnota 2,2 mm je značení nominálního CAD otvoru, nikoli nové měření hřídele.
+
+Na výslovný požadavek uživatele se otvor pastorku změnil z návrhových 1,1 mm na **2,2 mm** ve zdrojovém makru, parametrické sestavě a STL. Délka otvoru je 5,5 mm. Netisknutelná motorová hřídel v náhledu používá 2,2 mm pouze jako vizualizaci zvoleného otvoru. Ostatní výrobní rozměry se tím nemění. Původní vzorky jsou zachované jako historie.
+
+Další fyzická zkouška: nasazení celého pastorku bez násilí a ověření, že se na hřídelce neprotáčí. Tisk sestavy ani její jízda dosud potvrzené nejsou. Agent žádnou úlohu tiskárně neodeslal.
+
+## 2026-09-19 — autíčko, samostatný tisk pastorku 2,2 mm
+
+**Stav: uživatel oznámil zadání pouze pastorku k tisku.** Navazuje na aktuální STL s otvorem 2,2 mm. Dokončení, fit po celé délce 5,5 mm a přenos momentu zatím nepotvrdil; výsledek oznámí po vytištění. Skutečný profil, cívka, první vrstva a vazba konkrétního G-code nebyly kontrolovány. Agent úlohu neodesílal a tiskárnu neovládal.
+
 ## Osnova příštího záznamu
 
 Datum a model/verze; stav a zdroj informace; tiskárna a tryska; skutečný materiál/cívka; profil a změny; vazba na konkrétní soubor; odhady; první vrstva a průběh; fyzický výsledek a měření; další změna a její důvod. Neznámé položky nevyplňovat odhadem.
