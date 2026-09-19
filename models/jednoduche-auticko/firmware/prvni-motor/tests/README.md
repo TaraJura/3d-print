@@ -1,30 +1,73 @@
-# Hostové HTTP regrese
+# Regrese ovládání při držení — v2
 
-Z kořene projektu spustit:
+Z kořene repozitáře:
 
 ```bash
 python3 models/jednoduche-auticko/firmware/prvni-motor/tests/run_http_tests.py
 ```
 
-Je potřeba Python 3 a g++. Test se překládá v dočasné složce a používá skutečný `.ino` s náhradami Arduino/Wi-Fi API. Neotevírá USB port, síť ani hardware. Nenahrává program a neověřuje motor ani skutečné časování WiFiS3.
+Potřebuje Python 3, g++ a Node.js. Jeden příkaz přeloží **skutečný aktuální sketch** proti hostovým náhradám Arduino/WiFiS3/FspTimer/PwmOut a potom spustí **skutečný JavaScript vyjmutý z jeho HTML**. C++ binárka vzniká v dočasné složce. Tyto dvě sady neotevírají USB port ani síť, nenahrávají firmware a neroztáčejí skutečný motor. Volba `--source /absolutni/cesta/sketch.ino` umožňuje kontrolu jiné kopie stejného protokolu; původní pulzní `/test` se již musí odmítat.
 
-Obsahuje původních 38 tříd HTTP případů s novými hranicemi 1024 znaků na řádek, 8192 bajtů a 3000 ms; navíc reprezentativní Chrome Android a Safari iOS hlavičky, fragmentaci a další chybné požadavky. Celkem 53 případů se zkouší samotným parserem i skutečnou funkcí `loop()`. Platné POST mají aktuální jednorázový token. Kontroluje se absence spuštění motoru pro GET a chybný POST, 1000ms simulovaný pulz pouze pro platný POST, odpověď po vypnutí a nulové síťové I/O během pulzu.
+## HTTP a řízení motoru
 
-Navazující případy kontrolují chybějící, prázdný, nesprávný či zdvojený `X-Motor-Token`, spotřebu tokenu ještě před zapnutím motoru, nový token v odpovědi po STOP, odmítnutí opakovaného požadavku i možnost dalšího výslovného testu s novým tokenem. Nové načtení stránky zneplatní předchozí token. Selhání každého ze tří volání generátoru a vyčerpání čítače nevydá nový token. Kontroluje se skutečný `Content-Length` odpovědí včetně HTML s vloženým tokenem.
+**90 případů parseru a stejných 90 případů přes skutečný `loop()`** zachovává původních 53 tříd HTTP regresí a přidává nový protokol. Kontroluje mobilní Chrome/Safari hlavičky, fragmentaci, CRLF, syntaxi a zdvojené hlavičky, Host a Origin, nulové tělo, mezní délky **1024 znaků na řádek / 8192 bajtů celkem / 3000 ms příjem**, správný session token, kanonické kladné číslo stisku bez přetečení a formát výzvy. Samotný GET, SESSION, ARM, STOP ani nepřipravený HOLD motor nezapne. `/session` přijímá pouze POST s předepsanými hlavičkami.
 
-Recovery regrese simulují osm scénářů: jednotlivý stav 255, 0 nebo 77; 255 po přijetí platného POST; úspěšný, ale o 4000 ms zpožděný druhý dotaz na stav; chybějící modul při startu; neúspěšný start serveru; neúspěšný start AP. Ověřují nejvýše jeden pokus za sekundu během čekání, návrat webu bez zbytečného restartu AP/serveru a STOP při chybě i opožděné odpovědi. Původní POST zůstává ve frontě mocku, aby se prokázalo jeho odmítnutí po návratu Wi-Fi; nové načtení stránky a nový POST pak dovolí právě jeden pulz. Mock používá skutečné hodnoty stavů WiFiS3: AP naslouchá 7, klient připojen 8, modul nenalezen 255.
+**28 navazujících skupin scénářů** kontroluje:
 
-Diagnostika ověřuje nulové Serial I/O během pulzu, uložené startovní údaje v pozdějším snapshotu, vyžádaný výpis znakem `?`, omezení frekvence a délky vstupu a hlášení obnovy spojení. Snapshot nedělá další dotazy na Wi-Fi: `statusLast` a `ageMs` označují poslední dotázaný stav a jeho stáří. Hostové testy neprokazují odstranění fyzické příčiny výpadků modulu; ověřují reakci skutečného programu na simulované návratové hodnoty a zpoždění.
+- ARM bez pohybu, první HOLD s čerstvou výzvou, opakované potvrzování držení a STOP.
+- STOP, který předběhne ARM nebo HOLD, opakované a opožděné požadavky, obnovu stránky a nový skutečný stisk. Starší STOP/ARM/HOLD novější jízdu nepřeruší ani neprodlouží.
+- Vypršení ARM i běžícího motoru, HOLD po vypršení a přetečení `millis()`. ARM zůstává bez pohybu nejvýše 3000 ms; první i další výzva pro HOLD přesto platí méně než 500 ms.
+- Opravu dvojí závislosti na síťové latenci: platný HOLD dostane celých 500 ms od přijetí. Dvacet cyklů při každém z intervalů 200/250/300/400 ms udrží chod; původní v1 při 250 ms a více předčasně vypínala.
+- Ztracený STOP a jeden opožděný HOLD: i tento případ skončí nejpozději do 1000 ms od simulovaného puštění. Duplicitní paket dobu neprodlužuje.
+- Obnovu session po novém stisku, opakování po ztracené odpovědi, odmítnutí starší session, vyčištění obnovovacího záznamu novou stránkou a obnovu po startu desky. Opakovaný požadavek předchozí session vrací již vytvořený token, aniž by zastavoval nový běh.
+- Přechodné stavy Wi-Fi 255/0/77 a návrat provozu s novou session, nejvýše jeden pokus za sekundu, odmítnutí starého požadavku z fronty; také chybějící modul, neúspěšný start AP nebo serveru.
+- Start s vypnutými výstupy, selhání generátoru tokenů a session, vyčerpání čítačů, selhání každé fáze inicializace PWM/časovače a chybu aktualizace PWM včetně nouzového vypnutí GPIO.
 
-Pro UNO R4 WiFi v instalovaném core 1.6.0 je `Serial` UART přes ESP bridge, nikoli přímo USB CDC. `operator bool()` zde vrací vždy true a `availableForWrite()` není implementováno; test proto nepředstírá detekci připojeného monitoru ani dostupnou velikost TX bufferu. Krátké řádky při 115200 se přenášejí synchronně, bez čekání na monitor a bez `flush()`. Snapshot přijde každých 5 s; `?` jej vyžádá nejvýše jednou za sekundu. Hostová náhrada neověřuje skutečné trvání UART přenosu nebo stav ESP bridge.
+Mock času vykonává přerušení každých 5 ms **i uvnitř simulovaného blokujícího volání**. Sedm dalších scénářů zdrží `WiFi.status`, `connected`, `available`, `read`, odpověď `write`, `stop` a Serial o 1000 ms; kontroluje se vypnutí bez spolupráce hlavní smyčky. Samostatný případ nechá nedokončené HTTP čekat do timeoutu. V testovaných časových fázích proběhne IRQ STOP za **500 ms** od posledního přijetí HOLD; assertion dovoluje nejvýše 505 ms kvůli fázi hostového taktu. To je simulované časování, nikoli měření MCU. Jakékoliv síťové, sériové nebo náhodné I/O přímo v ISR test odmítne. Hlavní smyčka komunikuje i za chodu motoru, proto na ní vypnutí nezávisí.
 
-Mobilní hlavičky jsou realistické testovací vzory, nikoli zachycené požadavky uživatelova telefonu. Původní parser odmítal i 408bajtový Chrome GET (`Accept` 143 znaků) a 360bajtový Safari GET (`User-Agent` 147 znaků), protože překročily původní limit 128 znaků na řádek.
+Odpovědi se kontrolují včetně `Content-Length`; všechny krátké odpovědi na POST používají **jediné `write()` a žádné `print()`**, aby nevytvářely řadu AT přenosů. Výstupy EN/D7/D8/LED jsou sledované. Mobilní hlavičky jsou realistické testovací vzory, nikoli záznam konkrétního telefonu.
 
-Pro reprodukci původní chyby lze použít zachovaný soubor mimo projekt:
+## Ovládání v náhradě prohlížeče
+
+**21 scénářů v Node.js** vykonává aktuální inline JavaScript v deterministických náhradách DOM událostí, `fetch`, abortu a časovačů:
+
+- Držení myší a dotykem, řetězec nových výzev po **20 ms od odpovědi**, puštění, nový stisk a ignorování cizího pointeru.
+- `pointercancel`, ztráta zachycení pointeru, `blur`, `pagehide`, offline a skrytí stránky.
+- Opožděná odpověď ARM/HOLD po puštění, i když transport ignoruje abort: žádný nový HOLD ani falešný stav „jede“.
+- Síťová nebo HTTP chyba, chybná výzva a timeout: STOP bez automatického opakování jízdy. Stále držený pointer nový pokus nespustí; je nutné pustit a nově stisknout.
+- Neúspěšný STOP nezablokuje tlačítko navždy. Nový stisk nejprve obnoví session, potom teprve ARM/HOLD. Puštění při čekání na session nesmí spustit ARM.
+- Mezerník/Enter a potlačení opakovaných `keydown`; samotné načtení stránky, `click`, pravé tlačítko či sekundární pointer jízdu nespouští.
+
+Samostatné spuštění JavaScriptu:
 
 ```bash
-python3 models/jednoduche-auticko/firmware/prvni-motor/tests/run_http_tests.py \
-  --legacy --source /home/novakj/.cache/auticko-arduino-test/before-phone-fix.ino
+node models/jednoduche-auticko/firmware/prvni-motor/tests/browser_tests.js
 ```
 
-Legacy režim očekává odmítnutí těchto mobilních požadavků a původní hranice 128/1024/1000. Cache nemusí zůstat dostupná; výchozí test vždy kontroluje aktuální projektový zdroj.
+## Skutečný Chromium a HTTP
+
+Doplňková integrační sada vyžaduje Playwright a lokální Chromium:
+
+```bash
+python3 models/jednoduche-auticko/firmware/prvni-motor/tests/run_http_tests.py --browser
+```
+
+Případně samostatně:
+
+```bash
+node models/jednoduche-auticko/firmware/prvni-motor/tests/browser_http_tests.js
+```
+
+Pokud Playwright není ve standardní cestě Node, nastavit `NODE_PATH` na adresář dostupných balíčků nebo `PLAYWRIGHT_MODULE` na modul. Volitelné `PLAYWRIGHT_CHROMIUM_EXECUTABLE` určuje již instalovanou binárku Chromium; test nic automaticky neinstaluje.
+
+**9 scénářů** používá headless Chromium, skutečný DOM, myš/dotyk, `fetch`, HTTP a skutečný JavaScript stránky. Místní server je vázaný pouze na `127.0.0.1`; posílá požadavky do dlouho žijícího C++ procesu se skutečným `.ino`. Zachovává hlavičky prohlížeče, ale překládá místní Host/Origin na adresu očekávanou firmwarem. Timer běží v hostové náhradě i během prodlev HTTP. Nikdy se nespojuje s Arduinem, telefonem ani skutečnou sítí autíčka.
+
+Kontroluje držení přes dvě sekundy při simulovaných round-trip prodlevách **200/300/400 ms**, proměnlivé prodlevy a dotyk, puštění během ARM odpovědi, ztracený STOP, ztrátu HOLD, obnovu až po novém stisku, ztracenou odpověď na obnovu session a opožděné příkazy starší jízdy. Krátké odpovědi a nové časování tak procházejí celým řetězcem prohlížeč → HTTP → parser → skutečná logika řízení.
+
+## Meze ověření
+
+Testy dokazují logiku skutečného zdroje za modelovaných událostí. Ani Chromium sada **neověřuje skutečnou latenci WiFiS3, běh IRQ na RA4M1, konkrétní telefon, napětí, zapojení ani doběh motoru**. Překlad pro UNO R4 WiFi a potvrzený upload jsou další oddělené kroky; držení/puštění a ztrátu spojení na sestaveném autíčku musí potvrdit fyzická zkouška. Odstranění fyzické příčiny dřívějších chyb modemu nebo slabého rozběhu z těchto regresí neplyne.
+
+## Uložený běh finálního zdroje
+
+Pro verzi v2 z 19. 9. 2026 jsou uloženy [hostové a JavaScriptové výsledky](../evidence/2026-09-19-hold-to-run-v2/host-tests.txt) a [Chromium HTTP výsledky](../evidence/2026-09-19-hold-to-run-v2/browser-http.txt). Oba soubory uvádějí SHA-256 testovaného sketchu a exit status. Nejsou důkazem nahrání na desku ani fyzické zkoušky motoru.

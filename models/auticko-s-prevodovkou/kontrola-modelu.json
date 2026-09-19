@@ -1,0 +1,1843 @@
+{
+  "status": "NOVÝ PROTOTYP, FYZICKY NETESTOVANÝ",
+  "parameters_mm": {
+    "FrameLength": 180,
+    "FrameWidth": 44,
+    "FrameThickness": 4,
+    "RearX": 32,
+    "FrontX": 150,
+    "AxleHeight": 24,
+    "WheelDiameter": 80,
+    "WheelThickness": 8,
+    "WheelOuterY": 48,
+    "AxleDiameter": 8,
+    "BearingDiameter": 8.6,
+    "DriveBore": 8.3,
+    "AxleFlat": 2.8,
+    "BoreFlat": 3,
+    "MainAxleLength": 101.3,
+    "MainAxleStartY": -50,
+    "MiddleAxleLength": 65.2,
+    "FlangeDiameter": 13,
+    "FlangeThickness": 2,
+    "GrooveDiameter": 6.8,
+    "GrooveWidth": 1.5,
+    "GrooveFromEnd": 3,
+    "ClipBore": 6.9,
+    "ClipOuter": 13,
+    "ClipMouth": 5.9,
+    "ClipThickness": 1.3,
+    "BearingY": 18,
+    "BearingWidth": 8,
+    "BearingLength": 14,
+    "BearingTop": 31,
+    "MotorDiameter": 22.5,
+    "MotorLength": 26,
+    "MotorFrontY": -23,
+    "MotorShaftLength": 6,
+    "PinionBore": 2.2,
+    "PinionThickness": 5.5,
+    "GearModule": 0.9,
+    "GearCentreExtra": 0.2,
+    "StageOneThickness": 5,
+    "StageTwoThickness": 7,
+    "RearGearThickness": 9,
+    "RearSpacer": 8.6,
+    "LongSpacer": 17.6,
+    "MiddleSpacer": 1.6,
+    "SpacerOuter": 12,
+    "DeckLength": 180,
+    "DeckWidth": 70,
+    "DeckThickness": 4,
+    "DeckClearance": 6,
+    "PocketDepth": 2,
+    "PocketClearance": 0.3
+  },
+  "ratio": 12,
+  "parts": {
+    "ram": {
+      "object": "Frame",
+      "copies": 1,
+      "bbox_mm": [
+        180.0,
+        44.0,
+        31.0
+      ],
+      "volume_mm3": 48875.734117229855,
+      "solid_count": 1,
+      "valid": true,
+      "closed_mesh": true,
+      "facets": 3820,
+      "print_orientation": "flat",
+      "stl": "stl/ram.stl"
+    },
+    "kolo-zadni-72z": {
+      "object": "RearGearedWheel",
+      "copies": 1,
+      "bbox_mm": [
+        80.0,
+        79.9751345600653,
+        17.0
+      ],
+      "volume_mm3": 41156.302117539206,
+      "solid_count": 1,
+      "valid": true,
+      "closed_mesh": true,
+      "facets": 24028,
+      "print_orientation": "flat",
+      "stl": "stl/kolo-zadni-72z.stl"
+    },
+    "kolo-zadni-prave": {
+      "object": "RearRightWheel",
+      "copies": 1,
+      "bbox_mm": [
+        80.0,
+        79.9751345600653,
+        8.0
+      ],
+      "volume_mm3": 15919.23597791802,
+      "solid_count": 1,
+      "valid": true,
+      "closed_mesh": true,
+      "facets": 1596,
+      "print_orientation": "flat",
+      "stl": "stl/kolo-zadni-prave.stl"
+    },
+    "kolo-predni": {
+      "object": "FrontWheel",
+      "copies": 2,
+      "bbox_mm": [
+        80.0,
+        79.9751345600653,
+        8.0
+      ],
+      "volume_mm3": 15851.09889140425,
+      "solid_count": 1,
+      "valid": true,
+      "closed_mesh": true,
+      "facets": 1712,
+      "print_orientation": "flat",
+      "stl": "stl/kolo-predni.stl"
+    },
+    "pastorek-18z-otvor-2_2": {
+      "object": "Pinion",
+      "copies": 1,
+      "bbox_mm": [
+        18.000205328473903,
+        17.824655755273245,
+        5.5
+      ],
+      "volume_mm3": 1085.6814200530935,
+      "solid_count": 1,
+      "valid": true,
+      "closed_mesh": true,
+      "facets": 7992,
+      "print_orientation": "flat",
+      "stl": "stl/pastorek-18z-otvor-2_2.stl"
+    },
+    "mezikolo-54_18z": {
+      "object": "CompoundGear",
+      "copies": 1,
+      "bbox_mm": [
+        50.39974001204324,
+        50.35107992767749,
+        12.0
+      ],
+      "volume_mm3": 7696.7140033659125,
+      "solid_count": 1,
+      "valid": true,
+      "closed_mesh": true,
+      "facets": 26316,
+      "print_orientation": "flat",
+      "stl": "stl/mezikolo-54_18z.stl"
+    },
+    "osa-hlavni-101_3": {
+      "object": "MainAxle",
+      "copies": 2,
+      "bbox_mm": [
+        101.3,
+        12.99995309023798,
+        9.297986587163741
+      ],
+      "volume_mm3": 4708.897704307598,
+      "solid_count": 1,
+      "valid": true,
+      "closed_mesh": true,
+      "facets": 1496,
+      "print_orientation": "axle",
+      "stl": "stl/osa-hlavni-101_3.stl"
+    },
+    "osa-mezi-65_2": {
+      "object": "MiddleAxle",
+      "copies": 1,
+      "bbox_mm": [
+        65.2,
+        12.99995309023798,
+        9.297986587163741
+      ],
+      "volume_mm3": 3064.9939176856506,
+      "solid_count": 1,
+      "valid": true,
+      "closed_mesh": true,
+      "facets": 1496,
+      "print_orientation": "axle",
+      "stl": "stl/osa-mezi-65_2.stl"
+    },
+    "rozperka-8_6": {
+      "object": "RearSpacer",
+      "copies": 1,
+      "bbox_mm": [
+        12.0,
+        11.996270184009797,
+        8.6
+      ],
+      "volume_mm3": 473.07987133347245,
+      "solid_count": 1,
+      "valid": true,
+      "closed_mesh": true,
+      "facets": 1008,
+      "print_orientation": "flat",
+      "stl": "stl/rozperka-8_6.stl"
+    },
+    "rozperka-17_6": {
+      "object": "LongSpacer",
+      "copies": 3,
+      "bbox_mm": [
+        12.0,
+        11.996270184009797,
+        17.6
+      ],
+      "volume_mm3": 968.1634576126881,
+      "solid_count": 1,
+      "valid": true,
+      "closed_mesh": true,
+      "facets": 1008,
+      "print_orientation": "flat",
+      "stl": "stl/rozperka-17_6.stl"
+    },
+    "rozperka-1_6": {
+      "object": "MiddleSpacer",
+      "copies": 2,
+      "bbox_mm": [
+        12.0,
+        11.996270184009797,
+        1.6
+      ],
+      "volume_mm3": 88.01485978297166,
+      "solid_count": 1,
+      "valid": true,
+      "closed_mesh": true,
+      "facets": 1008,
+      "print_orientation": "flat",
+      "stl": "stl/rozperka-1_6.stl"
+    },
+    "pojistka-c": {
+      "object": "Clip",
+      "copies": 3,
+      "bbox_mm": [
+        12.289996032458323,
+        12.999984112269885,
+        1.3
+      ],
+      "volume_mm3": 98.58605431087922,
+      "solid_count": 1,
+      "valid": true,
+      "closed_mesh": true,
+      "facets": 772,
+      "print_orientation": "flat",
+      "stl": "stl/pojistka-c.stl"
+    },
+    "plosina-170x60": {
+      "object": "Deck",
+      "copies": 1,
+      "bbox_mm": [
+        180.0,
+        70.0,
+        45.00000000000001
+      ],
+      "volume_mm3": 82292.13331419697,
+      "solid_count": 1,
+      "valid": true,
+      "closed_mesh": true,
+      "facets": 1148,
+      "print_orientation": "deck",
+      "stl": "stl/plosina-170x60.stl"
+    }
+  },
+  "assembly_object_names": [
+    "AssemblyFrame",
+    "AssemblyDeck",
+    "AssemblyRearLeft",
+    "AssemblyRearRight",
+    "AssemblyFrontLeft",
+    "AssemblyFrontRight",
+    "AssemblyRearAxle",
+    "AssemblyFrontAxle",
+    "AssemblyCompound",
+    "AssemblyMiddleAxle",
+    "AssemblyPinion",
+    "AssemblyRearSpacer",
+    "AssemblyRearLong",
+    "AssemblyFrontLongLeft",
+    "AssemblyFrontLongRight",
+    "AssemblyMiddleSpacerLeft",
+    "AssemblyMiddleSpacerRight",
+    "AssemblyRearClip",
+    "AssemblyFrontClip",
+    "AssemblyMiddleClip",
+    "MotorReference"
+  ],
+  "original_cad_hashes": {
+    "/home/novakj/3d-print/models/jednoduche-auticko/auticko.FCStd": "eae583d24550c7be5645239748c07a834285db7de2b0a43ccb0596c271b3cacd",
+    "/home/novakj/3d-print/models/jednoduche-auticko/nahled.FCMacro": "decf67bb6adfd61b1c30a7cde4252dad04494098ff51da5b3863acd76f2a6888",
+    "/home/novakj/3d-print/models/jednoduche-auticko/strecha-nasazeni.png": "15861a364eb55424bd2d2ade74085ac11c963e7395d60fe0cabb59054c73c1db",
+    "/home/novakj/3d-print/models/jednoduche-auticko/vzorek-hridele-v2.FCStd": "907bbb021f70901d9c7a29d657d3127a0adce314df239425bb13304f4b4df666",
+    "/home/novakj/3d-print/models/jednoduche-auticko/strecha-sestava.png": "856d8f8f37b1f555b99957d194607877555413cdc75ccb97bd040e74b12d0925",
+    "/home/novakj/3d-print/models/jednoduche-auticko/vzorek-hridele-v2.png": "f5643edf63f8c7d5e9a5d138871bf50188b3a7799fda8555e47b91af4c326895",
+    "/home/novakj/3d-print/models/jednoduche-auticko/strecha.FCMacro": "652f97c302238026c3157207f3506b4bc595ba92e4a271aace43d2e3cfb06959",
+    "/home/novakj/3d-print/models/jednoduche-auticko/overit-parametry.FCMacro": "713abe975772fca58aba94cf47115f24695223c64044ff0ac86e9d663dc676a7",
+    "/home/novakj/3d-print/models/jednoduche-auticko/strecha-tisk.png": "b385b04c8f39d7de58ce0d3959c6295ccc44dcd089a04ab62ac011a9f5347c9b",
+    "/home/novakj/3d-print/models/jednoduche-auticko/model-render.png": "bf9016e34df9da1b621b038124b4367ce940d612241136b11af0268871d4b880",
+    "/home/novakj/3d-print/models/jednoduche-auticko/nahled-strechy.FCMacro": "e6dc3130acd58d5fe4bddd375aa65f3e2709412a8fe1c4af7afe06d19c618051",
+    "/home/novakj/3d-print/models/jednoduche-auticko/auticko.FCMacro": "1dd24a7eeb7087cfcc460aaefbd710995ce914086040b6a62b819ad0e0ead051",
+    "/home/novakj/3d-print/models/jednoduche-auticko/auticko-se-strechou.FCStd": "40c1908db64c557c5c96ef5d57b1ab950b6a8edb01a20c1590f130cf56a52d48",
+    "/home/novakj/3d-print/models/jednoduche-auticko/overit-strechu.FCMacro": "3ac64af89c649a4e963f3745488a357775ceb132b16100789b7c2990c4b9e9ab",
+    "/home/novakj/3d-print/models/jednoduche-auticko/nahled-vzorku-v2.FCMacro": "ad01cc3a83b0bfdc150a78e38fff971e2a2fde405392398bc7f7e3ca592a87c8",
+    "/home/novakj/3d-print/models/jednoduche-auticko/vzorek-hridele-v2.FCMacro": "fe96d9087a6000c7c1eec06000d72cdc950e111b1eae3bf80ddb6833a7bddd37",
+    "/home/novakj/3d-print/models/jednoduche-auticko/auticko/thumbnails/Thumbnail.png": "19859d8fffae022725f7139aac8e2d0c3f0638c9b04a434d862019b9a00a33b0",
+    "/home/novakj/3d-print/models/jednoduche-auticko/stl/rozperka-dlouha.stl": "6d95f7455d561aed40f041da50b9773835322cff5e222c1986c6251776439b36",
+    "/home/novakj/3d-print/models/jednoduche-auticko/stl/strecha.stl": "0566fdffebf5055082bf276c7a4d982bbc207cedd2b68e58b104ad166b8502d6",
+    "/home/novakj/3d-print/models/jednoduche-auticko/stl/kolo-predni.stl": "fd3d2970d61eb7f3ba9a1593cba423bff9aa92e290ca42297e7a22e139630379",
+    "/home/novakj/3d-print/models/jednoduche-auticko/stl/rozperka-kratka.stl": "db1855e5c69bb92c9c9d25192d1cbbddd153f7b7bbd2bda7a8985a4661f0ac6f",
+    "/home/novakj/3d-print/models/jednoduche-auticko/stl/kolo-zadni.stl": "ab4618df29f811d36596120f4279aa22fc3efbe6ddc44be2738b3016a61e10fc",
+    "/home/novakj/3d-print/models/jednoduche-auticko/stl/osa-predni.stl": "c6c537b104101b8b4f1bd7d2d17a298e456482e3b3a11466f6e9842862a6fae7",
+    "/home/novakj/3d-print/models/jednoduche-auticko/stl/kolo-zadni-ozubene.stl": "35063b786f519021ab85c7742c909acd5dc07fd0646fa8baa5c7a3df4830373f",
+    "/home/novakj/3d-print/models/jednoduche-auticko/stl/pojistka.stl": "3706c2b3cf27e48dab65636ae2a9292cc24bde79220ac78a477d900ccf76b77a",
+    "/home/novakj/3d-print/models/jednoduche-auticko/stl/pastorek.stl": "ec158dff10d48cdbfa746b459ea87d87ca5b07464d774fa079b87a4978eead40",
+    "/home/novakj/3d-print/models/jednoduche-auticko/stl/ram.stl": "8847d17a18c497d422b34a28a9598e439a526f5bfca5b64ab3c266b4108a35b6",
+    "/home/novakj/3d-print/models/jednoduche-auticko/stl/osa-zadni.stl": "4abfd6962f8e4118637fee72d2ae21cd4adc0ab76fc3859204c490a95744b9cc",
+    "/home/novakj/3d-print/models/jednoduche-auticko/stl/old/vzorek-hridele.stl": "68e1def064b42dbfe3304a2905ab8acb994b0e731e20e2c212b09dd83cb5878e",
+    "/home/novakj/3d-print/models/jednoduche-auticko/zbytek-auticka/03-kolo-zadni.stl": "ab4618df29f811d36596120f4279aa22fc3efbe6ddc44be2738b3016a61e10fc",
+    "/home/novakj/3d-print/models/jednoduche-auticko/zbytek-auticka/04-kolo-predni-1.stl": "fd3d2970d61eb7f3ba9a1593cba423bff9aa92e290ca42297e7a22e139630379",
+    "/home/novakj/3d-print/models/jednoduche-auticko/zbytek-auticka/05-kolo-predni-2.stl": "fd3d2970d61eb7f3ba9a1593cba423bff9aa92e290ca42297e7a22e139630379",
+    "/home/novakj/3d-print/models/jednoduche-auticko/zbytek-auticka/08-rozperka-kratka.stl": "db1855e5c69bb92c9c9d25192d1cbbddd153f7b7bbd2bda7a8985a4661f0ac6f",
+    "/home/novakj/3d-print/models/jednoduche-auticko/zbytek-auticka/12-pojistka-1.stl": "3706c2b3cf27e48dab65636ae2a9292cc24bde79220ac78a477d900ccf76b77a",
+    "/home/novakj/3d-print/models/jednoduche-auticko/zbytek-auticka/11-rozperka-dlouha-3.stl": "6d95f7455d561aed40f041da50b9773835322cff5e222c1986c6251776439b36",
+    "/home/novakj/3d-print/models/jednoduche-auticko/zbytek-auticka/13-pojistka-2.stl": "3706c2b3cf27e48dab65636ae2a9292cc24bde79220ac78a477d900ccf76b77a",
+    "/home/novakj/3d-print/models/jednoduche-auticko/zbytek-auticka/07-osa-predni.stl": "c6c537b104101b8b4f1bd7d2d17a298e456482e3b3a11466f6e9842862a6fae7",
+    "/home/novakj/3d-print/models/jednoduche-auticko/zbytek-auticka/06-osa-zadni.stl": "4abfd6962f8e4118637fee72d2ae21cd4adc0ab76fc3859204c490a95744b9cc",
+    "/home/novakj/3d-print/models/jednoduche-auticko/zbytek-auticka/02-kolo-zadni-ozubene.stl": "35063b786f519021ab85c7742c909acd5dc07fd0646fa8baa5c7a3df4830373f",
+    "/home/novakj/3d-print/models/jednoduche-auticko/zbytek-auticka/09-rozperka-dlouha-1.stl": "6d95f7455d561aed40f041da50b9773835322cff5e222c1986c6251776439b36",
+    "/home/novakj/3d-print/models/jednoduche-auticko/zbytek-auticka/10-rozperka-dlouha-2.stl": "6d95f7455d561aed40f041da50b9773835322cff5e222c1986c6251776439b36",
+    "/home/novakj/3d-print/models/jednoduche-auticko/zbytek-auticka/01-ram.stl": "8847d17a18c497d422b34a28a9598e439a526f5bfca5b64ab3c266b4108a35b6"
+  },
+  "motor_fit": "2,2 mm nominální otvor původního pastorku uživatelem nasazen; skutečný průměr hřídele a přenos momentu neměřeny",
+  "gears": {
+    "teeth": [
+      18,
+      54,
+      18,
+      72
+    ],
+    "module_mm": 0.9,
+    "pressure_angle_deg": 20.0,
+    "stages": [
+      3,
+      4
+    ],
+    "ratio": 12,
+    "centres_mm": [
+      32.6,
+      40.7
+    ],
+    "phase_rear_deg": 2.5,
+    "phase_input_deg": 10.0,
+    "samples": [
+      {
+        "rear_angle_deg": 0.0,
+        "rear_middle_overlap_mm3": 0.0,
+        "middle_input_overlap_mm3": 0.0,
+        "rear_middle_gap_mm": 0.06966148044414608,
+        "middle_input_gap_mm": 0.0699772829971641
+      },
+      {
+        "rear_angle_deg": 0.20833333333333334,
+        "rear_middle_overlap_mm3": 0.0,
+        "middle_input_overlap_mm3": 0.0,
+        "rear_middle_gap_mm": 0.06966269162600042,
+        "middle_input_gap_mm": 0.06989194550658198
+      },
+      {
+        "rear_angle_deg": 0.4166666666666667,
+        "rear_middle_overlap_mm3": 0.0,
+        "middle_input_overlap_mm3": 0.0,
+        "rear_middle_gap_mm": 0.06966326444994937,
+        "middle_input_gap_mm": 0.06994092742480867
+      },
+      {
+        "rear_angle_deg": 0.625,
+        "rear_middle_overlap_mm3": 0.0,
+        "middle_input_overlap_mm3": 0.0,
+        "rear_middle_gap_mm": 0.06965516689395801,
+        "middle_input_gap_mm": 0.06996449652547726
+      },
+      {
+        "rear_angle_deg": 0.8333333333333334,
+        "rear_middle_overlap_mm3": 0.0,
+        "middle_input_overlap_mm3": 0.0,
+        "rear_middle_gap_mm": 0.06964772566935616,
+        "middle_input_gap_mm": 0.06999675672029614
+      },
+      {
+        "rear_angle_deg": 1.0416666666666667,
+        "rear_middle_overlap_mm3": 0.0,
+        "middle_input_overlap_mm3": 0.0,
+        "rear_middle_gap_mm": 0.06963990952872996,
+        "middle_input_gap_mm": 0.06996557819107842
+      },
+      {
+        "rear_angle_deg": 1.25,
+        "rear_middle_overlap_mm3": 0.0,
+        "middle_input_overlap_mm3": 0.0,
+        "rear_middle_gap_mm": 0.06963044857058862,
+        "middle_input_gap_mm": 0.06994050587065129
+      },
+      {
+        "rear_angle_deg": 1.4583333333333333,
+        "rear_middle_overlap_mm3": 0.0,
+        "middle_input_overlap_mm3": 0.0,
+        "rear_middle_gap_mm": 0.06961788815042363,
+        "middle_input_gap_mm": 0.0698905903839333
+      },
+      {
+        "rear_angle_deg": 1.6666666666666667,
+        "rear_middle_overlap_mm3": 0.0,
+        "middle_input_overlap_mm3": 0.0,
+        "rear_middle_gap_mm": 0.06960064280104511,
+        "middle_input_gap_mm": 0.06997728299715933
+      },
+      {
+        "rear_angle_deg": 1.875,
+        "rear_middle_overlap_mm3": 0.0,
+        "middle_input_overlap_mm3": 0.0,
+        "rear_middle_gap_mm": 0.0695770503067928,
+        "middle_input_gap_mm": 0.06989194550658528
+      },
+      {
+        "rear_angle_deg": 2.0833333333333335,
+        "rear_middle_overlap_mm3": 0.0,
+        "middle_input_overlap_mm3": 0.0,
+        "rear_middle_gap_mm": 0.06955229394680726,
+        "middle_input_gap_mm": 0.0699409274248142
+      },
+      {
+        "rear_angle_deg": 2.2916666666666665,
+        "rear_middle_overlap_mm3": 0.0,
+        "middle_input_overlap_mm3": 0.0,
+        "rear_middle_gap_mm": 0.06962790538187738,
+        "middle_input_gap_mm": 0.06996449652548704
+      },
+      {
+        "rear_angle_deg": 2.5,
+        "rear_middle_overlap_mm3": 0.0,
+        "middle_input_overlap_mm3": 0.0,
+        "rear_middle_gap_mm": 0.069677695049588,
+        "middle_input_gap_mm": 0.0699967567203094
+      },
+      {
+        "rear_angle_deg": 2.7083333333333335,
+        "rear_middle_overlap_mm3": 0.0,
+        "middle_input_overlap_mm3": 0.0,
+        "rear_middle_gap_mm": 0.06952914557519949,
+        "middle_input_gap_mm": 0.06996557819109252
+      },
+      {
+        "rear_angle_deg": 2.9166666666666665,
+        "rear_middle_overlap_mm3": 0.0,
+        "middle_input_overlap_mm3": 0.0,
+        "rear_middle_gap_mm": 0.06955335959707266,
+        "middle_input_gap_mm": 0.06994050587067233
+      },
+      {
+        "rear_angle_deg": 3.125,
+        "rear_middle_overlap_mm3": 0.0,
+        "middle_input_overlap_mm3": 0.0,
+        "rear_middle_gap_mm": 0.06957802258721625,
+        "middle_input_gap_mm": 0.06989059038395015
+      },
+      {
+        "rear_angle_deg": 3.3333333333333335,
+        "rear_middle_overlap_mm3": 0.0,
+        "middle_input_overlap_mm3": 0.0,
+        "rear_middle_gap_mm": 0.06960143686038776,
+        "middle_input_gap_mm": 0.06997728299716982
+      },
+      {
+        "rear_angle_deg": 3.5416666666666665,
+        "rear_middle_overlap_mm3": 0.0,
+        "middle_input_overlap_mm3": 0.0,
+        "rear_middle_gap_mm": 0.06961838509189028,
+        "middle_input_gap_mm": 0.06989194550657388
+      },
+      {
+        "rear_angle_deg": 3.75,
+        "rear_middle_overlap_mm3": 0.0,
+        "middle_input_overlap_mm3": 0.0,
+        "rear_middle_gap_mm": 0.06963052538633745,
+        "middle_input_gap_mm": 0.06994092742480426
+      },
+      {
+        "rear_angle_deg": 3.9583333333333335,
+        "rear_middle_overlap_mm3": 0.0,
+        "middle_input_overlap_mm3": 0.0,
+        "rear_middle_gap_mm": 0.06963947959165354,
+        "middle_input_gap_mm": 0.06996449652547046
+      },
+      {
+        "rear_angle_deg": 4.166666666666667,
+        "rear_middle_overlap_mm3": 0.0,
+        "middle_input_overlap_mm3": 0.0,
+        "rear_middle_gap_mm": 0.06964677876325319,
+        "middle_input_gap_mm": 0.06999675672030095
+      },
+      {
+        "rear_angle_deg": 4.375,
+        "rear_middle_overlap_mm3": 0.0,
+        "middle_input_overlap_mm3": 0.0,
+        "rear_middle_gap_mm": 0.06965380891586476,
+        "middle_input_gap_mm": 0.06996557819108097
+      },
+      {
+        "rear_angle_deg": 4.583333333333333,
+        "rear_middle_overlap_mm3": 0.0,
+        "middle_input_overlap_mm3": 0.0,
+        "rear_middle_gap_mm": 0.06966175690047995,
+        "middle_input_gap_mm": 0.06994050587066081
+      },
+      {
+        "rear_angle_deg": 4.791666666666667,
+        "rear_middle_overlap_mm3": 0.0,
+        "middle_input_overlap_mm3": 0.0,
+        "rear_middle_gap_mm": 0.0696622135582366,
+        "middle_input_gap_mm": 0.06989059038394074
+      },
+      {
+        "rear_angle_deg": 5.0,
+        "rear_middle_overlap_mm3": 0.0,
+        "middle_input_overlap_mm3": 0.0,
+        "rear_middle_gap_mm": 0.06966148044414436,
+        "middle_input_gap_mm": 0.06997728299716029
+      }
+    ],
+    "limit": "25 vzorků přes jednu rozteč 72z; geometrická kontrola, nikoli fyzický tisk/test zatížení"
+  },
+  "assembly_pairs": [
+    {
+      "a": "AssemblyFrame",
+      "b": "AssemblyDeck",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFrame",
+      "b": "AssemblyRearLeft",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrame",
+      "b": "AssemblyRearRight",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrame",
+      "b": "AssemblyFrontLeft",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrame",
+      "b": "AssemblyFrontRight",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrame",
+      "b": "AssemblyRearAxle",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFrame",
+      "b": "AssemblyFrontAxle",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFrame",
+      "b": "AssemblyCompound",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrame",
+      "b": "AssemblyMiddleAxle",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFrame",
+      "b": "AssemblyPinion",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrame",
+      "b": "AssemblyRearSpacer",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrame",
+      "b": "AssemblyRearLong",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrame",
+      "b": "AssemblyFrontLongLeft",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrame",
+      "b": "AssemblyFrontLongRight",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrame",
+      "b": "AssemblyMiddleSpacerLeft",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrame",
+      "b": "AssemblyMiddleSpacerRight",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrame",
+      "b": "AssemblyRearClip",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrame",
+      "b": "AssemblyFrontClip",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrame",
+      "b": "AssemblyMiddleClip",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrame",
+      "b": "MotorReference",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyDeck",
+      "b": "AssemblyRearLeft",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyDeck",
+      "b": "AssemblyRearRight",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyDeck",
+      "b": "AssemblyFrontLeft",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyDeck",
+      "b": "AssemblyFrontRight",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyDeck",
+      "b": "AssemblyRearAxle",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyDeck",
+      "b": "AssemblyFrontAxle",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyDeck",
+      "b": "AssemblyCompound",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyDeck",
+      "b": "AssemblyMiddleAxle",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyDeck",
+      "b": "AssemblyPinion",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyDeck",
+      "b": "AssemblyRearSpacer",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyDeck",
+      "b": "AssemblyRearLong",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyDeck",
+      "b": "AssemblyFrontLongLeft",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyDeck",
+      "b": "AssemblyFrontLongRight",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyDeck",
+      "b": "AssemblyMiddleSpacerLeft",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyDeck",
+      "b": "AssemblyMiddleSpacerRight",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyDeck",
+      "b": "AssemblyRearClip",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyDeck",
+      "b": "AssemblyFrontClip",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyDeck",
+      "b": "AssemblyMiddleClip",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyDeck",
+      "b": "MotorReference",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyRearLeft",
+      "b": "AssemblyRearRight",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearLeft",
+      "b": "AssemblyFrontLeft",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearLeft",
+      "b": "AssemblyFrontRight",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearLeft",
+      "b": "AssemblyRearAxle",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyRearLeft",
+      "b": "AssemblyFrontAxle",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearLeft",
+      "b": "AssemblyCompound",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyRearLeft",
+      "b": "AssemblyMiddleAxle",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyRearLeft",
+      "b": "AssemblyPinion",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearLeft",
+      "b": "AssemblyRearSpacer",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearLeft",
+      "b": "AssemblyRearLong",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearLeft",
+      "b": "AssemblyFrontLongLeft",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearLeft",
+      "b": "AssemblyFrontLongRight",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearLeft",
+      "b": "AssemblyMiddleSpacerLeft",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearLeft",
+      "b": "AssemblyMiddleSpacerRight",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearLeft",
+      "b": "AssemblyRearClip",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearLeft",
+      "b": "AssemblyFrontClip",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearLeft",
+      "b": "AssemblyMiddleClip",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearLeft",
+      "b": "MotorReference",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearRight",
+      "b": "AssemblyFrontLeft",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearRight",
+      "b": "AssemblyFrontRight",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearRight",
+      "b": "AssemblyRearAxle",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyRearRight",
+      "b": "AssemblyFrontAxle",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearRight",
+      "b": "AssemblyCompound",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearRight",
+      "b": "AssemblyMiddleAxle",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearRight",
+      "b": "AssemblyPinion",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearRight",
+      "b": "AssemblyRearSpacer",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearRight",
+      "b": "AssemblyRearLong",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearRight",
+      "b": "AssemblyFrontLongLeft",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearRight",
+      "b": "AssemblyFrontLongRight",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearRight",
+      "b": "AssemblyMiddleSpacerLeft",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearRight",
+      "b": "AssemblyMiddleSpacerRight",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearRight",
+      "b": "AssemblyRearClip",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearRight",
+      "b": "AssemblyFrontClip",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearRight",
+      "b": "AssemblyMiddleClip",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearRight",
+      "b": "MotorReference",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontLeft",
+      "b": "AssemblyFrontRight",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontLeft",
+      "b": "AssemblyRearAxle",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontLeft",
+      "b": "AssemblyFrontAxle",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFrontLeft",
+      "b": "AssemblyCompound",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontLeft",
+      "b": "AssemblyMiddleAxle",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontLeft",
+      "b": "AssemblyPinion",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontLeft",
+      "b": "AssemblyRearSpacer",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontLeft",
+      "b": "AssemblyRearLong",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontLeft",
+      "b": "AssemblyFrontLongLeft",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontLeft",
+      "b": "AssemblyFrontLongRight",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontLeft",
+      "b": "AssemblyMiddleSpacerLeft",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontLeft",
+      "b": "AssemblyMiddleSpacerRight",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontLeft",
+      "b": "AssemblyRearClip",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontLeft",
+      "b": "AssemblyFrontClip",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontLeft",
+      "b": "AssemblyMiddleClip",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontLeft",
+      "b": "MotorReference",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontRight",
+      "b": "AssemblyRearAxle",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontRight",
+      "b": "AssemblyFrontAxle",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFrontRight",
+      "b": "AssemblyCompound",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontRight",
+      "b": "AssemblyMiddleAxle",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontRight",
+      "b": "AssemblyPinion",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontRight",
+      "b": "AssemblyRearSpacer",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontRight",
+      "b": "AssemblyRearLong",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontRight",
+      "b": "AssemblyFrontLongLeft",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontRight",
+      "b": "AssemblyFrontLongRight",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontRight",
+      "b": "AssemblyMiddleSpacerLeft",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontRight",
+      "b": "AssemblyMiddleSpacerRight",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontRight",
+      "b": "AssemblyRearClip",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontRight",
+      "b": "AssemblyFrontClip",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontRight",
+      "b": "AssemblyMiddleClip",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontRight",
+      "b": "MotorReference",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearAxle",
+      "b": "AssemblyFrontAxle",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearAxle",
+      "b": "AssemblyCompound",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearAxle",
+      "b": "AssemblyMiddleAxle",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearAxle",
+      "b": "AssemblyPinion",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearAxle",
+      "b": "AssemblyRearSpacer",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyRearAxle",
+      "b": "AssemblyRearLong",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyRearAxle",
+      "b": "AssemblyFrontLongLeft",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearAxle",
+      "b": "AssemblyFrontLongRight",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearAxle",
+      "b": "AssemblyMiddleSpacerLeft",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearAxle",
+      "b": "AssemblyMiddleSpacerRight",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearAxle",
+      "b": "AssemblyRearClip",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyRearAxle",
+      "b": "AssemblyFrontClip",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearAxle",
+      "b": "AssemblyMiddleClip",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearAxle",
+      "b": "MotorReference",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontAxle",
+      "b": "AssemblyCompound",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontAxle",
+      "b": "AssemblyMiddleAxle",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontAxle",
+      "b": "AssemblyPinion",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontAxle",
+      "b": "AssemblyRearSpacer",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontAxle",
+      "b": "AssemblyRearLong",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontAxle",
+      "b": "AssemblyFrontLongLeft",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFrontAxle",
+      "b": "AssemblyFrontLongRight",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFrontAxle",
+      "b": "AssemblyMiddleSpacerLeft",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontAxle",
+      "b": "AssemblyMiddleSpacerRight",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontAxle",
+      "b": "AssemblyRearClip",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontAxle",
+      "b": "AssemblyFrontClip",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFrontAxle",
+      "b": "AssemblyMiddleClip",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontAxle",
+      "b": "MotorReference",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyCompound",
+      "b": "AssemblyMiddleAxle",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyCompound",
+      "b": "AssemblyPinion",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyCompound",
+      "b": "AssemblyRearSpacer",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyCompound",
+      "b": "AssemblyRearLong",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyCompound",
+      "b": "AssemblyFrontLongLeft",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyCompound",
+      "b": "AssemblyFrontLongRight",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyCompound",
+      "b": "AssemblyMiddleSpacerLeft",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyCompound",
+      "b": "AssemblyMiddleSpacerRight",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyCompound",
+      "b": "AssemblyRearClip",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyCompound",
+      "b": "AssemblyFrontClip",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyCompound",
+      "b": "AssemblyMiddleClip",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyCompound",
+      "b": "MotorReference",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyMiddleAxle",
+      "b": "AssemblyPinion",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyMiddleAxle",
+      "b": "AssemblyRearSpacer",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyMiddleAxle",
+      "b": "AssemblyRearLong",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyMiddleAxle",
+      "b": "AssemblyFrontLongLeft",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyMiddleAxle",
+      "b": "AssemblyFrontLongRight",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyMiddleAxle",
+      "b": "AssemblyMiddleSpacerLeft",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyMiddleAxle",
+      "b": "AssemblyMiddleSpacerRight",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyMiddleAxle",
+      "b": "AssemblyRearClip",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyMiddleAxle",
+      "b": "AssemblyFrontClip",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyMiddleAxle",
+      "b": "AssemblyMiddleClip",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyMiddleAxle",
+      "b": "MotorReference",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyPinion",
+      "b": "AssemblyRearSpacer",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyPinion",
+      "b": "AssemblyRearLong",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyPinion",
+      "b": "AssemblyFrontLongLeft",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyPinion",
+      "b": "AssemblyFrontLongRight",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyPinion",
+      "b": "AssemblyMiddleSpacerLeft",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyPinion",
+      "b": "AssemblyMiddleSpacerRight",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyPinion",
+      "b": "AssemblyRearClip",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyPinion",
+      "b": "AssemblyFrontClip",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyPinion",
+      "b": "AssemblyMiddleClip",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyPinion",
+      "b": "MotorReference",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyRearSpacer",
+      "b": "AssemblyRearLong",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearSpacer",
+      "b": "AssemblyFrontLongLeft",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearSpacer",
+      "b": "AssemblyFrontLongRight",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearSpacer",
+      "b": "AssemblyMiddleSpacerLeft",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearSpacer",
+      "b": "AssemblyMiddleSpacerRight",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearSpacer",
+      "b": "AssemblyRearClip",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearSpacer",
+      "b": "AssemblyFrontClip",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearSpacer",
+      "b": "AssemblyMiddleClip",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearSpacer",
+      "b": "MotorReference",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearLong",
+      "b": "AssemblyFrontLongLeft",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearLong",
+      "b": "AssemblyFrontLongRight",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearLong",
+      "b": "AssemblyMiddleSpacerLeft",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearLong",
+      "b": "AssemblyMiddleSpacerRight",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearLong",
+      "b": "AssemblyRearClip",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearLong",
+      "b": "AssemblyFrontClip",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearLong",
+      "b": "AssemblyMiddleClip",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearLong",
+      "b": "MotorReference",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontLongLeft",
+      "b": "AssemblyFrontLongRight",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontLongLeft",
+      "b": "AssemblyMiddleSpacerLeft",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontLongLeft",
+      "b": "AssemblyMiddleSpacerRight",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontLongLeft",
+      "b": "AssemblyRearClip",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontLongLeft",
+      "b": "AssemblyFrontClip",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontLongLeft",
+      "b": "AssemblyMiddleClip",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontLongLeft",
+      "b": "MotorReference",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontLongRight",
+      "b": "AssemblyMiddleSpacerLeft",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontLongRight",
+      "b": "AssemblyMiddleSpacerRight",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontLongRight",
+      "b": "AssemblyRearClip",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontLongRight",
+      "b": "AssemblyFrontClip",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontLongRight",
+      "b": "AssemblyMiddleClip",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontLongRight",
+      "b": "MotorReference",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyMiddleSpacerLeft",
+      "b": "AssemblyMiddleSpacerRight",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyMiddleSpacerLeft",
+      "b": "AssemblyRearClip",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyMiddleSpacerLeft",
+      "b": "AssemblyFrontClip",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyMiddleSpacerLeft",
+      "b": "AssemblyMiddleClip",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyMiddleSpacerLeft",
+      "b": "MotorReference",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyMiddleSpacerRight",
+      "b": "AssemblyRearClip",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyMiddleSpacerRight",
+      "b": "AssemblyFrontClip",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyMiddleSpacerRight",
+      "b": "AssemblyMiddleClip",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyMiddleSpacerRight",
+      "b": "MotorReference",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearClip",
+      "b": "AssemblyFrontClip",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearClip",
+      "b": "AssemblyMiddleClip",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearClip",
+      "b": "MotorReference",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontClip",
+      "b": "AssemblyMiddleClip",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontClip",
+      "b": "MotorReference",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyMiddleClip",
+      "b": "MotorReference",
+      "overlap_mm3": 0
+    }
+  ],
+  "assembly_collisions": [],
+  "swept_envelopes": [
+    {
+      "part": "rear-wheel",
+      "fixed": "Frame",
+      "overlap_mm3": 0.0
+    },
+    {
+      "part": "rear-wheel",
+      "fixed": "Deck",
+      "overlap_mm3": 0.0
+    },
+    {
+      "part": "rear-wheel",
+      "fixed": "MotorBody",
+      "overlap_mm3": 0.0
+    },
+    {
+      "part": "rear-gear",
+      "fixed": "Frame",
+      "overlap_mm3": 0.0
+    },
+    {
+      "part": "rear-gear",
+      "fixed": "Deck",
+      "overlap_mm3": 0.0
+    },
+    {
+      "part": "rear-gear",
+      "fixed": "MotorBody",
+      "overlap_mm3": 0.0
+    },
+    {
+      "part": "middle-large",
+      "fixed": "Frame",
+      "overlap_mm3": 0.0
+    },
+    {
+      "part": "middle-large",
+      "fixed": "Deck",
+      "overlap_mm3": 0.0
+    },
+    {
+      "part": "middle-large",
+      "fixed": "MotorBody",
+      "overlap_mm3": 0.0
+    },
+    {
+      "part": "middle-small",
+      "fixed": "Frame",
+      "overlap_mm3": 0.0
+    },
+    {
+      "part": "middle-small",
+      "fixed": "Deck",
+      "overlap_mm3": 0.0
+    },
+    {
+      "part": "middle-small",
+      "fixed": "MotorBody",
+      "overlap_mm3": 0.0
+    },
+    {
+      "part": "pinion",
+      "fixed": "Frame",
+      "overlap_mm3": 0.0
+    },
+    {
+      "part": "pinion",
+      "fixed": "Deck",
+      "overlap_mm3": 0.0
+    },
+    {
+      "part": "pinion",
+      "fixed": "MotorBody",
+      "overlap_mm3": 0.0
+    },
+    {
+      "part": "front-wheel",
+      "fixed": "Frame",
+      "overlap_mm3": 0.0
+    },
+    {
+      "part": "front-wheel",
+      "fixed": "Deck",
+      "overlap_mm3": 0.0
+    },
+    {
+      "part": "front-wheel",
+      "fixed": "MotorBody",
+      "overlap_mm3": 0.0
+    },
+    {
+      "part": "rear-right",
+      "fixed": "Frame",
+      "overlap_mm3": 0.0
+    },
+    {
+      "part": "rear-right",
+      "fixed": "Deck",
+      "overlap_mm3": 0.0
+    },
+    {
+      "part": "rear-right",
+      "fixed": "MotorBody",
+      "overlap_mm3": 0.0
+    },
+    {
+      "part": "front-right",
+      "fixed": "Frame",
+      "overlap_mm3": 0.0
+    },
+    {
+      "part": "front-right",
+      "fixed": "Deck",
+      "overlap_mm3": 0.0
+    },
+    {
+      "part": "front-right",
+      "fixed": "MotorBody",
+      "overlap_mm3": 0.0
+    }
+  ],
+  "axial_extremes": [
+    {
+      "rear_shift_y_mm": 0.5,
+      "middle_shift_y_mm": -0.9,
+      "gears_overlap_mm3": 0.0,
+      "middle_motor_overlap_mm3": 0.0
+    },
+    {
+      "rear_shift_y_mm": -0.5,
+      "middle_shift_y_mm": 0.5,
+      "gears_overlap_mm3": 0.0,
+      "middle_motor_overlap_mm3": 0.0
+    },
+    {
+      "rear_shift_y_mm": 0.5,
+      "middle_shift_y_mm": 0.5,
+      "gears_overlap_mm3": 0.0,
+      "middle_motor_overlap_mm3": 0.0
+    },
+    {
+      "rear_shift_y_mm": -0.5,
+      "middle_shift_y_mm": -0.9,
+      "gears_overlap_mm3": 0.0,
+      "middle_motor_overlap_mm3": 0.0
+    }
+  ],
+  "parametric_checks": [
+    {
+      "parameter": "WheelDiameter",
+      "original": 80,
+      "trial": 82,
+      "valid_single_solids": true,
+      "invalid_objects": [],
+      "middle_x_mm": 72.7,
+      "motor_x_mm": 105.30000000000001,
+      "deck_bottom_mm": 71.0,
+      "restored_max_volume_delta_mm3": 0.0
+    },
+    {
+      "parameter": "MotorDiameter",
+      "original": 22.5,
+      "trial": 23,
+      "valid_single_solids": true,
+      "invalid_objects": [],
+      "middle_x_mm": 72.7,
+      "motor_x_mm": 105.30000000000001,
+      "deck_bottom_mm": 70.0,
+      "restored_max_volume_delta_mm3": 0.0
+    },
+    {
+      "parameter": "GearCentreExtra",
+      "original": 0.2,
+      "trial": 0.3,
+      "valid_single_solids": true,
+      "invalid_objects": [],
+      "middle_x_mm": 72.8,
+      "motor_x_mm": 105.5,
+      "deck_bottom_mm": 70.0,
+      "restored_max_volume_delta_mm3": 0.0
+    }
+  ],
+  "validation_pass": true,
+  "max_gear_overlap_mm3": 0.0,
+  "original_cad_unchanged": true,
+  "axial_extremes_reopened": [
+    {
+      "rear_shift_y_mm": 0.5,
+      "middle_shift_y_mm": -0.9,
+      "gears_overlap_mm3": 0.0,
+      "middle_motor_overlap_mm3": 0.0
+    },
+    {
+      "rear_shift_y_mm": -1.0,
+      "middle_shift_y_mm": 0.5,
+      "gears_overlap_mm3": 0.0,
+      "middle_motor_overlap_mm3": 0.0
+    },
+    {
+      "rear_shift_y_mm": 0.5,
+      "middle_shift_y_mm": 0.5,
+      "gears_overlap_mm3": 0.0,
+      "middle_motor_overlap_mm3": 0.0
+    },
+    {
+      "rear_shift_y_mm": -1.0,
+      "middle_shift_y_mm": -0.9,
+      "gears_overlap_mm3": 0.0,
+      "middle_motor_overlap_mm3": 0.0
+    }
+  ],
+  "gui_validation": {
+    "saved_and_reopened": true,
+    "visible_objects": [
+      "AssemblyCompound",
+      "AssemblyDeck",
+      "AssemblyFrame",
+      "AssemblyFrontAxle",
+      "AssemblyFrontClip",
+      "AssemblyFrontLeft",
+      "AssemblyFrontLongLeft",
+      "AssemblyFrontLongRight",
+      "AssemblyFrontRight",
+      "AssemblyMiddleAxle",
+      "AssemblyMiddleClip",
+      "AssemblyMiddleSpacerLeft",
+      "AssemblyMiddleSpacerRight",
+      "AssemblyPinion",
+      "AssemblyRearAxle",
+      "AssemblyRearClip",
+      "AssemblyRearLeft",
+      "AssemblyRearLong",
+      "AssemblyRearRight",
+      "AssemblyRearSpacer",
+      "MotorReference"
+    ],
+    "invalid_objects": [],
+    "images": [
+      "sestava.png",
+      "prevodovka.png",
+      "rozlozena-plosina.png",
+      "tiskove-dily.png"
+    ]
+  },
+  "visual_review": {
+    "date": "2026-09-19",
+    "method": "Skutečné otevření všech čtyř PNG nástrojem view_image po dokončení GUI renderu.",
+    "images": [
+      "sestava.png",
+      "prevodovka.png",
+      "rozlozena-plosina.png",
+      "tiskove-dily.png"
+    ],
+    "result": "Sestava, odkrytý pohon, sejmutí plošiny i všechny tiskové díly jsou zobrazené, bez ořezu důležitých částí."
+  }
+}

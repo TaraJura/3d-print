@@ -1,0 +1,12 @@
+2026-09-19T13:14:57 DIAG build=hold-to-run-v1 safety=1 drive=0 ENread=0 IN1=0 IN2=0 watchdog=0
+2026-09-19T13:14:57 DIAG 12891 boot=server-started fw=0.4.1 ip=192.168.4.1
+2026-09-19T13:14:57 DIAG ready=1 server=1 APstart=7 statusLast=7 ageMs=5 HTTP=0 closed=0
+2026-09-19T13:15:02 DIAG build=hold-to-run-v1 safety=1 drive=0 ENread=0 IN1=0 IN2=0 watchdog=0
+2026-09-19T13:15:02 DIAG 17900 boot=server-started fw=0.4.1 ip=192.168.4.1
+2026-09-19T13:15:02 DIAG ready=1 server=1 APstart=7 statusLast=7 ageMs=5 HTTP=0 closed=0
+2026-09-19T13:15:07 DIAG build=hold-to-run-v1 safety=1 drive=0 ENread=0 IN1=0 IN2=0 watchdog=0
+2026-09-19T13:15:07 DIAG 22907 boot=server-started fw=0.4.1 ip=192.168.4.1
+2026-09-19T13:15:07 DIAG ready=1 server=1 APstart=7 statusLast=7 ageMs=5 HTTP=0 closed=0
+2026-09-19T13:15:12 DIAG build=hold-to-run-v1 safety=1 drive=0 ENread=0 IN1=0 IN2=0 watchdog=0
+2026-09-19T13:15:12 DIAG 27913 boot=server-started fw=0.4.1 ip=192.168.4.1
+2026-09-19T13:15:12 DIAG ready=1 server=1 APstart=7 statusLast=7 ageMs=5 HTTP=0 closed=0

@@ -1,17 +1,32 @@
 #include <WiFiS3.h>
+#include <FspTimer.h>
+#include <pwm.h>
 #include <ctype.h>
 #include <string.h>
 #include <stdio.h>
 
-// První stolní test. Napájení a proud motoru musí být ověřeny před zapnutím.
+// Ovládání při držení. Zapojení zůstává stejné jako u prvního stolního testu.
+const char BUILD_ID[] = "hold-to-run-v2";
 constexpr uint8_t EN = 5, IN1 = 7, IN2 = 8;
 const char SSID[] = "Auticko-test", PASSWORD[] = "auticko123"; // Veřejné demo heslo.
 WiFiServer server(80);
 bool ready = false;
 bool apConfigured=false, networkAttempted=false;
 uint32_t networkCheckedAt=0, tokenSequence=0;
-char motorToken[33]="";
-enum Request { INVALID, PAGE, TEST };
+char motorToken[33]="", previousSessionToken[33]="", requestToken[33]="";
+enum Request { INVALID, PAGE, SESSION, ARM, HOLD, STOP };
+enum DriveState { IDLE, ARMED, RUNNING };
+constexpr uint32_t LEASE_MS=500, ARM_WAIT_MS=3000, TIMER_TICK_MS=5;
+PwmOut motorPwm(EN);
+FspTimer safetyTimer;
+volatile bool pwmReady=false, safetyReady=false;
+volatile DriveState driveState=IDLE;
+volatile uint16_t leaseTicks=0;
+volatile uint32_t watchdogStops=0, armExpiries=0, runExpiries=0;
+volatile uint8_t stopReason=0; // 0=start/local, 1=STOP, 2=ARM expiry, 3=RUN expiry, 4=network, 5=session, 6=PWM/RNG
+uint32_t diagnosticRequestLogAt=0;
+uint32_t lastPress=0, requestPress=0, challengeIssuedAt=0;
+char holdChallenge[33]="", requestChallenge[33]="";
 Request readRequest(WiFiClient &client); // Explicitně kvůli Arduino generování prototypů.
 
 // UNO R4 WiFi Serial je UART přes ESP bridge: bool() vždy true, bez detekce monitoru.
@@ -35,7 +50,16 @@ void diagnosticPoll() {
   const uint32_t now=millis(), elapsed=uint32_t(now-diagnosticSnapshotAt);
   if (elapsed<5000 && !(requested && elapsed>=1000)) return;
   diagnosticSnapshotAt=now;
-  char line[128];
+  char line[160];
+  const int state=int(driveState);
+  int detail=snprintf(line,sizeof(line),"DIAG build=%s safety=%d drive=%d ENread=%d IN1=%d IN2=%d watchdog=%lu\n",
+    BUILD_ID,int(safetyReady),state,int(digitalRead(EN)),int(digitalRead(IN1)),int(digitalRead(IN2)),
+    static_cast<unsigned long>(watchdogStops));
+  if(detail>0 && detail<int(sizeof(line)))Serial.write(reinterpret_cast<uint8_t *>(line),size_t(detail));
+  int counters=snprintf(line,sizeof(line),"DIAG armExpired=%lu runExpired=%lu stopReason=%u leaseMs=%u challengeAgeMs=%lu\n",
+    static_cast<unsigned long>(armExpiries),static_cast<unsigned long>(runExpiries),unsigned(stopReason),
+    unsigned(leaseTicks*TIMER_TICK_MS),static_cast<unsigned long>(uint32_t(millis()-challengeIssuedAt)));
+  if(counters>0 && counters<int(sizeof(line)))Serial.write(reinterpret_cast<uint8_t *>(line),size_t(counters));
   int n=snprintf(line,sizeof(line),"DIAG %lu boot=%s fw=%s ip=%u.%u.%u.%u\n",
     millis(),diagnosticSetup,diagnosticFirmware,unsigned(diagnosticIP[0]),unsigned(diagnosticIP[1]),
     unsigned(diagnosticIP[2]),unsigned(diagnosticIP[3]));
@@ -47,55 +71,179 @@ void diagnosticPoll() {
   if (n>0 && n<int(sizeof(line))) Serial.write(reinterpret_cast<uint8_t *>(line),size_t(n));
 }
 const char HTML[] = R"HTML(<!doctype html><html lang="cs"><meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1"><title>Test motoru</title>
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>Ovládání autíčka</title>
 <style>body{font:18px system-ui;max-width:32rem;margin:3rem auto;padding:1rem;line-height:1.5}
-button{font:inherit;padding:.8rem 1rem;border-radius:.5rem;cursor:pointer}button:disabled{cursor:wait}</style>
-<h1>První test motoru</h1><p>Jeden sekundový pulz vpřed. Potom se výstup vypne; motor může dobíhat.
-Puštění tlačítka test nezkrátí.</p><button id="test">Test motoru na 1 sekundu</button>
-<p id="result" role="status" aria-live="polite">Připraveno k jednomu testu.</p><script>
-const button=document.getElementById('test'), result=document.getElementById('result');
-let token='@TOKEN@';
-button.addEventListener('click',async()=>{
-  button.disabled=true;result.textContent='Čekám na dokončení testu…';
-  const controller=new AbortController(), timer=setTimeout(()=>controller.abort(),6000);
+button{font:inherit;padding:1.3rem 2rem;border-radius:.5rem;cursor:pointer;touch-action:none;user-select:none;-webkit-user-select:none}
+button[data-running="true"]{background:#1d6845;color:white}button:disabled{cursor:wait}</style>
+<h1>Ovládání autíčka</h1><p>Drž tlačítko pro pohon vpřed. Puštěním pohon vypneš; kola mohou dobíhat.
+Při výpadku spojení se pohon sám vypne. Pokud se ztratí i povel STOP, může vypnutí trvat až 1 sekundu; kola mohou dále dobíhat.</p>
+<button id="drive" type="button">Držet pro jízdu vpřed</button>
+<p id="result" role="status" aria-live="polite">Připraveno. Motor je vypnutý.</p><script>
+const button=document.getElementById('drive'), result=document.getElementById('result');
+let token='@TOKEN@', sessionNeeded=false;
+let press=0, held=false, generation=0, pointer=null, keyboard=null, timer=null, pending=null, stopping=false;
+const headers=(id,challenge)=>({'X-Motor-Control':'1','X-Motor-Token':token,'X-Motor-Press':String(id),
+  ...(challenge?{'X-Motor-Challenge':challenge}:{})});
+async function command(path,id,challenge) {
+  const controller=new AbortController(); pending=controller;
+  const deadline=setTimeout(()=>controller.abort(),1200);
   try {
-    const reply=await fetch('/test',{method:'POST',headers:{'X-Motor-Test':'1','X-Motor-Token':token},body:'',
-      cache:'no-store',signal:controller.signal});
-    const body=await reply.text();
-    if(!reply.ok || !/^TEST_OK:[0-9a-f]{32}$/.test(body)) throw new Error();
-    token=body.slice(8);
-    result.textContent='Sekundový pulz skončil. Výstup motoru je vypnutý.';
-    button.disabled=false;
-  } catch (_) {
-    result.textContent='Výsledek nepotvrzen. Test mohl proběhnout. Ověř motor; další pokus až po novém otevření stránky.';
-  } finally {clearTimeout(timer);}
-});</script></html>)HTML";
+    const options={cache:'no-store',signal:controller.signal};
+    Object.assign(options,{method:'POST',headers:path==='/session'?{'X-Motor-Control':'1','X-Motor-Token':token}:headers(id,challenge),body:''});
+    const reply=await fetch(path,options);
+    const text=await reply.text();
+    if(!reply.ok) throw new Error('request');
+    return text;
+  } finally {clearTimeout(deadline);if(pending===controller)pending=null;}
+}
+function stop(message='Pohon vypnutý. Pro další jízdu stiskni znovu.',failed=false) {
+  if(!held) return;
+  held=false;generation++;clearTimeout(timer);
+  if(pending) pending.abort();
+  if(failed)sessionNeeded=true;
+  button.dataset.running='false';button.disabled=true;stopping=true;
+  result.textContent='Zastavuji…';
+  const controller=new AbortController(), deadline=setTimeout(()=>controller.abort(),1500);
+  fetch('/stop',{method:'POST',headers:headers(press),body:'',cache:'no-store',keepalive:true,signal:controller.signal})
+    .then(async reply=>{if(!reply.ok || await reply.text()!=='STOP_OK')throw new Error();result.textContent=message;})
+    .catch(()=>{sessionNeeded=true;result.textContent='Spojení přerušeno, pohon vypne časovač. Pusť tlačítko a pro nový pokus stiskni znovu.';})
+    .finally(()=>{clearTimeout(deadline);stopping=false;button.disabled=false;});
+}
+async function start() {
+  if(held || stopping || button.disabled || document.hidden) return;
+  held=true;const gen=++generation;result.textContent='Připravuji jízdu…';
+  try {
+    if(sessionNeeded) {
+      const session=await command('/session');
+      if(!held || gen!==generation)return;
+      if(!/^SESSION_OK:[0-9a-f]{32}$/.test(session))throw new Error();
+      token=session.slice(11);press=0;sessionNeeded=false;
+    }
+    const id=++press;
+    const armed=await command('/arm',id);
+    if(!held || gen!==generation) return;
+    if(!/^ARM_OK:[0-9a-f]{32}$/.test(armed)) throw new Error();
+    await heartbeat(armed.slice(7),id,gen);
+  } catch (_) {if(held && gen===generation)stop('Jízda přerušena. Pusť tlačítko a stiskni znovu.',true);}
+}
+async function heartbeat(challenge,id,gen) {
+  if(!held || gen!==generation) return;
+  try {
+    const reply=await command('/hold',id,challenge);
+    if(!held || gen!==generation) return;
+    if(!/^HOLD_OK:[0-9a-f]{32}$/.test(reply))throw new Error();
+    button.dataset.running='true';result.textContent='Pohon vpřed — puštěním zastavíš.';
+    timer=setTimeout(()=>heartbeat(reply.slice(8),id,gen),20);
+  } catch (_) {if(held && gen===generation)stop('Jízda přerušena. Pusť tlačítko a stiskni znovu.',true);}
+}
+button.addEventListener('pointerdown',event=>{
+  if(!event.isPrimary || event.button!==0 || pointer!==null || keyboard!==null || held || stopping || button.disabled)return;
+  event.preventDefault();pointer=event.pointerId;button.setPointerCapture(pointer);start();
+});
+function releasePointer(event){if(event.pointerId===pointer){pointer=null;stop();}}
+window.addEventListener('pointerup',releasePointer);
+window.addEventListener('pointercancel',releasePointer);
+button.addEventListener('lostpointercapture',releasePointer);
+button.addEventListener('contextmenu',event=>event.preventDefault());
+button.addEventListener('keydown',event=>{
+  if(event.code!=='Space' && event.code!=='Enter')return;
+  event.preventDefault();if(event.repeat || keyboard!==null || pointer!==null || held || stopping || button.disabled)return;
+  keyboard=event.code;start();
+});
+window.addEventListener('keyup',event=>{if(event.code===keyboard){event.preventDefault();keyboard=null;stop();}});
+function leave(){stop();pointer=null;keyboard=null;}
+window.addEventListener('blur',leave);
+window.addEventListener('pagehide',leave);
+window.addEventListener('offline',()=>stop('Spojení přerušeno. Pusť tlačítko a stiskni znovu.',true));
+document.addEventListener('visibilitychange',()=>{if(document.hidden)leave();});
+</script></html>)HTML";
 
+// Volat jen v ISR nebo krátké kritické sekci. PWM je předem inicializované:
+// žádná alokace, modem, čekání ani Serial. Směrové GPIO jdou LOW i při chybě PWM.
+void outputsOff() {
+  if (pwmReady && !motorPwm.pulse_perc(0.0f)) {
+    // Fail closed if the PWM peripheral ever refuses the OFF update.
+    pinMode(EN,OUTPUT); digitalWrite(EN,LOW); pwmReady=false; safetyReady=false;
+  }
+  digitalWrite(IN1,LOW); digitalWrite(IN2,LOW); digitalWrite(LED_BUILTIN,LOW);
+}
 void motorStop() {
-  analogWrite(EN, 0); // L293D enable LOW: volný doběh, nikoli aktivní brzda.
-  digitalWrite(IN1, LOW); digitalWrite(IN2, LOW); digitalWrite(LED_BUILTIN, LOW);
+  noInterrupts(); driveState=IDLE; leaseTicks=0; outputsOff(); interrupts();
+  holdChallenge[0]='\0';
 }
-void motorPulse() {
-  digitalWrite(IN1, HIGH); digitalWrite(IN2, LOW); digitalWrite(LED_BUILTIN, HIGH);
-  analogWrite(EN, 128);
-  delay(1000); // Žádné WiFi/Serial I/O uvnitř pulzu; síť nesmí oddálit STOP.
-  motorStop();
+void safetyTick(timer_callback_args_t *) {
+  if (driveState!=IDLE && leaseTicks>0 && --leaseTicks==0) {
+    if(driveState==ARMED){++armExpiries;stopReason=2;}else{++runExpiries;stopReason=3;}
+    driveState=IDLE; outputsOff(); ++watchdogStops;
+  }
+}
+bool initializeSafety() {
+  // Reserve the PWM timer before asking for a separate, genuinely free timer.
+  pwmReady=motorPwm.begin(490.0f,0.0f);
+  if (!pwmReady) {pinMode(EN,OUTPUT); digitalWrite(EN,LOW); return false;}
+  uint8_t type=GPT_TIMER;
+  const int8_t channel=FspTimer::get_available_timer(type);
+  return channel>=0 && safetyTimer.begin(TIMER_MODE_PERIODIC,type,uint8_t(channel),
+    1000.0f/TIMER_TICK_MS,0.0f,safetyTick) && safetyTimer.setup_overflow_irq(2) &&
+    safetyTimer.open() && safetyTimer.start();
 }
 
-bool mintMotorToken() {
-  motorToken[0]='\0';
+bool mintToken(char *destination) {
+  destination[0]='\0';
   if (tokenSequence==UINT32_MAX) return false;
   // UNO R4 core 1.6.0 používá bez randomSeed() hardware TRNG, žádný analogový pin.
   const long a=random(0x7fffffffL), b=random(0x7fffffffL), c=random(0x7fffffffL);
   if (a<0 || b<0 || c<0) return false;
   ++tokenSequence;
-  snprintf(motorToken,sizeof(motorToken),"%08x%08x%08x%08x",
+  snprintf(destination,33,"%08x%08x%08x%08x",
     static_cast<unsigned>(a),static_cast<unsigned>(b),
     static_cast<unsigned>(c),static_cast<unsigned>(tokenSequence));
   return true;
 }
 
+bool mintMotorToken() { return mintToken(motorToken); }
+
+bool applyArm(uint32_t press) {
+  if (!safetyReady || press<=lastPress) return false;
+  motorStop(); lastPress=press;
+  if (!mintToken(holdChallenge)) return false;
+  challengeIssuedAt=millis();
+  noInterrupts(); leaseTicks=ARM_WAIT_MS/TIMER_TICK_MS; driveState=ARMED; interrupts();
+  return true;
+}
+bool applyHold(uint32_t press, const char *challenge) {
+  if (!safetyReady || press!=lastPress || !holdChallenge[0] || strcmp(challenge,holdChallenge)) return false;
+  // Consume before any operation that could delay execution. A duplicate cannot renew.
+  holdChallenge[0]='\0';
+  const uint32_t issued=challengeIssuedAt;
+  if (!mintToken(holdChallenge)) { motorStop(); stopReason=6; return false; }
+  noInterrupts();
+  const uint32_t age=uint32_t(millis()-issued);
+  // ISR expiry is a latch: even a late valid packet cannot resurrect a stopped run.
+  const bool valid=(driveState==ARMED || driveState==RUNNING) && age<LEASE_MS;
+  if (valid) {
+    leaseTicks=LEASE_MS/TIMER_TICK_MS; // One fresh packet grants a full lease; no double-RTT dependency.
+    // Single-flight, one-use challenge expires after 500 ms. Lost STOP plus one
+    // in-flight HOLD can extend physical release-to-OFF to at most 1000 ms.
+    digitalWrite(IN1,HIGH); digitalWrite(IN2,LOW);
+    if (motorPwm.pulse_perc(128.0f*100.0f/255.0f)) {
+      driveState=RUNNING; digitalWrite(LED_BUILTIN,HIGH);
+    } else { driveState=IDLE; leaseTicks=0; stopReason=6; outputsOff(); }
+  }
+  const bool running=valid && driveState==RUNNING;
+  interrupts();
+  if (!running) {motorStop(); return false;}
+  challengeIssuedAt=millis();
+  return true;
+}
+void applyStop(uint32_t press) {
+  // Fence STOP before its ARM too, but never let an older press stop a newer one.
+  if (press<lastPress) return;
+  lastPress=press; motorStop(); stopReason=1;
+}
+
 bool networkReady() {
+  if (ready && uint32_t(millis()-networkCheckedAt)<100) return true;
   if (!ready && networkAttempted && uint32_t(millis()-networkCheckedAt)<1000) return false;
   networkAttempted=true;
   int status=WiFi.status();
@@ -120,7 +268,7 @@ bool networkReady() {
     motorStop(); motorToken[0]='\0';
     if (ready || strcmp(diagnosticSetup,"wifi-wait"))
       diagnosticEvent("STOP WiFi retry",status);
-    ready=false; diagnosticSetup="wifi-wait"; return false;
+    ready=false; stopReason=4; diagnosticSetup="wifi-wait"; return false;
   }
   if (!server) {
     server.begin(); diagnosticEvent("server-begin",int(bool(server)));
@@ -139,13 +287,14 @@ bool networkReady() {
 }
 
 // Mobilní prohlížeče běžně posílají delší User-Agent a Accept hlavičky.
-// Příjem zůstává omezený; po celou dobu je motor vypnutý.
+// Příjem zůstává omezený; motor hlídá nezávisle přerušení časovače.
 constexpr size_t MAX_HTTP_LINE = 1024, MAX_HTTP_BYTES = 8192;
 constexpr uint32_t HTTP_READ_TIMEOUT_MS = 3000;
 Request readRequest(WiFiClient &client) {
   // Jedno spojení současně: buffer mimo malý zásobník UNO R4.
   static char line[MAX_HTTP_LINE+1]; size_t length=0, bytes=0;
-  bool first=true, cr=false, host=false, zeroLength=false, trigger=false, token=false;
+  bool first=true, cr=false, host=false, zeroLength=false, trigger=false, token=false, press=false, challenge=false, origin=false;
+  requestPress=0; requestChallenge[0]='\0'; requestToken[0]='\0';
   Request request=INVALID; const uint32_t started=millis();
   while (uint32_t(millis()-started)<HTTP_READ_TIMEOUT_MS) {
     if (!client.connected()) return INVALID;
@@ -157,11 +306,15 @@ Request readRequest(WiFiClient &client) {
       cr=false; line[length]='\0';
       if (first) {
         if (!strcmp(line,"GET / HTTP/1.1")) request=PAGE;
-        else if (!strcmp(line,"POST /test HTTP/1.1")) request=TEST;
+        else if (!strcmp(line,"POST /session HTTP/1.1")) request=SESSION;
+        else if (!strcmp(line,"POST /arm HTTP/1.1")) request=ARM;
+        else if (!strcmp(line,"POST /hold HTTP/1.1")) request=HOLD;
+        else if (!strcmp(line,"POST /stop HTTP/1.1")) request=STOP;
         else return INVALID;
         first=false;
       } else if (!length) {
-        return host && (request==PAGE || (zeroLength && trigger && token)) ? request : INVALID;
+        const bool sessionToken=token && (request==SESSION || (motorToken[0]&&!strcmp(requestToken,motorToken)));
+        return host && (request==PAGE || (zeroLength && trigger && sessionToken && (request==SESSION || (press && (request!=HOLD || challenge))))) ? request : INVALID;
       } else {
         char *colon=strchr(line,':'); if (!colon || colon==line) return INVALID;
         for (char *p=line;p<colon;++p) {
@@ -179,14 +332,29 @@ Request readRequest(WiFiClient &client) {
           if (zeroLength || strcmp(value,"0")) return INVALID;
           zeroLength=true;
         } else if (!strcmp(line,"transfer-encoding") || !strcmp(line,"expect")) return INVALID;
-        else if (!strcmp(line,"x-motor-test")) {
+        else if (!strcmp(line,"x-motor-control")) {
           if (trigger || strcmp(value,"1")) return INVALID;
           trigger=true;
         } else if (!strcmp(line,"x-motor-token")) {
-          if (token || !motorToken[0] || strcmp(value,motorToken)) return INVALID;
-          token=true;
-        } else if (!strcmp(line,"origin") && strcmp(value,"http://192.168.4.1") &&
-                   strcmp(value,"http://192.168.4.1:80")) return INVALID;
+          if (token || strlen(value)!=32) return INVALID;
+          for(const char *p=value;*p;++p)if(!strchr("0123456789abcdef",*p))return INVALID;
+          memcpy(requestToken,value,33);token=true;
+        } else if (!strcmp(line,"x-motor-press")) {
+          if (press || !*value || *value=='0') return INVALID;
+          uint32_t number=0;
+          for (const char *p=value;*p;++p) {
+            if (*p<'0' || *p>'9' || number>(UINT32_MAX-uint32_t(*p-'0'))/10) return INVALID;
+            number=number*10+uint32_t(*p-'0');
+          }
+          requestPress=number; press=true;
+        } else if (!strcmp(line,"x-motor-challenge")) {
+          if (challenge || strlen(value)!=32) return INVALID;
+          for (const char *p=value;*p;++p) if (!strchr("0123456789abcdef",*p)) return INVALID;
+          memcpy(requestChallenge,value,33); challenge=true;
+        } else if (!strcmp(line,"origin")) {
+          if (origin || (strcmp(value,"http://192.168.4.1") && strcmp(value,"http://192.168.4.1:80"))) return INVALID;
+          origin=true;
+        }
       }
       length=0;
     } else {
@@ -197,15 +365,23 @@ Request readRequest(WiFiClient &client) {
   return INVALID;
 }
 void responseHeaders(WiFiClient &client, bool ok, const char *type, size_t length) {
-  client.print(ok ? "HTTP/1.1 200 OK\r\n" : "HTTP/1.1 400 Bad Request\r\n");
-  client.print("Connection: close\r\nCache-Control: no-store\r\nX-Frame-Options: DENY\r\nContent-Type: ");
-  client.print(type); client.print("\r\nContent-Length: "); client.print(length);
-  client.print("\r\n\r\n");
+  // One modem send instead of a separate AT transaction for each header fragment.
+  static char header[256]; // One client, outside the small UNO main stack.
+  const int n=snprintf(header,sizeof(header),
+    "HTTP/1.1 %s\r\nConnection: close\r\nCache-Control: no-store\r\nX-Frame-Options: DENY\r\nContent-Type: %s\r\nContent-Length: %u\r\n\r\n",
+    ok ? "200 OK" : "400 Bad Request",type,unsigned(length));
+  if(n>0 && n<int(sizeof(header)))client.write(reinterpret_cast<const uint8_t *>(header),size_t(n));
 }
 void respond(WiFiClient &client, bool ok, const char *type, const char *body) {
-  responseHeaders(client,ok,type,strlen(body)); client.print(body);
+  // Short control responses use a single modem transaction (headers + body).
+  static char packet[384]; // Never used from the ISR; one client at a time.
+  const int n=snprintf(packet,sizeof(packet),
+    "HTTP/1.1 %s\r\nConnection: close\r\nCache-Control: no-store\r\nX-Frame-Options: DENY\r\nContent-Type: %s\r\nContent-Length: %u\r\n\r\n%s",
+    ok ? "200 OK" : "400 Bad Request",type,unsigned(strlen(body)),body);
+  if(n>0 && n<int(sizeof(packet)))client.write(reinterpret_cast<const uint8_t *>(packet),size_t(n));
 }
 void respondPage(WiFiClient &client) {
+  motorStop(); stopReason=5; lastPress=0; previousSessionToken[0]='\0';
   if (!mintMotorToken()) { respond(client,false,"text/plain; charset=utf-8","Test neni pripraven. Nacti stranku znovu."); return; }
   const char *marker=strstr(HTML,"@TOKEN@");
   responseHeaders(client,true,"text/html; charset=utf-8",strlen(HTML)-7+strlen(motorToken));
@@ -213,35 +389,56 @@ void respondPage(WiFiClient &client) {
   client.print(motorToken); client.print(marker+7);
 }
 void setup() {
+  digitalWrite(EN,LOW); digitalWrite(IN1,LOW); digitalWrite(IN2,LOW);
   pinMode(EN,OUTPUT); pinMode(IN1,OUTPUT); pinMode(IN2,OUTPUT); pinMode(LED_BUILTIN,OUTPUT);
-  analogWriteResolution(8); motorStop();
-  Serial.begin(115200); diagnosticEvent("BOOT",0);
-  networkReady();
-  diagnosticPoll();
+  motorStop(); safetyReady=initializeSafety(); motorStop();
+  Serial.begin(115200); diagnosticEvent(BUILD_ID,0);
+  diagnosticEvent("safety-timer-ready",int(safetyReady));
+  networkReady(); diagnosticPoll();
 }
 void loop() {
   diagnosticPoll();
   const uint32_t requestStarted=millis();
   if (!networkReady()) { motorStop(); delay(1); return; }
-  WiFiClient client=server.available(); if (!client) return;
+  WiFiClient client=server.available(); if (!client) {delay(1);return;}
   ++diagnosticAccepted;
-  const bool trace=!diagnosticHttpSeen || uint32_t(millis()-diagnosticHttpAt)>=1000;
-  if (trace) { diagnosticHttpSeen=true; diagnosticHttpAt=millis(); diagnosticEvent("HTTP accepted",diagnosticAccepted); }
   const Request request=readRequest(client);
-  if (trace) diagnosticEvent(request==TEST ? "HTTP TEST" : request==PAGE ? "HTTP PAGE" : "HTTP INVALID",diagnosticAccepted);
-  if (request==TEST) {
-    motorToken[0]='\0'; // Jednorázový token spotřebovat před pulzem i před další kontrolou Wi-Fi.
-    // AT dotazy mohou přesáhnout timeout parseru; opožděný požadavek už motor nespustí.
-    if (networkReady() && uint32_t(millis()-requestStarted)<HTTP_READ_TIMEOUT_MS) {
-      motorPulse(); // Úplný validní POST; odpověď výhradně po STOP.
-      char reply[41]="TEST_OK:";
-      if (mintMotorToken()) memcpy(reply+8,motorToken,sizeof(motorToken));
-      respond(client,true,"text/plain; charset=utf-8",reply);
-    } else respond(client,false,"text/plain; charset=utf-8","Spojeni se obnovuje. Nacti stranku znovu.");
-  } else if (request==PAGE) respondPage(client);
-  else { motorStop(); respond(client,false,"text/plain; charset=utf-8","Neplatny nebo neuplny pozadavek."); }
-  if (trace) diagnosticEvent("HTTP response-returned",diagnosticAccepted);
-  client.stop(); // Jeden požadavek na spojení, žádné opakování ani automatický restart.
-  ++diagnosticClosed;
-  if (trace) diagnosticEvent("HTTP closed",diagnosticClosed);
+  const uint32_t receivedAt=millis(), challengeAge=uint32_t(receivedAt-challengeIssuedAt);
+  const int before=int(driveState);
+  // No additional blocking modem call between validation and a lease grant.
+  // networkReady() ran before reception; its delay is included below.
+  bool ok=false;
+  char reply[48]="Neplatny nebo stary pozadavek.";
+  if (request==PAGE) respondPage(client);
+  else if(request==SESSION) {
+    // Only a new physical press after failure asks for this. It cannot move a motor.
+    if(motorToken[0] && previousSessionToken[0] && !strcmp(requestToken,previousSessionToken)) {
+      ok=true; // Lost response retry: reveal the same session, never stop a newer drive.
+    } else if(!motorToken[0] || !strcmp(requestToken,motorToken)) {
+      motorStop();stopReason=5;lastPress=0;
+      memcpy(previousSessionToken,requestToken,33);ok=mintMotorToken();
+    }
+    if(ok)snprintf(reply,sizeof(reply),"SESSION_OK:%s",motorToken);
+    respond(client,ok,"text/plain; charset=utf-8",reply);
+  }
+  else {
+    const bool fresh=uint32_t(millis()-requestStarted)<HTTP_READ_TIMEOUT_MS;
+    if (request==STOP) { applyStop(requestPress); ok=true; snprintf(reply,sizeof(reply),"STOP_OK"); }
+    else if (fresh && request==ARM && applyArm(requestPress)) {
+      ok=true;snprintf(reply,sizeof(reply),"ARM_OK:%s",holdChallenge);
+    } else if (fresh && request==HOLD && applyHold(requestPress,requestChallenge)) {
+      ok=true;snprintf(reply,sizeof(reply),"HOLD_OK:%s",holdChallenge);
+    } // Invalid/obsolete requests cannot renew a lease or stop a newer press.
+    respond(client,ok,"text/plain; charset=utf-8",reply);
+  }
+  client.stop(); ++diagnosticClosed;
+  if(request!=HOLD || !ok || uint32_t(millis()-diagnosticRequestLogAt)>=1000) {
+    diagnosticRequestLogAt=millis();
+    const char *kind=request==PAGE?"PAGE":request==SESSION?"SESSION":request==ARM?"ARM":request==HOLD?"HOLD":request==STOP?"STOP":"INVALID";
+    char line[160];
+    const int n=snprintf(line,sizeof(line),"HTTP %s ok=%d press=%lu rxMs=%lu replyMs=%lu challengeAgeMs=%lu phase=%d->%d reason=%u\n",
+      kind,int(ok),static_cast<unsigned long>(requestPress),static_cast<unsigned long>(receivedAt-requestStarted),
+      static_cast<unsigned long>(uint32_t(millis()-receivedAt)),static_cast<unsigned long>(challengeAge),before,int(driveState),unsigned(stopReason));
+    if(n>0&&n<int(sizeof(line)))Serial.write(reinterpret_cast<uint8_t *>(line),size_t(n));
+  }
 }

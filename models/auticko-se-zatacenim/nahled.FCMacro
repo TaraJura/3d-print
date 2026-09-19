@@ -1,0 +1,69 @@
+# -*- coding: utf-8 -*-
+"""Skutečné CAD náhledy a viditelnost. Zápis pouze v nové složce modelu."""
+from pathlib import Path
+import json
+import FreeCAD as App, FreeCADGui as Gui
+from PySide import QtCore
+OUT=Path(__file__).resolve().parent
+R=json.loads((OUT/'kontrola-modelu.json').read_text());assert R['validation_pass']
+D=App.openDocument(str(OUT/'auticko-se-zatacenim.FCStd'));V=Gui.activeDocument().activeView();S=D.Steering
+names=set(R['assembly_object_names'])
+for tag in ('L','R'):names.update(o.Name for o in D.getObject('WheelCarrier'+tag).Group)
+def color(n):
+    q=n.lower()
+    if 'deck' in q:return (.2,.62,.46)
+    if 'servo' in q:return (.22,.35,.80)
+    if 'frame' in q:return (.16,.44,.64)
+    if 'knuckle' in q or 'tie' in q or 'drag' in q:return (.86,.38,.16)
+    if 'motor' in q or 'screw' in q:return (.57,.61,.65)
+    if any(k in q for k in ('pinion','compound','rearleft')):return (.91,.58,.15)
+    if 'wheel' in q or 'rearright' in q:return (.22,.25,.29)
+    return (.70,.51,.31)
+def style(o,col):
+    v=o.ViewObject
+    if 'ShapeAppearance' in v.PropertiesList:
+        m=v.ShapeAppearance[0];m.DiffuseColor=col;v.ShapeAppearance=[m]
+    if 'ShapeMaterial' in v.PropertiesList:
+        m=v.ShapeMaterial;m.DiffuseColor=col;v.ShapeMaterial=m
+        if 'OverrideMaterial' in v.PropertiesList:v.OverrideMaterial=True
+    if 'ShapeColor' in v.PropertiesList:v.ShapeColor=col
+    if 'LineColor' in v.PropertiesList:v.LineColor=(.12,.15,.18)
+    if 'LineWidth' in v.PropertiesList:v.LineWidth=1
+    if 'DisplayMode' in v.PropertiesList:
+        try:v.DisplayMode='Flat Lines'
+        except Exception:pass
+for n in names:
+    o=D.getObject(n)
+    if o.TypeId=='App::Link':style(o.LinkedObject,color(n))
+    style(o,color(n))
+def visible(deck=True):
+    for o in D.Objects:
+        if hasattr(o,'Shape') or o.TypeId=='App::Part':o.ViewObject.Visibility=o.Name in names
+    D.Assembly.ViewObject.Visibility=True
+    D.AssemblyDeck.ViewObject.Visibility=deck
+
+def camera(eye=(.65,-1.3,.85)):
+    e=App.Vector(*eye);u=App.Vector(0,0,1);V.setCameraType('Orthographic');V.setCameraOrientation(App.Rotation(u.cross(e),u,e,'ZXY').Q);V.fitAll();V.redraw();Gui.updateGui()
+def angle(a):S.set('B9',f'={a} deg');D.recompute()
+# WheelAngle is B9 in generator. Verify alias before using it.
+assert S.getAlias('B9')=='WheelAngle'
+def start():
+    angle(0);visible();camera();QtCore.QTimer.singleShot(600,straight)
+def straight():
+    V.saveImage(str(OUT/'rovne.png'),1600,1100,'White');angle(20);visible();camera();QtCore.QTimer.singleShot(600,left)
+def left():
+    V.saveImage(str(OUT/'doleva.png'),1600,1100,'White');angle(-20);visible();camera();QtCore.QTimer.singleShot(600,right)
+def right():
+    V.saveImage(str(OUT/'doprava.png'),1600,1100,'White');angle(20);visible(False);camera((.8,-1.4,1.6));QtCore.QTimer.singleShot(600,mechanism)
+def mechanism():
+    V.saveImage(str(OUT/'mechanismus.png'),1800,1200,'White');angle(0);visible();camera();D.recompute();D.save()
+    path=D.FileName;App.closeDocument(D.Name);d=App.openDocument(path)
+    actual={o.Name for o in d.Objects if (hasattr(o,'Shape') or o.TypeId=='App::Part') and o.ViewObject.Visibility}
+    expected={n for n in names if hasattr(d.getObject(n),'Shape') or d.getObject(n).TypeId=='App::Part'}
+    assert actual==expected,('Saved visibility',actual^expected)
+    assert float(d.Steering.WheelAngle.Value)==0
+    invalid=[o.Name for o in d.Objects if 'Invalid' in o.State];assert not invalid
+    R['gui_validation']={'saved_and_reopened':True,'visible_objects':sorted(actual),'invalid_objects':invalid,'wheel_angle_deg':0,'images':['rovne.png','doleva.png','doprava.png','mechanismus.png']}
+    (OUT/'kontrola-modelu.json').write_text(json.dumps(R,ensure_ascii=False,indent=2)+'\n')
+    print('RENDER_COMPLETE reopened visibility checked',flush=True);App.closeDocument(d.Name);Gui.getMainWindow().close()
+QtCore.QTimer.singleShot(500,start)

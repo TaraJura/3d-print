@@ -1,0 +1,85 @@
+from pathlib import Path
+import math,json,hashlib
+import FreeCAD as App
+import Part
+OUT=Path(__file__).resolve().parent
+D=App.openDocument(str(OUT/'auticko-se-zatacenim.FCStd'));S=D.Steering
+R=json.loads((OUT/'kontrola-modelu.json').read_text())
+row={}
+for i in range(2,80):
+    try: row[S.get('A'+str(i))]=i
+    except Exception: pass
+def value(n):return float(getattr(S,n).Value)
+def setval(n,v,u='mm'):S.set('B'+str(row[n]),f'={v} {u}');D.recompute()
+def world(o):
+    sh=o.Shape.copy()
+    if o.Name.startswith('AssemblySteeringWheel') or o.Name.startswith('AssemblyWheelClip'):
+        tr=D.getObject('WheelCarrier'+o.Name[-1]).Placement;sh.Placement=tr.multiply(sh.Placement)
+    return sh
+objects=[]
+for a in D.Assembly.Group:
+    if a.TypeId=='App::Part':objects+=list(a.Group)
+    elif hasattr(a,'Shape'):objects.append(a)
+def volume(a,b):
+    ba,bb=a.BoundBox,b.BoundBox
+    if ba.XMax<bb.XMin or bb.XMax<ba.XMin or ba.YMax<bb.YMin or bb.YMax<ba.YMin or ba.ZMax<bb.ZMin or bb.ZMax<ba.ZMin:return 0
+    return a.common(b).Volume
+# Single nominal fit model. Screw penetrations into its deliberate bores only.
+coll=[];samples=[];paircount=0
+for ang in range(-24,25,2):
+    setval('WheelAngle',ang,'deg');sh={o.Name:world(o) for o in objects}
+    wrong=[o.Name for o in D.Objects if 'Invalid' in o.State]
+    if wrong:raise RuntimeError(str(wrong))
+    for i,a in enumerate(objects):
+        for b in objects[i+1:]:
+            if ang!=-24 and not any(x.Name.startswith(('AssemblyKnuckle','AssemblySteeringWheel','AssemblyWheelClip','AssemblyJoint','AssemblyTie','AssemblyDrag','AssemblyHorn')) or x.Name=='HornScrewReference' for x in (a,b)):continue
+            paircount+=1;v=volume(sh[a.Name],sh[b.Name])
+            # reference horn deliberately surrounds the reference spline (not manufactured here).
+            if {a.Name,b.Name}=={'ServoReference','AssemblyHornReference'}:continue
+            if v>1e-6:coll.append({'angle':ang,'a':a.Name,'b':b.Name,'volume':v})
+    # Real rotation around stub can occupy any spoke phase: use full circular disc envelope excluding hub bore.
+    for side,tag in [(-1,'L'),(1,'R')]:
+        w=Part.makeCylinder(38,12,App.Vector(-value('Trail'),side*9,0),App.Vector(0,side,0))
+        w=w.cut(Part.makeCylinder(4.3,14,App.Vector(-value('Trail'),side*8,0),App.Vector(0,side,0)))
+        carrier=D.getObject('WheelCarrier'+tag);w.Placement=carrier.Placement.multiply(w.Placement)
+        for fixed in objects:
+            if fixed.Name=='AssemblySteeringWheel'+tag:continue
+            # All contacts including matching stub/collar/cap must remain clear of material.
+            v=volume(w,sh[fixed.Name])
+            if v>1e-6:coll.append({'angle':ang,'envelope':tag,'b':fixed.Name,'volume':v})
+    e=(value('EndX'),value('EndLeftY'));h=(value('HornX'),value('HornY'));closure=abs(math.dist(e,h)-value('DragLength'))
+    samples.append({'wheel_deg':ang,'servo_deg':value('ServoAngle'),'closure_error_mm':closure})
+    print('SAMPLE',ang,'servo',value('ServoAngle'),'collisions',len(coll),flush=True)
+setval('WheelAngle',0,'deg')
+R['motion']={'samples':samples,'pair_checks':paircount,'collisions':coll,'rotation_envelope':'full wheel disc Ø76 ×12 minus Ø8.6 bearing bore, for each steering sample'}
+R['mechanical_stops']=[]
+for a in (-24.5,24.5):
+    setval('WheelAngle',a,'deg')
+    vv=[world(D.getObject('AssemblyKnuckle'+tag)).common(D.SteeringFrame.Shape).Volume for tag in ('L','R')]
+    assert min(vv)>1e-5,('Missing mechanical stop',a,vv)
+    R['mechanical_stops'].append({'wheel_deg':a,'intentional_stop_overlap_mm3':vv})
+setval('WheelAngle',0,'deg')
+R['parametric_checks']=[]
+for name,v,u in [('HornRadius',14.5,'mm'),('StopAngle',23,'deg'),('HalfTrack',45,'mm')]:
+    original=value(name);before={n:D.getObject(n).Shape.Volume for n in ['SteeringFrame','TieBar','DragLink','KnuckleL','KnuckleR']}
+    setval(name,v,u)
+    assert all(D.getObject(n).Shape.isValid() and len(D.getObject(n).Shape.Solids)==1 for n in before)
+    assert not [o.Name for o in D.Objects if 'Invalid' in o.State]
+    trial={'parameter':name,'original':original,'trial':v,'drag_length_mm':value('DragLength'),'tie_length_mm':value('TieLength'),'max_changed_volume_mm3':max(abs(D.getObject(n).Shape.Volume-vol) for n,vol in before.items())}
+    assert trial['max_changed_volume_mm3']>1e-5
+    setval(name,original,u)
+    trial['max_restored_volume_error_mm3']=max(abs(D.getObject(n).Shape.Volume-vol) for n,vol in before.items());assert trial['max_restored_volume_error_mm3']<1e-5
+    R['parametric_checks'].append(trial)
+R['tread_checks']=[]
+for half in (0,1):
+    z=3+6*half
+    for degrees,expected in [(half*7.5,False),((1-half)*7.5,True)]:
+        a=math.radians(degrees);pt=App.Vector(37.5*math.cos(a),37.5*math.sin(a),z)
+        inside=D.TreadWheelFront.Shape.isInside(pt,1e-6,True);assert inside==expected
+        R['tread_checks'].append({'z_mm':z,'radius_mm':37.5,'angle_deg':degrees,'inside_material':inside})
+R['ground_clearance_mm']={'gear_at_outer_tread':4.7,'gear_at_tread_root_conservative':3.7,'frame_at_outer_tread':14,'frame_at_tread_root':13,'deck_wheel_vertical_nominal':8}
+R['original_assets_unchanged']=all(Path(n).exists() and hashlib.sha256(Path(n).read_bytes()).hexdigest()==h for n,h in R['original_assets'].items());assert R['original_assets_unchanged']
+R['kinematics']=json.loads((OUT/'kinematika.json').read_text())
+R['validation_pass']=not coll and all(x['closure_error_mm']<1e-6 for x in samples)
+(OUT/'kontrola-modelu.json').write_text(json.dumps(R,ensure_ascii=False,indent=2)+'\n')
+print('RESULT',json.dumps({'pass':R['validation_pass'],'collisions':coll[:50],'count':len(coll)}),flush=True)

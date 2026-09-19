@@ -1,0 +1,209 @@
+# -*- coding: utf-8 -*-
+"""Samostatná třetí varianta. Čte V2, PÍŠE POUZE vedle tohoto makra.
+Přepisuje místní FCStd/STL/JSON/ZIP; původní dokument nikdy neukládá.
+Standardní FreeCAD objekty bez Python proxy. Jednotky mm, úhly stupně.
+"""
+from pathlib import Path
+import math,json,hashlib,shutil,zipfile
+import FreeCAD as App
+import Part,MeshPart
+OUT=Path(__file__).resolve().parent; OLD=OUT.parent/'auticko-s-prevodovkou'
+(OUT/'stl').mkdir(exist_ok=True)
+protected={str(f):hashlib.sha256(f.read_bytes()).hexdigest() for folder in [OLD,OUT.parent/'jednoduche-auticko'] for f in folder.rglob('*') if f.is_file() and '.runtime' not in f.parts and f.suffix.lower() in ('.fcstd','.stl','.png','.fcmacro','.zip','.json')}
+D=App.openDocument(str(OLD/'auticko-s-prevodovkou.FCStd'))
+old_rear=D.AssemblyRearLeft.Shape.copy()
+D.saveAs(str(OUT/'auticko-se-zatacenim.FCStd'));D.Label='Autíčko 12:1 se zatáčením — prototyp SG90'
+# Původní graf je kopie; měníme pouze nový dokument. Plošina zůstává přesně V2.
+ps=D.Parameters
+for i in range(2,100):
+    try:n=ps.get('A'+str(i))
+    except Exception:continue
+    changes={'WheelDiameter':76,'WheelThickness':12,'WheelOuterY':52,'MainAxleStartY':-54,'MainAxleLength':109.3,'DeckBottom':70}
+    if n in changes:ps.set('B'+str(i),f'={changes[n]} mm')
+D.AssemblyRearClip.setExpression('Placement.Base.y','52.4 mm')
+D.recompute()
+S=D.addObject('Spreadsheet::Sheet','Steering');S.Label='Řízení: mm / deg; vůle návrhové'
+params=[('KingpinX',154,'mm'),('HalfTrack',44,'mm'),('Arm',20,'mm'),('Trail',3.7,'mm'),('WheelOffset',15,'mm'),('HornRadius',15,'mm'),('ServoX',184,'mm'),('WheelAngle',0,'deg'),('StopAngle',24,'deg'),('WorkingAngle',20,'deg'),('PinDiameter',8,'mm'),('PinClearance',0.6,'mm'),('BodyRadius',7,'mm'),('KnuckleBottom',14.4,'mm'),('KnuckleTop',33.6,'mm'),('TieBottom',45,'mm'),('DragBottom',48.4,'mm'),('HornBottom',41,'mm'),('HornThickness',2.5,'mm'),('ServoFloor',10.7,'mm'),('ServoWidth',12.2,'mm'),('ServoLength',22.7,'mm'),('ServoHeight',27,'mm'),('CaseAxisOffset',5,'mm'),('JointDiameter',6,'mm'),('JointBore',6.5,'mm'),('TreadDepth',1,'mm'),('TreadWidth',1.6,'mm')]
+rows={}
+for i,(n,v,u) in enumerate(params,2):
+    rows[n]=i;S.set('A'+str(i),n);S.set('B'+str(i),f'={v} {u}');S.setAlias('B'+str(i),n)
+    note='Návrh, skutečný fit neověřen'
+    if n in ('PinDiameter','PinClearance','BodyRadius','WheelOffset','KnuckleBottom','KnuckleTop','JointDiameter','JointBore','WorkingAngle'):note='Konstrukční informace: změna vyžaduje související úpravy makra a novou kontrolu, ne libovolnou editaci'
+    if n=='HornRadius':note='Uživatel výslovně změřil střed osy → střed posledního otvoru 15 mm'
+    if n in ('ServoWidth','ServoLength','ServoHeight'):note='Nominální TowerPro výkres; fyzicky neměřeno'
+    if n=='CaseAxisOffset':note='NEZMĚŘENÝ návrhový offset; nastavitelné uložení, nutno ověřit'
+    S.set('C'+str(i),note)
+formulae=[('TieLength','2 * HalfTrack'),('EndX','KingpinX + Arm * cos(WheelAngle)'),('EndLeftY','-HalfTrack + Arm * sin(WheelAngle)'),('DragLength','sqrt((KingpinX + Arm - ServoX + HornRadius)^2 + HalfTrack^2)'),('DeltaX','EndX - ServoX'),('DeltaY','EndLeftY'),('RadiusToEnd','sqrt(DeltaX^2 + DeltaY^2)'),('ServoAngle','atan2(DeltaY, DeltaX) - acos((RadiusToEnd^2 + HornRadius^2 - DragLength^2)/(2*HornRadius*RadiusToEnd)) + 180 deg'),('HornX','ServoX - HornRadius * cos(ServoAngle)'),('HornY','-HornRadius * sin(ServoAngle)'),('DragAngle','atan2(EndLeftY-HornY, EndX-HornX)'),('SpacerHeight','DragBottom-HornBottom-HornThickness')]
+for i,(n,f) in enumerate(formulae,len(params)+3):S.set('A'+str(i),n);S.set('B'+str(i),'='+f);S.setAlias('B'+str(i),n)
+S.setColumnWidth('A',200);S.setColumnWidth('B',150);S.setColumnWidth('C',500);D.recompute()
+def s(n):return 'Steering.'+n
+def p(n):return 'Parameters.'+n
+def prop(o,k,v):
+    if isinstance(v,(int,float)):setattr(o,k,v)
+    else:o.setExpression(k,v)
+def pos(o,x=0,y=0,z=0):
+    for a,v in zip('xyz',(x,y,z)):o.setExpression('Placement.Base.'+a,str(v)+' mm' if isinstance(v,(int,float)) else v)
+    return o
+def box(n,d,xyz=(0,0,0)):
+    o=D.addObject('Part::Box',n)
+    for k,v in zip(('Length','Width','Height'),d):prop(o,k,v)
+    return pos(o,*xyz)
+def cyl(n,r,h,xyz=(0,0,0),rot=None):
+    o=D.addObject('Part::Cylinder',n);prop(o,'Radius',r);prop(o,'Height',h);pos(o,*xyz)
+    if rot:o.Placement.Rotation=rot
+    return o
+def fuse(n,a):
+    o=D.addObject('Part::MultiFuse',n);o.Shapes=a;o.Refine=True;return o
+def cut(n,a,b):
+    o=D.addObject('Part::Cut',n);o.Base=a;o.Tool=b;o.Refine=True;return o
+def common(n,a,b):
+    o=D.addObject('Part::Common',n);o.Base=a;o.Tool=b;o.Refine=True;return o
+rxp=App.Rotation(App.Vector(1,0,0),90);rxn=App.Rotation(App.Vector(1,0,0),-90)
+# Staré přední uložení zůstává jako dosed kompatibilní plošiny, není v něm osa.
+for n in ['AssemblyFrontLeft','AssemblyFrontRight','AssemblyFrontAxle','AssemblyFrontLongLeft','AssemblyFrontLongRight','AssemblyFrontClip','AssemblyFrame']:
+    D.removeObject(n)
+material=[D.Frame,box('FrontCrossmember',(20,'2 * '+s('HalfTrack'),5),(s('KingpinX')+' - 10 mm','-'+s('HalfTrack'),4)),box('NosePlate',(15,34,4),(180,-17,0))];voids=[]
+# Dva spodní závěsy, horní čelisti samostatně nasazené do obdélníkových registrů.
+for side,tag in [(-1,'L'),(1,'R')]:
+    y=f'{side} * '+s('HalfTrack')
+    material.append(cyl('LowerFork'+tag,8,5,(s('KingpinX'),y,9)))
+    voids+=[cyl('KingpinBore'+tag,s('PinDiameter')+'/2 + '+s('PinClearance')+'/2',12,(s('KingpinX'),y,3)),cyl('ClipAccess'+tag,7,6,(s('KingpinX'),y,3))]
+    material.append(box('ForkSupport'+tag,(7,7,30),(s('KingpinX')+' - 3.5 mm',f'{side} * ('+s('HalfTrack')+' - 14.5 mm) - 3.5 mm',4)))
+    voids.append(box('CapRegisterVoid'+tag,(4.6,4.6,3),(s('KingpinX')+' - 2.3 mm',f'{side} * ('+s('HalfTrack')+' - 14.5 mm) - 2.3 mm',32)))
+    # Doraz: váleček Ø2,4 v otevřené kruhové dráze se svislými radiálními konci.
+    half=s('StopAngle')+f' + {math.degrees(math.asin(1.2/6.5)):.14f} deg'
+    sector=cyl('StopSector'+tag,8.2,3,(s('KingpinX'),y,11.3));sector.setExpression('Angle','2 * ('+half+')');sector.Placement.Rotation=App.Rotation(App.Vector(0,0,1),1);sector.setExpression('Placement.Rotation.Angle','-('+half+')')
+    pocket=cut('StopPocket'+tag,sector,cyl('StopInner'+tag,5,5,(s('KingpinX'),y,10.3)))
+    voids.append(pocket)
+# Otevřená ploška serva s podélnými otvory pro dvě pásky. Žádný tištěný spline.
+material.append(box('ServoPedestal',(17,37,s('ServoFloor')+' - 4 mm'),(s('ServoX')+' - 8.5 mm',-18.5,4)))
+for f in (0.5,0.85):
+    y='-'+s('CaseAxisOffset')+f' + {f} * '+s('ServoLength')
+    for side in (-1,1):voids.append(box('ServoStrap'+str(int(f*100))+str(side),(3.2,4,20),(s('ServoX')+f' + {side*11-1.6} mm',y+' - 2 mm',-1)))
+# Uši bočního páskového lože rozšíří nos, aby drážky skutečně procházely materiálem.
+material.append(box('ServoStrapBase',(28,34,4),(s('ServoX')+' - 14 mm',-17,0)))
+frame=cut('SteeringFrame',fuse('SteeringFrameMaterial',material),fuse('SteeringFrameVoids',voids))
+# Čelist zdroje v místních XY, pravá se při montáži zrcadlí otočením kolem Z.
+capmat=[cyl('CapEye',8,5),box('CapBridge',(7,14.5,5),(-3.5,-14.5,0)),box('CapKey',(4,4,2),(-2,-16.5,-2))]
+cap=cut('ForkCap',fuse('CapMaterial',capmat),cyl('CapHole',4.3,9,(0,0,-3)))
+# Hlavní svislý čep: stejná D plocha/drážka jako V2, zkrácený na 35,3.
+def axle(n,d,l,flange,groove,flat):
+    a=fuse(n+'Blank',[cyl(n+'Rod',d/2,l),cyl(n+'Head',flange/2,2)])
+    a=cut(n+'Flat',a,box(n+'FlatTool',(15,30,l+2),(flat,-15,-1)))
+    gr=cut(n+'Groove',cyl(n+'GrooveOuter',10,1.5,(0,0,l-3)),cyl(n+'GrooveCore',groove/2,3.5,(0,0,l-4)))
+    return cut(n,a,gr)
+king= axle('Kingpin',8,35.3,13,6.8,2.8)
+knuckles={}
+for side,tag in [(-1,'L'),(1,'R')]:
+    # pravé/levé zdroje globálně stejně orientované, osička směřuje ven.
+    rot=rxn if side==1 else rxp
+    shaft=cyl('Stub'+tag,4,24.3,('-'+s('Trail'),0,0),rot)
+    collar=cyl('WheelCollar'+tag,6,4.3,('-'+s('Trail'),side*4.5,0),rot)
+    items=[cyl('KnuckleBody'+tag,s('BodyRadius'),s('KnuckleTop')+' - '+s('KnuckleBottom'),(0,0,s('KnuckleBottom')+' - 24 mm')),shaft,collar,
+      box('ArmBase'+tag,(20,8,5),(0,-4,4)),box('ArmRise'+tag,(9,8,15.6),(11,-4,5)),cyl('ArmEye'+tag,6,3.6,(s('Arm'),0,17)),cyl('StopPeg'+tag,1.2,3.3,(6.5,0,-12.3))]
+    raw=fuse('KnuckleMaterial'+tag,items)
+    # Plochá tisková základna současně vytváří D osičku; přední kola mají kruhový otvor.
+    raw=cut('KnuckleFlat'+tag,raw,box('KnuckleFlatTool'+tag,(20,80,60),('-'+s('Trail')+' - 22.8 mm',-40,-30)))
+    gr=cut('StubGroove'+tag,cyl('StubGrooveOuter'+tag,7,1.5,('-'+s('Trail'),side*21.3,0),rot),cyl('StubGrooveCore'+tag,3.4,3.5,('-'+s('Trail'),side*20.3,0),rot))
+    holes=[cyl('KnucklePivotHole'+tag,4.3,24,(0,0,-12)),cyl('ArmJointHole'+tag,3.25,12,(s('Arm'),0,12)),cyl('JointClipAccess'+tag,5.3,3.7,(s('Arm'),0,13.5)),gr]
+    knuckles[side]=cut('Knuckle'+tag,raw,fuse('KnuckleVoids'+tag,holes))
+# C táhlo před spojnicí čepů: otvorové středy (0,0) a (0,88).
+tmat=[cyl('TieEyeL',6,3),cyl('TieEyeR',6,3,(0,s('TieLength'),0)),box('TieBeam',(4,s('TieLength'),3),(3.5,0,0))]
+tie=cut('TieBar',fuse('TieMaterial',tmat),fuse('TieVoids',[cyl('TieHoleL',3.25,5,(0,0,-1)),cyl('TieHoleR',3.25,5,(0,s('TieLength'),-1))]))
+# Servotáhlo v místní X: M2 na0, robustní tištěný čepØ6 naL.
+dragmat=[cyl('DragSmallEye',4,3),cyl('DragLargeEye',6,3,(s('DragLength'),0,0)),box('DragBeam',(s('DragLength'),4,3),(0,-2,0))]
+drag=cut('DragLink',fuse('DragMaterial',dragmat),fuse('DragVoids',[cyl('DragM2Hole',1.15,5,(0,0,-1)),cyl('DragJointHole',3.25,5,(s('DragLength'),0,-1))]))
+# Hornový distanční váleček nominálně4,9mm, skutečná výška páčky se ověří před montáží.
+spacer=cut('HornSpacer',cyl('HornSpacerOuter',2.2,s('SpacerHeight')),cyl('HornSpacerHole',1.15,s('SpacerHeight')+' + 2 mm',(0,0,-1)))
+# Malé čepy vkládat shora. Pojistka pod ramenem; otočný spoj se nesmí sevřít.
+jointlong=axle('JointPinLong',6,15.6,10,4.8,2)
+jointshort=axle('JointPinShort',6,12.2,10,4.8,2)
+smallclip=cut('SmallClip',cut('SmallClipRing',cyl('SmallClipOuter',5,1.3),cyl('SmallClipBore',2.45,3.3,(0,0,-1))),box('SmallClipMouth',(8,4.1,3.3),(0,-2.05,-1)))
+D.recompute();print('PROGRESS new shapes recomputed',flush=True)
+# Skutečný dezén: 24 radiálních drážek v každé polovině šířky, posun7,5°.
+# KořenØ74 má u běžného ráfku3mm radiální stěnu; náboje a zuby se nemění.
+wheels={}
+for tag,base in [('Rear',D.RearGearedWheel),('Right',D.RearRightWheel),('Front',D.FrontWheel)]:
+    grooves=[]
+    for half in (0,1):
+        for j in range(24):
+            angle=j*15+half*7.5;a=math.radians(angle)
+            g=box('Tread'+tag+str(half)+'_'+str(j),(s('TreadDepth')+' + 1 mm',s('TreadWidth'),p('WheelThickness')+'/2 + 0.1 mm'),(0,0,f'{half}/2 * '+p('WheelThickness')+' - 0.05 mm'))
+            rad=p('WheelDiameter')+'/2 - '+s('TreadDepth')
+            g.setExpression('Placement.Base.x',f'{math.cos(a):.16g} * ({rad}) + {math.sin(a)/2:.16g} * '+s('TreadWidth'))
+            g.setExpression('Placement.Base.y',f'{math.sin(a):.16g} * ({rad}) - {math.cos(a)/2:.16g} * '+s('TreadWidth'))
+            g.Placement.Rotation=App.Rotation(App.Vector(0,0,1),angle);grooves.append(g)
+    wheels[tag]=cut('TreadWheel'+tag,base,fuse('TreadVoids'+tag,grooves))
+D.AssemblyRearLeft.setLink(wheels['Rear']);D.AssemblyRearRight.setLink(wheels['Right'])
+D.recompute()
+# Sestava s výrazovými vazbami. Lokální knuckle pivot je Z24.
+A=D.Assembly; A.Label='SESTAVA — řízení SG90, 12:1'
+newlinks=[]
+def link(n,o,x=0,y=0,z=0,rot=None):
+    a=D.addObject('App::Link',n);a.setLink(o);pos(a,x,y,z)
+    if rot:a.Placement.Rotation=rot
+    A.addObject(a);newlinks.append(a);return a
+def rotatez(a,angle):
+    a.Placement.Rotation=App.Rotation(App.Vector(0,0,1),0);a.setExpression('Placement.Rotation.Angle',angle)
+link('AssemblySteeringFrame',frame)
+kin=[]
+for side,tag in [(-1,'L'),(1,'R')]:
+    y=f'{side} * '+s('HalfTrack')
+    caplink=link('AssemblyForkCap'+tag,cap,s('KingpinX'),y,34,App.Rotation(App.Vector(0,0,1),0 if side==1 else 180))
+    link('AssemblyKingpin'+tag,king,s('KingpinX'),y,41.3,App.Rotation(App.Vector(1,0,0),180))
+    link('AssemblyKingClip'+tag,D.Clip,s('KingpinX'),y,7.6,App.Rotation(App.Vector(0,0,1),-side*90))
+    a=link('AssemblyKnuckle'+tag,knuckles[side],s('KingpinX'),y,24);rotatez(a,s('WheelAngle'));kin.append(a)
+    # Transform wheel plane around Z through kingpin; quaternion via attachment wrapper group.
+    group=D.addObject('App::Part','WheelCarrier'+tag);pos(group,s('KingpinX'),y,24);rotatez(group,s('WheelAngle'));A.addObject(group)
+    wheel=link('AssemblySteeringWheel'+tag,wheels['Front'],'-'+s('Trail'),side*21,0,rxn if side==-1 else rxp);A.removeObject(wheel);group.addObject(wheel)
+    wc=link('AssemblyWheelClip'+tag,D.Clip,'-'+s('Trail'),side*21.4,0,rxn if side==1 else rxp);A.removeObject(wc);group.addObject(wc)
+    kin+=[group]
+    # Čep kloubu od horní příruby dolů; stejné dolní jištění Z39.6..40.9.
+    long=side==-1;z=53.6 if long else 50.2
+    jl=link('AssemblyJointPin'+tag,jointlong if long else jointshort,s('EndX'),y+' + '+s('Arm')+' * sin('+s('WheelAngle')+')',z,App.Rotation(App.Vector(1,0,0),180));kin.append(jl)
+    cl=link('AssemblyJointClip'+tag,smallclip,s('EndX'),y+' + '+s('Arm')+' * sin('+s('WheelAngle')+')',39.6);kin.append(cl)
+tiel=link('AssemblyTie',tie,s('EndX'),s('EndLeftY'),s('TieBottom'));kin.append(tiel)
+dl=link('AssemblyDrag',drag,s('HornX'),s('HornY'),s('DragBottom'));rotatez(dl,s('DragAngle'));kin.append(dl)
+hs=link('AssemblyHornSpacer',spacer,s('HornX'),s('HornY'),s('HornBottom')+' + '+s('HornThickness'));kin.append(hs)
+# Nominální reference SG90. Posun osy proti krabičce neznámý; explicitní parametr.
+servo=cyl('ServoShaftReference',2.3,3.3,(s('ServoX'),0,s('ServoFloor')+' + '+s('ServoHeight')))
+body=box('ServoBodyReference',(s('ServoWidth'),s('ServoLength'),s('ServoHeight')),(s('ServoX')+' - '+s('ServoWidth')+'/2','-'+s('CaseAxisOffset'),s('ServoFloor')))
+ref=fuse('ServoReference',[body,servo]);ref.Label='SG90 — nominální reference, fit těla/páčky NEOVĚŘEN';A.addObject(ref)
+# Horn je pouze návrhová prostorová obálka, netiskne se a nenahrazuje originální spline.
+hraw=fuse('HornReferenceMaterial',[cyl('HornHubReference',3.5,s('HornThickness')),box('HornArmReference',(s('HornRadius'),4,s('HornThickness')),('-'+s('HornRadius'),-2,0)),cyl('HornEyeReference',3,s('HornThickness'),('-'+s('HornRadius'),0,0))])
+hraw=cut('HornReference',hraw,cyl('HornM2ReferenceHole',1.15,s('HornThickness')+' + 2 mm',('-'+s('HornRadius'),0,-1)))
+horn=link('AssemblyHornReference',hraw,s('ServoX'),0,s('HornBottom'));rotatez(horn,s('ServoAngle'));horn.Label='ORIGINÁLNÍ páčka: r15 potvrzen, ostatní obálka návrhová';kin.append(horn)
+# Jen vizuální M2 šroub. Skutečný spoj M2×16, 2 podložky, pojistná matice; fit otvoru ověřit.
+screw=cyl('HornScrewReference',1,16,(s('HornX'),s('HornY'),39.5));screw.Label='M2×16 reference — koupit/ověřit, netisknout';A.addObject(screw);kin.append(screw)
+D.recompute();D.saveAs(str(OUT/'auticko-se-zatacenim.FCStd'));print('PROGRESS first assembly saved',flush=True)
+# Registr finálních tiskových dílů. Původní STL se kopírují byte-for-byte.
+reuse=[('plosina-170x60','Deck',1),('pastorek-18z-otvor-2_2','Pinion',1),('mezikolo-54_18z','CompoundGear',1),('osa-mezi-65_2','MiddleAxle',1),('rozperka-8_6','RearSpacer',1),('rozperka-17_6','LongSpacer',1),('rozperka-1_6','MiddleSpacer',2),('pojistka-c','Clip',6)]
+new=[('kolo-zadni-76x12-72z',wheels['Rear'],1,'flat'),('kolo-zadni-76x12-prave',wheels['Right'],1,'flat'),('kolo-predni-76x12',wheels['Front'],2,'flat'),('osa-zadni-109_3',D.MainAxle,1,'axle'),('ram-rizeni',frame,1,'flat'),('celist-horni',cap,2,'cap'),('svisly-cep',king,2,'axle'),('tehlice-leva',knuckles[-1],1,'knuckle'),('tehlice-prava',knuckles[1],1,'knuckle'),('spojovaci-tahlo',tie,1,'flat'),('servo-tahlo-r15',drag,1,'flat'),('distanc-packy',spacer,1,'flat'),('cep-tahla-dlouhy',jointlong,1,'axle'),('cep-tahla-kratky',jointshort,1,'axle'),('pojistka-mala',smallclip,2,'flat')]
+report={'status':'CAD PROTOTYP, NEVYTIŠTĚNO; SG90 fit mimo potvrzený r15 nutno ověřit','parts':{},'source_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),'original_assets':protected,'steering_parameters':{n:{'value':v,'unit':u} for n,v,u in params},'reuse_drivetrain_validation':'../auticko-s-prevodovkou/kontrola-modelu.json','motion':{},'assembly_object_names':[a.Name for a in A.Group]}
+# Odstranit pouze již neplatné STL staršího pracovního návrhu v této nové složce.
+for obsolete in ('kolo-zadni-72z','kolo-zadni-prave','kolo-predni','osa-hlavni-101_3'):
+    q=OUT/'stl'/(obsolete+'.stl')
+    if q.exists():q.unlink()
+zone=Part.makeBox(100,9,100,App.Vector(-10,-40,-30))
+a=old_rear.common(zone);b=D.AssemblyRearLeft.Shape.common(zone)
+report['rear_gear_reuse_geometric_difference_mm3']=a.cut(b).Volume+b.cut(a).Volume
+assert report['rear_gear_reuse_geometric_difference_mm3']<1e-6
+for key,name,count in reuse:
+    src=OLD/'stl'/(key+'.stl');dst=OUT/'stl'/(key+'.stl');shutil.copyfile(src,dst)
+    report['parts'][key]={'object':name,'copies':count,'reuse':True,'volume_mm3':D.getObject(name).Shape.Volume,'sha256':hashlib.sha256(dst.read_bytes()).hexdigest(),'original_sha256':hashlib.sha256(src.read_bytes()).hexdigest(),'stl':'stl/'+key+'.stl'}
+def print_shape(shape,ori):
+    a=shape.copy()
+    if ori=='axle':a.rotate(App.Vector(),App.Vector(0,1,0),90)
+    if ori=='knuckle':a.rotate(App.Vector(),App.Vector(0,1,0),-90)
+    if ori=='cap':a.rotate(App.Vector(),App.Vector(1,0,0),180)
+    b=a.BoundBox;a.translate(App.Vector(-b.XMin,-b.YMin,-b.ZMin));return a
+for key,o,count,ori in new:
+    if o.Shape.isNull() or not o.Shape.isValid() or len(o.Shape.Solids)!=1:raise RuntimeError('Invalid '+key+' solids='+str(len(o.Shape.Solids)))
+    a=print_shape(o.Shape,ori);m=MeshPart.meshFromShape(Shape=a,LinearDeflection=0.04,AngularDeflection=0.1,Relative=False)
+    if not m.isSolid():raise RuntimeError('Open mesh '+key)
+    dest=OUT/'stl'/(key+'.stl');m.write(str(dest));b=a.BoundBox
+    report['parts'][key]={'object':o.Name,'copies':count,'reuse':False,'valid':True,'solid_count':1,'closed_mesh':True,'volume_mm3':o.Shape.Volume,'bbox_mm':[b.XLength,b.YLength,b.ZLength],'print_orientation':ori,'stl':'stl/'+key+'.stl','sha256':hashlib.sha256(dest.read_bytes()).hexdigest()}
+    print('PROGRESS export '+key,flush=True)
+(OUT/'kontrola-modelu.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
+D.saveAs(str(OUT/'auticko-se-zatacenim.FCStd'))
+print('COMPLETE geometry draft; validation follows in overit-rizeni.FCMacro',flush=True)

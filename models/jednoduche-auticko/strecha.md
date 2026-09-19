@@ -4,7 +4,7 @@ Zadání z 19. 9. 2026: přidat horní nosnou plochu bez přetisku podvozku. Už
 
 Nástavec je **jeden samostatně tištěný díl**, který se čtyřmi mělkými kapsami nasadí shora na stávající výstupky uložení os. Původní rám, kola, osy, rozpěrky a pastorek zůstávají stejné. Horní desku podpírají čtyři sloupky a dvě podélná žebra zespodu. Boky zůstávají otevřené; přístup k motoru a jeho kontaktům není uzavřený stěnou. Pro servis lze nástavec zvednout bez rozebrání podvozku, pokud jsou vodiče volné.
 
-**Stav: vytvořený CAD a STL, nikoli vytištěný a zatížený díl.** Dosed a tiskové vůle je potřeba ověřit na skutečném rámu. Kapsy brání bočnímu posunu, ale nejsou pružnou západkou ani zajištěním proti nadzvednutí. Zatížení nahoře zvyšuje těžiště; nosnost, průhyb a stabilita při jízdě nejsou potvrzené.
+**Stav: uživatel 19. 9. 2026 potvrdil dokončení tisku a následně nasazení střechy.** Při pokračování hlásí [potíže s rozjezdem a divný zvuk](../../elektronika/auticko/potize-po-montazi.md), nyní i neúspěch s koly ve vzduchu. Podle jeho upřesnění byl těžký rozjezd už na starém programu; samotná hmotnost střechy ani regrese firmwaru nejsou prokázanou příčinou. Dosed a tiskové vůle je potřeba ověřit na skutečném rámu. Kapsy brání bočnímu posunu, ale nejsou pružnou západkou ani zajištěním proti nadzvednutí. Zatížení nahoře zvyšuje těžiště; nosnost, průhyb a stabilita při jízdě nejsou potvrzené. Profil, cívka, skutečný čas a spotřeba tohoto výtisku nejsou doložené.
 
 ![Skutečná sestava s nástavcem](strecha-sestava.png)
 
@@ -68,4 +68,4 @@ Kontrola ve FreeCADu 1.1.3 potvrdila jeden platný solid, čtyři úplné dosedy
 
 **Nezávislá kontrola nově otevřeného uloženého FCStd prošla:** sedm změn a návratů parametrů (délka, šířka, výška, vůle a hloubka kapes, výška výstupků a rozvor) zachovalo správné vazby, validní uzavřený solid a po návratu původní objem. Souvislá užitná plocha má skutečně **10 200 mm²** bez otvorů. Obálky rotačních součástí ověřily volné svislé sejmutí; navíc byly bez kolizí zkontrolovány zdvihy **0,1 / 1 / 2 / 3 / 8 / 30 mm**. Kontrolní součet nového FCStd před a po této zkoušce se nezměnil. Výsledky i rozsah důkazu jsou v [ověřovacím JSON](overeni-strechy.json).
 
-**Dosud neověřeno:** skutečný výtisk, souběžný fit všech čtyř kapes, vůle při roztočení soukolí, nosnost, průhyb a stabilita naloženého autíčka. Žádný tisk nebyl tímto modelováním spuštěn a firmware ani elektronika nebyly změněny.
+**Dosud neověřeno:** kvalita a rozměry dokončeného výtisku, souběžný fit všech čtyř kapes, vůle při roztočení soukolí, nosnost, průhyb a stabilita naloženého autíčka. Dokončení tisku hlásí uživatel; agent tiskárnu neovládal. Modelování nástavce neměnilo firmware ani elektroniku. Jejich navazující stav je v [přehledu elektroniky](../../elektronika/auticko/README.md), potvrzené montážní pomůcky v [inventáři](../../elektronika/vybaveni.md).

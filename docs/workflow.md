@@ -31,3 +31,11 @@ Po změně parametrů přepočítat model a exportovat nový STL z finálního o
 Stavy zapisovat odděleně: **geometrie ověřena → připraveno ve sliceru → uživatel zahájil tisk → dokončení potvrzeno → fyzický výsledek vyhodnocen**. Poslední dva stavy nelze odvodit z vytvoření STL či odeslání úlohy. Úspěch pro zamýšlený účel může navíc vyžadovat rozměrovou a funkční zkoušku.
 
 Veškeré nové zkušenosti zapisovat do tohoto projektu, do příslušných docs, poznámek modelu a [deníku](denik-tisku.md). Původní soubory mimo checkout jsou zachované kopie, nikoli další místo pro rozvíjení modelu.
+
+## Elektronika a vybavení
+
+Zapojení, zkoušky a aktuální stav elektronického projektu patří do [samostatné sekce](../elektronika/README.md); mechanický model na ně odkazuje. U autíčka je výchozí [přehled elektroniky](../elektronika/auticko/README.md), zatímco zdroj programu zůstává u mechanického modelu. Staré cesty elektronických poznámek obsahují jen přesměrování, ne další kopii historie.
+
+Nový nákup zapisovat do [kanonického inventáře](../elektronika/vybaveni.md) s původem potvrzení. Neznámé počty a parametry ponechat neznámé. To, že uživatel vlastní páječku nebo nové baterie, nepotvrzuje zapájené spoje ani výměnu článků v sestavě.
+
+U elektroniky oddělovat návrh a skutečné zapojení, kontrolu zdroje a překlad, upload konkrétní verze a fyzickou zkoušku. Ke zkoušce zaznamenat použitý program, zdroj napájení, podmínky a přesné hlášení uživatele. Novější pracovní zdroj nemusí odpovídat nahranému programu; dřívější fyzický úspěch není důkazem funkce nové verze. Historické podmínky uchovat a aktuální stav uvést zvlášť.

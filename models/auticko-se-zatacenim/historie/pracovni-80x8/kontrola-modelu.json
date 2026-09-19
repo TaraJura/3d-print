@@ -1,0 +1,534 @@
+{
+  "status": "CAD PROTOTYP, NEVYTIŠTĚNO; SG90 fit mimo potvrzený r15 nutno ověřit",
+  "parts": {
+    "plosina-170x60": {
+      "object": "Deck",
+      "copies": 1,
+      "reuse": true,
+      "sha256": "f78e2b584a78c6044a266ba4af2171cbb3e89d0f918b795e4e0478035ab56f62",
+      "original_sha256": "f78e2b584a78c6044a266ba4af2171cbb3e89d0f918b795e4e0478035ab56f62",
+      "stl": "stl/plosina-170x60.stl"
+    },
+    "kolo-zadni-72z": {
+      "object": "RearGearedWheel",
+      "copies": 1,
+      "reuse": true,
+      "sha256": "736219a13c8860320c8ca397d3cff354665c715046efb9026be8fb5c5ab5670c",
+      "original_sha256": "736219a13c8860320c8ca397d3cff354665c715046efb9026be8fb5c5ab5670c",
+      "stl": "stl/kolo-zadni-72z.stl"
+    },
+    "kolo-zadni-prave": {
+      "object": "RearRightWheel",
+      "copies": 1,
+      "reuse": true,
+      "sha256": "07be566a14514ba2150a4f1f973b4ad2e095ec295cf1540701969d7a15864e08",
+      "original_sha256": "07be566a14514ba2150a4f1f973b4ad2e095ec295cf1540701969d7a15864e08",
+      "stl": "stl/kolo-zadni-prave.stl"
+    },
+    "kolo-predni": {
+      "object": "FrontWheel",
+      "copies": 2,
+      "reuse": true,
+      "sha256": "94d6b98650aa5ce4c24bcf8d6fdad3dfe449cba5a4f47bddd04d0421d510a0ad",
+      "original_sha256": "94d6b98650aa5ce4c24bcf8d6fdad3dfe449cba5a4f47bddd04d0421d510a0ad",
+      "stl": "stl/kolo-predni.stl"
+    },
+    "pastorek-18z-otvor-2_2": {
+      "object": "Pinion",
+      "copies": 1,
+      "reuse": true,
+      "sha256": "e412ec278422cd4c66d4843b95c561de3a8655f82e5d40e6012a5ee1eaec2870",
+      "original_sha256": "e412ec278422cd4c66d4843b95c561de3a8655f82e5d40e6012a5ee1eaec2870",
+      "stl": "stl/pastorek-18z-otvor-2_2.stl"
+    },
+    "mezikolo-54_18z": {
+      "object": "CompoundGear",
+      "copies": 1,
+      "reuse": true,
+      "sha256": "682c02fc3de7cf8fbc3986826dfedd33ad8841c019b4a6511315ae11fae4d48e",
+      "original_sha256": "682c02fc3de7cf8fbc3986826dfedd33ad8841c019b4a6511315ae11fae4d48e",
+      "stl": "stl/mezikolo-54_18z.stl"
+    },
+    "osa-hlavni-101_3": {
+      "object": "MainAxle",
+      "copies": 1,
+      "reuse": true,
+      "sha256": "9710518a9ac4b2767bee2325c9555d7c06cfcd87d76badfb10b031a7a238acb7",
+      "original_sha256": "9710518a9ac4b2767bee2325c9555d7c06cfcd87d76badfb10b031a7a238acb7",
+      "stl": "stl/osa-hlavni-101_3.stl"
+    },
+    "osa-mezi-65_2": {
+      "object": "MiddleAxle",
+      "copies": 1,
+      "reuse": true,
+      "sha256": "2729dc64cc6e28095c0201009ee6e72f5721b95f78b3ab0d151b5f5446523f05",
+      "original_sha256": "2729dc64cc6e28095c0201009ee6e72f5721b95f78b3ab0d151b5f5446523f05",
+      "stl": "stl/osa-mezi-65_2.stl"
+    },
+    "rozperka-8_6": {
+      "object": "RearSpacer",
+      "copies": 1,
+      "reuse": true,
+      "sha256": "788faab6835a9651d99579708fcf17a5f0c0dcfe482de3ef868c90c66d1ed56f",
+      "original_sha256": "788faab6835a9651d99579708fcf17a5f0c0dcfe482de3ef868c90c66d1ed56f",
+      "stl": "stl/rozperka-8_6.stl"
+    },
+    "rozperka-17_6": {
+      "object": "LongSpacer",
+      "copies": 1,
+      "reuse": true,
+      "sha256": "b87e75387f5cfbed05a449c5e44efb92122315d4a1c1bfcdcf952d98dadb665a",
+      "original_sha256": "b87e75387f5cfbed05a449c5e44efb92122315d4a1c1bfcdcf952d98dadb665a",
+      "stl": "stl/rozperka-17_6.stl"
+    },
+    "rozperka-1_6": {
+      "object": "MiddleSpacer",
+      "copies": 2,
+      "reuse": true,
+      "sha256": "415ff9e44b8ce3e039d085c91175809c0a15446e21d1130f5e0ba59ea83fc3eb",
+      "original_sha256": "415ff9e44b8ce3e039d085c91175809c0a15446e21d1130f5e0ba59ea83fc3eb",
+      "stl": "stl/rozperka-1_6.stl"
+    },
+    "pojistka-c": {
+      "object": "Clip",
+      "copies": 6,
+      "reuse": true,
+      "sha256": "7be6176012c834bfba0b745c0048f7139799b85b0654688302d0bba3353007e0",
+      "original_sha256": "7be6176012c834bfba0b745c0048f7139799b85b0654688302d0bba3353007e0",
+      "stl": "stl/pojistka-c.stl"
+    },
+    "ram-rizeni": {
+      "object": "SteeringFrame",
+      "copies": 1,
+      "reuse": false,
+      "valid": true,
+      "solid_count": 1,
+      "closed_mesh": true,
+      "volume_mm3": 65991.32249753374,
+      "bbox_mm": [
+        198.0,
+        103.99644938242514,
+        34.0
+      ],
+      "print_orientation": "flat",
+      "stl": "stl/ram-rizeni.stl",
+      "sha256": "b9f8442a30e9ec1524828a12d237c808848ccd69fd7ac04e9e747bf41a3c0932"
+    },
+    "celist-horni": {
+      "object": "ForkCap",
+      "copies": 2,
+      "reuse": false,
+      "valid": true,
+      "solid_count": 1,
+      "closed_mesh": true,
+      "volume_mm3": 983.5775205190209,
+      "bbox_mm": [
+        15.998200911093587,
+        24.499197895851022,
+        7.000000000000001
+      ],
+      "print_orientation": "cap",
+      "stl": "stl/celist-horni.stl",
+      "sha256": "bbdfc0d4ba793f973ad7c13b947867d38b9739c58f13362b41cbaced25f51872"
+    },
+    "svisly-cep": {
+      "object": "Kingpin",
+      "copies": 2,
+      "reuse": false,
+      "valid": true,
+      "solid_count": 1,
+      "closed_mesh": true,
+      "volume_mm3": 1703.4226373533456,
+      "bbox_mm": [
+        35.3,
+        12.99995309023798,
+        9.297986587163741
+      ],
+      "print_orientation": "axle",
+      "stl": "stl/svisly-cep.stl",
+      "sha256": "2187b532545a3620d106526d75f87524a9fb17516953a3696fca48eda3fe7f7b"
+    },
+    "tehlice-leva": {
+      "object": "KnuckleL",
+      "copies": 1,
+      "reuse": false,
+      "valid": true,
+      "solid_count": 1,
+      "closed_mesh": true,
+      "volume_mm3": 3905.8265641609382,
+      "bbox_mm": [
+        32.900000000000006,
+        27.299822915498464,
+        32.50000000000001
+      ],
+      "print_orientation": "knuckle",
+      "stl": "stl/tehlice-leva.stl",
+      "sha256": "ac2fc90c7efddf0cf590a2610fd53c3ca4722e6f2004a4474f8d101bcc16f3a9"
+    },
+    "tehlice-prava": {
+      "object": "KnuckleR",
+      "copies": 1,
+      "reuse": false,
+      "valid": true,
+      "solid_count": 1,
+      "closed_mesh": true,
+      "volume_mm3": 3905.828282304876,
+      "bbox_mm": [
+        32.900000000000006,
+        27.299822915498464,
+        32.50000000000001
+      ],
+      "print_orientation": "knuckle",
+      "stl": "stl/tehlice-prava.stl",
+      "sha256": "d9bccaf1db9e0ce90ed7aac665e084148f8961249fb352d9dd0c79b7d59c32dd"
+    },
+    "spojovaci-tahlo": {
+      "object": "TieBar",
+      "copies": 1,
+      "reuse": false,
+      "valid": true,
+      "solid_count": 1,
+      "closed_mesh": true,
+      "volume_mm3": 1484.275516995037,
+      "bbox_mm": [
+        13.49999973446809,
+        99.99631525581276,
+        3.0
+      ],
+      "print_orientation": "flat",
+      "stl": "stl/spojovaci-tahlo.stl",
+      "sha256": "7bed23f1fa61c425b0adcb0212e8330b0ec365b4c4e0a2752b6e32700974d3e4"
+    },
+    "servo-tahlo-r15": {
+      "object": "DragLink",
+      "copies": 1,
+      "reuse": false,
+      "valid": true,
+      "solid_count": 1,
+      "closed_mesh": true,
+      "volume_mm3": 792.912261070348,
+      "bbox_mm": [
+        54.281936378972325,
+        11.999973054500295,
+        3.0
+      ],
+      "print_orientation": "flat",
+      "stl": "stl/servo-tahlo-r15.stl",
+      "sha256": "25c1c8213e8b5d445fee694eb1108b0df9e6e9e516d8e5ccde050088582fa3e7"
+    },
+    "distanc-packy": {
+      "object": "HornSpacer",
+      "copies": 1,
+      "reuse": false,
+      "valid": true,
+      "solid_count": 1,
+      "closed_mesh": true,
+      "volume_mm3": 54.147705579110266,
+      "bbox_mm": [
+        4.4,
+        4.398632400803592,
+        4.899999999999999
+      ],
+      "print_orientation": "flat",
+      "stl": "stl/distanc-packy.stl",
+      "sha256": "63e038fc0b893787f7e4b3807c66f7613b53f515ddd945f93027bd989cbb02a6"
+    },
+    "cep-tahla-dlouhy": {
+      "object": "JointPinLong",
+      "copies": 1,
+      "reuse": false,
+      "valid": true,
+      "solid_count": 1,
+      "closed_mesh": true,
+      "volume_mm3": 448.14885540949075,
+      "bbox_mm": [
+        15.6,
+        9.998866874981502,
+        7.0
+      ],
+      "print_orientation": "axle",
+      "stl": "stl/cep-tahla-dlouhy.stl",
+      "sha256": "c4207de7cc207a330a6273ef5323b0d71831352e8e63dc9f3ad1c2a5c194a65c"
+    },
+    "cep-tahla-kratky": {
+      "object": "JointPinShort",
+      "copies": 1,
+      "reuse": false,
+      "valid": true,
+      "solid_count": 1,
+      "closed_mesh": true,
+      "volume_mm3": 362.5475592820232,
+      "bbox_mm": [
+        12.2,
+        9.998866874981502,
+        7.0
+      ],
+      "print_orientation": "axle",
+      "stl": "stl/cep-tahla-kratky.stl",
+      "sha256": "3e5b70662458678fbbd56df259d092098f8db31b12acbfc025f899e51b1f2d40"
+    },
+    "pojistka-mala": {
+      "object": "SmallClip",
+      "copies": 2,
+      "reuse": false,
+      "valid": true,
+      "solid_count": 1,
+      "closed_mesh": true,
+      "volume_mm3": 63.01461096637103,
+      "bbox_mm": [
+        9.558871906779668,
+        9.99999667164559,
+        1.3
+      ],
+      "print_orientation": "flat",
+      "stl": "stl/pojistka-mala.stl",
+      "sha256": "16f315d7f9a68525af9bfd74d99b27113de4dcb9e2ce6369fecf930b6a8928cd"
+    }
+  },
+  "source_sha256": "f86458931fc268b78f2492d5c0bca041a5eb9ed7a7ced261a2d2db3eb1724500",
+  "original_assets": {
+    "/home/novakj/3d-print/models/auticko-s-prevodovkou/nahled.FCMacro": "3036d502eee2ab90b051adb7c3a44346524668034918f604be7bd8b1a737ebeb",
+    "/home/novakj/3d-print/models/auticko-s-prevodovkou/rozlozena-plosina.png": "5bc0e64bc9cbfcaa4111529a89bbf2776609e2200ab2395aa150b7bc01894021",
+    "/home/novakj/3d-print/models/auticko-s-prevodovkou/auticko-s-prevodovkou.FCMacro": "67d42566383f055c8669b633e4154163e0726b7e8cfca69ad44988ff5a975547",
+    "/home/novakj/3d-print/models/auticko-s-prevodovkou/overeni-exportu.json": "78840a508734b5e053f53cfe3295e5bf10123b40bad5144a61988f822393727d",
+    "/home/novakj/3d-print/models/auticko-s-prevodovkou/tiskovy-balicek.zip": "0d0fcbe4bb26ecb5e3e96aae08a9a4a25a32155945441149c125bfcd937f5f53",
+    "/home/novakj/3d-print/models/auticko-s-prevodovkou/auticko-s-prevodovkou.FCStd": "82debd85b9808a58ab0f05276e91e50e4f5d9326542c6161700adb56e4551344",
+    "/home/novakj/3d-print/models/auticko-s-prevodovkou/tiskove-dily.png": "d9dc7b6fb7790aa047e0deec86428fef959ee94ad4505dfc2f2c569bdfc20c16",
+    "/home/novakj/3d-print/models/auticko-s-prevodovkou/kontrola-modelu.json": "5235d9aa1a89ab85b4bf55140ecf707d88d76a0cd8e1bb9ce3915ef89b16d5f1",
+    "/home/novakj/3d-print/models/auticko-s-prevodovkou/prevodovka.png": "000354b87b33e89ca0c3b1580d0746ae59fa8f7755e37d7523332118c56f096e",
+    "/home/novakj/3d-print/models/auticko-s-prevodovkou/sestava.png": "223b6ec0f9e5bc5a0a5c1c6b0a306a8f86a2b12ec216fe6035e8eaec16d145a3",
+    "/home/novakj/3d-print/models/auticko-s-prevodovkou/stl/rozperka-17_6.stl": "b87e75387f5cfbed05a449c5e44efb92122315d4a1c1bfcdcf952d98dadb665a",
+    "/home/novakj/3d-print/models/auticko-s-prevodovkou/stl/kolo-predni.stl": "94d6b98650aa5ce4c24bcf8d6fdad3dfe449cba5a4f47bddd04d0421d510a0ad",
+    "/home/novakj/3d-print/models/auticko-s-prevodovkou/stl/kolo-zadni-prave.stl": "07be566a14514ba2150a4f1f973b4ad2e095ec295cf1540701969d7a15864e08",
+    "/home/novakj/3d-print/models/auticko-s-prevodovkou/stl/rozperka-8_6.stl": "788faab6835a9651d99579708fcf17a5f0c0dcfe482de3ef868c90c66d1ed56f",
+    "/home/novakj/3d-print/models/auticko-s-prevodovkou/stl/rozperka-1_6.stl": "415ff9e44b8ce3e039d085c91175809c0a15446e21d1130f5e0ba59ea83fc3eb",
+    "/home/novakj/3d-print/models/auticko-s-prevodovkou/stl/osa-hlavni-101_3.stl": "9710518a9ac4b2767bee2325c9555d7c06cfcd87d76badfb10b031a7a238acb7",
+    "/home/novakj/3d-print/models/auticko-s-prevodovkou/stl/pastorek-18z-otvor-2_2.stl": "e412ec278422cd4c66d4843b95c561de3a8655f82e5d40e6012a5ee1eaec2870",
+    "/home/novakj/3d-print/models/auticko-s-prevodovkou/stl/osa-mezi-65_2.stl": "2729dc64cc6e28095c0201009ee6e72f5721b95f78b3ab0d151b5f5446523f05",
+    "/home/novakj/3d-print/models/auticko-s-prevodovkou/stl/pojistka-c.stl": "7be6176012c834bfba0b745c0048f7139799b85b0654688302d0bba3353007e0",
+    "/home/novakj/3d-print/models/auticko-s-prevodovkou/stl/plosina-170x60.stl": "f78e2b584a78c6044a266ba4af2171cbb3e89d0f918b795e4e0478035ab56f62",
+    "/home/novakj/3d-print/models/auticko-s-prevodovkou/stl/kolo-zadni-72z.stl": "736219a13c8860320c8ca397d3cff354665c715046efb9026be8fb5c5ab5670c",
+    "/home/novakj/3d-print/models/auticko-s-prevodovkou/stl/ram.stl": "edb5ff4ab22637de28708d29308dcf7ffb534840dd4ac445efcc3f6ce28c9529",
+    "/home/novakj/3d-print/models/auticko-s-prevodovkou/stl/mezikolo-54_18z.stl": "682c02fc3de7cf8fbc3986826dfedd33ad8841c019b4a6511315ae11fae4d48e",
+    "/home/novakj/3d-print/models/jednoduche-auticko/kontrola-strechy.json": "0cd5189c9a7cd9d828bc5503197d4393c7b60f4660c499b9731c404a7497fa13",
+    "/home/novakj/3d-print/models/jednoduche-auticko/auticko.FCStd": "eae583d24550c7be5645239748c07a834285db7de2b0a43ccb0596c271b3cacd",
+    "/home/novakj/3d-print/models/jednoduche-auticko/nahled.FCMacro": "decf67bb6adfd61b1c30a7cde4252dad04494098ff51da5b3863acd76f2a6888",
+    "/home/novakj/3d-print/models/jednoduche-auticko/strecha-nasazeni.png": "15861a364eb55424bd2d2ade74085ac11c963e7395d60fe0cabb59054c73c1db",
+    "/home/novakj/3d-print/models/jednoduche-auticko/vzorek-hridele-v2.FCStd": "907bbb021f70901d9c7a29d657d3127a0adce314df239425bb13304f4b4df666",
+    "/home/novakj/3d-print/models/jednoduche-auticko/overeni-parametru.json": "4c49eb7e9a79f7a0d8660e943e99c78a3f401c4d2f1507cec580c08a13f6c0d4",
+    "/home/novakj/3d-print/models/jednoduche-auticko/strecha-sestava.png": "856d8f8f37b1f555b99957d194607877555413cdc75ccb97bd040e74b12d0925",
+    "/home/novakj/3d-print/models/jednoduche-auticko/vzorek-hridele-v2.png": "f5643edf63f8c7d5e9a5d138871bf50188b3a7799fda8555e47b91af4c326895",
+    "/home/novakj/3d-print/models/jednoduche-auticko/strecha.FCMacro": "652f97c302238026c3157207f3506b4bc595ba92e4a271aace43d2e3cfb06959",
+    "/home/novakj/3d-print/models/jednoduche-auticko/overit-parametry.FCMacro": "713abe975772fca58aba94cf47115f24695223c64044ff0ac86e9d663dc676a7",
+    "/home/novakj/3d-print/models/jednoduche-auticko/overeni-strechy.json": "92ae3b0bf268d038a9b0d65148586d7e6ebf9e545e51654e7a181602036a0e34",
+    "/home/novakj/3d-print/models/jednoduche-auticko/strecha-tisk.png": "b385b04c8f39d7de58ce0d3959c6295ccc44dcd089a04ab62ac011a9f5347c9b",
+    "/home/novakj/3d-print/models/jednoduche-auticko/zbytek-auticka.zip": "74fc38db481ee733b1dd80cfe5e36d713dc03208eaae9de681e42ab04caea674",
+    "/home/novakj/3d-print/models/jednoduche-auticko/kontrola-modelu.json": "4e4e95406bfdc45dc94b06afd4e26d09cc1b19e56e50a96d91f154ee3a0695e1",
+    "/home/novakj/3d-print/models/jednoduche-auticko/model-render.png": "bf9016e34df9da1b621b038124b4367ce940d612241136b11af0268871d4b880",
+    "/home/novakj/3d-print/models/jednoduche-auticko/nahled-strechy.FCMacro": "e6dc3130acd58d5fe4bddd375aa65f3e2709412a8fe1c4af7afe06d19c618051",
+    "/home/novakj/3d-print/models/jednoduche-auticko/auticko.FCMacro": "1dd24a7eeb7087cfcc460aaefbd710995ce914086040b6a62b819ad0e0ead051",
+    "/home/novakj/3d-print/models/jednoduche-auticko/auticko-se-strechou.FCStd": "40c1908db64c557c5c96ef5d57b1ab950b6a8edb01a20c1590f130cf56a52d48",
+    "/home/novakj/3d-print/models/jednoduche-auticko/kontrola-vzorku-v2.json": "0ee98800b78a7ceaaa61e0978cf1a056a902a9a3497d3bc39929f6a09f10b201",
+    "/home/novakj/3d-print/models/jednoduche-auticko/overit-strechu.FCMacro": "3ac64af89c649a4e963f3745488a357775ceb132b16100789b7c2990c4b9e9ab",
+    "/home/novakj/3d-print/models/jednoduche-auticko/nahled-vzorku-v2.FCMacro": "ad01cc3a83b0bfdc150a78e38fff971e2a2fde405392398bc7f7e3ca592a87c8",
+    "/home/novakj/3d-print/models/jednoduche-auticko/vzorek-hridele-v2.FCMacro": "fe96d9087a6000c7c1eec06000d72cdc950e111b1eae3bf80ddb6833a7bddd37",
+    "/home/novakj/3d-print/models/jednoduche-auticko/auticko/thumbnails/Thumbnail.png": "19859d8fffae022725f7139aac8e2d0c3f0638c9b04a434d862019b9a00a33b0",
+    "/home/novakj/3d-print/models/jednoduche-auticko/stl/rozperka-dlouha.stl": "6d95f7455d561aed40f041da50b9773835322cff5e222c1986c6251776439b36",
+    "/home/novakj/3d-print/models/jednoduche-auticko/stl/strecha.stl": "0566fdffebf5055082bf276c7a4d982bbc207cedd2b68e58b104ad166b8502d6",
+    "/home/novakj/3d-print/models/jednoduche-auticko/stl/kolo-predni.stl": "fd3d2970d61eb7f3ba9a1593cba423bff9aa92e290ca42297e7a22e139630379",
+    "/home/novakj/3d-print/models/jednoduche-auticko/stl/rozperka-kratka.stl": "db1855e5c69bb92c9c9d25192d1cbbddd153f7b7bbd2bda7a8985a4661f0ac6f",
+    "/home/novakj/3d-print/models/jednoduche-auticko/stl/kolo-zadni.stl": "ab4618df29f811d36596120f4279aa22fc3efbe6ddc44be2738b3016a61e10fc",
+    "/home/novakj/3d-print/models/jednoduche-auticko/stl/osa-predni.stl": "c6c537b104101b8b4f1bd7d2d17a298e456482e3b3a11466f6e9842862a6fae7",
+    "/home/novakj/3d-print/models/jednoduche-auticko/stl/kolo-zadni-ozubene.stl": "35063b786f519021ab85c7742c909acd5dc07fd0646fa8baa5c7a3df4830373f",
+    "/home/novakj/3d-print/models/jednoduche-auticko/stl/pojistka.stl": "3706c2b3cf27e48dab65636ae2a9292cc24bde79220ac78a477d900ccf76b77a",
+    "/home/novakj/3d-print/models/jednoduche-auticko/stl/pastorek.stl": "ec158dff10d48cdbfa746b459ea87d87ca5b07464d774fa079b87a4978eead40",
+    "/home/novakj/3d-print/models/jednoduche-auticko/stl/ram.stl": "8847d17a18c497d422b34a28a9598e439a526f5bfca5b64ab3c266b4108a35b6",
+    "/home/novakj/3d-print/models/jednoduche-auticko/stl/osa-zadni.stl": "4abfd6962f8e4118637fee72d2ae21cd4adc0ab76fc3859204c490a95744b9cc",
+    "/home/novakj/3d-print/models/jednoduche-auticko/stl/old/vzorek-hridele.stl": "68e1def064b42dbfe3304a2905ab8acb994b0e731e20e2c212b09dd83cb5878e",
+    "/home/novakj/3d-print/models/jednoduche-auticko/firmware/prvni-motor/overeni-programu.json": "4a313e2f3f7f2f5e6b1e18ced3b0ba2462e699997206f130a9a66fb1e5816038",
+    "/home/novakj/3d-print/models/jednoduche-auticko/firmware/prvni-motor/historie-overeni-pulzu.json": "c28045d73887a428303dc4c504724b67f74d1825a854f64227997f9d97dafb88",
+    "/home/novakj/3d-print/models/jednoduche-auticko/firmware/archiv-hold-to-run-v1/overeni-programu.json": "c2811319e2b28058a6c89726ea53581925279370a3721ace3f69f7736e399f48",
+    "/home/novakj/3d-print/models/jednoduche-auticko/firmware/archiv-hold-to-run-v1/historie-overeni-pulzu.json": "c28045d73887a428303dc4c504724b67f74d1825a854f64227997f9d97dafb88",
+    "/home/novakj/3d-print/models/jednoduche-auticko/zbytek-auticka/03-kolo-zadni.stl": "ab4618df29f811d36596120f4279aa22fc3efbe6ddc44be2738b3016a61e10fc",
+    "/home/novakj/3d-print/models/jednoduche-auticko/zbytek-auticka/04-kolo-predni-1.stl": "fd3d2970d61eb7f3ba9a1593cba423bff9aa92e290ca42297e7a22e139630379",
+    "/home/novakj/3d-print/models/jednoduche-auticko/zbytek-auticka/05-kolo-predni-2.stl": "fd3d2970d61eb7f3ba9a1593cba423bff9aa92e290ca42297e7a22e139630379",
+    "/home/novakj/3d-print/models/jednoduche-auticko/zbytek-auticka/08-rozperka-kratka.stl": "db1855e5c69bb92c9c9d25192d1cbbddd153f7b7bbd2bda7a8985a4661f0ac6f",
+    "/home/novakj/3d-print/models/jednoduche-auticko/zbytek-auticka/12-pojistka-1.stl": "3706c2b3cf27e48dab65636ae2a9292cc24bde79220ac78a477d900ccf76b77a",
+    "/home/novakj/3d-print/models/jednoduche-auticko/zbytek-auticka/11-rozperka-dlouha-3.stl": "6d95f7455d561aed40f041da50b9773835322cff5e222c1986c6251776439b36",
+    "/home/novakj/3d-print/models/jednoduche-auticko/zbytek-auticka/13-pojistka-2.stl": "3706c2b3cf27e48dab65636ae2a9292cc24bde79220ac78a477d900ccf76b77a",
+    "/home/novakj/3d-print/models/jednoduche-auticko/zbytek-auticka/07-osa-predni.stl": "c6c537b104101b8b4f1bd7d2d17a298e456482e3b3a11466f6e9842862a6fae7",
+    "/home/novakj/3d-print/models/jednoduche-auticko/zbytek-auticka/06-osa-zadni.stl": "4abfd6962f8e4118637fee72d2ae21cd4adc0ab76fc3859204c490a95744b9cc",
+    "/home/novakj/3d-print/models/jednoduche-auticko/zbytek-auticka/02-kolo-zadni-ozubene.stl": "35063b786f519021ab85c7742c909acd5dc07fd0646fa8baa5c7a3df4830373f",
+    "/home/novakj/3d-print/models/jednoduche-auticko/zbytek-auticka/09-rozperka-dlouha-1.stl": "6d95f7455d561aed40f041da50b9773835322cff5e222c1986c6251776439b36",
+    "/home/novakj/3d-print/models/jednoduche-auticko/zbytek-auticka/manifest.json": "a6f4aa702b07a2a09b965fec081849c1e7bb70c13469db806dc2d595108d1f87",
+    "/home/novakj/3d-print/models/jednoduche-auticko/zbytek-auticka/10-rozperka-dlouha-2.stl": "6d95f7455d561aed40f041da50b9773835322cff5e222c1986c6251776439b36",
+    "/home/novakj/3d-print/models/jednoduche-auticko/zbytek-auticka/01-ram.stl": "8847d17a18c497d422b34a28a9598e439a526f5bfca5b64ab3c266b4108a35b6"
+  },
+  "steering_parameters": {
+    "KingpinX": {
+      "value": 154,
+      "unit": "mm"
+    },
+    "HalfTrack": {
+      "value": 44,
+      "unit": "mm"
+    },
+    "Arm": {
+      "value": 20,
+      "unit": "mm"
+    },
+    "Trail": {
+      "value": 3.7,
+      "unit": "mm"
+    },
+    "WheelOffset": {
+      "value": 13,
+      "unit": "mm"
+    },
+    "HornRadius": {
+      "value": 15,
+      "unit": "mm"
+    },
+    "ServoX": {
+      "value": 184,
+      "unit": "mm"
+    },
+    "WheelAngle": {
+      "value": 0,
+      "unit": "deg"
+    },
+    "StopAngle": {
+      "value": 24,
+      "unit": "deg"
+    },
+    "WorkingAngle": {
+      "value": 20,
+      "unit": "deg"
+    },
+    "PinDiameter": {
+      "value": 8,
+      "unit": "mm"
+    },
+    "PinClearance": {
+      "value": 0.6,
+      "unit": "mm"
+    },
+    "BodyRadius": {
+      "value": 7,
+      "unit": "mm"
+    },
+    "KnuckleBottom": {
+      "value": 14.4,
+      "unit": "mm"
+    },
+    "KnuckleTop": {
+      "value": 33.6,
+      "unit": "mm"
+    },
+    "TieBottom": {
+      "value": 45,
+      "unit": "mm"
+    },
+    "DragBottom": {
+      "value": 48.4,
+      "unit": "mm"
+    },
+    "HornBottom": {
+      "value": 41,
+      "unit": "mm"
+    },
+    "HornThickness": {
+      "value": 2.5,
+      "unit": "mm"
+    },
+    "ServoFloor": {
+      "value": 10.7,
+      "unit": "mm"
+    },
+    "ServoWidth": {
+      "value": 12.2,
+      "unit": "mm"
+    },
+    "ServoLength": {
+      "value": 22.7,
+      "unit": "mm"
+    },
+    "ServoHeight": {
+      "value": 27,
+      "unit": "mm"
+    },
+    "CaseAxisOffset": {
+      "value": 5,
+      "unit": "mm"
+    },
+    "JointDiameter": {
+      "value": 6,
+      "unit": "mm"
+    },
+    "JointBore": {
+      "value": 6.5,
+      "unit": "mm"
+    }
+  },
+  "reuse_drivetrain_validation": "../auticko-s-prevodovkou/kontrola-modelu.json",
+  "motion": {
+    "samples": [
+      {
+        "wheel_deg": -24,
+        "servo_deg": 31.618298800529573,
+        "closure_error_mm": 0.0
+      },
+      {
+        "wheel_deg": 0,
+        "servo_deg": 0.0,
+        "closure_error_mm": 0.0
+      },
+      {
+        "wheel_deg": 24,
+        "servo_deg": -34.113629980812675,
+        "closure_error_mm": 0.0
+      }
+    ],
+    "pair_checks": 1998,
+    "collisions": [],
+    "rotation_envelope": "full wheel disc Ø80 minus Ø8.6 bearing bore, for each steering sample"
+  },
+  "assembly_object_names": [
+    "AssemblyDeck",
+    "AssemblyRearLeft",
+    "AssemblyRearRight",
+    "AssemblyRearAxle",
+    "AssemblyCompound",
+    "AssemblyMiddleAxle",
+    "AssemblyPinion",
+    "AssemblyRearSpacer",
+    "AssemblyRearLong",
+    "AssemblyMiddleSpacerLeft",
+    "AssemblyMiddleSpacerRight",
+    "AssemblyRearClip",
+    "AssemblyMiddleClip",
+    "MotorReference",
+    "AssemblySteeringFrame",
+    "AssemblyForkCapL",
+    "AssemblyKingpinL",
+    "AssemblyKingClipL",
+    "AssemblyKnuckleL",
+    "WheelCarrierL",
+    "AssemblyJointPinL",
+    "AssemblyJointClipL",
+    "AssemblyForkCapR",
+    "AssemblyKingpinR",
+    "AssemblyKingClipR",
+    "AssemblyKnuckleR",
+    "WheelCarrierR",
+    "AssemblyJointPinR",
+    "AssemblyJointClipR",
+    "AssemblyTie",
+    "AssemblyDrag",
+    "AssemblyHornSpacer",
+    "ServoReference",
+    "AssemblyHornReference",
+    "HornScrewReference"
+  ],
+  "validation_pass": true
+}

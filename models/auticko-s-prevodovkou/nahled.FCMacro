@@ -1,0 +1,94 @@
+# -*- coding: utf-8 -*-
+"""Pouze místní model a PNG. Izolované FreeCAD GUI; žádná původní CAD data."""
+from pathlib import Path
+import json
+import FreeCAD as App, FreeCADGui as Gui
+from PySide import QtCore
+OUT=Path(__file__).resolve().parent
+report=json.loads((OUT/'kontrola-modelu.json').read_text())
+assert report['validation_pass']
+doc=App.openDocument(str(OUT/'auticko-s-prevodovkou.FCStd'))
+names=set(report['assembly_object_names']);view=Gui.activeDocument().activeView()
+# Nezávislé opakování axiálních mezí po otevření uloženého FCStd.
+# Záporný posun zadního kola rozšířen na -1 mm podle celého montážního stohu.
+axial=[]
+for ar,am in ((0.5,-0.9),(-1.0,0.5),(0.5,0.5),(-1.0,-0.9)):
+    a=doc.getObject('AssemblyRearLeft').Shape.copy();a.translate(App.Vector(0,ar,0))
+    b=doc.getObject('AssemblyCompound').Shape.copy();b.translate(App.Vector(0,am,0))
+    v=a.common(b).Volume;vm=b.common(doc.getObject('MotorBody').Shape).Volume
+    assert max(v,vm)<1e-6,('Axial collision',ar,am,v,vm)
+    axial.append({'rear_shift_y_mm':ar,'middle_shift_y_mm':am,'gears_overlap_mm3':v,'middle_motor_overlap_mm3':vm})
+report['axial_extremes_reopened']=axial
+
+def color(n):
+    n=n.lower()
+    if 'deck' in n or 'plosina' in n:return (0.20,0.62,0.46)
+    if 'motor' in n:return (0.57,0.61,0.65)
+    if 'frame' in n or 'ram' in n:return (0.16,0.44,0.64)
+    if any(s in n for s in ('pinion','compound','rearleft','72z','mezikolo','pastorek')):return (0.91,0.58,0.15)
+    if any(s in n for s in ('wheel','frontleft','frontright','rearright','kolo')):return (0.22,0.25,0.29)
+    return (0.72,0.43,0.22)
+def style(o,col):
+    v=o.ViewObject
+    if 'ShapeAppearance' in v.PropertiesList:
+        m=v.ShapeAppearance[0];m.DiffuseColor=col;v.ShapeAppearance=[m]
+    if 'ShapeMaterial' in v.PropertiesList:
+        m=v.ShapeMaterial;m.DiffuseColor=col;v.ShapeMaterial=m
+        if 'OverrideMaterial' in v.PropertiesList:v.OverrideMaterial=True
+    if 'ShapeColor' in v.PropertiesList:v.ShapeColor=col
+    if 'LineColor' in v.PropertiesList:v.LineColor=(0.12,0.15,0.18)
+    if 'LineWidth' in v.PropertiesList:v.LineWidth=1.0
+    if 'DisplayMode' in v.PropertiesList:
+        try:v.DisplayMode='Flat Lines'
+        except Exception:pass
+for n in names:
+    o=doc.getObject(n)
+    if o.TypeId=='App::Link':style(o.LinkedObject,color(n))
+    style(o,color(n))
+def visible():
+    doc.getObject('Assembly').ViewObject.Visibility=True
+    for o in doc.Objects:
+        if hasattr(o,'Shape'):o.ViewObject.Visibility=o.Name in names
+
+def camera(eye=(0.65,-1.3,0.75)):
+    eye=App.Vector(*eye);up=App.Vector(0,0,1);view.setCameraType('Orthographic');view.setCameraOrientation(App.Rotation(up.cross(eye),up,eye,'ZXY').Q);view.fitAll();view.redraw();Gui.updateGui()
+def start():
+    visible();camera();QtCore.QTimer.singleShot(800,save_full)
+def save_full():
+    view.saveImage(str(OUT/'sestava.png'),1600,1100,'White')
+    doc.getObject('AssemblyDeck').ViewObject.Visibility=False;camera((0.65,-1.3,1.0));QtCore.QTimer.singleShot(800,save_open)
+def save_open():
+    view.saveImage(str(OUT/'prevodovka.png'),1600,1100,'White')
+    o=doc.addObject('Part::Feature','DeckExplodedPreview');o.Shape=doc.getObject('AssemblyDeck').Shape.copy();o.Placement.Base.z=50;style(o,color('deck'));camera((0.65,-1.3,0.9));QtCore.QTimer.singleShot(800,save_exploded)
+def save_exploded():
+    view.saveImage(str(OUT/'rozlozena-plosina.png'),1600,1100,'White');doc.removeObject('DeckExplodedPreview')
+    for o in doc.Objects:
+        if hasattr(o,'Shape'):o.ViewObject.Visibility=False
+    # Ilustrační rozložení všech kopií, nikoli rozmístění na konkrétní tiskové podložce.
+    x=y=rowheight=0
+    for key,info in report['parts'].items():
+        for i in range(info['copies']):
+            s=doc.getObject(info['object']).Shape.copy()
+            if info['print_orientation']=='axle':s.rotate(App.Vector(),App.Vector(0,1,0),90)
+            if info['print_orientation']=='deck':s.rotate(App.Vector(),App.Vector(1,0,0),180)
+            bb=s.BoundBox
+            if x+bb.XLength>370:x=0;y+=rowheight+8;rowheight=0
+            s.translate(App.Vector(x-bb.XMin,y-bb.YMin,-bb.ZMin));o=doc.addObject('Part::Feature','PrintPreview');o.Shape=s;style(o,color(key));o.ViewObject.Visibility=True
+            x+=bb.XLength+8;rowheight=max(rowheight,bb.YLength)
+    camera((0.3,-0.65,1.8));QtCore.QTimer.singleShot(800,save_print)
+def save_print():
+    view.saveImage(str(OUT/'tiskove-dily.png'),1800,1300,'White')
+    for o in list(doc.Objects):
+        if o.Name.startswith('PrintPreview'):doc.removeObject(o.Name)
+    visible();camera();doc.recompute();doc.save()
+    expected=set(names);path=doc.FileName;App.closeDocument(doc.Name)
+    reopened=App.openDocument(path)
+    actual={o.Name for o in reopened.Objects if hasattr(o,'Shape') and o.ViewObject.Visibility}
+    if actual!=expected:raise RuntimeError('Saved visibility mismatch '+str((actual,expected)))
+    invalid=[o.Name for o in reopened.Objects if 'Invalid' in o.State]
+    if invalid:raise RuntimeError('Reopen invalid '+str(invalid))
+    report['gui_validation']={'saved_and_reopened':True,'visible_objects':sorted(actual),'invalid_objects':invalid,'images':['sestava.png','prevodovka.png','rozlozena-plosina.png','tiskove-dily.png']}
+    (OUT/'kontrola-modelu.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
+    print('RENDER_COMPLETE visibility verified after reopen',flush=True)
+    App.closeDocument(reopened.Name);Gui.getMainWindow().close()
+QtCore.QTimer.singleShot(800,start)

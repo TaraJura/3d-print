@@ -4,10 +4,10 @@ Zadání uživatele z 19. 9. 2026. **Stav: parametrický prototyp geometricky zk
 
 ## Kde pokračovat po dnešní práci
 
-- **[Nová snímatelná horní plošina](strecha.md)** — rovná užitná plocha **170 × 60 mm** pro pole podle zadání uživatele. Nasazuje se na čtyři stávající výstupky u kol; podvozek se netiskne znovu. [Nové STL — 1 kus](stl/strecha.stl), [sestava ve FreeCADu](auticko-se-strechou.FCStd), [náhled](strecha-sestava.png). CAD a export vytvořeny, fyzický fit a nosnost neověřeny.
-- **[Záznam prvního stolního testu](prvni-stolni-test.md)** — co jsme sestavili, co se skutečně podařilo, fotografie, opravy a poslední stav. Motor po tlačítku běžel asi sekundu; po vyjmutí jedné AA už neběžel. Napájení bylo provizorní, bez kondenzátorů a s dočasnými motorovými kontakty.
-- [Elektronika a historie zprovoznění](elektronika.md), [tabulka zapojení L293D](zapojeni-l293d.md), [firmware a ovládání telefonu](firmware/prvni-motor/README.md).
-- [Diagnostika a oprava načítání webu](diagnostika-webu.md) — USB výpis prokázal trvalé zablokování po chybovém stavu Wi-Fi. Oprava zotavení s ochranou proti starým příkazům prošla testy a je nahraná. Opakovaná zkouška telefonu s touto verzí ještě není potvrzená; příčina samotného výpadku modemu zůstává neznámá.
+- **[Nová snímatelná horní plošina](strecha.md)** — rovná užitná plocha **170 × 60 mm** pro pole podle zadání uživatele. Nasazuje se na čtyři stávající výstupky u kol; podvozek se netiskne znovu. [Nové STL — 1 kus](stl/strecha.stl), [sestava ve FreeCADu](auticko-se-strechou.FCStd), [náhled](strecha-sestava.png). Dokončení tisku a nasazení potvrdil uživatel; správný dosed, provozní vůle a nosnost neověřeny.
+- **[Záznam prvního stolního testu](../../elektronika/auticko/prvni-stolni-test.md)** — co jsme sestavili, co se skutečně podařilo, fotografie, opravy a poslední stav. Motor po tlačítku běžel asi sekundu; po vyjmutí jedné AA už neběžel. Napájení bylo provizorní, bez kondenzátorů a s dočasnými motorovými kontakty.
+- **[Elektronika autíčka — aktuální stav](../../elektronika/auticko/README.md)**; [historie zprovoznění](../../elektronika/auticko/elektronika.md), [tabulka zapojení L293D](../../elektronika/auticko/zapojeni-l293d.md), [firmware](firmware/prvni-motor/README.md) a [inventář vybavení](../../elektronika/vybaveni.md).
+- **[Oprava ovládání při držení](../../elektronika/auticko/README.md)** — `hold-to-run-v2` je přeložené, otestované a nahrané; požadavek rollbacku uživatel odvolal před uploadem. [Firmware](firmware/prvni-motor/README.md) uvádí skutečný stav nahrání a testů, [záznam potíží](../../elektronika/auticko/potize-po-montazi.md) zachovává historii a omezení fyzického ověření.
 - [Deník tisků](../../docs/denik-tisku.md), [balíček zbývajících 13 dílů](zbytek-auticka.zip) a montážní pořadí níže.
 
 ## Výsledek zkoušky hřídelky — otvor 2,2 mm
@@ -66,7 +66,7 @@ První varianta používá jako **návrhový experiment převod 3 : 1**, malé k
 
 Rám, čtyři kola, osy, distanční kroužky, pojistky a pastorek budou tisknutelné. Zadní osa má průběžnou D plošku, aby šla zadní kola nasunout a přenášela moment. V uložení ji vede zbývající válcová plocha; reálné tření, vůle a odolnost tištěné osy vyžadují zkoušku. Přední kola mají kruhové otvory pro volné otáčení.
 
-**Netištěné součásti pro tuto variantu:** skutečný motor, dvě malé stahovací pásky pro jeho upevnění a vhodné napájení/vodiče. Vlastnictví pásek nebylo potvrzeno. Pro ovládání z prohlížeče už uživatel sestavil Arduino UNO R4 WiFi, ST L293D a motor a potvrdil krátký stolní rozběh. Skutečné provizorní napájení, kontakty a další postup jsou v [záznamu zkoušky](prvni-stolni-test.md). Pásky vedou přes motor a svislými otvory skrz základnu, aby pod sedly nevznikal obtížně tisknutelný dlouhý tunel.
+**Netištěné součásti pro tuto variantu:** skutečný motor, dvě malé stahovací pásky pro jeho upevnění a vhodné napájení/vodiče. Vlastnictví pásek nebylo potvrzeno. Pro ovládání z prohlížeče už uživatel sestavil Arduino UNO R4 WiFi, ST L293D a motor a potvrdil krátký stolní rozběh. Skutečné provizorní napájení, kontakty a další postup jsou v [záznamu zkoušky](../../elektronika/auticko/prvni-stolni-test.md). Pásky vedou přes motor a svislými otvory skrz základnu, aby pod sedly nevznikal obtížně tisknutelný dlouhý tunel.
 
 ## Aktuální návrhové hodnoty
 
@@ -126,7 +126,7 @@ STL mají spodní plochu na Z = 0. Kola, ozubení, rozpěrky a pojistky se tiskn
 
 ## Montážní pořadí
 
-Následující postup vychází z CAD návrhu, dosud nebyl proveden na skutečných dílech:
+Následující postup vychází z CAD návrhu; správnost skutečné montáže dosud nebyla ověřena:
 
 1. Pastorek s otvorem Ø 2,2 mm už uživatel vytiskl a potvrdil dobré nasazení na motor. Při montáži ještě ověřit, že se při zatížení neprotáčí. Další pastorek ani vzorky nyní tisknout není potřeba.
 2. Ze strany bez příruby navléknout na zadní D osu levé ozubené kolo, ozubením směrem dovnitř autíčka, potom krátkou rozpěrku. Celou osu zasunout oběma zadními uloženími rámu.

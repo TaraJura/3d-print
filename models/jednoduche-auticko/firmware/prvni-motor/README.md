@@ -1,73 +1,60 @@
-# První sekundový test motoru
+# Ovládání autíčka při držení tlačítka
 
-Jednoduchý zkušební firmware pro **Arduino UNO R4 WiFi** a **ST L293D DIP16**. **Uživatel 19. 9. 2026 potvrdil skutečný přibližně sekundový rozběh motoru po stisku tlačítka v telefonu.** Po vyjmutí jednoho článku z držáku už motor neběžel. [Záznam stolního testu](../../prvni-stolni-test.md) uvádí přesný rozsah potvrzení a provizorní podmínky: smíšené články, bez kondenzátorů a bez pájených motorových spojů. Napětí, proud ani fyzické časování se neměřily; jízda celého autíčka nebyla zkoušena.
+**`hold-to-run-v2` je přeložený a skutečně nahraný do UNO R4 WiFi.** SHA256 `1760730b716a6fb281ed900400d533eaac17d96c9b779a6c91e2e99502d69110`; překlad **80 504 B flash / 9 792 B RAM**, upload **80 512 B / 20 stran / exit 0**. USB po uploadu potvrdilo `build=hold-to-run-v2`, `safety=1`, `drive=0`, EN/IN1/IN2 LOW, připravený server a HTTP0. Monitor je ukončený; agent neposlal žádný povel k fyzickému pohybu. [Úplná evidence](overeni-programu.json). **Jirka po návratu obnovil stránku a opakovaně potvrdil funkční držení, puštění a nový stisk: „Jo, funguje to, perfektní“.** To je fyzická akceptace základního ovládání podle uživatelského hlášení; nejde o měření doběhu, zátěže nebo všech síťových poruch.
 
-**Aktuálně je nahraná oprava zotavení webu po přechodné chybě Wi-Fi.** Diagnostika na desce prokázala, že původní program po výsledku 255 trvale zakázal obsluhu. Nová verze stav znovu kontroluje, po zotavení obsluhu obnoví a odmítá staré či opožděné motorové požadavky. Pulz zůstal nezměněný. Prošlo původních 53 + 53 regresí, testy tokenů, osm scénářů zotavení a testy diagnostiky; překlad má **74 796 B flash / 8 868 B RAM**, upload **74 804 B / 19 stran** byl úspěšný. Zkouška telefonu a fyzického motoru s touto novou verzí zatím není potvrzená. [Postup, evidence a omezení opravy](../../diagnostika-webu.md).
+Požadavek na návrat k sekundovému testu uživatel výslovně odvolal ještě před uploadem. Zdroj byl krátce lokálně obnoven z přesné zálohy `772cd12f…`, ale do desky nahraný nebyl. [Archiv v1](../archiv-hold-to-run-v1/README.md) uchovává přesný neaktivní zdroj, testy a diagnostiku před touto opravou. [Historie původního pulzu](historie-sekundoveho-testu.md) a [historický ověřovací záznam](historie-overeni-pulzu.json) se nevztahují k současnému zdroji.
 
-Motor **1–6 V** je uživatelem zadaný pracovní předpoklad, nikoli ověřený údaj výrobce. Konkrétní zapojení je v [návodu pro L293D](../../zapojeni-l293d.md), širší kontext a historie součástek v [elektronice modelu](../../elektronika.md). Níže uvedené starší uploady a test pouze LED jsou historické kroky před skutečným rozběhem.
+## Použití po nahrání
 
-## Co udělá
+1. Připojit telefon k Wi-Fi **Auticko-test**, demo heslo **auticko123**. Příprava AP po zapnutí trvá přibližně 10 sekund.
+2. Jednou zavřít starou stránku a otevřít **[http://192.168.4.1/](http://192.168.4.1/)**. Načtení stránky motor nespouští.
+3. **Držet** tlačítko „Držet pro jízdu vpřed“. Po navázání ovládání běží pohon, dokud přicházejí platná potvrzení držení.
+4. Puštění posílá STOP. Totéž dělá zrušený dotyk, ztráta focusu, skrytí stránky nebo ztráta spojení. Motor se vypíná do volného doběhu, nejde o aktivní brzdu.
+5. Po chybě tlačítko pustit a stisknout znovu. Nový skutečný stisk obnoví potřebnou relaci bez ručního reloadu. Chyba sama nesmí vyvolat nový rozběh.
 
-Po startu drží motor vypnutý a vytvoří vlastní Wi-Fi síť **Auticko-test**, heslo **auticko123**. Jde o veřejné demonstrační heslo, nikoli údaj k domácí Wi-Fi. Příprava přístupového bodu trvá přibližně 10 sekund. Po připojení k této síti se stránka otevírá na **[http://192.168.4.1/](http://192.168.4.1/)**, port 80, bez HTTPS. Telefon může správně hlásit síť bez internetu; web obsluhuje samo Arduino.
+Podporované je držení myší, primárním dotykem a klávesou Space/Enter. Krátké ťuknutí nemusí dokončit přípravu a není režimem jednosekundového pulzu.
 
-Stránka má jediné tlačítko **Test motoru na 1 sekundu**. Platný POST vyvolá jeden pulz: IN1 HIGH, IN2 LOW a osmibitové PWM EN **128/255**. Po `delay(1000)` se EN nastaví na nulu a oba směrové vstupy na LOW. Motor může volně dobíhat; nejde o aktivní brzdu. Skutečný směr závisí na zapojení vývodů motoru.
+## Co oprava mění
 
-**Puštění tlačítka, zavření stránky ani odpojení prohlížeče pulz okamžitě nezkrátí.** Jde o konečný sekundový test, nikoli finální řízení autíčka. Během zapnutého pulzu se nevolá Wi-Fi ani Serial; odpověď prohlížeči se posílá až po vypnutí výstupu. Časování je softwarové, nikoli nezávislá hardwarová pojistka.
+V1 omezovala konec běhu okamžikem vydání předchozí výzvy. Dva sousední intervaly komunikace se musely vejít do 500 ms; simulace reprodukovala vypnutí už při pravidelných 250–300 ms. V2 přidělí plných **500 ms od přijetí každého nového platného HOLD**. Každá serverová výzva zůstává jednorázová a nejvýše 500 ms stará. Už neplatí limit součtu dvou intervalů.
 
-Během čekání je tlačítko vypnuté. Potvrzená odpověď dovolí další vědomé kliknutí. Při chybě nebo šestisekundovém síťovém timeoutu stránka ohlásí nejistý výsledek, tlačítko ponechá vypnuté a nic automaticky neopakuje. Po chybě nejprve ověřit skutečný stav, teprve potom stránku znovu otevřít. Obnovení stránky samo motor nespouští.
+Prohlížeč čeká po odpovědi pouze **20 ms** místo 100 ms. Krátká odpověď HTTP včetně hlaviček se odesílá jedním zápisem do modemu. Stav Wi-Fi se za normálního provozu kontroluje nejvýše každých 100 ms místo před každým těsným průchodem smyčky. Zotavení po chybě Wi-Fi a odmítání starých povelů zůstávají zachované.
 
-## Řídicí piny
+Příprava `ARMED` při vypnutém motoru má samostatný limit 3000 ms. **První HOLD přesto musí použít výzvu mladší než 500 ms**; třísekundová příprava nedovoluje opožděný rozběh. Odezva překračující tento limit se odmítne a další pokus vyžaduje nový stisk. Je to vymezený provozní limit, nikoli záruka chodu přes libovolně pomalou síť.
 
-| Arduino | L293D DIP16 | Význam |
+## Vypnutí a ochrana proti starým povelům
+
+Přerušení `FspTimer` každých **5 ms** vypne EN a oba směrové vstupy při vypršení 500ms povolení. Časovač běží i během běžných blokujících volání Wi-Fi. Není to nezávislý hardwarový watchdog procesoru; zamrznutí CPU či dlouho zakázaná přerušení tato ochrana nepokrývá.
+
+**Hranice při ztraceném STOP je konzervativně až 1 sekunda od zpracování puštění v prohlížeči nebo od ztráty spojení.** Jeden již odeslaný HOLD může dorazit těsně před vypršením své 500ms výzvy a přidat posledních 500 ms. Prohlížeč neposílá více HOLD souběžně. Při běžně doručeném STOP se výstup vypne při jeho zpracování. Uvedené limity se týkají elektrického výstupu; kola mohou mechanicky dobíhat. Zpoždění samotného doručení události v prohlížeči do tohoto limitu nezahrnujeme. Skutečné časování na fyzickém pohonu zatím není změřené.
+
+STOP si pamatuje číslo stisku i tehdy, když předběhne ARM. Po STOP nebo vypršení nesmí pozdější HOLD obnovit pohyb. Staré tokeny, duplicitní výzvy a starší stisky se odmítají bez prodloužení povolení i bez shození novější jízdy. Ani starý STOP jiného, dřívějšího stisku nesmí vypnout novější stisk.
+
+Po chybě získá až nový stisk relaci přes `POST /session`. Obnova motor vypne a zneplatní předchozí token. Opakování stejné obnovy po ztracené odpovědi vrací tutéž relaci bez dalšího vypnutí; opožděná obnova tak neshodí novější jízdu. Po restartu nebo síťové invalidaci je také nutná nová relace a nový stisk. Stránka neopakuje jízdu automaticky.
+
+## Zapojení a výkon
+
+| Arduino | ST L293D DIP16 | Funkce |
 |---|---|---|
-| D5, PWM | 1 — EN1,2 | Povolení výstupů první dvojice |
-| D7 | 2 — IN1 | První směrový vstup |
-| D8 | 7 — IN2 | Druhý směrový vstup |
+| D5 | 1 | EN, PWM 490 Hz, ekvivalent 128/255 |
+| D7 | 2 | IN1, při chodu HIGH |
+| D8 | 7 | IN2, při chodu LOW |
 
-Program navíc používá pouze `LED_BUILTIN` jako indikaci pulzu. Tabulka uvádí řídicí propojení, nikoli celé elektrické zapojení. Chybný stav Wi-Fi vypne výstupy a zneplatní oprávnění k testu z otevřené stránky. Během výpadku se kontrola opakuje s odstupem nejméně jedné sekundy; po návratu platného stavu se web obnoví. Před dalším testem je nutné znovu načíst stránku. Obnova sítě sama motor nespustí; knihovní čekání na modem může trvat déle než uvedený odstup.
+Motor je mezi piny 3 a 6, logika má 5 V na pinu 16, motorové napájení patří na pin 8, společná zem na 4/5/12/13. [Úplný návod](../../../../elektronika/auticko/zapojeni-l293d.md) rozlišuje návrh a uživatelem potvrzené propojení. PWM, směr a výkon se touto opravou nezvyšují. Neznámý proud motoru, napájení, mechanické odpory a těžký rozjezd dříve hlášený i na sekundovém programu nejsou opravou webu vyřešené.
 
-## Jednoduchý HTTP protokol
+## Výsledek testů
 
-- `GET / HTTP/1.1` vrátí stránku a nikdy nespustí motor. Favicon, jiné cesty, jiné metody a neúplné požadavky motor nespouštějí.
-- Motor spouští pouze přesné `POST /test HTTP/1.1` po kompletním zakončení hlaviček `CRLF CRLF`, s `Host: 192.168.4.1` (případně `:80`), právě jedním `Content-Length: 0`, `X-Motor-Test: 1` a `X-Motor-Token` s aktuálním jednorázovým tokenem ze stránky.
-- Každé načtení stránky vytvoří nový token a zneplatní předchozí. Platný test jej spotřebuje ještě před dalším dotazem na Wi-Fi a pulzem. Odpověď po STOP má tvar `TEST_OK:<nový token>` a dovolí další vědomý stisk; opakování stejného POST nebo stará stránka po výpadku test nespustí. Token není náhradou přihlášení. Generování používá výchozí hardwarový generátor core 1.6.0; při jeho chybě se další test nepovolí.
-- JavaScript posílá prázdné tělo; `Content-Length: 0` doplňuje prohlížeč. Skript nenastavuje tuto pro JavaScript zakázanou hlavičku ručně.
-- Vlastní hlavička a nepovolené CORS brání běžnému nechtěnému vyvolání cizí webovou stránkou. Pokud je přítomný `Origin`, musí odpovídat místní stránce. Nejde o samostatné přihlašování; zařízení připojené k této testovací síti může správný požadavek vytvořit.
-- Příjem má aplikační limit **3 sekundy**, nejvýše **8192 bajtů** celého požadavku a **1024 znaků** na řádek. Dřívější limit 128 znaků odmítal běžné dlouhé mobilní hlavičky. Statické pole řádku používá 1025 B RAM mimo zásobník; celý požadavek se v paměti nehromadí. Server zpracovává vždy pouze jedno spojení. Kontrolují se CRLF, názvy hlaviček, nulové tělo, duplicity kritických hlaviček; `Transfer-Encoding` a `Expect` se odmítají. Podkladové Wi-Fi volání není tvrdý real-time časovač; během příjmu je motor vypnutý.
-- Těsně před pulzem se znovu kontroluje Wi-Fi a stáří obsluhy požadavku. Pokud včetně čekání na modem dosáhlo 3 s, test se odmítne a token zůstane spotřebovaný. Tím se brání dodatečnému rozběhu po dlouhém AT čekání; nejde o měření stáří paketu před převzetím z modemu.
-- Po jedné odpovědi se spojení uzavře. Pro další pulz musí přijít nový úplný platný POST s novým tokenem. Požadavek neobsahuje volitelnou délku, směr ani výkon.
+Finální zdroj prošel **90 parserových + 90 úplných HTTP případů**, **28 stavovými skupinami**, **7 blokujícími operacemi s kontrolou časovače**, **21 JS scénáři** a **9 scénáři skutečného Chromium přes HTTP proti skutečnému C++ sketchi s náhradami hardwaru**. Testy udržely běh při odezvách 200, 300 a 400 ms, ověřily jitter, dotyk, puštění během ARM, ztracený STOP/HOLD/odpověď obnovy i návrat sítě při stále drženém tlačítku bez automatického rozběhu. Nejde o fyzické měření telefonu, modemu, motoru ani brzdné dráhy.
 
-## Zdroj a ověření
+## Diagnostika a ověřování
 
-[prvni-motor.ino](prvni-motor.ino) používá přibalenou knihovnu `WiFiS3`. Vytvoření AP vychází z [oficiálního příkladu Arduino AP_SimpleWebServer](https://github.com/arduino/ArduinoCore-renesas/blob/main/libraries/WiFiS3/examples/AP_SimpleWebServer/AP_SimpleWebServer.ino); IP je výslovně nastavená přes `WiFi.config(IPAddress(192,168,4,1))`. Odpovídající API popisuje [WiFi.h v oficiálním Arduino core](https://github.com/arduino/ArduinoCore-renesas/blob/main/libraries/WiFiS3/src/WiFi.h).
+USB výpis při 115200 baud uvádí `build=hold-to-run-v2`, stav bezpečnostního časovače, fázi pohonu, čtení pinů, samostatné počty expirací ARM/RUN a důvod posledního vypnutí. Výpis `HTTP ARM/HOLD/STOP/SESSION` rozlišuje úspěch, číslo stisku, čas příjmu/odpovědi a stáří výzvy. Úspěšné HOLD jsou ve výpisu omezené na jeden za sekundu, aby log nezahlcoval spojení. Znak `?` pouze vyžádá diagnostiku, motor nespouští.
 
-Hostová kontrola skutečného zdrojového kódu s náhradami Arduino/Wi-Fi API prošla pro **53 případů parseru a stejných 53 případů celého `loop()`**: platné požadavky, neúplné/chybné hlavičky, jiné metody a cesty, duplicity, cizí Host/Origin, nenulové tělo, CRLF, délku řádku i celkový limit a pomalý příjem. Parsování nezapisovalo motorové piny. Simulovaný pulz trval přesně 1000 ms, během něj nebylo síťové I/O a skončil vypnutým EN i směrovými vstupy. Start bez Wi-Fi modulu ponechal výstupy vypnuté. Testy běžely pouze na počítači a neověřují chování fyzického motoru.
+Důvody vypnutí: 0 start/lokální stav, 1 STOP, 2 expirace ARM, 3 expirace běhu, 4 ztráta Wi-Fi, 5 nová stránka/relace, 6 chyba PWM/RNG. `ENread` při PWM není měření napětí ani proudu.
 
-Kompilace opravy zotavení byla ověřena **Arduino CLI 1.5.1**, deska `arduino:renesas_uno:unor4wifi`, core **1.6.0**: flash **74 796 / 262 144 B**, RAM **8 868 / 32 768 B**. Vložený JavaScript prošel `node --check`. Testy a zdrojový review pokrývají také spotřebu a výměnu tokenů, opakovaný POST, chybové stavy s následným zotavením a opožděný dotaz na modem. Přesné kontrolní součty a oddělenou historii uploadů uchovává [ověření programu](overeni-programu.json).
+- [Regrese a skutečný browser proti hostovému firmwaru](tests/README.md).
+- [Přesné hashe, překlad, upload a jeho omezení](overeni-programu.json).
+- [Chronologie potíží a oddělení mechaniky od komunikace](../../../../elektronika/auticko/potize-po-montazi.md).
+- [Historie Wi-Fi a předchozích uploadů](../../../../elektronika/auticko/diagnostika-webu.md).
 
-Arduino IDE **2.3.10** má nainstalovanou podporu Renesas **1.6.0**. Po výměně kabelu se UNO R4 WiFi skutečně detekovalo na **`/dev/ttyACM0`** a následně byla opravena oprávnění portu. Jeho existence i přístup pro čtení/zápis byly znovu ověřené. Původní stav „USB nedetekováno“ už neplatí.
-
-Uživatel potvrdil **úspěšný upload 51 824 B**. Lokální kontrola posledního `sketch_sep19a.ino` potvrdila jen prázdné `setup()` a `loop()` s výchozími komentáři. Jde o úspěšné nahrání prázdného sketche; **tehdy ještě nešlo o motorový program**. Nebyl proveden read-back firmware z desky; zdrojem informace je uživatelské hlášení a kontrola lokálního sketche.
-
-Motorový sketch byl otevřený příkazem níže v novém okně stávajícího IDE, bez uploadu:
-
-```bash
-/home/novakj/Downloads/arduino-ide_2.3.10_Linux_64bit.AppImage \
-  /home/novakj/3d-print/models/jednoduche-auticko/firmware/prvni-motor/prvni-motor.ino
-```
-
-Otevření bylo ověřené názvem nového okna **`prvni-motor | Arduino IDE 2.3.10`**; současně zůstalo otevřené původní **`sketch_sep19a | Arduino IDE 2.3.10`** ve stejném procesu IDE. Oba `.ino` soubory mají shodné SHA256 před a po otevření. Příkaz pouze otevírá zdroj, nenahrává jej. Kontrola kódu, otevřené okno ani úspěšná kompilace nepotvrzují elektrickou vhodnost zapojení či rozběh motoru.
-
-**Následný upload motorového programu:** uživatel dodal dokončený log překladu **67 820 B flash / 7 580 B RAM** a zápisu **67 828 B, 17 stran, 100 %**, bez chyby. Nejnovější lokální `build.options.json` ukazuje zdejší `prvni-motor` a správné FQBN UNO R4 WiFi; odpovídající `.bin` má 67 828 B a zdroj má nezměněný kontrolní součet. Tím je doložen úspěšný uživatelský upload motorového programu, nikoli zatím funkce Wi-Fi nebo motoru. Starší samostatný překlad CLI výše měl 67 804 B; údaje obou běhů nejsou zaměňované. Firmware z desky nebyl čten zpět.
-
-### Oprava mobilního prohlížeče
-
-Uživatel po úspěšném uploadu viděl Wi-Fi `Auticko-test`, připojil telefon a při otevření místní HTTP adresy obdržel text „Neplatny nebo neuplny pozadavek.“. To dokládá spojení a HTTP odpověď, nikoli funkční ovládací stránku. Původní parser omezoval každý řádek na 128 znaků a celý požadavek na 1024 B. Aktuální změna zvyšuje tyto limity na 1024 znaků / 8192 B a aplikační čas příjmu na 3 s; striktní validace spouštěcího POST, Host, Origin a nulového těla i sekundový motorový pulz zůstávají zachované. Konkrétní síťový požadavek uživatelova telefonu nebyl zachycen.
-
-**Ověření opravy a nahrání:** reprezentativní mobilní GET/POST prošly, GET a neplatný POST neaktivují motor; zkoušky obou limitů a třísekundového deadline prošly. [Regresní testy](tests/README.md) běží proti skutečnému zdroji. Buffer řádku je statický, protože konfigurace UNO R4 rezervuje pro hlavní zásobník pouze 0x400 B. Finální zdroj byl přeložen (67 804 B flash, 8 604 B statická RAM) a agent jej úspěšně nahrál na potvrzenou UNO R4 WiFi: 67 812 B, 17 stran, 100 %, návratový kód 0. Motorový test agent nevyvolal. Uživatel následně nejprve potvrdil úspěšné načtení opravené stránky a reakci LED bez externích součástek; tento první test nebyl ověřením motoru ani měřením délky pulzu.
-
-### Následné fyzické ověření
-
-Po sestavení L293D a motoru uživatel znovu potvrdil stránku a LED s odpojeným motorovým napájením. Při dočasných potížích s načtením pomohl výslovný HTTP odkaz; konkrétní požadavek telefonu nebyl zachycen, takže příčina nebyla prokázaná. Následně doplnil poslední baterii do držáku: motor zůstal stát a po jednom stisku tlačítka se přibližně na sekundu rozběhl. Po vyjmutí článku už motor neběžel. To je uživatelské potvrzení skutečného stolního běhu, nikoli měření elektrických rezerv či test celého podvozku. [Úplné podmínky a poslední stav](../../prvni-stolni-test.md).
-
-Následně byla na desce zachycena konkrétní závada: po chybovém výsledku Wi-Fi 255 zůstala původní verze trvale v `ready=false`. Aktuální oprava byla přeložena a nahrána; její podrobnosti jsou v [diagnostice webu](../../diagnostika-webu.md). Při dalším problému nejprve ověřit síť `Auticko-test` a výslovné HTTP. Obnova řeší přechodný chybový stav, nikoli prokazatelně všechny příčiny výpadku ESP nebo listeneru. Důvod samotné hodnoty 255 a dlouhodobá stabilita zatím ověřené nejsou.
+Fyzickou zkoušku po návratu uživatel potvrdil: obnovení stránky, souvislé držení, puštění a nový stisk. Přesné podmínky zatížení a délka doběhu nejsou změřené. Fyzická zkouška ztráty spojení není potvrzená. Agent motor ani servo samostatně nespouštěl; navazující návrh zatáčení firmware nemění.

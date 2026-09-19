@@ -1,0 +1,129 @@
+{
+  "nominal": {
+    "horn_radius_mm": 15,
+    "sample_count": 4801,
+    "wheel_range_deg": [
+      -24,
+      24
+    ],
+    "servo_range_deg": [
+      -34.113629980812675,
+      31.618298800529562
+    ],
+    "working_endpoints": [
+      {
+        "wheel_deg": -20,
+        "servo_deg": 26.16666352617607,
+        "closure_mm": 7.105427357601002e-15,
+        "d_wheel_d_servo": -0.7481902538544322,
+        "wheel_lever_mm": 18.420862731280465,
+        "servo_lever_mm": 13.782309963134379,
+        "length_mm": 44.28317965096906
+      },
+      {
+        "wheel_deg": 20,
+        "servo_deg": -28.153478269102397,
+        "closure_mm": 0.0,
+        "d_wheel_d_servo": -0.6752960388051581,
+        "wheel_lever_mm": 19.086203709230016,
+        "servo_lever_mm": 12.888837760671345,
+        "length_mm": 44.28317965096906
+      }
+    ],
+    "maximum_closure_error_mm": 1.4210854715202004e-14,
+    "minimum_wheel_moment_arm_mm": 18.073991687939337,
+    "minimum_servo_moment_arm_mm": 12.286352471906833,
+    "derivative_range": [
+      -0.7721490330387853,
+      -0.6679031741838715
+    ],
+    "continuous_monotonic_same_branch": true,
+    "no_dead_centre": true
+  },
+  "parameter_samples": [
+    {
+      "horn_radius_mm": 14.5,
+      "sample_count": 4801,
+      "wheel_range_deg": [
+        -24,
+        24
+      ],
+      "servo_range_deg": [
+        -35.22819084386936,
+        33.047104827890145
+      ],
+      "working_endpoints": [
+        {
+          "wheel_deg": -20,
+          "servo_deg": 27.266605325544294,
+          "closure_mm": 0.0,
+          "d_wheel_d_servo": -0.70908265034678,
+          "wheel_lever_mm": 18.520009130948964,
+          "servo_lever_mm": 13.132217159019858,
+          "length_mm": 44.22951503238533
+        },
+        {
+          "wheel_deg": 20,
+          "servo_deg": -29.071595351419532,
+          "closure_mm": 0.0,
+          "d_wheel_d_servo": -0.6539854143054675,
+          "wheel_lever_mm": 19.01039989870034,
+          "servo_lever_mm": 12.432524253864157,
+          "length_mm": 44.22951503238533
+        }
+      ],
+      "maximum_closure_error_mm": 1.4210854715202004e-14,
+      "minimum_wheel_moment_arm_mm": 18.191873757051297,
+      "minimum_servo_moment_arm_mm": 11.822624608233328,
+      "derivative_range": [
+        -0.7417530675105581,
+        -0.6463251080263713
+      ],
+      "continuous_monotonic_same_branch": true,
+      "no_dead_centre": true
+    },
+    {
+      "horn_radius_mm": 15.5,
+      "sample_count": 4801,
+      "wheel_range_deg": [
+        -24,
+        24
+      ],
+      "servo_range_deg": [
+        -33.076585906228026,
+        30.312479788737463
+      ],
+      "working_endpoints": [
+        {
+          "wheel_deg": -20,
+          "servo_deg": 25.15274031659522,
+          "closure_mm": 0.0,
+          "d_wheel_d_servo": -0.7871901407644246,
+          "wheel_lever_mm": 18.320041104228668,
+          "servo_lever_mm": 14.42135573564781,
+          "length_mm": 44.34241761564202
+        },
+        {
+          "wheel_deg": 20,
+          "servo_deg": -27.297270085936017,
+          "closure_mm": 7.105427357601002e-15,
+          "d_wheel_d_servo": -0.6962556434808793,
+          "wheel_lever_mm": 19.158426031379598,
+          "servo_lever_mm": 13.33916224455903,
+          "length_mm": 44.34241761564202
+        }
+      ],
+      "maximum_closure_error_mm": 1.4210854715202004e-14,
+      "minimum_wheel_moment_arm_mm": 17.955193741298334,
+      "minimum_servo_moment_arm_mm": 12.742679029663808,
+      "derivative_range": [
+        -0.8036361956402265,
+        -0.6889978784064421
+      ],
+      "continuous_monotonic_same_branch": true,
+      "no_dead_centre": true
+    }
+  ],
+  "limit": "Ideální tuhé vazby a body, bez deformace, vůle nebo fyzické kalibrace serva.",
+  "impossible_horn_radius_1_mm_rejected": true
+}
