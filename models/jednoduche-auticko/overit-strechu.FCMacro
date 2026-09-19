@@ -1,0 +1,274 @@
+# -*- coding: utf-8 -*-
+"""Nezávislé ověření uložené střechy, bez regenerace a bez uložení FCStd.
+
+Spustit v samostatném FreeCADcmd. Zapíše pouze overeni-strechy.json.
+Kontroluje CAD, nikoli tiskové vůle, nosnost nebo fyzické nasazení.
+"""
+from pathlib import Path
+import datetime
+import hashlib
+import json
+import math
+import traceback
+import FreeCAD as App
+import Part
+
+OUT = Path(__file__).resolve().parent
+SOURCE = OUT / 'auticko-se-strechou.FCStd'
+RESULT = OUT / 'overeni-strechy.json'
+TOL = 1e-5
+REPORT = {
+    'passed': False, 'checked_at_utc': datetime.datetime.now(datetime.timezone.utc).isoformat(),
+    'scope': 'Nezávislé otevření uloženého FCStd; žádná regenerace, vlastní proxy ani uložení dokumentu. CAD není fyzická zkouška.',
+    'source': SOURCE.name, 'parameter_checks': [],
+}
+D = None
+
+
+def near(value, expected, label, tolerance=TOL):
+    if abs(value - expected) > tolerance:
+        raise AssertionError('%s: %.12g != %.12g' % (label, value, expected))
+
+
+def val(sheet, alias):
+    return float(getattr(sheet, alias).Value)
+
+
+def shape(name):
+    obj = D.getObject(name)
+    if obj is None:
+        raise AssertionError('Chybí objekt ' + name)
+    return obj.Shape
+
+
+def check_shape(name='Shield'):
+    s = shape(name)
+    assert s.isValid() and len(s.Solids) == 1 and s.isClosed(), name
+    assert s.Volume > 0, name
+    return s
+
+
+def vec(x, y, z):
+    return App.Vector(x, y, z)
+
+
+def box(x, y, z, dx, dy, dz):
+    return Part.makeBox(dx, dy, dz, vec(x, y, z))
+
+
+def verify_dimensions():
+    s = check_shape()
+    invalid = [o.Name for o in D.Objects if 'Invalid' in o.State]
+    assert not invalid, invalid
+    p, q = D.Parameters, D.ShieldParameters
+    length, width = val(q, 'UsableLength'), val(q, 'UsableWidth')
+    border, thickness = val(q, 'Border'), val(q, 'PlateThickness')
+    centre = val(p, 'FrameLength') / 2
+    deck_z = val(p, 'AxleHeight') + val(p, 'WheelDiameter') / 2 + val(q, 'WheelClearance')
+    top = deck_z + thickness
+    seat_z, depth = val(p, 'BearingTop'), val(q, 'SocketDepth')
+    bottom = seat_z - depth
+    socket_x = val(p, 'BearingLength') + 2 * val(q, 'SocketClearance')
+    socket_y = val(p, 'BearingWidth') + 2 * val(q, 'SocketClearance')
+    bb = s.BoundBox
+    for actual, expected, label in (
+        (bb.XMin, centre-(length+2*border)/2, 'střecha XMin'),
+        (bb.XLength, length+2*border, 'délka plošiny'),
+        (bb.YLength, width+2*border, 'šířka plošiny'),
+        (bb.ZMin, bottom, 'spodek kapes'), (bb.ZMax, top, 'vršek plošiny'),
+        (shape('ShieldPlate').BoundBox.ZLength, thickness, 'tloušťka plošiny'),
+        (shape('ShieldPlate').BoundBox.ZMin, deck_z, 'spodek plošiny'),
+    ):
+        near(actual, expected, label)
+    usable = Part.makePlane(length, width, vec(centre-length/2, -width/2, top))
+    near(s.common(usable).Area, length*width, 'souvislá rovná užitná plocha')
+    # Souvislá vrstva pod celým obdélníkem vylučuje drážky i průchozí otvory.
+    usable_layer = box(centre-length/2, -width/2, top-0.05, length, width, 0.05)
+    near(usable_layer.cut(s).Volume, 0, 'materiál pod užitným obdélníkem')
+    seats = []
+    for end, xx in [('Rear', val(p, 'RearX')), ('Front', val(p, 'FrontX'))]:
+        for side in (-1, 1):
+            yy = side*val(p, 'BearingY')
+            tag = end + ('Left' if side < 0 else 'Right')
+            pocket = shape('ShieldSocket'+tag).BoundBox
+            for actual, expected, label in (
+                (pocket.XLength, socket_x, 'kapsa X'), (pocket.YLength, socket_y, 'kapsa Y'),
+                ((pocket.XMin+pocket.XMax)/2, xx, 'kapsa střed X'),
+                ((pocket.YMin+pocket.YMax)/2, yy, 'kapsa střed Y'),
+                (pocket.ZMax, seat_z, 'kapsa strop'),
+                (pocket.ZMax-bottom, depth, 'skutečná hloubka nasazení'),
+            ):
+                near(actual, expected, tag+' '+label)
+            empty = box(xx-socket_x/2, yy-socket_y/2, bottom, socket_x, socket_y, depth)
+            near(s.common(empty).Volume, 0, tag+' prázdná otevřená kapsa')
+            # Zjištění skutečných stěn těsně vně kapsy, mimo osové odlehčení.
+            for point in (vec(xx+socket_x/2+0.05, yy, bottom+depth/2),
+                          vec(xx-socket_x/2-0.05, yy, bottom+depth/2),
+                          vec(xx+socket_x/2-0.1, yy+socket_y/2+0.05, bottom+depth/2),
+                          vec(xx+socket_x/2-0.1, yy-socket_y/2-0.05, bottom+depth/2)):
+                assert s.isInside(point, 1e-7, True), tag+' chybí stěna kapsy'
+            bearing_x, bearing_y = val(p, 'BearingLength'), val(p, 'BearingWidth')
+            seat = Part.makePlane(bearing_x, bearing_y, vec(xx-bearing_x/2, yy-bearing_y/2, seat_z))
+            area = s.common(seat).Area
+            near(area, bearing_x*bearing_y, tag+' celý dosed')
+            near(shape('AssemblyFrame').common(seat).Area, area, tag+' odpovídající plocha rámu')
+            relief = D.getObject('ShieldAxleRelief'+tag)
+            near(float(relief.Radius.Value), val(p, 'SpacerOuter')/2+val(q, 'SpacerClearance'), tag+' radius odlehčení')
+            near(s.common(relief.Shape).Volume, 0, tag+' průchozí odlehčení osy')
+            slot = shape('ShieldStrap'+tag)
+            near(s.common(slot).Volume, 0, tag+' otevřená drážka pásky')
+            near(slot.common(usable_layer).Volume, 0, tag+' drážka mimo užitnou plochu')
+            seats.append({'centre_xyz_mm': [xx, yy, seat_z], 'area_mm2': area,
+                          'socket_xy_mm': [pocket.XLength, pocket.YLength], 'depth_mm': depth})
+    return {'volume_mm3': s.Volume, 'valid': True, 'solids': 1,
+            'bbox_mm': [bb.XLength, bb.YLength, bb.ZLength], 'bottom_z_mm': bb.ZMin,
+            'deck_top_z_mm': bb.ZMax, 'usable_rectangle_mm': [length, width],
+            'usable_area_mm2': s.common(usable).Area, 'seats': seats}
+
+
+def cylinder_at(x, z, radius, y0, y1):
+    return Part.makeCylinder(radius, y1-y0, vec(x, y0, z), vec(0, 1, 0))
+
+
+def bounding_radius(actual, x, z):
+    """Kružnice opsaná XZ bounding boxu pokryje i spline obrys ozubení."""
+    bb = actual.BoundBox
+    return math.hypot(max(abs(bb.XMin-x), abs(bb.XMax-x)),
+                      max(abs(bb.ZMin-z), abs(bb.ZMax-z))) + 1e-7
+
+
+def verify_removal():
+    s = check_shape()
+    p = D.Parameters
+    names = ['AssemblyFrame', 'AssemblyRearLeft', 'AssemblyRearRight', 'AssemblyFrontLeft',
+             'AssemblyFrontRight', 'AssemblyRearAxle', 'AssemblyFrontAxle', 'AssemblyRearShortSpacer',
+             'AssemblyRearLongSpacer', 'AssemblyFrontLeftSpacer', 'AssemblyFrontRightSpacer',
+             'AssemblyRearClip', 'AssemblyFrontClip', 'AssemblyPinion', 'MotorReference']
+    obstacles = {name: shape(name) for name in names}
+    seated = []
+    for name, other in obstacles.items():
+        volume = s.common(other).Volume
+        near(volume, 0, 'kolize dosednuté střechy '+name)
+        seated.append({'object': name, 'intersection_mm3': volume, 'distance_mm': s.distToShape(other)[0]})
+    z = val(p, 'AxleHeight')
+    assert s.BoundBox.ZMin > z, 'Důkaz svislého sejmutí vyžaduje střechu nad osami.'
+    envelopes = []
+    def envelope(name, proxy, actual=None):
+        intersection = s.common(proxy).Volume
+        near(intersection, 0, 'kolize rotační obálky '+name)
+        uncovered = actual.cut(proxy).Volume if actual is not None else None
+        if uncovered is not None:
+            near(uncovered, 0, 'obálka nepokrývá díl '+name)
+        envelopes.append({'name': name, 'intersection_mm3': intersection,
+                          'distance_mm': s.distToShape(proxy)[0], 'uncovered_part_mm3': uncovered})
+    for name in names[1:-1]:
+        actual = obstacles[name]
+        bb = actual.BoundBox
+        x = val(p, 'FrontX') if 'Front' in name else val(p, 'RearX')
+        if name == 'AssemblyPinion':
+            x = val(p, 'MotorX')
+            radius = bounding_radius(actual, x, z)
+        elif 'Spacer' in name:
+            radius = val(p, 'SpacerOuter')/2
+        elif 'Axle' in name:
+            radius = max(val(p, 'AxleDiameter'), val(p, 'FlangeDiameter'))/2
+        elif 'Clip' in name:
+            radius = val(p, 'ClipOuter')/2
+        else:
+            radius = val(p, 'WheelDiameter')/2
+        envelope(name, cylinder_at(x, z, radius, bb.YMin, bb.YMax), actual)
+    # Samostatná obálka ozubení podle skutečného BRep, nikoli jen jmenovitého modulu.
+    gear_start = -val(p, 'WheelOuterY') + val(p, 'WheelThickness')
+    rear = obstacles['AssemblyRearLeft']
+    rb = rear.BoundBox
+    gear_section = rear.common(box(rb.XMin-1, gear_start, rb.ZMin-1,
+                                  rb.XLength+2, val(p, 'GearThickness'), rb.ZLength+2))
+    envelope('rear-gear-conservative', cylinder_at(val(p, 'RearX'), z,
+             bounding_radius(gear_section, val(p, 'RearX'), z),
+             gear_start, gear_start+val(p, 'GearThickness')), gear_section)
+    for name in ('MotorBodyReference', 'MotorShaftReference'):
+        obj = D.getObject(name)
+        bb = obj.Shape.BoundBox
+        envelope(name, cylinder_at(val(p, 'MotorX'), z, float(obj.Radius.Value), bb.YMin, bb.YMax), obj.Shape)
+    # Konzervativní rám: pod osou plný box, nad ním čtyři plné ložiskové bloky.
+    frame = obstacles['AssemblyFrame']
+    fb = frame.BoundBox
+    frame_parts = [box(fb.XMin, fb.YMin, fb.ZMin, fb.XLength, fb.YLength, z-fb.ZMin)]
+    for xx in (val(p, 'RearX'), val(p, 'FrontX')):
+        for yy in (-val(p, 'BearingY'), val(p, 'BearingY')):
+            frame_parts.append(box(xx-val(p, 'BearingLength')/2, yy-val(p, 'BearingWidth')/2,
+                                   fb.ZMin, val(p, 'BearingLength'), val(p, 'BearingWidth'), val(p, 'BearingTop')-fb.ZMin))
+    frame_proxy = frame_parts[0].multiFuse(frame_parts[1:])
+    near(frame.cut(frame_proxy).Volume, 0, 'konzervativní obálka celého rámu')
+    near(s.common(frame_proxy).Volume, 0, 'kolize s plnými ložiskovými bloky')
+    # Nezávislá vzorkovaná kontrola skutečných dílů, navíc k důkazu obálkami.
+    lifts = [0.1, 1.0, 2.0, 3.0, 8.0, 30.0]
+    samples = []
+    for lift in lifts:
+        moved = s.copy()
+        moved.translate(vec(0, 0, lift))
+        maximum = 0.0
+        for name, other in obstacles.items():
+            collision = moved.common(other).Volume
+            near(collision, 0, 'svislé sejmutí +%g mm / %s' % (lift, name))
+            maximum = max(maximum, collision)
+        samples.append({'lift_mm': lift, 'max_intersection_mm3': maximum, 'checked_parts': len(obstacles)})
+    return {'seated_parts': seated, 'rotation_envelopes': envelopes, 'vertical_lift_samples': samples,
+            'continuous_vertical_removal': {
+                'passed': True,
+                'argument': 'Všechny rotační díly jsou pokryty nekolidujícími plnými válci s osou pod nejnižším bodem střechy. Při zdvihu proto jejich horní půlkruhová obálka může jen ustupovat. Celý rám pokrývá nekolidující spodní box pod střechou a čtyři plné bloky sahající pod její spodek; jejich horizontální průřez se při relativním posunu dolů nezvětšuje. Tím je pokryt každý nezáporný svislý zdvih, nezávisle na úhlu otočení kol a ozubení.',
+                'scope': 'Svislý posun pevné CAD střechy. Neověřuje naklápění, přidané pásky, vodiče ani elektroniku.'}}
+
+
+try:
+    REPORT['source_sha256_before'] = hashlib.sha256(SOURCE.read_bytes()).hexdigest()
+    assert not any(o.FileName and Path(o.FileName).resolve() == SOURCE for o in App.listDocuments().values()), 'FCStd je již otevřený.'
+    D = App.openDocument(str(SOURCE))
+    proxies = [o.Name for o in D.Objects if 'Python' in o.TypeId]
+    assert not proxies, 'Dokument vyžaduje Python objekty: '+str(proxies)
+    D.recompute()
+    baseline = verify_dimensions()
+    REPORT['baseline'] = baseline
+    for sheet_name, alias, original_value, changed_value in (
+        ('ShieldParameters', 'UsableLength', 170, 180),
+        ('ShieldParameters', 'UsableWidth', 60, 65),
+        ('ShieldParameters', 'WheelClearance', 6, 8),
+        ('ShieldParameters', 'SocketClearance', 0.3, 0.4),
+        ('ShieldParameters', 'SocketDepth', 2, 1.5),
+        ('Parameters', 'BearingTop', 24, 25),
+        ('Parameters', 'FrontX', 115, 117),
+    ):
+        sheet = D.getObject(sheet_name)
+        near(val(sheet, alias), original_value, sheet_name+'.'+alias+' výchozí hodnota')
+        cell = sheet.getCellFromAlias(alias)
+        original = sheet.getContents(cell)
+        check = {'parameter': sheet_name+'.'+alias, 'sequence_mm': [original_value, changed_value, original_value], 'passed': False}
+        REPORT['parameter_checks'].append(check)
+        try:
+            sheet.set(cell, '=%g mm' % changed_value)
+            D.recompute()
+            check['changed'] = verify_dimensions()
+            assert abs(check['changed']['volume_mm3']-baseline['volume_mm3']) > 0.01, alias+' nemění objem'
+        finally:
+            sheet.set(cell, original)
+            D.recompute()
+        restored = verify_dimensions()
+        near(restored['volume_mm3'], baseline['volume_mm3'], alias+' návrat objemu')
+        check['restored_volume_mm3'] = restored['volume_mm3']
+        check['passed'] = True
+        print('ROOF_PARAMETER_OK '+check['parameter'], flush=True)
+    REPORT['clearances_and_removal'] = verify_removal()
+    REPORT['source_sha256_after'] = hashlib.sha256(SOURCE.read_bytes()).hexdigest()
+    REPORT['file_unchanged'] = REPORT['source_sha256_before'] == REPORT['source_sha256_after']
+    assert REPORT['file_unchanged'], 'Soubor FCStd byl během kontroly změněn jiným procesem.'
+    REPORT['passed'] = True
+except Exception:
+    REPORT['error'] = traceback.format_exc()
+    print(REPORT['error'], flush=True)
+finally:
+    if D is not None:
+        App.closeDocument(D.Name)
+    RESULT.write_text(json.dumps(REPORT, ensure_ascii=False, indent=2)+'\n', encoding='utf-8')
+    print('ROOF_VERIFICATION '+str(REPORT['passed']), flush=True)
+if not REPORT['passed']:
+    raise RuntimeError('Kontrola střechy neprošla; viz '+str(RESULT))

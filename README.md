@@ -20,7 +20,9 @@ Tiskárna je **Anycubic Kobra X s tryskou 0,4 mm**. K dispozici je bílý a čer
 
 První model je [polička na zárubeň 90 × 50 mm](models/policka-na-zaruben/README.md). Její geometrie byla ověřena a uživatel model otevřel i importoval do sliceru. Uživatel oznámil zahájení prvního tisku; **fyzický výsledek ani první vrstva zatím nejsou potvrzené**. U zkontrolovaného lokálního G-code není jednoznačně doloženo, že jde právě o úlohu běžící na tiskárně. Podrobnosti jsou v [deníku](docs/denik-tisku.md).
 
-Další model je [jednoduché autíčko s jedním motorem](models/jednoduche-auticko/README.md): čtyři kola, společná zadní náprava a ozubený převod. První FCStd a jednotlivé STL jsou vytvořené a geometricky zkontrolované. **Uživatel na dalším vytištěném vzorku potvrdil nasazení do otvoru označeného 2,2 mm. [Pastorek](models/jednoduche-auticko/stl/pastorek.stl), sestava a zdroj jsou podle toho upravené.** Další krok je tisk pastorku a ostatních dílů; fyzická montáž a jízda ještě ověřené nejsou.
+Další model je [jednoduché autíčko s jedním motorem](models/jednoduche-auticko/README.md): čtyři kola, společná zadní náprava a ozubený převod. První FCStd a jednotlivé STL jsou vytvořené a geometricky zkontrolované. **Uživatel na vytištěném vzorku zvolil otvor 2,2 mm a následně potvrdil dobré nasazení hotového [pastorku](models/jednoduche-auticko/stl/pastorek.stl).** Tisk zbývajících 13 kusů zadal s odhadem sliceru 3 h 15 min; dokončení zatím nepotvrdil. **První sekundový rozběh samostatného motoru tlačítkem z telefonu přes UNO R4 WiFi a L293D uživatel potvrdil.** [Záznam sestavování, zapojení a posledního stavu](models/jednoduche-auticko/prvni-stolni-test.md) obsahuje i provizorní napájení a otevřené body. Fyzická montáž podvozku a jízda ještě ověřené nejsou.
+
+Autíčko nově doplňuje **[snímatelná plošina s užitnou plochou 170 × 60 mm](models/jednoduche-auticko/strecha.md)**. Nasazuje se na čtyři existující výstupky u kol; původní rám se nemusí tisknout znovu. CAD a STL jsou připravené, tisk a fyzický dosed ještě nebyly potvrzené.
 
 ## Jak zapisovat poznatky
 

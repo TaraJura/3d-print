@@ -1,5 +1,5 @@
 {
-  "status": "PRVNÍ PROTOTYP; uživatel potvrdil nasazení vzorku 2,2 mm, sestava a celý pastorek fyzicky neověřeny",
+  "status": "PRVNÍ PROTOTYP; uživatel potvrdil nasazení hotového pastorku 2,2 mm, montáž podvozku a jízda neověřeny",
   "units": "mm",
   "parameters_mm": {
     "FrameLength": 140.0,
@@ -155,7 +155,7 @@
     "Dvě malé stahovací pásky nutné pro uchycení motoru, nejsou tištěné ani potvrzené jako vlastněné. Otvory 3×3,2 mm; vybrat pásku s odpovídajícím průřezem.",
     "Pásky procházejí svislými drážkami vedle sedel a vedou pod rámem; žádný úzký příčný tunel.",
     "Zadní čelo motoru Y3 a prostor za ním jsou otevřené; skutečné kontakty nejsou rozměrově známé.",
-    "Pastorek: otvor Ø2,2 mm podle uživatelem potvrzeného nasazení vzorku; délka 5,5 mm. Těsnost po celé délce a přenos momentu dosud neověřeny. Referenční hřídel Ø2,2 je vizualizace CAD otvoru, nikoli měření motoru.",
+    "Pastorek: otvor Ø2,2 mm podle uživatelem potvrzeného nasazení vzorku; délka 5,5 mm. Uživatel potvrdil dobré nasazení hotového pastorku; přenos momentu při zatížení neověřen. Referenční hřídel Ø2,2 je vizualizace CAD otvoru, nikoli měření motoru.",
     "Ozubení není vlastní Python proxy: obrys vyžaduje při změně modulu/zubů/úhlu regeneraci makrem."
   ],
   "fit_result": {
@@ -163,8 +163,9 @@
     "selected_nominal_hole_mm": 2.2,
     "reported_result": "hřídel motoru se vejde do otvoru označeného 2,2",
     "shaft_actual_diameter_measured": false,
-    "pinion_full_depth_tested": false,
-    "torque_transfer_tested": false
+    "torque_transfer_tested": false,
+    "finished_pinion_fit_reported": true,
+    "insertion_depth_measured": false
   },
   "fit_sample": {
     "status": "historický vzorek v1; uživatelská zkouška nevyhověla",

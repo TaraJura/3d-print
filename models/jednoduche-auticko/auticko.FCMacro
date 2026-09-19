@@ -6,7 +6,7 @@ Tělo motoru a délka hřídele jsou uživatelské ruční měření. Otvor past
 Ozubení je standardní Part obrys z přibaleného fcgear: modul/počty zubů
 vyžadují regeneraci makrem. Parametry běžných primitiv mají výrazy.
 Bez vlastních Python proxy tříd. Vzorek otvorů odzkoušen uživatelem;
-celý pastorek a fyzická montáž autíčka zatím neověřeny.
+uživatel potvrdil nasazení hotového pastorku; montáž podvozku a jízda neověřeny.
 """
 from pathlib import Path
 import json, math, sys
@@ -52,7 +52,7 @@ PARAMS = [
  ('StrapOffset',16,'Odsazení drážek od osy motoru','návrh'),
  ('GearModule',0.9,'Modul ozubení','návrh; změna vyžaduje regeneraci makrem'),
  ('GearThickness',5,'Tloušťka velkého ozubení','návrh'),('PinionThickness',5.5,'Tloušťka pastorku','návrh'),
- ('PinionBore',2.2,'Otvor pastorku','uživatel potvrdil nasazení do vzorku 2,2 mm; celý pastorek neověřen'),
+ ('PinionBore',2.2,'Otvor pastorku','uživatel potvrdil nasazení vzorku i hotového pastorku; zatížení neověřeno'),
  ('GearCentreExtra',0.2,'Zvětšení osové vzdálenosti','návrh vůle; netestováno'),
 ]
 VALUES = {x[0]:float(x[1]) for x in PARAMS}
@@ -256,11 +256,11 @@ if App.GuiUp:
 D.recompute();D.saveAs(str(OUT/'auticko.FCStd'))
 print('PROGRESS: document saved',flush=True)
 
-report={'status':'PRVNÍ PROTOTYP; uživatel potvrdil nasazení vzorku 2,2 mm, sestava a celý pastorek fyzicky neověřeny',
+report={'status':'PRVNÍ PROTOTYP; uživatel potvrdil nasazení hotového pastorku 2,2 mm, montáž podvozku a jízda neověřeny',
  'units':'mm','parameters_mm':VALUES,'gear':{'big_teeth':BIG_TEETH,'small_teeth':SMALL_TEETH,'module_mm':VALUES['GearModule'],'pressure_angle_deg':PRESSURE_ANGLE,'ratio':BIG_TEETH/SMALL_TEETH,'centre_distance_mm':float(S.GearCentreDistance.Value),'centre_extra_mm':VALUES['GearCentreExtra']},
  'motor_measurements':{'body_diameter_mm':22.5,'body_length_mm':26,'original_shaft_diameter_estimate_mm':1,'shaft_diameter_mm':None,'shaft_reference_diameter_mm':VALUES['MotorShaftDiameter'],'shaft_length_mm':6,'source':'ruční měření uživatele; přesnost neověřena','shaft_profile':'kulatý otvor je pracovní předpoklad; tvar hřídele nepotvrzen','rpm_voltage_torque':'neznámé'},
- 'assembly_notes':['Zadní osa změněna na souvislou D plochu od příruby k volnému konci: D kola lze navléknout; izolované D úseky by přes kruhový střed neprošly.','D otvor kola má radiální vůli 0,1 mm a plocha vůli 0,1 mm; montáž a tření neověřeny.','Uložení Ø6,5 / osy Ø6 jsou návrhové vůle.','Osy tisknout stojící na přírubě; přilnavost a pevnost vrstev nutno ověřit.','Drážka pojistky je Y38..39,5, pojistka Y38,1..39,4; pravé kolo končí Y37,5.','Levá příruba končí Y-38, levé kolo začíná Y-37,5.','Dvě malé stahovací pásky nutné pro uchycení motoru, nejsou tištěné ani potvrzené jako vlastněné. Otvory 3×3,2 mm; vybrat pásku s odpovídajícím průřezem.','Pásky procházejí svislými drážkami vedle sedel a vedou pod rámem; žádný úzký příčný tunel.','Zadní čelo motoru Y3 a prostor za ním jsou otevřené; skutečné kontakty nejsou rozměrově známé.','Pastorek: otvor Ø2,2 mm podle uživatelem potvrzeného nasazení vzorku; délka 5,5 mm. Těsnost po celé délce a přenos momentu dosud neověřeny. Referenční hřídel Ø2,2 je vizualizace CAD otvoru, nikoli měření motoru.','Ozubení není vlastní Python proxy: obrys vyžaduje při změně modulu/zubů/úhlu regeneraci makrem.'],
- 'fit_result':{'source':'hlášení uživatele 2026-09-19','selected_nominal_hole_mm':2.2,'reported_result':'hřídel motoru se vejde do otvoru označeného 2,2','shaft_actual_diameter_measured':False,'pinion_full_depth_tested':False,'torque_transfer_tested':False},
+ 'assembly_notes':['Zadní osa změněna na souvislou D plochu od příruby k volnému konci: D kola lze navléknout; izolované D úseky by přes kruhový střed neprošly.','D otvor kola má radiální vůli 0,1 mm a plocha vůli 0,1 mm; montáž a tření neověřeny.','Uložení Ø6,5 / osy Ø6 jsou návrhové vůle.','Osy tisknout stojící na přírubě; přilnavost a pevnost vrstev nutno ověřit.','Drážka pojistky je Y38..39,5, pojistka Y38,1..39,4; pravé kolo končí Y37,5.','Levá příruba končí Y-38, levé kolo začíná Y-37,5.','Dvě malé stahovací pásky nutné pro uchycení motoru, nejsou tištěné ani potvrzené jako vlastněné. Otvory 3×3,2 mm; vybrat pásku s odpovídajícím průřezem.','Pásky procházejí svislými drážkami vedle sedel a vedou pod rámem; žádný úzký příčný tunel.','Zadní čelo motoru Y3 a prostor za ním jsou otevřené; skutečné kontakty nejsou rozměrově známé.','Pastorek: otvor Ø2,2 mm podle uživatelem potvrzeného nasazení vzorku; délka 5,5 mm. Uživatel potvrdil dobré nasazení hotového pastorku; přenos momentu při zatížení neověřen. Referenční hřídel Ø2,2 je vizualizace CAD otvoru, nikoli měření motoru.','Ozubení není vlastní Python proxy: obrys vyžaduje při změně modulu/zubů/úhlu regeneraci makrem.'],
+ 'fit_result':{'source':'hlášení uživatele 2026-09-19','selected_nominal_hole_mm':2.2,'reported_result':'hřídel motoru se vejde do otvoru označeného 2,2','shaft_actual_diameter_measured':False,'finished_pinion_fit_reported':True,'insertion_depth_measured':False,'torque_transfer_tested':False},
  'fit_sample':{'status':'historický vzorek v1; uživatelská zkouška nevyhověla','hole_diameters_left_to_right_mm':[0.9,1.0,1.1,1.2,1.3],'hole_centres_xy_mm':[[5+i*6,5] for i in range(5)],'orientation':'V poloze STL (Z nahoru) boční zářez vlevo u prvního otvoru 0,9 mm. Další otvory po 6 mm doprava.','thickness_mm':5.5},'parts':{}}
 for key,obj in parts.items():
     shape=obj.Shape

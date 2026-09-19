@@ -1,0 +1,190 @@
+# -*- coding: utf-8 -*-
+"""Snímatelný shield na původní ložiskové výstupky, mm.
+
+Spustit skutečným FreeCADem v samostatném procesu. Čte auticko.FCStd,
+ale NEUKLÁDÁ jej. Vytváří auticko-se-strechou.FCStd, stl/strecha.stl
+a kontrola-strechy.json vedle makra; pouze tyto nové výstupy přepisuje.
+Užitná plocha 170 x 60 je zadání uživatele. Ostatní hodnoty jsou návrh.
+Parametrické Part objekty a výrazy; žádná vlastní Python proxy.
+"""
+from pathlib import Path
+import hashlib, json
+import FreeCAD as App
+import Part, Mesh, MeshPart
+
+OUT = Path(__file__).resolve().parent
+SOURCE = OUT / 'auticko.FCStd'
+TARGET = OUT / 'auticko-se-strechou.FCStd'
+for opened in App.listDocuments().values():
+    if opened.FileName and Path(opened.FileName).resolve() in (SOURCE, TARGET):
+        raise RuntimeError('Zdroj nebo výstup je otevřený. Použij samostatný proces FreeCADu; ruční změny se nesmí přepsat.')
+source_hash = hashlib.sha256(SOURCE.read_bytes()).hexdigest()
+App.ParamGet('User parameter:BaseApp/Preferences/Document').SetInt('CountBackupFiles', 0)
+D = App.openDocument(str(SOURCE))
+D.Label = 'Jednoduché autíčko — snímatelná plošina 170 × 60'
+S = D.addObject('Spreadsheet::Sheet', 'ShieldParameters')
+S.Label = 'STŘECHA — parametry (mm), zadání a návrh'
+PARAMS = [
+    ('UsableLength', 170, 'Užitná délka', 'zadání uživatele: nepájivé pole'),
+    ('UsableWidth', 60, 'Užitná šířka', 'zadání uživatele: nepájivé pole'),
+    ('Border', 5, 'Okraj pro pásky', 'návrh'),
+    ('PlateThickness', 4, 'Tloušťka plošiny', 'návrh; nosnost neověřena'),
+    ('WheelClearance', 6, 'Plošina nad obálkou kol', 'návrhová vůle'),
+    ('SocketClearance', 0.3, 'Vůle kapsy na každé straně', 'návrh; fit nevytištěn'),
+    ('SocketDepth', 2, 'Hloubka nasazení na výstupky', 'návrh; nejde o zacvaknutí'),
+    ('WallX', 2, 'Stěna kapsy v X', 'návrh'),
+    ('WallY', 1.2, 'Stěna kapsy v Y', 'návrh; omezeno sousedním ozubením'),
+    ('SpacerClearance', 0.5, 'Radiální vůle nad rozpěrkou', 'návrh'),
+    ('RibWidth', 4, 'Šířka dvou spodních žeber', 'návrh'),
+    ('RibHeight', 4, 'Výška spodních žeber', 'návrh'),
+    ('StrapLength', 12, 'Délka drážky pásky', 'návrh; průchod pro pásku do šířky 10 mm'),
+    ('StrapWidth', 2.6, 'Šířka drážky pásky', 'návrh; skutečné pásky neověřeny'),
+]
+S.set('A1', 'Parametr'); S.set('B1', 'Hodnota'); S.set('C1', 'Původ / omezení')
+S.setStyle('A1:C1', 'bold', 'add')
+for row, (alias, value, label, origin) in enumerate(PARAMS, 2):
+    S.set('A'+str(row), label); S.set('B'+str(row), f'={value:g} mm')
+    S.setAlias('B'+str(row), alias); S.set('C'+str(row), origin)
+    S.setBackground('B'+str(row), (0.82, 0.94, 0.86) if origin.startswith('zadání') else (1.0, 0.94, 0.77))
+formulas = [
+    ('DeckLength', '=UsableLength + 2 * Border'),
+    ('DeckWidth', '=UsableWidth + 2 * Border'),
+    ('DeckZ', '=Parameters.AxleHeight + Parameters.WheelDiameter / 2 + WheelClearance'),
+    ('DeckTop', '=DeckZ + PlateThickness'),
+    ('SocketBottom', '=Parameters.BearingTop - SocketDepth'),
+    ('SocketX', '=Parameters.BearingLength + 2 * SocketClearance'),
+    ('SocketY', '=Parameters.BearingWidth + 2 * SocketClearance'),
+    ('PostX', '=SocketX + 2 * WallX'),
+    ('PostY', '=SocketY + 2 * WallY'),
+]
+for row, (alias, formula) in enumerate(formulas, len(PARAMS)+3):
+    S.set('A'+str(row), alias); S.set('B'+str(row), formula); S.setAlias('B'+str(row), alias)
+    S.set('C'+str(row), 'odvozeno výrazem; původní rám není upraven')
+S.setColumnWidth('A', 300); S.setColumnWidth('B', 130); S.setColumnWidth('C', 450)
+D.recompute()
+
+def q(alias): return 'ShieldParameters.' + alias
+def p(alias): return 'Parameters.' + alias
+created = []
+def box(name, dimensions, position):
+    obj = D.addObject('Part::Box', name)
+    for prop, expression in zip(('Length','Width','Height'), dimensions):
+        obj.setExpression(prop, expression)
+    for axis, expression in zip('xyz', position):
+        obj.setExpression('Placement.Base.'+axis, expression)
+    created.append(obj)
+    return obj
+def union(name, objects):
+    obj = D.addObject('Part::MultiFuse', name); obj.Shapes = objects; obj.Refine = True
+    created.append(obj); return obj
+
+centre = p('FrameLength') + '/2'
+plate = box('ShieldPlate', (q('DeckLength'), q('DeckWidth'), q('PlateThickness')),
+            (centre+' - '+q('DeckLength')+'/2', '-'+q('DeckWidth')+'/2', q('DeckZ')))
+material = [plate]; holes = []
+socket_objects = []
+for end, xx in [('Rear', p('RearX')), ('Front', p('FrontX'))]:
+    for side in (-1, 1):
+        yy = f'{side} * ' + p('BearingY')
+        tag = end + ('Left' if side < 0 else 'Right')
+        material.append(box('ShieldPost'+tag, (q('PostX'), q('PostY'), q('DeckZ')+' - '+q('SocketBottom')),
+                            (xx+' - '+q('PostX')+'/2', yy+' - '+q('PostY')+'/2', q('SocketBottom'))))
+        socket = box('ShieldSocket'+tag, (q('SocketX'), q('SocketY'), q('SocketDepth')+' + 1 mm'),
+                     (xx+' - '+q('SocketX')+'/2', yy+' - '+q('SocketY')+'/2', q('SocketBottom')+' - 1 mm'))
+        holes.append(socket); socket_objects.append(socket)
+        relief = D.addObject('Part::Cylinder', 'ShieldAxleRelief'+tag)
+        relief.setExpression('Radius', p('SpacerOuter')+'/2 + '+q('SpacerClearance'))
+        relief.setExpression('Height', q('PostY')+' + 2 mm')
+        relief.Placement.Rotation = App.Rotation(App.Vector(1,0,0), -90)
+        for axis, expression in zip('xyz', (xx, yy+' - '+q('PostY')+'/2 - 1 mm', p('AxleHeight'))):
+            relief.setExpression('Placement.Base.'+axis, expression)
+        created.append(relief); holes.append(relief)
+        # Drážky jsou mimo celou užitnou plochu; mají přístup ze spodní strany.
+        holes.append(box('ShieldStrap'+tag, (q('StrapLength'), q('StrapWidth'), q('PlateThickness')+' + 2 mm'),
+                         (xx+' - '+q('StrapLength')+'/2', f'{side} * ('+q('UsableWidth')+'/2 + '+q('Border')+'/2) - '+q('StrapWidth')+'/2', q('DeckZ')+' - 1 mm')))
+for side in (-1, 1):
+    material.append(box('ShieldRib'+str(side+2),
+        (p('FrontX')+' - '+p('RearX'), q('RibWidth'), q('RibHeight')),
+        (p('RearX'), f'{side} * '+p('BearingY')+' - '+q('RibWidth')+'/2', q('DeckZ')+' - '+q('RibHeight'))))
+shield = D.addObject('Part::Cut', 'Shield')
+shield.Base = union('ShieldMaterial', material)
+shield.Tool = union('ShieldVoids', holes)
+shield.Refine = True
+shield.Label = 'STŘECHA — 1× tisk, užitná plocha 170 × 60; snímatelná'
+D.getObject('Assembly').addObject(shield)
+D.recompute()
+invalid = [(o.Name, list(o.State)) for o in D.Objects if 'Invalid' in o.State]
+if invalid or not shield.Shape.isValid() or len(shield.Shape.Solids) != 1:
+    raise RuntimeError('Neplatný model: '+str(invalid))
+
+report = {
+    'status': 'CAD návrh; dosed, tuhost, nosnost a tisk nejsou fyzicky ověřené',
+    'units': 'mm', 'source_base_sha256': source_hash,
+    'base_file_unchanged': True,
+    'parameters_mm': {alias: value for alias, value, _, _ in PARAMS},
+    'geometry': {'valid': shield.Shape.isValid(), 'solids': len(shield.Shape.Solids),
+                 'volume_mm3': shield.Shape.Volume},
+    'scope': 'Samostatný nasazovací nástavec; žádné nové rozměry elektroniky ani změny původních dílů.',
+    'usable_flat_rectangle_mm': [float(S.UsableLength.Value), float(S.UsableWidth.Value)],
+    'platform_bottom_z_mm': float(S.DeckZ.Value),
+    'platform_top_z_mm': float(S.DeckTop.Value),
+    'bearing_seat_z_mm': float(D.Parameters.BearingTop.Value),
+    'socket_opening_xy_mm': [float(S.SocketX.Value), float(S.SocketY.Value)],
+    'socket_depth_mm': float(S.SocketDepth.Value),
+    'contacts': [], 'clearances': [],
+}
+names = json.loads((OUT/'kontrola-modelu.json').read_text())['assembly_object_names']
+for name in names:
+    other = D.getObject(name).Shape
+    collision = shield.Shape.common(other).Volume
+    distance = shield.Shape.distToShape(other)[0]
+    report['clearances'].append({'object': name, 'distance_mm': distance, 'intersection_mm3': collision})
+    if collision > 1e-5:
+        raise RuntimeError(f'Kolize nástavce s {name}: {collision} mm3')
+for xx in (float(D.Parameters.RearX.Value), float(D.Parameters.FrontX.Value)):
+    for yy in (-float(D.Parameters.BearingY.Value), float(D.Parameters.BearingY.Value)):
+        z = float(D.Parameters.BearingTop.Value)
+        top = Part.makePlane(float(D.Parameters.BearingLength.Value), float(D.Parameters.BearingWidth.Value),
+                             App.Vector(xx-float(D.Parameters.BearingLength.Value)/2, yy-float(D.Parameters.BearingWidth.Value)/2, z))
+        area = shield.Shape.common(top).Area
+        report['contacts'].append({'centre_xyz_mm': [xx,yy,z], 'seat_area_mm2': area})
+        if abs(area-float(D.Parameters.BearingLength.Value)*float(D.Parameters.BearingWidth.Value))>1e-4:
+            raise RuntimeError('Neúplný dosed na výstupek: '+str(area))
+# Ověření vztyčených a otočených kol: obálka plného válce zahrnuje každý úhel rotace.
+for xx in (float(D.Parameters.RearX.Value), float(D.Parameters.FrontX.Value)):
+    for side in (-1, 1):
+        y = side*float(D.Parameters.WheelOuterY.Value)
+        direction = App.Vector(0, -side, 0)
+        sweep = Part.makeCylinder(float(D.Parameters.WheelDiameter.Value)/2,
+                                   float(D.Parameters.WheelThickness.Value),
+                                   App.Vector(xx,y,float(D.Parameters.AxleHeight.Value)), direction)
+        collision = shield.Shape.common(sweep).Volume
+        report.setdefault('wheel_rotation_envelopes', []).append({'x':xx,'side':side,'intersection_mm3':collision,
+                                                                  'distance_mm':shield.Shape.distToShape(sweep)[0]})
+        if collision>1e-5: raise RuntimeError('Kolize s rotační obálkou kola')
+
+# STL: celá horní rovná plocha na podložce, sloupky s otevřenými kapsami vzhůru.
+print_shape = shield.Shape.copy()
+print_shape.rotate(App.Vector(), App.Vector(1,0,0), 180)
+bb = print_shape.BoundBox
+print_shape.translate(App.Vector(-bb.XMin, -bb.YMin, -bb.ZMin))
+mesh = MeshPart.meshFromShape(Shape=print_shape, LinearDeflection=0.05, AngularDeflection=0.12, Relative=False)
+stl = OUT/'stl'/'strecha.stl'; mesh.write(str(stl))
+loaded = Mesh.Mesh(str(stl))
+if not loaded.isSolid(): raise RuntimeError('STL není uzavřené')
+bb = loaded.BoundBox
+report['stl'] = {'file':'stl/strecha.stl','copies':1,'closed':loaded.isSolid(),
+                 'components':loaded.countComponents(),'facets':loaded.CountFacets,
+                 'bbox_mm':[bb.XLength,bb.YLength,bb.ZLength], 'min_z_mm':bb.ZMin,
+                 'print_orientation':'STL už leží horní plochou na podložce; kapsy vzhůru; bez navržených podpor'}
+if loaded.countComponents()!=1: raise RuntimeError('Více částí v STL')
+if App.GuiUp:
+    for obj in D.Objects:
+        if hasattr(obj, 'Shape'): obj.ViewObject.Visibility = obj.Name in names or obj == shield
+    shield.ViewObject.ShapeColor=(0.20,0.63,0.48)
+    D.getObject('Assembly').ViewObject.Visibility=True
+D.recompute(); D.saveAs(str(TARGET))
+assert hashlib.sha256(SOURCE.read_bytes()).hexdigest() == source_hash
+(OUT/'kontrola-strechy.json').write_text(json.dumps(report, ensure_ascii=False, indent=2)+'\n')
+print('SHIELD_COMPLETE '+json.dumps(report['stl']), flush=True)
+App.closeDocument(D.Name)

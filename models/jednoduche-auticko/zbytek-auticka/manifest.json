@@ -1,0 +1,102 @@
+{
+  "format_version": 1,
+  "source_report": "kontrola-modelu.json",
+  "stl_count": 13,
+  "excluded": [
+    "pastorek",
+    "všechny vzorky"
+  ],
+  "files": [
+    {
+      "file": "01-ram.stl",
+      "source": "stl/ram.stl",
+      "copy": 1,
+      "bytes": 115884,
+      "sha256": "8847d17a18c497d422b34a28a9598e439a526f5bfca5b64ab3c266b4108a35b6"
+    },
+    {
+      "file": "02-kolo-zadni-ozubene.stl",
+      "source": "stl/kolo-zadni-ozubene.stl",
+      "copy": 1,
+      "bytes": 841684,
+      "sha256": "35063b786f519021ab85c7742c909acd5dc07fd0646fa8baa5c7a3df4830373f"
+    },
+    {
+      "file": "03-kolo-zadni.stl",
+      "source": "stl/kolo-zadni.stl",
+      "copy": 1,
+      "bytes": 65684,
+      "sha256": "ab4618df29f811d36596120f4279aa22fc3efbe6ddc44be2738b3016a61e10fc"
+    },
+    {
+      "file": "04-kolo-predni-1.stl",
+      "source": "stl/kolo-predni.stl",
+      "copy": 1,
+      "bytes": 70884,
+      "sha256": "fd3d2970d61eb7f3ba9a1593cba423bff9aa92e290ca42297e7a22e139630379"
+    },
+    {
+      "file": "05-kolo-predni-2.stl",
+      "source": "stl/kolo-predni.stl",
+      "copy": 2,
+      "bytes": 70884,
+      "sha256": "fd3d2970d61eb7f3ba9a1593cba423bff9aa92e290ca42297e7a22e139630379"
+    },
+    {
+      "file": "06-osa-zadni.stl",
+      "source": "stl/osa-zadni.stl",
+      "copy": 1,
+      "bytes": 69484,
+      "sha256": "4abfd6962f8e4118637fee72d2ae21cd4adc0ab76fc3859204c490a95744b9cc"
+    },
+    {
+      "file": "07-osa-predni.stl",
+      "source": "stl/osa-predni.stl",
+      "copy": 1,
+      "bytes": 83884,
+      "sha256": "c6c537b104101b8b4f1bd7d2d17a298e456482e3b3a11466f6e9842862a6fae7"
+    },
+    {
+      "file": "08-rozperka-kratka.stl",
+      "source": "stl/rozperka-kratka.stl",
+      "copy": 1,
+      "bytes": 42084,
+      "sha256": "db1855e5c69bb92c9c9d25192d1cbbddd153f7b7bbd2bda7a8985a4661f0ac6f"
+    },
+    {
+      "file": "09-rozperka-dlouha-1.stl",
+      "source": "stl/rozperka-dlouha.stl",
+      "copy": 1,
+      "bytes": 42084,
+      "sha256": "6d95f7455d561aed40f041da50b9773835322cff5e222c1986c6251776439b36"
+    },
+    {
+      "file": "10-rozperka-dlouha-2.stl",
+      "source": "stl/rozperka-dlouha.stl",
+      "copy": 2,
+      "bytes": 42084,
+      "sha256": "6d95f7455d561aed40f041da50b9773835322cff5e222c1986c6251776439b36"
+    },
+    {
+      "file": "11-rozperka-dlouha-3.stl",
+      "source": "stl/rozperka-dlouha.stl",
+      "copy": 3,
+      "bytes": 42084,
+      "sha256": "6d95f7455d561aed40f041da50b9773835322cff5e222c1986c6251776439b36"
+    },
+    {
+      "file": "12-pojistka-1.stl",
+      "source": "stl/pojistka.stl",
+      "copy": 1,
+      "bytes": 32284,
+      "sha256": "3706c2b3cf27e48dab65636ae2a9292cc24bde79220ac78a477d900ccf76b77a"
+    },
+    {
+      "file": "13-pojistka-2.stl",
+      "source": "stl/pojistka.stl",
+      "copy": 2,
+      "bytes": 32284,
+      "sha256": "3706c2b3cf27e48dab65636ae2a9292cc24bde79220ac78a477d900ccf76b77a"
+    }
+  ]
+}

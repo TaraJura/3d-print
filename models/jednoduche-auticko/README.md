@@ -1,6 +1,14 @@
 # Jednoduché autíčko s jedním motorem
 
-Zadání uživatele z 19. 9. 2026. **Stav: první parametrický prototyp vytvořený a geometricky zkontrolovaný; fyzická montáž a pohon nejsou ověřené.** Uživatel na vytištěném zkušebním kusu potvrdil nasazení hřídelky do otvoru označeného **2,2 mm**. Podle toho byl upraven **[pastorek pro slicer](stl/pastorek.stl)**, zdrojové makro i sestava. Následuje tisk a zkouška celého pastorku; ostatní díly autíčka jsou připravené k tisku.
+Zadání uživatele z 19. 9. 2026. **Stav: parametrický prototyp geometricky zkontrolovaný, pastorek vytištěný a nasazený, první stolní rozběh motoru tlačítkem z telefonu potvrzený uživatelem.** Fyzická montáž podvozku a jízda nejsou ověřené. Podle zkoušky otvoru označeného **2,2 mm** byl upraven **[pastorek pro slicer](stl/pastorek.stl)**, zdrojové makro i sestava; uživatel potom potvrdil dobré nasazení hotového pastorku na motor. Tisk dalších 13 kusů z devíti typů STL zadal s odhadem sliceru **3 h 15 min**. Dokončení tisku a přenos momentu při zátěži ještě nepotvrdil.
+
+## Kde pokračovat po dnešní práci
+
+- **[Nová snímatelná horní plošina](strecha.md)** — rovná užitná plocha **170 × 60 mm** pro pole podle zadání uživatele. Nasazuje se na čtyři stávající výstupky u kol; podvozek se netiskne znovu. [Nové STL — 1 kus](stl/strecha.stl), [sestava ve FreeCADu](auticko-se-strechou.FCStd), [náhled](strecha-sestava.png). CAD a export vytvořeny, fyzický fit a nosnost neověřeny.
+- **[Záznam prvního stolního testu](prvni-stolni-test.md)** — co jsme sestavili, co se skutečně podařilo, fotografie, opravy a poslední stav. Motor po tlačítku běžel asi sekundu; po vyjmutí jedné AA už neběžel. Napájení bylo provizorní, bez kondenzátorů a s dočasnými motorovými kontakty.
+- [Elektronika a historie zprovoznění](elektronika.md), [tabulka zapojení L293D](zapojeni-l293d.md), [firmware a ovládání telefonu](firmware/prvni-motor/README.md).
+- [Diagnostika a oprava načítání webu](diagnostika-webu.md) — USB výpis prokázal trvalé zablokování po chybovém stavu Wi-Fi. Oprava zotavení s ochranou proti starým příkazům prošla testy a je nahraná. Opakovaná zkouška telefonu s touto verzí ještě není potvrzená; příčina samotného výpadku modemu zůstává neznámá.
+- [Deník tisků](../../docs/denik-tisku.md), [balíček zbývajících 13 dílů](zbytek-auticka.zip) a montážní pořadí níže.
 
 ## Výsledek zkoušky hřídelky — otvor 2,2 mm
 
@@ -14,14 +22,14 @@ Na výslovné přání uživatele je vzorek nyní nižší: **54 × 48 × 2 mm**
 
 ![Skutečný CAD náhled většího vzorku](vzorek-hridele-v2.png)
 
-- **[STL pro Anycubic Slicer Next](stl/vzorek-hridele-v2.stl)** — samostatný zkušební díl, měřítko **100 %**, rovnou spodní stranou dolů, číslicemi nahoru. Po importu ověřit rozměry 54 × 48 × 2 mm. Nezvětšovat celý model ve sliceru.
+- Historický export pro Anycubic Slicer Next měl cestu `stl/vzorek-hridele-v2.stl`; při uložení tohoto zápisu soubor v checkoutu chybí. Zachovaný je [zdrojový FreeCAD model](vzorek-hridele-v2.FCStd) a makro níže. Pokud by bylo později potřeba STL obnovit, znovu jej exportovat a ověřit. Původní tiskový postup: měřítko **100 %**, rovnou spodní stranou dolů, číslicemi nahoru, rozměry 54 × 48 × 2 mm. Nyní vzorek znovu tisknout není potřeba.
 - [Editovatelný FreeCAD model](vzorek-hridele-v2.FCStd), [zdrojové makro](vzorek-hridele-v2.FCMacro), [kontroly](kontrola-vzorku-v2.json) a [makro skutečného náhledu](nahled-vzorku-v2.FCMacro).
 - Ve sliceru zkontrolovat, že jsou všechny otvory průchozí a číslice čitelné; geometrie nevyžaduje podpory. Tiskový profil ani nové G-code zatím nejsou ověřené.
 - Na vychladlém výtisku zkoušet jemně **od největšího otvoru k menším**. Zapsat číslo otvoru, který jde nasunout těsně bez násilí, a zda má vůli nebo se protáčí. Těsný fit ještě sám nedokazuje přenos momentu při jízdě.
 
-**Ověření aktuálního souboru:** jeden platný solid, všech devět otvorů průchozích a STL po znovunačtení uzavřené v jedné komponentě. Tloušťka 2 → 2,5 → 2 mm přepočítala i polohu číslic a vrátila původní objem. PNG byl vizuálně zkontrolovaný; uložený FCStd zobrazuje pouze finální objekt `Coupon`, pomocné tvary jsou skryté.
+**Ověření při vytvoření vzorku:** jeden platný solid, všech devět otvorů průchozích a tehdejší STL po znovunačtení uzavřené v jedné komponentě. Tloušťka 2 → 2,5 → 2 mm přepočítala i polohu číslic a vrátila původní objem. PNG byl vizuálně zkontrolovaný; uložený FCStd zobrazuje pouze finální objekt `Coupon`, pomocné tvary jsou skryté. Tyto výsledky nezaměňovat za novou kontrolu nyní chybějícího STL.
 
-**Fyzický výsledek, hlášení uživatele:** hřídelka motoru se vejde do otvoru označeného **2,2 mm**. To je zvolený nominální průměr otvoru v CADu, nikoli změřený průměr hřídele. Uživatel nepotvrdil vůli, přenos momentu ani nasazení po celé délce pastorku. Přesná verze výšky vytištěného vzorku a tiskový profil nebyly doloženy; původní odeslání souboru proto zpětně nepřiřazujeme k určité výšce. Vzorek už není nutné znovu tisknout.
+**Fyzický výsledek, hlášení uživatele:** hřídelka motoru se vejde do otvoru označeného **2,2 mm**. To je zvolený nominální průměr otvoru v CADu, nikoli změřený průměr hřídele. Později uživatel vytiskl také hotový pastorek a potvrdil, že na motor krásně pasuje. Skutečný rozměr otvoru a přenos momentu při zatížení nebyly změřeny. Přesná verze výšky vytištěného vzorku a tiskový profil nebyly doloženy; původní odeslání souboru proto zpětně nepřiřazujeme k určité výšce. Vzorek už není nutné znovu tisknout.
 
 V2 je samostatný dokument a makro. Průměry při změně upravit v `DIAMETERS` a spustit makro znovu, aby se obnovila také čísla. FCStd obsahuje běžné objekty a výrazy; obrysy číslic jsou uložené přímo, takže otevření modelu nevyžaduje font ani vlastní Python třídu. Regenerace písma používá DejaVu Sans Bold uvedený ve zdroji. Makro autíčka nadále vytváří historický vzorek v1; v2 nepřepisuje. Aktuální sestava a pastorek mají otvor **2,2 mm**. Netisknutelná reference hřídelky má pro náhled také 2,2 mm; jde o vizualizaci zvoleného otvoru, nikoli nové měření skutečné hřídele.
 
@@ -58,7 +66,7 @@ První varianta používá jako **návrhový experiment převod 3 : 1**, malé k
 
 Rám, čtyři kola, osy, distanční kroužky, pojistky a pastorek budou tisknutelné. Zadní osa má průběžnou D plošku, aby šla zadní kola nasunout a přenášela moment. V uložení ji vede zbývající válcová plocha; reálné tření, vůle a odolnost tištěné osy vyžadují zkoušku. Přední kola mají kruhové otvory pro volné otáčení.
 
-**Netištěné součásti pro tuto variantu:** skutečný motor, dvě malé stahovací pásky pro jeho upevnění a vhodné napájení/vodiče. Vlastnictví pásek ani parametry napájení nebyly potvrzeny. Uživatel nově potvrdil Arduino UNO R4 WiFi a požaduje ovládání z prohlížeče; výběr budiče a další postup jsou v [elektronice a ovládání](elektronika.md). Nic se nekupuje a skutečné zapojení zatím neproběhlo. Pásky vedou přes motor a svislými otvory skrz základnu, aby pod sedly nevznikal obtížně tisknutelný dlouhý tunel.
+**Netištěné součásti pro tuto variantu:** skutečný motor, dvě malé stahovací pásky pro jeho upevnění a vhodné napájení/vodiče. Vlastnictví pásek nebylo potvrzeno. Pro ovládání z prohlížeče už uživatel sestavil Arduino UNO R4 WiFi, ST L293D a motor a potvrdil krátký stolní rozběh. Skutečné provizorní napájení, kontakty a další postup jsou v [záznamu zkoušky](prvni-stolni-test.md). Pásky vedou přes motor a svislými otvory skrz základnu, aby pod sedly nevznikal obtížně tisknutelný dlouhý tunel.
 
 ## Aktuální návrhové hodnoty
 
@@ -75,7 +83,7 @@ Rozměry rámu a náprav jsou návrh agenta. Otvor pastorku byl upraven podle fy
 | Otvor pastorku — podle zkoušky | **Ø 2,2 mm**, délka 5,5 mm |
 | Vzorek otvorů pro hřídel motoru | Ø 0,9 / 1,0 / 1,1 / 1,2 / 1,3 mm |
 
-Vzorek v1 nevyhověl a slouží jako historie. Podle následné zkoušky otvoru označeného **2,2 mm** je pastorek již upravený. Tloušťka pastorku zůstává 5,5 mm; celý pastorek je dalším dílem ke zkoušce. Rozměr otvoru ve skutečném výtisku se může lišit od CADu a přenos momentu třením není samotnou volbou průměru zaručený.
+Vzorek v1 nevyhověl a slouží jako historie. Podle následné zkoušky otvoru označeného **2,2 mm** je pastorek již upravený. Tloušťka pastorku zůstává 5,5 mm; uživatel už potvrdil dobré nasazení hotového pastorku. Rozměr otvoru ve skutečném výtisku se může lišit od CADu a přenos momentu třením není samotnou volbou průměru zaručený.
 
 ## Co zůstává neověřené
 
@@ -91,7 +99,7 @@ K ověření při montáži patří profil a rozměr hřídelky, přenos momentu
 - [nahled.FCMacro](nahled.FCMacro) — navazující uložení viditelnosti sestavy a skutečného CAD náhledu z GUI.
 - [overit-parametry.FCMacro](overit-parametry.FCMacro) a [výsledek](overeni-parametru.json) — nezávislé znovuotevření a přepočet uloženého modelu bez přepsání FCStd.
 
-Sestava má **14 tištěných kusů** z 10 různých STL. Navíc jsou uložené zkušební vzorky v1 a v2 jako podklad dosavadních zkoušek; do balíčku dílů pro tisk autíčka nepatří.
+Původní sestava má **14 tištěných kusů** z 10 různých STL. **Pastorek je už hotový; tisk dalších 13 kusů z devíti typů byl uživatelem zadán, dokončení dosud nepotvrzeno.** Nová volitelná [horní plošina](strecha.md) přidává **1 kus z `strecha.stl`**, takže autíčko s nástavcem má 15 tištěných kusů. Původní balíček 13 dílů se nemění. Navíc jsou uložené zkušební vzorky v1 a v2 jako podklad dosavadních zkoušek; do balíčku dílů pro tisk autíčka nepatří.
 
 Ve sliceru importovat **jednotlivé STL**, nikoli referenční motor ani celou sestavu jako jeden nerozebíratelný kus. Počty pro jedno autíčko:
 
@@ -108,15 +116,19 @@ Ve sliceru importovat **jednotlivé STL**, nikoli referenční motor ani celou s
 | [Dlouhá rozpěrka](stl/rozperka-dlouha.stl) | 3 |
 | [C pojistka osy](stl/pojistka.stl) | 2 |
 
-Vzorek [v2](stl/vzorek-hridele-v2.stl) je zachovaný pro případ další kalibrace; po hlášeném výsledku 2,2 mm jej nyní znovu netisknout. [Původní vzorek v1](stl/vzorek-hridele.stl) je zachovaný jako historie nevyhovující zkoušky: zářez označuje otvor 0,9 mm, po 6 mm doprava následují 1,0 / 1,1 / 1,2 / 1,3 mm. V1 znovu netisknout pro tuto zkoušku.
+Zdroj vzorku [v2](vzorek-hridele-v2.FCStd) je zachovaný pro případ další kalibrace; jeho STL nyní v checkoutu chybí. Po hlášeném výsledku 2,2 mm jej nyní znovu netisknout. [Původní vzorek v1](stl/old/vzorek-hridele.stl) je uložený v archivu `stl/old/` jako historie nevyhovující zkoušky: zářez označuje otvor 0,9 mm, po 6 mm doprava následují 1,0 / 1,1 / 1,2 / 1,3 mm. V1 znovu netisknout pro tuto zkoušku.
 
 STL mají spodní plochu na Z = 0. Kola, ozubení, rozpěrky a pojistky se tisknou naplocho; rám základnou dolů. Osy jsou exportovány stojící na přírubě, vysoké 80 mm; před tiskem posoudit přilnavost a v náhledu sliceru případné přidání lemu. Tato orientace je návrh prvního prototypu, ne fyzicky ověřené nastavení. Nastavení PLA a skutečnou cívku zvolit podle [materiálů](../../docs/materialy.md); podpory a tenké prvky zkontrolovat v náhledu vrstev.
+
+## Balíček zbývajících dílů
+
+[Zbytek autíčka — ZIP](zbytek-auticka.zip) obsahuje 13 STL, tedy každý zbývající fyzický kus jako samostatný soubor. Po rozbalení importovat všechny tyto STL jako samostatné objekty; **nekopírovat je znovu podle tabulky**. Tabulka výše platí pro původní jednotlivé typy ve složce `stl/`. ZIP neobsahuje hotový pastorek ani kalibrační vzorky. Není to G-code ani odeslaná tisková úloha.
 
 ## Montážní pořadí
 
 Následující postup vychází z CAD návrhu, dosud nebyl proveden na skutečných dílech:
 
-1. Vytisknout aktuální pastorek s otvorem Ø 2,2 mm a jemně ověřit nasazení po celé potřebné délce. Na hřídelku netlačit silou. Potvrdit, že pastorek nemá vůli a neprotáčí se; dosavadní vzorek ověřil jen možnost nasazení.
+1. Pastorek s otvorem Ø 2,2 mm už uživatel vytiskl a potvrdil dobré nasazení na motor. Při montáži ještě ověřit, že se při zatížení neprotáčí. Další pastorek ani vzorky nyní tisknout není potřeba.
 2. Ze strany bez příruby navléknout na zadní D osu levé ozubené kolo, ozubením směrem dovnitř autíčka, potom krátkou rozpěrku. Celou osu zasunout oběma zadními uloženími rámu.
 3. Na pravou stranu zadní osy nasunout dlouhou rozpěrku a pravé zadní kolo. Do drážky vložit C pojistku. Ověřit, že osa má malou axiální vůli a nikde se nesvírá.
 4. Přední osu sestavit stejným způsobem, ale se dvěma volnými předními koly a dlouhou rozpěrkou na každé straně. Druhá C pojistka zajistí pravý konec.
@@ -143,4 +155,4 @@ Použít skutečný FreeCAD a [dokumentovaný runtime](../../docs/software.md#sk
 
 Při kontrole byla opravena montážní průchodnost zadní osy a délka paprsků ozubeného kola. Výše uvedené výsledky se vztahují k opraveným finálním dílům.
 
-První fyzická zkouška sestavy má ověřit volné otáčení kol, spojení motoru s převodem a pohyb. Pro první elektronický test uživatel později zvolil pouze jeden směr. Dokud neproběhne, neoznačovat konstrukci za funkční. Agent žádnou úlohu tiskárně neodeslal; uživatelská hlášení o tisku vzorků jsou v [deníku](../../docs/denik-tisku.md).
+První fyzická zkouška celé sestavy má ještě ověřit volné otáčení kol, spojení motoru s převodem a pohyb autíčka. **Samostatný motorový test v jednom směru už proběhl úspěšně podle uživatele**, což nepotvrzuje mechanickou funkci celé konstrukce. Agent žádnou úlohu tiskárně neodeslal; uživatelská hlášení o tisku a výsledcích jsou v [deníku](../../docs/denik-tisku.md).

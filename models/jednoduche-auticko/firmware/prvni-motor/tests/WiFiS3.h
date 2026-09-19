@@ -10,10 +10,14 @@
 #define HIGH 1
 #define LOW 0
 #define WL_NO_MODULE 255
-#define WL_AP_LISTENING 1
-#define WL_AP_CONNECTED 2
+#define WL_AP_LISTENING 7
+#define WL_AP_CONNECTED 8
 inline unsigned long clockMs=0;
 inline int enabled=0, ioWhileOn=0, pins[20]={};
+inline void (*onMotorEnable)()=nullptr;
+inline std::vector<long> randomValues;
+inline size_t randomAt=0;
+inline int randomCalls=0;
 struct PinWrite {int pin,value;unsigned long time;};
 inline std::vector<PinWrite> writes;
 inline void io(){if(enabled)++ioWhileOn;}
@@ -22,8 +26,25 @@ inline void delay(unsigned long ms){clockMs+=ms;}
 inline void pinMode(int pin,int){if(pin!=5&&pin!=7&&pin!=8&&pin!=13)throw std::runtime_error("unexpected pin");}
 inline void analogWriteResolution(int){}
 inline void digitalWrite(int pin,int value){pinMode(pin,1);pins[pin]=value;writes.push_back({pin,value,clockMs});}
-inline void analogWrite(int pin,int value){digitalWrite(pin,value);if(pin==5)enabled=value;}
-struct IPAddress {IPAddress(int,int,int,int){}};
+inline void analogWrite(int pin,int value){digitalWrite(pin,value);if(pin==5){enabled=value;if(value&&onMotorEnable)onMotorEnable();}}
+inline long random(long maximum){
+  io();++randomCalls;
+  const long value=randomAt<randomValues.size()?randomValues[randomAt++]:0x12345678L;
+  return value<0?value:value%maximum;
+}
+struct MockSerial {
+  std::string output,input; size_t at=0; unsigned long baud=0;
+  void begin(unsigned long b){io();baud=b;}
+  int available(){io();return int(input.size()-at);}
+  int read(){io();return at<input.size()?static_cast<unsigned char>(input[at++]):-1;}
+  size_t write(uint8_t *data,size_t size){io();output.append(reinterpret_cast<char *>(data),size);return size;}
+};
+inline MockSerial Serial;
+struct IPAddress {
+  uint8_t octets[4];
+  IPAddress(int a,int b,int c,int d):octets{uint8_t(a),uint8_t(b),uint8_t(c),uint8_t(d)}{}
+  uint8_t operator[](size_t i)const{return octets[i];}
+};
 struct ClientState {std::string input,output;size_t at=0;bool alive=true;unsigned long next=0,gap=0;};
 struct WiFiClient {
   std::shared_ptr<ClientState> state;
@@ -36,19 +57,32 @@ struct WiFiClient {
   int read(){io();if(!state||state->at>=state->input.size())return -1;state->next=clockMs+state->gap;return static_cast<unsigned char>(state->input[state->at++]);}
   void print(const char *s){io();state->output+=s;}
   void print(size_t n){io();state->output+=std::to_string(n);}
+  size_t write(const uint8_t *data,size_t size){io();state->output.append(reinterpret_cast<const char *>(data),size);return size;}
   void stop(){io();if(state)state->alive=false;}
   operator bool(){return bool(state)&&state->alive;}
 };
 struct WiFiServer {
   WiFiClient pending;
+  bool started=false,beginSucceeds=true;
+  int beginCalls=0;
   WiFiServer(int){}
-  void begin(){io();}
+  void begin(){io();++beginCalls;started=beginSucceeds;}
+  operator bool()const{return started;}
   WiFiClient available(){io();WiFiClient c=pending;pending=WiFiClient();return c;}
 };
 struct MockWiFi {
   int state=WL_AP_LISTENING;
-  int status(){io();return state;}
-  void config(IPAddress){io();}
-  int beginAP(const char*,const char*){io();return state;}
+  int statusCalls=0,firmwareCalls=0,ipCalls=0,configCalls=0,beginCalls=0;
+  std::vector<int> statusSequence;size_t statusAt=0;
+  std::vector<unsigned long> statusDelays;size_t statusDelayAt=0;
+  int status(){
+    io();++statusCalls;
+    if(statusDelayAt<statusDelays.size())delay(statusDelays[statusDelayAt++]);
+    return statusAt<statusSequence.size()?statusSequence[statusAt++]:state;
+  }
+  void config(IPAddress){io();++configCalls;}
+  int beginAP(const char*,const char*){io();++beginCalls;return state;}
+  const char *firmwareVersion(){io();++firmwareCalls;return "mock-0.6.0";}
+  IPAddress localIP(){io();++ipCalls;return IPAddress(192,168,4,1);}
 };
 inline MockWiFi WiFi;

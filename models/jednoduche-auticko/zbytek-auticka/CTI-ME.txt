@@ -1,0 +1,13 @@
+ZBYTEK AUTÍČKA — 13 JEDNOTLIVÝCH KUSŮ
+
+Rozbalte ZIP a importujte všech 13 souborů STL do Anycubic Slicer Next
+jako 13 samostatných objektů. Každý soubor už představuje jeden kus:
+další kopie nevytvářejte. Měřítko všech dílů ponechte 100 % (rozměry v mm).
+
+Vyberte tiskárnu Anycubic Kobra X s tryskou 0,4 mm, skutečně založenou
+cívku PLA a odpovídající profil. Rozmístěte díly na podložku, zkontrolujte
+jejich orientaci a po řezání prohlédněte vrstvy a případná upozornění.
+
+Pastorek a zkušební vzorky do tohoto balíčku nepatří.
+Toto jsou modely pro slicer, nikoli G-code ani připravená tisková úloha.
+Balíček tisk sám nespouští. Manifest obsahuje původ a SHA-256 souborů.

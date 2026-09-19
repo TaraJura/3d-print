@@ -1,0 +1,83 @@
+# -*- coding: utf-8 -*-
+"""Skutečné GUI náhledy střechy, pouze nový FCStd a tři nové PNG.
+
+Spustit v samostatném FreeCAD GUI po strecha.FCMacro. Uloží viditelnou
+sestavu do auticko-se-strechou.FCStd; původní auticko.FCStd nemění.
+"""
+from pathlib import Path
+import json
+import FreeCAD as App
+import FreeCADGui as Gui
+from PySide import QtCore
+OUT = Path(__file__).resolve().parent
+doc = App.openDocument(str(OUT/'auticko-se-strechou.FCStd'))
+names = set(json.loads((OUT/'kontrola-modelu.json').read_text())['assembly_object_names'])
+names.add('Shield')
+shield = doc.getObject('Shield')
+def color(obj):
+    name=obj.Name.lower()
+    if 'shield' in name: return (0.20,0.63,0.48)
+    if 'motor' in name: return (0.65,0.69,0.74)
+    if 'frame' in name: return (0.18,0.48,0.66)
+    if any(w in name for w in ('gear','pinion','rearleft')): return (0.92,0.61,0.18)
+    if any(w in name for w in ('wheel','frontleft','frontright','rearright')): return (0.22,0.25,0.29)
+    return (0.70,0.48,0.30)
+def style(obj, col):
+    v=obj.ViewObject
+    if 'ShapeAppearance' in v.PropertiesList:
+        m=v.ShapeAppearance[0];m.DiffuseColor=col;v.ShapeAppearance=[m]
+    if 'ShapeMaterial' in v.PropertiesList:
+        m=v.ShapeMaterial;m.DiffuseColor=col;v.ShapeMaterial=m
+        if 'OverrideMaterial' in v.PropertiesList:v.OverrideMaterial=True
+    if 'ShapeColor' in v.PropertiesList:v.ShapeColor=col
+    if 'LineColor' in v.PropertiesList:v.LineColor=(0.12,0.16,0.20)
+    if 'LineWidth' in v.PropertiesList:v.LineWidth=1.1
+    if 'DisplayMode' in v.PropertiesList:
+        try:v.DisplayMode='Flat Lines'
+        except Exception:pass
+def assembled_visibility():
+    doc.getObject('Assembly').ViewObject.Visibility=True
+    for obj in doc.Objects:
+        if hasattr(obj,'Shape'):obj.ViewObject.Visibility=obj.Name in names
+for name in names:
+    obj=doc.getObject(name)
+    if obj.TypeId=='App::Link':style(obj.LinkedObject,color(obj))
+    style(obj,color(obj))
+assembled_visibility()
+view=Gui.activeDocument().activeView()
+def camera(eye):
+    eye=App.Vector(*eye);up=App.Vector(0,0,1)
+    view.setCameraType('Orthographic')
+    view.setCameraOrientation(App.Rotation(up.cross(eye),up,eye,'ZXY').Q)
+    view.fitAll();view.redraw();Gui.updateGui()
+def assembled():
+    camera((0.8,-1.35,0.75))
+    QtCore.QTimer.singleShot(1200,save_assembled)
+def save_assembled():
+    view.saveImage(str(OUT/'strecha-sestava.png'),1600,1100,'White')
+    # Rozložený pohled pouze pomocí dočasné kopie, bez změny polohy parametrického dílu.
+    preview=doc.addObject('Part::Feature','ShieldPreview')
+    preview.Shape=shield.Shape.copy();preview.Placement.Base.z=35
+    style(preview,color(shield));shield.ViewObject.Visibility=False;preview.ViewObject.Visibility=True
+    camera((0.8,-1.35,0.85))
+    QtCore.QTimer.singleShot(1200,save_exploded)
+def save_exploded():
+    view.saveImage(str(OUT/'strecha-nasazeni.png'),1600,1100,'White')
+    preview=doc.getObject('ShieldPreview')
+    for obj in doc.Objects:
+        if hasattr(obj,'Shape'):obj.ViewObject.Visibility=False
+    shape=shield.Shape.copy();shape.rotate(App.Vector(),App.Vector(1,0,0),180)
+    bb=shape.BoundBox;shape.translate(App.Vector(-bb.XMin,-bb.YMin,-bb.ZMin))
+    preview.Placement=App.Placement();preview.Shape=shape;preview.ViewObject.Visibility=True
+    camera((0.75,-1.0,1.4))
+    QtCore.QTimer.singleShot(1200,save_print)
+def save_print():
+    view.saveImage(str(OUT/'strecha-tisk.png'),1600,1100,'White')
+    doc.removeObject('ShieldPreview');assembled_visibility()
+    camera((0.8,-1.35,0.75))
+    QtCore.QTimer.singleShot(1200,finish)
+def finish():
+    doc.recompute();doc.save()
+    print('SHIELD_RENDER_COMPLETE',flush=True)
+    App.closeDocument(doc.Name);Gui.getMainWindow().close()
+QtCore.QTimer.singleShot(1000,assembled)

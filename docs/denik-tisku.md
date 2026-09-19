@@ -58,11 +58,11 @@ Slicer obsahoval varování `bed_temperature_too_high_than_filament` a `not_supp
 
 **Stav: uživatel potvrdil dokončení výtisku, funkční zkouška nevyhověla.** Podle jeho hlášení se hřídelka motoru nevejde ani do největšího otvoru. Jde o uživatelské pozorování, nikoli měření či fotografii zkontrolovanou agentem.
 
-Původní [vzorek v1](../models/jednoduche-auticko/stl/vzorek-hridele.stl) má CAD rozměry 36 × 10 × 5,5 mm a otvory Ø 0,9 / 1,0 / 1,1 / 1,2 / 1,3 mm. Nezávislá kontrola vrcholů exportovaného STL potvrdila největší otvor Ø 1,3 mm, průchozí přes celou tloušťku. Výsledek fyzického fitu neurčuje skutečný průměr hřídelky ani příčinu odchylky. Původní ruční údaj 1 mm zůstává nejistý; požadavek na „aspoň dva“ není nové přesné měření.
+Původní [vzorek v1](../models/jednoduche-auticko/stl/old/vzorek-hridele.stl) má CAD rozměry 36 × 10 × 5,5 mm a otvory Ø 0,9 / 1,0 / 1,1 / 1,2 / 1,3 mm. Nezávislá kontrola vrcholů exportovaného STL potvrdila největší otvor Ø 1,3 mm, průchozí přes celou tloušťku. Výsledek fyzického fitu neurčuje skutečný průměr hřídelky ani příčinu odchylky. Původní ruční údaj 1 mm zůstává nejistý; požadavek na „aspoň dva“ není nové přesné měření.
 
 Skutečný tiskový profil, měřítko importu, materiál/barva, čas, spotřeba a vazba na konkrétní G-code nebyly ověřeny. Naměřené rozměry výtisku nejsou známé.
 
-**Nová příprava:** samostatný [vzorek v2](../models/jednoduche-auticko/stl/vzorek-hridele-v2.stl), na pozdější výslovné přání uživatele snížený na **54 × 48 × 2 mm**, s označenými otvory Ø 1,8 / 2,0 / 2,2 / 2,4 / 2,6 / 2,8 / 3,0 / 3,5 / 4,0 mm. Je určený pouze k rychlé zkoušce vstupu hřídelky; průchod 2mm vzorkem neověřuje fit v otvoru pastorku dlouhém 5,5 mm. Doporučený postup je měřítko 100 %, zkouška od největšího otvoru k menším a zápis těsného fitu i případné vůle. Původní pastorek, model autíčka a vzorek v1 zůstaly beze změny.
+**Nová příprava:** samostatný [vzorek v2 — zdroj FCStd](../models/jednoduche-auticko/vzorek-hridele-v2.FCStd), na pozdější výslovné přání uživatele snížený na **54 × 48 × 2 mm**, s označenými otvory Ø 1,8 / 2,0 / 2,2 / 2,4 / 2,6 / 2,8 / 3,0 / 3,5 / 4,0 mm. Je určený pouze k rychlé zkoušce vstupu hřídelky; průchod 2mm vzorkem neověřuje fit v otvoru pastorku dlouhém 5,5 mm. Doporučený postup je měřítko 100 %, zkouška od největšího otvoru k menším a zápis těsného fitu i případné vůle. Původní pastorek, model autíčka a vzorek v1 zůstaly beze změny. Při pozdějším ukládání souhrnu už exportované STL v2 v checkoutu nebylo; zdroj FCStd a makro jsou zachované, viz [aktuální stav souborů](../models/jednoduche-auticko/README.md).
 
 **Pozdější hlášení uživatele:** „poslal jsem to tam na tisknutí“. Není doloženo, který soubor nebo verzi odeslal; hlášení proto nepřiřazujeme k v2 ani k jeho aktuální 2mm variantě. Dokončení a fyzický výsledek tohoto dalšího tisku zatím nejsou potvrzené. Agent úlohu neodesílal a tiskárnu neovládal.
 
@@ -77,6 +77,30 @@ Další fyzická zkouška: nasazení celého pastorku bez násilí a ověření,
 ## 2026-09-19 — autíčko, samostatný tisk pastorku 2,2 mm
 
 **Stav: uživatel oznámil zadání pouze pastorku k tisku.** Navazuje na aktuální STL s otvorem 2,2 mm. Dokončení, fit po celé délce 5,5 mm a přenos momentu zatím nepotvrdil; výsledek oznámí po vytištění. Skutečný profil, cívka, první vrstva a vazba konkrétního G-code nebyly kontrolovány. Agent úlohu neodesílal a tiskárnu neovládal.
+
+## 2026-09-19 — autíčko, hotový pastorek pasuje
+
+**Stav: uživatel potvrdil dokončený pastorek a uvedl, že krásně pasuje na motor.** Jde o hlášené nasazení hotového dílu s návrhovým otvorem Ø 2,2 mm. Přenos momentu při zátěži, geometrické měření výtisku a chod celého soukolí zatím ověřené nejsou. Skutečný tiskový profil, materiál, čas a spotřeba nebyly doložené.
+
+Uživatel chce pokračovat tiskem zbytku. Pro jedno autíčko zbývá rám 1×, ozubené zadní kolo 1×, druhé zadní kolo 1×, přední kolo 2×, zadní osa 1×, přední osa 1×, krátká rozpěrka 1×, dlouhá rozpěrka 3× a pojistka 2×: celkem 13 kusů. Balíček `zbytek-auticka.zip` obsahuje jednotlivé kusy už v těchto počtech. Další tisk zatím nebyl potvrzen jako zahájený; agent nic neodesílá tiskárně.
+
+## 2026-09-19 — autíčko, zadání tisku zbývajících dílů
+
+**Stav: uživatel oznámil zadání tisku zbývajících dílů.** Slicer mu ukázal **3 hodiny 15 minut**; jde o odhad, nikoli naměřený čas. Konkrétní G-code, rozmístění, profil a skutečná cívka nejsou agentem ověřené. Dokončení a fyzický výsledek zatím nejsou potvrzené. Tisk zadává uživatel; agent tiskárnu neovládal.
+
+## 2026-09-19 — autíčko, první stolní zkouška elektroniky a motoru
+
+**Stav: uživatel potvrdil skutečný přibližně sekundový rozběh motoru po stisku tlačítka v telefonu.** Telefon ovládal Arduino UNO R4 WiFi a ST L293D. Po doplnění baterie zůstal motor bez stisku stát; při následném vyjmutí jednoho článku z držáku už nešel spustit, protože se přerušil sériový obvod. Arduino mělo vlastní USB napájení z powerbanky.
+
+Zkouška proběhla s provizorními kontakty motoru bez pájení, bez kondenzátorů a se smíšenými Ni-MH 1,2V a běžnými AA články. Napětí, proud, přesná délka pulzu a teplota nebyly měřené. Jde o hlášení krátkého stolního běhu, nikoli potvrzení dlouhodobého provozu nebo jízdy. Poslední známý stav má jednu AA vyjmutou; odpojení USB potvrzené není.
+
+Úplné zapojení, postup, výsledky, původ fotografií, opravy a body pro pokračování jsou v [záznamu u modelu autíčka](../models/jednoduche-auticko/prvni-stolni-test.md). Tisk ostatních dílů zůstává ve stavu **zadaný, dokončení nepotvrzené**, s předchozím odhadem sliceru 3 h 15 min.
+
+## 2026-09-19 — autíčko, snímatelná horní plošina
+
+**Stav: nový CAD návrh a STL připravené, tisk nebyl spuštěný ani potvrzený.** Uživatel požádal o další nosnou plochu bez přetisku rámu, nasazovanou na existující výstupky u kol. Upřesnil rovnou užitnou plochu **170 × 60 mm** podle svého nepájivého pole; umístění Arduina a zdrojů na poli si zařídí sám.
+
+[Nástavec](../models/jednoduche-auticko/strecha.md) je jeden tiskový kus, celkem **180 × 70 × 36 mm**. Má čtyři dosedací kapsy, výřezy pro rozpěrky a okrajové drážky pro pásky. Původní díly ani jejich tiskový balíček se nezměnily. Geometrie je platná a STL po načtení uzavřené; fyzický fit, nosnost a stabilita s vybavením zůstávají neověřené. Profil, řezání, spotřeba a doba tisku tohoto dílu nejsou doložené. Agent tiskárnu neovládal.
 
 ## Osnova příštího záznamu
 
