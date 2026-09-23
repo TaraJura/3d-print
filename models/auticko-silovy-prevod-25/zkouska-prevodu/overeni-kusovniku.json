@@ -1,0 +1,94 @@
+{
+  "status": "pass",
+  "method": "Actual recorded CAD assembly instances -> BOM -> byte-exact ZIP copies -> final 3MF objects",
+  "source_report": "/home/novakj/3d-print/models/auticko-silovy-prevod-25/zkouska-prevodu/kontrola-modelu.json",
+  "source_report_sha256": "dd61c3277323f053ad85af4207740c02b54233622091e88f1d77921a71448775",
+  "source_zip_sha256": "ea277264711d9accb6f2fe3c14dc05b4669c28e56cca7b53ea3f58bf22df0663",
+  "verification_3mf_sha256": "c8f365eb221c5ef8b0f0171d941dc73d8291c12bc135d081863d2df4c05e528c",
+  "physical_copies": 7,
+  "part_types": 5,
+  "all_counts_equal": true,
+  "all_zip_copies_identical_to_canonical_stl": true,
+  "parts": [
+    {
+      "part": "dvojkolo-a",
+      "assembly_or_display_count": 1,
+      "bom_count": 1,
+      "zip_count": 1,
+      "3mf_count": 1,
+      "copies": [
+        {
+          "name": "dvojkolo-a__01",
+          "file": "zkouska-prevodu-podlozka-01.3mf",
+          "number_in_preview": 3
+        }
+      ]
+    },
+    {
+      "part": "dvojkolo-b",
+      "assembly_or_display_count": 1,
+      "bom_count": 1,
+      "zip_count": 1,
+      "3mf_count": 1,
+      "copies": [
+        {
+          "name": "dvojkolo-b__01",
+          "file": "zkouska-prevodu-podlozka-01.3mf",
+          "number_in_preview": 2
+        }
+      ]
+    },
+    {
+      "part": "pevny-cep-8x53_9",
+      "assembly_or_display_count": 2,
+      "bom_count": 2,
+      "zip_count": 2,
+      "3mf_count": 2,
+      "copies": [
+        {
+          "name": "pevny-cep-8x53_9__01",
+          "file": "zkouska-prevodu-podlozka-01.3mf",
+          "number_in_preview": 4
+        },
+        {
+          "name": "pevny-cep-8x53_9__02",
+          "file": "zkouska-prevodu-podlozka-01.3mf",
+          "number_in_preview": 5
+        }
+      ]
+    },
+    {
+      "part": "pojistka-6_9",
+      "assembly_or_display_count": 2,
+      "bom_count": 2,
+      "zip_count": 2,
+      "3mf_count": 2,
+      "copies": [
+        {
+          "name": "pojistka-6_9__01",
+          "file": "zkouska-prevodu-podlozka-01.3mf",
+          "number_in_preview": 6
+        },
+        {
+          "name": "pojistka-6_9__02",
+          "file": "zkouska-prevodu-podlozka-01.3mf",
+          "number_in_preview": 7
+        }
+      ]
+    },
+    {
+      "part": "vyrez-ramu",
+      "assembly_or_display_count": 1,
+      "bom_count": 1,
+      "zip_count": 1,
+      "3mf_count": 1,
+      "copies": [
+        {
+          "name": "vyrez-ramu__01",
+          "file": "zkouska-prevodu-podlozka-01.3mf",
+          "number_in_preview": 1
+        }
+      ]
+    }
+  ]
+}

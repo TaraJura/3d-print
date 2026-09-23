@@ -1,0 +1,238 @@
+{
+  "status": "SOURCE DRAFT; no regenerated main CAD exports",
+  "source_hashes": {
+    "auticko-silovy-prevod-25.FCMacro": "ae596c4db2282af2010031469fcc4626fe5f3edb5f2da3ca986c9b169eef2fe4",
+    "rizeni-geometrie.py": "00de3cdfd40525ca7ef1b0d50cd2ba6953114b9f29b53cb15b997eb785255dcd",
+    "servo-uchyceni.py": "b9607955472bd3815e171139796e4d373b1fc03a4d0a64e88e9a8e3099397646",
+    "rizeni-sestava.py": "ad23bb77641200fc0f4ada5e97a5363b22f0fa44e3c76a01d51516032da44d0b"
+  },
+  "changed_files": {
+    "auticko-silovy-prevod-25.FCMacro": "ae596c4db2282af2010031469fcc4626fe5f3edb5f2da3ca986c9b169eef2fe4",
+    "servo-uchyceni.py": "b9607955472bd3815e171139796e4d373b1fc03a4d0a64e88e9a8e3099397646",
+    "overit-prevod.FCMacro": "38bbbad660d129c4b28824f0c5f7aef7fc60a028501ec65f11c5d5049c77a83f",
+    "overit-parametry.FCMacro": "15e216c5d41120863c2a66b7f34fe801de7a857df639ce1ff33e9e885b7c4259",
+    "overit-rizeni.FCMacro": "ba067e66596dbbb7326cc9c0bbabf5d7918702079c5a42ee90dfbac7da65e4b6",
+    "overit-vule.FCMacro": "d9cd9724fe8d18177ac60ddcdd8d0060f0cb6e4d95d5cd138cd705cc95d2dfba",
+    "uzavrit-kontroly.py": "14f9d64e40c2040b1907bb1ca0aaf33ca36820d3f47b46226bb379dd9ffd953c",
+    "kontrola-modelu.json": "a0292c18c614a6bf1bdc981a365a19db5b490f950e1847e6b246fdce7f3ed2f2"
+  },
+  "syntax_only_passed": [
+    "auticko-silovy-prevod-25.FCMacro",
+    "servo-uchyceni.py",
+    "overit-prevod.FCMacro",
+    "overit-parametry.FCMacro",
+    "overit-rizeni.FCMacro",
+    "overit-vule.FCMacro",
+    "uzavrit-kontroly.py"
+  ],
+  "evidence_hashes": {
+    "probe-085.log": "a3bec6b78c17f7468856f858504203216a4b1b505d49297dab218367d72a41a2",
+    "probe-090.log": "4ee84a7b4112de7a7d1450c6793eb6d4d351a03566adbfdc4bf16ae8ff5a5ed7",
+    "probe-090.json": "8d7911f5fa263e1d49ae83efbb5f144104287775c428b74985b3a0dc2e54344b",
+    "README.md": "a5e5a886d42f035197edcf5b83df366b9bc39fe46c8241b93b86262a712465c4",
+    "probe.FCMacro": "11e1280b1319a2882823947b0f45b43a65f674605aad21b592ad40ccda601d5a",
+    "focused-090.json": "bbab384b8e46a01bc7f866a148c4a81f35484fbf4643ad5acbd54526b7586d61",
+    "probe-085.FCMacro": "b8b9d53eb98e4d793227ee59376d2ad05f46d63411f185fb83e53e7d6f771015",
+    "probe.log": "db7d4c2619b23a7a9b3b268f17293862d84fa8321c9c701f17120c325af68b4b",
+    "focused-090.FCMacro": "496587209f83010355b9e847fd5c3459dab9cbac8b26b520b8c2ff54aebb7eef",
+    "focused-090.log": "8e0451d3d59b63b58f9e5e5c8a5900182474324c05fc078c3e4b26b7af3aa732",
+    "probe.json": "302d53f6a2931c688e90de082f18c7ffa377307da344da93c35c57668646ff73",
+    "probe-090.FCMacro": "54efccf1ff19adac18ee443480f26203ac6022e35e17deb1caf1d7f803e0c6d6",
+    "probe-085.json": "37ea8e17e796adcabba21828c97bfd4b4ac4b8c536c1cbd4171bf399cc1b8d20"
+  },
+  "outputs_unchanged": {
+    "auticko-silovy-prevod-25.FCStd": {
+      "sha256": "33e6369daa80e11193a0c473c726f60a1f78c2f4cba7d32f66e4d51d3360754e",
+      "unchanged_since_archive": true
+    },
+    "doleva.png": {
+      "sha256": "3665c6d30e21b5d627be4983d8172e36b6bc8ecd2008c111a6a4ff7b2e01bdbb",
+      "unchanged_since_archive": true
+    },
+    "doprava.png": {
+      "sha256": "ff85f1638d31473a675948bea6847bb1af63de0fb87ef0fe646d9487c6a32f92",
+      "unchanged_since_archive": true
+    },
+    "mechanismus.png": {
+      "sha256": "a6e7fbc3113b27a24539459d26deb4b576e47d5476466a050a1fdf127c5c14a4",
+      "unchanged_since_archive": true
+    },
+    "rovne.png": {
+      "sha256": "70b1c990b06735952efa8d15141bd97b0307a3b943d0c67912ed667091e7d3ae",
+      "unchanged_since_archive": true
+    },
+    "rozlozena-sestava.png": {
+      "sha256": "2be7a7243aab64080bf425b51a5de01f0da1575354a81b13b4ff77e84bd51eea",
+      "unchanged_since_archive": true
+    },
+    "rozlozeni/auticko-25-podlozka-01.3mf": {
+      "sha256": "3376502215acb88dd1ddb39ed3701f2a386ce8cf66d612d3bf453de0f8f2dc45",
+      "unchanged_since_archive": true
+    },
+    "rozlozeni/auticko-25-podlozka-02.3mf": {
+      "sha256": "5e09318310a8d05ee5c6a2b96057846fe388f33f419a6ef63cc2170c7f078c4e",
+      "unchanged_since_archive": true
+    },
+    "rozlozeni/auticko-25-podlozka-03.3mf": {
+      "sha256": "50c16edd0fa6c47679fc2e4756d4641ac04c2d020d159c8adc45827540d253fb",
+      "unchanged_since_archive": true
+    },
+    "rozlozeni/podlozka-01.png": {
+      "sha256": "c959bf124eefeb0f3071b69d1f7db9e3a49503e4656664433dc648194d9b59cc",
+      "unchanged_since_archive": true
+    },
+    "rozlozeni/podlozka-02.png": {
+      "sha256": "33cb60f24ed243bf7de7d62cd5f93157e6d8b0903dd5f874c46d4c80cdfd964b",
+      "unchanged_since_archive": true
+    },
+    "rozlozeni/podlozka-03.png": {
+      "sha256": "e70e6f37c38c8c568331f5dabb9ea387fd2ffb23275756a69280e8e5856e4814",
+      "unchanged_since_archive": true
+    },
+    "stl/celist-horni.stl": {
+      "sha256": "bbdfc0d4ba793f973ad7c13b947867d38b9739c58f13362b41cbaced25f51872",
+      "unchanged_since_archive": true
+    },
+    "stl/cep-plosiny-4x19_5.stl": {
+      "sha256": "ca809f5002b17f92be2453f7cbc73e78e0f17619d2a0040cec2acae125e639fc",
+      "unchanged_since_archive": true
+    },
+    "stl/cep-tahla-dlouhy.stl": {
+      "sha256": "22f9d6b375883daaa08772d6c17d3ff2c9c0197f84218d6dd81c82a8f6b8e503",
+      "unchanged_since_archive": true
+    },
+    "stl/cep-tahla-kratky.stl": {
+      "sha256": "48fdf64462d8451bcf8dc93d661ccfafb24d372e493809f26744f9b55dd054d4",
+      "unchanged_since_archive": true
+    },
+    "stl/kolo-76x12-predni.stl": {
+      "sha256": "5568c0fa1f7ffd7393a11d45d2609aefdff0d16024d7f8138f2396972ece76fe",
+      "unchanged_since_archive": true
+    },
+    "stl/kolo-76x12-zadni-d.stl": {
+      "sha256": "113ae23cf66094e78da770738f95cb1ea5451ea7e76f96b3643dad1d48405219",
+      "unchanged_since_archive": true
+    },
+    "stl/mezikolo-a-54_18.stl": {
+      "sha256": "c86adb795768424341fb4d4870e7a35d8b1f19ce1c35a5b2ab986a322864e79b",
+      "unchanged_since_archive": true
+    },
+    "stl/mezikolo-b-60_22.stl": {
+      "sha256": "0ccf3f4adcec5d2c2273128797bb9d1b7382e1af32c649b3eeb64a5ad3e645c7",
+      "unchanged_since_archive": true
+    },
+    "stl/motorovy-klinek.stl": {
+      "sha256": "b05c7ac17b7d8806d0ed986e239bb29b1f1c55f3d07ca1d605613de8ed9a14f8",
+      "unchanged_since_archive": true
+    },
+    "stl/motorovy-mustek.stl": {
+      "sha256": "803331906133c3d3b7074bc94466f5af4b331b4fa5e5f333cddc796795e693c1",
+      "unchanged_since_archive": true
+    },
+    "stl/objimka-cep-4x25_5.stl": {
+      "sha256": "1a77990df981081e08aafe455b3f1d3777a7ba97abb2b9c89f1080c162737afa",
+      "unchanged_since_archive": true
+    },
+    "stl/objimka-packy-spodek.stl": {
+      "sha256": "47847ad03187e271dbae1d2d8a4963d4ab86fa563dc51b337b2e9f8ea759404e",
+      "unchanged_since_archive": true
+    },
+    "stl/objimka-packy-viko.stl": {
+      "sha256": "f8062ab9c27a10438aef4446644c2383a26bf8742ae8c347e1c261e89489b9a8",
+      "unchanged_since_archive": true
+    },
+    "stl/osa-zadni-12x150_6.stl": {
+      "sha256": "0c22d6cfe06aeadbfcf137d4bf299d948dc3c86d4ee6474937ffd9af6381209f",
+      "unchanged_since_archive": true
+    },
+    "stl/pastorek-18-otvor-2_2.stl": {
+      "sha256": "2233c44357635fbeb14e6831d92572bb7da8ed279732ba0a64e24bd971268eb0",
+      "unchanged_since_archive": true
+    },
+    "stl/pevny-cep-8x53_9.stl": {
+      "sha256": "dadc7cac8a1ab3539f123e7abdd65fa3d0555b4b37d583de85756956aaa5e795",
+      "unchanged_since_archive": true
+    },
+    "stl/plosina-170x60.stl": {
+      "sha256": "105e1b1e163fedf4cb5a73a9be2e3432e6392944dbca25b467314610eddb706d",
+      "unchanged_since_archive": true
+    },
+    "stl/podlozka-packy-1_8.stl": {
+      "sha256": "aeb339e15530e621e9b971f623145d6be8d3bf3efe1257eefd44743d12ac3345",
+      "unchanged_since_archive": true
+    },
+    "stl/pojistka-3_1.stl": {
+      "sha256": "b6b33f593dff03ea8d4ee5eb90d42629c0973c982cd988b141ce50b2897a08c4",
+      "unchanged_since_archive": true
+    },
+    "stl/pojistka-6_9.stl": {
+      "sha256": "7be6176012c834bfba0b745c0048f7139799b85b0654688302d0bba3353007e0",
+      "unchanged_since_archive": true
+    },
+    "stl/pojistka-kloubu-4_9.stl": {
+      "sha256": "16f315d7f9a68525af9bfd74d99b27113de4dcb9e2ce6369fecf930b6a8928cd",
+      "unchanged_since_archive": true
+    },
+    "stl/pojistka-osy-10_9.stl": {
+      "sha256": "8fcc87ded5822951c16b6e075e3ca719e7c240d0e64890de46f22b4bd372ea29",
+      "unchanged_since_archive": true
+    },
+    "stl/pricny-klinek-4x27_1.stl": {
+      "sha256": "39ccbc90327cf3cc0ce7a91f9430515797d55a2b332c9eb09c70b50763f0b020",
+      "unchanged_since_archive": true
+    },
+    "stl/ram-25.stl": {
+      "sha256": "88b2dab38dfdecb3ea4e4e3e0bd115337ac06aa215474fdbdc941297ad1da086",
+      "unchanged_since_archive": true
+    },
+    "stl/rozperka-zadni-17_6.stl": {
+      "sha256": "3b772e4da5cf86901cec92e33da4d372c0bc2cd57376ec4930bfa20d72d2d205",
+      "unchanged_since_archive": true
+    },
+    "stl/servo-cep-4x51_2.stl": {
+      "sha256": "113049edfed69399da6e6df4c7381cd91e54f38f8d7933579a1d73f99becffba",
+      "unchanged_since_archive": true
+    },
+    "stl/servo-tahlo-r15.stl": {
+      "sha256": "3774b9d11426ba0328b9d34ae06aebcbf31c1e33b43eb61432b854adab7eb7ff",
+      "unchanged_since_archive": true
+    },
+    "stl/servo-viko.stl": {
+      "sha256": "67e09abcb50d6ac1453475b9f7e588169c44c6dd5d04cbe4f059d1c784279090",
+      "unchanged_since_archive": true
+    },
+    "stl/spojovaci-tahlo.stl": {
+      "sha256": "10e9fb72b2d571a950851eab0dcc2d6d28d2d0078c72035b2f7c40ad204603f5",
+      "unchanged_since_archive": true
+    },
+    "stl/spolecny-cep-mustku-4x30_5.stl": {
+      "sha256": "163175e6a521505acfa6a9a0793011728c6362d44e775abb203fb3357bcccd34",
+      "unchanged_since_archive": true
+    },
+    "stl/svisly-cep-8.stl": {
+      "sha256": "6ce92d30b28a9e7543339b1e0847aef8647ebabba7cdeba89ba701b449810c44",
+      "unchanged_since_archive": true
+    },
+    "stl/tehlice-leva.stl": {
+      "sha256": "3a1d6842f80eefdb1d92141f7329a75fae7d4c409c88bf4db069e47e2a4df655",
+      "unchanged_since_archive": true
+    },
+    "stl/tehlice-prava.stl": {
+      "sha256": "57965a41b07b256bcf550bc7c603bdeec5c489cdd0616eb062b4951894af2ec7",
+      "unchanged_since_archive": true
+    },
+    "stl/vystupni-kolo-55.stl": {
+      "sha256": "fa1b7255ce072db8889fa0fbf62c7dea41938342c312f5528995f4e36c53b5e6",
+      "unchanged_since_archive": true
+    },
+    "tiskovy-balicek.zip": {
+      "sha256": "093eb05eb982a70d72da56a5ee2269ab431ae56cd3860378660e2554f5860df6",
+      "unchanged_since_archive": true
+    }
+  },
+  "all_checked_main_outputs_unchanged": true,
+  "full_generation_performed": false,
+  "physical_actions_performed": false,
+  "historical_snapshot": true,
+  "captured_stage": "Před následnou autorizací a regenerací celého nominálního66kusového prototypu; uvedené hashe nejsou current manifest."
+}

@@ -1,0 +1,53 @@
+{
+  "changed_existing_files": {
+    "models/jednoduche-auticko/firmware/prvni-motor/prvni-motor.ino": "0e56dfc88e022d18fcf4b8d33e511c5f99cc0671d2a23572686be4324a19dbb3",
+    "models/jednoduche-auticko/firmware/prvni-motor/README.md": "aecbc86f37987e243fe4be596b7ad6584a0a14a1c9bc909893973dadfe4a133a",
+    "models/jednoduche-auticko/firmware/prvni-motor/overeni-programu.json": "5b6a6f87012ebc78879b72b795bd50a9293575c8dcc9bba42792e14dca1e06dd",
+    "models/jednoduche-auticko/firmware/prvni-motor/tests/browser_http_tests.js": "22c4569ea5c423546310da9a85792f230eea41d561686f0439ba3f5bb92a1aaa",
+    "models/jednoduche-auticko/firmware/prvni-motor/tests/README.md": "9a59eeae708eb3a6ca4616f5a226b62dcdb9e6e00851416dea998187ceae41ae",
+    "models/jednoduche-auticko/firmware/prvni-motor/tests/http_tests.cpp": "476ac4e2658976d105542249322111f94bf53d95e77baf293e0c070093192031",
+    "README.md": "504f044a3e864dfcd2c162e1a0184679a724e1dc5445f1d19ea2051e3aeea963",
+    "elektronika/auticko/README.md": "e5da3ddeae7649c336ef73561318e6df260a9e59bebcec67f5a0e4a78f8ed40c",
+    "elektronika/auticko/rizeni-v3.md": "924aab6b3b700fda03205593dbb45db46bc4a7fa07ae1bcf7c79f207015769ee",
+    "elektronika/auticko/kontrolni-zapojeni.md": "97aab81adc1d3c6af2e9fb6240ad0ffdf7fa81f8a30b6633ff1296ddbfb786ed",
+    "elektronika/auticko/zapojeni-l293d.md": "b9f300061e603be90a6980a267b8978cec323fd0c3f1a0dfa0d969e81fd758a4"
+  },
+  "added_files": {
+    "models/jednoduche-auticko/firmware/prvni-motor/evidence/2026-09-22-v3-steering-v3/compile-result.json": "b1c31d95dc5e0401ba7c6442d3353706610b61ccdbe3055f37cd32a3d762cc65",
+    "models/jednoduche-auticko/firmware/prvni-motor/evidence/2026-09-22-v3-steering-v3/verification-before-upload.json": "5b67bc0be0f2d3bb2bd767b19b665c3e2bfab7e26167521b8bc11010c13a129c",
+    "models/jednoduche-auticko/firmware/prvni-motor/evidence/2026-09-22-v3-steering-v3/host-and-browser-tests.txt": "1c0b8d0ac713f16c0947919a4994f790a25e52c56a5be18197e97167019317c2",
+    "models/jednoduche-auticko/firmware/prvni-motor/evidence/2026-09-22-v3-steering-v3/tested-source.ino": "24c474b2e9af0a3d148c8c8c251f6d65dc8c97107ae309426fc8a9bd181a46b6",
+    "models/jednoduche-auticko/firmware/prvni-motor/evidence/2026-09-22-v3-steering-v3/README.md": "252c95282dfb5edb02700d70751d14cae53be20abe7c6c1de1ebe2843ccab02e",
+    "models/jednoduche-auticko/firmware/prvni-motor/evidence/2026-09-22-v3-steering-v3/arduino-compile.txt": "2e8002efd9c2f8b29143426e009df449ba7ffa4c724f997d87b78e27ddd8cf77",
+    "models/jednoduche-auticko/firmware/prvni-motor/evidence/2026-09-22-v3-steering-v3/compile-before-comment.txt": "6dd8ceede459cca1485c696c95698bf6857564164072e252646e568eef355b19",
+    "models/jednoduche-auticko/firmware/prvni-motor/evidence/2026-09-22-v3-steering-v3/preflight.json": "d2ac8fbefeadf4c02fdc50eb8139dbf3ef1ec74b27040ac83f1b8a200661c0d5",
+    "models/jednoduche-auticko/firmware/prvni-motor/evidence/2026-09-22-v3-steering-v3/upload-result.json": "312a99eff200f19600a301326cafeda73c0f4584536e3ac67a891041bf23c748",
+    "models/jednoduche-auticko/firmware/prvni-motor/evidence/2026-09-22-v3-steering-v3/serial-after.txt": "521b31ce18073297b7af6d0ee2b6bbe01d424e35d7bda93bd0697705b2a4aeba",
+    "models/jednoduche-auticko/firmware/prvni-motor/evidence/2026-09-22-v3-steering-v3/compile-before-comment-result.json": "740872073a971069b3b2a460d819439bcb7ce9a44df6f7379490331bf36f3103",
+    "models/jednoduche-auticko/firmware/prvni-motor/evidence/2026-09-22-v3-steering-v3/manifest.json": "18384d3b0a3988c940928672c9644d43bfcd6e038c1e26b1f32a9f16cccafd6c",
+    "models/jednoduche-auticko/firmware/prvni-motor/evidence/2026-09-22-v3-steering-v3/tests-result.json": "c2e3f3bd13cba8b54602ffb078f3a220adb957c97129f3b6fedf8f4886f8b997",
+    "models/jednoduche-auticko/firmware/prvni-motor/evidence/2026-09-22-v3-steering-v3/board-after.json": "f9f93cdc251ad8ef1cae96a2cb70035f5405c099527f306bc4d8ece693154b7c",
+    "models/jednoduche-auticko/firmware/prvni-motor/evidence/2026-09-22-v3-steering-v3/upload.txt": "e10b7d537a2099268809bdd2c27e621cb49a4c2cbe82167bc9fc5112bd383c37",
+    "models/jednoduche-auticko/firmware/prvni-motor/evidence/2026-09-22-v3-steering-v3/board-before.json": "f9f93cdc251ad8ef1cae96a2cb70035f5405c099527f306bc4d8ece693154b7c",
+    "models/jednoduche-auticko/firmware/prvni-motor/evidence/2026-09-22-v3-steering-v3/comment-only-followup.json": "f15ffcd09016007719f3fdebc84475e801cf500578d152da7fe42f54fad9889a",
+    "models/jednoduche-auticko/firmware/prvni-motor/evidence/2026-09-22-v3-steering-v3/diagnostics-result.json": "69d156620009d93c3a333fe1c1cd5822e93be187f8573f9bfd612f4cbeb369e4",
+    "models/jednoduche-auticko/firmware/prvni-motor/evidence/2026-09-22-v3-steering-v3/previous-v2/overeni-programu.json": "a888da6bbe7e3a8aec3bfc091cab7f87053425bd9780f25047da2dcc7cf0b10d",
+    "models/jednoduche-auticko/firmware/prvni-motor/evidence/2026-09-22-v3-steering-v3/previous-v2/prvni-motor.ino": "fcefad5f61f703e3294ac1464206d1022e72fcf85fc7acea3f634947d1b8a5b6",
+    "models/jednoduche-auticko/firmware/prvni-motor/evidence/2026-09-22-v3-steering-v3/previous-v2/tests/browser_http_tests.js": "3ab69900d818bfd64810c85dd78dbbd5605dd6436b2cbd18a1c5a81eec116a29",
+    "models/jednoduche-auticko/firmware/prvni-motor/evidence/2026-09-22-v3-steering-v3/previous-v2/tests/http_tests.cpp": "a1f59bdb861e939261c6b402b3f4f47820465e473451b2367b166a5cb3e20f86"
+  },
+  "ignored_build_artifacts": {
+    "models/jednoduche-auticko/firmware/prvni-motor/.cache/arduino-v3-steering-v3-build/prvni-motor.ino.map": "bf9e9d9b9b8c288026f0272ce76998178434bfa43f6d023193ddc667cc16386e",
+    "models/jednoduche-auticko/firmware/prvni-motor/.cache/arduino-v3-steering-v3-build/prvni-motor.ino.bin": "de8a2cec4fdbcb5964f5de09e3f6ffff767a263dd92e09b27f684d8a51e52dc0",
+    "models/jednoduche-auticko/firmware/prvni-motor/.cache/arduino-v3-steering-v3-build/prvni-motor.ino.elf": "d3ad5de650f309ace411eef680a0e86130f5b2d1b83d9032a97d3780c565ec89"
+  },
+  "finished_utc": "2026-09-22T21:39:31.496318+00:00",
+  "source_workspace": "/home/novakj/.codex/worktrees/e339/3d-print",
+  "destination": "/home/novakj/3d-print",
+  "all_existing_destinations_matched_pre_task_hash": true,
+  "all_written_files_equal": true,
+  "historical_v2_evidence_unchanged": true,
+  "commit_or_push": false,
+  "cad_or_print_changes": false,
+  "hardware_operations_after_monitor_closed": false
+}

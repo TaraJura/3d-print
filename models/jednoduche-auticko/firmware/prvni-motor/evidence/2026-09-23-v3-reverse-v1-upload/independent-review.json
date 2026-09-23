@@ -1,0 +1,19 @@
+{
+  "reviewer": "Independent read-only agent /root/verify_firmware_evidence",
+  "source_sha256": "d24a87631fd32a41685baedd7488c425a75ca6f9e300706349c61e09e79fe930",
+  "bin_sha256": "663fbe045211770308dab03aa696c69ea0b61f314b063ae9fc5bf7310c0ae19e",
+  "result": "CLEAN for authorized upload and passive verification scope",
+  "findings": [],
+  "verified": [
+    "Upload log:86716bytes,22pages,reset; result exit0 and exact source/BIN provenance.",
+    "Exactly3 raw snapshots: reverse-v1, safety1, motorOFF, neutral1575/range300, lease0, server ready.",
+    "HTTP29/closed29/stopReason1 stable in all snapshots; initial extra zero-traffic expectation retained as failed.",
+    "Current JSON marks uploaded and passive checks passed but physical motor/servo/neutral acceptance false for new source; previous v4 acceptance is separate."
+  ],
+  "limitations": [
+    "No evidence about motion before first observed snapshot or origin of29 connections.",
+    "Zero agent HTTP/serial data/motion commands is supported by executed-operation record, not derivable from serial logs alone.",
+    "HTTP counter counts accepted clients before parsing, not necessarily valid movement commands."
+  ],
+  "hardware_accessed_by_reviewer": false
+}

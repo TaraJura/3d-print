@@ -1,0 +1,4473 @@
+{
+  "candidate": {
+    "module": 1.1,
+    "pressure_angle": 14,
+    "small_addendum": 1.31,
+    "large_addendum": 1.59,
+    "dedendum": 1.7,
+    "centre_extra": 0.9
+  },
+  "pairs": [
+    {
+      "teeth": [
+        18,
+        54
+      ],
+      "centres": {
+        "min": 40.0,
+        "nominal": 40.5,
+        "max": 41.0
+      },
+      "small_profile": {
+        "teeth": 18,
+        "tip_edges": 18,
+        "minimum_actual_tip_chord": 0.5691349346713672,
+        "minimum_flank_endpoint_radius": 9.625463538213813,
+        "nominal_tip_curve_radius": 11.341000000004234
+      },
+      "large_profile": {
+        "teeth": 54,
+        "tip_edges": 54,
+        "minimum_actual_tip_chord": 0.569912224952603,
+        "minimum_flank_endpoint_radius": 28.845734087498474,
+        "nominal_tip_curve_radius": 31.449000000278375
+      },
+      "phases": [
+        {
+          "large_angle_deg": 0.0,
+          "cases": [
+            {
+              "centre": "min",
+              "flank": -1,
+              "phase_correction_deg": -0.6213890149492388,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "min",
+              "flank": 0,
+              "phase_correction_deg": 0.0,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "min",
+              "flank": 1,
+              "phase_correction_deg": 0.6213890149492388,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "nominal",
+              "flank": -1,
+              "phase_correction_deg": -1.5087588908862999,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "nominal",
+              "flank": 0,
+              "phase_correction_deg": 0.0,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "nominal",
+              "flank": 1,
+              "phase_correction_deg": 1.5087588908862999,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "max",
+              "flank": -1,
+              "phase_correction_deg": -2.501433571963361,
+              "overlap_mm3": 1.2964499095047375e-06,
+              "small_intersection_radii_mm": [
+                10.066793640602192,
+                10.095383398899274
+              ],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "max",
+              "flank": 0,
+              "phase_correction_deg": 0.0,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "max",
+              "flank": 1,
+              "phase_correction_deg": 2.501433571963361,
+              "overlap_mm3": 5.085874166531242e-07,
+              "small_intersection_radii_mm": [
+                10.071270694784717,
+                10.091382513761099
+              ],
+              "small_base_radius_mm": 9.605927690132365
+            }
+          ]
+        },
+        {
+          "large_angle_deg": 0.20833333333333334,
+          "cases": [
+            {
+              "centre": "min",
+              "flank": -1,
+              "phase_correction_deg": -0.6213890149492388,
+              "overlap_mm3": 0.00014799208692221005,
+              "small_intersection_radii_mm": [
+                9.574480603828443,
+                9.625124282793161
+              ],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "min",
+              "flank": 0,
+              "phase_correction_deg": 0.0,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "min",
+              "flank": 1,
+              "phase_correction_deg": 0.6213890149492388,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "nominal",
+              "flank": -1,
+              "phase_correction_deg": -1.5087588908862999,
+              "overlap_mm3": 8.102015152092717e-06,
+              "small_intersection_radii_mm": [
+                11.302596753624057,
+                11.342260943814287
+              ],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "nominal",
+              "flank": 0,
+              "phase_correction_deg": 0.0,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "nominal",
+              "flank": 1,
+              "phase_correction_deg": 1.5087588908862999,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "max",
+              "flank": -1,
+              "phase_correction_deg": -2.501433571963361,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "max",
+              "flank": 0,
+              "phase_correction_deg": 0.0,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "max",
+              "flank": 1,
+              "phase_correction_deg": 2.501433571963361,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            }
+          ]
+        },
+        {
+          "large_angle_deg": 0.4166666666666667,
+          "cases": [
+            {
+              "centre": "min",
+              "flank": -1,
+              "phase_correction_deg": -0.6213890149492388,
+              "overlap_mm3": 0.0005902221491635983,
+              "small_intersection_radii_mm": [
+                9.514321091341188,
+                9.620263229309716
+              ],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "min",
+              "flank": 0,
+              "phase_correction_deg": 0.0,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "min",
+              "flank": 1,
+              "phase_correction_deg": 0.6213890149492388,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "nominal",
+              "flank": -1,
+              "phase_correction_deg": -1.5087588908862999,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "nominal",
+              "flank": 0,
+              "phase_correction_deg": 0.0,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "nominal",
+              "flank": 1,
+              "phase_correction_deg": 1.5087588908862999,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "max",
+              "flank": -1,
+              "phase_correction_deg": -2.501433571963361,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "max",
+              "flank": 0,
+              "phase_correction_deg": 0.0,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "max",
+              "flank": 1,
+              "phase_correction_deg": 2.501433571963361,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            }
+          ]
+        },
+        {
+          "large_angle_deg": 0.625,
+          "cases": [
+            {
+              "centre": "min",
+              "flank": -1,
+              "phase_correction_deg": -0.6213890149492388,
+              "overlap_mm3": 0.0011985059570549061,
+              "small_intersection_radii_mm": [
+                9.456544295090808,
+                9.61563384995828
+              ],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "min",
+              "flank": 0,
+              "phase_correction_deg": 0.0,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "min",
+              "flank": 1,
+              "phase_correction_deg": 0.6213890149492388,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "nominal",
+              "flank": -1,
+              "phase_correction_deg": -1.5087588908862999,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "nominal",
+              "flank": 0,
+              "phase_correction_deg": 0.0,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "nominal",
+              "flank": 1,
+              "phase_correction_deg": 1.5087588908862999,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "max",
+              "flank": -1,
+              "phase_correction_deg": -2.501433571963361,
+              "overlap_mm3": 1.4256346493693312e-08,
+              "small_intersection_radii_mm": [
+                10.174198445360751,
+                10.181400337044082
+              ],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "max",
+              "flank": 0,
+              "phase_correction_deg": 0.0,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "max",
+              "flank": 1,
+              "phase_correction_deg": 2.501433571963361,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            }
+          ]
+        },
+        {
+          "large_angle_deg": 0.8333333333333334,
+          "cases": [
+            {
+              "centre": "min",
+              "flank": -1,
+              "phase_correction_deg": -0.6213890149492388,
+              "overlap_mm3": 0.0018545256330605188,
+              "small_intersection_radii_mm": [
+                9.40107178865343,
+                9.611191561977627
+              ],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "min",
+              "flank": 0,
+              "phase_correction_deg": 0.0,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "min",
+              "flank": 1,
+              "phase_correction_deg": 0.6213890149492388,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "nominal",
+              "flank": -1,
+              "phase_correction_deg": -1.5087588908862999,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "nominal",
+              "flank": 0,
+              "phase_correction_deg": 0.0,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "nominal",
+              "flank": 1,
+              "phase_correction_deg": 1.5087588908862999,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "max",
+              "flank": -1,
+              "phase_correction_deg": -2.501433571963361,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "max",
+              "flank": 0,
+              "phase_correction_deg": 0.0,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "max",
+              "flank": 1,
+              "phase_correction_deg": 2.501433571963361,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            }
+          ]
+        },
+        {
+          "large_angle_deg": 1.0416666666666667,
+          "cases": [
+            {
+              "centre": "min",
+              "flank": -1,
+              "phase_correction_deg": -0.6213890149492388,
+              "overlap_mm3": 0.0024530310566692696,
+              "small_intersection_radii_mm": [
+                9.347830032751215,
+                11.288714529583375
+              ],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "min",
+              "flank": 0,
+              "phase_correction_deg": 0.0,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "min",
+              "flank": 1,
+              "phase_correction_deg": 0.6213890149492388,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "nominal",
+              "flank": -1,
+              "phase_correction_deg": -1.5087588908862999,
+              "overlap_mm3": 2.3342951311937775e-06,
+              "small_intersection_radii_mm": [
+                10.069479985892654,
+                10.104859674500252
+              ],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "nominal",
+              "flank": 0,
+              "phase_correction_deg": 0.0,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "nominal",
+              "flank": 1,
+              "phase_correction_deg": 1.5087588908862999,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "max",
+              "flank": -1,
+              "phase_correction_deg": -2.501433571963361,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "max",
+              "flank": 0,
+              "phase_correction_deg": 0.0,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "max",
+              "flank": 1,
+              "phase_correction_deg": 2.501433571963361,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            }
+          ]
+        },
+        {
+          "large_angle_deg": 1.25,
+          "cases": [
+            {
+              "centre": "min",
+              "flank": -1,
+              "phase_correction_deg": -0.6213890149492388,
+              "overlap_mm3": 0.002895373681796778,
+              "small_intersection_radii_mm": [
+                9.296750032180377,
+                9.60255237695977
+              ],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "min",
+              "flank": 0,
+              "phase_correction_deg": 0.0,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "min",
+              "flank": 1,
+              "phase_correction_deg": 0.6213890149492388,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "nominal",
+              "flank": -1,
+              "phase_correction_deg": -1.5087588908862999,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "nominal",
+              "flank": 0,
+              "phase_correction_deg": 0.0,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "nominal",
+              "flank": 1,
+              "phase_correction_deg": 1.5087588908862999,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "max",
+              "flank": -1,
+              "phase_correction_deg": -2.501433571963361,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "max",
+              "flank": 0,
+              "phase_correction_deg": 0.0,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "max",
+              "flank": 1,
+              "phase_correction_deg": 2.501433571963361,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            }
+          ]
+        },
+        {
+          "large_angle_deg": 1.4583333333333333,
+          "cases": [
+            {
+              "centre": "min",
+              "flank": -1,
+              "phase_correction_deg": -0.6213890149492388,
+              "overlap_mm3": 0.0031000957033559605,
+              "small_intersection_radii_mm": [
+                9.247767024519185,
+                9.598054107686481
+              ],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "min",
+              "flank": 0,
+              "phase_correction_deg": 0.0,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "min",
+              "flank": 1,
+              "phase_correction_deg": 0.6213890149492388,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "nominal",
+              "flank": -1,
+              "phase_correction_deg": -1.5087588908862999,
+              "overlap_mm3": 1.1082027480168173e-06,
+              "small_intersection_radii_mm": [
+                10.135963006515118,
+                10.166243985326867
+              ],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "nominal",
+              "flank": 0,
+              "phase_correction_deg": 0.0,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "nominal",
+              "flank": 1,
+              "phase_correction_deg": 1.5087588908862999,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "max",
+              "flank": -1,
+              "phase_correction_deg": -2.501433571963361,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "max",
+              "flank": 0,
+              "phase_correction_deg": 0.0,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "max",
+              "flank": 1,
+              "phase_correction_deg": 2.501433571963361,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            }
+          ]
+        },
+        {
+          "large_angle_deg": 1.6666666666666667,
+          "cases": [
+            {
+              "centre": "min",
+              "flank": -1,
+              "phase_correction_deg": -0.6213890149492388,
+              "overlap_mm3": 0.0029910163213839433,
+              "small_intersection_radii_mm": [
+                9.200820197224454,
+                10.030898926850732
+              ],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "min",
+              "flank": 0,
+              "phase_correction_deg": 0.0,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "min",
+              "flank": 1,
+              "phase_correction_deg": 0.6213890149492388,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "nominal",
+              "flank": -1,
+              "phase_correction_deg": -1.5087588908862999,
+              "overlap_mm3": 6.74428577146549e-07,
+              "small_intersection_radii_mm": [
+                10.17291268110042,
+                10.198643018607108
+              ],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "nominal",
+              "flank": 0,
+              "phase_correction_deg": 0.0,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "nominal",
+              "flank": 1,
+              "phase_correction_deg": 1.5087588908862999,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "max",
+              "flank": -1,
+              "phase_correction_deg": -2.501433571963361,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "max",
+              "flank": 0,
+              "phase_correction_deg": 0.0,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "max",
+              "flank": 1,
+              "phase_correction_deg": 2.501433571963361,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            }
+          ]
+        },
+        {
+          "large_angle_deg": 1.875,
+          "cases": [
+            {
+              "centre": "min",
+              "flank": -1,
+              "phase_correction_deg": -0.6213890149492388,
+              "overlap_mm3": 0.0025020514900457496,
+              "small_intersection_radii_mm": [
+                9.155852430155692,
+                9.586654355667028
+              ],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "min",
+              "flank": 0,
+              "phase_correction_deg": 0.0,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "min",
+              "flank": 1,
+              "phase_correction_deg": 0.6213890149492388,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "nominal",
+              "flank": -1,
+              "phase_correction_deg": -1.5087588908862999,
+              "overlap_mm3": 3.9962963464879524e-07,
+              "small_intersection_radii_mm": [
+                10.210517347058534,
+                10.232179088027724
+              ],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "nominal",
+              "flank": 0,
+              "phase_correction_deg": 0.0,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "nominal",
+              "flank": 1,
+              "phase_correction_deg": 1.5087588908862999,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "max",
+              "flank": -1,
+              "phase_correction_deg": -2.501433571963361,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "max",
+              "flank": 0,
+              "phase_correction_deg": 0.0,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "max",
+              "flank": 1,
+              "phase_correction_deg": 2.501433571963361,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            }
+          ]
+        },
+        {
+          "large_angle_deg": 2.0833333333333335,
+          "cases": [
+            {
+              "centre": "min",
+              "flank": -1,
+              "phase_correction_deg": -0.6213890149492388,
+              "overlap_mm3": 0.0015800158918860712,
+              "small_intersection_radii_mm": [
+                9.112810060941205,
+                10.105210212825618
+              ],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "min",
+              "flank": 0,
+              "phase_correction_deg": 0.0,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "min",
+              "flank": 1,
+              "phase_correction_deg": 0.6213890149492388,
+              "overlap_mm3": 2.9993743537975127e-07,
+              "small_intersection_radii_mm": [
+                10.524858492320973,
+                10.54418215033709
+              ],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "nominal",
+              "flank": -1,
+              "phase_correction_deg": -1.5087588908862999,
+              "overlap_mm3": 2.2909349655242859e-07,
+              "small_intersection_radii_mm": [
+                10.24879328514245,
+                10.266823451464978
+              ],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "nominal",
+              "flank": 0,
+              "phase_correction_deg": 0.0,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "nominal",
+              "flank": 1,
+              "phase_correction_deg": 1.5087588908862999,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "max",
+              "flank": -1,
+              "phase_correction_deg": -2.501433571963361,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "max",
+              "flank": 0,
+              "phase_correction_deg": 0.0,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "max",
+              "flank": 1,
+              "phase_correction_deg": 2.501433571963361,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            }
+          ]
+        },
+        {
+          "large_angle_deg": 2.2916666666666665,
+          "cases": [
+            {
+              "centre": "min",
+              "flank": -1,
+              "phase_correction_deg": -0.6213890149492388,
+              "overlap_mm3": 0.0003144606189675769,
+              "small_intersection_radii_mm": [
+                9.198811331117549,
+                9.555316074097014
+              ],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "min",
+              "flank": 0,
+              "phase_correction_deg": 0.0,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "min",
+              "flank": 1,
+              "phase_correction_deg": 0.6213890149492388,
+              "overlap_mm3": 3.9887555925760905e-07,
+              "small_intersection_radii_mm": [
+                10.481324394537793,
+                10.502594673358452
+              ],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "nominal",
+              "flank": -1,
+              "phase_correction_deg": -1.5087588908862999,
+              "overlap_mm3": 1.2347464894201425e-07,
+              "small_intersection_radii_mm": [
+                10.287804414038792,
+                10.302501541452715
+              ],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "nominal",
+              "flank": 0,
+              "phase_correction_deg": 0.0,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "nominal",
+              "flank": 1,
+              "phase_correction_deg": 1.5087588908862999,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "max",
+              "flank": -1,
+              "phase_correction_deg": -2.501433571963361,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "max",
+              "flank": 0,
+              "phase_correction_deg": 0.0,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "max",
+              "flank": 1,
+              "phase_correction_deg": 2.501433571963361,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            }
+          ]
+        },
+        {
+          "large_angle_deg": 2.5,
+          "cases": [
+            {
+              "centre": "min",
+              "flank": -1,
+              "phase_correction_deg": -0.6213890149492388,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "min",
+              "flank": 0,
+              "phase_correction_deg": 0.0,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "min",
+              "flank": 1,
+              "phase_correction_deg": 0.6213890149492388,
+              "overlap_mm3": 4.804305499036573e-07,
+              "small_intersection_radii_mm": [
+                10.438943230941886,
+                10.461589599084943
+              ],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "nominal",
+              "flank": -1,
+              "phase_correction_deg": -1.5087588908862999,
+              "overlap_mm3": 5.651713026146148e-08,
+              "small_intersection_radii_mm": [
+                10.327706727803536,
+                10.339048354092663
+              ],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "nominal",
+              "flank": 0,
+              "phase_correction_deg": 0.0,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "nominal",
+              "flank": 1,
+              "phase_correction_deg": 1.5087588908862999,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "max",
+              "flank": -1,
+              "phase_correction_deg": -2.501433571963361,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "max",
+              "flank": 0,
+              "phase_correction_deg": 0.0,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "max",
+              "flank": 1,
+              "phase_correction_deg": 2.501433571963361,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            }
+          ]
+        },
+        {
+          "large_angle_deg": 2.7083333333333335,
+          "cases": [
+            {
+              "centre": "min",
+              "flank": -1,
+              "phase_correction_deg": -0.6213890149492388,
+              "overlap_mm3": 1.6266443941931397e-06,
+              "small_intersection_radii_mm": [
+                10.166058269297043,
+                10.199925494713694
+              ],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "min",
+              "flank": 0,
+              "phase_correction_deg": 0.0,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "min",
+              "flank": 1,
+              "phase_correction_deg": 0.6213890149492388,
+              "overlap_mm3": 5.490283000134002e-07,
+              "small_intersection_radii_mm": [
+                10.397599178859384,
+                10.421288167699325
+              ],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "nominal",
+              "flank": -1,
+              "phase_correction_deg": -1.5087588908862999,
+              "overlap_mm3": 1.73921395438068e-08,
+              "small_intersection_radii_mm": [
+                9.625351235866594,
+                10.376025829075424
+              ],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "nominal",
+              "flank": 0,
+              "phase_correction_deg": 0.0,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "nominal",
+              "flank": 1,
+              "phase_correction_deg": 1.5087588908862999,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "max",
+              "flank": -1,
+              "phase_correction_deg": -2.501433571963361,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "max",
+              "flank": 0,
+              "phase_correction_deg": 0.0,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "max",
+              "flank": 1,
+              "phase_correction_deg": 2.501433571963361,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            }
+          ]
+        },
+        {
+          "large_angle_deg": 2.9166666666666665,
+          "cases": [
+            {
+              "centre": "min",
+              "flank": -1,
+              "phase_correction_deg": -0.6213890149492388,
+              "overlap_mm3": 1.2195439507679517e-06,
+              "small_intersection_radii_mm": [
+                10.203094834039305,
+                10.233911573640066
+              ],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "min",
+              "flank": 0,
+              "phase_correction_deg": 0.0,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "min",
+              "flank": 1,
+              "phase_correction_deg": 0.6213890149492388,
+              "overlap_mm3": 6.159004930535724e-07,
+              "small_intersection_radii_mm": [
+                10.357187802262736,
+                10.381801003409738
+              ],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "nominal",
+              "flank": -1,
+              "phase_correction_deg": -1.5087588908862999,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "nominal",
+              "flank": 0,
+              "phase_correction_deg": 0.0,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "nominal",
+              "flank": 1,
+              "phase_correction_deg": 1.5087588908862999,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "max",
+              "flank": -1,
+              "phase_correction_deg": -2.501433571963361,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "max",
+              "flank": 0,
+              "phase_correction_deg": 0.0,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "max",
+              "flank": 1,
+              "phase_correction_deg": 2.501433571963361,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            }
+          ]
+        },
+        {
+          "large_angle_deg": 3.125,
+          "cases": [
+            {
+              "centre": "min",
+              "flank": -1,
+              "phase_correction_deg": -0.6213890149492388,
+              "overlap_mm3": 9.487125300880349e-07,
+              "small_intersection_radii_mm": [
+                10.240723691882945,
+                10.269101360849152
+              ],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "min",
+              "flank": 0,
+              "phase_correction_deg": 0.0,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "min",
+              "flank": 1,
+              "phase_correction_deg": 0.6213890149492388,
+              "overlap_mm3": 6.958029125836772e-07,
+              "small_intersection_radii_mm": [
+                10.317607655769155,
+                10.343236659457443
+              ],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "nominal",
+              "flank": -1,
+              "phase_correction_deg": -1.5087588908862999,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "nominal",
+              "flank": 0,
+              "phase_correction_deg": 0.0,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "nominal",
+              "flank": 1,
+              "phase_correction_deg": 1.5087588908862999,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "max",
+              "flank": -1,
+              "phase_correction_deg": -2.501433571963361,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "max",
+              "flank": 0,
+              "phase_correction_deg": 0.0,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "max",
+              "flank": 1,
+              "phase_correction_deg": 2.501433571963361,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            }
+          ]
+        },
+        {
+          "large_angle_deg": 3.3333333333333335,
+          "cases": [
+            {
+              "centre": "min",
+              "flank": -1,
+              "phase_correction_deg": -0.6213890149492388,
+              "overlap_mm3": 7.696904479066314e-07,
+              "small_intersection_radii_mm": [
+                10.278969175686266,
+                10.305459998898609
+              ],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "min",
+              "flank": 0,
+              "phase_correction_deg": 0.0,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "min",
+              "flank": 1,
+              "phase_correction_deg": 0.6213890149492388,
+              "overlap_mm3": 8.090955202087495e-07,
+              "small_intersection_radii_mm": [
+                10.278763014561232,
+                10.305699041341375
+              ],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "nominal",
+              "flank": -1,
+              "phase_correction_deg": -1.5087588908862999,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "nominal",
+              "flank": 0,
+              "phase_correction_deg": 0.0,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "nominal",
+              "flank": 1,
+              "phase_correction_deg": 1.5087588908862999,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "max",
+              "flank": -1,
+              "phase_correction_deg": -2.501433571963361,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "max",
+              "flank": 0,
+              "phase_correction_deg": 0.0,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "max",
+              "flank": 1,
+              "phase_correction_deg": 2.501433571963361,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            }
+          ]
+        },
+        {
+          "large_angle_deg": 3.5416666666666665,
+          "cases": [
+            {
+              "centre": "min",
+              "flank": -1,
+              "phase_correction_deg": -0.6213890149492388,
+              "overlap_mm3": 6.492742660456442e-07,
+              "small_intersection_radii_mm": [
+                10.317882593059965,
+                10.342927099283832
+              ],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "min",
+              "flank": 0,
+              "phase_correction_deg": 0.0,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "min",
+              "flank": 1,
+              "phase_correction_deg": 0.6213890149492388,
+              "overlap_mm3": 9.818202484645377e-07,
+              "small_intersection_radii_mm": [
+                10.240573133467741,
+                10.269278306564509
+              ],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "nominal",
+              "flank": -1,
+              "phase_correction_deg": -1.5087588908862999,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "nominal",
+              "flank": 0,
+              "phase_correction_deg": 0.0,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "nominal",
+              "flank": 1,
+              "phase_correction_deg": 1.5087588908862999,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "max",
+              "flank": -1,
+              "phase_correction_deg": -2.501433571963361,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "max",
+              "flank": 0,
+              "phase_correction_deg": 0.0,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "max",
+              "flank": 1,
+              "phase_correction_deg": 2.501433571963361,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            }
+          ]
+        },
+        {
+          "large_angle_deg": 3.75,
+          "cases": [
+            {
+              "centre": "min",
+              "flank": -1,
+              "phase_correction_deg": -0.6213890149492388,
+              "overlap_mm3": 5.627842817179087e-07,
+              "small_intersection_radii_mm": [
+                10.357536912963498,
+                10.381421884036179
+              ],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "min",
+              "flank": 0,
+              "phase_correction_deg": 0.0,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "min",
+              "flank": 1,
+              "phase_correction_deg": 0.6213890149492388,
+              "overlap_mm3": 1.2481993690568432e-06,
+              "small_intersection_radii_mm": [
+                10.202982734514602,
+                10.234040543300193
+              ],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "nominal",
+              "flank": -1,
+              "phase_correction_deg": -1.5087588908862999,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "nominal",
+              "flank": 0,
+              "phase_correction_deg": 0.0,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "nominal",
+              "flank": 1,
+              "phase_correction_deg": 1.5087588908862999,
+              "overlap_mm3": 6.587594842597844e-09,
+              "small_intersection_radii_mm": [
+                10.409695502893898,
+                10.415244880640389
+              ],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "max",
+              "flank": -1,
+              "phase_correction_deg": -2.501433571963361,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "max",
+              "flank": 0,
+              "phase_correction_deg": 0.0,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "max",
+              "flank": 1,
+              "phase_correction_deg": 2.501433571963361,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            }
+          ]
+        },
+        {
+          "large_angle_deg": 3.9583333333333335,
+          "cases": [
+            {
+              "centre": "min",
+              "flank": -1,
+              "phase_correction_deg": -0.6213890149492388,
+              "overlap_mm3": 4.918991730738682e-07,
+              "small_intersection_radii_mm": [
+                10.398017133842792,
+                10.420852654349412
+              ],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "min",
+              "flank": 0,
+              "phase_correction_deg": 0.0,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "min",
+              "flank": 1,
+              "phase_correction_deg": 0.6213890149492388,
+              "overlap_mm3": 1.6535062839211737e-06,
+              "small_intersection_radii_mm": [
+                10.165967775015458,
+                10.200022177814642
+              ],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "nominal",
+              "flank": -1,
+              "phase_correction_deg": -1.5087588908862999,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "nominal",
+              "flank": 0,
+              "phase_correction_deg": 0.0,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "nominal",
+              "flank": 1,
+              "phase_correction_deg": 1.5087588908862999,
+              "overlap_mm3": 4.10904906916883e-08,
+              "small_intersection_radii_mm": [
+                10.367403521294714,
+                10.377611478633728
+              ],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "max",
+              "flank": -1,
+              "phase_correction_deg": -2.501433571963361,
+              "overlap_mm3": 1.463947570654397e-07,
+              "small_intersection_radii_mm": [
+                9.761840525029152,
+                9.767395440510901
+              ],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "max",
+              "flank": 0,
+              "phase_correction_deg": 0.0,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "max",
+              "flank": 1,
+              "phase_correction_deg": 2.501433571963361,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            }
+          ]
+        },
+        {
+          "large_angle_deg": 4.166666666666667,
+          "cases": [
+            {
+              "centre": "min",
+              "flank": -1,
+              "phase_correction_deg": -0.6213890149492388,
+              "overlap_mm3": 4.234334192729158e-07,
+              "small_intersection_radii_mm": [
+                10.439410928574167,
+                10.461125989048288
+              ],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "min",
+              "flank": 0,
+              "phase_correction_deg": 0.0,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "min",
+              "flank": 1,
+              "phase_correction_deg": 0.6213890149492388,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "nominal",
+              "flank": -1,
+              "phase_correction_deg": -1.5087588908862999,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "nominal",
+              "flank": 0,
+              "phase_correction_deg": 0.0,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "nominal",
+              "flank": 1,
+              "phase_correction_deg": 1.5087588908862999,
+              "overlap_mm3": 8.796517187673849e-08,
+              "small_intersection_radii_mm": [
+                10.326842427194004,
+                10.339985422953374
+              ],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "max",
+              "flank": -1,
+              "phase_correction_deg": -2.501433571963361,
+              "overlap_mm3": 7.332862480493436e-07,
+              "small_intersection_radii_mm": [
+                9.758778453863838,
+                9.782339550473719
+              ],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "max",
+              "flank": 0,
+              "phase_correction_deg": 0.0,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "max",
+              "flank": 1,
+              "phase_correction_deg": 2.501433571963361,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            }
+          ]
+        },
+        {
+          "large_angle_deg": 4.375,
+          "cases": [
+            {
+              "centre": "min",
+              "flank": -1,
+              "phase_correction_deg": -0.6213890149492388,
+              "overlap_mm3": 3.4906434753721706e-07,
+              "small_intersection_radii_mm": [
+                10.481803540099612,
+                10.502151697281356
+              ],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "min",
+              "flank": 0,
+              "phase_correction_deg": 0.0,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "min",
+              "flank": 1,
+              "phase_correction_deg": 0.6213890149492388,
+              "overlap_mm3": 0.00029360728712949323,
+              "small_intersection_radii_mm": [
+                9.20464215853695,
+                9.5527858668818
+              ],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "nominal",
+              "flank": -1,
+              "phase_correction_deg": -1.5087588908862999,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "nominal",
+              "flank": 0,
+              "phase_correction_deg": 0.0,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "nominal",
+              "flank": 1,
+              "phase_correction_deg": 1.5087588908862999,
+              "overlap_mm3": 1.52857902696039e-07,
+              "small_intersection_radii_mm": [
+                10.28730307317562,
+                10.303083605828833
+              ],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "max",
+              "flank": -1,
+              "phase_correction_deg": -2.501433571963361,
+              "overlap_mm3": 8.822059275522925e-08,
+              "small_intersection_radii_mm": [
+                9.784424681259136,
+                9.79623346972249
+              ],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "max",
+              "flank": 0,
+              "phase_correction_deg": 0.0,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "max",
+              "flank": 1,
+              "phase_correction_deg": 2.501433571963361,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            }
+          ]
+        },
+        {
+          "large_angle_deg": 4.583333333333333,
+          "cases": [
+            {
+              "centre": "min",
+              "flank": -1,
+              "phase_correction_deg": -0.6213890149492388,
+              "overlap_mm3": 2.6570021274164853e-07,
+              "small_intersection_radii_mm": [
+                10.525279216355713,
+                10.543841235280825
+              ],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "min",
+              "flank": 0,
+              "phase_correction_deg": 0.0,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "min",
+              "flank": 1,
+              "phase_correction_deg": 0.6213890149492388,
+              "overlap_mm3": 0.0015436808932614249,
+              "small_intersection_radii_mm": [
+                9.11379753823246,
+                10.105277150562943
+              ],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "nominal",
+              "flank": -1,
+              "phase_correction_deg": -1.5087588908862999,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "nominal",
+              "flank": 0,
+              "phase_correction_deg": 0.0,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "nominal",
+              "flank": 1,
+              "phase_correction_deg": 1.5087588908862999,
+              "overlap_mm3": 2.521640045545455e-07,
+              "small_intersection_radii_mm": [
+                10.248542397848572,
+                10.267158265556935
+              ],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "max",
+              "flank": -1,
+              "phase_correction_deg": -2.501433571963361,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "max",
+              "flank": 0,
+              "phase_correction_deg": 0.0,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "max",
+              "flank": 1,
+              "phase_correction_deg": 2.501433571963361,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            }
+          ]
+        },
+        {
+          "large_angle_deg": 4.791666666666667,
+          "cases": [
+            {
+              "centre": "min",
+              "flank": -1,
+              "phase_correction_deg": -0.6213890149492388,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "min",
+              "flank": 0,
+              "phase_correction_deg": 0.0,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "min",
+              "flank": 1,
+              "phase_correction_deg": 0.6213890149492388,
+              "overlap_mm3": 0.002461956964450754,
+              "small_intersection_radii_mm": [
+                9.156825584129159,
+                9.5855339924124
+              ],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "nominal",
+              "flank": -1,
+              "phase_correction_deg": -1.5087588908862999,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "nominal",
+              "flank": 0,
+              "phase_correction_deg": 0.0,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "nominal",
+              "flank": 1,
+              "phase_correction_deg": 1.5087588908862999,
+              "overlap_mm3": 4.12451913289455e-07,
+              "small_intersection_radii_mm": [
+                10.210444845680195,
+                10.232335721701457
+              ],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "max",
+              "flank": -1,
+              "phase_correction_deg": -2.501433571963361,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "max",
+              "flank": 0,
+              "phase_correction_deg": 0.0,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "max",
+              "flank": 1,
+              "phase_correction_deg": 2.501433571963361,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            }
+          ]
+        },
+        {
+          "large_angle_deg": 5.0,
+          "cases": [
+            {
+              "centre": "min",
+              "flank": -1,
+              "phase_correction_deg": -0.6213890149492388,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "min",
+              "flank": 0,
+              "phase_correction_deg": 0.0,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "min",
+              "flank": 1,
+              "phase_correction_deg": 0.6213890149492388,
+              "overlap_mm3": 0.0029487604210783314,
+              "small_intersection_radii_mm": [
+                9.201783398929427,
+                10.031238884005232
+              ],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "nominal",
+              "flank": -1,
+              "phase_correction_deg": -1.5087588908862999,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "nominal",
+              "flank": 0,
+              "phase_correction_deg": 0.0,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "nominal",
+              "flank": 1,
+              "phase_correction_deg": 1.5087588908862999,
+              "overlap_mm3": 6.72592584218484e-07,
+              "small_intersection_radii_mm": [
+                10.172966006239381,
+                10.19867290114604
+              ],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "max",
+              "flank": -1,
+              "phase_correction_deg": -2.501433571963361,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "max",
+              "flank": 0,
+              "phase_correction_deg": 0.0,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "max",
+              "flank": 1,
+              "phase_correction_deg": 2.501433571963361,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            }
+          ]
+        },
+        {
+          "large_angle_deg": 5.208333333333333,
+          "cases": [
+            {
+              "centre": "min",
+              "flank": -1,
+              "phase_correction_deg": -0.6213890149492388,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "min",
+              "flank": 0,
+              "phase_correction_deg": 0.0,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "min",
+              "flank": 1,
+              "phase_correction_deg": 0.6213890149492388,
+              "overlap_mm3": 0.0030571752094984204,
+              "small_intersection_radii_mm": [
+                9.248724955786864,
+                9.597174279912315
+              ],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "nominal",
+              "flank": -1,
+              "phase_correction_deg": -1.5087588908862999,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "nominal",
+              "flank": 0,
+              "phase_correction_deg": 0.0,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "nominal",
+              "flank": 1,
+              "phase_correction_deg": 1.5087588908862999,
+              "overlap_mm3": 1.0862401366113261e-06,
+              "small_intersection_radii_mm": [
+                10.136105418267494,
+                10.166184711605505
+              ],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "max",
+              "flank": -1,
+              "phase_correction_deg": -2.501433571963361,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "max",
+              "flank": 0,
+              "phase_correction_deg": 0.0,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "max",
+              "flank": 1,
+              "phase_correction_deg": 2.501433571963361,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            }
+          ]
+        },
+        {
+          "large_angle_deg": 5.416666666666667,
+          "cases": [
+            {
+              "centre": "min",
+              "flank": -1,
+              "phase_correction_deg": -0.6213890149492388,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "min",
+              "flank": 0,
+              "phase_correction_deg": 0.0,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "min",
+              "flank": 1,
+              "phase_correction_deg": 0.6213890149492388,
+              "overlap_mm3": 0.002853351131747955,
+              "small_intersection_radii_mm": [
+                9.297707711260351,
+                9.601721703309137
+              ],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "nominal",
+              "flank": -1,
+              "phase_correction_deg": -1.5087588908862999,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "nominal",
+              "flank": 0,
+              "phase_correction_deg": 0.0,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "nominal",
+              "flank": 1,
+              "phase_correction_deg": 1.5087588908862999,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "max",
+              "flank": -1,
+              "phase_correction_deg": -2.501433571963361,
+              "overlap_mm3": 6.940264860559451e-08,
+              "small_intersection_radii_mm": [
+                11.206076507684578,
+                11.218322992900287
+              ],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "max",
+              "flank": 0,
+              "phase_correction_deg": 0.0,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "max",
+              "flank": 1,
+              "phase_correction_deg": 2.501433571963361,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            }
+          ]
+        },
+        {
+          "large_angle_deg": 5.625,
+          "cases": [
+            {
+              "centre": "min",
+              "flank": -1,
+              "phase_correction_deg": -0.6213890149492388,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "min",
+              "flank": 0,
+              "phase_correction_deg": 0.0,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "min",
+              "flank": 1,
+              "phase_correction_deg": 0.6213890149492388,
+              "overlap_mm3": 0.002412390040418222,
+              "small_intersection_radii_mm": [
+                9.348792842564235,
+                9.606064883217806
+              ],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "nominal",
+              "flank": -1,
+              "phase_correction_deg": -1.5087588908862999,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "nominal",
+              "flank": 0,
+              "phase_correction_deg": 0.0,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "nominal",
+              "flank": 1,
+              "phase_correction_deg": 1.5087588908862999,
+              "overlap_mm3": 2.261168960827648e-06,
+              "small_intersection_radii_mm": [
+                10.06970731624873,
+                10.10468927326661
+              ],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "max",
+              "flank": -1,
+              "phase_correction_deg": -2.501433571963361,
+              "overlap_mm3": 2.6091876399681312e-06,
+              "small_intersection_radii_mm": [
+                11.247086236985721,
+                11.288028715316154
+              ],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "max",
+              "flank": 0,
+              "phase_correction_deg": 0.0,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "max",
+              "flank": 1,
+              "phase_correction_deg": 2.501433571963361,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            }
+          ]
+        },
+        {
+          "large_angle_deg": 5.833333333333333,
+          "cases": [
+            {
+              "centre": "min",
+              "flank": -1,
+              "phase_correction_deg": -0.6213890149492388,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "min",
+              "flank": 0,
+              "phase_correction_deg": 0.0,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "min",
+              "flank": 1,
+              "phase_correction_deg": 0.6213890149492388,
+              "overlap_mm3": 0.0018192421144345627,
+              "small_intersection_radii_mm": [
+                9.40204550795878,
+                9.610401976752044
+              ],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "nominal",
+              "flank": -1,
+              "phase_correction_deg": -1.5087588908862999,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "nominal",
+              "flank": 0,
+              "phase_correction_deg": 0.0,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "nominal",
+              "flank": 1,
+              "phase_correction_deg": 1.5087588908862999,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "max",
+              "flank": -1,
+              "phase_correction_deg": -2.501433571963361,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "max",
+              "flank": 0,
+              "phase_correction_deg": 0.0,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "max",
+              "flank": 1,
+              "phase_correction_deg": 2.501433571963361,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            }
+          ]
+        },
+        {
+          "large_angle_deg": 6.041666666666667,
+          "cases": [
+            {
+              "centre": "min",
+              "flank": -1,
+              "phase_correction_deg": -0.6213890149492388,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "min",
+              "flank": 0,
+              "phase_correction_deg": 0.0,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "min",
+              "flank": 1,
+              "phase_correction_deg": 0.6213890149492388,
+              "overlap_mm3": 0.0011692872995675916,
+              "small_intersection_radii_mm": [
+                9.45753513290122,
+                9.614847651665539
+              ],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "nominal",
+              "flank": -1,
+              "phase_correction_deg": -1.5087588908862999,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "nominal",
+              "flank": 0,
+              "phase_correction_deg": 0.0,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "nominal",
+              "flank": 1,
+              "phase_correction_deg": 1.5087588908862999,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "max",
+              "flank": -1,
+              "phase_correction_deg": -2.501433571963361,
+              "overlap_mm3": 9.796521614888433e-09,
+              "small_intersection_radii_mm": [
+                11.341223652621732,
+                11.342260943814283
+              ],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "max",
+              "flank": 0,
+              "phase_correction_deg": 0.0,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "max",
+              "flank": 1,
+              "phase_correction_deg": 2.501433571963361,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            }
+          ]
+        },
+        {
+          "large_angle_deg": 6.25,
+          "cases": [
+            {
+              "centre": "min",
+              "flank": -1,
+              "phase_correction_deg": -0.6213890149492388,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "min",
+              "flank": 0,
+              "phase_correction_deg": 0.0,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "min",
+              "flank": 1,
+              "phase_correction_deg": 0.6213890149492388,
+              "overlap_mm3": 0.000569071167151901,
+              "small_intersection_radii_mm": [
+                9.515335725024345,
+                9.619472811134766
+              ],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "nominal",
+              "flank": -1,
+              "phase_correction_deg": -1.5087588908862999,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "nominal",
+              "flank": 0,
+              "phase_correction_deg": 0.0,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "nominal",
+              "flank": 1,
+              "phase_correction_deg": 1.5087588908862999,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "max",
+              "flank": -1,
+              "phase_correction_deg": -2.501433571963361,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "max",
+              "flank": 0,
+              "phase_correction_deg": 0.0,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "max",
+              "flank": 1,
+              "phase_correction_deg": 2.501433571963361,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            }
+          ]
+        },
+        {
+          "large_angle_deg": 6.458333333333333,
+          "cases": [
+            {
+              "centre": "min",
+              "flank": -1,
+              "phase_correction_deg": -0.6213890149492388,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "min",
+              "flank": 0,
+              "phase_correction_deg": 0.0,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "min",
+              "flank": 1,
+              "phase_correction_deg": 0.6213890149492388,
+              "overlap_mm3": 0.000137114815109608,
+              "small_intersection_radii_mm": [
+                9.575526221336842,
+                9.624323597979915
+              ],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "nominal",
+              "flank": -1,
+              "phase_correction_deg": -1.5087588908862999,
+              "overlap_mm3": 1.2821597407290521e-06,
+              "small_intersection_radii_mm": [
+                11.208693318380377,
+                11.240176364344356
+              ],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "nominal",
+              "flank": 0,
+              "phase_correction_deg": 0.0,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "nominal",
+              "flank": 1,
+              "phase_correction_deg": 1.5087588908862999,
+              "overlap_mm3": 4.3419159416349045e-07,
+              "small_intersection_radii_mm": [
+                11.323321554814848,
+                11.34100005076144
+              ],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "max",
+              "flank": -1,
+              "phase_correction_deg": -2.501433571963361,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "max",
+              "flank": 0,
+              "phase_correction_deg": 0.0,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            },
+            {
+              "centre": "max",
+              "flank": 1,
+              "phase_correction_deg": 2.501433571963361,
+              "overlap_mm3": 0.0,
+              "small_intersection_radii_mm": [],
+              "small_base_radius_mm": 9.605927690132365
+            }
+          ]
+        }
+      ],
+      "max_interference_mm3": 0.0031000957033559605,
+      "collision_free": false,
+      "active_involute_estimate": [
+        {
+          "centre_type": "min",
+          "ideal_contact_ratio": 2.2376021824668033,
+          "active_spline_contact_ratio": 1.615128514883669,
+          "large_tip_below_small_base_path_mm": 1.4742723042440549
+        },
+        {
+          "centre_type": "nominal",
+          "ideal_contact_ratio": 1.7357599515283773,
+          "active_spline_contact_ratio": 1.615128514883669,
+          "large_tip_below_small_base_path_mm": 0
+        },
+        {
+          "centre_type": "max",
+          "ideal_contact_ratio": 1.2874050927023548,
+          "active_spline_contact_ratio": 1.2874050927023548,
+          "large_tip_below_small_base_path_mm": 0
+        }
+      ]
+    }
+  ],
+  "control": {
+    "maximum_overlap_mm3": 7.883336886064164e-06,
+    "samples": 288,
+    "cases": [
+      {
+        "distance": 36.1,
+        "large_deg": 0.0,
+        "flank": -1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.1,
+        "large_deg": 0.0,
+        "flank": 0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.1,
+        "large_deg": 0.0,
+        "flank": 1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.1,
+        "large_deg": 0.20833333333333334,
+        "flank": -1,
+        "overlap_mm3": 7.883336886064164e-06
+      },
+      {
+        "distance": 36.1,
+        "large_deg": 0.20833333333333334,
+        "flank": 0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.1,
+        "large_deg": 0.20833333333333334,
+        "flank": 1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.1,
+        "large_deg": 0.4166666666666667,
+        "flank": -1,
+        "overlap_mm3": 1.5936024025483557e-07
+      },
+      {
+        "distance": 36.1,
+        "large_deg": 0.4166666666666667,
+        "flank": 0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.1,
+        "large_deg": 0.4166666666666667,
+        "flank": 1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.1,
+        "large_deg": 0.625,
+        "flank": -1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.1,
+        "large_deg": 0.625,
+        "flank": 0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.1,
+        "large_deg": 0.625,
+        "flank": 1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.1,
+        "large_deg": 0.8333333333333334,
+        "flank": -1,
+        "overlap_mm3": 3.462455143060552e-06
+      },
+      {
+        "distance": 36.1,
+        "large_deg": 0.8333333333333334,
+        "flank": 0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.1,
+        "large_deg": 0.8333333333333334,
+        "flank": 1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.1,
+        "large_deg": 1.0416666666666667,
+        "flank": -1,
+        "overlap_mm3": 2.981006500517225e-06
+      },
+      {
+        "distance": 36.1,
+        "large_deg": 1.0416666666666667,
+        "flank": 0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.1,
+        "large_deg": 1.0416666666666667,
+        "flank": 1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.1,
+        "large_deg": 1.25,
+        "flank": -1,
+        "overlap_mm3": 1.9849851369900167e-06
+      },
+      {
+        "distance": 36.1,
+        "large_deg": 1.25,
+        "flank": 0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.1,
+        "large_deg": 1.25,
+        "flank": 1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.1,
+        "large_deg": 1.4583333333333333,
+        "flank": -1,
+        "overlap_mm3": 1.2829021866517886e-06
+      },
+      {
+        "distance": 36.1,
+        "large_deg": 1.4583333333333333,
+        "flank": 0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.1,
+        "large_deg": 1.4583333333333333,
+        "flank": 1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.1,
+        "large_deg": 1.6666666666666667,
+        "flank": -1,
+        "overlap_mm3": 7.978184774720352e-07
+      },
+      {
+        "distance": 36.1,
+        "large_deg": 1.6666666666666667,
+        "flank": 0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.1,
+        "large_deg": 1.6666666666666667,
+        "flank": 1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.1,
+        "large_deg": 1.875,
+        "flank": -1,
+        "overlap_mm3": 4.6830049501527267e-07
+      },
+      {
+        "distance": 36.1,
+        "large_deg": 1.875,
+        "flank": 0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.1,
+        "large_deg": 1.875,
+        "flank": 1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.1,
+        "large_deg": 2.0833333333333335,
+        "flank": -1,
+        "overlap_mm3": 2.4758474334057553e-07
+      },
+      {
+        "distance": 36.1,
+        "large_deg": 2.0833333333333335,
+        "flank": 0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.1,
+        "large_deg": 2.0833333333333335,
+        "flank": 1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.1,
+        "large_deg": 2.2916666666666665,
+        "flank": -1,
+        "overlap_mm3": 1.0284325362036416e-07
+      },
+      {
+        "distance": 36.1,
+        "large_deg": 2.2916666666666665,
+        "flank": 0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.1,
+        "large_deg": 2.2916666666666665,
+        "flank": 1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.1,
+        "large_deg": 2.5,
+        "flank": -1,
+        "overlap_mm3": 1.6603505735405055e-08
+      },
+      {
+        "distance": 36.1,
+        "large_deg": 2.5,
+        "flank": 0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.1,
+        "large_deg": 2.5,
+        "flank": 1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.1,
+        "large_deg": 2.7083333333333335,
+        "flank": -1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.1,
+        "large_deg": 2.7083333333333335,
+        "flank": 0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.1,
+        "large_deg": 2.7083333333333335,
+        "flank": 1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.1,
+        "large_deg": 2.9166666666666665,
+        "flank": -1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.1,
+        "large_deg": 2.9166666666666665,
+        "flank": 0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.1,
+        "large_deg": 2.9166666666666665,
+        "flank": 1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.1,
+        "large_deg": 3.125,
+        "flank": -1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.1,
+        "large_deg": 3.125,
+        "flank": 0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.1,
+        "large_deg": 3.125,
+        "flank": 1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.1,
+        "large_deg": 3.3333333333333335,
+        "flank": -1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.1,
+        "large_deg": 3.3333333333333335,
+        "flank": 0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.1,
+        "large_deg": 3.3333333333333335,
+        "flank": 1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.1,
+        "large_deg": 3.5416666666666665,
+        "flank": -1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.1,
+        "large_deg": 3.5416666666666665,
+        "flank": 0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.1,
+        "large_deg": 3.5416666666666665,
+        "flank": 1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.1,
+        "large_deg": 3.75,
+        "flank": -1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.1,
+        "large_deg": 3.75,
+        "flank": 0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.1,
+        "large_deg": 3.75,
+        "flank": 1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.1,
+        "large_deg": 3.9583333333333335,
+        "flank": -1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.1,
+        "large_deg": 3.9583333333333335,
+        "flank": 0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.1,
+        "large_deg": 3.9583333333333335,
+        "flank": 1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.1,
+        "large_deg": 4.166666666666667,
+        "flank": -1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.1,
+        "large_deg": 4.166666666666667,
+        "flank": 0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.1,
+        "large_deg": 4.166666666666667,
+        "flank": 1,
+        "overlap_mm3": 3.805733847412219e-08
+      },
+      {
+        "distance": 36.1,
+        "large_deg": 4.375,
+        "flank": -1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.1,
+        "large_deg": 4.375,
+        "flank": 0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.1,
+        "large_deg": 4.375,
+        "flank": 1,
+        "overlap_mm3": 1.3328557168549667e-07
+      },
+      {
+        "distance": 36.1,
+        "large_deg": 4.583333333333333,
+        "flank": -1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.1,
+        "large_deg": 4.583333333333333,
+        "flank": 0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.1,
+        "large_deg": 4.583333333333333,
+        "flank": 1,
+        "overlap_mm3": 2.812628432254816e-07
+      },
+      {
+        "distance": 36.1,
+        "large_deg": 4.791666666666667,
+        "flank": -1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.1,
+        "large_deg": 4.791666666666667,
+        "flank": 0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.1,
+        "large_deg": 4.791666666666667,
+        "flank": 1,
+        "overlap_mm3": 5.032627556277033e-07
+      },
+      {
+        "distance": 36.1,
+        "large_deg": 5.0,
+        "flank": -1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.1,
+        "large_deg": 5.0,
+        "flank": 0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.1,
+        "large_deg": 5.0,
+        "flank": 1,
+        "overlap_mm3": 8.34212699236131e-07
+      },
+      {
+        "distance": 36.1,
+        "large_deg": 5.208333333333333,
+        "flank": -1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.1,
+        "large_deg": 5.208333333333333,
+        "flank": 0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.1,
+        "large_deg": 5.208333333333333,
+        "flank": 1,
+        "overlap_mm3": 1.322484681587829e-06
+      },
+      {
+        "distance": 36.1,
+        "large_deg": 5.416666666666667,
+        "flank": -1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.1,
+        "large_deg": 5.416666666666667,
+        "flank": 0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.1,
+        "large_deg": 5.416666666666667,
+        "flank": 1,
+        "overlap_mm3": 2.0307056578491526e-06
+      },
+      {
+        "distance": 36.1,
+        "large_deg": 5.625,
+        "flank": -1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.1,
+        "large_deg": 5.625,
+        "flank": 0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.1,
+        "large_deg": 5.625,
+        "flank": 1,
+        "overlap_mm3": 3.0363594589295077e-06
+      },
+      {
+        "distance": 36.1,
+        "large_deg": 5.833333333333333,
+        "flank": -1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.1,
+        "large_deg": 5.833333333333333,
+        "flank": 0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.1,
+        "large_deg": 5.833333333333333,
+        "flank": 1,
+        "overlap_mm3": 3.5197017754449436e-06
+      },
+      {
+        "distance": 36.1,
+        "large_deg": 6.041666666666667,
+        "flank": -1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.1,
+        "large_deg": 6.041666666666667,
+        "flank": 0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.1,
+        "large_deg": 6.041666666666667,
+        "flank": 1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.1,
+        "large_deg": 6.25,
+        "flank": -1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.1,
+        "large_deg": 6.25,
+        "flank": 0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.1,
+        "large_deg": 6.25,
+        "flank": 1,
+        "overlap_mm3": 7.245717798884583e-08
+      },
+      {
+        "distance": 36.1,
+        "large_deg": 6.458333333333333,
+        "flank": -1,
+        "overlap_mm3": 1.7208328979481306e-07
+      },
+      {
+        "distance": 36.1,
+        "large_deg": 6.458333333333333,
+        "flank": 0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.1,
+        "large_deg": 6.458333333333333,
+        "flank": 1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.4,
+        "large_deg": 0.0,
+        "flank": -1,
+        "overlap_mm3": 2.0266212542398785e-06
+      },
+      {
+        "distance": 36.4,
+        "large_deg": 0.0,
+        "flank": 0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.4,
+        "large_deg": 0.0,
+        "flank": 1,
+        "overlap_mm3": 2.0912262331668034e-06
+      },
+      {
+        "distance": 36.4,
+        "large_deg": 0.20833333333333334,
+        "flank": -1,
+        "overlap_mm3": 3.7253873641141265e-06
+      },
+      {
+        "distance": 36.4,
+        "large_deg": 0.20833333333333334,
+        "flank": 0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.4,
+        "large_deg": 0.20833333333333334,
+        "flank": 1,
+        "overlap_mm3": 2.1002242422499133e-07
+      },
+      {
+        "distance": 36.4,
+        "large_deg": 0.4166666666666667,
+        "flank": -1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.4,
+        "large_deg": 0.4166666666666667,
+        "flank": 0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.4,
+        "large_deg": 0.4166666666666667,
+        "flank": 1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.4,
+        "large_deg": 0.625,
+        "flank": -1,
+        "overlap_mm3": 2.097216827332839e-06
+      },
+      {
+        "distance": 36.4,
+        "large_deg": 0.625,
+        "flank": 0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.4,
+        "large_deg": 0.625,
+        "flank": 1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.4,
+        "large_deg": 0.8333333333333334,
+        "flank": -1,
+        "overlap_mm3": 1.4249148590091369e-06
+      },
+      {
+        "distance": 36.4,
+        "large_deg": 0.8333333333333334,
+        "flank": 0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.4,
+        "large_deg": 0.8333333333333334,
+        "flank": 1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.4,
+        "large_deg": 1.0416666666666667,
+        "flank": -1,
+        "overlap_mm3": 9.529894667616594e-07
+      },
+      {
+        "distance": 36.4,
+        "large_deg": 1.0416666666666667,
+        "flank": 0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.4,
+        "large_deg": 1.0416666666666667,
+        "flank": 1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.4,
+        "large_deg": 1.25,
+        "flank": -1,
+        "overlap_mm3": 6.227539934127534e-07
+      },
+      {
+        "distance": 36.4,
+        "large_deg": 1.25,
+        "flank": 0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.4,
+        "large_deg": 1.25,
+        "flank": 1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.4,
+        "large_deg": 1.4583333333333333,
+        "flank": -1,
+        "overlap_mm3": 3.8954044308763604e-07
+      },
+      {
+        "distance": 36.4,
+        "large_deg": 1.4583333333333333,
+        "flank": 0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.4,
+        "large_deg": 1.4583333333333333,
+        "flank": 1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.4,
+        "large_deg": 1.6666666666666667,
+        "flank": -1,
+        "overlap_mm3": 2.213336033257031e-07
+      },
+      {
+        "distance": 36.4,
+        "large_deg": 1.6666666666666667,
+        "flank": 0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.4,
+        "large_deg": 1.6666666666666667,
+        "flank": 1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.4,
+        "large_deg": 1.875,
+        "flank": -1,
+        "overlap_mm3": 9.818907539418689e-08
+      },
+      {
+        "distance": 36.4,
+        "large_deg": 1.875,
+        "flank": 0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.4,
+        "large_deg": 1.875,
+        "flank": 1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.4,
+        "large_deg": 2.0833333333333335,
+        "flank": -1,
+        "overlap_mm3": 1.5228907453220768e-08
+      },
+      {
+        "distance": 36.4,
+        "large_deg": 2.0833333333333335,
+        "flank": 0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.4,
+        "large_deg": 2.0833333333333335,
+        "flank": 1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.4,
+        "large_deg": 2.2916666666666665,
+        "flank": -1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.4,
+        "large_deg": 2.2916666666666665,
+        "flank": 0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.4,
+        "large_deg": 2.2916666666666665,
+        "flank": 1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.4,
+        "large_deg": 2.5,
+        "flank": -1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.4,
+        "large_deg": 2.5,
+        "flank": 0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.4,
+        "large_deg": 2.5,
+        "flank": 1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.4,
+        "large_deg": 2.7083333333333335,
+        "flank": -1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.4,
+        "large_deg": 2.7083333333333335,
+        "flank": 0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.4,
+        "large_deg": 2.7083333333333335,
+        "flank": 1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.4,
+        "large_deg": 2.9166666666666665,
+        "flank": -1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.4,
+        "large_deg": 2.9166666666666665,
+        "flank": 0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.4,
+        "large_deg": 2.9166666666666665,
+        "flank": 1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.4,
+        "large_deg": 3.125,
+        "flank": -1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.4,
+        "large_deg": 3.125,
+        "flank": 0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.4,
+        "large_deg": 3.125,
+        "flank": 1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.4,
+        "large_deg": 3.3333333333333335,
+        "flank": -1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.4,
+        "large_deg": 3.3333333333333335,
+        "flank": 0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.4,
+        "large_deg": 3.3333333333333335,
+        "flank": 1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.4,
+        "large_deg": 3.5416666666666665,
+        "flank": -1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.4,
+        "large_deg": 3.5416666666666665,
+        "flank": 0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.4,
+        "large_deg": 3.5416666666666665,
+        "flank": 1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.4,
+        "large_deg": 3.75,
+        "flank": -1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.4,
+        "large_deg": 3.75,
+        "flank": 0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.4,
+        "large_deg": 3.75,
+        "flank": 1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.4,
+        "large_deg": 3.9583333333333335,
+        "flank": -1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.4,
+        "large_deg": 3.9583333333333335,
+        "flank": 0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.4,
+        "large_deg": 3.9583333333333335,
+        "flank": 1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.4,
+        "large_deg": 4.166666666666667,
+        "flank": -1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.4,
+        "large_deg": 4.166666666666667,
+        "flank": 0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.4,
+        "large_deg": 4.166666666666667,
+        "flank": 1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.4,
+        "large_deg": 4.375,
+        "flank": -1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.4,
+        "large_deg": 4.375,
+        "flank": 0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.4,
+        "large_deg": 4.375,
+        "flank": 1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.4,
+        "large_deg": 4.583333333333333,
+        "flank": -1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.4,
+        "large_deg": 4.583333333333333,
+        "flank": 0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.4,
+        "large_deg": 4.583333333333333,
+        "flank": 1,
+        "overlap_mm3": 5.130822045813392e-08
+      },
+      {
+        "distance": 36.4,
+        "large_deg": 4.791666666666667,
+        "flank": -1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.4,
+        "large_deg": 4.791666666666667,
+        "flank": 0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.4,
+        "large_deg": 4.791666666666667,
+        "flank": 1,
+        "overlap_mm3": 1.5180555992829095e-07
+      },
+      {
+        "distance": 36.4,
+        "large_deg": 5.0,
+        "flank": -1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.4,
+        "large_deg": 5.0,
+        "flank": 0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.4,
+        "large_deg": 5.0,
+        "flank": 1,
+        "overlap_mm3": 2.830798678861342e-07
+      },
+      {
+        "distance": 36.4,
+        "large_deg": 5.208333333333333,
+        "flank": -1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.4,
+        "large_deg": 5.208333333333333,
+        "flank": 0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.4,
+        "large_deg": 5.208333333333333,
+        "flank": 1,
+        "overlap_mm3": 4.551469621047888e-07
+      },
+      {
+        "distance": 36.4,
+        "large_deg": 5.416666666666667,
+        "flank": -1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.4,
+        "large_deg": 5.416666666666667,
+        "flank": 0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.4,
+        "large_deg": 5.416666666666667,
+        "flank": 1,
+        "overlap_mm3": 6.904173923875268e-07
+      },
+      {
+        "distance": 36.4,
+        "large_deg": 5.625,
+        "flank": -1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.4,
+        "large_deg": 5.625,
+        "flank": 0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.4,
+        "large_deg": 5.625,
+        "flank": 1,
+        "overlap_mm3": 1.022520919322487e-06
+      },
+      {
+        "distance": 36.4,
+        "large_deg": 5.833333333333333,
+        "flank": -1,
+        "overlap_mm3": 2.8101076088981346e-07
+      },
+      {
+        "distance": 36.4,
+        "large_deg": 5.833333333333333,
+        "flank": 0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.4,
+        "large_deg": 5.833333333333333,
+        "flank": 1,
+        "overlap_mm3": 1.4972062338167243e-06
+      },
+      {
+        "distance": 36.4,
+        "large_deg": 6.041666666666667,
+        "flank": -1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.4,
+        "large_deg": 6.041666666666667,
+        "flank": 0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.4,
+        "large_deg": 6.041666666666667,
+        "flank": 1,
+        "overlap_mm3": 2.173707333651576e-06
+      },
+      {
+        "distance": 36.4,
+        "large_deg": 6.25,
+        "flank": -1,
+        "overlap_mm3": 7.437384313063543e-06
+      },
+      {
+        "distance": 36.4,
+        "large_deg": 6.25,
+        "flank": 0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.4,
+        "large_deg": 6.25,
+        "flank": 1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.4,
+        "large_deg": 6.458333333333333,
+        "flank": -1,
+        "overlap_mm3": 1.8360994875986983e-07
+      },
+      {
+        "distance": 36.4,
+        "large_deg": 6.458333333333333,
+        "flank": 0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.4,
+        "large_deg": 6.458333333333333,
+        "flank": 1,
+        "overlap_mm3": 3.802292892899273e-06
+      },
+      {
+        "distance": 36.7,
+        "large_deg": 0.0,
+        "flank": -1,
+        "overlap_mm3": 1.972083940765111e-06
+      },
+      {
+        "distance": 36.7,
+        "large_deg": 0.0,
+        "flank": 0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.7,
+        "large_deg": 0.0,
+        "flank": 1,
+        "overlap_mm3": 1.972678064950154e-06
+      },
+      {
+        "distance": 36.7,
+        "large_deg": 0.20833333333333334,
+        "flank": -1,
+        "overlap_mm3": 1.340863801528446e-06
+      },
+      {
+        "distance": 36.7,
+        "large_deg": 0.20833333333333334,
+        "flank": 0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.7,
+        "large_deg": 0.20833333333333334,
+        "flank": 1,
+        "overlap_mm3": 2.848752751362043e-06
+      },
+      {
+        "distance": 36.7,
+        "large_deg": 0.4166666666666667,
+        "flank": -1,
+        "overlap_mm3": 9.055972369430582e-07
+      },
+      {
+        "distance": 36.7,
+        "large_deg": 0.4166666666666667,
+        "flank": 0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.7,
+        "large_deg": 0.4166666666666667,
+        "flank": 1,
+        "overlap_mm3": 3.600343002014972e-06
+      },
+      {
+        "distance": 36.7,
+        "large_deg": 0.625,
+        "flank": -1,
+        "overlap_mm3": 6.063682052490266e-07
+      },
+      {
+        "distance": 36.7,
+        "large_deg": 0.625,
+        "flank": 0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.7,
+        "large_deg": 0.625,
+        "flank": 1,
+        "overlap_mm3": 2.0649472010370246e-06
+      },
+      {
+        "distance": 36.7,
+        "large_deg": 0.8333333333333334,
+        "flank": -1,
+        "overlap_mm3": 3.978470420580236e-07
+      },
+      {
+        "distance": 36.7,
+        "large_deg": 0.8333333333333334,
+        "flank": 0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.7,
+        "large_deg": 0.8333333333333334,
+        "flank": 1,
+        "overlap_mm3": 1.646170138516888e-07
+      },
+      {
+        "distance": 36.7,
+        "large_deg": 1.0416666666666667,
+        "flank": -1,
+        "overlap_mm3": 2.47352561793034e-07
+      },
+      {
+        "distance": 36.7,
+        "large_deg": 1.0416666666666667,
+        "flank": 0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.7,
+        "large_deg": 1.0416666666666667,
+        "flank": 1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.7,
+        "large_deg": 1.25,
+        "flank": -1,
+        "overlap_mm3": 1.3341158241777335e-07
+      },
+      {
+        "distance": 36.7,
+        "large_deg": 1.25,
+        "flank": 0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.7,
+        "large_deg": 1.25,
+        "flank": 1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.7,
+        "large_deg": 1.4583333333333333,
+        "flank": -1,
+        "overlap_mm3": 4.619550650751454e-08
+      },
+      {
+        "distance": 36.7,
+        "large_deg": 1.4583333333333333,
+        "flank": 0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.7,
+        "large_deg": 1.4583333333333333,
+        "flank": 1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.7,
+        "large_deg": 1.6666666666666667,
+        "flank": -1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.7,
+        "large_deg": 1.6666666666666667,
+        "flank": 0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.7,
+        "large_deg": 1.6666666666666667,
+        "flank": 1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.7,
+        "large_deg": 1.875,
+        "flank": -1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.7,
+        "large_deg": 1.875,
+        "flank": 0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.7,
+        "large_deg": 1.875,
+        "flank": 1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.7,
+        "large_deg": 2.0833333333333335,
+        "flank": -1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.7,
+        "large_deg": 2.0833333333333335,
+        "flank": 0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.7,
+        "large_deg": 2.0833333333333335,
+        "flank": 1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.7,
+        "large_deg": 2.2916666666666665,
+        "flank": -1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.7,
+        "large_deg": 2.2916666666666665,
+        "flank": 0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.7,
+        "large_deg": 2.2916666666666665,
+        "flank": 1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.7,
+        "large_deg": 2.5,
+        "flank": -1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.7,
+        "large_deg": 2.5,
+        "flank": 0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.7,
+        "large_deg": 2.5,
+        "flank": 1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.7,
+        "large_deg": 2.7083333333333335,
+        "flank": -1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.7,
+        "large_deg": 2.7083333333333335,
+        "flank": 0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.7,
+        "large_deg": 2.7083333333333335,
+        "flank": 1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.7,
+        "large_deg": 2.9166666666666665,
+        "flank": -1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.7,
+        "large_deg": 2.9166666666666665,
+        "flank": 0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.7,
+        "large_deg": 2.9166666666666665,
+        "flank": 1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.7,
+        "large_deg": 3.125,
+        "flank": -1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.7,
+        "large_deg": 3.125,
+        "flank": 0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.7,
+        "large_deg": 3.125,
+        "flank": 1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.7,
+        "large_deg": 3.3333333333333335,
+        "flank": -1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.7,
+        "large_deg": 3.3333333333333335,
+        "flank": 0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.7,
+        "large_deg": 3.3333333333333335,
+        "flank": 1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.7,
+        "large_deg": 3.5416666666666665,
+        "flank": -1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.7,
+        "large_deg": 3.5416666666666665,
+        "flank": 0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.7,
+        "large_deg": 3.5416666666666665,
+        "flank": 1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.7,
+        "large_deg": 3.75,
+        "flank": -1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.7,
+        "large_deg": 3.75,
+        "flank": 0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.7,
+        "large_deg": 3.75,
+        "flank": 1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.7,
+        "large_deg": 3.9583333333333335,
+        "flank": -1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.7,
+        "large_deg": 3.9583333333333335,
+        "flank": 0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.7,
+        "large_deg": 3.9583333333333335,
+        "flank": 1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.7,
+        "large_deg": 4.166666666666667,
+        "flank": -1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.7,
+        "large_deg": 4.166666666666667,
+        "flank": 0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.7,
+        "large_deg": 4.166666666666667,
+        "flank": 1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.7,
+        "large_deg": 4.375,
+        "flank": -1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.7,
+        "large_deg": 4.375,
+        "flank": 0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.7,
+        "large_deg": 4.375,
+        "flank": 1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.7,
+        "large_deg": 4.583333333333333,
+        "flank": -1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.7,
+        "large_deg": 4.583333333333333,
+        "flank": 0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.7,
+        "large_deg": 4.583333333333333,
+        "flank": 1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.7,
+        "large_deg": 4.791666666666667,
+        "flank": -1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.7,
+        "large_deg": 4.791666666666667,
+        "flank": 0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.7,
+        "large_deg": 4.791666666666667,
+        "flank": 1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.7,
+        "large_deg": 5.0,
+        "flank": -1,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.7,
+        "large_deg": 5.0,
+        "flank": 0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.7,
+        "large_deg": 5.0,
+        "flank": 1,
+        "overlap_mm3": 2.1624386995238652e-08
+      },
+      {
+        "distance": 36.7,
+        "large_deg": 5.208333333333333,
+        "flank": -1,
+        "overlap_mm3": 2.557506992053459e-07
+      },
+      {
+        "distance": 36.7,
+        "large_deg": 5.208333333333333,
+        "flank": 0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.7,
+        "large_deg": 5.208333333333333,
+        "flank": 1,
+        "overlap_mm3": 1.0026025649342716e-07
+      },
+      {
+        "distance": 36.7,
+        "large_deg": 5.416666666666667,
+        "flank": -1,
+        "overlap_mm3": 3.4119435172556643e-06
+      },
+      {
+        "distance": 36.7,
+        "large_deg": 5.416666666666667,
+        "flank": 0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.7,
+        "large_deg": 5.416666666666667,
+        "flank": 1,
+        "overlap_mm3": 1.972843017947742e-07
+      },
+      {
+        "distance": 36.7,
+        "large_deg": 5.625,
+        "flank": -1,
+        "overlap_mm3": 6.579202422796296e-06
+      },
+      {
+        "distance": 36.7,
+        "large_deg": 5.625,
+        "flank": 0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.7,
+        "large_deg": 5.625,
+        "flank": 1,
+        "overlap_mm3": 3.1204855528453154e-07
+      },
+      {
+        "distance": 36.7,
+        "large_deg": 5.833333333333333,
+        "flank": -1,
+        "overlap_mm3": 2.127730618805735e-07
+      },
+      {
+        "distance": 36.7,
+        "large_deg": 5.833333333333333,
+        "flank": 0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.7,
+        "large_deg": 5.833333333333333,
+        "flank": 1,
+        "overlap_mm3": 4.5765346847348015e-07
+      },
+      {
+        "distance": 36.7,
+        "large_deg": 6.041666666666667,
+        "flank": -1,
+        "overlap_mm3": 2.1382466036365346e-06
+      },
+      {
+        "distance": 36.7,
+        "large_deg": 6.041666666666667,
+        "flank": 0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.7,
+        "large_deg": 6.041666666666667,
+        "flank": 1,
+        "overlap_mm3": 6.571186803708207e-07
+      },
+      {
+        "distance": 36.7,
+        "large_deg": 6.25,
+        "flank": -1,
+        "overlap_mm3": 3.6543752440463794e-06
+      },
+      {
+        "distance": 36.7,
+        "large_deg": 6.25,
+        "flank": 0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.7,
+        "large_deg": 6.25,
+        "flank": 1,
+        "overlap_mm3": 9.436877949215184e-07
+      },
+      {
+        "distance": 36.7,
+        "large_deg": 6.458333333333333,
+        "flank": -1,
+        "overlap_mm3": 2.875505124795642e-06
+      },
+      {
+        "distance": 36.7,
+        "large_deg": 6.458333333333333,
+        "flank": 0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "distance": 36.7,
+        "large_deg": 6.458333333333333,
+        "flank": 1,
+        "overlap_mm3": 1.3625184660446555e-06
+      }
+    ]
+  },
+  "scope": "1mm extrusion of actual fcgear planar profile, 32 unique phases per pair, no chassis generation."
+}

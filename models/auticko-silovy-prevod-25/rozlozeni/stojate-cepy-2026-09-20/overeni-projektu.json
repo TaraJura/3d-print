@@ -1,0 +1,875 @@
+{
+  "status": "pass_with_recorded_warnings",
+  "scope": "Delivered Next projects sliced unchanged; mesh roundtrip, actual extrusion roles, object support overrides, bed bounds, representative layers. Startup/custom G-code and physical execution not checked.",
+  "physical_print_confirmed": false,
+  "results": [
+    {
+      "job": "puvodni-03",
+      "status": "pass_with_recorded_warnings",
+      "geometry_sha256": "664e3e56fe199a456bb6246deec810323ce7cda6784d7356e9b7de80acf8ab12",
+      "project": "/home/novakj/3d-print/models/auticko-silovy-prevod-25/rozlozeni/stojate-cepy-2026-09-20/auticko-25-03-stojate-nastaveny-projekt.3mf",
+      "project_sha256": "68fa22ca4b1cdd3b745aa0503996183fdac713ea56948e36815af2df0e27010b",
+      "sliced_sha256": "3be7fa5576b993fab09d9deb0aa1fd281718ea3cff86bd3d9e452d2c523b5553",
+      "gcode_sha256": "0d0be7cc84200174ba2344245f656ff200cb4297583a557cd57a7a8ff24a8e8f",
+      "count": 13,
+      "triangles": 22496,
+      "maximum_vertex_delta_mm": 7.629999998925996e-06,
+      "project_settings_equal_except_zero_array_padding": true,
+      "slicer_normalization": {
+        "machine_max_junction_deviation": [
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0"
+          ]
+        ]
+      },
+      "object_settings_equal_sliced": true,
+      "settings": {
+        "printer_model": "Anycubic Kobra X",
+        "printer_settings_id": "Anycubic Kobra X 0.4 nozzle",
+        "print_settings_id": "V3 puvodni 03 - stojate cepy - podpora plosiny - 0.12 mm",
+        "filament_settings_id": [
+          "Anycubic PLA @Anycubic Kobra X 0.4 nozzle"
+        ],
+        "filament_type": [
+          "PLA"
+        ],
+        "nozzle_diameter": [
+          "0.4"
+        ],
+        "layer_height": "0.12",
+        "initial_layer_print_height": "0.2",
+        "enable_support": "0",
+        "support_type": "normal(auto)",
+        "support_style": "snug",
+        "support_on_build_plate_only": "0",
+        "support_remove_small_overhang": "0",
+        "support_threshold_angle": "45",
+        "support_top_z_distance": "0.12",
+        "support_bottom_z_distance": "0.12",
+        "support_object_xy_distance": "0.35",
+        "support_interface_top_layers": "3",
+        "brim_type": "outer_only",
+        "brim_width": "8",
+        "brim_object_gap": "0.1",
+        "initial_layer_speed": "20",
+        "inner_wall_speed": "150",
+        "outer_wall_speed": "60",
+        "small_perimeter_speed": "50%",
+        "small_perimeter_threshold": "0",
+        "default_acceleration": "5000",
+        "initial_layer_acceleration": "500",
+        "wall_loops": "2",
+        "sparse_infill_density": "15%",
+        "sparse_infill_pattern": "3dhoneycomb",
+        "top_surface_pattern": "monotonicline",
+        "print_sequence": "by layer",
+        "nozzle_temperature": [
+          "205"
+        ],
+        "nozzle_temperature_initial_layer": [
+          "220"
+        ],
+        "hot_plate_temp": [
+          "60"
+        ],
+        "hot_plate_temp_initial_layer": [
+          "60"
+        ],
+        "textured_plate_temp": [
+          "60"
+        ],
+        "textured_plate_temp_initial_layer": [
+          "60"
+        ],
+        "curr_bed_type": "Textured PEI Plate",
+        "temperature_vitrification": [
+          "54"
+        ]
+      },
+      "object_settings": {
+        "pojistka-3_1__08": {
+          "enable_support": "0",
+          "wall_loops": "4",
+          "sparse_infill_density": "100%",
+          "sparse_infill_pattern": "rectilinear",
+          "outer_wall_speed": "30",
+          "inner_wall_speed": "50",
+          "small_perimeter_speed": "20",
+          "small_perimeter_threshold": "20",
+          "top_surface_speed": "30",
+          "sparse_infill_speed": "50",
+          "internal_solid_infill_speed": "50",
+          "gap_infill_speed": "30"
+        },
+        "pojistka-3_1__04": {
+          "enable_support": "0",
+          "wall_loops": "4",
+          "sparse_infill_density": "100%",
+          "sparse_infill_pattern": "rectilinear",
+          "outer_wall_speed": "30",
+          "inner_wall_speed": "50",
+          "small_perimeter_speed": "20",
+          "small_perimeter_threshold": "20",
+          "top_surface_speed": "30",
+          "sparse_infill_speed": "50",
+          "internal_solid_infill_speed": "50",
+          "gap_infill_speed": "30"
+        },
+        "spolecny-cep-mustku-4x30_5__02": {
+          "enable_support": "0",
+          "wall_loops": "4",
+          "sparse_infill_density": "100%",
+          "sparse_infill_pattern": "rectilinear",
+          "outer_wall_speed": "30",
+          "inner_wall_speed": "50",
+          "small_perimeter_speed": "20",
+          "small_perimeter_threshold": "20",
+          "top_surface_speed": "30",
+          "sparse_infill_speed": "50",
+          "internal_solid_infill_speed": "50",
+          "gap_infill_speed": "30"
+        },
+        "pojistka-6_9__03": {
+          "enable_support": "0",
+          "wall_loops": "4",
+          "sparse_infill_density": "100%",
+          "sparse_infill_pattern": "rectilinear",
+          "outer_wall_speed": "30",
+          "inner_wall_speed": "50",
+          "small_perimeter_speed": "20",
+          "small_perimeter_threshold": "20",
+          "top_surface_speed": "30",
+          "sparse_infill_speed": "50",
+          "internal_solid_infill_speed": "50",
+          "gap_infill_speed": "30"
+        },
+        "pojistka-6_9__02": {
+          "enable_support": "0",
+          "wall_loops": "4",
+          "sparse_infill_density": "100%",
+          "sparse_infill_pattern": "rectilinear",
+          "outer_wall_speed": "30",
+          "inner_wall_speed": "50",
+          "small_perimeter_speed": "20",
+          "small_perimeter_threshold": "20",
+          "top_surface_speed": "30",
+          "sparse_infill_speed": "50",
+          "internal_solid_infill_speed": "50",
+          "gap_infill_speed": "30"
+        },
+        "cep-tahla-dlouhy__01": {
+          "enable_support": "0",
+          "wall_loops": "4",
+          "sparse_infill_density": "100%",
+          "sparse_infill_pattern": "rectilinear",
+          "outer_wall_speed": "30",
+          "inner_wall_speed": "50",
+          "small_perimeter_speed": "20",
+          "small_perimeter_threshold": "20",
+          "top_surface_speed": "30",
+          "sparse_infill_speed": "50",
+          "internal_solid_infill_speed": "50",
+          "gap_infill_speed": "30"
+        },
+        "cep-plosiny-4x19_5__03": {
+          "enable_support": "0",
+          "wall_loops": "4",
+          "sparse_infill_density": "100%",
+          "sparse_infill_pattern": "rectilinear",
+          "outer_wall_speed": "30",
+          "inner_wall_speed": "50",
+          "small_perimeter_speed": "20",
+          "small_perimeter_threshold": "20",
+          "top_surface_speed": "30",
+          "sparse_infill_speed": "50",
+          "internal_solid_infill_speed": "50",
+          "gap_infill_speed": "30"
+        },
+        "cep-plosiny-4x19_5__01": {
+          "enable_support": "0",
+          "wall_loops": "4",
+          "sparse_infill_density": "100%",
+          "sparse_infill_pattern": "rectilinear",
+          "outer_wall_speed": "30",
+          "inner_wall_speed": "50",
+          "small_perimeter_speed": "20",
+          "small_perimeter_threshold": "20",
+          "top_surface_speed": "30",
+          "sparse_infill_speed": "50",
+          "internal_solid_infill_speed": "50",
+          "gap_infill_speed": "30"
+        },
+        "cep-plosiny-4x19_5__02": {
+          "enable_support": "0",
+          "wall_loops": "4",
+          "sparse_infill_density": "100%",
+          "sparse_infill_pattern": "rectilinear",
+          "outer_wall_speed": "30",
+          "inner_wall_speed": "50",
+          "small_perimeter_speed": "20",
+          "small_perimeter_threshold": "20",
+          "top_surface_speed": "30",
+          "sparse_infill_speed": "50",
+          "internal_solid_infill_speed": "50",
+          "gap_infill_speed": "30"
+        },
+        "objimka-cep-4x25_5__01": {
+          "enable_support": "0",
+          "wall_loops": "4",
+          "sparse_infill_density": "100%",
+          "sparse_infill_pattern": "rectilinear",
+          "outer_wall_speed": "30",
+          "inner_wall_speed": "50",
+          "small_perimeter_speed": "20",
+          "small_perimeter_threshold": "20",
+          "top_surface_speed": "30",
+          "sparse_infill_speed": "50",
+          "internal_solid_infill_speed": "50",
+          "gap_infill_speed": "30"
+        },
+        "pojistka-kloubu-4_9__01": {
+          "enable_support": "0",
+          "wall_loops": "4",
+          "sparse_infill_density": "100%",
+          "sparse_infill_pattern": "rectilinear",
+          "outer_wall_speed": "30",
+          "inner_wall_speed": "50",
+          "small_perimeter_speed": "20",
+          "small_perimeter_threshold": "20",
+          "top_surface_speed": "30",
+          "sparse_infill_speed": "50",
+          "internal_solid_infill_speed": "50",
+          "gap_infill_speed": "30"
+        },
+        "plosina-170x60__01": {
+          "enable_support": "1"
+        },
+        "rozperka-zadni-17_6__01": {
+          "enable_support": "0",
+          "wall_loops": "4",
+          "sparse_infill_density": "100%",
+          "sparse_infill_pattern": "rectilinear",
+          "outer_wall_speed": "30",
+          "inner_wall_speed": "50",
+          "small_perimeter_speed": "20",
+          "small_perimeter_threshold": "20",
+          "top_surface_speed": "30",
+          "sparse_infill_speed": "50",
+          "internal_solid_infill_speed": "50",
+          "gap_infill_speed": "30"
+        }
+      },
+      "roles": {
+        "Support": {
+          "segments": 629,
+          "bounds_mm": [
+            [
+              24.25,
+              21.25,
+              0.2
+            ],
+            [
+              227.803,
+              116.75,
+              67.604
+            ]
+          ]
+        },
+        "Brim": {
+          "segments": 15562,
+          "bounds_mm": [
+            [
+              23.815,
+              17.815,
+              0.2
+            ],
+            [
+              238.185,
+              223.683,
+              0.2
+            ]
+          ]
+        },
+        "Outer wall": {
+          "segments": 89637,
+          "bounds_mm": [
+            [
+              29.21,
+              25.21,
+              0.2
+            ],
+            [
+              230.79,
+              216.29,
+              71.96
+            ]
+          ]
+        },
+        "Inner wall": {
+          "segments": 158658,
+          "bounds_mm": [
+            [
+              29.619,
+              25.619,
+              0.2
+            ],
+            [
+              230.381,
+              215.88,
+              71.84
+            ]
+          ]
+        },
+        "Bottom surface": {
+          "segments": 1031,
+          "bounds_mm": [
+            [
+              31.99,
+              26.196,
+              0.2
+            ],
+            [
+              230.01,
+              211.89,
+              0.2
+            ]
+          ]
+        },
+        "Gap infill": {
+          "segments": 10909,
+          "bounds_mm": [
+            [
+              29.873,
+              28.797,
+              0.2
+            ],
+            [
+              227.126,
+              215.408,
+              71.96
+            ]
+          ]
+        },
+        "Internal solid infill": {
+          "segments": 20686,
+          "bounds_mm": [
+            [
+              29.958,
+              25.79,
+              0.32
+            ],
+            [
+              230.21,
+              212.123,
+              71.84
+            ]
+          ]
+        },
+        "Sparse infill": {
+          "segments": 129087,
+          "bounds_mm": [
+            [
+              29.982,
+              25.982,
+              0.8
+            ],
+            [
+              230.018,
+              112.018,
+              71.36
+            ]
+          ]
+        },
+        "Top surface": {
+          "segments": 1509,
+          "bounds_mm": [
+            [
+              29.368,
+              25.365,
+              1.28
+            ],
+            [
+              230.635,
+              216.13,
+              71.96
+            ]
+          ]
+        },
+        "Support interface": {
+          "segments": 2315,
+          "bounds_mm": [
+            [
+              28.777,
+              26.197,
+              3.123
+            ],
+            [
+              228.223,
+              111.803,
+              68.84
+            ]
+          ]
+        },
+        "Internal Bridge": {
+          "segments": 1736,
+          "bounds_mm": [
+            [
+              29.985,
+              25.791,
+              3.56
+            ],
+            [
+              230.015,
+              112.209,
+              71.48
+            ]
+          ]
+        },
+        "Overhang wall": {
+          "segments": 387,
+          "bounds_mm": [
+            [
+              29.21,
+              26.21,
+              4.16
+            ],
+            [
+              227.79,
+              211.784,
+              69.2
+            ]
+          ]
+        },
+        "Bridge": {
+          "segments": 104,
+          "bounds_mm": [
+            [
+              29.983,
+              31.216,
+              69.2
+            ],
+            [
+              227.017,
+              106.783,
+              69.2
+            ]
+          ]
+        }
+      },
+      "selected_layers": [
+        {
+          "z_mm": 2.48,
+          "roles": {
+            "Model": 3699,
+            "Brim": 0,
+            "Podpory / rozhraní": 0
+          }
+        },
+        {
+          "z_mm": 4.04,
+          "roles": {
+            "Model": 2013,
+            "Brim": 0,
+            "Podpory / rozhraní": 0
+          }
+        },
+        {
+          "z_mm": 29.96,
+          "roles": {
+            "Model": 264,
+            "Brim": 0,
+            "Podpory / rozhraní": 0
+          }
+        },
+        {
+          "z_mm": 62.96,
+          "roles": {
+            "Model": 769,
+            "Brim": 0,
+            "Podpory / rozhraní": 0
+          }
+        },
+        {
+          "z_mm": 68.0,
+          "roles": {
+            "Model": 561,
+            "Brim": 0,
+            "Podpory / rozhraní": 0
+          }
+        },
+        {
+          "z_mm": 70.04,
+          "roles": {
+            "Model": 718,
+            "Brim": 0,
+            "Podpory / rozhraní": 0
+          }
+        }
+      ],
+      "metadata": {
+        "prediction": "22755",
+        "weight": "71.23",
+        "outside": "false",
+        "support_used": "true"
+      },
+      "warnings": [
+        {
+          "msg": "bed_temperature_too_high_than_filament",
+          "level": "1",
+          "error_code": "1000C001"
+        },
+        {
+          "msg": "not_support_traditional_timelapse",
+          "level": "1",
+          "error_code": "1000C003"
+        }
+      ],
+      "extrusion_centre_lines_inside_bed": true,
+      "project_has_no_gcode": true
+    },
+    {
+      "job": "dotisk-01",
+      "status": "pass_with_recorded_warnings",
+      "geometry_sha256": "40f0a3e4437711f27e6bd75b8040a5753d5f91c4569f2bad586383d5b10e441d",
+      "project": "/home/novakj/3d-print/models/auticko-silovy-prevod-25/rozlozeni/dotisk-prvni-varky-2026-09-20/projekty-next/dotisk-25-01-nastaveny-projekt.3mf",
+      "project_sha256": "b31dba70c153963be84ccf267dd77a5f6bf8760aeae8906fdbd93475cbf8b9f2",
+      "sliced_sha256": "20663d1c139e1008853ad0ae368d1922d876f17884221b4b2a74b3182117e959",
+      "gcode_sha256": "bd81db8fb542f3c1de3a154eb4226b8ad962cc6ab6cc467b211983740cc970f5",
+      "count": 1,
+      "triangles": 4738,
+      "maximum_vertex_delta_mm": 7.6293000006444345e-06,
+      "project_settings_equal_except_zero_array_padding": true,
+      "slicer_normalization": {
+        "machine_max_junction_deviation": [
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0"
+          ]
+        ]
+      },
+      "object_settings_equal_sliced": true,
+      "settings": {
+        "printer_model": "Anycubic Kobra X",
+        "printer_settings_id": "Anycubic Kobra X 0.4 nozzle",
+        "print_settings_id": "V3 dotisk 01 - stojata osa - podpory - 0.12 mm",
+        "filament_settings_id": [
+          "Anycubic PLA @Anycubic Kobra X 0.4 nozzle"
+        ],
+        "filament_type": [
+          "PLA"
+        ],
+        "nozzle_diameter": [
+          "0.4"
+        ],
+        "layer_height": "0.12",
+        "initial_layer_print_height": "0.2",
+        "enable_support": "1",
+        "support_type": "normal(auto)",
+        "support_style": "snug",
+        "support_on_build_plate_only": "0",
+        "support_remove_small_overhang": "0",
+        "support_threshold_angle": "45",
+        "support_top_z_distance": "0.12",
+        "support_bottom_z_distance": "0.12",
+        "support_object_xy_distance": "0.35",
+        "support_interface_top_layers": "3",
+        "brim_type": "outer_only",
+        "brim_width": "12",
+        "brim_object_gap": "0.1",
+        "initial_layer_speed": "20",
+        "inner_wall_speed": "30",
+        "outer_wall_speed": "20",
+        "small_perimeter_speed": "15",
+        "small_perimeter_threshold": "20",
+        "default_acceleration": "500",
+        "initial_layer_acceleration": "500",
+        "wall_loops": "4",
+        "sparse_infill_density": "100%",
+        "sparse_infill_pattern": "rectilinear",
+        "top_surface_pattern": "monotonicline",
+        "print_sequence": "by layer",
+        "nozzle_temperature": [
+          "205"
+        ],
+        "nozzle_temperature_initial_layer": [
+          "220"
+        ],
+        "hot_plate_temp": [
+          "60"
+        ],
+        "hot_plate_temp_initial_layer": [
+          "60"
+        ],
+        "textured_plate_temp": [
+          "60"
+        ],
+        "textured_plate_temp_initial_layer": [
+          "60"
+        ],
+        "curr_bed_type": "Textured PEI Plate",
+        "temperature_vitrification": [
+          "54"
+        ]
+      },
+      "object_settings": {
+        "osa-zadni-12x150_6__01": {}
+      },
+      "roles": {
+        "Support": {
+          "segments": 1480,
+          "bounds_mm": [
+            [
+              124.151,
+              116.493,
+              0.2
+            ],
+            [
+              140.814,
+              145.906,
+              52.92
+            ]
+          ]
+        },
+        "Brim": {
+          "segments": 1706,
+          "bounds_mm": [
+            [
+              112.247,
+              112.249,
+              0.2
+            ],
+            [
+              145.756,
+              147.754,
+              0.2
+            ]
+          ]
+        },
+        "Outer wall": {
+          "segments": 75906,
+          "bounds_mm": [
+            [
+              124.21,
+              124.211,
+              0.2
+            ],
+            [
+              135.79,
+              135.789,
+              150.56
+            ]
+          ]
+        },
+        "Inner wall": {
+          "segments": 220950,
+          "bounds_mm": [
+            [
+              124.62,
+              124.621,
+              0.2
+            ],
+            [
+              135.38,
+              135.38,
+              150.44
+            ]
+          ]
+        },
+        "Bottom surface": {
+          "segments": 39,
+          "bounds_mm": [
+            [
+              126.122,
+              125.949,
+              0.2
+            ],
+            [
+              131.89,
+              133.887,
+              0.2
+            ]
+          ]
+        },
+        "Gap infill": {
+          "segments": 428,
+          "bounds_mm": [
+            [
+              125.002,
+              124.988,
+              0.2
+            ],
+            [
+              135.023,
+              135.035,
+              150.56
+            ]
+          ]
+        },
+        "Internal solid infill": {
+          "segments": 63845,
+          "bounds_mm": [
+            [
+              125.818,
+              125.818,
+              0.32
+            ],
+            [
+              134.182,
+              134.258,
+              150.44
+            ]
+          ]
+        },
+        "Support interface": {
+          "segments": 1321,
+          "bounds_mm": [
+            [
+              123.779,
+              123.778,
+              1.76
+            ],
+            [
+              136.214,
+              136.221,
+              147.8
+            ]
+          ]
+        },
+        "Overhang wall": {
+          "segments": 350,
+          "bounds_mm": [
+            [
+              124.21,
+              124.212,
+              3.08
+            ],
+            [
+              135.79,
+              135.789,
+              149.24
+            ]
+          ]
+        },
+        "Top surface": {
+          "segments": 61,
+          "bounds_mm": [
+            [
+              124.378,
+              124.372,
+              50.24
+            ],
+            [
+              135.627,
+              135.622,
+              150.56
+            ]
+          ]
+        },
+        "Bridge": {
+          "segments": 57,
+          "bounds_mm": [
+            [
+              125.785,
+              126.923,
+              54.44
+            ],
+            [
+              134.196,
+              133.076,
+              54.44
+            ]
+          ]
+        }
+      },
+      "selected_layers": [
+        {
+          "z_mm": 2.96,
+          "roles": {
+            "Model": 233,
+            "Brim": 0,
+            "Podpory / rozhraní": 0
+          }
+        },
+        {
+          "z_mm": 19.16,
+          "roles": {
+            "Model": 238,
+            "Brim": 0,
+            "Podpory / rozhraní": 28
+          }
+        },
+        {
+          "z_mm": 19.28,
+          "roles": {
+            "Model": 234,
+            "Brim": 0,
+            "Podpory / rozhraní": 0
+          }
+        },
+        {
+          "z_mm": 52.28,
+          "roles": {
+            "Model": 203,
+            "Brim": 0,
+            "Podpory / rozhraní": 0
+          }
+        },
+        {
+          "z_mm": 54.2,
+          "roles": {
+            "Model": 256,
+            "Brim": 0,
+            "Podpory / rozhraní": 31
+          }
+        },
+        {
+          "z_mm": 105.2,
+          "roles": {
+            "Model": 304,
+            "Brim": 0,
+            "Podpory / rozhraní": 0
+          }
+        },
+        {
+          "z_mm": 149.0,
+          "roles": {
+            "Model": 235,
+            "Brim": 0,
+            "Podpory / rozhraní": 0
+          }
+        }
+      ],
+      "metadata": {
+        "prediction": "16784",
+        "weight": "19.99",
+        "outside": "false",
+        "support_used": "true"
+      },
+      "warnings": [
+        {
+          "msg": "bed_temperature_too_high_than_filament",
+          "level": "1",
+          "error_code": "1000C001"
+        },
+        {
+          "msg": "not_support_traditional_timelapse",
+          "level": "1",
+          "error_code": "1000C003"
+        }
+      ],
+      "extrusion_centre_lines_inside_bed": true,
+      "project_has_no_gcode": true
+    }
+  ]
+}

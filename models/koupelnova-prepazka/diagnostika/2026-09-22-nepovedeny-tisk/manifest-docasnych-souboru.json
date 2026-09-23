@@ -1,0 +1,58 @@
+[
+  {
+    "source": "/tmp/anycubicslicer_model/09_22_2/20_34_44#58503#50/Metadata/0922-2036-dil-1_plate(01)_TPU_0.2_2h28m26s.gcode",
+    "snapshot": "evidence/local-temp/anycubicslicer_model/09_22_2/20_34_44#58503#50/Metadata/0922-2036-dil-1_plate(01)_TPU_0.2_2h28m26s.gcode",
+    "mtime": "2026-09-22T20:36:33.567599+02:00",
+    "size": 800771,
+    "sha256": "09baac1bab0d99ace009a8b9292e3d60ba54825af78d54283415322b2bc227e4"
+  },
+  {
+    "source": "/tmp/anycubicslicer_model/09_22_2/20_34_44#58503#50/Metadata/.58503.0.gcode",
+    "snapshot": "evidence/local-temp/anycubicslicer_model/09_22_2/20_34_44#58503#50/Metadata/.58503.0.gcode",
+    "mtime": "2026-09-22T20:36:21.720343+02:00",
+    "size": 800771,
+    "sha256": "09baac1bab0d99ace009a8b9292e3d60ba54825af78d54283415322b2bc227e4"
+  },
+  {
+    "source": "/tmp/anycubicslicer_model/09_22_2/20_34_44#58503#50/Metadata/0922-2035-dil-1_plate(01)_PLA_0.2_49m39s.gcode",
+    "snapshot": "evidence/local-temp/anycubicslicer_model/09_22_2/20_34_44#58503#50/Metadata/0922-2035-dil-1_plate(01)_PLA_0.2_49m39s.gcode",
+    "mtime": "2026-09-22T20:35:39.211402+02:00",
+    "size": 802764,
+    "sha256": "c31ef463a7517260bef1a263b8b9ecd5d9555efe8072cc2cdaa57f929ac14917"
+  },
+  {
+    "source": "/tmp/anycubicslicer_model/09_22_2/20_34_44#58503#50/3D/Objects/dil-3.stl_4.model",
+    "snapshot": "evidence/local-temp/anycubicslicer_model/09_22_2/20_34_44#58503#50/3D/Objects/dil-3.stl_4.model",
+    "mtime": "2026-09-22T20:35:06.577751+02:00",
+    "size": 3262,
+    "sha256": "2a4be37ff9f21c2af2869e7fa9ea0dd0f48830bcd06bfce7063a0c2de517ac10"
+  },
+  {
+    "source": "/tmp/anycubicslicer_model/09_22_2/20_34_44#58503#50/3D/Objects/dil-2.stl_3.model",
+    "snapshot": "evidence/local-temp/anycubicslicer_model/09_22_2/20_34_44#58503#50/3D/Objects/dil-2.stl_3.model",
+    "mtime": "2026-09-22T20:35:03.577994+02:00",
+    "size": 3366,
+    "sha256": "ae36b0a8ed2cdebc7e17380e964dbada0125307aed9c20f0f9fae5488895f58d"
+  },
+  {
+    "source": "/tmp/anycubicslicer_model/09_22_2/20_34_44#58503#50/3D/Objects/dil-1.stl_2.model",
+    "snapshot": "evidence/local-temp/anycubicslicer_model/09_22_2/20_34_44#58503#50/3D/Objects/dil-1.stl_2.model",
+    "mtime": "2026-09-22T20:35:00.812745+02:00",
+    "size": 3272,
+    "sha256": "d459efcd3e100cb51833ca03aa54e3256c6a4ceb28f372dde219f7e48de93c77"
+  },
+  {
+    "source": "/tmp/anycubicslicer_model/09_22_2/20_34_44#58503#50/3D/Objects/dil-1.stl_1.model",
+    "snapshot": "evidence/local-temp/anycubicslicer_model/09_22_2/20_34_44#58503#50/3D/Objects/dil-1.stl_1.model",
+    "mtime": "2026-09-22T20:34:53.902738+02:00",
+    "size": 3272,
+    "sha256": "87220a3bad15a771030424f0e1282f7906f5fd06b0dacf4c05afaa2ac213a2e5"
+  },
+  {
+    "source": "/tmp/ACGcode3mf/9527/0922-1922-dil-1_plate(01)_PLA_0.2_57m23s.gcode.3mf",
+    "snapshot": "evidence/local-temp/ACGcode3mf/9527/0922-1922-dil-1_plate(01)_PLA_0.2_57m23s.gcode.3mf",
+    "mtime": "2026-09-22T19:22:02.282666+02:00",
+    "size": 218870,
+    "sha256": "3f0bbfc990f8aa03586fe512d715412bb061b5312f95a915bb4de4c4b798d7b5"
+  }
+]

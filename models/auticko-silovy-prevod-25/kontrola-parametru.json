@@ -1,0 +1,163 @@
+{
+  "passed": true,
+  "input_fcstd_sha256": "93771baf0bcd2d23dd986a76747e0fb48b7bd9a9efe71076761e641d5bd0694a",
+  "source_hashes": {
+    "auticko-silovy-prevod-25.FCMacro": "f970d5b78660a9bcd2cdd57ad66e9e7e9df38eb19f755fcae27e62a91e319df2",
+    "rizeni-geometrie.py": "00de3cdfd40525ca7ef1b0d50cd2ba6953114b9f29b53cb15b997eb785255dcd",
+    "servo-uchyceni.py": "b9607955472bd3815e171139796e4d373b1fc03a4d0a64e88e9a8e3099397646",
+    "rizeni-sestava.py": "ad23bb77641200fc0f4ada5e97a5363b22f0fa44e3c76a01d51516032da44d0b"
+  },
+  "checks": [
+    {
+      "parameter": "RunningBore",
+      "original": 8.6,
+      "trial": 8.7,
+      "objects": [
+        "CompoundA",
+        "CompoundB"
+      ],
+      "changed_volume_by_object_mm3": {
+        "CompoundA": 13.587388226809708,
+        "CompoundB": 13.587388226740586
+      },
+      "max_changed_volume_mm3": 13.587388226809708,
+      "max_restored_volume_error_mm3": 0.0
+    },
+    {
+      "parameter": "FixedSeatBore",
+      "original": 8.1,
+      "trial": 8.2,
+      "objects": [
+        "SteeringFrame"
+      ],
+      "changed_volume_by_object_mm3": {
+        "SteeringFrame": 45.57508458333905
+      },
+      "max_changed_volume_mm3": 45.57508458333905,
+      "max_restored_volume_error_mm3": 0.0
+    },
+    {
+      "parameter": "RearBearingBore",
+      "original": 12.6,
+      "trial": 12.7,
+      "objects": [
+        "SteeringFrame"
+      ],
+      "changed_volume_by_object_mm3": {
+        "SteeringFrame": 47.68937646041741
+      },
+      "max_changed_volume_mm3": 47.68937646041741,
+      "max_restored_volume_error_mm3": 0.0
+    },
+    {
+      "parameter": "OutputBore",
+      "original": 12.1,
+      "trial": 12.2,
+      "objects": [
+        "OutputGear"
+      ],
+      "changed_volume_by_object_mm3": {
+        "OutputGear": 40.64797776279738
+      },
+      "max_changed_volume_mm3": 40.64797776279738,
+      "max_restored_volume_error_mm3": 0.0
+    },
+    {
+      "parameter": "DriveBore",
+      "original": 12.1,
+      "trial": 12.2,
+      "objects": [
+        "RearWheel"
+      ],
+      "changed_volume_by_object_mm3": {
+        "RearWheel": 16.770834559945797
+      },
+      "max_changed_volume_mm3": 16.770834559945797,
+      "max_restored_volume_error_mm3": 0.0
+    },
+    {
+      "parameter": "DriveFlat",
+      "original": 4.05,
+      "trial": 4.1,
+      "objects": [
+        "RearWheel"
+      ],
+      "changed_volume_by_object_mm3": {
+        "RearWheel": 5.366092700016452
+      },
+      "max_changed_volume_mm3": 5.366092700016452,
+      "max_restored_volume_error_mm3": 0.0
+    },
+    {
+      "parameter": "StaticLockBore",
+      "original": 4.1,
+      "trial": 4.2,
+      "objects": [
+        "SteeringFrame",
+        "OutputGear",
+        "RearAxle",
+        "MotorBridge",
+        "Deck",
+        "ServoCap",
+        "HornTray",
+        "HornLid"
+      ],
+      "changed_volume_by_object_mm3": {
+        "SteeringFrame": 41.544068246206734,
+        "OutputGear": 6.564956119913404,
+        "RearAxle": 7.583144709939006,
+        "MotorBridge": 7.822565707454942,
+        "Deck": 16.848235592871788,
+        "ServoCap": 51.10742928859963,
+        "HornTray": 4.381246679014566,
+        "HornLid": 8.188511799177604
+      },
+      "max_changed_volume_mm3": 51.10742928859963,
+      "max_restored_volume_error_mm3": 0.0
+    },
+    {
+      "parameter": "DeckSocketBore",
+      "original": 8.1,
+      "trial": 8.2,
+      "objects": [
+        "Deck"
+      ],
+      "changed_volume_by_object_mm3": {
+        "Deck": 46.76560254886863
+      },
+      "max_changed_volume_mm3": 46.76560254886863,
+      "max_restored_volume_error_mm3": 0.0
+    },
+    {
+      "parameter": "JournalLength",
+      "original": 5.0,
+      "trial": 4.5,
+      "objects": [
+        "CompoundA",
+        "CompoundB"
+      ],
+      "changed_volume_by_object_mm3": {
+        "CompoundA": 5.529203070320364,
+        "CompoundB": 5.52920307032764
+      },
+      "max_changed_volume_mm3": 5.52920307032764,
+      "max_restored_volume_error_mm3": 0.0
+    },
+    {
+      "parameter": "WheelDiameter",
+      "original": 76.0,
+      "trial": 75,
+      "objects": [
+        "RearWheel",
+        "FrontWheel"
+      ],
+      "changed_volume_by_object_mm3": {
+        "RearWheel": 439.1596889951361,
+        "FrontWheel": 439.159688994976
+      },
+      "max_changed_volume_mm3": 439.1596889951361,
+      "max_restored_volume_error_mm3": 0.0
+    }
+  ],
+  "saved": false
+}

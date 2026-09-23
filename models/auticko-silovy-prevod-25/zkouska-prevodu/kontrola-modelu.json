@@ -1,0 +1,516 @@
+{
+  "kind": "Manual functional sample of original 20 degree 18->60 gear stage; no motor",
+  "unit": "mm",
+  "generator_sha256": "0d8e0641725de266f804afe4d658120f1e43d10cc1965d0ccdcb037552195abe",
+  "source": {
+    "archive": "historie/pred-kalibraci-8_6-12_6-2026-09-20/puvodni-revize.zip",
+    "member": "auticko-silovy-prevod-25.FCStd",
+    "sha256": "33e6369daa80e11193a0c473c726f60a1f78c2f4cba7d32f66e4d51d3360754e"
+  },
+  "scope": "Seven physical parts only, not whole car or 12mm output test; physical performance unverified",
+  "native_source_objects_retained": 141,
+  "changed_source_parameter": {
+    "RunningBore": {
+      "before_mm": 8.2,
+      "after_mm": 8.6
+    }
+  },
+  "fixed_seat_bore_mm": 8.1,
+  "pin_diameter_mm": 8.0,
+  "guide_length_each_mm": 5.0,
+  "guide_count_per_gear": 2,
+  "middle_relief_mm": 9.0,
+  "axis_distance_mm": 39.400000000000006,
+  "gear_pressure_angle_deg": 20,
+  "crop": {
+    "box_min_mm": [
+      63.900000000000006,
+      -36,
+      0
+    ],
+    "box_max_mm": [
+      123.30000000000001,
+      34,
+      45
+    ],
+    "valid": true,
+    "solids": 1,
+    "volume_mm3": 32399.430211025254
+  },
+  "geometry_change_checks": {
+    "CompoundA": {
+      "removed_mm3": 52.77875658030959,
+      "expected_two_bands_mm3": 52.77875658030852,
+      "added_mm3": 0.0,
+      "removed_outside_bore_mm3": 0.0
+    },
+    "CompoundB": {
+      "removed_mm3": 52.7787565803074,
+      "expected_two_bands_mm3": 52.77875658030852,
+      "added_mm3": 0.0,
+      "removed_outside_bore_mm3": 0.0
+    },
+    "SteeringFrame": {
+      "symmetric_difference_mm3": 0.0
+    },
+    "FixedGearPin": {
+      "symmetric_difference_mm3": 0.0
+    },
+    "GearPinClip": {
+      "symmetric_difference_mm3": 0.0
+    }
+  },
+  "retained_support_envelopes": [
+    {
+      "axis": "A",
+      "support": "left_with_keyed_head_pocket",
+      "source_material_mm3": 5567.920211995946,
+      "symmetric_difference_mm3": 0.0
+    },
+    {
+      "axis": "A",
+      "support": "right_with_thrust_boss",
+      "source_material_mm3": 4720.399121563748,
+      "symmetric_difference_mm3": 0.0
+    },
+    {
+      "axis": "B",
+      "support": "left_with_keyed_head_pocket",
+      "source_material_mm3": 5567.920211995946,
+      "symmetric_difference_mm3": 0.0
+    },
+    {
+      "axis": "B",
+      "support": "right_with_thrust_boss",
+      "source_material_mm3": 4758.486731741656,
+      "symmetric_difference_mm3": 0.0
+    }
+  ],
+  "bore_probes": [
+    {
+      "part": "CompoundA",
+      "local_z_mm": 0.05,
+      "diameter_mm": 8.6,
+      "radial_angles": 12,
+      "tolerance_bracket_mm": 0.01
+    },
+    {
+      "part": "CompoundA",
+      "local_z_mm": 2.5,
+      "diameter_mm": 8.6,
+      "radial_angles": 12,
+      "tolerance_bracket_mm": 0.01
+    },
+    {
+      "part": "CompoundA",
+      "local_z_mm": 4.95,
+      "diameter_mm": 8.6,
+      "radial_angles": 12,
+      "tolerance_bracket_mm": 0.01
+    },
+    {
+      "part": "CompoundA",
+      "local_z_mm": 5.05,
+      "diameter_mm": 9.0,
+      "radial_angles": 12,
+      "tolerance_bracket_mm": 0.01
+    },
+    {
+      "part": "CompoundA",
+      "local_z_mm": 15,
+      "diameter_mm": 9.0,
+      "radial_angles": 12,
+      "tolerance_bracket_mm": 0.01
+    },
+    {
+      "part": "CompoundA",
+      "local_z_mm": 24.95,
+      "diameter_mm": 9.0,
+      "radial_angles": 12,
+      "tolerance_bracket_mm": 0.01
+    },
+    {
+      "part": "CompoundA",
+      "local_z_mm": 25.05,
+      "diameter_mm": 8.6,
+      "radial_angles": 12,
+      "tolerance_bracket_mm": 0.01
+    },
+    {
+      "part": "CompoundA",
+      "local_z_mm": 27.5,
+      "diameter_mm": 8.6,
+      "radial_angles": 12,
+      "tolerance_bracket_mm": 0.01
+    },
+    {
+      "part": "CompoundA",
+      "local_z_mm": 29.95,
+      "diameter_mm": 8.6,
+      "radial_angles": 12,
+      "tolerance_bracket_mm": 0.01
+    },
+    {
+      "part": "CompoundB",
+      "local_z_mm": 0.05,
+      "diameter_mm": 8.6,
+      "radial_angles": 12,
+      "tolerance_bracket_mm": 0.01
+    },
+    {
+      "part": "CompoundB",
+      "local_z_mm": 2.5,
+      "diameter_mm": 8.6,
+      "radial_angles": 12,
+      "tolerance_bracket_mm": 0.01
+    },
+    {
+      "part": "CompoundB",
+      "local_z_mm": 4.95,
+      "diameter_mm": 8.6,
+      "radial_angles": 12,
+      "tolerance_bracket_mm": 0.01
+    },
+    {
+      "part": "CompoundB",
+      "local_z_mm": 5.05,
+      "diameter_mm": 9.0,
+      "radial_angles": 12,
+      "tolerance_bracket_mm": 0.01
+    },
+    {
+      "part": "CompoundB",
+      "local_z_mm": 15,
+      "diameter_mm": 9.0,
+      "radial_angles": 12,
+      "tolerance_bracket_mm": 0.01
+    },
+    {
+      "part": "CompoundB",
+      "local_z_mm": 24.95,
+      "diameter_mm": 9.0,
+      "radial_angles": 12,
+      "tolerance_bracket_mm": 0.01
+    },
+    {
+      "part": "CompoundB",
+      "local_z_mm": 25.05,
+      "diameter_mm": 8.6,
+      "radial_angles": 12,
+      "tolerance_bracket_mm": 0.01
+    },
+    {
+      "part": "CompoundB",
+      "local_z_mm": 27.5,
+      "diameter_mm": 8.6,
+      "radial_angles": 12,
+      "tolerance_bracket_mm": 0.01
+    },
+    {
+      "part": "CompoundB",
+      "local_z_mm": 29.95,
+      "diameter_mm": 8.6,
+      "radial_angles": 12,
+      "tolerance_bracket_mm": 0.01
+    },
+    {
+      "part": "FixtureFrame",
+      "axis": "A",
+      "global_y_mm": -15,
+      "diameter_mm": 8.1,
+      "radial_angles": 12,
+      "tolerance_bracket_mm": 0.01
+    },
+    {
+      "part": "FixtureFrame",
+      "axis": "A",
+      "global_y_mm": 26,
+      "diameter_mm": 8.1,
+      "radial_angles": 12,
+      "tolerance_bracket_mm": 0.01
+    },
+    {
+      "part": "FixtureFrame",
+      "axis": "B",
+      "global_y_mm": -25,
+      "diameter_mm": 8.1,
+      "radial_angles": 12,
+      "tolerance_bracket_mm": 0.01
+    },
+    {
+      "part": "FixtureFrame",
+      "axis": "B",
+      "global_y_mm": 16,
+      "diameter_mm": 8.1,
+      "radial_angles": 12,
+      "tolerance_bracket_mm": 0.01
+    }
+  ],
+  "parts": {
+    "vyrez-ramu": {
+      "object": "FixtureFrame",
+      "stl": "stl/vyrez-ramu.stl",
+      "copies": 1,
+      "print_orientation": "flat",
+      "valid": true,
+      "solid_count": 1,
+      "closed_mesh": true,
+      "facets": 3244,
+      "volume_mm3": 32399.430211025254,
+      "bbox_mm": [
+        59.400000000000006,
+        70.0,
+        38.0
+      ],
+      "stl_sha256": "3c12c56b7f7a4196f4924686df52d557a7fd9f60a826dec0b43adfbcb3354899"
+    },
+    "dvojkolo-a": {
+      "object": "CompoundA",
+      "stl": "stl/dvojkolo-a.stl",
+      "copies": 1,
+      "print_orientation": "large_gear_face_down",
+      "valid": true,
+      "solid_count": 1,
+      "closed_mesh": true,
+      "facets": 27720,
+      "volume_mm3": 20291.23931335062,
+      "bbox_mm": [
+        56.40031667100921,
+        56.336619389912826,
+        30.0000000000002
+      ],
+      "stl_sha256": "78204b0a42d90bd7d0f74274b9efb47f6750258ec6f9ee6ff28b255e5f855528"
+    },
+    "dvojkolo-b": {
+      "object": "CompoundB",
+      "stl": "stl/dvojkolo-b.stl",
+      "copies": 1,
+      "print_orientation": "large_gear_face_down",
+      "valid": true,
+      "solid_count": 1,
+      "closed_mesh": true,
+      "facets": 33464,
+      "volume_mm3": 36565.06014164967,
+      "bbox_mm": [
+        62.40023886843443,
+        62.40023886843443,
+        30.000000000000004
+      ],
+      "stl_sha256": "bec15ad87b7c0b46d7112950ec1d94ba81aaa6c049646001c6b3bea1d73ccb7d"
+    },
+    "pevny-cep-8x53_9": {
+      "object": "FixedGearPin",
+      "stl": "stl/pevny-cep-8x53_9.stl",
+      "copies": 2,
+      "print_orientation": "round_pin_horizontal",
+      "valid": true,
+      "solid_count": 1,
+      "closed_mesh": true,
+      "facets": 1524,
+      "volume_mm3": 2875.8555324680556,
+      "bbox_mm": [
+        53.9,
+        12.0,
+        12.0
+      ],
+      "stl_sha256": "dadc7cac8a1ab3539f123e7abdd65fa3d0555b4b37d583de85756956aaa5e795"
+    },
+    "pojistka-6_9": {
+      "object": "GearPinClip",
+      "stl": "stl/pojistka-6_9.stl",
+      "copies": 2,
+      "print_orientation": "flat",
+      "valid": true,
+      "solid_count": 1,
+      "closed_mesh": true,
+      "facets": 772,
+      "volume_mm3": 98.5860543108792,
+      "bbox_mm": [
+        12.292020372892347,
+        13.0,
+        1.3
+      ],
+      "stl_sha256": "9e0bea84aaedbfd01be7359a0ca83644f25736050aa7b0d7448b1942ea491dab"
+    }
+  },
+  "parameter_recompute_test": {
+    "trial_running_bore_mm": 8.7,
+    "restored_running_bore_mm": 8.6,
+    "restored_volumes_pass": true
+  },
+  "assembly_instances": [
+    {
+      "name": "TestFrame",
+      "part": "vyrez-ramu",
+      "stl": "stl/vyrez-ramu.stl"
+    },
+    {
+      "name": "TestA",
+      "part": "dvojkolo-a",
+      "stl": "stl/dvojkolo-a.stl"
+    },
+    {
+      "name": "TestB",
+      "part": "dvojkolo-b",
+      "stl": "stl/dvojkolo-b.stl"
+    },
+    {
+      "name": "TestFixedPinA",
+      "part": "pevny-cep-8x53_9",
+      "stl": "stl/pevny-cep-8x53_9.stl"
+    },
+    {
+      "name": "TestFixedPinB",
+      "part": "pevny-cep-8x53_9",
+      "stl": "stl/pevny-cep-8x53_9.stl"
+    },
+    {
+      "name": "TestFixedPinClipA",
+      "part": "pojistka-6_9",
+      "stl": "stl/pojistka-6_9.stl"
+    },
+    {
+      "name": "TestFixedPinClipB",
+      "part": "pojistka-6_9",
+      "stl": "stl/pojistka-6_9.stl"
+    }
+  ],
+  "assembly_object_names": [
+    "TestFrame",
+    "TestA",
+    "TestB",
+    "TestFixedPinA",
+    "TestFixedPinB",
+    "TestFixedPinClipA",
+    "TestFixedPinClipB"
+  ],
+  "references": [],
+  "counts_derived_from_assembly": true,
+  "total_print_count": 7,
+  "nominal_assembly_intersections": {
+    "maximum_mm3": 0,
+    "pairs": [
+      {
+        "a": "TestFrame",
+        "b": "TestA",
+        "intersection_mm3": 0.0
+      },
+      {
+        "a": "TestFrame",
+        "b": "TestB",
+        "intersection_mm3": 0.0
+      },
+      {
+        "a": "TestFrame",
+        "b": "TestFixedPinA",
+        "intersection_mm3": 0.0
+      },
+      {
+        "a": "TestFrame",
+        "b": "TestFixedPinB",
+        "intersection_mm3": 0.0
+      },
+      {
+        "a": "TestFrame",
+        "b": "TestFixedPinClipA",
+        "intersection_mm3": 0.0
+      },
+      {
+        "a": "TestFrame",
+        "b": "TestFixedPinClipB",
+        "intersection_mm3": 0.0
+      },
+      {
+        "a": "TestA",
+        "b": "TestB",
+        "intersection_mm3": 0.0
+      },
+      {
+        "a": "TestA",
+        "b": "TestFixedPinA",
+        "intersection_mm3": 0.0
+      },
+      {
+        "a": "TestA",
+        "b": "TestFixedPinB",
+        "intersection_mm3": 0
+      },
+      {
+        "a": "TestA",
+        "b": "TestFixedPinClipA",
+        "intersection_mm3": 0
+      },
+      {
+        "a": "TestA",
+        "b": "TestFixedPinClipB",
+        "intersection_mm3": 0
+      },
+      {
+        "a": "TestB",
+        "b": "TestFixedPinA",
+        "intersection_mm3": 0
+      },
+      {
+        "a": "TestB",
+        "b": "TestFixedPinB",
+        "intersection_mm3": 0.0
+      },
+      {
+        "a": "TestB",
+        "b": "TestFixedPinClipA",
+        "intersection_mm3": 0
+      },
+      {
+        "a": "TestB",
+        "b": "TestFixedPinClipB",
+        "intersection_mm3": 0
+      },
+      {
+        "a": "TestFixedPinA",
+        "b": "TestFixedPinB",
+        "intersection_mm3": 0
+      },
+      {
+        "a": "TestFixedPinA",
+        "b": "TestFixedPinClipA",
+        "intersection_mm3": 0.0
+      },
+      {
+        "a": "TestFixedPinA",
+        "b": "TestFixedPinClipB",
+        "intersection_mm3": 0
+      },
+      {
+        "a": "TestFixedPinB",
+        "b": "TestFixedPinClipA",
+        "intersection_mm3": 0
+      },
+      {
+        "a": "TestFixedPinB",
+        "b": "TestFixedPinClipB",
+        "intersection_mm3": 0.0
+      },
+      {
+        "a": "TestFixedPinClipA",
+        "b": "TestFixedPinClipB",
+        "intersection_mm3": 0
+      }
+    ],
+    "threshold_mm3": 1e-05,
+    "limitation": "Nominal pose only, not shifted/tilted shafts, real friction or three-turn physical proof."
+  },
+  "validation_pass": true,
+  "gui_validation": {
+    "saved_and_reopened": true,
+    "visible_objects": [
+      "TestFrame",
+      "TestA",
+      "TestB",
+      "TestFixedPinA",
+      "TestFixedPinB",
+      "TestFixedPinClipA",
+      "TestFixedPinClipB"
+    ],
+    "invalid_objects": []
+  }
+}

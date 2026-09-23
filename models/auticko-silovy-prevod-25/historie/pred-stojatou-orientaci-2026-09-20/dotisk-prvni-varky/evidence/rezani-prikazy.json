@@ -1,0 +1,100 @@
+{
+  "scope": "Actual offline diagnostic slicing, isolated profiles. Evidence reconstructed from executed command arguments and outputs; no printer access.",
+  "profiles": [
+    {
+      "path": "/usr/share/AnycubicSlicerNext/resources/profiles/Anycubic/machine/Anycubic Kobra X 0.4 nozzle.json",
+      "sha256": "baf80d3287e1e863fba29cdfd240b9b5ebc28bd87e1b4d03fc79e53f0009570a"
+    },
+    {
+      "path": "/usr/share/AnycubicSlicerNext/resources/profiles/Anycubic/filament/Anycubic PLA @Anycubic Kobra X 0.4 nozzle.json",
+      "sha256": "7e410a42d924f7426f7535d32ca87c43c514e98e3464ab2cc524446167133483"
+    },
+    {
+      "path": "/usr/share/AnycubicSlicerNext/resources/profiles/Anycubic/process/0.12mm High Quality @Anycubic Kobra X 0.4 nozzle.json",
+      "sha256": "a1bbaf556be0902eb7ba98170e5a69dcb0d5366bcb0b569599d2a72b128471dc"
+    }
+  ],
+  "runs": [
+    {
+      "plate": 1,
+      "command": [
+        "/usr/bin/AnycubicSlicerNext",
+        "--datadir",
+        "/home/novakj/3d-print/.cache/dotisk-2026-09-20/plate-1/profile",
+        "--arrange",
+        "0",
+        "--orient",
+        "0",
+        "--debug",
+        "3",
+        "--load-settings",
+        "/usr/share/AnycubicSlicerNext/resources/profiles/Anycubic/machine/Anycubic Kobra X 0.4 nozzle.json;/home/novakj/3d-print/.cache/dotisk-2026-09-20/process-1.json",
+        "--load-filaments",
+        "/usr/share/AnycubicSlicerNext/resources/profiles/Anycubic/filament/Anycubic PLA @Anycubic Kobra X 0.4 nozzle.json",
+        "--slice",
+        "0",
+        "--export-3mf",
+        "sliced.3mf",
+        "--outputdir",
+        "/home/novakj/3d-print/.cache/dotisk-2026-09-20/plate-1",
+        "/home/novakj/3d-print/models/auticko-silovy-prevod-25/rozlozeni/dotisk-prvni-varky-2026-09-20/dotisk-25-podlozka-01.3mf"
+      ],
+      "exit_code": 0,
+      "process_sha256": "17d17baf804b84f788d4fd041a536a8c65ac416d92c3b36add77c2f1779c2ebf"
+    },
+    {
+      "plate": 2,
+      "command": [
+        "/usr/bin/AnycubicSlicerNext",
+        "--datadir",
+        "/home/novakj/3d-print/.cache/dotisk-2026-09-20/plate-2/profile",
+        "--arrange",
+        "0",
+        "--orient",
+        "0",
+        "--debug",
+        "3",
+        "--load-settings",
+        "/usr/share/AnycubicSlicerNext/resources/profiles/Anycubic/machine/Anycubic Kobra X 0.4 nozzle.json;/home/novakj/3d-print/.cache/dotisk-2026-09-20/process-2.json",
+        "--load-filaments",
+        "/usr/share/AnycubicSlicerNext/resources/profiles/Anycubic/filament/Anycubic PLA @Anycubic Kobra X 0.4 nozzle.json",
+        "--slice",
+        "0",
+        "--export-3mf",
+        "sliced.3mf",
+        "--outputdir",
+        "/home/novakj/3d-print/.cache/dotisk-2026-09-20/plate-2",
+        "/home/novakj/3d-print/models/auticko-silovy-prevod-25/rozlozeni/dotisk-prvni-varky-2026-09-20/dotisk-25-podlozka-02.3mf"
+      ],
+      "exit_code": 0,
+      "process_sha256": "8f6bdca6f978c471adb7f57f58bdaf16050656b438484d47a6003b1a8cc0c220"
+    },
+    {
+      "plate": 3,
+      "command": [
+        "/usr/bin/AnycubicSlicerNext",
+        "--datadir",
+        "/home/novakj/3d-print/.cache/dotisk-2026-09-20/plate-3/profile",
+        "--arrange",
+        "0",
+        "--orient",
+        "0",
+        "--debug",
+        "3",
+        "--load-settings",
+        "/usr/share/AnycubicSlicerNext/resources/profiles/Anycubic/machine/Anycubic Kobra X 0.4 nozzle.json;/home/novakj/3d-print/.cache/dotisk-2026-09-20/process-3.json",
+        "--load-filaments",
+        "/usr/share/AnycubicSlicerNext/resources/profiles/Anycubic/filament/Anycubic PLA @Anycubic Kobra X 0.4 nozzle.json",
+        "--slice",
+        "0",
+        "--export-3mf",
+        "sliced.3mf",
+        "--outputdir",
+        "/home/novakj/3d-print/.cache/dotisk-2026-09-20/plate-3",
+        "/home/novakj/3d-print/models/auticko-silovy-prevod-25/rozlozeni/dotisk-prvni-varky-2026-09-20/dotisk-25-podlozka-03.3mf"
+      ],
+      "exit_code": 0,
+      "process_sha256": "e13664bb3444df289279491d70101faafa422c9adfea16eb12fb80020990f9bd"
+    }
+  ]
+}

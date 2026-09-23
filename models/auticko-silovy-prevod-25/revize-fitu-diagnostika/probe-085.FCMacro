@@ -1,0 +1,53 @@
+"""Isolated actual fcgear profile probe; writes only this cache directory."""
+from pathlib import Path
+import math,json,sys,hashlib
+import FreeCAD as App,Part
+try:from fcgear import fcgear,involute
+except ImportError:
+    sys.path.append(str(Path(App.getResourceDir())/'Mod'/'PartDesign'));from fcgear import fcgear,involute
+OUT=Path(__file__).resolve().parent
+candidate={'module':1.1,'pressure_angle':14,'small_addendum':1.31,'large_addendum':1.59,'dedendum':1.7,'centre_extra':.85}
+def gear(z,m,pa,add,ded):
+    w=fcgear.FCWireBuilder();involute.CreateExternalGear(w,m,z,pa,split=True,addCoeff=add,dedCoeff=ded)
+    wire=Part.Wire([e.toShape() for e in w.wire]);face=Part.Face(wire);assert face.isValid()
+    return wire,face.extrude(App.Vector(0,0,1))
+def rotate(sh,angle,x=0):
+    a=sh.copy();a.rotate(App.Vector(),App.Vector(0,0,1),angle);a.translate(App.Vector(x,0,0));return a
+def profile_info(w,z):
+    cc=[e for e in w.Edges if type(e.Curve).__name__=='Circle'];ra=max(e.Curve.Radius for e in cc)
+    tips=[e for e in cc if abs(e.Curve.Radius-ra)<1e-6];assert len(tips)==z
+    flank=[]
+    for e in w.Edges:
+        if type(e.Curve).__name__ in ('BSplineCurve','BezierCurve'):
+            flank += [v.Point.Length for v in e.Vertexes]
+    return {'teeth':z,'tip_edges':len(tips),'minimum_actual_tip_chord':min((e.Vertexes[0].Point-e.Vertexes[1].Point).Length for e in tips),'minimum_flank_endpoint_radius':min(flank),'nominal_tip_curve_radius':ra}
+result={'candidate':candidate,'pairs':[],'control':{},'scope':'1mm extrusion of actual fcgear planar profile, 32 unique phases per pair, no chassis generation.'}
+# Known previous passing profile confirms rotation/phase conventions.
+wl,l=gear(54,1,20,1.2,1.25);wr,r=gear(18,1,20,1.1,1.25)
+control=[]
+for i in range(8):
+    a=i/8*360/54;control.append(rotate(l,a).common(rotate(r,180/18-a*54/18,36.4)).Volume)
+assert max(control)<1e-6,('control',control)
+result['control']={'maximum_overlap_mm3':max(control),'samples':8}
+for small,large,shift in [(18,54,.5),(18,60,.7),(22,55,.7)]:
+    m=candidate['module'];pa=candidate['pressure_angle'];a=m*(small+large)/2+candidate['centre_extra']
+    wl,l=gear(large,m,pa,candidate['large_addendum'],candidate['dedendum']);wr,r=gear(small,m,pa,candidate['small_addendum'],candidate['dedendum'])
+    rec={'teeth':[small,large],'centres':{'min':a-shift,'nominal':a,'max':a+shift},'small_profile':profile_info(wr,small),'large_profile':profile_info(wl,large),'phases':[]}
+    for i in range(32):
+        theta=i/32*360/large;left=rotate(l,theta)
+        overlaps={key:left.common(rotate(r,180/small-theta*large/small,d)).Volume for key,d in rec['centres'].items()}
+        overlap=max(overlaps.values());rec['phases'].append({'large_angle_deg':theta,'minimum_centre_overlap_mm3':overlaps['min'],'overlap_by_centre_mm3':overlaps})
+        if i%8==0:print('PROBE',small,large,i,'overlap',overlap,flush=True)
+    rec['max_interference_mm3']=max(max(s['overlap_by_centre_mm3'].values()) for s in rec['phases']);rec['collision_free']=rec['max_interference_mm3']<1e-6
+    # Clamp analytic contact path to actual generated spline endpoint radii; report its limitation.
+    rb1=m*small/2*math.cos(math.radians(pa));rb2=m*large/2*math.cos(math.radians(pa));ra1=m*(small/2+candidate['small_addendum']);ra2=m*(large/2+candidate['large_addendum'])
+    base_pitch=math.pi*m*math.cos(math.radians(pa));lo1=math.sqrt(max(0,rec['small_profile']['minimum_flank_endpoint_radius']**2-rb1**2));lo2=math.sqrt(max(0,rec['large_profile']['minimum_flank_endpoint_radius']**2-rb2**2))
+    active=[]
+    for key,d in rec['centres'].items():
+        L=math.sqrt(d*d-(rb1+rb2)**2);hi1=math.sqrt(ra1*ra1-rb1*rb1);hi2=math.sqrt(ra2*ra2-rb2*rb2)
+        lower=max(lo1,L-hi2);upper=min(hi1,L-lo2)
+        active.append({'centre_type':key,'ideal_contact_ratio':(hi1+hi2-L)/base_pitch,'active_spline_contact_ratio':max(0,upper-lower)/base_pitch,'large_tip_below_small_base_path_mm':max(0,hi2-L)})
+    rec['active_involute_estimate']=active;result['pairs'].append(rec)
+    (OUT/'probe-085.json').write_text(json.dumps(result,indent=2)+'\n')
+result['passed']=all(p['collision_free'] and min(a['active_spline_contact_ratio'] for a in p['active_involute_estimate'])>1.1 for p in result['pairs']);(OUT/'probe-085.json').write_text(json.dumps(result,indent=2)+'\n')
+print('PROBE_COMPLETE',result['passed'],flush=True)

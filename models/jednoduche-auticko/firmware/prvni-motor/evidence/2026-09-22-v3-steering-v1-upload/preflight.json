@@ -1,0 +1,17 @@
+{
+  "created_utc": "2026-09-22T19:47:30.785072+00:00",
+  "source_sha256": "9f7477c851898e97e7c9fd50ca632104c9214259b415a3fa9996ca6a48d8760c",
+  "fqbn": "arduino:renesas_uno:unor4wifi",
+  "arduino_cli": "1.5.1",
+  "core": "arduino:renesas_uno@1.6.0",
+  "compiled_artifacts_sha256": {
+    ".cache/arduino-v3-build/prvni-motor.ino.bin": "15cd31e1f12aa6f19edcf755ddfd930c05b9e571ff671d6a4faefd02c0b9b6b6",
+    ".cache/arduino-v3-build/prvni-motor.ino.elf": "db86354a09207b838d3b9e1a87e0daafd6f33c19d30f0bf356f211bdae93bb93"
+  },
+  "artifact_origin": "/home/novakj/3d-print/models/jednoduche-auticko/firmware/prvni-motor/.cache/arduino-v3-build",
+  "artifact_upload_copy": "/home/novakj/.codex/worktrees/e339/3d-print/models/jednoduche-auticko/firmware/prvni-motor/.cache/upload-2026-09-22",
+  "recompiled": false,
+  "reason": "Original BIN and ELF exactly match SHA256 in 2026-09-20 tested evidence; source hash matches in both checkouts.",
+  "physical_preparation_source": "User confirmation relayed by source task 01a0caa4-9807-78f0-9152-893a808ca99a on 2026-09-22: USB to PC; one motor-holder cell removed; second holder disconnected; servo unpowered.",
+  "motion_commands_authorized": false
+}

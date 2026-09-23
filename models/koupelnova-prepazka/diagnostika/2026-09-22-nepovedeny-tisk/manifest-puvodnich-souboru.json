@@ -1,0 +1,511 @@
+{
+  "snapshot_at": "2026-09-22T20:35:44.315139+02:00",
+  "source": "/home/novakj/3d-print/models/koupelnova-prepazka",
+  "snapshot": "/home/novakj/3d-print/models/koupelnova-prepazka/diagnostika/2026-09-22-nepovedeny-tisk/evidence/model",
+  "files": [
+    {
+      "path": "prepazka.FCMacro",
+      "size": 10630,
+      "mtime": "2026-09-22T19:07:49.885432+02:00",
+      "sha256": "863c9c9294455dbae48c7a3b572cb2db921ee1447160982f0204c952427ed62e"
+    },
+    {
+      "path": "nahled.FCMacro",
+      "size": 5034,
+      "mtime": "2026-09-22T19:09:26.199602+02:00",
+      "sha256": "731c97fc983ef6bbef1b20653960c9ad4dbc831d290d63c4bb11b2301d4546e2"
+    },
+    {
+      "path": "profil-B-cad.png",
+      "size": 38446,
+      "mtime": "2026-09-22T19:09:39.035625+02:00",
+      "sha256": "b25942564f3992213525e97feee405d67d106fb6eb3bb816c2792598a9b1d70a"
+    },
+    {
+      "path": "README.md",
+      "size": 7314,
+      "mtime": "2026-09-22T19:27:16.173492+02:00",
+      "sha256": "045f2a870e93749b4ef4c559774e70abbcb5b33baf1d67c25bbaa69a95bac37a"
+    },
+    {
+      "path": "sestava-cad.png",
+      "size": 18011,
+      "mtime": "2026-09-22T19:09:37.026621+02:00",
+      "sha256": "ed82a051b4bd89773d027aac7edd496b012ce8d28e4b7822eaddecff1691e4ef"
+    },
+    {
+      "path": "prepazka-B.20260922-190939.FCBak",
+      "size": 49716,
+      "mtime": "2026-09-22T19:09:39.384625+02:00",
+      "sha256": "66fc500b1454529d8a4b5ffc6562080ca3a9975f41fa94a6be01e7f438b20ca3"
+    },
+    {
+      "path": "kontrola-modelu.json",
+      "size": 6203,
+      "mtime": "2026-09-22T19:19:53.131478+02:00",
+      "sha256": "1a2b9f30087968f4f041fddce41b0ee18024d8db039e27896a9014d4499931db"
+    },
+    {
+      "path": "prepazka-B.FCStd",
+      "size": 46904,
+      "mtime": "2026-09-22T19:19:53.130932+02:00",
+      "sha256": "4ce426a74d05f9f109c622bc33c65f307e42c3e90478795ec8a9169b02d39cc7"
+    },
+    {
+      "path": "spoj-rozebrany-cad.png",
+      "size": 43911,
+      "mtime": "2026-09-22T19:09:38.041623+02:00",
+      "sha256": "c9e7ffbf80ed0a557fbfcabad49f1774e06a4b44bb0d76ac89e92d82198e9379"
+    },
+    {
+      "path": "stl/dil-2.stl",
+      "size": 14284,
+      "mtime": "2026-09-22T19:19:53.104188+02:00",
+      "sha256": "34994e07718f9fccc99f8f6b9b2ba07d0859e7b714c3c8e80a6bcf310bd37061"
+    },
+    {
+      "path": "stl/dil-3.stl",
+      "size": 13884,
+      "mtime": "2026-09-22T19:19:53.108062+02:00",
+      "sha256": "b297b0995a9c4dab6c04448efe0f87c28cda79422b9b304fcb1195f543103db9"
+    },
+    {
+      "path": "stl/dil-1.stl",
+      "size": 13884,
+      "mtime": "2026-09-22T19:19:53.099848+02:00",
+      "sha256": "020a27dfc436aa3994375fd11fd5512ed9a1a61515739dafa28cfc68a424fc46"
+    },
+    {
+      "path": "revize-02-8mm/montaz.md",
+      "size": 6319,
+      "mtime": "2026-09-22T19:20:26.335047+02:00",
+      "sha256": "11136a05362e91b4561db6713ed03bb0c70fd1fc2981d55d54ec8251d0744a7a"
+    },
+    {
+      "path": "revize-02-8mm/prepazka.FCMacro",
+      "size": 13612,
+      "mtime": "2026-09-22T19:29:32.748445+02:00",
+      "sha256": "199f778dbc95fe83b9cdbb5fa140e2ee45f7a2a2649d631670645c35748b5bff"
+    },
+    {
+      "path": "revize-02-8mm/nahled.FCMacro",
+      "size": 5994,
+      "mtime": "2026-09-22T19:17:44.298343+02:00",
+      "sha256": "97b5bf6c308ca0078d1a966d2c90326705dcba395dc57bf29383353b10575b86"
+    },
+    {
+      "path": "revize-02-8mm/profil-B-cad.png",
+      "size": 39504,
+      "mtime": "2026-09-22T19:17:51.035237+02:00",
+      "sha256": "cd98391ced871c9f1bf9fd1af03d69b811f427db18068c995354e5e222f0ea5b"
+    },
+    {
+      "path": "revize-02-8mm/README.md",
+      "size": 8363,
+      "mtime": "2026-09-22T19:25:36.005177+02:00",
+      "sha256": "5ad7e0f5a249d186ba2f6d47035645955feaca447d6b4b069504f2860e497fbf"
+    },
+    {
+      "path": "revize-02-8mm/sestava-cad.png",
+      "size": 21548,
+      "mtime": "2026-09-22T19:17:47.969233+02:00",
+      "sha256": "d7113341cfbf02e7acc39439eba89126ee014fff73c674ba3cac1d9b2756b248"
+    },
+    {
+      "path": "revize-02-8mm/kontrola-modelu.json",
+      "size": 8040,
+      "mtime": "2026-09-22T19:17:51.847708+02:00",
+      "sha256": "4fb2b7b808be0b8ce41e9c165f67362e90a11843d395c59b06212958fb292840"
+    },
+    {
+      "path": "revize-02-8mm/prepazka-B.FCStd",
+      "size": 82343,
+      "mtime": "2026-09-22T19:17:51.879237+02:00",
+      "sha256": "0d8b15e1f7361292773b3dd16a95fe65f48cd7dc3f29279aa583c413c6a83045"
+    },
+    {
+      "path": "revize-02-8mm/spoj-s-tmelem-cad.png",
+      "size": 43165,
+      "mtime": "2026-09-22T19:17:49.045234+02:00",
+      "sha256": "44b0c92da14c5234f1c655f6c80675057819c7570acc95cf8b5893daa5cab71c"
+    },
+    {
+      "path": "revize-02-8mm/spoj-rozebrany-cad.png",
+      "size": 40042,
+      "mtime": "2026-09-22T19:17:50.038235+02:00",
+      "sha256": "65f54c5d188b906d2c73f98826a02b5d667e308b3fb7c189327c97dce8af1e98"
+    },
+    {
+      "path": "navrhy/README.md",
+      "size": 5162,
+      "mtime": "2026-09-22T19:11:05.250335+02:00",
+      "sha256": "3c8e0b2fbe91ba2c884066831426071b211ba9fdfaadc25a91ea885aeec3f61e"
+    },
+    {
+      "path": "navrhy/srovnani-abc-koncept.png",
+      "size": 1729492,
+      "mtime": "2026-09-22T18:56:38.117947+02:00",
+      "sha256": "4c5e03df8eb27dffde37564b321491c4b49dd45247114efc1b50f47adb68e630"
+    },
+    {
+      "path": "revize-02-8mm/rozlozeni/vytvor_podlozku.py",
+      "size": 16175,
+      "mtime": "2026-09-22T19:18:11.688261+02:00",
+      "sha256": "b014b0df69dafba00f2463a83d2e3bf0053aae797cb7a40ce6b16f330a615bd4"
+    },
+    {
+      "path": "revize-02-8mm/rozlozeni/EXPERIMENT-prepazka-B-Alzament-TPU95A.3mf",
+      "size": 434517,
+      "mtime": "2026-09-22T19:17:21.222201+02:00",
+      "sha256": "d92cda711e06503f2544e23cc85d917b6199ee62aa99040181d1e1fb0903b38c"
+    },
+    {
+      "path": "revize-02-8mm/rozlozeni/README.md",
+      "size": 7883,
+      "mtime": "2026-09-22T19:29:32.748445+02:00",
+      "sha256": "88e7c0dbfc7bcc2677677eda44e32c516f5636f26ddd5a21c71fa927b2867037"
+    },
+    {
+      "path": "revize-02-8mm/rozlozeni/kontrola-podlozky.json",
+      "size": 6864,
+      "mtime": "2026-09-22T19:17:16.318383+02:00",
+      "sha256": "8188e5af339571ffbd747f4dd193cc43b679d6480a9e0de523792d73c214fd1c"
+    },
+    {
+      "path": "revize-02-8mm/rozlozeni/kontrola-podlozky-TEST.json",
+      "size": 5119,
+      "mtime": "2026-09-22T19:18:11.778586+02:00",
+      "sha256": "0a280c16dc7fd508c282c046c50acf234f79038753a2b4b26d5567e95f491404"
+    },
+    {
+      "path": "revize-02-8mm/rozlozeni/prepazka-B-pracovni-geometrie.3mf",
+      "size": 8548,
+      "mtime": "2026-09-22T19:17:16.307195+02:00",
+      "sha256": "21a4a1b518ebbcf15b505e291313af359a7dde1943ce39fcc69f29978244ec09"
+    },
+    {
+      "path": "revize-02-8mm/rozlozeni/TEST-spoj-pracovni-geometrie.3mf",
+      "size": 6286,
+      "mtime": "2026-09-22T19:18:11.770262+02:00",
+      "sha256": "a7356aa463d8301c9cb9d777e4251779d6089941dbde13c9b848f9b5c5866a9e"
+    },
+    {
+      "path": "revize-02-8mm/rozlozeni/priprav_experimentalni_slice.py",
+      "size": 5668,
+      "mtime": "2026-09-22T19:16:55.662170+02:00",
+      "sha256": "2fcd725cd56082816933cbb84b1da338f470b00f4f593f0e5cefc2da1a062e4f"
+    },
+    {
+      "path": "revize-02-8mm/rozlozeni/teplotni-rozpor.md",
+      "size": 3268,
+      "mtime": "2026-09-22T19:30:16.476401+02:00",
+      "sha256": "cf0aca26f6b4638d148c49d4c9e81dc5223f10f605cfdacab23ca4b165fb2552"
+    },
+    {
+      "path": "revize-02-8mm/rozlozeni/zkontroluj_slice.py",
+      "size": 17373,
+      "mtime": "2026-09-22T19:19:46.135424+02:00",
+      "sha256": "0ec1269014bb02817a34344d2eba3208f54d69b0b9d42a418a44bab54f35c64f"
+    },
+    {
+      "path": "revize-02-8mm/rozlozeni/TEST-EXPERIMENT-spoj-Alzament-TPU95A.3mf",
+      "size": 102087,
+      "mtime": "2026-09-22T19:18:12.054262+02:00",
+      "sha256": "1c04a2b9552a54f4700226fa9cf96b08383968b373eedde3a96c2785f18a7ca7"
+    },
+    {
+      "path": "revize-02-8mm/vzorek/spoj-1.stl",
+      "size": 13884,
+      "mtime": "2026-09-22T19:16:54.518168+02:00",
+      "sha256": "d866c1944023ec1a6b0f101f6830ee34bef23c821ffa7d3c936ccd494d523810"
+    },
+    {
+      "path": "revize-02-8mm/vzorek/spoj-2.stl",
+      "size": 13884,
+      "mtime": "2026-09-22T19:16:54.525168+02:00",
+      "sha256": "b379b2e3f4feb9c8148c4cd4063b9b83edea8b0ec92bedf3cfa31705a78efd3f"
+    },
+    {
+      "path": "revize-02-8mm/stl/dil-2.stl",
+      "size": 14284,
+      "mtime": "2026-09-22T19:16:54.508168+02:00",
+      "sha256": "b329883da1e90dfc6bb2afc1695f0725bed9d8df202c538cd9bd36ddeb0d7a99"
+    },
+    {
+      "path": "revize-02-8mm/stl/dil-3.stl",
+      "size": 13884,
+      "mtime": "2026-09-22T19:16:54.512168+02:00",
+      "sha256": "72cb1a6af4d9bf8744adfecfaed0985d1db76eb4137b4614c7de8c974a5f04c5"
+    },
+    {
+      "path": "revize-02-8mm/stl/dil-1.stl",
+      "size": 13884,
+      "mtime": "2026-09-22T19:16:54.503168+02:00",
+      "sha256": "e444602f06a96625370b2163a11a67eea686490883bc89083e60a7952809c3fe"
+    },
+    {
+      "path": "revize-02-8mm/navrhy/README.md",
+      "size": 5312,
+      "mtime": "2026-09-22T19:20:26.335145+02:00",
+      "sha256": "7a061f067b2b98ec87da97f59cd53f0ea4c78c1a6191d4865da5ed710f7efdeb"
+    },
+    {
+      "path": "revize-02-8mm/navrhy/srovnani-abc-koncept.png",
+      "size": 1729492,
+      "mtime": "2026-09-22T18:56:38.117947+02:00",
+      "sha256": "4c5e03df8eb27dffde37564b321491c4b49dd45247114efc1b50f47adb68e630"
+    },
+    {
+      "path": "revize-02-8mm/rozlozeni/experimentalni-profily/machine.json",
+      "size": 10785,
+      "mtime": "2026-09-22T19:18:11.877775+02:00",
+      "sha256": "31ea20ab14ccfb08e5cf4ad2b30fd13a4789f2397c41d7d6190418863116fc7c"
+    },
+    {
+      "path": "revize-02-8mm/rozlozeni/experimentalni-profily/process.json",
+      "size": 10332,
+      "mtime": "2026-09-22T19:18:11.877925+02:00",
+      "sha256": "5402aff07d5b54088262cedab900ccef6514865ab70992e98861185a53c85c51"
+    },
+    {
+      "path": "revize-02-8mm/rozlozeni/experimentalni-profily/filament.json",
+      "size": 5724,
+      "mtime": "2026-09-22T19:18:11.878032+02:00",
+      "sha256": "070a55c34eb7b57967e769c09997a40a5de6933d0d46af73cd4420ffa67e6632"
+    },
+    {
+      "path": "revize-02-8mm/rozlozeni/experimentalni-slice/effective-settings.json",
+      "size": 33155,
+      "mtime": "2026-09-22T19:17:21.154201+02:00",
+      "sha256": "df97a0f2eec150f3b0f1a723cc6c56f787155580bcb42d5134244d33acbf3b9e"
+    },
+    {
+      "path": "revize-02-8mm/rozlozeni/experimentalni-slice/result.json",
+      "size": 335,
+      "mtime": "2026-09-22T19:17:21.223201+02:00",
+      "sha256": "d6e4bc5ed6bb66ee872fbeb5757da6f704477fd65e0e8865dd3e8da2ec6cc352"
+    },
+    {
+      "path": "revize-02-8mm/rozlozeni/experimentalni-slice/kontrola-gcode.json",
+      "size": 8339,
+      "mtime": "2026-09-22T19:17:39.889784+02:00",
+      "sha256": "2a8b0c43766215ac300b6885dd58725beed8f11208cdb92fe11c74137fb35994"
+    },
+    {
+      "path": "revize-02-8mm/rozlozeni/experimentalni-slice/plate_1.gcode.metadata",
+      "size": 28815,
+      "mtime": "2026-09-22T19:17:21.154097+02:00",
+      "sha256": "ac26b06817e9325ce853ed19258ee67eec99f8deadc337d8533739598f7bcb82"
+    },
+    {
+      "path": "revize-02-8mm/rozlozeni/experimentalni-slice/nahled-skutecnych-vrstev.png",
+      "size": 221019,
+      "mtime": "2026-09-22T19:17:40.461224+02:00",
+      "sha256": "feca05444bc62e66716c027668f97f55ecb6ec0d3611c4c15b6e836a6b36ae40"
+    },
+    {
+      "path": "revize-02-8mm/rozlozeni/experimentalni-slice/plate_1.gcode",
+      "size": 2128946,
+      "mtime": "2026-09-22T19:17:21.154009+02:00",
+      "sha256": "33c7828ee2cd4abe8304680bf1921489a69769410db98288c56995817551b9d1"
+    },
+    {
+      "path": "revize-02-8mm/rozlozeni/experimentalni-TEST-slice/effective-settings.json",
+      "size": 33155,
+      "mtime": "2026-09-22T19:18:12.040628+02:00",
+      "sha256": "df97a0f2eec150f3b0f1a723cc6c56f787155580bcb42d5134244d33acbf3b9e"
+    },
+    {
+      "path": "revize-02-8mm/rozlozeni/experimentalni-TEST-slice/result.json",
+      "size": 335,
+      "mtime": "2026-09-22T19:18:12.056013+02:00",
+      "sha256": "ade97e26f615cddb73bbd0a83e589d4271aa74b51c0dd9deaa6958350d0b6e3d"
+    },
+    {
+      "path": "revize-02-8mm/rozlozeni/experimentalni-TEST-slice/kontrola-gcode.json",
+      "size": 7604,
+      "mtime": "2026-09-22T19:18:12.260859+02:00",
+      "sha256": "579d97e9dbd7eee8c848e2a29a3cf7abafa2e834dc600f4f22b88e7c84dd8040"
+    },
+    {
+      "path": "revize-02-8mm/rozlozeni/experimentalni-TEST-slice/plate_1.gcode.metadata",
+      "size": 28329,
+      "mtime": "2026-09-22T19:18:12.040628+02:00",
+      "sha256": "495f22a9048c2c43084deb7b5b7aeaee6fce15a9c324afcfdc7505563049df34"
+    },
+    {
+      "path": "revize-02-8mm/rozlozeni/experimentalni-TEST-slice/nahled-skutecnych-vrstev.png",
+      "size": 155825,
+      "mtime": "2026-09-22T19:18:12.743263+02:00",
+      "sha256": "ad2c964a7e7c45b47e009282625f4bf30bb29ee4e6c4843f645b84a4aee9f3e8"
+    },
+    {
+      "path": "revize-02-8mm/rozlozeni/experimentalni-TEST-slice/plate_1.gcode",
+      "size": 404657,
+      "mtime": "2026-09-22T19:18:12.040546+02:00",
+      "sha256": "0ecc3349ad87684a37bbcf8be1c0c9fbe728a2787ea6e89c55954f1979ee0d7a"
+    },
+    {
+      "path": "revize-02-8mm/historie/reference-10mm/prepazka.FCMacro",
+      "size": 10630,
+      "mtime": "2026-09-22T19:07:49.885432+02:00",
+      "sha256": "863c9c9294455dbae48c7a3b572cb2db921ee1447160982f0204c952427ed62e"
+    },
+    {
+      "path": "revize-02-8mm/historie/reference-10mm/nahled.FCMacro",
+      "size": 5034,
+      "mtime": "2026-09-22T19:09:26.199602+02:00",
+      "sha256": "731c97fc983ef6bbef1b20653960c9ad4dbc831d290d63c4bb11b2301d4546e2"
+    },
+    {
+      "path": "revize-02-8mm/historie/reference-10mm/profil-B-cad.png",
+      "size": 38446,
+      "mtime": "2026-09-22T19:09:39.035625+02:00",
+      "sha256": "b25942564f3992213525e97feee405d67d106fb6eb3bb816c2792598a9b1d70a"
+    },
+    {
+      "path": "revize-02-8mm/historie/reference-10mm/README.md",
+      "size": 418,
+      "mtime": "2026-09-22T19:15:57.341952+02:00",
+      "sha256": "772fa840735c008e390da87cf58a0dd5775c3c5fc8ff2d1e6ee23c2e535a0847"
+    },
+    {
+      "path": "revize-02-8mm/historie/reference-10mm/sestava-cad.png",
+      "size": 18011,
+      "mtime": "2026-09-22T19:09:37.026621+02:00",
+      "sha256": "ed82a051b4bd89773d027aac7edd496b012ce8d28e4b7822eaddecff1691e4ef"
+    },
+    {
+      "path": "revize-02-8mm/historie/reference-10mm/kontrola-modelu.json",
+      "size": 6721,
+      "mtime": "2026-09-22T19:09:39.361842+02:00",
+      "sha256": "3681f66aa282a264f003ad230da7101f7f3a026c3ed87088b5079ef422c88db7"
+    },
+    {
+      "path": "revize-02-8mm/historie/reference-10mm/prepazka-B.FCStd",
+      "size": 49716,
+      "mtime": "2026-09-22T19:09:39.384625+02:00",
+      "sha256": "66fc500b1454529d8a4b5ffc6562080ca3a9975f41fa94a6be01e7f438b20ca3"
+    },
+    {
+      "path": "revize-02-8mm/historie/reference-10mm/spoj-rozebrany-cad.png",
+      "size": 43911,
+      "mtime": "2026-09-22T19:09:38.041623+02:00",
+      "sha256": "c9e7ffbf80ed0a557fbfcabad49f1774e06a4b44bb0d76ac89e92d82198e9379"
+    },
+    {
+      "path": "revize-02-8mm/historie/reference-10mm/rozlozeni/vytvor_podlozku.py",
+      "size": 15561,
+      "mtime": "2026-09-22T19:14:25.517989+02:00",
+      "sha256": "986f428c32992fdb68a562f65c6541330d38eaca3a82e343bd9c2f993d67c3e0"
+    },
+    {
+      "path": "revize-02-8mm/historie/reference-10mm/rozlozeni/EXPERIMENT-prepazka-B-Alzament-TPU95A.3mf",
+      "size": 531848,
+      "mtime": "2026-09-22T19:09:38.038623+02:00",
+      "sha256": "4a3d64e661b7de46ff6eab75ebed5d94a69879b6b16c9791315d55dd9b6b7863"
+    },
+    {
+      "path": "revize-02-8mm/historie/reference-10mm/rozlozeni/README.md",
+      "size": 7357,
+      "mtime": "2026-09-22T19:14:25.518989+02:00",
+      "sha256": "21ef90589140fdcf3e5ad86c24bc7c33251b99989bf9a34719b5c7391345676e"
+    },
+    {
+      "path": "revize-02-8mm/historie/reference-10mm/rozlozeni/kontrola-podlozky.json",
+      "size": 6852,
+      "mtime": "2026-09-22T19:07:56.449373+02:00",
+      "sha256": "9eaf926fe214d3f3c4d4389b8fc004b2659f8b0876cf1c724c3bc26de9f09816"
+    },
+    {
+      "path": "revize-02-8mm/historie/reference-10mm/rozlozeni/prepazka-B-pracovni-geometrie.3mf",
+      "size": 9104,
+      "mtime": "2026-09-22T19:07:56.436444+02:00",
+      "sha256": "91ed7b9a835d1933bab5597e49a9d476ed24cd33f138028e89587f80937db892"
+    },
+    {
+      "path": "revize-02-8mm/historie/reference-10mm/rozlozeni/priprav_experimentalni_slice.py",
+      "size": 5003,
+      "mtime": "2026-09-22T19:13:39.324931+02:00",
+      "sha256": "9be5900594c76a2daf4dafc0e68551771fdafb07564abc74f0b2a465dca6a193"
+    },
+    {
+      "path": "revize-02-8mm/historie/reference-10mm/rozlozeni/zkontroluj_slice.py",
+      "size": 13885,
+      "mtime": "2026-09-22T19:14:25.517989+02:00",
+      "sha256": "aa997540069e14933f17d886165b0296f4bcb45625a17360a656bd34b84f3426"
+    },
+    {
+      "path": "revize-02-8mm/historie/reference-10mm/stl/dil-2.stl",
+      "size": 14284,
+      "mtime": "2026-09-22T19:07:51.307435+02:00",
+      "sha256": "34994e07718f9fccc99f8f6b9b2ba07d0859e7b714c3c8e80a6bcf310bd37061"
+    },
+    {
+      "path": "revize-02-8mm/historie/reference-10mm/stl/dil-3.stl",
+      "size": 13884,
+      "mtime": "2026-09-22T19:07:51.311435+02:00",
+      "sha256": "b297b0995a9c4dab6c04448efe0f87c28cda79422b9b304fcb1195f543103db9"
+    },
+    {
+      "path": "revize-02-8mm/historie/reference-10mm/stl/dil-1.stl",
+      "size": 13884,
+      "mtime": "2026-09-22T19:07:51.302435+02:00",
+      "sha256": "020a27dfc436aa3994375fd11fd5512ed9a1a61515739dafa28cfc68a424fc46"
+    },
+    {
+      "path": "revize-02-8mm/historie/reference-10mm/rozlozeni/experimentalni-profily/machine.json",
+      "size": 10785,
+      "mtime": "2026-09-22T19:09:37.598921+02:00",
+      "sha256": "31ea20ab14ccfb08e5cf4ad2b30fd13a4789f2397c41d7d6190418863116fc7c"
+    },
+    {
+      "path": "revize-02-8mm/historie/reference-10mm/rozlozeni/experimentalni-profily/process.json",
+      "size": 10332,
+      "mtime": "2026-09-22T19:09:37.599103+02:00",
+      "sha256": "5402aff07d5b54088262cedab900ccef6514865ab70992e98861185a53c85c51"
+    },
+    {
+      "path": "revize-02-8mm/historie/reference-10mm/rozlozeni/experimentalni-profily/filament.json",
+      "size": 5724,
+      "mtime": "2026-09-22T19:09:37.599235+02:00",
+      "sha256": "070a55c34eb7b57967e769c09997a40a5de6933d0d46af73cd4420ffa67e6632"
+    },
+    {
+      "path": "revize-02-8mm/historie/reference-10mm/rozlozeni/experimentalni-slice/effective-settings.json",
+      "size": 33155,
+      "mtime": "2026-09-22T19:09:37.953657+02:00",
+      "sha256": "df97a0f2eec150f3b0f1a723cc6c56f787155580bcb42d5134244d33acbf3b9e"
+    },
+    {
+      "path": "revize-02-8mm/historie/reference-10mm/rozlozeni/experimentalni-slice/result.json",
+      "size": 335,
+      "mtime": "2026-09-22T19:09:38.039763+02:00",
+      "sha256": "7ef43314758d15d1a78ef40d8882994653f13d944a053da746b186e1670139fb"
+    },
+    {
+      "path": "revize-02-8mm/historie/reference-10mm/rozlozeni/experimentalni-slice/kontrola-gcode.json",
+      "size": 9086,
+      "mtime": "2026-09-22T19:14:26.272141+02:00",
+      "sha256": "ff631a78493be1efea56c459bff308b96fa201244d185d11768daaa40b19b9ab"
+    },
+    {
+      "path": "revize-02-8mm/historie/reference-10mm/rozlozeni/experimentalni-slice/plate_1.gcode.metadata",
+      "size": 28793,
+      "mtime": "2026-09-22T19:09:37.953657+02:00",
+      "sha256": "24aae27c266a959593d2e7bed7d5370e91243f2cb61f76336e65163b0af8404e"
+    },
+    {
+      "path": "revize-02-8mm/historie/reference-10mm/rozlozeni/experimentalni-slice/nahled-skutecnych-vrstev.png",
+      "size": 213608,
+      "mtime": "2026-09-22T19:14:26.764990+02:00",
+      "sha256": "723bb2060f55cd84e36485c1b4f6b0914a343cc9b4b0116b3e0bd549712bd5e4"
+    },
+    {
+      "path": "revize-02-8mm/historie/reference-10mm/rozlozeni/experimentalni-slice/plate_1.gcode",
+      "size": 2660165,
+      "mtime": "2026-09-22T19:09:37.953579+02:00",
+      "sha256": "17dd48f224aadea639fa019550e16294cdde6763a997e72bf3f7912e67459da0"
+    }
+  ]
+}

@@ -1,0 +1,157 @@
+# -*- coding: utf-8 -*-
+"""Samostatne kalibracni vzorky. Prepise pouze vystupy v teto slozce.
+Bezne Part objekty a vyrazy, zadne Python proxy ani upravy hlavniho auta.
+"""
+from pathlib import Path
+import json, hashlib, zipfile, math
+import FreeCAD as App
+import Part, MeshPart
+
+OUT = Path(__file__).resolve().parent
+(OUT / 'stl').mkdir(exist_ok=True)
+D = App.newDocument('KalibraceSilovehoAuticka')
+D.Label = 'Kalibrace ulozeni — navrh, fyzicky netestovano'
+P = D.addObject('Spreadsheet::Sheet', 'Parameters')
+P.Label = 'Parametry kalibrace (mm)'
+values = [('BoreDepth', 8), ('PinLength', 24), ('Wall', 2.7),
+          ('Pin8', 8), ('Pin12', 12), ('Pin4', 4),
+          ('Hole8A', 8.1), ('Hole8B', 8.2), ('Hole8C', 8.3), ('Hole8D', 8.4), ('Hole8E', 8.6),
+          ('Hole12A', 12.1), ('Hole12B', 12.2), ('Hole12C', 12.3), ('Hole12D', 12.4), ('Hole12E', 12.6),
+          ('Hole4A', 4.1), ('Hole4B', 4.2), ('Hole4C', 4.3)]
+P.set('A1', 'Parametr'); P.set('B1', 'mm')
+for row, (name, value) in enumerate(values, 2):
+    P.set('A' + str(row), name); P.set('B' + str(row), str(value) + ' mm')
+    P.setAlias('B' + str(row), name)
+P.setColumnWidth('A', 180); P.setColumnWidth('B', 100)
+D.recompute()
+
+def expr(name): return 'Parameters.' + name
+def bind(o, name, value):
+    if isinstance(value, str): o.setExpression(name, value)
+    else: setattr(o, name, value)
+def place(o, x=0, y=0, z=0):
+    for a, v in zip('xyz', (x, y, z)):
+        o.setExpression('Placement.Base.' + a, v if isinstance(v, str) else str(v) + ' mm')
+    return o
+def box(name, dims, xyz=(0, 0, 0)):
+    o = D.addObject('Part::Box', name)
+    for a, v in zip(('Length', 'Width', 'Height'), dims): bind(o, a, v)
+    return place(o, *xyz)
+def cyl(name, radius, depth, xyz=(0, 0, 0), horizontal=False):
+    o = D.addObject('Part::Cylinder', name)
+    bind(o, 'Radius', radius); bind(o, 'Height', depth); place(o, *xyz)
+    if horizontal: o.Placement.Rotation = App.Rotation(App.Vector(1, 0, 0), -90)
+    return o
+def fuse(name, members):
+    o = D.addObject('Part::MultiFuse', name); o.Shapes = members; o.Refine = True
+    return o
+def subtract(name, a, b):
+    o = D.addObject('Part::Cut', name); o.Base = a; o.Tool = b; o.Refine = True
+    return o
+
+parts = {}; coupons = []; data = {}; layout = {}
+def coupon(size, horizontal, aliases, xy):
+    key = 'otvory-' + str(size) + ('-vodorovne' if horizontal else '-svisle')
+    stem = 'Coupon' + str(size) + ('H' if horizontal else 'V')
+    max_alias = aliases[-1]
+    pitch = '(' + expr(max_alias) + ' + 2 * ' + expr('Wall') + ')'
+    count = len(aliases)
+    length = str(count) + ' * ' + pitch
+    width = expr('BoreDepth') if horizontal else pitch
+    height = pitch if horizontal else expr('BoreDepth')
+    block = box(stem + 'Block', (length, width, height))
+    # Vystupek na zacatku poradi; neodebira material ze steny otvoru.
+    tab = box(stem + 'IndexTab', (4.5, 5, 2), (-4, '(' + width + ' - 5 mm)/2', 0))
+    blank = fuse(stem + 'Blank', [block, tab])
+    holes = []
+    for i, alias in enumerate(aliases):
+        xc = '(' + str(i) + ' + 0.5) * ' + pitch
+        loc = (xc, -1, pitch + '/2') if horizontal else (xc, pitch + '/2', -1)
+        holes.append(cyl(stem + 'Hole' + str(i+1), expr(alias) + '/2', expr('BoreDepth') + ' + 2 mm', loc, horizontal))
+    finished = subtract(stem, blank, fuse(stem + 'Holes', holes))
+    finished.Label = key
+    parts[key] = finished; layout[key] = xy
+    data[key] = {'copies': 1, 'kind': 'coupon', 'nominal_holes_mm': [dict(values)[a] for a in aliases],
+                 'bore_depth_mm': 8, 'bore_axis_in_print': 'Y' if horizontal else 'Z',
+                 'index': 'Od vystupku, vzestupne 1..' + str(count)}
+    coupons.append((key, holes))
+
+coupon(8, False, ['Hole8' + c for c in 'ABCDE'], (0, 0))
+coupon(8, True, ['Hole8' + c for c in 'ABCDE'], (0, 30))
+coupon(12, False, ['Hole12' + c for c in 'ABCDE'], (100, 0))
+coupon(12, True, ['Hole12' + c for c in 'ABCDE'], (100, 30))
+coupon(4, False, ['Hole4' + c for c in 'ABC'], (0, 62))
+for size, yy in [(4, 85), (8, 100), (12, 120)]:
+    key = 'cep-' + str(size) + '-kulaty-nalezato'
+    o = cyl('Pin' + str(size), expr('Pin' + str(size)) + '/2', expr('PinLength'), (0, 0, expr('Pin' + str(size)) + '/2'))
+    o.Placement.Rotation = App.Rotation(App.Vector(0, 1, 0), 90)
+    o.Label = key
+    parts[key] = o; layout[key] = (0, yy)
+    data[key] = {'copies': 1, 'kind': 'pin', 'diameter_mm': size, 'length_mm': 24,
+                 'axis_in_print': 'X', 'working_flat': False, 'supports_required': True}
+D.recompute()
+group = D.addObject('App::DocumentObjectGroup', 'PrintParts'); group.addObjects(list(parts.values()))
+display = D.addObject('App::DocumentObjectGroup', 'Display'); display.Label = 'NAHLED — nejde o tiskovou podlozku'
+links = []
+for key, part in parts.items():
+    l = D.addObject('App::Link', 'View' + part.Name); l.setLink(part)
+    l.Placement = App.Placement(part.Placement)
+    l.Placement.Base = part.Placement.Base + App.Vector(*layout[key], 0)
+    display.addObject(l); links.append(l)
+D.recompute()
+for l in links:
+    a, b = l.Shape.BoundBox, l.LinkedObject.Shape.BoundBox
+    assert max(abs(x-y) for x,y in zip((a.XLength,a.YLength,a.ZLength), (b.XLength,b.YLength,b.ZLength))) < 1e-6
+
+original_volumes = {k: o.Shape.Volume for k, o in parts.items()}
+parameter_checks = []
+for alias, original, trial, affected in [
+    ('BoreDepth', 8, 9, [k for k in parts if k.startswith('otvory-')]),
+    ('PinLength', 24, 25, [k for k in parts if k.startswith('cep-')])]:
+    cell = 'B' + str([name for name, v in values].index(alias) + 2)
+    P.set(cell, str(trial) + ' mm'); D.recompute()
+    assert all(parts[k].Shape.isValid() and len(parts[k].Shape.Solids) == 1 for k in parts)
+    changed = [k for k in affected if abs(parts[k].Shape.Volume - original_volumes[k]) > 1e-5]
+    assert len(changed) == len(affected), (alias, changed)
+    P.set(cell, str(original) + ' mm'); D.recompute()
+    restored = max(abs(parts[k].Shape.Volume - original_volumes[k]) for k in parts)
+    assert restored < 1e-5
+    parameter_checks.append({'parameter': alias, 'trial_mm': trial, 'changed_parts': changed,
+                             'restored_max_volume_difference_mm3': restored})
+report = {'kind': 'Kalibracni navrh, fyzicky netestovano', 'parts': {}, 'display_objects': [l.Name for l in links],
+          'generator_sha256': hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
+          'dimensions_are': 'NOMINALNI CAD, nikoli zmerene vytisky',
+          'unit': 'mm', 'coupon_minimum_nominal_wall_mm': 2.7, 'support_removal_not_verified': True,
+          'parameter_checks': parameter_checks}
+for key, part in parts.items():
+    shape = part.Shape.copy()
+    assert shape.isValid() and len(shape.Solids) == 1 and shape.Volume > 0, key
+    bb = shape.BoundBox; shape.translate(App.Vector(-bb.XMin, -bb.YMin, -bb.ZMin))
+    mesh = MeshPart.meshFromShape(Shape=shape, LinearDeflection=0.025, AngularDeflection=0.12, Relative=False)
+    assert mesh.isSolid(), key
+    mesh.write(str(OUT / 'stl' / (key + '.stl')))
+    info = data[key].copy(); info.update(object=part.Name, stl='stl/' + key + '.stl',
+        bbox_mm=[bb.XLength, bb.YLength, bb.ZLength], volume_mm3=shape.Volume,
+        valid=True, solid_count=1, closed_mesh=True, facets=mesh.CountFacets)
+    report['parts'][key] = info
+# Direct geometric probes: axis is empty and material remains just outside each bore.
+report['bore_checks'] = []
+for key, holes in coupons:
+    final = parts[key].Shape
+    for hole in holes:
+        centre = hole.Placement.multVec(App.Vector(0, 0, 5))
+        outside = centre + App.Vector(float(hole.Radius.Value) + 0.1, 0, 0)
+        assert not final.isInside(centre, 1e-7, True), (key, 'blocked axis')
+        assert final.isInside(outside, 1e-7, True), (key, 'missing wall')
+        report['bore_checks'].append({'coupon': key, 'diameter_mm': float(hole.Radius.Value)*2,
+                                     'axis_empty': True, 'wall_at_radius_plus_0_1_mm': True})
+D.saveAs(str(OUT / 'kalibrace.FCStd'))
+with zipfile.ZipFile(OUT / 'kalibracni-dily.zip', 'w', zipfile.ZIP_DEFLATED) as z:
+    for key in parts: z.write(OUT / 'stl' / (key + '.stl'), key + '__01.stl')
+    z.writestr('CTI-ME.txt', '8 kalibracnich dilu, kazdy soubor jednou. Jednotky mm, 100 %.\n'
+        'Vystupek oznacuje zacatek rady otvoru od nejmensiho. Navod: README.md vedle ZIPu.\n'
+        'Plne kulate cepy lezi vodorovne a POTREBUJI PODPORY; nepreorientovat automaticky.\n'
+        'Nejde o komplet auta ani o potvrzene tiskove tolerance.\n')
+report['validation_pass'] = True
+(OUT / 'kontrola-kalibrace.json').write_text(json.dumps(report, ensure_ascii=False, indent=2) + '\n')
+print('COMPLETE calibration ' + str(len(parts)) + ' parts; ' + str(len(report['bore_checks'])) + ' bores', flush=True)

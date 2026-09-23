@@ -1,0 +1,17 @@
+Read-only USB monitor after v2 upload; no serial writes, reset, or motor requests.
+2026-09-19T13:49:44 DIAG build=hold-to-run-v2 safety=1 drive=0 ENread=0 IN1=0 IN2=0 watchdog=0
+2026-09-19T13:49:44 DIAG armExpired=0 runExpired=0 stopReason=0 leaseMs=0 challengeAgeMs=20903
+2026-09-19T13:49:44 DIAG 20910 boot=server-started fw=0.4.1 ip=192.168.4.1
+2026-09-19T13:49:44 DIAG ready=1 server=1 APstart=7 statusLast=7 ageMs=35 HTTP=0 closed=0
+2026-09-19T13:49:49 DIAG build=hold-to-run-v2 safety=1 drive=0 ENread=0 IN1=0 IN2=0 watchdog=0
+2026-09-19T13:49:49 DIAG armExpired=0 runExpired=0 stopReason=0 leaseMs=0 challengeAgeMs=25903
+2026-09-19T13:49:49 DIAG 25910 boot=server-started fw=0.4.1 ip=192.168.4.1
+2026-09-19T13:49:49 DIAG ready=1 server=1 APstart=7 statusLast=7 ageMs=36 HTTP=0 closed=0
+2026-09-19T13:49:54 DIAG build=hold-to-run-v2 safety=1 drive=0 ENread=0 IN1=0 IN2=0 watchdog=0
+2026-09-19T13:49:54 DIAG armExpired=0 runExpired=0 stopReason=0 leaseMs=0 challengeAgeMs=30908
+2026-09-19T13:49:54 DIAG 30915 boot=server-started fw=0.4.1 ip=192.168.4.1
+2026-09-19T13:49:54 DIAG ready=1 server=1 APstart=7 statusLast=7 ageMs=42 HTTP=0 closed=0
+2026-09-19T13:49:59 DIAG build=hold-to-run-v2 safety=1 drive=0 ENread=0 IN1=0 IN2=0 watchdog=0
+2026-09-19T13:49:59 DIAG armExpired=0 runExpired=0 stopReason=0 leaseMs=0 challengeAgeMs=35908
+2026-09-19T13:49:59 DIAG 35915 boot=server-started fw=0.4.1 ip=192.168.4.1
+2026-09-19T13:49:59 DIAG ready=1 server=1 APstart=7 statusLast=7 ageMs=42 HTTP=0 closed=0

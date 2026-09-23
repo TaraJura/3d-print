@@ -1,0 +1,473 @@
+{
+  "generator_sha256": "96078fc1bd9645d89334f790f00e6925360d516669e00930c11960f97ec25692",
+  "files": {
+    "auticko-se-zatacenim.FCStd": {
+      "sha256": "81d3ce4e3dc5c06e30d2904ab2419e19eebd83ca0d2bc8adbdcf922de31e479f",
+      "bytes": 2785104
+    },
+    "tiskovy-balicek.zip": {
+      "sha256": "cc7a791695edbe9b1e6e79a1ca828d07a3fd635075d0a3fa3aa3a1aaf2530f1d",
+      "bytes": 1309273
+    },
+    "prestavba-z-v2.zip": {
+      "sha256": "bd77b9d8c039e0c21fdcceeceb6d99d314fd8a6821a0146387d8a28c89135c0d",
+      "bytes": 781615
+    },
+    "nahled.FCMacro": {
+      "sha256": "13900c19efb1ec8a9ddd0a191167f7106677d9f6c51cde1142b2ac6e91b99950",
+      "bytes": 4367
+    },
+    "overit-rizeni.FCMacro": {
+      "sha256": "867053636bf01f746964cb4aa6c8f7b62b3ae0a7cb8fd47458da1558ad6bc975",
+      "bytes": 5659
+    },
+    "overit-vule.FCMacro": {
+      "sha256": "af4340d4b3a6a13ba6038213dce0a6d311ec624f241e223339c8095e5e8ebc3f",
+      "bytes": 2269
+    },
+    "overit-exporty.py": {
+      "sha256": "c1e7a4d6fc40032c6b1fab2da8b8ed748625d65125900dbcb1192e25564bef43",
+      "bytes": 6202
+    },
+    "kinematika.py": {
+      "sha256": "e899f134a02ec6ffcec4196a32cb26149751fd426208afcf1226b5dc11ef9700",
+      "bytes": 2441
+    },
+    "kinematika.json": {
+      "sha256": "7428486fa894a1aff9ca073daa34533e3c671b50b56833ba1b1b4672ef8c7d03",
+      "bytes": 3788
+    },
+    "README.md": {
+      "sha256": "228c5ab99d84d096ca8a582af5f55f552e8d629a6c46c89cb5739b357ea826f7",
+      "bytes": 14987
+    },
+    "kontrola-modelu.json": {
+      "sha256": "9c4a3a6ad805d8c803f833fe7dd79f799b83d97ea1fb98687099140ae98fd79b",
+      "bytes": 61069
+    },
+    "rovne.png": {
+      "sha256": "76a66241dabc1d9c6b41f18b8dc01892e97839fa604983ef35a28d516ba5fc07",
+      "bytes": 80777
+    },
+    "doleva.png": {
+      "sha256": "6deb9a7748bd3cf33f5df46c672c6dc1ea41ced2accae0871487376cdb910fde",
+      "bytes": 76309
+    },
+    "doprava.png": {
+      "sha256": "6f792b9cf67112cff305e2890fb01d3455205d92624752e2300e1ac532389bfd",
+      "bytes": 79314
+    },
+    "mechanismus.png": {
+      "sha256": "c72a7741f19c01b78d919b269cbb91651c90e51f5c686b7271f12408c46ed939",
+      "bytes": 140199
+    }
+  },
+  "stl": {
+    "plosina-170x60": {
+      "sha256": "f78e2b584a78c6044a266ba4af2171cbb3e89d0f918b795e4e0478035ab56f62",
+      "triangles": 1148,
+      "edge_connected_components": 1,
+      "edges_not_exactly_two_faces": 0,
+      "inconsistent_winding_edges": 0,
+      "degenerate_triangles": 0,
+      "signed_volume_mm3": 82292.25220529691,
+      "volume_difference_fraction": 1.4447444143190755e-06,
+      "bbox_mm": [
+        180.0,
+        70.0,
+        45.0
+      ],
+      "minimum_z_mm": 0.0,
+      "copies": 1
+    },
+    "pastorek-18z-otvor-2_2": {
+      "sha256": "e412ec278422cd4c66d4843b95c561de3a8655f82e5d40e6012a5ee1eaec2870",
+      "triangles": 7992,
+      "edge_connected_components": 1,
+      "edges_not_exactly_two_faces": 0,
+      "inconsistent_winding_edges": 0,
+      "degenerate_triangles": 0,
+      "signed_volume_mm3": 1085.042751874037,
+      "volume_difference_fraction": 0.0005882648143924104,
+      "bbox_mm": [
+        18.000210000000003,
+        17.82466,
+        5.5
+      ],
+      "minimum_z_mm": 0.0,
+      "copies": 1
+    },
+    "mezikolo-54_18z": {
+      "sha256": "682c02fc3de7cf8fbc3986826dfedd33ad8841c019b4a6511315ae11fae4d48e",
+      "triangles": 26316,
+      "edge_connected_components": 1,
+      "edges_not_exactly_two_faces": 0,
+      "inconsistent_winding_edges": 0,
+      "degenerate_triangles": 0,
+      "signed_volume_mm3": 7695.676325700029,
+      "volume_difference_fraction": 0.00013482086841549955,
+      "bbox_mm": [
+        50.39974,
+        50.35108,
+        12.0
+      ],
+      "minimum_z_mm": 0.0,
+      "copies": 1
+    },
+    "osa-mezi-65_2": {
+      "sha256": "2729dc64cc6e28095c0201009ee6e72f5721b95f78b3ab0d151b5f5446523f05",
+      "triangles": 1496,
+      "edge_connected_components": 1,
+      "edges_not_exactly_two_faces": 0,
+      "inconsistent_winding_edges": 0,
+      "degenerate_triangles": 0,
+      "signed_volume_mm3": 3063.943447391919,
+      "volume_difference_fraction": 0.0003427316079389323,
+      "bbox_mm": [
+        65.2,
+        12.999960000000002,
+        9.29799
+      ],
+      "minimum_z_mm": 0.0,
+      "copies": 1
+    },
+    "rozperka-8_6": {
+      "sha256": "788faab6835a9651d99579708fcf17a5f0c0dcfe482de3ef868c90c66d1ed56f",
+      "triangles": 1008,
+      "edge_connected_components": 1,
+      "edges_not_exactly_two_faces": 0,
+      "inconsistent_winding_edges": 0,
+      "degenerate_triangles": 0,
+      "signed_volume_mm3": 472.88385151642467,
+      "volume_difference_fraction": 0.0004143482505295815,
+      "bbox_mm": [
+        12.0,
+        11.996279999999999,
+        8.6
+      ],
+      "minimum_z_mm": 0.0,
+      "copies": 1
+    },
+    "rozperka-17_6": {
+      "sha256": "b87e75387f5cfbed05a449c5e44efb92122315d4a1c1bfcdcf952d98dadb665a",
+      "triangles": 1008,
+      "edge_connected_components": 1,
+      "edges_not_exactly_two_faces": 0,
+      "inconsistent_winding_edges": 0,
+      "degenerate_triangles": 0,
+      "signed_volume_mm3": 967.7622788265055,
+      "volume_difference_fraction": 0.00041437092365773976,
+      "bbox_mm": [
+        12.0,
+        11.996279999999999,
+        17.6
+      ],
+      "minimum_z_mm": 0.0,
+      "copies": 1
+    },
+    "rozperka-1_6": {
+      "sha256": "415ff9e44b8ce3e039d085c91175809c0a15446e21d1130f5e0ba59ea83fc3eb",
+      "triangles": 1008,
+      "edge_connected_components": 1,
+      "edges_not_exactly_two_faces": 0,
+      "inconsistent_winding_edges": 0,
+      "degenerate_triangles": 0,
+      "signed_volume_mm3": 87.97838838832763,
+      "volume_difference_fraction": 0.00041437769410706805,
+      "bbox_mm": [
+        12.0,
+        11.996279999999999,
+        1.6
+      ],
+      "minimum_z_mm": 0.0,
+      "copies": 2
+    },
+    "pojistka-c": {
+      "sha256": "7be6176012c834bfba0b745c0048f7139799b85b0654688302d0bba3353007e0",
+      "triangles": 772,
+      "edge_connected_components": 1,
+      "edges_not_exactly_two_faces": 0,
+      "inconsistent_winding_edges": 0,
+      "degenerate_triangles": 0,
+      "signed_volume_mm3": 98.53867071415692,
+      "volume_difference_fraction": 0.00048063184041101533,
+      "bbox_mm": [
+        12.290000000000001,
+        12.99998,
+        1.3
+      ],
+      "minimum_z_mm": 0.0,
+      "copies": 6
+    },
+    "kolo-zadni-76x12-72z": {
+      "sha256": "f6fd7707a172c8ce4ccb9be4a6dac8bc23e47513db308239cb3cc85c398abfdb",
+      "triangles": 24876,
+      "edge_connected_components": 1,
+      "edges_not_exactly_two_faces": 0,
+      "inconsistent_winding_edges": 0,
+      "degenerate_triangles": 0,
+      "signed_volume_mm3": 48169.50547530105,
+      "volume_difference_fraction": 0.00023496464812425112,
+      "bbox_mm": [
+        75.99906,
+        75.99812,
+        21.0
+      ],
+      "minimum_z_mm": 0.0,
+      "copies": 1
+    },
+    "kolo-zadni-76x12-prave": {
+      "sha256": "ce25f07d4a84f3596e9ce28c28350eb92f3499068318f66c384b1672a1945fa0",
+      "triangles": 2444,
+      "edge_connected_components": 1,
+      "edges_not_exactly_two_faces": 0,
+      "inconsistent_winding_edges": 0,
+      "degenerate_triangles": 0,
+      "signed_volume_mm3": 22032.53122920057,
+      "volume_difference_fraction": 0.0005163497768325623,
+      "bbox_mm": [
+        75.99906,
+        75.99812,
+        12.0
+      ],
+      "minimum_z_mm": 0.0,
+      "copies": 1
+    },
+    "kolo-predni-76x12": {
+      "sha256": "0ef496500370675d4bd52908cb56698f0da1bcc7f075cbf8e1e69d3c63ab5519",
+      "triangles": 2560,
+      "edge_connected_components": 1,
+      "edges_not_exactly_two_faces": 0,
+      "inconsistent_winding_edges": 0,
+      "degenerate_triangles": 0,
+      "signed_volume_mm3": 21930.413214202767,
+      "volume_difference_fraction": 0.0005147618913891002,
+      "bbox_mm": [
+        75.99906,
+        75.99812,
+        12.0
+      ],
+      "minimum_z_mm": 0.0,
+      "copies": 2
+    },
+    "osa-zadni-109_3": {
+      "sha256": "ee27741858052aac3571863ec7f1dc9d36e5f07498a32440dcd1d308f2cde78b",
+      "triangles": 1496,
+      "edge_connected_components": 1,
+      "edges_not_exactly_two_faces": 0,
+      "inconsistent_winding_edges": 0,
+      "degenerate_triangles": 0,
+      "signed_volume_mm3": 5071.460074160978,
+      "volume_difference_fraction": 0.0003425134127991561,
+      "bbox_mm": [
+        109.3,
+        12.999960000000002,
+        9.29799
+      ],
+      "minimum_z_mm": 0.0,
+      "copies": 1
+    },
+    "ram-rizeni": {
+      "sha256": "f55430419779769759bd8593e4c29bbc6dfc79cedc61bf2ba6539b08b25e0498",
+      "triangles": 6804,
+      "edge_connected_components": 1,
+      "edges_not_exactly_two_faces": 0,
+      "inconsistent_winding_edges": 0,
+      "degenerate_triangles": 0,
+      "signed_volume_mm3": 65993.26421382211,
+      "volume_difference_fraction": 2.9423812326757017e-05,
+      "bbox_mm": [
+        198.0,
+        103.99644,
+        34.0
+      ],
+      "minimum_z_mm": 0.0,
+      "copies": 1
+    },
+    "celist-horni": {
+      "sha256": "bbdfc0d4ba793f973ad7c13b947867d38b9739c58f13362b41cbaced25f51872",
+      "triangles": 972,
+      "edge_connected_components": 1,
+      "edges_not_exactly_two_faces": 0,
+      "inconsistent_winding_edges": 0,
+      "degenerate_triangles": 0,
+      "signed_volume_mm3": 983.3488273123955,
+      "volume_difference_fraction": 0.00023251162399961676,
+      "bbox_mm": [
+        15.9982,
+        24.4992,
+        7.0
+      ],
+      "minimum_z_mm": 0.0,
+      "copies": 2
+    },
+    "svisly-cep": {
+      "sha256": "2187b532545a3620d106526d75f87524a9fb17516953a3696fca48eda3fe7f7b",
+      "triangles": 1496,
+      "edge_connected_components": 1,
+      "edges_not_exactly_two_faces": 0,
+      "inconsistent_winding_edges": 0,
+      "degenerate_triangles": 0,
+      "signed_volume_mm3": 1702.838362629405,
+      "volume_difference_fraction": 0.00034300044576626986,
+      "bbox_mm": [
+        35.3,
+        12.999960000000002,
+        9.29799
+      ],
+      "minimum_z_mm": 0.0,
+      "copies": 2
+    },
+    "tehlice-leva": {
+      "sha256": "a385b4110b143d247207a09e7e985b94c1e119e68685a05a327e10a98fa9e7b4",
+      "triangles": 4902,
+      "edge_connected_components": 1,
+      "edges_not_exactly_two_faces": 0,
+      "inconsistent_winding_edges": 0,
+      "degenerate_triangles": 0,
+      "signed_volume_mm3": 4087.447991746113,
+      "volume_difference_fraction": 0.00012930606011818735,
+      "bbox_mm": [
+        32.9,
+        31.29982,
+        32.5
+      ],
+      "minimum_z_mm": 0.0,
+      "copies": 1
+    },
+    "tehlice-prava": {
+      "sha256": "43f022059d7716a091d5fc33d67dd575e55ee3d1d636e4384e40b82f382b3676",
+      "triangles": 4902,
+      "edge_connected_components": 1,
+      "edges_not_exactly_two_faces": 0,
+      "inconsistent_winding_edges": 0,
+      "degenerate_triangles": 0,
+      "signed_volume_mm3": 4087.4481801702277,
+      "volume_difference_fraction": 0.00012968029021732106,
+      "bbox_mm": [
+        32.9,
+        31.29982,
+        32.5
+      ],
+      "minimum_z_mm": 0.0,
+      "copies": 1
+    },
+    "spojovaci-tahlo": {
+      "sha256": "7bed23f1fa61c425b0adcb0212e8330b0ec365b4c4e0a2752b6e32700974d3e4",
+      "triangles": 1884,
+      "edge_connected_components": 1,
+      "edges_not_exactly_two_faces": 0,
+      "inconsistent_winding_edges": 0,
+      "degenerate_triangles": 0,
+      "signed_volume_mm3": 1484.1192490661983,
+      "volume_difference_fraction": 0.00010528229230308762,
+      "bbox_mm": [
+        13.5,
+        99.99632,
+        3.0
+      ],
+      "minimum_z_mm": 0.0,
+      "copies": 1
+    },
+    "servo-tahlo-r15": {
+      "sha256": "25c1c8213e8b5d445fee694eb1108b0df9e6e9e516d8e5ccde050088582fa3e7",
+      "triangles": 1896,
+      "edge_connected_components": 1,
+      "edges_not_exactly_two_faces": 0,
+      "inconsistent_winding_edges": 0,
+      "degenerate_triangles": 0,
+      "signed_volume_mm3": 792.7847635714513,
+      "volume_difference_fraction": 0.00016079647794141195,
+      "bbox_mm": [
+        54.28194,
+        11.99998,
+        3.0
+      ],
+      "minimum_z_mm": 0.0,
+      "copies": 1
+    },
+    "distanc-packy": {
+      "sha256": "63e038fc0b893787f7e4b3807c66f7613b53f515ddd945f93027bd989cbb02a6",
+      "triangles": 1008,
+      "edge_connected_components": 1,
+      "edges_not_exactly_two_faces": 0,
+      "inconsistent_winding_edges": 0,
+      "degenerate_triangles": 0,
+      "signed_volume_mm3": 54.12526921458232,
+      "volume_difference_fraction": 0.00041435485193677224,
+      "bbox_mm": [
+        4.4,
+        4.39864,
+        4.9
+      ],
+      "minimum_z_mm": 0.0,
+      "copies": 1
+    },
+    "cep-tahla-dlouhy": {
+      "sha256": "c4207de7cc207a330a6273ef5323b0d71831352e8e63dc9f3ad1c2a5c194a65c",
+      "triangles": 1488,
+      "edge_connected_components": 1,
+      "edges_not_exactly_two_faces": 0,
+      "inconsistent_winding_edges": 0,
+      "degenerate_triangles": 0,
+      "signed_volume_mm3": 447.9970432461491,
+      "volume_difference_fraction": 0.00033875387945141004,
+      "bbox_mm": [
+        15.6,
+        9.99886,
+        7.0
+      ],
+      "minimum_z_mm": 0.0,
+      "copies": 1
+    },
+    "cep-tahla-kratky": {
+      "sha256": "3e5b70662458678fbbd56df259d092098f8db31b12acbfc025f899e51b1f2d40",
+      "triangles": 1488,
+      "edge_connected_components": 1,
+      "edges_not_exactly_two_faces": 0,
+      "inconsistent_winding_edges": 0,
+      "degenerate_triangles": 0,
+      "signed_volume_mm3": 362.4244473608925,
+      "volume_difference_fraction": 0.0003395745412671408,
+      "bbox_mm": [
+        12.2,
+        9.99886,
+        7.0
+      ],
+      "minimum_z_mm": 0.0,
+      "copies": 1
+    },
+    "pojistka-mala": {
+      "sha256": "16f315d7f9a68525af9bfd74d99b27113de4dcb9e2ce6369fecf930b6a8928cd",
+      "triangles": 788,
+      "edge_connected_components": 1,
+      "edges_not_exactly_two_faces": 0,
+      "inconsistent_winding_edges": 0,
+      "degenerate_triangles": 0,
+      "signed_volume_mm3": 62.98478257214036,
+      "volume_difference_fraction": 0.0004733567941344291,
+      "bbox_mm": [
+        9.55887,
+        10.0,
+        1.3
+      ],
+      "minimum_z_mm": 0.0,
+      "copies": 2
+    }
+  },
+  "zip_verified_stl_count": 33,
+  "upgrade_verified_stl_count": 22,
+  "reused_v2_types": [
+    "plosina-170x60",
+    "pastorek-18z-otvor-2_2",
+    "mezikolo-54_18z",
+    "osa-mezi-65_2",
+    "rozperka-8_6",
+    "rozperka-17_6",
+    "rozperka-1_6",
+    "pojistka-c"
+  ],
+  "original_cad_unchanged": true,
+  "markdown_links_pass": true,
+  "all_passed": true
+}

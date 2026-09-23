@@ -1,0 +1,14 @@
+Sketch SHA256: 1760730b716a6fb281ed900400d533eaac17d96c9b779a6c91e2e99502d69110
+Coverage: connection restored while pointer remains held; no ARM/HOLD until release and new press.
+PASS Chromium HTTP hold >2s with 200ms roundtrip +20ms browser pause
+PASS Chromium HTTP hold >2s with 300ms roundtrip +20ms browser pause
+PASS Chromium HTTP hold >2s with 400ms roundtrip +20ms browser pause
+PASS Chromium HTTP jittered response chain remains live then touch release stops
+PASS Chromium HTTP release while ARM response pending cannot start motor
+PASS Chromium HTTP dropped STOP expires without retrigger, new press refreshes session
+PASS Chromium HTTP HOLD loss stops; connection recovery alone cannot restart
+PASS Chromium HTTP lost session response can retry on next press without token lockout
+PASS Chromium HTTP stale duplicate HOLD and earlier STOP do not cut a newer press
+PASS 9 real Chromium HTTP scenarios against actual persistent C++ sketch; hardware remains mocked
+
+Exit status: 0

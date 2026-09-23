@@ -1,0 +1,42 @@
+{
+  "status": "pass",
+  "method": "Calibration: actual CAD display objects -> BOM -> ZIP -> 3MF; no assembly instance claim",
+  "source_report": "/home/novakj/3d-print/models/auticko-silovy-prevod-25/kalibrace-4-v2/kontrola-kalibrace.json",
+  "source_report_sha256": "3601823724911a83f207bf6ece019f6664674c5fdaa2a71f1c472cd77d99c9c3",
+  "source_zip_sha256": "4084c3dea334c65aebe281016e6be6b8fb906acb315fcdd785c418d6c8dd1361",
+  "verification_3mf_sha256": "0417b5eab649a5fe6866b69b175a7a4b0b98823b4690b155c40fa4bf5b510ceb",
+  "physical_copies": 2,
+  "part_types": 2,
+  "all_counts_equal": true,
+  "all_zip_copies_identical_to_canonical_stl": true,
+  "parts": [
+    {
+      "part": "kalibrace-4-v2-y",
+      "assembly_or_display_count": 1,
+      "bom_count": 1,
+      "zip_count": 1,
+      "3mf_count": 1,
+      "copies": [
+        {
+          "name": "kalibrace-4-v2-y__01",
+          "file": "kalibrace-4-v2-podlozka-01.3mf",
+          "number_in_preview": 2
+        }
+      ]
+    },
+    {
+      "part": "kalibrace-4-v2-z",
+      "assembly_or_display_count": 1,
+      "bom_count": 1,
+      "zip_count": 1,
+      "3mf_count": 1,
+      "copies": [
+        {
+          "name": "kalibrace-4-v2-z__01",
+          "file": "kalibrace-4-v2-podlozka-01.3mf",
+          "number_in_preview": 1
+        }
+      ]
+    }
+  ]
+}

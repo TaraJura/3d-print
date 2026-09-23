@@ -1,0 +1,78 @@
+{
+  "revision": "fit-8_6-12_6-2026-09-20",
+  "updated_utc": "2026-09-19T22:57:09.213954+00:00",
+  "main_print_set_ready": true,
+  "main_source_status": "Regenerated and verified user-authorized nominal print prototype; original 20 degree module 1 gearing",
+  "main_validation_pass": true,
+  "main_outputs": "Current complete print prototype in project: 34 STL types, 66 physical copies, three geometry-only 3MF plates; prior variant archived separately",
+  "blocking_decision": null,
+  "work_continuing_in_background": false,
+  "status": "Complete print prototype ready; no mandatory coupon gate; physical fit and operation unverified",
+  "accepted_scope": {
+    "mode": "nominal_print_prototype",
+    "nominal_static_assembly": true,
+    "changed_parametric_recompute_restore": true,
+    "changed_horn_lock_holes_at_steering_extremes": true,
+    "axial_8mm_in_12mm_engagement": true,
+    "unchanged_gears_nominal_motion_reused_with_shape_identity": true,
+    "unchanged_steering_motion_reused_with_source_and_parameter_identity": true,
+    "full_nominal_radial_clearance_scenario_pass": false,
+    "physical_test": false
+  },
+  "nominal_cad_validation_pass": true,
+  "full_nominal_radial_clearance_scenario_pass": false,
+  "physical_tested": false,
+  "source_hashes": {
+    "auticko-silovy-prevod-25.FCMacro": "f970d5b78660a9bcd2cdd57ad66e9e7e9df38eb19f755fcae27e62a91e319df2",
+    "rizeni-geometrie.py": "00de3cdfd40525ca7ef1b0d50cd2ba6953114b9f29b53cb15b997eb785255dcd",
+    "servo-uchyceni.py": "b9607955472bd3815e171139796e4d373b1fc03a4d0a64e88e9a8e3099397646",
+    "rizeni-sestava.py": "ad23bb77641200fc0f4ada5e97a5363b22f0fa44e3c76a01d51516032da44d0b"
+  },
+  "main_report_sha256": "a94fc469a0a50db65e5c8539c0207d4909ca56b84e2af0c687457ece039e02e7",
+  "final_fcstd_sha256": "68ea656115ca166e95adf049ba3347167bbedb6a44fdd77c22d8aef21761e6e9",
+  "zip_sha256": "3e6ea7b537a1b2cb9197cbcf23623bbfbc9b7354323d0415af6e7eac19d7aa6f",
+  "count_types": 34,
+  "count_parts": 66,
+  "count_wheels": 4,
+  "deliverables": [
+    {
+      "file": "rozlozeni/auticko-25-podlozka-01.3mf",
+      "objects": 26,
+      "sha256": "346503c0ab30c7c1b338f7ab1ac3ee9db69d53bd13e101cbf77ddd8a33419e39"
+    },
+    {
+      "file": "rozlozeni/auticko-25-podlozka-02.3mf",
+      "objects": 27,
+      "sha256": "d6ef30b6b062b8526a847644c4b9b71200f9e52ccb4a3feef2e2c9993f87ba6f"
+    },
+    {
+      "file": "rozlozeni/auticko-25-podlozka-03.3mf",
+      "objects": 13,
+      "sha256": "a312a73f40cbfa0f8b854c046cfd73ce617b981511f85ced81357312a045a742"
+    }
+  ],
+  "optional_test_artifacts": [
+    {
+      "file": "zkouska-prevodu/zkouska-prevodu-podlozka-01.3mf",
+      "objects": 7,
+      "sha256": "2d001c67b6299568b6544d4fbd94c75e0eff9888868929b3398d1b26894981a6",
+      "cad_export_verified": true,
+      "physical_tested": false
+    },
+    {
+      "file": "kalibrace-4-v2/kalibrace-4-v2-podlozka-01.3mf",
+      "objects": 2,
+      "sha256": "e9ff259b1f6a3ac4e2155896c951eed0a3a265532c4a9591f1172c26d930fa21",
+      "cad_export_verified": true,
+      "physical_tested": false
+    }
+  ],
+  "handoff_location": "Project only; existing Desktop copies unchanged and not current revision",
+  "limitations": [
+    "Full conservative CAD radial-clearance scenario remains false, not a release gate for this user-authorized nominal prototype.",
+    "Actual printed clearances, complete assembly, load capacity and driving not tested.",
+    "3MF carries geometry only; supports and toolpaths must be inspected in slicer."
+  ],
+  "export_validation_pass": true,
+  "export_report_sha256": "fbde3a95212591389227e4925f58f933e639a901fe89394566ec801dc5b4952b"
+}

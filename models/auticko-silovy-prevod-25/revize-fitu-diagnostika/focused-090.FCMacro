@@ -1,0 +1,34 @@
+"""Isolated actual fcgear profile probe; writes only this cache directory."""
+from pathlib import Path
+import math,json,sys,hashlib
+import FreeCAD as App,Part
+try:from fcgear import fcgear,involute
+except ImportError:
+    sys.path.append(str(Path(App.getResourceDir())/'Mod'/'PartDesign'));from fcgear import fcgear,involute
+OUT=Path(__file__).resolve().parent
+candidate={'module':1.1,'pressure_angle':14,'small_addendum':1.31,'large_addendum':1.59,'dedendum':1.7,'centre_extra':.90}
+def gear(z,m,pa,add,ded):
+    w=fcgear.FCWireBuilder();involute.CreateExternalGear(w,m,z,pa,split=True,addCoeff=add,dedCoeff=ded)
+    wire=Part.Wire([e.toShape() for e in w.wire]);face=Part.Face(wire);assert face.isValid()
+    return wire,face.extrude(App.Vector(0,0,1))
+def rotate(sh,angle,x=0):
+    a=sh.copy();a.rotate(App.Vector(),App.Vector(0,0,1),angle);a.translate(App.Vector(x,0,0));return a
+def profile_info(w,z):
+    cc=[e for e in w.Edges if type(e.Curve).__name__=='Circle'];ra=max(e.Curve.Radius for e in cc)
+    tips=[e for e in cc if abs(e.Curve.Radius-ra)<1e-6];assert len(tips)==z
+    flank=[]
+    for e in w.Edges:
+        if type(e.Curve).__name__ in ('BSplineCurve','BezierCurve'):
+            flank += [v.Point.Length for v in e.Vertexes]
+    return {'teeth':z,'tip_edges':len(tips),'minimum_actual_tip_chord':min((e.Vertexes[0].Point-e.Vertexes[1].Point).Length for e in tips),'minimum_flank_endpoint_radius':min(flank),'nominal_tip_curve_radius':ra}
+
+result=[]
+small,large=18,54;m=1.1;pa=14;theta=8/32*360/large;nominal=m*(small+large)/2+.9
+wl,l=gear(large,m,pa,1.59,1.7);wr,r=gear(small,m,pa,1.31,1.7);info=profile_info(wr,small);rb=m*small/2*math.cos(math.radians(pa))
+for key,d in [('min',nominal-.5),('nominal',nominal),('max',nominal+.5)]:
+ angle=math.radians(pa);aw=math.acos(m*(small+large)/2*math.cos(angle)/d);correction=math.degrees((math.tan(aw)-aw-math.tan(angle)+angle)*(small+large)/small);retreat=math.degrees(.007/rb)
+ for sign in (-1,0,1):
+  left=rotate(l,theta);right=rotate(r,180/small-theta*large/small+sign*correction,d);common=left.common(right);radii=[math.hypot(v.Point.x-d,v.Point.y) for v in common.Vertexes]
+  q=left.common(rotate(r,180/small-theta*large/small+sign*max(0,correction-retreat),d))
+  row={'centre':key,'distance':d,'flank':sign,'overlap_mm3':common.Volume,'small_intersection_radii_mm':[min(radii),max(radii)] if radii else [],'small_base_radius_mm':rb,'active_spline_start':info['minimum_flank_endpoint_radius'],'retreat_mm':.007,'after_retreat_mm3':q.Volume};result.append(row);print(row,flush=True)
+(OUT/'focused-090.json').write_text(json.dumps(result,indent=2)+'\n')

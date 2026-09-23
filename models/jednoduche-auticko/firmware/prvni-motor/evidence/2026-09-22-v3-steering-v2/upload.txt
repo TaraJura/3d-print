@@ -1,0 +1,60 @@
+Performing 1200-bps touch reset on serial port /dev/ttyACM0
+"/home/novakj/.cache/auticko-arduino-test/data/packages/arduino/tools/bossac/1.9.1-arduino5/bossac" -d --port=ttyACM0 -U -e -w "/home/novakj/.codex/worktrees/e339/3d-print/models/jednoduche-auticko/firmware/prvni-motor/.cache/arduino-v3-steering-v2-build/prvni-motor.ino.bin" -R
+Set binary mode
+version()=Arduino Bootloader (SAM-BA extended) 2.0 [Arduino:IKXYZ]
+Connected at 921600 baud
+identifyChip()=nRF52840-QIAA
+write(addr=0,size=0x34)
+writeWord(addr=0x30,value=0x400)
+writeWord(addr=0x20,value=0)
+Erase flash
+chipErase(addr=0)
+
+Done in 0.002 seconds
+Write 84948 bytes to flash (21 pages)
+[                              ] 0% (0/21 pages)write(addr=0x34,size=0x1000)
+writeBuffer(scr_addr=0x34, dst_addr=0, size=0x1000)
+[=                             ] 4% (1/21 pages)write(addr=0x34,size=0x1000)
+writeBuffer(scr_addr=0x34, dst_addr=0x1000, size=0x1000)
+[==                            ] 9% (2/21 pages)write(addr=0x34,size=0x1000)
+writeBuffer(scr_addr=0x34, dst_addr=0x2000, size=0x1000)
+[====                          ] 14% (3/21 pages)write(addr=0x34,size=0x1000)
+writeBuffer(scr_addr=0x34, dst_addr=0x3000, size=0x1000)
+[=====                         ] 19% (4/21 pages)write(addr=0x34,size=0x1000)
+writeBuffer(scr_addr=0x34, dst_addr=0x4000, size=0x1000)
+[=======                       ] 23% (5/21 pages)write(addr=0x34,size=0x1000)
+writeBuffer(scr_addr=0x34, dst_addr=0x5000, size=0x1000)
+[========                      ] 28% (6/21 pages)write(addr=0x34,size=0x1000)
+writeBuffer(scr_addr=0x34, dst_addr=0x6000, size=0x1000)
+[==========                    ] 33% (7/21 pages)write(addr=0x34,size=0x1000)
+writeBuffer(scr_addr=0x34, dst_addr=0x7000, size=0x1000)
+[===========                   ] 38% (8/21 pages)write(addr=0x34,size=0x1000)
+writeBuffer(scr_addr=0x34, dst_addr=0x8000, size=0x1000)
+[============                  ] 42% (9/21 pages)write(addr=0x34,size=0x1000)
+writeBuffer(scr_addr=0x34, dst_addr=0x9000, size=0x1000)
+[==============                ] 47% (10/21 pages)write(addr=0x34,size=0x1000)
+writeBuffer(scr_addr=0x34, dst_addr=0xa000, size=0x1000)
+[===============               ] 52% (11/21 pages)write(addr=0x34,size=0x1000)
+writeBuffer(scr_addr=0x34, dst_addr=0xb000, size=0x1000)
+[=================             ] 57% (12/21 pages)write(addr=0x34,size=0x1000)
+writeBuffer(scr_addr=0x34, dst_addr=0xc000, size=0x1000)
+[==================            ] 61% (13/21 pages)write(addr=0x34,size=0x1000)
+writeBuffer(scr_addr=0x34, dst_addr=0xd000, size=0x1000)
+[====================          ] 66% (14/21 pages)write(addr=0x34,size=0x1000)
+writeBuffer(scr_addr=0x34, dst_addr=0xe000, size=0x1000)
+[=====================         ] 71% (15/21 pages)write(addr=0x34,size=0x1000)
+writeBuffer(scr_addr=0x34, dst_addr=0xf000, size=0x1000)
+[======================        ] 76% (16/21 pages)write(addr=0x34,size=0x1000)
+writeBuffer(scr_addr=0x34, dst_addr=0x10000, size=0x1000)
+[========================      ] 80% (17/21 pages)write(addr=0x34,size=0x1000)
+writeBuffer(scr_addr=0x34, dst_addr=0x11000, size=0x1000)
+[=========================     ] 85% (18/21 pages)write(addr=0x34,size=0x1000)
+writeBuffer(scr_addr=0x34, dst_addr=0x12000, size=0x1000)
+[===========================   ] 90% (19/21 pages)write(addr=0x34,size=0x1000)
+writeBuffer(scr_addr=0x34, dst_addr=0x13000, size=0x1000)
+[============================  ] 95% (20/21 pages)write(addr=0x34,size=0x1000)
+writeBuffer(scr_addr=0x34, dst_addr=0x14000, size=0x1000)
+[==============================] 100% (21/21 pages)
+Done in 4.571 seconds
+reset()
+New upload port: /dev/ttyACM0 (serial)

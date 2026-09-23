@@ -1,0 +1,149 @@
+{
+  "kind": "Nová kalibrace Ø4 V2, větší otvory fyzicky neověřeny",
+  "unit": "mm",
+  "parts": {
+    "kalibrace-4-v2-z": {
+      "copies": 1,
+      "object": "Coupon4V2Z",
+      "stl": "stl/kalibrace-4-v2-z.stl",
+      "nominal_holes_mm": [
+        4.4,
+        4.6,
+        4.8
+      ],
+      "bore_axis_in_print": "Z",
+      "bore_depth_mm": 8,
+      "raised_labels": [
+        "4.4",
+        "4.6",
+        "4.8",
+        "Z",
+        "V2"
+      ],
+      "numbering": "Each diameter is embossed above its corresponding hole column; axis and V2 at right.",
+      "valid": true,
+      "solid_count": 1,
+      "closed_mesh": true,
+      "facets": 3560,
+      "volume_mm3": 5877.800695326713,
+      "bbox_mm": [
+        47.0,
+        16.6,
+        8.6
+      ]
+    },
+    "kalibrace-4-v2-y": {
+      "copies": 1,
+      "object": "Coupon4V2Y",
+      "stl": "stl/kalibrace-4-v2-y.stl",
+      "nominal_holes_mm": [
+        4.4,
+        4.6,
+        4.8
+      ],
+      "bore_axis_in_print": "Y",
+      "bore_depth_mm": 8,
+      "raised_labels": [
+        "4.4",
+        "4.6",
+        "4.8",
+        "Y",
+        "V2"
+      ],
+      "numbering": "Each diameter is embossed above its corresponding hole column; axis and V2 at right.",
+      "valid": true,
+      "solid_count": 1,
+      "closed_mesh": true,
+      "facets": 3548,
+      "volume_mm3": 3470.4791234656996,
+      "bbox_mm": [
+        47.0,
+        8.0,
+        10.799999999999999
+      ]
+    }
+  },
+  "display_objects": [
+    "ViewCoupon4V2Z",
+    "ViewCoupon4V2Y"
+  ],
+  "generator_sha256": "7b82b477615b2138abdf203cd21ab62aa8a6541973f1c48efe814f05ac0e9d4f",
+  "reuse_pin": "Original nominal full-round Ø4×24 mm pin; no new pin, no reduced diameter.",
+  "bore_depth_parameter_test": {
+    "trial_mm": 9,
+    "restored_mm": 8,
+    "restored_max_volume_difference_mm3": 0.0
+  },
+  "embossed_digits": "Native Part strokes, height5mm, width0.65mm, emboss0.6mm. Regenerate macro after changing hole values to synchronize numerals.",
+  "bore_checks": [
+    {
+      "part": "kalibrace-4-v2-z",
+      "diameter_mm": 4.4,
+      "clear_axis_and_wall_checked_at_depths_mm": [
+        0.05,
+        4,
+        7.95
+      ],
+      "functional_depth_mm": 8
+    },
+    {
+      "part": "kalibrace-4-v2-z",
+      "diameter_mm": 4.6,
+      "clear_axis_and_wall_checked_at_depths_mm": [
+        0.05,
+        4,
+        7.95
+      ],
+      "functional_depth_mm": 8
+    },
+    {
+      "part": "kalibrace-4-v2-z",
+      "diameter_mm": 4.8,
+      "clear_axis_and_wall_checked_at_depths_mm": [
+        0.05,
+        4,
+        7.95
+      ],
+      "functional_depth_mm": 8
+    },
+    {
+      "part": "kalibrace-4-v2-y",
+      "diameter_mm": 4.4,
+      "clear_axis_and_wall_checked_at_depths_mm": [
+        0.05,
+        4,
+        7.95
+      ],
+      "functional_depth_mm": 8
+    },
+    {
+      "part": "kalibrace-4-v2-y",
+      "diameter_mm": 4.6,
+      "clear_axis_and_wall_checked_at_depths_mm": [
+        0.05,
+        4,
+        7.95
+      ],
+      "functional_depth_mm": 8
+    },
+    {
+      "part": "kalibrace-4-v2-y",
+      "diameter_mm": 4.8,
+      "clear_axis_and_wall_checked_at_depths_mm": [
+        0.05,
+        4,
+        7.95
+      ],
+      "functional_depth_mm": 8
+    }
+  ],
+  "validation_pass": true,
+  "gui_validation": {
+    "saved_and_reopened": true,
+    "visible_objects": [
+      "ViewCoupon4V2Z",
+      "ViewCoupon4V2Y"
+    ],
+    "invalid_objects": []
+  }
+}

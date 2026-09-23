@@ -1,0 +1,141 @@
+{
+  "generator_sha256": "0d8e0641725de266f804afe4d658120f1e43d10cc1965d0ccdcb037552195abe",
+  "files": {
+    "zkouska-prevodu.FCStd": {
+      "sha256": "8a7b6b853c7386d2c8e46644976dcb484ca960e0f685d5795a4541c51e42d039",
+      "bytes": 1486939
+    },
+    "zkouska-prevodu.zip": {
+      "sha256": "ea277264711d9accb6f2fe3c14dc05b4669c28e56cca7b53ea3f58bf22df0663",
+      "bytes": 898606
+    },
+    "nahled.FCMacro": {
+      "sha256": "cec254cf6b6d95dd17d8de58c425ff26c9b4d7a807b93d42228691eff2d70179",
+      "bytes": 2097
+    },
+    "nahled.png": {
+      "sha256": "5f241d78fbc36a433c634351abb45b817b98941fb9a4f8ba2771ee850028cf9e",
+      "bytes": 85119
+    },
+    "opacna-strana.png": {
+      "sha256": "02257dd565afe8f61857f83512859be00f6b77c984ad2446c6886a7884f0566a",
+      "bytes": 65082
+    },
+    "podlozka-01.png": {
+      "sha256": "f5b316a1f79ae82d9d6dfc44884f562c114f0deeb94b689c205321d11af9f27c",
+      "bytes": 321614
+    },
+    "README.md": {
+      "sha256": "99784cc39842399062757a6ac7ad7eb854e318539c79eca39708f677359f8b81",
+      "bytes": 7994
+    },
+    "README-3MF.md": {
+      "sha256": "c7a6efff302b7e124c130e469c94c81ed2ad9577284183793cf57170fc9651c8",
+      "bytes": 1317
+    },
+    "kontrola-modelu.json": {
+      "sha256": "dd61c3277323f053ad85af4207740c02b54233622091e88f1d77921a71448775",
+      "bytes": 12185
+    },
+    "zkouska-prevodu-podlozka-01.3mf": {
+      "sha256": "2d001c67b6299568b6544d4fbd94c75e0eff9888868929b3398d1b26894981a6",
+      "bytes": 868210
+    },
+    "overeni-kusovniku.json": {
+      "sha256": "d6168d3b88cd926d1ebf9ec1c1b20df16a52eaad0c58ac246a349517ac96d8de",
+      "bytes": 2541
+    },
+    "overeni-3mf.json": {
+      "sha256": "c8f365eb221c5ef8b0f0171d941dc73d8291c12bc135d081863d2df4c05e528c",
+      "bytes": 3727
+    },
+    "overeni-importu.json": {
+      "sha256": "09df366dcc90011ac5ba0851e64ed862ddabff917d4e6ba2c1953f9b9bb9ba26",
+      "bytes": 2734
+    },
+    "overeni-rozlozeni.json": {
+      "sha256": "24a3c975e84c0c78469a259bcbc886788cc062eef9fcd1ff18bda18875091644",
+      "bytes": 5952
+    }
+  },
+  "stl": {
+    "vyrez-ramu": {
+      "sha256": "3c12c56b7f7a4196f4924686df52d557a7fd9f60a826dec0b43adfbcb3354899",
+      "triangles": 3244,
+      "components": 1,
+      "bad_edges": 0,
+      "bad_winding": 0,
+      "degenerate_triangles": 0,
+      "volume_error_fraction": 4.284149822786022e-05,
+      "bbox_mm": [
+        59.4,
+        70.0,
+        38.0
+      ],
+      "minimum_z_mm": 0.0
+    },
+    "dvojkolo-a": {
+      "sha256": "78204b0a42d90bd7d0f74274b9efb47f6750258ec6f9ee6ff28b255e5f855528",
+      "triangles": 27720,
+      "components": 1,
+      "bad_edges": 0,
+      "bad_winding": 0,
+      "degenerate_triangles": 0,
+      "volume_error_fraction": 0.00025151287041534095,
+      "bbox_mm": [
+        56.40006,
+        56.33662,
+        30.0
+      ],
+      "minimum_z_mm": 0.0
+    },
+    "dvojkolo-b": {
+      "sha256": "bec15ad87b7c0b46d7112950ec1d94ba81aaa6c049646001c6b3bea1d73ccb7d",
+      "triangles": 33464,
+      "components": 1,
+      "bad_edges": 0,
+      "bad_winding": 0,
+      "degenerate_triangles": 0,
+      "volume_error_fraction": 0.00019441643557968356,
+      "bbox_mm": [
+        62.39998,
+        62.39998,
+        30.0
+      ],
+      "minimum_z_mm": 0.0
+    },
+    "pevny-cep-8x53_9": {
+      "sha256": "dadc7cac8a1ab3539f123e7abdd65fa3d0555b4b37d583de85756956aaa5e795",
+      "triangles": 1524,
+      "components": 1,
+      "bad_edges": 0,
+      "bad_winding": 0,
+      "degenerate_triangles": 0,
+      "volume_error_fraction": 0.0003728764987985955,
+      "bbox_mm": [
+        53.9,
+        12.0,
+        12.0
+      ],
+      "minimum_z_mm": 0.0
+    },
+    "pojistka-6_9": {
+      "sha256": "9e0bea84aaedbfd01be7359a0ca83644f25736050aa7b0d7448b1942ea491dab",
+      "triangles": 772,
+      "components": 1,
+      "bad_edges": 0,
+      "bad_winding": 0,
+      "degenerate_triangles": 0,
+      "volume_error_fraction": 0.0004806318404108713,
+      "bbox_mm": [
+        12.290000000000001,
+        12.99998,
+        1.3
+      ],
+      "minimum_z_mm": 0.0
+    }
+  },
+  "zip_stl_count": 7,
+  "markdown_links_pass": true,
+  "all_passed": true
+}

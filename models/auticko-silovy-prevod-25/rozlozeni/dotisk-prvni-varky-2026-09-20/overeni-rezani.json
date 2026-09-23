@@ -1,0 +1,795 @@
+{
+  "status": "pass_with_recorded_profile_warnings",
+  "method": "Offline slicing, isolated profiles; actual G-code feature roles and all non-custom extrusion centre lines parsed. No printer connection.",
+  "limits": "No physical print, strength, support removability or live personal profile verified. Full startup/custom moves and machine execution are outside this path audit. Diagnostic G-code is not a deliverable to send to the printer.",
+  "plates": [
+    {
+      "plate": 1,
+      "source_3mf": "dotisk-25-podlozka-01.3mf",
+      "source_sha256": "40f0a3e4437711f27e6bd75b8040a5753d5f91c4569f2bad586383d5b10e441d",
+      "sliced_archive_path": "/home/novakj/3d-print/.cache/dotisk-2026-09-20/plate-1/sliced.3mf",
+      "sliced_archive_sha256": "20663d1c139e1008853ad0ae368d1922d876f17884221b4b2a74b3182117e959",
+      "gcode_sha256": "bd81db8fb542f3c1de3a154eb4226b8ad962cc6ab6cc467b211983740cc970f5",
+      "slicer": "Installed AnycubicSlicerNext; generated header reports 2.0.0.5",
+      "exit_code": 0,
+      "metadata": {
+        "printer_model_id": "",
+        "nozzle_diameters": "0.4",
+        "prediction": "16784",
+        "weight": "19.99",
+        "outside": "false",
+        "support_used": "true"
+      },
+      "warnings": [
+        {
+          "msg": "bed_temperature_too_high_than_filament",
+          "level": "1",
+          "error_code": "1000C001"
+        },
+        {
+          "msg": "not_support_traditional_timelapse",
+          "level": "1",
+          "error_code": "1000C003"
+        }
+      ],
+      "object_names": [
+        "osa-zadni-12x150_6__01"
+      ],
+      "settings": {
+        "printer_model": "Anycubic Kobra X",
+        "printer_settings_id": "Anycubic Kobra X 0.4 nozzle",
+        "print_settings_id": "V3 dotisk 01 - stojata osa - podpory - 0.12 mm",
+        "filament_settings_id": [
+          "Anycubic PLA @Anycubic Kobra X 0.4 nozzle"
+        ],
+        "filament_type": [
+          "PLA"
+        ],
+        "nozzle_diameter": [
+          "0.4"
+        ],
+        "layer_height": "0.12",
+        "initial_layer_print_height": "0.2",
+        "enable_support": "1",
+        "support_type": "normal(auto)",
+        "support_style": "snug",
+        "support_on_build_plate_only": "0",
+        "support_remove_small_overhang": "0",
+        "support_threshold_angle": "45",
+        "support_top_z_distance": "0.12",
+        "support_bottom_z_distance": "0.12",
+        "support_object_xy_distance": "0.35",
+        "support_interface_top_layers": "3",
+        "brim_type": "outer_only",
+        "brim_width": "12",
+        "brim_object_gap": "0.1",
+        "initial_layer_speed": "20",
+        "inner_wall_speed": "30",
+        "outer_wall_speed": "20",
+        "small_perimeter_speed": "15",
+        "small_perimeter_threshold": "20",
+        "default_acceleration": "500",
+        "initial_layer_acceleration": "500",
+        "wall_loops": "4",
+        "sparse_infill_density": "100%",
+        "sparse_infill_pattern": "rectilinear",
+        "top_surface_pattern": "monotonicline",
+        "print_sequence": "by layer",
+        "nozzle_temperature": [
+          "205"
+        ],
+        "nozzle_temperature_initial_layer": [
+          "220"
+        ],
+        "hot_plate_temp": [
+          "60"
+        ],
+        "hot_plate_temp_initial_layer": [
+          "60"
+        ],
+        "textured_plate_temp": [
+          "60"
+        ],
+        "textured_plate_temp_initial_layer": [
+          "60"
+        ],
+        "curr_bed_type": "Textured PEI Plate",
+        "temperature_vitrification": [
+          "54"
+        ]
+      },
+      "imported_triangle_indices_unchanged": true,
+      "maximum_import_vertex_error_mm": 7.6293000006444345e-06,
+      "extruding_path_bounds_mm": [
+        [
+          112.247,
+          112.249,
+          0.2
+        ],
+        [
+          145.756,
+          147.754,
+          150.56
+        ]
+      ],
+      "roles": {
+        "Support": {
+          "segments": 1480,
+          "bounds_mm": [
+            [
+              124.151,
+              116.493,
+              0.2
+            ],
+            [
+              140.814,
+              145.906,
+              52.92
+            ]
+          ]
+        },
+        "Brim": {
+          "segments": 1706,
+          "bounds_mm": [
+            [
+              112.247,
+              112.249,
+              0.2
+            ],
+            [
+              145.756,
+              147.754,
+              0.2
+            ]
+          ]
+        },
+        "Outer wall": {
+          "segments": 75906,
+          "bounds_mm": [
+            [
+              124.21,
+              124.211,
+              0.2
+            ],
+            [
+              135.79,
+              135.789,
+              150.56
+            ]
+          ]
+        },
+        "Inner wall": {
+          "segments": 220950,
+          "bounds_mm": [
+            [
+              124.62,
+              124.621,
+              0.2
+            ],
+            [
+              135.38,
+              135.38,
+              150.44
+            ]
+          ]
+        },
+        "Bottom surface": {
+          "segments": 39,
+          "bounds_mm": [
+            [
+              126.122,
+              125.949,
+              0.2
+            ],
+            [
+              131.89,
+              133.887,
+              0.2
+            ]
+          ]
+        },
+        "Gap infill": {
+          "segments": 428,
+          "bounds_mm": [
+            [
+              125.002,
+              124.988,
+              0.2
+            ],
+            [
+              135.023,
+              135.035,
+              150.56
+            ]
+          ]
+        },
+        "Internal solid infill": {
+          "segments": 63845,
+          "bounds_mm": [
+            [
+              125.818,
+              125.818,
+              0.32
+            ],
+            [
+              134.182,
+              134.258,
+              150.44
+            ]
+          ]
+        },
+        "Support interface": {
+          "segments": 1321,
+          "bounds_mm": [
+            [
+              123.779,
+              123.778,
+              1.76
+            ],
+            [
+              136.214,
+              136.221,
+              147.8
+            ]
+          ]
+        },
+        "Overhang wall": {
+          "segments": 350,
+          "bounds_mm": [
+            [
+              124.21,
+              124.212,
+              3.08
+            ],
+            [
+              135.79,
+              135.789,
+              149.24
+            ]
+          ]
+        },
+        "Top surface": {
+          "segments": 61,
+          "bounds_mm": [
+            [
+              124.378,
+              124.372,
+              50.24
+            ],
+            [
+              135.627,
+              135.622,
+              150.56
+            ]
+          ]
+        },
+        "Bridge": {
+          "segments": 57,
+          "bounds_mm": [
+            [
+              125.785,
+              126.923,
+              54.44
+            ],
+            [
+              134.196,
+              133.076,
+              54.44
+            ]
+          ]
+        }
+      },
+      "extrusion_centre_lines_inside_bed": true
+    },
+    {
+      "plate": 2,
+      "source_3mf": "dotisk-25-podlozka-02.3mf",
+      "source_sha256": "6bdd55b6e0f3848186ea1dad5c309d1be05555835fb0a31c14f44d6ec3a20d53",
+      "sliced_archive_path": "/home/novakj/3d-print/.cache/dotisk-2026-09-20/plate-2/sliced.3mf",
+      "sliced_archive_sha256": "1dc99a34040ad12e550608917ad10c90514259c0ea90b76c0d4f5006fb68d2ed",
+      "gcode_sha256": "58c010f21870a742d738927a1693db1abc1ca077582bdadb8e60280fbf2de3c1",
+      "slicer": "Installed AnycubicSlicerNext; generated header reports 2.0.0.5",
+      "exit_code": 0,
+      "metadata": {
+        "printer_model_id": "Anycubic Kobra X",
+        "nozzle_diameters": "0.4",
+        "prediction": "4853",
+        "weight": "6.55",
+        "outside": "false",
+        "support_used": "true"
+      },
+      "warnings": [
+        {
+          "msg": "bed_temperature_too_high_than_filament",
+          "level": "1",
+          "error_code": "1000C001"
+        },
+        {
+          "msg": "not_support_traditional_timelapse",
+          "level": "1",
+          "error_code": "1000C003"
+        }
+      ],
+      "object_names": [
+        "tehlice-prava__01"
+      ],
+      "settings": {
+        "printer_model": "Anycubic Kobra X",
+        "printer_settings_id": "Anycubic Kobra X 0.4 nozzle",
+        "print_settings_id": "Dotisk V3 diagnostic plate 2 0.12mm",
+        "filament_settings_id": [
+          "Anycubic PLA @Anycubic Kobra X 0.4 nozzle"
+        ],
+        "filament_type": [
+          "PLA"
+        ],
+        "nozzle_diameter": [
+          "0.4"
+        ],
+        "layer_height": "0.12",
+        "initial_layer_print_height": "0.2",
+        "enable_support": "1",
+        "support_type": "normal(auto)",
+        "support_style": "snug",
+        "support_on_build_plate_only": "0",
+        "support_remove_small_overhang": "0",
+        "support_threshold_angle": "45",
+        "support_top_z_distance": "0.12",
+        "support_bottom_z_distance": "0.12",
+        "support_object_xy_distance": "0.35",
+        "support_interface_top_layers": "3",
+        "brim_type": "outer_only",
+        "brim_width": "8",
+        "brim_object_gap": "0.1",
+        "initial_layer_speed": "20",
+        "inner_wall_speed": "50",
+        "outer_wall_speed": "30",
+        "small_perimeter_speed": "20",
+        "small_perimeter_threshold": "20",
+        "default_acceleration": "1000",
+        "initial_layer_acceleration": "500",
+        "wall_loops": "4",
+        "sparse_infill_density": "100%",
+        "sparse_infill_pattern": "rectilinear",
+        "top_surface_pattern": "monotonicline",
+        "print_sequence": "by layer",
+        "nozzle_temperature": [
+          "205"
+        ],
+        "nozzle_temperature_initial_layer": [
+          "220"
+        ],
+        "hot_plate_temp": [
+          "60"
+        ],
+        "hot_plate_temp_initial_layer": [
+          "60"
+        ],
+        "textured_plate_temp": [
+          "60"
+        ],
+        "textured_plate_temp_initial_layer": [
+          "60"
+        ],
+        "curr_bed_type": "Textured PEI Plate",
+        "temperature_vitrification": [
+          "54"
+        ]
+      },
+      "imported_triangle_indices_unchanged": true,
+      "maximum_import_vertex_error_mm": 1.1639999996759798e-05,
+      "extruding_path_bounds_mm": [
+        [
+          104.975,
+          108.168,
+          0.2
+        ],
+        [
+          150.942,
+          150.421,
+          32.96
+        ]
+      ],
+      "roles": {
+        "Support": {
+          "segments": 5766,
+          "bounds_mm": [
+            [
+              115.354,
+              109.422,
+              0.2
+            ],
+            [
+              150.942,
+              150.421,
+              16.28
+            ]
+          ]
+        },
+        "Brim": {
+          "segments": 1045,
+          "bounds_mm": [
+            [
+              104.975,
+              108.168,
+              0.2
+            ],
+            [
+              131.123,
+              134.532,
+              0.2
+            ]
+          ]
+        },
+        "Outer wall": {
+          "segments": 26373,
+          "bounds_mm": [
+            [
+              112.36,
+              114.561,
+              0.2
+            ],
+            [
+              147.639,
+              145.439,
+              32.96
+            ]
+          ]
+        },
+        "Inner wall": {
+          "segments": 52406,
+          "bounds_mm": [
+            [
+              112.769,
+              114.97,
+              0.2
+            ],
+            [
+              147.229,
+              145.03,
+              32.84
+            ]
+          ]
+        },
+        "Gap infill": {
+          "segments": 11876,
+          "bounds_mm": [
+            [
+              113.141,
+              115.534,
+              0.2
+            ],
+            [
+              144.069,
+              144.394,
+              30.2
+            ]
+          ]
+        },
+        "Bottom surface": {
+          "segments": 18,
+          "bounds_mm": [
+            [
+              123.107,
+              119.253,
+              0.2
+            ],
+            [
+              125.04,
+              123.24,
+              0.2
+            ]
+          ]
+        },
+        "Internal solid infill": {
+          "segments": 9380,
+          "bounds_mm": [
+            [
+              120.027,
+              119.226,
+              0.32
+            ],
+            [
+              145.934,
+              143.777,
+              26.24
+            ]
+          ]
+        },
+        "Top surface": {
+          "segments": 169,
+          "bounds_mm": [
+            [
+              112.521,
+              114.719,
+              3.44
+            ],
+            [
+              144.776,
+              145.282,
+              32.96
+            ]
+          ]
+        },
+        "Support interface": {
+          "segments": 1879,
+          "bounds_mm": [
+            [
+              117.926,
+              114.484,
+              3.68
+            ],
+            [
+              145.994,
+              145.473,
+              17.6
+            ]
+          ]
+        },
+        "Overhang wall": {
+          "segments": 611,
+          "bounds_mm": [
+            [
+              118.36,
+              114.562,
+              7.28
+            ],
+            [
+              144.931,
+              145.439,
+              29.72
+            ]
+          ]
+        },
+        "Bridge": {
+          "segments": 25,
+          "bounds_mm": [
+            [
+              124.513,
+              119.151,
+              11.72
+            ],
+            [
+              132.64,
+              123.548,
+              11.72
+            ]
+          ]
+        }
+      },
+      "extrusion_centre_lines_inside_bed": true
+    },
+    {
+      "plate": 3,
+      "source_3mf": "dotisk-25-podlozka-03.3mf",
+      "source_sha256": "cca1b7b622171b187933257e4d46158267253f48fedfe1dd2851a5aee1c5afe7",
+      "sliced_archive_path": "/home/novakj/3d-print/.cache/dotisk-2026-09-20/plate-3/sliced.3mf",
+      "sliced_archive_sha256": "4f41ba001225ffd57b332e867b049a7395735c160b9b71de7d9782a07a5e233c",
+      "gcode_sha256": "096b90de357c58a938f6b344633c81b1b18da7fe4e397278c15d2c6a4f604b8c",
+      "slicer": "Installed AnycubicSlicerNext; generated header reports 2.0.0.5",
+      "exit_code": 0,
+      "metadata": {
+        "printer_model_id": "Anycubic Kobra X",
+        "nozzle_diameters": "0.4",
+        "prediction": "6847",
+        "weight": "7.77",
+        "outside": "false",
+        "support_used": "false"
+      },
+      "warnings": [
+        {
+          "msg": "bed_temperature_too_high_than_filament",
+          "level": "1",
+          "error_code": "1000C001"
+        }
+      ],
+      "object_names": [
+        "svisly-cep-8__02",
+        "pevny-cep-8x53_9__01",
+        "servo-cep-4x51_2__01",
+        "pricny-klinek-4x27_1__01",
+        "cep-plosiny-4x19_5__04"
+      ],
+      "settings": {
+        "printer_model": "Anycubic Kobra X",
+        "printer_settings_id": "Anycubic Kobra X 0.4 nozzle",
+        "print_settings_id": "Dotisk V3 diagnostic plate 3 0.12mm",
+        "filament_settings_id": [
+          "Anycubic PLA @Anycubic Kobra X 0.4 nozzle"
+        ],
+        "filament_type": [
+          "PLA"
+        ],
+        "nozzle_diameter": [
+          "0.4"
+        ],
+        "layer_height": "0.12",
+        "initial_layer_print_height": "0.2",
+        "enable_support": "0",
+        "support_type": "normal(auto)",
+        "support_style": "snug",
+        "support_on_build_plate_only": "0",
+        "support_remove_small_overhang": "0",
+        "support_threshold_angle": "45",
+        "support_top_z_distance": "0.12",
+        "support_bottom_z_distance": "0.12",
+        "support_object_xy_distance": "0.35",
+        "support_interface_top_layers": "3",
+        "brim_type": "outer_only",
+        "brim_width": "8",
+        "brim_object_gap": "0.1",
+        "initial_layer_speed": "20",
+        "inner_wall_speed": "50",
+        "outer_wall_speed": "30",
+        "small_perimeter_speed": "20",
+        "small_perimeter_threshold": "20",
+        "default_acceleration": "1000",
+        "initial_layer_acceleration": "500",
+        "wall_loops": "4",
+        "sparse_infill_density": "100%",
+        "sparse_infill_pattern": "rectilinear",
+        "top_surface_pattern": "monotonicline",
+        "print_sequence": "by layer",
+        "nozzle_temperature": [
+          "205"
+        ],
+        "nozzle_temperature_initial_layer": [
+          "220"
+        ],
+        "hot_plate_temp": [
+          "60"
+        ],
+        "hot_plate_temp_initial_layer": [
+          "60"
+        ],
+        "textured_plate_temp": [
+          "60"
+        ],
+        "textured_plate_temp_initial_layer": [
+          "60"
+        ],
+        "curr_bed_type": "Textured PEI Plate",
+        "temperature_vitrification": [
+          "54"
+        ]
+      },
+      "imported_triangle_indices_unchanged": true,
+      "maximum_import_vertex_error_mm": 7.629999998925996e-06,
+      "extruding_path_bounds_mm": [
+        [
+          71.318,
+          96.327,
+          0.2
+        ],
+        [
+          186.182,
+          166.185,
+          53.96
+        ]
+      ],
+      "roles": {
+        "Brim": {
+          "segments": 5353,
+          "bounds_mm": [
+            [
+              71.318,
+              96.327,
+              0.2
+            ],
+            [
+              186.182,
+              166.185,
+              0.2
+            ]
+          ]
+        },
+        "Outer wall": {
+          "segments": 72241,
+          "bounds_mm": [
+            [
+              78.718,
+              103.712,
+              0.2
+            ],
+            [
+              178.785,
+              158.79,
+              53.96
+            ]
+          ]
+        },
+        "Inner wall": {
+          "segments": 199061,
+          "bounds_mm": [
+            [
+              79.127,
+              104.121,
+              0.2
+            ],
+            [
+              178.376,
+              158.381,
+              53.84
+            ]
+          ]
+        },
+        "Bottom surface": {
+          "segments": 173,
+          "bounds_mm": [
+            [
+              80.618,
+              105.616,
+              0.2
+            ],
+            [
+              176.873,
+              156.89,
+              0.2
+            ]
+          ]
+        },
+        "Gap infill": {
+          "segments": 74,
+          "bounds_mm": [
+            [
+              79.6,
+              104.603,
+              0.2
+            ],
+            [
+              178.329,
+              156.601,
+              53.96
+            ]
+          ]
+        },
+        "Internal solid infill": {
+          "segments": 80312,
+          "bounds_mm": [
+            [
+              80.324,
+              105.324,
+              0.32
+            ],
+            [
+              177.107,
+              157.123,
+              53.84
+            ]
+          ]
+        },
+        "Top surface": {
+          "segments": 224,
+          "bounds_mm": [
+            [
+              78.874,
+              103.868,
+              2.0
+            ],
+            [
+              178.63,
+              158.635,
+              53.96
+            ]
+          ]
+        },
+        "Overhang wall": {
+          "segments": 224,
+          "bounds_mm": [
+            [
+              81.215,
+              106.211,
+              18.08
+            ],
+            [
+              176.787,
+              156.784,
+              52.52
+            ]
+          ]
+        }
+      },
+      "extrusion_centre_lines_inside_bed": true
+    }
+  ]
+}

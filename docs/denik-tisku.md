@@ -134,6 +134,151 @@ Během kontroly byl zesílen lem za pojistkovou drážkou os na 1,5 mm a upraven
 
 **Následný milník a změna kol:** vznikl pracovní FCStd a 23 typů STL, zpočátku s koly Ø80 × 8 mm převzatými z V2. Po skutečném CAD náhledu Jiří požádal o širší a trochu menší kola, prioritu tahu a integrovaný tištěný dezén. Návrhová volba je vnější Ø76 × 12 mm, drážky hluboké 1 mm, rozšíření ven od rámu se zachováním vnitřních rovin kol a ozubeného záběru. Převod 12:1 se nemění; prodlouží se zadní osa a přední osičky. Nominální světlost 72zubého věnce Ø66,6 je při kontaktu na Ø76 rovné podlahy 4,7 mm; konzervativně podle kořene dezénu Ø74 zbývá 3,7 mm. Tyto údaje jsou výpočet, nikoli měření hotového výtisku. Teoretický tah proti Ø80 vzroste asi o 5,3 % a rychlost klesne o 5 %; dezén z tvrdého PLA nezaručuje přilnavost gumy. Širší přední kola zvyšují požadavek na řízení, rezerva serva nebyla změřená. Úzká pracovní verze není finálním tiskovým balíčkem. Model, exporty a kontroly se nyní aktualizují; agent netiskne ani nemění firmware.
 
+## 2026-09-19 — dokončená mechanika třetího autíčka
+
+**Stav: dokončený geometricky ověřený CAD prototyp**, fyzická montáž a řízení zatím nepotvrzené. [Model V3](../models/auticko-se-zatacenim/README.md) má převod 12:1, plošinu 170 × 60 mm, kola Ø76 × 12 mm se skutečným dezénem a přední řízení pro SG90 s uživatelem změřeným účinným poloměrem páčky 15 mm. Hotové jsou FCStd, makro, 23 typů STL, čtyři náhledy a balíčky: celá sestava 33 kusů, přestavba z V2 22 kusů při převzetí 11 původních. Proběhly kontroly těles, sítí, kinematiky, kolizí, axiálních vůlí a parametrických změn. Původní modely ani firmware se nezměnily. Fit serva a spoj páčky, zatáčecí síla, přilnavost a životnost vyžadují fyzickou zkoušku.
+
+## 2026-09-19 — V3, rozložení 33 kusů do dvou 3MF
+
+Jiří načítal součásti do Anycubic Slicer Next a po použití Arrange hlásil, že se nevešly všechny; následně si všiml tří kol. Aktuální okno nebylo přístupné, proto **nelze potvrdit, co skutečně načetl**. Složka `stl` obsahuje 23 typů, zatímco kompletní ZIP 33 fyzických kopií včetně čtyř kol; načtení pouze typů může vynechat i další opakované součásti. Samotné zdvojení předního kola tedy není úplná oprava takového importu.
+
+Na výslovný požadavek rozmístit co nejvíce dílů vznikly [dva samostatné geometry-only 3MF](../models/auticko-se-zatacenim/rozlozeni/README.md): **31 kusů na první desce včetně všech čtyř kol, rám a plošina na druhé**. Nic se nezahodilo. Místní konkrétní profil Kobra X 0,4 mm má plochu 260 × 260 mm bez vyloučených zón; systémový proces uvádí Auto Brim 5 mm + mezeru 0,1 mm, skirt 0 a vypnuté podpory. Neuložené uživatelské úpravy se nedaly přečíst a nejsou zaměňované za tyto defaulty.
+
+Umístění používá skutečné STL projekce s konzervativními konvexními obálkami a rezervou pro brim. Minimum mezi obálkami 11,0175 mm, od okraje 6 mm; měřítko 1:1, jen XY posuny a otočení kolem Z, původní tiskové orientace i Z0 zachované. Ověřeno 33 jedinečných kopií, všechny trojúhelníky proti zdroji, 466 dvojic a čtyři kola právě na první desce. Nejde o důkaz matematického globálního optima.
+
+Oba finální soubory prošly skutečným CLI importem/exportem v nainstalovaném Next 2.0.0.5: 31 + 2 samostatných objektů, názvy i všech 110 436 trojúhelníků zachované, největší číselná odchylka vrcholů pod 0,000016 mm. CLI používalo izolovanou konfiguraci; uživatelské presety, otevřený projekt a původní geometrie nebyly upravené. Náhledy jsou skutečné XY projekce geometrie, nikoli snímky živého okna nebo vyslicované vrstvy. **Řezání, dosah skutečných podpor, G-code, spuštění a výsledek tisku se neověřovaly.** Pro rámy/těhlice je nutný náhled lokálních podpor; geometrická rezerva nedokazuje prostor pro libovolné stromové podpory. Tiskárna nebyla oslovena.
+
+## 2026-09-19 — V2, fyzicky hlášené zasekávání a audit převodovky
+
+**Nové uživatelské hlášení:** V2 12:1 se při pokusech opakovaně zasekává; Jiří vnímá odpor jako větší než přínos převodu. Použil sekundové lepidlo a následně olej, ale neznáme místa ani množství. Podezřívá nesprávnou stranu rozpěrky a slíbil přestavbu. Výsledek zatím nepřišel; mechanický test oddělený od motoru není potvrzený. Neodvozujeme z toho konkrétní vadný díl, příčinu, tiskový profil ani dokončení každé části původního balíčku.
+
+[Audit a doporučený směr](../models/auticko-s-prevodovkou/revize-prevodovky.md) zachycuje skutečné rozteče, stohy, 5mm šířku obou záběrů a konstrukční riziko radiální volnosti vyložených os. Záměna rozpěrek 8,6/17,6 by při zachování dosedů posunula zadní ozubení o9 mm mimo záběr; jde o vypočtenou hypotézu, ne kontrolu skutečné montáže. Doporučeno zpřesnit a vyztužit uložení, určit stohy a zkalibrovat provozní vůle; pro větší redukci preferovaný směr16:1 proti prostorově problematičtějším20:1. Finální volba čeká na již položenou otázku kovové osy a pouzdra/ložiska versus tištěné díly. Nová převodovka se negenerovala; modely V2/V3, tiskové soubory i firmware zachované. Žádný upload, ovládání motoru/tiskárny, nákup, commit ani push.
+
+## 2026-09-19 — zadání celé tištěné revize převodovky
+
+Jiří zvolil **všechny nové mechanické díly tištěné**, bez nákupů. Požaduje větší praktickou sílu a dovoluje přepracovat celé uspořádání, ne pouze zvětšit jedno kolo. Úvodních16:1 nebylo jeho maximem ani schválenou konečnou geometrií. [Porovnání architektur](../models/auticko-silovy-prevod-25/architektura.md) rozšiřuje dvoustupňové kandidáty o tři stupně25:1 a36:1.
+
+Dále fyzicky hlásí, že první záběr pracuje dobře, ale výstupní záběr má přibližně „půl zubu“ na **šířku**. Nejde o změřenou polovinu; staré nominální CAD překrytí5mm tím nepřepisujeme. Přímým kritériem nové revize je využití celé šířky užšího pastorku včetně nejhoršího axiálního posuvu.
+
+Předávací kritérium: kompletní ZIP a očíslované rozmístěné3MF mají obsahovat **všechny fyzické kusy včetně přesně čtyř pojezdových kol**. Uživatel nesmí nic ručně násobit. Složka typových STL má zůstat jasně označená jako zdroj jednotlivých typů. Práce na novém CAD a kalibračních vzorcích probíhá; tisk ani hardware nebyly spuštěné.
+
+## 2026-09-19 — hlášená vrstva 0,08 mm a zachování povrchového vzoru
+
+Jiří pro připravovanou revizi uvedl změnu vrstvy z0,20 na0,08 mm kvůli detailu a odporu; zároveň chce ponechat standardní horní vzor Monotonic line. **Uživatelské hlášení nastavení**, nikoli přímá kontrola otevřeného sliceru, osobního profilu, G-code nebo fyzického tisku. První vrstva, šířka extruze, průtok a teploty nebyly tímto hlášením změněné ani ověřené. Geometry-only3MF toto nastavení nevkládají a osobní presety se nepřepisují. Kalibrační vzorky a finální mechanické díly mají použít stejné skutečné nastavení, pokud uživatel0,08 ponechá. Nižší Zvrstva sama nedokazuje přesnější XYotvor nebo lehčí chod převodu.
+
+## 2026-09-19 — předaná kalibrační podložka01 pro novou převodovku
+
+Na dotaz Jiřího byl předaný [kalibrace-podlozka-01.3mf](../models/auticko-silovy-prevod-25/rozlozeni/kalibrace/kalibrace-podlozka-01.3mf), SHA256 `17483261f837416cf2e3dea877f82004a58f6209208fc65509aa5c2c6f16a1ab`. Obsahuje8kusů:5bloků otvorů a3kruhové čepy. Doporučeno100%, Kobra X0,4, jeho běžná vrstva0,08mm a samostatná první0,20mm jako systémový default. Geometry-only3MF neobsahuje tato nastavení ani podpory. Před tiskem je nutné ve sliceru zapnout podpory ležatých čepů a prohlédnout skutečné vrstvy. Objednání tisku ani ovládání tiskárny agentem neproběhlo.
+
+**Následně Jiří oznámil „tiskneme tu kalibrační podložku“: zahájení tisku je potvrzené jeho hlášením. Dokončení ani úspěšný fit zatím nepotvrdil.** Identita odeslaného G-code, skutečné podpory/profil a první vrstva nebyly ověřené. Předaná geometrie, souřadnice a pořadí otvorů jsou zmrazené; případná pozdější geometrická oprava musí dostat novou verzi. Hlavní auto se připravuje nezávisle a jeho návrhové vůle zatím nejsou výsledkem tohoto fyzického vzorku.
+
+## 2026-09-19 — upřesnění celé silové V3 včetně zatáčení
+
+Jiří výslovně upřesnil, že nový převod 25:1 má být součástí **revidované V3 s předním řízením SG90**. Průběžný model s pevnou přední nápravou není dokončením zadání. Připravuje se nový širší předek, všechna kola Ø76 × 12 mm s dezénem a tištěné uchycení vlastněného serva a původní páčky. Účinný poloměr páčky 15 mm a vlastnictví středového šroubku jsou potvrzené; její další rozměry jsou návrhové. Nové mechanické spoje nesmějí předpokládat nepotvrzené M2 šrouby, matice nebo pásky.
+
+Další uživatelský návrh: krátké hladké obvodové vodicí pásy v otvoru s odlehčením mezi nimi pro lehčí chod. Po porovnání pásem 7 / 5 / 4 / 3 mm byl zvolen návrhový kompromis dvou souvislých 5mm pásem na krajích 30mm náboje, s odlehčeným středem Ø9. Proti 7mm pásům je nominální průměrný tlak při stejné síle o 40 % vyšší; menší plocha sama nedokazuje menší tření. Opotřebení vůli zvětšuje, nikoli samo vymezuje. Kalibrační podložka už byla uživatelem zahájená, její soubory zůstávají zmrazené a výsledky fitu dosud nejsou známé.
+
 ## Osnova příštího záznamu
 
 Datum a model/verze; stav a zdroj informace; tiskárna a tryska; skutečný materiál/cívka; profil a změny; vazba na konkrétní soubor; odhady; první vrstva a průběh; fyzický výsledek a měření; další změna a její důvod. Neznámé položky nevyplňovat odhadem.
+
+## 2026-09-19 — dokončená revidovaná V3, převod 25:1 a 66 dílů
+
+**Dokončená příprava CAD a tiskových podkladů, fyzický výsledek neověřený.** [Nový model](../models/auticko-silovy-prevod-25/README.md) má třístupňový převod 18→54 /18→60 /22→55, přední řízení SG90 s původní páčkou r15, čtyři kola Ø76 ×12 a plošinu s užitnou plochou170 ×60. Dvě5mm hladká vodicí pásma v každém mezikole odděluje20mm odlehčený střed. Nové spojovací mechanické díly jsou tištěné; používá se pouze již vlastněný původní středový šroubek serva.
+
+Při závěrečné kontrole vyšlo, že standardní hlavy zubů při největší rozteči neměly dostatečný kontaktní poměr. Finální geometrie prodlužuje hlavy malých kol na1,1m a velkých na1,2m; hlavové průměry velkých kol jsou přibližně56,4/62,4/57,4mm. Minimální teoretický kontaktní poměr je1,20401; oba18zubé obrysy mají skutečnou minimální špičku0,558857mm. Kontrola65 fází při nominální i nejmenší rozteči prošla; finální8mm pastorek zůstává uvnitř12mm věnce při všech16 kombinacích návrhových axiálních krajů, s rezervou1,4mm. Nejde o důkaz únosnosti, drsnosti ani tiskové přesnosti.
+
+Kontrolovaná sestava má34typů a66fyzických instancí. Počty souhlasí s kompletním ZIPem i [třemi samostatnými3MF](../models/auticko-silovy-prevod-25/rozlozeni/README.md):26 +27 +13kusů. Všechna čtyři kola jsou na první podložce; žádný díl se ručně nenásobí. Import/export instalovaným Anycubic Slicer Next ověřil geometrii, měřítko, počty a orientace. Okraje≥6mm a mezery obálek≥11,02mm zahrnují uvažovaný brim, nikoli libovolné podpory. G-code, skutečné vrstvy a dosah podpor nejsou ověřené.
+
+Hotové jsou FCStd, čtyři zdroje generátoru,34STLtypů,ZIP,pětCADnáhledů, očíslované náhledy podložek a montážní návod. Prošly statické kolize,21poloh řízení, mechanické dorazy, axiální vůle kol, osm parametrických zkoušek i nezávislý audit. Montážní návod výslovně osazuje motorové čepy před mezikolemA, které by bránilo jejich zasunutí. Kontrola zachování potvrdila90původních souborů a13zmrazených kalibračních podkladů beze změny.
+
+**Kalibrační tisk uživatel dříve zahájil, dokončení a výsledky fitu stále nepotvrdil.** Servo a objímka původní páčky mají kromě r15 návrhové rozměry; nejprve vyžadují malé fyzické zkoušky. Celá nová mechanika, tah, pevnost, přilnavost a životnost zůstávají neověřené. Vrstva0,08mm je uživatelský záměr a není důkazem lepší XYpřesnosti; geometry-only3MF nastavení vrstvy ani Monotonic line nepřepisují. Žádný commit/push, nákup, upload firmwaru ani ovládání tiskárny, motoru nebo serva neproběhly.
+
+## 2026-09-20 — fyzická kalibrace a revize provozních fitů V3 25:1
+
+Uživatel vyzkoušel původní zmrazené vzorky a hlásí subjektivně dobré nasazení největšího čepu jen do největšího otvoru; pro prostřední čep následně uvedl stejný výsledek. Podle skutečných kanonických řad jde o Ø12/12,6 a Ø8/8,6. Přesné pořadí dalšího nevyhovujícího otvoru je v přepisu nejasné. U nejmenšího Ø4 nepotvrdil volné otáčení v žádném otvoru, ani4,3. Způsob očištění, orientace destičky a skutečně změřené průměry nejsou známé; dobré nasazení není automatické potvrzení rotace či radiální vůle.
+
+Následná výslovná návrhová volba: největší hodnoty pro otočná uložení, nejmenší pro pevné spoje podle funkce. V rámu mají být Ø8čepy pevné a mezikola na nich volná; zadní Ø12osa je v rámu otočná, ale náboj hnacího kola na ní pevný. Čepy ani celé auto se nezmenšují. Původní společný parametr zadního kluzného uložení a výstupního náboje se musí oddělit. Nejmenší otvory nejsou fyzicky potvrzené lisované spoje a nesmějí se násilně sestavovat.
+
+Výpočty prokázaly, že větší nominální CAD vůle nelze přenést do původní geometrie bez změny kontroly záběru. Podle nové funkční volby vycházejí relativní radiální rozsahy stupňů0,50/0,70/0,70mm; původní ozubení při největší rozteči nemá souvislý ideální kontakt ve2.a3.stupni a při nejmenší rozteči hrozí kolize. Část přídavku může ve skutečnosti kompenzovat tiskové zmenšení otvoru, ale to bez měření netvrdíme jako skutečnou provozní vůli. Revize vedení a profilu se nyní ověřuje.
+
+Vytvořený archiv86souborů předchozí dokončené varianty včetně ověřených exportů a hashů je pod historie/pred-kalibraci-8_6-12_6-2026-09-20. Původní13zmrazených kalibračních podkladů se nemění. Nový samostatný doplňkový vzorek4,4/4,6/4,8 připravuje další fyzickou zkoušku; žádná z nových hodnot není ověřeným fitem. Deset Ø4čepů hlavní sestavy plní funkci zajištění/přenosu momentu, nikoli otočných ložisek, proto se na ně výsledek neaplikuje paušálně.
+
+Uživatel hlavní sadu zatím netiskne a čeká na novou revizi. Desktopové soubory jsou dosud předchozí varianta a nahradí se odděleně až po úspěšných kontrolách nové. [Průběžný záznam revize](../models/auticko-silovy-prevod-25/revize-fitu-2026-09-20.md) rozlišuje fakta, volby a otevřené body. Agent žádný tisk, G-code, změnu presetů, firmware, ovládání zařízení ani commit/push neprovádí.
+
+
+### 20. 9. 2026 — pokračování kalibrační revize V3 25:1
+
+- Uživatel doplnil výslovné potvrzení otáčení Ø8 čepu v největším otvoru 8,6. Skutečná boční vůle a průměry změřené nejsou; nominální přídavek 0,6 se nevydává za skutečnou provozní vůli.
+- Nový samostatný [vzorek Ø4 V2](../models/auticko-silovy-prevod-25/kalibrace-4-v2/README.md) má 4,4 / 4,6 / 4,8 mm, dvě orientace a 8mm pracovní hloubku; používá původní čep. CAD/STL/3MF ověřené, fyzický tisk a fit nepotvrzené.
+- Hlavní zdroj má oddělené fit parametry, avšak nový robustnější profil ozubení neprošel kontrolou kořene při přenosu síly. [Konkrétní důkaz](../models/auticko-silovy-prevod-25/revize-fitu-diagnostika/README.md). Hlavní 66kusová sada proto není vydaná jako hotová revize; předchozí výstupy i desktopové 3MF jsou zachované a označené předkalibrační.
+- Hotová a CAD/STL/3MF/Next CLI ověřená je sedmidílná [ruční zkouška původního stupně18→60](../models/auticko-silovy-prevod-25/zkouska-prevodu/README.md) s novými 8,6mm otočnými otvory a 8,1mm pevnými sedly. Má rozhodnout skutečné nasazení, souosost dlouhých nábojů a chod záběru. Žádný nový tisk, G-code, pohyb motoru ani změna firmwaru neproběhly.
+
+
+### 20. 9. 2026 — předání celé V3 25:1 po revizi fitů
+
+Konečné zadání nahradilo dřívější čekání na další vzorky: Jiří chce celý skutečný tiskový prototyp s původním 20° / m1 ozubením, nikoli další povinný testovací výtisk. [Aktuální sada](../models/auticko-silovy-prevod-25/README.md) má 34 typů a **66 kusů včetně všech čtyř kol**, připravených na [třech 3MF podložkách 26 / 27 / 13](../models/auticko-silovy-prevod-25/rozlozeni/README.md). Žádné další kopírování dílů není potřeba.
+
+- Kluzné otvory mezikol 8,6 a zadní osy 12,6; pevná sedla čepů 8,1, výstupní náboj a zadní D kola 12,1, statické Ø4 spoje 4,1, D ploška 4,05 proti ose 4,00 mm. Nosné čepy se nezmenšují.
+- Nominální CAD: 2345 párů bez kolizí, 16 axiálních kombinací s plnou poslední 8mm šířkou a rezervou 1,5 mm, šest ozubených obrysů shodných s archivem, 24 kontrol krajních poloh změněné objímky, 10 změnových parametrických zkoušek. Uložená GUI sestava, náhledy a finální exporty jsou navázané na zdrojové hashe.
+- Exporty: 34 uzavřených STL typů / 66 ZIP kopií; tři 3MF zachovávají 202 604 trojúhelníků a všechny počty. Rozložení, import/export Next CLI a nezávislá kontrola původu důkazů prošly. Minimální mezera modelů 11,0206 mm, okraj nejméně 6 mm; podpory a skutečné dráhy je nutné prohlédnout ve sliceru.
+- **Plný konzervativní radiální scénář zůstává `false`.** Původní ozubení nepokrývá předpoklad celé nominální CAD vůle jako reálné provozní vůle. Uživatel přijal nominální tiskový prototyp s touto hranicí; skutečná vůle není změřená. Historické kontroly nezměněných částí nejsou vydávány za nové testy.
+- Fyzický tisk, montáž, zatížení ani jízda této revize nejsou potvrzené. Další vzorky jsou pouze volitelné. Agent nevytvořil G-code, nespustil tisk ani nezměnil preset, firmware nebo zařízení.
+
+**Umístění:** vše výhradně v projektu `models/auticko-silovy-prevod-25/`, tři podložky v `rozlozeni/`, předchozí revize v `historie/`. Nejnovější pokyn ruší dřívější plán aktualizovat Desktop; již existující kopie na ploše se dále nemění. Pravidlo je zapsané jako kritické v [AGENTS.md](../AGENTS.md). Původní modely, zmrazená kalibrace i firmware zůstaly zachované. Nic nebylo commitováno ani odesláno do Gitu.
+
+## 2026-09-20 — vadné části první várky V3 25:1 a připravený dotisk
+
+Jiří dodal fotografie `20260920_124057.jpg` (první podložka na tiskárně) a `20260920_125550.jpg` (odložené díly). Jde o aktuální 66dílnou V3 25:1 po revizi fitů, nikoli starší 33dílné auto. První původní podložka měla 26 kusů. Na druhé fotografii je 20 kusů: **19 bez velké zjevné vady na viditelné straně a jedna zjevně vadná pravá těhlice**. Šest dalších dílů chybí v odložené sadě. Spodní strany, rozměry, pevnost a fit zachovaných dílů nejsou potvrzené. Druhá původní várka s **27 kusy podle uživatele právě tiskne**; dokončení ani kvalita nepotvrzené. Třetí s **13 kusy zůstává plánovaná**, její absenci nepočítáme jako selhání první várky.
+
+[Opravná sada a přesný inventář](../models/auticko-silovy-prevod-25/rozlozeni/dotisk-prvni-varky-2026-09-20/README.md) obsahuje sedm kopií z původní desky 1, čísla **8, 11, 12, 13, 14, 17, 19**: zadní osu, pravou těhlici, svislý čep, pevný čep převodu, jeden čep serva, příčný klínek a jeden čep plošiny. Vznikly tři samostatné geometrické 3MF **1 / 1 / 5 kusů** a vedle nich výslovně označené plné projekty Next s nastaveným novým procesem dotisku. Geometrické varianty nastavení nenesou; plné projekty vědomě načítají vlastní Kobra X / systémový PLA proces. Uživatelovy uložené presety se neměnily. Žádné kopie není třeba ručně přidávat.
+
+**Evidence možného mechanismu vady:** původní ležaté válcové díly a těhlice mají malé kontaktní plochy a výrazné spodní převisy. Dohledaný lokální kandidát G-code první úlohy má stejných 26 názvů/pořadí, `enable_support=0` a `support_used=false`; 0,12mm vrstvu, první 0,20mm, Auto Brim 5mm/gap0,15, 2 stěny, 15% 3dhoneycomb. Jeho SHA256 a omezený výpis jsou v evidenci dotisku. **Uživatel nepotvrdil identitu tohoto spuštěného souboru a archiv neobsahuje zdrojové sítě.** Absence podpor dobře vysvětluje viditelné vady, ale není jedinou prokázanou příčinou; teplotu, přilnavost ani tok z fotek neurčujeme. Bílý Alzament PLA Basic / Kobra X 0,4 je zadaný kontext, ne údaj odvozený z barvy sliceru.
+
+Osa zůstala vodorovná, otočená D ploškami nahoru; těhlice nově leží horním okem/ramenem (rovinný kontakt 107,73mm² místo 0); obě potřebují podpory. Pět čepů stojí na hlavách, bez podpor v pojistných drážkách, s vnějším brimem 8mm. Je přiznaná horší odolnost svisle tištěných čepů vůči ohybu napříč vrstvami a vratkost Ø4×51,2. Rozměry, geometrie, CAD, původní STL a původní 3MF se neměnily.
+
+**Kontroly:** 7 kopií / 19 446 zachovaných trojúhelníků, uzavřenost a objemy, tuhé rotace, 100% měřítko, Z0, nejmenší mezera 32,5mm a okraj 54,7mm. Nezávislý geometrický audit prošel. Všechny tři opravné varianty byly skutečně lokálně naslicované v izolovaném Next CLI: 0,12/první0,20mm, 4 stěny, 100% rectilinear, vnější brim8/gap0,1, zpomalený proces. Osa/těhlice obsahují Support a Support interface; pět čepů nikoli. Zkontrolovány skutečné dráhy včetně podpor a brimu, všechny extruzní střednice v ploše260×260mm; pořadí trojúhelníků a světové souřadnice po importu shodné do0,00002mm. Odhady 2h44 /1h21 /1h54, celkem přibližně34,67g; nejde o skutečnou spotřebu ani dobu.
+
+Ve výsledku zůstala profilová varování teploty podložky60°C proti materiálové hranici54°C a na dvou podporovaných úlohách traditional timelapse. Jsou zdokumentovaná, nevydáváme řezání za výsledek bez varování. Diagnostický G-code zůstal v ignorované cache a není předáván ke spuštění; plné projekty žádný G-code neobsahují. **Dotisk nebyl odeslán ani spuštěn, tiskárna nebyla oslovena.** Fyzická úspěšnost oprav, oddělitelnost podpor, montáž a jízda zatím nepotvrzené. Elektronika, firmware, Desktop a Git historie se neměnily.
+
+Následná kontrola našla také původní první 3MF již před dotiskem uloženou jako celý projekt Next (čas01:29) s podporami vypnutými. Všech26 meshů a poloh přímo souhlasí s kanonickým manifestem; rozdíl hashe proti historickému exportu je existující změna souboru. Tuto uživatelskou kopii jsme nepřepsali; druhá a třetí stále odpovídají původním hashům. Jde o další přímý doklad uloženého nastavení, nikoli definitivní potvrzení skutečně spuštěného G-code.
+
+
+## 20. 9. 2026 — druhá várka dokončená, třetí a oprava osy nastojato
+
+**Původ hlášení:** Jiří v navazující hlasové úloze potvrdil dokončení původní podložky 02 V3 25:1 (27 kusů). Nové fotografie druhé várky zatím nedodal, kvalita jednotlivých dílů není vyhodnocená. Fotografie 124057/125550 patří pouze k první várce. Nevznikl nový seznam náhrad druhé várky.
+
+Na jeho výslovné zadání je [původní 03 se 13kusy připravená se šesti čepy nastojato](../models/auticko-silovy-prevod-25/rozlozeni/stojate-cepy-2026-09-20/README.md). Čísla 3, 4, 6, 7, 8, 9 stojí na hlavách; ostatní díly zachovávají funkční orientaci. Nastavený projekt Next má skutečné podpory pouze u plošiny, včetně převisů a příčných otvorů všech čtyř noh. Plošina má základní veřejný proces 0,12mm,15%3Dhoneycomb,2stěny; plná výplň / 4 stěny jsou lokálně jen u12 malých dílů. Finální odhad 6 h 19 min 15 s / 71,23 g. Dosavadní proces uživatelovy plošiny není doložen, původní 03 byla geometry-only.
+
+Také [zadní osa opravné 01](../models/auticko-silovy-prevod-25/rozlozeni/dotisk-prvni-varky-2026-09-20/README.md) stojí na čele, výška 150,6 mm, brim 12 mm, pomalejší pohyby. Skutečné podpory podepírají D přechod a příčný otvor; tenké prstence v pojistných drážkách bude potřeba odstranit. Finální odhad 4 h 39 min 44 s / 19,99 g. Opravná sada stále 7 kusů, podložky 1 / 1 / 5; pravá těhlice i pětčepová03 jsou beze změny. Bilance 19 zachovaných + 7 náhrad + 27 dokončených čekajících na fotky + 13 plánovaných = 66 není prohlášením montážní kvality všech kusů.
+
+**Ověření souborů:** stejné STL/CAD/ZIP a počty, pouze rotace/posuny kopií; původní 01/02 nepřepsané. Starší03 a opravná sada archivované. Nové projekty prošly lokálním řezáním, kontrolou skutečných vrstev/drah, podpory i brim uvnitř 260 × 260 mm; objektová nastavení zachovaná. Nezávislé geometrické a drahové kontroly souhlasí. Profilová varování zůstávají zapsaná. Žádný tisk, firmware upload, commit ani push neproběhl.
+
+**Pravidla:** Jiří schválil výchozí stojatou orientaci našich konkrétních čepů podle opakované zkušenosti, bez univerzálního slibu vyšší pevnosti. Vrstvy napříč osou a stabilita vysoké osy zůstávají fyzicky neověřené. Potřebné podpory se mají skutečně připravit v nastaveném projektu a ověřit řezáním; brim je nenahrazuje. Zapsáno do AGENTS.md a docs/workflow.md. Původní export round_pin Y+90 byl společné pravidlo, nikoli doložená individuální pevnostní optimalizace.
+
+**Otevřené body:** nové fotografie původní 02, fyzický výsledek nové 03 a opravné sady, vyčištění podpor a drážek, fit/montáž/chod. Dokončení hlavní 03 nebo oprav zatím uživatel nepotvrdil.
+
+
+## 2026-09-20 — druhá várka V3 25:1 a kombinovaný26kusový tisk
+
+Jiří potvrdil dokončení původní02. Fotografie `20260920_185846.jpg` ukazuje její27 pozic na tiskárně, `20260920_192335.jpg` zachované díly obou dosavadních várek. Prokázaný výběr nových náhrad: levá těhlice a pět samostatných čepů (původní02 čísla4,11,12,16,22,23). Pravá těhlice už je v opravě první várky, oba motorové můstky jsou zachované a nepřidávají se. Použitelnost motorového dorazu rámu, přítomnost víka objímky a obou motorových klínků čekají na upřesnění; nejsou automaticky označené jako vadné.
+
+Připravená [jedna kombinovaná podložka26](../models/auticko-silovy-prevod-25/rozlozeni/kombinovana-03-2026-09-20/README.md) obsahuje13 dosud netištěných z původní03 +7 oprav první +6 druhé. Čepy a osa nastojato, obě těhlice otočené, skutečné podpory jen plošina/osa/obě těhlice. Plošina má15 % výplň, ostatní díly100 %, vrstva0,12mm, Kobra X0,4mm. Místní společný řez prošel:26 kopií, plná výška modelových drah, stejné mesh, skutečné obálky extruzí oddělené nejméně3,56mm, okraj4,39mm. Odhad19h37min17s /120,09g. Zaznamenána profilová varování teplotní hranice a timelapse.
+
+Kombinovaná26 nahrazuje samostatnou původní03 a celou první opravnou sadu; netisknout jejich kopie navíc. Kanonický CAD/STL/ZIP zůstaly stejné. Při závěrečné kontrole byla původní02 nalezena nově uložená jako plný Next projekt s vrstvou0,20 a vypnutými podporami; jiný hash je zaznamenán, geometrie27 kusů odpovídá původnímu manifestu. Soubor se nevracel přes aktuální verzi a konkrétní tištěný G-code tím není prokázán.
+
+Jde o počítačově připravený tisk, nikoli fyzický úspěch. Tiskárna nebyla oslovena, tisk26 ani montáž nejsou potvrzené. Rozhodnutí o rámu a nejasném inventáři zůstává otevřené mimo26.
+
+## 22. 9. 2026 — neúspěšná koupelnová přepážka a rozdílné tiskové profily
+
+Jiří večer v hlasové úloze nahlásil přibližně 1 h 28 min dlouhou úlohu, kterou tiskárna sama dokončila, ale zůstaly jen tenké proužky, chuchvalce a vlásky. Předtím kopíroval díly z jiného projektu. **Jde o hlášené fyzické selhání; skutečný dokončený soubor není identifikovaný.** Není doložená fotografie, měřená výška, režim rychlosti ani historie tiskárny. [Podrobná diagnostika a zachované důkazy](../models/koupelnova-prepazka/diagnostika/2026-09-22-nepovedeny-tisk/README.md).
+
+Před dokumentačními změnami bylo zachováno 84 původních modelových souborů a relevantní místní exporty. Všech 70 předaných souborů aktuální revize 02 odpovídalo původním SHA256. Přímé audity 3MF/STL/G-code potvrdily plné 8mm díly a 40 skutečných extruzních vrstev, žádné omylem exportované lepidlo, škálování nebo předčasné ukončení. Historická varianta má 10 mm a 50 vrstev. Počítačový audit není důkazem fyzicky vytlačeného materiálu.
+
+Místní export z 19:22 je konkrétní kandidát: tři starší 10mm díly, **profil PLA, první tryska 220 °C a dále 205 °C, skutečné extruzní příkazy až 250 mm/s a první vrstva až 100 mm/s**, dvě stěny a 15% výplň. Vazba tohoto souboru na dokončenou úlohu není potvrzená; nelze jej vydávat za jistou příčinu. Nový export po reimportu z 20:36 již uvádí Anycubic TPU95A, ale má 215/210 °C, standardní proces a 15% výplň. To není předaný vlastní Alzament experiment.
+
+Oba předané aktuální úplné 3MF mají vlastní **Alzament TPU95A Gray, 225/225 °C, desku 60/60 °C, první vrstvu nejvýše 20 mm/s, ostatní extruzi nejvýše 40 mm/s, čtyři stěny a 100% výplň**. Nativní načtení celého testovacího projektu do izolovaného Anycubic Slicer Next bez externích presetů toto nastavení zachovalo. Test obsahuje dva kusy a odhad 33 min 9 s, celá lišta tři kusy a 5 h 54 min 8 s. Soubory nebylo třeba přejmenovat ani geometricky opravit; doporučené obnovení nastavení je otevřít celý TEST3MF, nikoli přetahovat STL do jiného procesu. Dokumentace předání byla zpřesněna.
+
+Pozdější přímé hlášení Jiřího: **šedé Alzament TPU95A dal do fyzického vstupu 3**, do **vstupu 4 právě dává zlaté Alzament PLA Silk**; dokončení zavedení zlata nepotvrzené. Pro přepážku je určen vstup 3. Logický filament 1 z projektu je při případném odesílání nutné správně přiřadit, samotné 3MF fyzický vstup neurčuje. Nový start ani správné softwarové mapování nebyly potvrzené. Kanonická zásoba v [materiálech](materialy.md) doplnila použití s původem hlášení, nikoli odhad spotřeby.
+
+Podávání, přilnavost, vlhkost a skutečný průtok zůstávají nevyšetřené; chuchvalce samy příčinu neurčují. Rozpor doporučených teplot desky zůstává zdokumentovaný. Tiskové parametry se neměnily naslepo, žádný další tisk ani ovládání zařízení neproběhly. Neproběhl commit ani push.

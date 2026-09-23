@@ -1,0 +1,17 @@
+{
+  "recorded_at_utc": "2026-09-22T22:04:19.523217+00:00",
+  "source_sha256": "d24a87631fd32a41685baedd7488c425a75ca6f9e300706349c61e09e79fe930",
+  "exit_code": 0,
+  "command": "python3 models/jednoduche-auticko/firmware/prvni-motor/tests/run_http_tests.py --browser",
+  "parser_cases": 120,
+  "complete_http_loop_cases": 120,
+  "named_host_scenarios": 42,
+  "blocking_io_cases": 21,
+  "inline_js_scenarios": 46,
+  "real_chromium_http_scenarios": 23,
+  "native_disabled_button_pointerdown_verified": true,
+  "hardware_accessed": false,
+  "transport": "Only localhost 127.0.0.1 bridge; actual C++ firmware with Arduino hardware mocks.",
+  "browser": "Real Chromium with Playwright mouse/keyboard/CDP touch events.",
+  "timeouts_unchanged": true
+}

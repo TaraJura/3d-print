@@ -1,0 +1,2102 @@
+{
+  "status": "PRACOVNÍ PROTOTYP, čeká závěrečnou kolizní kontrolu",
+  "source_sha256": "f970d5b78660a9bcd2cdd57ad66e9e7e9df38eb19f755fcae27e62a91e319df2",
+  "source_hashes": {
+    "auticko-silovy-prevod-25.FCMacro": "f970d5b78660a9bcd2cdd57ad66e9e7e9df38eb19f755fcae27e62a91e319df2",
+    "rizeni-geometrie.py": "00de3cdfd40525ca7ef1b0d50cd2ba6953114b9f29b53cb15b997eb785255dcd",
+    "servo-uchyceni.py": "b9607955472bd3815e171139796e4d373b1fc03a4d0a64e88e9a8e3099397646",
+    "rizeni-sestava.py": "ad23bb77641200fc0f4ada5e97a5363b22f0fa44e3c76a01d51516032da44d0b"
+  },
+  "parameters_mm": {
+    "FrameLength": 236,
+    "FrameWidth": 112,
+    "FrameThickness": 4,
+    "RearX": 35,
+    "FrontX": 190,
+    "AxleHeight": 28,
+    "WheelDiameter": 76,
+    "WheelThickness": 12,
+    "WheelOuterY": 72,
+    "RearAxleDiameter": 12,
+    "RearBearingBore": 12.6,
+    "OutputBore": 12.1,
+    "WheelBore": 12.3,
+    "DriveBore": 12.1,
+    "AxleFlat": 4,
+    "DriveFlat": 4.05,
+    "MainAxleLength": 150.6,
+    "MainAxleStartY": -75.3,
+    "BearingY": 48,
+    "RearBearingY": 36,
+    "BearingWidth": 12,
+    "MotorDiameter": 22.5,
+    "MotorLength": 26,
+    "MotorFrontY": 20.5,
+    "MotorShaftLength": 6,
+    "PinionBore": 2.2,
+    "PinionThickness": 5,
+    "GearModule": 1,
+    "CentreExtra": 0.4,
+    "FixedPinDiameter": 8,
+    "FixedSeatBore": 8.1,
+    "RunningBore": 8.6,
+    "MiddleBore": 9,
+    "JournalLength": 5,
+    "CrossPinDiameter": 4,
+    "StaticLockBore": 4.1,
+    "DeckSocketBore": 8.1,
+    "DeckBottom": 76
+  },
+  "gear_phases_deg": {
+    "B": 8.181818181818182,
+    "A": 2.727272727272729,
+    "input": 1.818181818181813
+  },
+  "ratio": 25,
+  "teeth": [
+    18,
+    54,
+    18,
+    60,
+    22,
+    55
+  ],
+  "gear_addendum_coefficients": [
+    1.1,
+    1.2,
+    1.1,
+    1.2,
+    1.1,
+    1.2
+  ],
+  "gear_dedendum_coefficient": 1.25,
+  "gear_source_parameters": {
+    "PressureAngle": 20.0,
+    "SmallAddendum": 1.1,
+    "LargeAddendum": 1.2,
+    "Dedendum": 1.25,
+    "ProfileShift": 0.0
+  },
+  "validation_pass": false,
+  "nominal_cad_validation_pass": false,
+  "full_nominal_radial_clearance_scenario_pass": false,
+  "validation_mode": "user_authorized_nominal_print_prototype",
+  "parts": {
+    "mezikolo-a-54_18": {
+      "object": "CompoundA",
+      "copies": 1,
+      "stl": "stl/mezikolo-a-54_18.stl",
+      "bbox_mm": [
+        56.4000645403422,
+        56.336619389912826,
+        30.0000000000002
+      ],
+      "volume_mm3": 20291.239313350656,
+      "solid_count": 1,
+      "valid": true,
+      "closed_mesh": true,
+      "print_orientation": "gear_face",
+      "sha256": "92b682b472098d9d4f269c12f76eb6121963a9d5950780d93ee3108bf602cb26"
+    },
+    "mezikolo-b-60_22": {
+      "object": "CompoundB",
+      "copies": 1,
+      "stl": "stl/mezikolo-b-60_22.stl",
+      "bbox_mm": [
+        62.39998804054174,
+        62.39998804054174,
+        30.000000000000004
+      ],
+      "volume_mm3": 36565.060141649665,
+      "solid_count": 1,
+      "valid": true,
+      "closed_mesh": true,
+      "print_orientation": "gear_face",
+      "sha256": "e9a7172ec7ac3183205fff3d9ac4ff05ffab035afc3ce89490cedd6ed61f9bae"
+    },
+    "vystupni-kolo-55": {
+      "object": "OutputGear",
+      "copies": 1,
+      "stl": "stl/vystupni-kolo-55.stl",
+      "bbox_mm": [
+        57.3689763339248,
+        57.3908121908685,
+        22.000000000000007
+      ],
+      "volume_mm3": 29602.203557742974,
+      "solid_count": 1,
+      "valid": true,
+      "closed_mesh": true,
+      "print_orientation": "gear_face",
+      "sha256": "362a0bf7a58bd3e94f05b97b10140cea8adbcf1df410e39c81f9903b902eedaf"
+    },
+    "pastorek-18-otvor-2_2": {
+      "object": "Pinion",
+      "copies": 1,
+      "stl": "stl/pastorek-18-otvor-2_2.stl",
+      "bbox_mm": [
+        20.20087100817107,
+        19.985017769082944,
+        5.0
+      ],
+      "volume_mm3": 1228.5376346694215,
+      "solid_count": 1,
+      "valid": true,
+      "closed_mesh": true,
+      "print_orientation": "flat",
+      "sha256": "2233c44357635fbeb14e6831d92572bb7da8ed279732ba0a64e24bd971268eb0"
+    },
+    "ram-25": {
+      "object": "SteeringFrame",
+      "copies": 1,
+      "stl": "stl/ram-25.stl",
+      "bbox_mm": [
+        236.0,
+        159.99699090480328,
+        42.0
+      ],
+      "volume_mm3": 180660.1091840286,
+      "solid_count": 1,
+      "valid": true,
+      "closed_mesh": true,
+      "print_orientation": "flat",
+      "sha256": "a4affc1bfec28e6fe91daeb82b2c4e7f1721fe98e06291b8ede8fac313e88ed4"
+    },
+    "pevny-cep-8x53_9": {
+      "object": "FixedGearPin",
+      "copies": 2,
+      "stl": "stl/pevny-cep-8x53_9.stl",
+      "bbox_mm": [
+        53.9,
+        12.0,
+        12.0
+      ],
+      "volume_mm3": 2875.8555324680565,
+      "solid_count": 1,
+      "valid": true,
+      "closed_mesh": true,
+      "print_orientation": "round_pin",
+      "sha256": "dadc7cac8a1ab3539f123e7abdd65fa3d0555b4b37d583de85756956aaa5e795"
+    },
+    "pojistka-6_9": {
+      "object": "GearPinClip",
+      "copies": 7,
+      "stl": "stl/pojistka-6_9.stl",
+      "bbox_mm": [
+        12.289996032458323,
+        12.999984112269885,
+        1.3
+      ],
+      "volume_mm3": 98.58605431087922,
+      "solid_count": 1,
+      "valid": true,
+      "closed_mesh": true,
+      "print_orientation": "flat",
+      "sha256": "7be6176012c834bfba0b745c0048f7139799b85b0654688302d0bba3353007e0"
+    },
+    "pricny-klinek-4x27_1": {
+      "object": "OutputCrossPin",
+      "copies": 1,
+      "stl": "stl/pricny-klinek-4x27_1.stl",
+      "bbox_mm": [
+        27.1,
+        6.997824274005715,
+        7.0
+      ],
+      "volume_mm3": 384.1382417176919,
+      "solid_count": 1,
+      "valid": true,
+      "closed_mesh": true,
+      "print_orientation": "round_pin",
+      "sha256": "39ccbc90327cf3cc0ce7a91f9430515797d55a2b332c9eb09c70b50763f0b020"
+    },
+    "pojistka-3_1": {
+      "object": "SmallClip",
+      "copies": 10,
+      "stl": "stl/pojistka-3_1.stl",
+      "bbox_mm": [
+        6.769174207655505,
+        6.999136243605749,
+        1.3
+      ],
+      "volume_mm3": 33.50889081444551,
+      "solid_count": 1,
+      "valid": true,
+      "closed_mesh": true,
+      "print_orientation": "flat",
+      "sha256": "b6b33f593dff03ea8d4ee5eb90d42629c0973c982cd988b141ce50b2897a08c4"
+    },
+    "spolecny-cep-mustku-4x30_5": {
+      "object": "MotorLockPin",
+      "copies": 2,
+      "stl": "stl/spolecny-cep-mustku-4x30_5.stl",
+      "bbox_mm": [
+        30.5,
+        7.997513456006531,
+        8.0
+      ],
+      "volume_mm3": 450.4258467084366,
+      "solid_count": 1,
+      "valid": true,
+      "closed_mesh": true,
+      "print_orientation": "round_pin",
+      "sha256": "163175e6a521505acfa6a9a0793011728c6362d44e775abb203fb3357bcccd34"
+    },
+    "cep-plosiny-4x19_5": {
+      "object": "DeckLockPin",
+      "copies": 4,
+      "stl": "stl/cep-plosiny-4x19_5.stl",
+      "bbox_mm": [
+        19.5,
+        8.0,
+        8.0
+      ],
+      "volume_mm3": 339.6648050356123,
+      "solid_count": 1,
+      "valid": true,
+      "closed_mesh": true,
+      "print_orientation": "round_pin",
+      "sha256": "ca809f5002b17f92be2453f7cbc73e78e0f17619d2a0040cec2acae125e639fc"
+    },
+    "pojistka-osy-10_9": {
+      "object": "AxleClip",
+      "copies": 4,
+      "stl": "stl/pojistka-osy-10_9.stl",
+      "bbox_mm": [
+        16.644442425710327,
+        17.996273540008993,
+        1.3
+      ],
+      "volume_mm3": 161.12060829201755,
+      "solid_count": 1,
+      "valid": true,
+      "closed_mesh": true,
+      "print_orientation": "flat",
+      "sha256": "8fcc87ded5822951c16b6e075e3ca719e7c240d0e64890de46f22b4bd372ea29"
+    },
+    "osa-zadni-12x150_6": {
+      "object": "RearAxle",
+      "copies": 1,
+      "stl": "stl/osa-zadni-12x150_6.stl",
+      "bbox_mm": [
+        150.60000000000002,
+        11.999080892580217,
+        12.000000000000009
+      ],
+      "volume_mm3": 16285.454633724808,
+      "solid_count": 1,
+      "valid": true,
+      "closed_mesh": true,
+      "print_orientation": "round_pin",
+      "sha256": "d9c287fe20b5b7c1df883dcb33d3a426dfefb12102ad702be0b134094b475f58"
+    },
+    "rozperka-zadni-17_6": {
+      "object": "RearWheelSpacer",
+      "copies": 2,
+      "stl": "stl/rozperka-zadni-17_6.stl",
+      "bbox_mm": [
+        18.0,
+        17.994405276014692,
+        17.6
+      ],
+      "volume_mm3": 2284.1137883483816,
+      "solid_count": 1,
+      "valid": true,
+      "closed_mesh": true,
+      "print_orientation": "flat",
+      "sha256": "3b772e4da5cf86901cec92e33da4d372c0bc2cd57376ec4930bfa20d72d2d205"
+    },
+    "kolo-76x12-zadni-d": {
+      "object": "RearWheel",
+      "copies": 2,
+      "stl": "stl/kolo-76x12-zadni-d.stl",
+      "bbox_mm": [
+        75.9990641930595,
+        75.99812838611899,
+        12.0
+      ],
+      "volume_mm3": 26819.56876848195,
+      "solid_count": 1,
+      "valid": true,
+      "closed_mesh": true,
+      "print_orientation": "flat",
+      "sha256": "434869ad956aec81b362c1a0d4f236a6b8528be879c35f706f9892c8f4332d2d"
+    },
+    "kolo-76x12-predni": {
+      "object": "FrontWheel",
+      "copies": 2,
+      "stl": "stl/kolo-76x12-predni.stl",
+      "bbox_mm": [
+        75.9990641930595,
+        75.99812838611899,
+        12.0
+      ],
+      "volume_mm3": 27353.027253957567,
+      "solid_count": 1,
+      "valid": true,
+      "closed_mesh": true,
+      "print_orientation": "flat",
+      "sha256": "5568c0fa1f7ffd7393a11d45d2609aefdff0d16024d7f8138f2396972ece76fe"
+    },
+    "motorovy-mustek": {
+      "object": "MotorBridge",
+      "copies": 2,
+      "stl": "stl/motorovy-mustek.stl",
+      "bbox_mm": [
+        40.0,
+        6.000000000000002,
+        18.0
+      ],
+      "volume_mm3": 2792.666633192621,
+      "solid_count": 1,
+      "valid": true,
+      "closed_mesh": true,
+      "print_orientation": "flat",
+      "sha256": "6b3d81a3b4963a98f01334b87b32dbea474997b194dd0811bbcfb7487eac8c5b"
+    },
+    "motorovy-klinek": {
+      "object": "MotorWedge",
+      "copies": 2,
+      "stl": "stl/motorovy-klinek.stl",
+      "bbox_mm": [
+        6.0,
+        10.0,
+        4.0
+      ],
+      "volume_mm3": 210.0,
+      "solid_count": 1,
+      "valid": true,
+      "closed_mesh": true,
+      "print_orientation": "flat",
+      "sha256": "b05c7ac17b7d8806d0ed986e239bb29b1f1c55f3d07ca1d605613de8ed9a14f8"
+    },
+    "plosina-170x60": {
+      "object": "Deck",
+      "copies": 1,
+      "stl": "stl/plosina-170x60.stl",
+      "bbox_mm": [
+        202.0,
+        88.0,
+        72.00000000000001
+      ],
+      "volume_mm3": 121283.81791080865,
+      "solid_count": 1,
+      "valid": true,
+      "closed_mesh": true,
+      "print_orientation": "deck",
+      "sha256": "45d8828d928ab3e710758b9855a7f4e9e1522ca0efa34d2d4be95f6e8efaca08"
+    },
+    "servo-viko": {
+      "object": "ServoCap",
+      "copies": 1,
+      "stl": "stl/servo-viko.stl",
+      "bbox_mm": [
+        28.0,
+        39.2,
+        5.0
+      ],
+      "volume_mm3": 2997.620618865849,
+      "solid_count": 1,
+      "valid": true,
+      "closed_mesh": true,
+      "print_orientation": "flat",
+      "sha256": "c1c735144b7cb1a0330d0e63ee376f5aa66310aadb6580be783ceab849caf9dc"
+    },
+    "servo-cep-4x51_2": {
+      "object": "ServoMountPin",
+      "copies": 2,
+      "stl": "stl/servo-cep-4x51_2.stl",
+      "bbox_mm": [
+        51.2,
+        7.997513456006531,
+        8.0
+      ],
+      "volume_mm3": 710.5497184256716,
+      "solid_count": 1,
+      "valid": true,
+      "closed_mesh": true,
+      "print_orientation": "round_pin",
+      "sha256": "113049edfed69399da6e6df4c7381cd91e54f38f8d7933579a1d73f99becffba"
+    },
+    "objimka-packy-spodek": {
+      "object": "HornTray",
+      "copies": 1,
+      "stl": "stl/objimka-packy-spodek.stl",
+      "bbox_mm": [
+        32.0,
+        20.0,
+        8.600000000000001
+      ],
+      "volume_mm3": 2758.9915179415743,
+      "solid_count": 1,
+      "valid": true,
+      "closed_mesh": true,
+      "print_orientation": "flat",
+      "sha256": "be241901c13b19cc68b4620e25466e9933ab77915d62676c96df474d6295836f"
+    },
+    "objimka-packy-viko": {
+      "object": "HornLid",
+      "copies": 1,
+      "stl": "stl/objimka-packy-viko.stl",
+      "bbox_mm": [
+        32.0,
+        17.6,
+        13.500000000000007
+      ],
+      "volume_mm3": 1479.7609031809345,
+      "solid_count": 1,
+      "valid": true,
+      "closed_mesh": true,
+      "print_orientation": "flat",
+      "sha256": "c50191d432602244f2ae62f0c347d0a245ec26dee4cd61bbb1dedc2cc9f79bf5"
+    },
+    "objimka-cep-4x25_5": {
+      "object": "HornLockPin",
+      "copies": 1,
+      "stl": "stl/objimka-cep-4x25_5.stl",
+      "bbox_mm": [
+        25.5,
+        6.997824274005715,
+        7.0
+      ],
+      "volume_mm3": 364.0320487347172,
+      "solid_count": 1,
+      "valid": true,
+      "closed_mesh": true,
+      "print_orientation": "round_pin",
+      "sha256": "1a77990df981081e08aafe455b3f1d3777a7ba97abb2b9c89f1080c162737afa"
+    },
+    "podlozka-packy-1_8": {
+      "object": "HornPrintedSpacer",
+      "copies": 1,
+      "stl": "stl/podlozka-packy-1_8.stl",
+      "bbox_mm": [
+        12.0,
+        11.996270184009797,
+        1.8
+      ],
+      "volume_mm3": 99.01671725584312,
+      "solid_count": 1,
+      "valid": true,
+      "closed_mesh": true,
+      "print_orientation": "flat",
+      "sha256": "aeb339e15530e621e9b971f623145d6be8d3bf3efe1257eefd44743d12ac3345"
+    },
+    "celist-horni": {
+      "object": "ForkCap",
+      "copies": 2,
+      "stl": "stl/celist-horni.stl",
+      "bbox_mm": [
+        15.998200911093587,
+        24.499197895851022,
+        7.000000000000001
+      ],
+      "volume_mm3": 983.5775205190209,
+      "solid_count": 1,
+      "valid": true,
+      "closed_mesh": true,
+      "print_orientation": "cap",
+      "sha256": "bbdfc0d4ba793f973ad7c13b947867d38b9739c58f13362b41cbaced25f51872"
+    },
+    "svisly-cep-8": {
+      "object": "Kingpin",
+      "copies": 2,
+      "stl": "stl/svisly-cep-8.stl",
+      "bbox_mm": [
+        35.3,
+        12.995959366010613,
+        13.0
+      ],
+      "volume_mm3": 1918.3821379880715,
+      "solid_count": 1,
+      "valid": true,
+      "closed_mesh": true,
+      "print_orientation": "round_pin",
+      "sha256": "6ce92d30b28a9e7543339b1e0847aef8647ebabba7cdeba89ba701b449810c44"
+    },
+    "tehlice-leva": {
+      "object": "KnuckleL",
+      "copies": 1,
+      "stl": "stl/tehlice-leva.stl",
+      "bbox_mm": [
+        32.900000000000006,
+        31.298818417804473,
+        35.7
+      ],
+      "volume_mm3": 4310.815516643648,
+      "solid_count": 1,
+      "valid": true,
+      "closed_mesh": true,
+      "print_orientation": "knuckle",
+      "sha256": "3a1d6842f80eefdb1d92141f7329a75fae7d4c409c88bf4db069e47e2a4df655"
+    },
+    "tehlice-prava": {
+      "object": "KnuckleR",
+      "copies": 1,
+      "stl": "stl/tehlice-prava.stl",
+      "bbox_mm": [
+        32.900000000000006,
+        31.298818417804476,
+        35.7
+      ],
+      "volume_mm3": 4310.8147323519925,
+      "solid_count": 1,
+      "valid": true,
+      "closed_mesh": true,
+      "print_orientation": "knuckle",
+      "sha256": "57965a41b07b256bcf550bc7c603bdeec5c489cdd0616eb062b4951894af2ec7"
+    },
+    "spojovaci-tahlo": {
+      "object": "TieBarFinal",
+      "copies": 1,
+      "stl": "stl/spojovaci-tahlo.stl",
+      "bbox_mm": [
+        39.9981350920049,
+        156.0,
+        3.0
+      ],
+      "volume_mm3": 3926.857499616198,
+      "solid_count": 1,
+      "valid": true,
+      "closed_mesh": true,
+      "print_orientation": "flat",
+      "sha256": "10e9fb72b2d571a950851eab0dcc2d6d28d2d0078c72035b2f7c40ad204603f5"
+    },
+    "servo-tahlo-r15": {
+      "object": "DragLink",
+      "copies": 1,
+      "stl": "stl/servo-tahlo-r15.stl",
+      "bbox_mm": [
+        85.17125001345403,
+        13.999496219680637,
+        3.0
+      ],
+      "volume_mm3": 1239.887357172818,
+      "solid_count": 1,
+      "valid": true,
+      "closed_mesh": true,
+      "print_orientation": "flat",
+      "sha256": "3774b9d11426ba0328b9d34ae06aebcbf31c1e33b43eb61432b854adab7eb7ff"
+    },
+    "cep-tahla-dlouhy": {
+      "object": "JointPinLong",
+      "copies": 1,
+      "stl": "stl/cep-tahla-dlouhy.stl",
+      "bbox_mm": [
+        15.600000000000001,
+        9.996891820008162,
+        10.0
+      ],
+      "volume_mm3": 526.342433182434,
+      "solid_count": 1,
+      "valid": true,
+      "closed_mesh": true,
+      "print_orientation": "round_pin",
+      "sha256": "22f9d6b375883daaa08772d6c17d3ff2c9c0197f84218d6dd81c82a8f6b8e503"
+    },
+    "cep-tahla-kratky": {
+      "object": "JointPinShort",
+      "copies": 1,
+      "stl": "stl/cep-tahla-kratky.stl",
+      "bbox_mm": [
+        12.200000000000001,
+        9.996891820008162,
+        10.0
+      ],
+      "volume_mm3": 430.20969798258636,
+      "solid_count": 1,
+      "valid": true,
+      "closed_mesh": true,
+      "print_orientation": "round_pin",
+      "sha256": "48fdf64462d8451bcf8dc93d661ccfafb24d372e493809f26744f9b55dd054d4"
+    },
+    "pojistka-kloubu-4_9": {
+      "object": "SmallClip001",
+      "copies": 2,
+      "stl": "stl/pojistka-kloubu-4_9.stl",
+      "bbox_mm": [
+        9.558871906779668,
+        9.99999667164559,
+        1.3
+      ],
+      "volume_mm3": 63.01461096637103,
+      "solid_count": 1,
+      "valid": true,
+      "closed_mesh": true,
+      "print_orientation": "flat",
+      "sha256": "16f315d7f9a68525af9bfd74d99b27113de4dcb9e2ce6369fecf930b6a8928cd"
+    }
+  },
+  "assembly_instances": [
+    {
+      "name": "AssemblyFrame",
+      "part": "ram-25",
+      "stl": "stl/ram-25.stl"
+    },
+    {
+      "name": "AssemblyDeck",
+      "part": "plosina-170x60",
+      "stl": "stl/plosina-170x60.stl"
+    },
+    {
+      "name": "AssemblyRearAxle",
+      "part": "osa-zadni-12x150_6",
+      "stl": "stl/osa-zadni-12x150_6.stl"
+    },
+    {
+      "name": "AssemblyRearWheel1",
+      "part": "kolo-76x12-zadni-d",
+      "stl": "stl/kolo-76x12-zadni-d.stl"
+    },
+    {
+      "name": "AssemblyRearSpacer1",
+      "part": "rozperka-zadni-17_6",
+      "stl": "stl/rozperka-zadni-17_6.stl"
+    },
+    {
+      "name": "AssemblyRearInnerClip1",
+      "part": "pojistka-osy-10_9",
+      "stl": "stl/pojistka-osy-10_9.stl"
+    },
+    {
+      "name": "AssemblyRearOuterClip1",
+      "part": "pojistka-osy-10_9",
+      "stl": "stl/pojistka-osy-10_9.stl"
+    },
+    {
+      "name": "AssemblyRearWheel3",
+      "part": "kolo-76x12-zadni-d",
+      "stl": "stl/kolo-76x12-zadni-d.stl"
+    },
+    {
+      "name": "AssemblyRearSpacer3",
+      "part": "rozperka-zadni-17_6",
+      "stl": "stl/rozperka-zadni-17_6.stl"
+    },
+    {
+      "name": "AssemblyRearInnerClip3",
+      "part": "pojistka-osy-10_9",
+      "stl": "stl/pojistka-osy-10_9.stl"
+    },
+    {
+      "name": "AssemblyRearOuterClip3",
+      "part": "pojistka-osy-10_9",
+      "stl": "stl/pojistka-osy-10_9.stl"
+    },
+    {
+      "name": "AssemblyA",
+      "part": "mezikolo-a-54_18",
+      "stl": "stl/mezikolo-a-54_18.stl"
+    },
+    {
+      "name": "AssemblyB",
+      "part": "mezikolo-b-60_22",
+      "stl": "stl/mezikolo-b-60_22.stl"
+    },
+    {
+      "name": "AssemblyOutput",
+      "part": "vystupni-kolo-55",
+      "stl": "stl/vystupni-kolo-55.stl"
+    },
+    {
+      "name": "AssemblyPinion",
+      "part": "pastorek-18-otvor-2_2",
+      "stl": "stl/pastorek-18-otvor-2_2.stl"
+    },
+    {
+      "name": "AssemblyFixedPinA",
+      "part": "pevny-cep-8x53_9",
+      "stl": "stl/pevny-cep-8x53_9.stl"
+    },
+    {
+      "name": "AssemblyFixedPinClipA",
+      "part": "pojistka-6_9",
+      "stl": "stl/pojistka-6_9.stl"
+    },
+    {
+      "name": "AssemblyFixedPinB",
+      "part": "pevny-cep-8x53_9",
+      "stl": "stl/pevny-cep-8x53_9.stl"
+    },
+    {
+      "name": "AssemblyFixedPinClipB",
+      "part": "pojistka-6_9",
+      "stl": "stl/pojistka-6_9.stl"
+    },
+    {
+      "name": "AssemblyCrossPin",
+      "part": "pricny-klinek-4x27_1",
+      "stl": "stl/pricny-klinek-4x27_1.stl"
+    },
+    {
+      "name": "AssemblyCrossPinClip",
+      "part": "pojistka-3_1",
+      "stl": "stl/pojistka-3_1.stl"
+    },
+    {
+      "name": "AssemblyMotorBridge0",
+      "part": "motorovy-mustek",
+      "stl": "stl/motorovy-mustek.stl"
+    },
+    {
+      "name": "AssemblyMotorWedge0",
+      "part": "motorovy-klinek",
+      "stl": "stl/motorovy-klinek.stl"
+    },
+    {
+      "name": "AssemblyMotorBridge1",
+      "part": "motorovy-mustek",
+      "stl": "stl/motorovy-mustek.stl"
+    },
+    {
+      "name": "AssemblyMotorWedge1",
+      "part": "motorovy-klinek",
+      "stl": "stl/motorovy-klinek.stl"
+    },
+    {
+      "name": "AssemblyMotorPin1",
+      "part": "spolecny-cep-mustku-4x30_5",
+      "stl": "stl/spolecny-cep-mustku-4x30_5.stl"
+    },
+    {
+      "name": "AssemblyMotorPinClip1",
+      "part": "pojistka-3_1",
+      "stl": "stl/pojistka-3_1.stl"
+    },
+    {
+      "name": "AssemblyMotorPin3",
+      "part": "spolecny-cep-mustku-4x30_5",
+      "stl": "stl/spolecny-cep-mustku-4x30_5.stl"
+    },
+    {
+      "name": "AssemblyMotorPinClip3",
+      "part": "pojistka-3_1",
+      "stl": "stl/pojistka-3_1.stl"
+    },
+    {
+      "name": "AssemblyDeckPin0",
+      "part": "cep-plosiny-4x19_5",
+      "stl": "stl/cep-plosiny-4x19_5.stl"
+    },
+    {
+      "name": "AssemblyDeckPinClip0",
+      "part": "pojistka-3_1",
+      "stl": "stl/pojistka-3_1.stl"
+    },
+    {
+      "name": "AssemblyDeckPin1",
+      "part": "cep-plosiny-4x19_5",
+      "stl": "stl/cep-plosiny-4x19_5.stl"
+    },
+    {
+      "name": "AssemblyDeckPinClip1",
+      "part": "pojistka-3_1",
+      "stl": "stl/pojistka-3_1.stl"
+    },
+    {
+      "name": "AssemblyDeckPin2",
+      "part": "cep-plosiny-4x19_5",
+      "stl": "stl/cep-plosiny-4x19_5.stl"
+    },
+    {
+      "name": "AssemblyDeckPinClip2",
+      "part": "pojistka-3_1",
+      "stl": "stl/pojistka-3_1.stl"
+    },
+    {
+      "name": "AssemblyDeckPin3",
+      "part": "cep-plosiny-4x19_5",
+      "stl": "stl/cep-plosiny-4x19_5.stl"
+    },
+    {
+      "name": "AssemblyDeckPinClip3",
+      "part": "pojistka-3_1",
+      "stl": "stl/pojistka-3_1.stl"
+    },
+    {
+      "name": "AssemblyForkCapL",
+      "part": "celist-horni",
+      "stl": "stl/celist-horni.stl"
+    },
+    {
+      "name": "AssemblyKingpinL",
+      "part": "svisly-cep-8",
+      "stl": "stl/svisly-cep-8.stl"
+    },
+    {
+      "name": "AssemblyKingClipL",
+      "part": "pojistka-6_9",
+      "stl": "stl/pojistka-6_9.stl"
+    },
+    {
+      "name": "AssemblyKnuckleL",
+      "part": "tehlice-leva",
+      "stl": "stl/tehlice-leva.stl"
+    },
+    {
+      "name": "AssemblySteeringWheelL",
+      "part": "kolo-76x12-predni",
+      "stl": "stl/kolo-76x12-predni.stl"
+    },
+    {
+      "name": "AssemblyWheelClipL",
+      "part": "pojistka-6_9",
+      "stl": "stl/pojistka-6_9.stl"
+    },
+    {
+      "name": "AssemblyJointPinL",
+      "part": "cep-tahla-dlouhy",
+      "stl": "stl/cep-tahla-dlouhy.stl"
+    },
+    {
+      "name": "AssemblyJointClipL",
+      "part": "pojistka-kloubu-4_9",
+      "stl": "stl/pojistka-kloubu-4_9.stl"
+    },
+    {
+      "name": "AssemblyForkCapR",
+      "part": "celist-horni",
+      "stl": "stl/celist-horni.stl"
+    },
+    {
+      "name": "AssemblyKingpinR",
+      "part": "svisly-cep-8",
+      "stl": "stl/svisly-cep-8.stl"
+    },
+    {
+      "name": "AssemblyKingClipR",
+      "part": "pojistka-6_9",
+      "stl": "stl/pojistka-6_9.stl"
+    },
+    {
+      "name": "AssemblyKnuckleR",
+      "part": "tehlice-prava",
+      "stl": "stl/tehlice-prava.stl"
+    },
+    {
+      "name": "AssemblySteeringWheelR",
+      "part": "kolo-76x12-predni",
+      "stl": "stl/kolo-76x12-predni.stl"
+    },
+    {
+      "name": "AssemblyWheelClipR",
+      "part": "pojistka-6_9",
+      "stl": "stl/pojistka-6_9.stl"
+    },
+    {
+      "name": "AssemblyJointPinR",
+      "part": "cep-tahla-kratky",
+      "stl": "stl/cep-tahla-kratky.stl"
+    },
+    {
+      "name": "AssemblyJointClipR",
+      "part": "pojistka-kloubu-4_9",
+      "stl": "stl/pojistka-kloubu-4_9.stl"
+    },
+    {
+      "name": "AssemblyTie",
+      "part": "spojovaci-tahlo",
+      "stl": "stl/spojovaci-tahlo.stl"
+    },
+    {
+      "name": "AssemblyDrag",
+      "part": "servo-tahlo-r15",
+      "stl": "stl/servo-tahlo-r15.stl"
+    },
+    {
+      "name": "AssemblyHornSpacer",
+      "part": "podlozka-packy-1_8",
+      "stl": "stl/podlozka-packy-1_8.stl"
+    },
+    {
+      "name": "AssemblyHornTray",
+      "part": "objimka-packy-spodek",
+      "stl": "stl/objimka-packy-spodek.stl"
+    },
+    {
+      "name": "AssemblyHornLid",
+      "part": "objimka-packy-viko",
+      "stl": "stl/objimka-packy-viko.stl"
+    },
+    {
+      "name": "AssemblyHornLockPin",
+      "part": "objimka-cep-4x25_5",
+      "stl": "stl/objimka-cep-4x25_5.stl"
+    },
+    {
+      "name": "AssemblyHornLockClip",
+      "part": "pojistka-3_1",
+      "stl": "stl/pojistka-3_1.stl"
+    },
+    {
+      "name": "AssemblyHornPivotClip",
+      "part": "pojistka-6_9",
+      "stl": "stl/pojistka-6_9.stl"
+    },
+    {
+      "name": "AssemblyServoCap",
+      "part": "servo-viko",
+      "stl": "stl/servo-viko.stl"
+    },
+    {
+      "name": "AssemblyServoMountPin1",
+      "part": "servo-cep-4x51_2",
+      "stl": "stl/servo-cep-4x51_2.stl"
+    },
+    {
+      "name": "AssemblyServoMountClip1",
+      "part": "pojistka-3_1",
+      "stl": "stl/pojistka-3_1.stl"
+    },
+    {
+      "name": "AssemblyServoMountPin3",
+      "part": "servo-cep-4x51_2",
+      "stl": "stl/servo-cep-4x51_2.stl"
+    },
+    {
+      "name": "AssemblyServoMountClip3",
+      "part": "pojistka-3_1",
+      "stl": "stl/pojistka-3_1.stl"
+    }
+  ],
+  "references": [
+    "MotorReference",
+    "ServoReference",
+    "AssemblyHornReference"
+  ],
+  "assembly_object_names": [
+    "AssemblyFrame",
+    "AssemblyDeck",
+    "AssemblyRearAxle",
+    "AssemblyRearWheel1",
+    "AssemblyRearSpacer1",
+    "AssemblyRearInnerClip1",
+    "AssemblyRearOuterClip1",
+    "AssemblyRearWheel3",
+    "AssemblyRearSpacer3",
+    "AssemblyRearInnerClip3",
+    "AssemblyRearOuterClip3",
+    "AssemblyA",
+    "AssemblyB",
+    "AssemblyOutput",
+    "AssemblyPinion",
+    "AssemblyFixedPinA",
+    "AssemblyFixedPinClipA",
+    "AssemblyFixedPinB",
+    "AssemblyFixedPinClipB",
+    "AssemblyCrossPin",
+    "AssemblyCrossPinClip",
+    "AssemblyMotorBridge0",
+    "AssemblyMotorWedge0",
+    "AssemblyMotorBridge1",
+    "AssemblyMotorWedge1",
+    "AssemblyMotorPin1",
+    "AssemblyMotorPinClip1",
+    "AssemblyMotorPin3",
+    "AssemblyMotorPinClip3",
+    "AssemblyDeckPin0",
+    "AssemblyDeckPinClip0",
+    "AssemblyDeckPin1",
+    "AssemblyDeckPinClip1",
+    "AssemblyDeckPin2",
+    "AssemblyDeckPinClip2",
+    "AssemblyDeckPin3",
+    "AssemblyDeckPinClip3",
+    "AssemblyForkCapL",
+    "AssemblyKingpinL",
+    "AssemblyKingClipL",
+    "AssemblyKnuckleL",
+    "AssemblySteeringWheelL",
+    "AssemblyWheelClipL",
+    "AssemblyJointPinL",
+    "AssemblyJointClipL",
+    "AssemblyForkCapR",
+    "AssemblyKingpinR",
+    "AssemblyKingClipR",
+    "AssemblyKnuckleR",
+    "AssemblySteeringWheelR",
+    "AssemblyWheelClipR",
+    "AssemblyJointPinR",
+    "AssemblyJointClipR",
+    "AssemblyTie",
+    "AssemblyDrag",
+    "AssemblyHornSpacer",
+    "AssemblyHornTray",
+    "AssemblyHornLid",
+    "AssemblyHornLockPin",
+    "AssemblyHornLockClip",
+    "AssemblyHornPivotClip",
+    "AssemblyServoCap",
+    "AssemblyServoMountPin1",
+    "AssemblyServoMountClip1",
+    "AssemblyServoMountPin3",
+    "AssemblyServoMountClip3",
+    "MotorReference",
+    "ServoReference",
+    "AssemblyHornReference"
+  ],
+  "total_print_count": 66,
+  "counts_derived_from_assembly": true,
+  "gear_centres_mm": [
+    36.4,
+    39.4,
+    38.9
+  ],
+  "print_bundle": {
+    "file": "tiskovy-balicek.zip",
+    "total_stl_copies": 66,
+    "counts_derived_from_actual_assembly_instances": true,
+    "sha256": "3e6ea7b537a1b2cb9197cbcf23623bbfbc9b7354323d0415af6e7eac19d7aa6f",
+    "entries": [
+      {
+        "assembly_instance": "AssemblyFrame",
+        "part": "ram-25",
+        "archive_entry": "ram-25__01.stl",
+        "sha256": "a4affc1bfec28e6fe91daeb82b2c4e7f1721fe98e06291b8ede8fac313e88ed4"
+      },
+      {
+        "assembly_instance": "AssemblyDeck",
+        "part": "plosina-170x60",
+        "archive_entry": "plosina-170x60__01.stl",
+        "sha256": "45d8828d928ab3e710758b9855a7f4e9e1522ca0efa34d2d4be95f6e8efaca08"
+      },
+      {
+        "assembly_instance": "AssemblyRearAxle",
+        "part": "osa-zadni-12x150_6",
+        "archive_entry": "osa-zadni-12x150_6__01.stl",
+        "sha256": "d9c287fe20b5b7c1df883dcb33d3a426dfefb12102ad702be0b134094b475f58"
+      },
+      {
+        "assembly_instance": "AssemblyRearWheel1",
+        "part": "kolo-76x12-zadni-d",
+        "archive_entry": "kolo-76x12-zadni-d__01.stl",
+        "sha256": "434869ad956aec81b362c1a0d4f236a6b8528be879c35f706f9892c8f4332d2d"
+      },
+      {
+        "assembly_instance": "AssemblyRearSpacer1",
+        "part": "rozperka-zadni-17_6",
+        "archive_entry": "rozperka-zadni-17_6__01.stl",
+        "sha256": "3b772e4da5cf86901cec92e33da4d372c0bc2cd57376ec4930bfa20d72d2d205"
+      },
+      {
+        "assembly_instance": "AssemblyRearInnerClip1",
+        "part": "pojistka-osy-10_9",
+        "archive_entry": "pojistka-osy-10_9__01.stl",
+        "sha256": "8fcc87ded5822951c16b6e075e3ca719e7c240d0e64890de46f22b4bd372ea29"
+      },
+      {
+        "assembly_instance": "AssemblyRearOuterClip1",
+        "part": "pojistka-osy-10_9",
+        "archive_entry": "pojistka-osy-10_9__02.stl",
+        "sha256": "8fcc87ded5822951c16b6e075e3ca719e7c240d0e64890de46f22b4bd372ea29"
+      },
+      {
+        "assembly_instance": "AssemblyRearWheel3",
+        "part": "kolo-76x12-zadni-d",
+        "archive_entry": "kolo-76x12-zadni-d__02.stl",
+        "sha256": "434869ad956aec81b362c1a0d4f236a6b8528be879c35f706f9892c8f4332d2d"
+      },
+      {
+        "assembly_instance": "AssemblyRearSpacer3",
+        "part": "rozperka-zadni-17_6",
+        "archive_entry": "rozperka-zadni-17_6__02.stl",
+        "sha256": "3b772e4da5cf86901cec92e33da4d372c0bc2cd57376ec4930bfa20d72d2d205"
+      },
+      {
+        "assembly_instance": "AssemblyRearInnerClip3",
+        "part": "pojistka-osy-10_9",
+        "archive_entry": "pojistka-osy-10_9__03.stl",
+        "sha256": "8fcc87ded5822951c16b6e075e3ca719e7c240d0e64890de46f22b4bd372ea29"
+      },
+      {
+        "assembly_instance": "AssemblyRearOuterClip3",
+        "part": "pojistka-osy-10_9",
+        "archive_entry": "pojistka-osy-10_9__04.stl",
+        "sha256": "8fcc87ded5822951c16b6e075e3ca719e7c240d0e64890de46f22b4bd372ea29"
+      },
+      {
+        "assembly_instance": "AssemblyA",
+        "part": "mezikolo-a-54_18",
+        "archive_entry": "mezikolo-a-54_18__01.stl",
+        "sha256": "92b682b472098d9d4f269c12f76eb6121963a9d5950780d93ee3108bf602cb26"
+      },
+      {
+        "assembly_instance": "AssemblyB",
+        "part": "mezikolo-b-60_22",
+        "archive_entry": "mezikolo-b-60_22__01.stl",
+        "sha256": "e9a7172ec7ac3183205fff3d9ac4ff05ffab035afc3ce89490cedd6ed61f9bae"
+      },
+      {
+        "assembly_instance": "AssemblyOutput",
+        "part": "vystupni-kolo-55",
+        "archive_entry": "vystupni-kolo-55__01.stl",
+        "sha256": "362a0bf7a58bd3e94f05b97b10140cea8adbcf1df410e39c81f9903b902eedaf"
+      },
+      {
+        "assembly_instance": "AssemblyPinion",
+        "part": "pastorek-18-otvor-2_2",
+        "archive_entry": "pastorek-18-otvor-2_2__01.stl",
+        "sha256": "2233c44357635fbeb14e6831d92572bb7da8ed279732ba0a64e24bd971268eb0"
+      },
+      {
+        "assembly_instance": "AssemblyFixedPinA",
+        "part": "pevny-cep-8x53_9",
+        "archive_entry": "pevny-cep-8x53_9__01.stl",
+        "sha256": "dadc7cac8a1ab3539f123e7abdd65fa3d0555b4b37d583de85756956aaa5e795"
+      },
+      {
+        "assembly_instance": "AssemblyFixedPinClipA",
+        "part": "pojistka-6_9",
+        "archive_entry": "pojistka-6_9__01.stl",
+        "sha256": "7be6176012c834bfba0b745c0048f7139799b85b0654688302d0bba3353007e0"
+      },
+      {
+        "assembly_instance": "AssemblyFixedPinB",
+        "part": "pevny-cep-8x53_9",
+        "archive_entry": "pevny-cep-8x53_9__02.stl",
+        "sha256": "dadc7cac8a1ab3539f123e7abdd65fa3d0555b4b37d583de85756956aaa5e795"
+      },
+      {
+        "assembly_instance": "AssemblyFixedPinClipB",
+        "part": "pojistka-6_9",
+        "archive_entry": "pojistka-6_9__02.stl",
+        "sha256": "7be6176012c834bfba0b745c0048f7139799b85b0654688302d0bba3353007e0"
+      },
+      {
+        "assembly_instance": "AssemblyCrossPin",
+        "part": "pricny-klinek-4x27_1",
+        "archive_entry": "pricny-klinek-4x27_1__01.stl",
+        "sha256": "39ccbc90327cf3cc0ce7a91f9430515797d55a2b332c9eb09c70b50763f0b020"
+      },
+      {
+        "assembly_instance": "AssemblyCrossPinClip",
+        "part": "pojistka-3_1",
+        "archive_entry": "pojistka-3_1__01.stl",
+        "sha256": "b6b33f593dff03ea8d4ee5eb90d42629c0973c982cd988b141ce50b2897a08c4"
+      },
+      {
+        "assembly_instance": "AssemblyMotorBridge0",
+        "part": "motorovy-mustek",
+        "archive_entry": "motorovy-mustek__01.stl",
+        "sha256": "6b3d81a3b4963a98f01334b87b32dbea474997b194dd0811bbcfb7487eac8c5b"
+      },
+      {
+        "assembly_instance": "AssemblyMotorWedge0",
+        "part": "motorovy-klinek",
+        "archive_entry": "motorovy-klinek__01.stl",
+        "sha256": "b05c7ac17b7d8806d0ed986e239bb29b1f1c55f3d07ca1d605613de8ed9a14f8"
+      },
+      {
+        "assembly_instance": "AssemblyMotorBridge1",
+        "part": "motorovy-mustek",
+        "archive_entry": "motorovy-mustek__02.stl",
+        "sha256": "6b3d81a3b4963a98f01334b87b32dbea474997b194dd0811bbcfb7487eac8c5b"
+      },
+      {
+        "assembly_instance": "AssemblyMotorWedge1",
+        "part": "motorovy-klinek",
+        "archive_entry": "motorovy-klinek__02.stl",
+        "sha256": "b05c7ac17b7d8806d0ed986e239bb29b1f1c55f3d07ca1d605613de8ed9a14f8"
+      },
+      {
+        "assembly_instance": "AssemblyMotorPin1",
+        "part": "spolecny-cep-mustku-4x30_5",
+        "archive_entry": "spolecny-cep-mustku-4x30_5__01.stl",
+        "sha256": "163175e6a521505acfa6a9a0793011728c6362d44e775abb203fb3357bcccd34"
+      },
+      {
+        "assembly_instance": "AssemblyMotorPinClip1",
+        "part": "pojistka-3_1",
+        "archive_entry": "pojistka-3_1__02.stl",
+        "sha256": "b6b33f593dff03ea8d4ee5eb90d42629c0973c982cd988b141ce50b2897a08c4"
+      },
+      {
+        "assembly_instance": "AssemblyMotorPin3",
+        "part": "spolecny-cep-mustku-4x30_5",
+        "archive_entry": "spolecny-cep-mustku-4x30_5__02.stl",
+        "sha256": "163175e6a521505acfa6a9a0793011728c6362d44e775abb203fb3357bcccd34"
+      },
+      {
+        "assembly_instance": "AssemblyMotorPinClip3",
+        "part": "pojistka-3_1",
+        "archive_entry": "pojistka-3_1__03.stl",
+        "sha256": "b6b33f593dff03ea8d4ee5eb90d42629c0973c982cd988b141ce50b2897a08c4"
+      },
+      {
+        "assembly_instance": "AssemblyDeckPin0",
+        "part": "cep-plosiny-4x19_5",
+        "archive_entry": "cep-plosiny-4x19_5__01.stl",
+        "sha256": "ca809f5002b17f92be2453f7cbc73e78e0f17619d2a0040cec2acae125e639fc"
+      },
+      {
+        "assembly_instance": "AssemblyDeckPinClip0",
+        "part": "pojistka-3_1",
+        "archive_entry": "pojistka-3_1__04.stl",
+        "sha256": "b6b33f593dff03ea8d4ee5eb90d42629c0973c982cd988b141ce50b2897a08c4"
+      },
+      {
+        "assembly_instance": "AssemblyDeckPin1",
+        "part": "cep-plosiny-4x19_5",
+        "archive_entry": "cep-plosiny-4x19_5__02.stl",
+        "sha256": "ca809f5002b17f92be2453f7cbc73e78e0f17619d2a0040cec2acae125e639fc"
+      },
+      {
+        "assembly_instance": "AssemblyDeckPinClip1",
+        "part": "pojistka-3_1",
+        "archive_entry": "pojistka-3_1__05.stl",
+        "sha256": "b6b33f593dff03ea8d4ee5eb90d42629c0973c982cd988b141ce50b2897a08c4"
+      },
+      {
+        "assembly_instance": "AssemblyDeckPin2",
+        "part": "cep-plosiny-4x19_5",
+        "archive_entry": "cep-plosiny-4x19_5__03.stl",
+        "sha256": "ca809f5002b17f92be2453f7cbc73e78e0f17619d2a0040cec2acae125e639fc"
+      },
+      {
+        "assembly_instance": "AssemblyDeckPinClip2",
+        "part": "pojistka-3_1",
+        "archive_entry": "pojistka-3_1__06.stl",
+        "sha256": "b6b33f593dff03ea8d4ee5eb90d42629c0973c982cd988b141ce50b2897a08c4"
+      },
+      {
+        "assembly_instance": "AssemblyDeckPin3",
+        "part": "cep-plosiny-4x19_5",
+        "archive_entry": "cep-plosiny-4x19_5__04.stl",
+        "sha256": "ca809f5002b17f92be2453f7cbc73e78e0f17619d2a0040cec2acae125e639fc"
+      },
+      {
+        "assembly_instance": "AssemblyDeckPinClip3",
+        "part": "pojistka-3_1",
+        "archive_entry": "pojistka-3_1__07.stl",
+        "sha256": "b6b33f593dff03ea8d4ee5eb90d42629c0973c982cd988b141ce50b2897a08c4"
+      },
+      {
+        "assembly_instance": "AssemblyForkCapL",
+        "part": "celist-horni",
+        "archive_entry": "celist-horni__01.stl",
+        "sha256": "bbdfc0d4ba793f973ad7c13b947867d38b9739c58f13362b41cbaced25f51872"
+      },
+      {
+        "assembly_instance": "AssemblyKingpinL",
+        "part": "svisly-cep-8",
+        "archive_entry": "svisly-cep-8__01.stl",
+        "sha256": "6ce92d30b28a9e7543339b1e0847aef8647ebabba7cdeba89ba701b449810c44"
+      },
+      {
+        "assembly_instance": "AssemblyKingClipL",
+        "part": "pojistka-6_9",
+        "archive_entry": "pojistka-6_9__03.stl",
+        "sha256": "7be6176012c834bfba0b745c0048f7139799b85b0654688302d0bba3353007e0"
+      },
+      {
+        "assembly_instance": "AssemblyKnuckleL",
+        "part": "tehlice-leva",
+        "archive_entry": "tehlice-leva__01.stl",
+        "sha256": "3a1d6842f80eefdb1d92141f7329a75fae7d4c409c88bf4db069e47e2a4df655"
+      },
+      {
+        "assembly_instance": "AssemblySteeringWheelL",
+        "part": "kolo-76x12-predni",
+        "archive_entry": "kolo-76x12-predni__01.stl",
+        "sha256": "5568c0fa1f7ffd7393a11d45d2609aefdff0d16024d7f8138f2396972ece76fe"
+      },
+      {
+        "assembly_instance": "AssemblyWheelClipL",
+        "part": "pojistka-6_9",
+        "archive_entry": "pojistka-6_9__04.stl",
+        "sha256": "7be6176012c834bfba0b745c0048f7139799b85b0654688302d0bba3353007e0"
+      },
+      {
+        "assembly_instance": "AssemblyJointPinL",
+        "part": "cep-tahla-dlouhy",
+        "archive_entry": "cep-tahla-dlouhy__01.stl",
+        "sha256": "22f9d6b375883daaa08772d6c17d3ff2c9c0197f84218d6dd81c82a8f6b8e503"
+      },
+      {
+        "assembly_instance": "AssemblyJointClipL",
+        "part": "pojistka-kloubu-4_9",
+        "archive_entry": "pojistka-kloubu-4_9__01.stl",
+        "sha256": "16f315d7f9a68525af9bfd74d99b27113de4dcb9e2ce6369fecf930b6a8928cd"
+      },
+      {
+        "assembly_instance": "AssemblyForkCapR",
+        "part": "celist-horni",
+        "archive_entry": "celist-horni__02.stl",
+        "sha256": "bbdfc0d4ba793f973ad7c13b947867d38b9739c58f13362b41cbaced25f51872"
+      },
+      {
+        "assembly_instance": "AssemblyKingpinR",
+        "part": "svisly-cep-8",
+        "archive_entry": "svisly-cep-8__02.stl",
+        "sha256": "6ce92d30b28a9e7543339b1e0847aef8647ebabba7cdeba89ba701b449810c44"
+      },
+      {
+        "assembly_instance": "AssemblyKingClipR",
+        "part": "pojistka-6_9",
+        "archive_entry": "pojistka-6_9__05.stl",
+        "sha256": "7be6176012c834bfba0b745c0048f7139799b85b0654688302d0bba3353007e0"
+      },
+      {
+        "assembly_instance": "AssemblyKnuckleR",
+        "part": "tehlice-prava",
+        "archive_entry": "tehlice-prava__01.stl",
+        "sha256": "57965a41b07b256bcf550bc7c603bdeec5c489cdd0616eb062b4951894af2ec7"
+      },
+      {
+        "assembly_instance": "AssemblySteeringWheelR",
+        "part": "kolo-76x12-predni",
+        "archive_entry": "kolo-76x12-predni__02.stl",
+        "sha256": "5568c0fa1f7ffd7393a11d45d2609aefdff0d16024d7f8138f2396972ece76fe"
+      },
+      {
+        "assembly_instance": "AssemblyWheelClipR",
+        "part": "pojistka-6_9",
+        "archive_entry": "pojistka-6_9__06.stl",
+        "sha256": "7be6176012c834bfba0b745c0048f7139799b85b0654688302d0bba3353007e0"
+      },
+      {
+        "assembly_instance": "AssemblyJointPinR",
+        "part": "cep-tahla-kratky",
+        "archive_entry": "cep-tahla-kratky__01.stl",
+        "sha256": "48fdf64462d8451bcf8dc93d661ccfafb24d372e493809f26744f9b55dd054d4"
+      },
+      {
+        "assembly_instance": "AssemblyJointClipR",
+        "part": "pojistka-kloubu-4_9",
+        "archive_entry": "pojistka-kloubu-4_9__02.stl",
+        "sha256": "16f315d7f9a68525af9bfd74d99b27113de4dcb9e2ce6369fecf930b6a8928cd"
+      },
+      {
+        "assembly_instance": "AssemblyTie",
+        "part": "spojovaci-tahlo",
+        "archive_entry": "spojovaci-tahlo__01.stl",
+        "sha256": "10e9fb72b2d571a950851eab0dcc2d6d28d2d0078c72035b2f7c40ad204603f5"
+      },
+      {
+        "assembly_instance": "AssemblyDrag",
+        "part": "servo-tahlo-r15",
+        "archive_entry": "servo-tahlo-r15__01.stl",
+        "sha256": "3774b9d11426ba0328b9d34ae06aebcbf31c1e33b43eb61432b854adab7eb7ff"
+      },
+      {
+        "assembly_instance": "AssemblyHornSpacer",
+        "part": "podlozka-packy-1_8",
+        "archive_entry": "podlozka-packy-1_8__01.stl",
+        "sha256": "aeb339e15530e621e9b971f623145d6be8d3bf3efe1257eefd44743d12ac3345"
+      },
+      {
+        "assembly_instance": "AssemblyHornTray",
+        "part": "objimka-packy-spodek",
+        "archive_entry": "objimka-packy-spodek__01.stl",
+        "sha256": "be241901c13b19cc68b4620e25466e9933ab77915d62676c96df474d6295836f"
+      },
+      {
+        "assembly_instance": "AssemblyHornLid",
+        "part": "objimka-packy-viko",
+        "archive_entry": "objimka-packy-viko__01.stl",
+        "sha256": "c50191d432602244f2ae62f0c347d0a245ec26dee4cd61bbb1dedc2cc9f79bf5"
+      },
+      {
+        "assembly_instance": "AssemblyHornLockPin",
+        "part": "objimka-cep-4x25_5",
+        "archive_entry": "objimka-cep-4x25_5__01.stl",
+        "sha256": "1a77990df981081e08aafe455b3f1d3777a7ba97abb2b9c89f1080c162737afa"
+      },
+      {
+        "assembly_instance": "AssemblyHornLockClip",
+        "part": "pojistka-3_1",
+        "archive_entry": "pojistka-3_1__08.stl",
+        "sha256": "b6b33f593dff03ea8d4ee5eb90d42629c0973c982cd988b141ce50b2897a08c4"
+      },
+      {
+        "assembly_instance": "AssemblyHornPivotClip",
+        "part": "pojistka-6_9",
+        "archive_entry": "pojistka-6_9__07.stl",
+        "sha256": "7be6176012c834bfba0b745c0048f7139799b85b0654688302d0bba3353007e0"
+      },
+      {
+        "assembly_instance": "AssemblyServoCap",
+        "part": "servo-viko",
+        "archive_entry": "servo-viko__01.stl",
+        "sha256": "c1c735144b7cb1a0330d0e63ee376f5aa66310aadb6580be783ceab849caf9dc"
+      },
+      {
+        "assembly_instance": "AssemblyServoMountPin1",
+        "part": "servo-cep-4x51_2",
+        "archive_entry": "servo-cep-4x51_2__01.stl",
+        "sha256": "113049edfed69399da6e6df4c7381cd91e54f38f8d7933579a1d73f99becffba"
+      },
+      {
+        "assembly_instance": "AssemblyServoMountClip1",
+        "part": "pojistka-3_1",
+        "archive_entry": "pojistka-3_1__09.stl",
+        "sha256": "b6b33f593dff03ea8d4ee5eb90d42629c0973c982cd988b141ce50b2897a08c4"
+      },
+      {
+        "assembly_instance": "AssemblyServoMountPin3",
+        "part": "servo-cep-4x51_2",
+        "archive_entry": "servo-cep-4x51_2__02.stl",
+        "sha256": "113049edfed69399da6e6df4c7381cd91e54f38f8d7933579a1d73f99becffba"
+      },
+      {
+        "assembly_instance": "AssemblyServoMountClip3",
+        "part": "pojistka-3_1",
+        "archive_entry": "pojistka-3_1__10.stl",
+        "sha256": "b6b33f593dff03ea8d4ee5eb90d42629c0973c982cd988b141ce50b2897a08c4"
+      }
+    ]
+  },
+  "final_print_group": [
+    "CompoundA",
+    "CompoundB",
+    "OutputGear",
+    "Pinion",
+    "SteeringFrame",
+    "FixedGearPin",
+    "GearPinClip",
+    "OutputCrossPin",
+    "SmallClip",
+    "MotorLockPin",
+    "DeckLockPin",
+    "AxleClip",
+    "RearAxle",
+    "RearWheelSpacer",
+    "RearWheel",
+    "FrontWheel",
+    "MotorBridge",
+    "MotorWedge",
+    "Deck",
+    "ServoCap",
+    "ServoMountPin",
+    "HornTray",
+    "HornLid",
+    "HornLockPin",
+    "HornPrintedSpacer",
+    "ForkCap",
+    "Kingpin",
+    "KnuckleL",
+    "KnuckleR",
+    "TieBarFinal",
+    "DragLink",
+    "JointPinLong",
+    "JointPinShort",
+    "SmallClip001"
+  ],
+  "gui_validation": {
+    "saved_and_reopened": true,
+    "visible_objects": [
+      "Assembly",
+      "AssemblyA",
+      "AssemblyB",
+      "AssemblyCrossPin",
+      "AssemblyCrossPinClip",
+      "AssemblyDeck",
+      "AssemblyDeckPin0",
+      "AssemblyDeckPin1",
+      "AssemblyDeckPin2",
+      "AssemblyDeckPin3",
+      "AssemblyDeckPinClip0",
+      "AssemblyDeckPinClip1",
+      "AssemblyDeckPinClip2",
+      "AssemblyDeckPinClip3",
+      "AssemblyDrag",
+      "AssemblyFixedPinA",
+      "AssemblyFixedPinB",
+      "AssemblyFixedPinClipA",
+      "AssemblyFixedPinClipB",
+      "AssemblyForkCapL",
+      "AssemblyForkCapR",
+      "AssemblyFrame",
+      "AssemblyHornLid",
+      "AssemblyHornLockClip",
+      "AssemblyHornLockPin",
+      "AssemblyHornPivotClip",
+      "AssemblyHornReference",
+      "AssemblyHornSpacer",
+      "AssemblyHornTray",
+      "AssemblyJointClipL",
+      "AssemblyJointClipR",
+      "AssemblyJointPinL",
+      "AssemblyJointPinR",
+      "AssemblyKingClipL",
+      "AssemblyKingClipR",
+      "AssemblyKingpinL",
+      "AssemblyKingpinR",
+      "AssemblyKnuckleL",
+      "AssemblyKnuckleR",
+      "AssemblyMotorBridge0",
+      "AssemblyMotorBridge1",
+      "AssemblyMotorPin1",
+      "AssemblyMotorPin3",
+      "AssemblyMotorPinClip1",
+      "AssemblyMotorPinClip3",
+      "AssemblyMotorWedge0",
+      "AssemblyMotorWedge1",
+      "AssemblyOutput",
+      "AssemblyPinion",
+      "AssemblyRearAxle",
+      "AssemblyRearInnerClip1",
+      "AssemblyRearInnerClip3",
+      "AssemblyRearOuterClip1",
+      "AssemblyRearOuterClip3",
+      "AssemblyRearSpacer1",
+      "AssemblyRearSpacer3",
+      "AssemblyRearWheel1",
+      "AssemblyRearWheel3",
+      "AssemblyServoCap",
+      "AssemblyServoMountClip1",
+      "AssemblyServoMountClip3",
+      "AssemblyServoMountPin1",
+      "AssemblyServoMountPin3",
+      "AssemblySteeringWheelL",
+      "AssemblySteeringWheelR",
+      "AssemblyTie",
+      "AssemblyWheelClipL",
+      "AssemblyWheelClipR",
+      "HornLockCarrier",
+      "MotorReference",
+      "ServoReference",
+      "WheelCarrierL",
+      "WheelCarrierR"
+    ],
+    "invalid_objects": [],
+    "wheel_angle_deg": 0,
+    "images": [
+      "rovne.png",
+      "doleva.png",
+      "doprava.png",
+      "mechanismus.png",
+      "rozlozena-sestava.png"
+    ],
+    "exploded_instances": [
+      {
+        "instance": "AssemblyFrame",
+        "part": "ram-25",
+        "layout_xy_mm": [
+          0,
+          0
+        ]
+      },
+      {
+        "instance": "AssemblyDeck",
+        "part": "plosina-170x60",
+        "layout_xy_mm": [
+          254.0,
+          0
+        ]
+      },
+      {
+        "instance": "AssemblyRearAxle",
+        "part": "osa-zadni-12x150_6",
+        "layout_xy_mm": [
+          474.0,
+          0
+        ]
+      },
+      {
+        "instance": "AssemblyRearWheel1",
+        "part": "kolo-76x12-zadni-d",
+        "layout_xy_mm": [
+          0,
+          178.0
+        ]
+      },
+      {
+        "instance": "AssemblyRearSpacer1",
+        "part": "rozperka-zadni-17_6",
+        "layout_xy_mm": [
+          94.0,
+          178.0
+        ]
+      },
+      {
+        "instance": "AssemblyRearInnerClip1",
+        "part": "pojistka-osy-10_9",
+        "layout_xy_mm": [
+          130.0,
+          178.0
+        ]
+      },
+      {
+        "instance": "AssemblyRearOuterClip1",
+        "part": "pojistka-osy-10_9",
+        "layout_xy_mm": [
+          164.64444242571034,
+          178.0
+        ]
+      },
+      {
+        "instance": "AssemblyRearWheel3",
+        "part": "kolo-76x12-zadni-d",
+        "layout_xy_mm": [
+          199.28888485142068,
+          178.0
+        ]
+      },
+      {
+        "instance": "AssemblyRearSpacer3",
+        "part": "rozperka-zadni-17_6",
+        "layout_xy_mm": [
+          293.2888848514207,
+          178.0
+        ]
+      },
+      {
+        "instance": "AssemblyRearInnerClip3",
+        "part": "pojistka-osy-10_9",
+        "layout_xy_mm": [
+          329.2888848514207,
+          178.0
+        ]
+      },
+      {
+        "instance": "AssemblyRearOuterClip3",
+        "part": "pojistka-osy-10_9",
+        "layout_xy_mm": [
+          363.933327277131,
+          178.0
+        ]
+      },
+      {
+        "instance": "AssemblyA",
+        "part": "mezikolo-a-54_18",
+        "layout_xy_mm": [
+          398.57776970284135,
+          178.0
+        ]
+      },
+      {
+        "instance": "AssemblyB",
+        "part": "mezikolo-b-60_22",
+        "layout_xy_mm": [
+          472.97808637385054,
+          178.0
+        ]
+      },
+      {
+        "instance": "AssemblyOutput",
+        "part": "vystupni-kolo-55",
+        "layout_xy_mm": [
+          553.378325242285,
+          178.0
+        ]
+      },
+      {
+        "instance": "AssemblyPinion",
+        "part": "pastorek-18-otvor-2_2",
+        "layout_xy_mm": [
+          628.7474277055313,
+          178.0
+        ]
+      },
+      {
+        "instance": "AssemblyFixedPinA",
+        "part": "pevny-cep-8x53_9",
+        "layout_xy_mm": [
+          0,
+          272.0
+        ]
+      },
+      {
+        "instance": "AssemblyFixedPinClipA",
+        "part": "pojistka-6_9",
+        "layout_xy_mm": [
+          71.9,
+          272.0
+        ]
+      },
+      {
+        "instance": "AssemblyFixedPinB",
+        "part": "pevny-cep-8x53_9",
+        "layout_xy_mm": [
+          102.19202037289236,
+          272.0
+        ]
+      },
+      {
+        "instance": "AssemblyFixedPinClipB",
+        "part": "pojistka-6_9",
+        "layout_xy_mm": [
+          174.09202037289236,
+          272.0
+        ]
+      },
+      {
+        "instance": "AssemblyCrossPin",
+        "part": "pricny-klinek-4x27_1",
+        "layout_xy_mm": [
+          204.38404074578472,
+          272.0
+        ]
+      },
+      {
+        "instance": "AssemblyCrossPinClip",
+        "part": "pojistka-3_1",
+        "layout_xy_mm": [
+          249.4840407457847,
+          272.0
+        ]
+      },
+      {
+        "instance": "AssemblyMotorBridge0",
+        "part": "motorovy-mustek",
+        "layout_xy_mm": [
+          274.2532149534402,
+          272.0
+        ]
+      },
+      {
+        "instance": "AssemblyMotorWedge0",
+        "part": "motorovy-klinek",
+        "layout_xy_mm": [
+          332.2532149534402,
+          272.0
+        ]
+      },
+      {
+        "instance": "AssemblyMotorBridge1",
+        "part": "motorovy-mustek",
+        "layout_xy_mm": [
+          356.2532149534402,
+          272.0
+        ]
+      },
+      {
+        "instance": "AssemblyMotorWedge1",
+        "part": "motorovy-klinek",
+        "layout_xy_mm": [
+          414.2532149534402,
+          272.0
+        ]
+      },
+      {
+        "instance": "AssemblyMotorPin1",
+        "part": "spolecny-cep-mustku-4x30_5",
+        "layout_xy_mm": [
+          438.2532149534402,
+          272.0
+        ]
+      },
+      {
+        "instance": "AssemblyMotorPinClip1",
+        "part": "pojistka-3_1",
+        "layout_xy_mm": [
+          486.7532149534402,
+          272.0
+        ]
+      },
+      {
+        "instance": "AssemblyMotorPin3",
+        "part": "spolecny-cep-mustku-4x30_5",
+        "layout_xy_mm": [
+          511.5223891610957,
+          272.0
+        ]
+      },
+      {
+        "instance": "AssemblyMotorPinClip3",
+        "part": "pojistka-3_1",
+        "layout_xy_mm": [
+          560.0223891610957,
+          272.0
+        ]
+      },
+      {
+        "instance": "AssemblyDeckPin0",
+        "part": "cep-plosiny-4x19_5",
+        "layout_xy_mm": [
+          584.7915633687512,
+          272.0
+        ]
+      },
+      {
+        "instance": "AssemblyDeckPinClip0",
+        "part": "pojistka-3_1",
+        "layout_xy_mm": [
+          622.2915633687512,
+          272.0
+        ]
+      },
+      {
+        "instance": "AssemblyDeckPin1",
+        "part": "cep-plosiny-4x19_5",
+        "layout_xy_mm": [
+          0,
+          303.0
+        ]
+      },
+      {
+        "instance": "AssemblyDeckPinClip1",
+        "part": "pojistka-3_1",
+        "layout_xy_mm": [
+          37.5,
+          303.0
+        ]
+      },
+      {
+        "instance": "AssemblyDeckPin2",
+        "part": "cep-plosiny-4x19_5",
+        "layout_xy_mm": [
+          62.2691742076555,
+          303.0
+        ]
+      },
+      {
+        "instance": "AssemblyDeckPinClip2",
+        "part": "pojistka-3_1",
+        "layout_xy_mm": [
+          99.76917420765551,
+          303.0
+        ]
+      },
+      {
+        "instance": "AssemblyDeckPin3",
+        "part": "cep-plosiny-4x19_5",
+        "layout_xy_mm": [
+          124.53834841531102,
+          303.0
+        ]
+      },
+      {
+        "instance": "AssemblyDeckPinClip3",
+        "part": "pojistka-3_1",
+        "layout_xy_mm": [
+          162.03834841531102,
+          303.0
+        ]
+      },
+      {
+        "instance": "AssemblyForkCapL",
+        "part": "celist-horni",
+        "layout_xy_mm": [
+          186.80752262296653,
+          303.0
+        ]
+      },
+      {
+        "instance": "AssemblyKingpinL",
+        "part": "svisly-cep-8",
+        "layout_xy_mm": [
+          220.80752262296653,
+          303.0
+        ]
+      },
+      {
+        "instance": "AssemblyKingClipL",
+        "part": "pojistka-6_9",
+        "layout_xy_mm": [
+          274.10752262296654,
+          303.0
+        ]
+      },
+      {
+        "instance": "AssemblyKnuckleL",
+        "part": "tehlice-leva",
+        "layout_xy_mm": [
+          304.3995429958589,
+          303.0
+        ]
+      },
+      {
+        "instance": "AssemblySteeringWheelL",
+        "part": "kolo-76x12-predni",
+        "layout_xy_mm": [
+          355.2995429958589,
+          303.0
+        ]
+      },
+      {
+        "instance": "AssemblyWheelClipL",
+        "part": "pojistka-6_9",
+        "layout_xy_mm": [
+          449.2995429958589,
+          303.0
+        ]
+      },
+      {
+        "instance": "AssemblyJointPinL",
+        "part": "cep-tahla-dlouhy",
+        "layout_xy_mm": [
+          479.5915633687513,
+          303.0
+        ]
+      },
+      {
+        "instance": "AssemblyJointClipL",
+        "part": "pojistka-kloubu-4_9",
+        "layout_xy_mm": [
+          513.1915633687513,
+          303.0
+        ]
+      },
+      {
+        "instance": "AssemblyForkCapR",
+        "part": "celist-horni",
+        "layout_xy_mm": [
+          540.7519909802808,
+          303.0
+        ]
+      },
+      {
+        "instance": "AssemblyKingpinR",
+        "part": "svisly-cep-8",
+        "layout_xy_mm": [
+          574.7519909802808,
+          303.0
+        ]
+      },
+      {
+        "instance": "AssemblyKingClipR",
+        "part": "pojistka-6_9",
+        "layout_xy_mm": [
+          628.0519909802807,
+          303.0
+        ]
+      },
+      {
+        "instance": "AssemblyKnuckleR",
+        "part": "tehlice-prava",
+        "layout_xy_mm": [
+          0,
+          397.0
+        ]
+      },
+      {
+        "instance": "AssemblySteeringWheelR",
+        "part": "kolo-76x12-predni",
+        "layout_xy_mm": [
+          50.900000000000006,
+          397.0
+        ]
+      },
+      {
+        "instance": "AssemblyWheelClipR",
+        "part": "pojistka-6_9",
+        "layout_xy_mm": [
+          144.9,
+          397.0
+        ]
+      },
+      {
+        "instance": "AssemblyJointPinR",
+        "part": "cep-tahla-kratky",
+        "layout_xy_mm": [
+          175.19202037289236,
+          397.0
+        ]
+      },
+      {
+        "instance": "AssemblyJointClipR",
+        "part": "pojistka-kloubu-4_9",
+        "layout_xy_mm": [
+          205.39202037289235,
+          397.0
+        ]
+      },
+      {
+        "instance": "AssemblyTie",
+        "part": "spojovaci-tahlo",
+        "layout_xy_mm": [
+          232.95244798442178,
+          397.0
+        ]
+      },
+      {
+        "instance": "AssemblyDrag",
+        "part": "servo-tahlo-r15",
+        "layout_xy_mm": [
+          290.9524479844218,
+          397.0
+        ]
+      },
+      {
+        "instance": "AssemblyHornSpacer",
+        "part": "podlozka-packy-1_8",
+        "layout_xy_mm": [
+          394.1258502874863,
+          397.0
+        ]
+      },
+      {
+        "instance": "AssemblyHornTray",
+        "part": "objimka-packy-spodek",
+        "layout_xy_mm": [
+          424.1258502874863,
+          397.0
+        ]
+      },
+      {
+        "instance": "AssemblyHornLid",
+        "part": "objimka-packy-viko",
+        "layout_xy_mm": [
+          474.1258502874863,
+          397.0
+        ]
+      },
+      {
+        "instance": "AssemblyHornLockPin",
+        "part": "objimka-cep-4x25_5",
+        "layout_xy_mm": [
+          524.1258502874863,
+          397.0
+        ]
+      },
+      {
+        "instance": "AssemblyHornLockClip",
+        "part": "pojistka-3_1",
+        "layout_xy_mm": [
+          567.6258502874863,
+          397.0
+        ]
+      },
+      {
+        "instance": "AssemblyHornPivotClip",
+        "part": "pojistka-6_9",
+        "layout_xy_mm": [
+          592.3950244951418,
+          397.0
+        ]
+      },
+      {
+        "instance": "AssemblyServoCap",
+        "part": "servo-viko",
+        "layout_xy_mm": [
+          0,
+          571.0
+        ]
+      },
+      {
+        "instance": "AssemblyServoMountPin1",
+        "part": "servo-cep-4x51_2",
+        "layout_xy_mm": [
+          46.0,
+          571.0
+        ]
+      },
+      {
+        "instance": "AssemblyServoMountClip1",
+        "part": "pojistka-3_1",
+        "layout_xy_mm": [
+          115.2,
+          571.0
+        ]
+      },
+      {
+        "instance": "AssemblyServoMountPin3",
+        "part": "servo-cep-4x51_2",
+        "layout_xy_mm": [
+          139.9691742076555,
+          571.0
+        ]
+      },
+      {
+        "instance": "AssemblyServoMountClip3",
+        "part": "pojistka-3_1",
+        "layout_xy_mm": [
+          209.1691742076555,
+          571.0
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "status": "pass_geometry_with_recorded_original02_container_change",
+  "scope": "Combined generator writes only combined directory. Canonical CAD, source ZIP and original01/upright03 match earlier hashes. Original02 has since been saved as a full Next project; actor and actual printed G-code not inferred. It was inspected and preserved, never restored over current file.",
+  "unchanged_sha256": {
+    "auticko-silovy-prevod-25.FCStd": "68ea656115ca166e95adf049ba3347167bbedb6a44fdd77c22d8aef21761e6e9",
+    "tiskovy-balicek.zip": "3e6ea7b537a1b2cb9197cbcf23623bbfbc9b7354323d0415af6e7eac19d7aa6f",
+    "rozlozeni/auticko-25-podlozka-01.3mf": "59e9a082fa7d9a2bee8c40823dda2ca6239e76152cf8901afe754b4aaabcce62",
+    "rozlozeni/auticko-25-podlozka-03.3mf": "664e3e56fe199a456bb6246deec810323ce7cda6784d7356e9b7de80acf8ab12"
+  },
+  "original02": {
+    "previous_geometry_only_sha256": "d6ef30b6b062b8526a847644c4b9b71200f9e52ccb4a3feef2e2c9993f87ba6f",
+    "current_sha256": "9abbb9663610d0e55d13ccaa1a504a31e5ae0b7d77a579cc10227a404d8f726c",
+    "current_mtime_local": "2026-09-20 19:24:56 +0200",
+    "objects": 27,
+    "triangle_indices_preserved": true,
+    "max_vertex_delta_from_canonical_manifest_mm": 1.557100000582068e-05,
+    "current_process": {
+      "printer_model": "Anycubic Kobra X",
+      "layer_height": "0.2",
+      "enable_support": "0",
+      "support_type": "tree(auto)",
+      "brim_type": "auto_brim",
+      "brim_width": "5"
+    }
+  }
+}

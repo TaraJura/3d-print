@@ -1,0 +1,653 @@
+{
+  "status": "pass",
+  "method": "Actual recorded CAD assembly instances -> BOM -> byte-exact ZIP copies -> final 3MF objects",
+  "scope": "Assembly counts, individually valid source bodies and byte-exact copies only; no mechanical acceptance claim.",
+  "source_validation_pass": true,
+  "source_status": "Autorizovaný tiskový prototyp25:1+SG90: nominální CAD ověřen, celý konzervativní radiální scénář NEPOKRYT. Fyzická montáž/fit/nosnost/jízda neověřeny.",
+  "source_report": "/home/novakj/3d-print/models/auticko-silovy-prevod-25/kontrola-modelu.json",
+  "source_report_sha256": "a94fc469a0a50db65e5c8539c0207d4909ca56b84e2af0c687457ece039e02e7",
+  "source_zip_sha256": "3e6ea7b537a1b2cb9197cbcf23623bbfbc9b7354323d0415af6e7eac19d7aa6f",
+  "verification_3mf_sha256": "262004b4af7031758ff253efba657b80fb07ba7a11567c845ad1156c7ade5504",
+  "physical_copies": 66,
+  "part_types": 34,
+  "all_counts_equal": true,
+  "all_zip_copies_identical_to_canonical_stl": true,
+  "parts": [
+    {
+      "part": "celist-horni",
+      "assembly_or_display_count": 2,
+      "bom_count": 2,
+      "zip_count": 2,
+      "3mf_count": 2,
+      "copies": [
+        {
+          "name": "celist-horni__01",
+          "file": "auticko-25-podlozka-02.3mf",
+          "number_in_preview": 6
+        },
+        {
+          "name": "celist-horni__02",
+          "file": "auticko-25-podlozka-01.3mf",
+          "number_in_preview": 15
+        }
+      ]
+    },
+    {
+      "part": "cep-plosiny-4x19_5",
+      "assembly_or_display_count": 4,
+      "bom_count": 4,
+      "zip_count": 4,
+      "3mf_count": 4,
+      "copies": [
+        {
+          "name": "cep-plosiny-4x19_5__01",
+          "file": "auticko-25-podlozka-03.3mf",
+          "number_in_preview": 3
+        },
+        {
+          "name": "cep-plosiny-4x19_5__02",
+          "file": "auticko-25-podlozka-03.3mf",
+          "number_in_preview": 8
+        },
+        {
+          "name": "cep-plosiny-4x19_5__03",
+          "file": "auticko-25-podlozka-03.3mf",
+          "number_in_preview": 7
+        },
+        {
+          "name": "cep-plosiny-4x19_5__04",
+          "file": "auticko-25-podlozka-01.3mf",
+          "number_in_preview": 19
+        }
+      ]
+    },
+    {
+      "part": "cep-tahla-dlouhy",
+      "assembly_or_display_count": 1,
+      "bom_count": 1,
+      "zip_count": 1,
+      "3mf_count": 1,
+      "copies": [
+        {
+          "name": "cep-tahla-dlouhy__01",
+          "file": "auticko-25-podlozka-03.3mf",
+          "number_in_preview": 6
+        }
+      ]
+    },
+    {
+      "part": "cep-tahla-kratky",
+      "assembly_or_display_count": 1,
+      "bom_count": 1,
+      "zip_count": 1,
+      "3mf_count": 1,
+      "copies": [
+        {
+          "name": "cep-tahla-kratky__01",
+          "file": "auticko-25-podlozka-02.3mf",
+          "number_in_preview": 23
+        }
+      ]
+    },
+    {
+      "part": "kolo-76x12-predni",
+      "assembly_or_display_count": 2,
+      "bom_count": 2,
+      "zip_count": 2,
+      "3mf_count": 2,
+      "copies": [
+        {
+          "name": "kolo-76x12-predni__01",
+          "file": "auticko-25-podlozka-01.3mf",
+          "number_in_preview": 3
+        },
+        {
+          "name": "kolo-76x12-predni__02",
+          "file": "auticko-25-podlozka-01.3mf",
+          "number_in_preview": 2
+        }
+      ]
+    },
+    {
+      "part": "kolo-76x12-zadni-d",
+      "assembly_or_display_count": 2,
+      "bom_count": 2,
+      "zip_count": 2,
+      "3mf_count": 2,
+      "copies": [
+        {
+          "name": "kolo-76x12-zadni-d__01",
+          "file": "auticko-25-podlozka-01.3mf",
+          "number_in_preview": 4
+        },
+        {
+          "name": "kolo-76x12-zadni-d__02",
+          "file": "auticko-25-podlozka-01.3mf",
+          "number_in_preview": 6
+        }
+      ]
+    },
+    {
+      "part": "mezikolo-a-54_18",
+      "assembly_or_display_count": 1,
+      "bom_count": 1,
+      "zip_count": 1,
+      "3mf_count": 1,
+      "copies": [
+        {
+          "name": "mezikolo-a-54_18__01",
+          "file": "auticko-25-podlozka-01.3mf",
+          "number_in_preview": 7
+        }
+      ]
+    },
+    {
+      "part": "mezikolo-b-60_22",
+      "assembly_or_display_count": 1,
+      "bom_count": 1,
+      "zip_count": 1,
+      "3mf_count": 1,
+      "copies": [
+        {
+          "name": "mezikolo-b-60_22__01",
+          "file": "auticko-25-podlozka-01.3mf",
+          "number_in_preview": 5
+        }
+      ]
+    },
+    {
+      "part": "motorovy-klinek",
+      "assembly_or_display_count": 2,
+      "bom_count": 2,
+      "zip_count": 2,
+      "3mf_count": 2,
+      "copies": [
+        {
+          "name": "motorovy-klinek__01",
+          "file": "auticko-25-podlozka-01.3mf",
+          "number_in_preview": 22
+        },
+        {
+          "name": "motorovy-klinek__02",
+          "file": "auticko-25-podlozka-01.3mf",
+          "number_in_preview": 20
+        }
+      ]
+    },
+    {
+      "part": "motorovy-mustek",
+      "assembly_or_display_count": 2,
+      "bom_count": 2,
+      "zip_count": 2,
+      "3mf_count": 2,
+      "copies": [
+        {
+          "name": "motorovy-mustek__01",
+          "file": "auticko-25-podlozka-01.3mf",
+          "number_in_preview": 16
+        },
+        {
+          "name": "motorovy-mustek__02",
+          "file": "auticko-25-podlozka-02.3mf",
+          "number_in_preview": 14
+        }
+      ]
+    },
+    {
+      "part": "objimka-cep-4x25_5",
+      "assembly_or_display_count": 1,
+      "bom_count": 1,
+      "zip_count": 1,
+      "3mf_count": 1,
+      "copies": [
+        {
+          "name": "objimka-cep-4x25_5__01",
+          "file": "auticko-25-podlozka-03.3mf",
+          "number_in_preview": 9
+        }
+      ]
+    },
+    {
+      "part": "objimka-packy-spodek",
+      "assembly_or_display_count": 1,
+      "bom_count": 1,
+      "zip_count": 1,
+      "3mf_count": 1,
+      "copies": [
+        {
+          "name": "objimka-packy-spodek__01",
+          "file": "auticko-25-podlozka-02.3mf",
+          "number_in_preview": 3
+        }
+      ]
+    },
+    {
+      "part": "objimka-packy-viko",
+      "assembly_or_display_count": 1,
+      "bom_count": 1,
+      "zip_count": 1,
+      "3mf_count": 1,
+      "copies": [
+        {
+          "name": "objimka-packy-viko__01",
+          "file": "auticko-25-podlozka-02.3mf",
+          "number_in_preview": 5
+        }
+      ]
+    },
+    {
+      "part": "osa-zadni-12x150_6",
+      "assembly_or_display_count": 1,
+      "bom_count": 1,
+      "zip_count": 1,
+      "3mf_count": 1,
+      "copies": [
+        {
+          "name": "osa-zadni-12x150_6__01",
+          "file": "auticko-25-podlozka-01.3mf",
+          "number_in_preview": 8
+        }
+      ]
+    },
+    {
+      "part": "pastorek-18-otvor-2_2",
+      "assembly_or_display_count": 1,
+      "bom_count": 1,
+      "zip_count": 1,
+      "3mf_count": 1,
+      "copies": [
+        {
+          "name": "pastorek-18-otvor-2_2__01",
+          "file": "auticko-25-podlozka-02.3mf",
+          "number_in_preview": 10
+        }
+      ]
+    },
+    {
+      "part": "pevny-cep-8x53_9",
+      "assembly_or_display_count": 2,
+      "bom_count": 2,
+      "zip_count": 2,
+      "3mf_count": 2,
+      "copies": [
+        {
+          "name": "pevny-cep-8x53_9__01",
+          "file": "auticko-25-podlozka-01.3mf",
+          "number_in_preview": 13
+        },
+        {
+          "name": "pevny-cep-8x53_9__02",
+          "file": "auticko-25-podlozka-02.3mf",
+          "number_in_preview": 11
+        }
+      ]
+    },
+    {
+      "part": "plosina-170x60",
+      "assembly_or_display_count": 1,
+      "bom_count": 1,
+      "zip_count": 1,
+      "3mf_count": 1,
+      "copies": [
+        {
+          "name": "plosina-170x60__01",
+          "file": "auticko-25-podlozka-03.3mf",
+          "number_in_preview": 1
+        }
+      ]
+    },
+    {
+      "part": "podlozka-packy-1_8",
+      "assembly_or_display_count": 1,
+      "bom_count": 1,
+      "zip_count": 1,
+      "3mf_count": 1,
+      "copies": [
+        {
+          "name": "podlozka-packy-1_8__01",
+          "file": "auticko-25-podlozka-02.3mf",
+          "number_in_preview": 21
+        }
+      ]
+    },
+    {
+      "part": "pojistka-3_1",
+      "assembly_or_display_count": 10,
+      "bom_count": 10,
+      "zip_count": 10,
+      "3mf_count": 10,
+      "copies": [
+        {
+          "name": "pojistka-3_1__01",
+          "file": "auticko-25-podlozka-01.3mf",
+          "number_in_preview": 25
+        },
+        {
+          "name": "pojistka-3_1__02",
+          "file": "auticko-25-podlozka-01.3mf",
+          "number_in_preview": 24
+        },
+        {
+          "name": "pojistka-3_1__03",
+          "file": "auticko-25-podlozka-01.3mf",
+          "number_in_preview": 26
+        },
+        {
+          "name": "pojistka-3_1__04",
+          "file": "auticko-25-podlozka-03.3mf",
+          "number_in_preview": 13
+        },
+        {
+          "name": "pojistka-3_1__05",
+          "file": "auticko-25-podlozka-02.3mf",
+          "number_in_preview": 25
+        },
+        {
+          "name": "pojistka-3_1__06",
+          "file": "auticko-25-podlozka-02.3mf",
+          "number_in_preview": 24
+        },
+        {
+          "name": "pojistka-3_1__07",
+          "file": "auticko-25-podlozka-01.3mf",
+          "number_in_preview": 23
+        },
+        {
+          "name": "pojistka-3_1__08",
+          "file": "auticko-25-podlozka-03.3mf",
+          "number_in_preview": 12
+        },
+        {
+          "name": "pojistka-3_1__09",
+          "file": "auticko-25-podlozka-02.3mf",
+          "number_in_preview": 27
+        },
+        {
+          "name": "pojistka-3_1__10",
+          "file": "auticko-25-podlozka-02.3mf",
+          "number_in_preview": 26
+        }
+      ]
+    },
+    {
+      "part": "pojistka-6_9",
+      "assembly_or_display_count": 7,
+      "bom_count": 7,
+      "zip_count": 7,
+      "3mf_count": 7,
+      "copies": [
+        {
+          "name": "pojistka-6_9__01",
+          "file": "auticko-25-podlozka-02.3mf",
+          "number_in_preview": 17
+        },
+        {
+          "name": "pojistka-6_9__02",
+          "file": "auticko-25-podlozka-03.3mf",
+          "number_in_preview": 10
+        },
+        {
+          "name": "pojistka-6_9__03",
+          "file": "auticko-25-podlozka-03.3mf",
+          "number_in_preview": 5
+        },
+        {
+          "name": "pojistka-6_9__04",
+          "file": "auticko-25-podlozka-01.3mf",
+          "number_in_preview": 18
+        },
+        {
+          "name": "pojistka-6_9__05",
+          "file": "auticko-25-podlozka-02.3mf",
+          "number_in_preview": 20
+        },
+        {
+          "name": "pojistka-6_9__06",
+          "file": "auticko-25-podlozka-02.3mf",
+          "number_in_preview": 18
+        },
+        {
+          "name": "pojistka-6_9__07",
+          "file": "auticko-25-podlozka-02.3mf",
+          "number_in_preview": 19
+        }
+      ]
+    },
+    {
+      "part": "pojistka-kloubu-4_9",
+      "assembly_or_display_count": 2,
+      "bom_count": 2,
+      "zip_count": 2,
+      "3mf_count": 2,
+      "copies": [
+        {
+          "name": "pojistka-kloubu-4_9__01",
+          "file": "auticko-25-podlozka-03.3mf",
+          "number_in_preview": 11
+        },
+        {
+          "name": "pojistka-kloubu-4_9__02",
+          "file": "auticko-25-podlozka-01.3mf",
+          "number_in_preview": 21
+        }
+      ]
+    },
+    {
+      "part": "pojistka-osy-10_9",
+      "assembly_or_display_count": 4,
+      "bom_count": 4,
+      "zip_count": 4,
+      "3mf_count": 4,
+      "copies": [
+        {
+          "name": "pojistka-osy-10_9__01",
+          "file": "auticko-25-podlozka-02.3mf",
+          "number_in_preview": 8
+        },
+        {
+          "name": "pojistka-osy-10_9__02",
+          "file": "auticko-25-podlozka-02.3mf",
+          "number_in_preview": 15
+        },
+        {
+          "name": "pojistka-osy-10_9__03",
+          "file": "auticko-25-podlozka-02.3mf",
+          "number_in_preview": 13
+        },
+        {
+          "name": "pojistka-osy-10_9__04",
+          "file": "auticko-25-podlozka-02.3mf",
+          "number_in_preview": 7
+        }
+      ]
+    },
+    {
+      "part": "pricny-klinek-4x27_1",
+      "assembly_or_display_count": 1,
+      "bom_count": 1,
+      "zip_count": 1,
+      "3mf_count": 1,
+      "copies": [
+        {
+          "name": "pricny-klinek-4x27_1__01",
+          "file": "auticko-25-podlozka-01.3mf",
+          "number_in_preview": 17
+        }
+      ]
+    },
+    {
+      "part": "ram-25",
+      "assembly_or_display_count": 1,
+      "bom_count": 1,
+      "zip_count": 1,
+      "3mf_count": 1,
+      "copies": [
+        {
+          "name": "ram-25__01",
+          "file": "auticko-25-podlozka-02.3mf",
+          "number_in_preview": 1
+        }
+      ]
+    },
+    {
+      "part": "rozperka-zadni-17_6",
+      "assembly_or_display_count": 2,
+      "bom_count": 2,
+      "zip_count": 2,
+      "3mf_count": 2,
+      "copies": [
+        {
+          "name": "rozperka-zadni-17_6__01",
+          "file": "auticko-25-podlozka-03.3mf",
+          "number_in_preview": 2
+        },
+        {
+          "name": "rozperka-zadni-17_6__02",
+          "file": "auticko-25-podlozka-02.3mf",
+          "number_in_preview": 9
+        }
+      ]
+    },
+    {
+      "part": "servo-cep-4x51_2",
+      "assembly_or_display_count": 2,
+      "bom_count": 2,
+      "zip_count": 2,
+      "3mf_count": 2,
+      "copies": [
+        {
+          "name": "servo-cep-4x51_2__01",
+          "file": "auticko-25-podlozka-01.3mf",
+          "number_in_preview": 14
+        },
+        {
+          "name": "servo-cep-4x51_2__02",
+          "file": "auticko-25-podlozka-02.3mf",
+          "number_in_preview": 16
+        }
+      ]
+    },
+    {
+      "part": "servo-tahlo-r15",
+      "assembly_or_display_count": 1,
+      "bom_count": 1,
+      "zip_count": 1,
+      "3mf_count": 1,
+      "copies": [
+        {
+          "name": "servo-tahlo-r15__01",
+          "file": "auticko-25-podlozka-01.3mf",
+          "number_in_preview": 10
+        }
+      ]
+    },
+    {
+      "part": "servo-viko",
+      "assembly_or_display_count": 1,
+      "bom_count": 1,
+      "zip_count": 1,
+      "3mf_count": 1,
+      "copies": [
+        {
+          "name": "servo-viko__01",
+          "file": "auticko-25-podlozka-01.3mf",
+          "number_in_preview": 9
+        }
+      ]
+    },
+    {
+      "part": "spojovaci-tahlo",
+      "assembly_or_display_count": 1,
+      "bom_count": 1,
+      "zip_count": 1,
+      "3mf_count": 1,
+      "copies": [
+        {
+          "name": "spojovaci-tahlo__01",
+          "file": "auticko-25-podlozka-01.3mf",
+          "number_in_preview": 1
+        }
+      ]
+    },
+    {
+      "part": "spolecny-cep-mustku-4x30_5",
+      "assembly_or_display_count": 2,
+      "bom_count": 2,
+      "zip_count": 2,
+      "3mf_count": 2,
+      "copies": [
+        {
+          "name": "spolecny-cep-mustku-4x30_5__01",
+          "file": "auticko-25-podlozka-02.3mf",
+          "number_in_preview": 22
+        },
+        {
+          "name": "spolecny-cep-mustku-4x30_5__02",
+          "file": "auticko-25-podlozka-03.3mf",
+          "number_in_preview": 4
+        }
+      ]
+    },
+    {
+      "part": "svisly-cep-8",
+      "assembly_or_display_count": 2,
+      "bom_count": 2,
+      "zip_count": 2,
+      "3mf_count": 2,
+      "copies": [
+        {
+          "name": "svisly-cep-8__01",
+          "file": "auticko-25-podlozka-02.3mf",
+          "number_in_preview": 12
+        },
+        {
+          "name": "svisly-cep-8__02",
+          "file": "auticko-25-podlozka-01.3mf",
+          "number_in_preview": 12
+        }
+      ]
+    },
+    {
+      "part": "tehlice-leva",
+      "assembly_or_display_count": 1,
+      "bom_count": 1,
+      "zip_count": 1,
+      "3mf_count": 1,
+      "copies": [
+        {
+          "name": "tehlice-leva__01",
+          "file": "auticko-25-podlozka-02.3mf",
+          "number_in_preview": 4
+        }
+      ]
+    },
+    {
+      "part": "tehlice-prava",
+      "assembly_or_display_count": 1,
+      "bom_count": 1,
+      "zip_count": 1,
+      "3mf_count": 1,
+      "copies": [
+        {
+          "name": "tehlice-prava__01",
+          "file": "auticko-25-podlozka-01.3mf",
+          "number_in_preview": 11
+        }
+      ]
+    },
+    {
+      "part": "vystupni-kolo-55",
+      "assembly_or_display_count": 1,
+      "bom_count": 1,
+      "zip_count": 1,
+      "3mf_count": 1,
+      "copies": [
+        {
+          "name": "vystupni-kolo-55__01",
+          "file": "auticko-25-podlozka-02.3mf",
+          "number_in_preview": 2
+        }
+      ]
+    }
+  ]
+}

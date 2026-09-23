@@ -1,0 +1,28 @@
+{
+  "created_utc": "2026-09-19T23:48:02.546290+00:00",
+  "source_sha256": "9f7477c851898e97e7c9fd50ca632104c9214259b415a3fa9996ca6a48d8760c",
+  "source_test_manifest_hashes_verified": 13,
+  "exact_v2_archive_files_verified": 26,
+  "local_documentation_links_verified": 113,
+  "mobile_screenshot_visually_reviewed": true,
+  "new_source_independent_reviews": [
+    "protocol, UI and ISR",
+    "pin/timer and power plan",
+    "documentation and evidence consistency"
+  ],
+  "resolved_doc_finding": "Pending USB output 5V/current explicitly conditional, not claimed as confirmed.",
+  "unresolved_software_findings": [],
+  "physical_hardware_used": false,
+  "upload_performed": false,
+  "doc_files_sha256": {
+    "README.md": "f48a4f9557560dbd93cb7544046c4e1521b5ca4e8e63e888d0fcb87f1fbab759",
+    "elektronika/auticko/README.md": "9a64cf0fc3f5d0a4917acb79f4a6958086af73c78434a3d4fe048b6a95339258",
+    "elektronika/auticko/rizeni-v3.md": "7af6671e517e375e4f922df9ba67f2bfd1e2c88669a8ef3c3ddd5f87227d4730",
+    "elektronika/auticko/zapojeni-l293d.md": "c6c78c024168f7faa438f572af2ee65ac24641ae42bfa81acf18d8c4f527c44f",
+    "elektronika/auticko/potize-po-montazi.md": "ec93a0e34526b5e29c88639151bb8d4492e16091d0129975b1f136bcd4a46c97",
+    "elektronika/vybaveni.md": "f86f8d70206c6623bcf5886d4152800947d8fb0453adeda63d3167cdcd278933",
+    "models/jednoduche-auticko/firmware/prvni-motor/README.md": "105b1fdbec352491e76b959d4faaa4e203ffb1a9d4f9542742bb4c6b75285616",
+    "models/jednoduche-auticko/firmware/prvni-motor/overeni-programu.json": "32b7b6dea785f3291c11cbd352548e8326e5fa72695ad6221a2c32cb5b9af793"
+  },
+  "remaining": "Powerbank output V/A/shared budget and breakout/cable, then separately authorized upload and physical SG90 centering/direction/range/load tests."
+}

@@ -1,0 +1,88 @@
+"""Nominální kontrola autorizovaného tiskového prototypu; radiální worst case není PASS."""
+from pathlib import Path
+from collections import Counter
+import json,hashlib,zipfile,os,math
+import FreeCAD as App,Part
+ROOT=Path(__file__).resolve().parent
+CACHE=Path('/home/novakj/.cache/auticko-fit-20260920')
+R=json.loads((ROOT/'kontrola-modelu.json').read_text())
+assert R['source_hashes']=={n:hashlib.sha256((ROOT/n).read_bytes()).hexdigest() for n in R['source_hashes']}
+input_path=Path(os.environ.get('CAD_VERIFY_INPUT',str(ROOT/'auticko-silovy-prevod-25.FCStd')))
+input_hash=hashlib.sha256(input_path.read_bytes()).hexdigest()
+D=App.openDocument(str(input_path));S=D.Parameters
+archive=ROOT/'historie/pred-kalibraci-8_6-12_6-2026-09-20/puvodni-revize.zip'
+with zipfile.ZipFile(archive) as z:
+ oldreport=json.loads(z.read('kontrola-modelu.json'));oldsha=hashlib.sha256(z.read('auticko-silovy-prevod-25.FCStd')).hexdigest()
+ (CACHE/'archive-comparison.FCStd').write_bytes(z.read('auticko-silovy-prevod-25.FCStd'))
+ members={n:hashlib.sha256(z.read(n)).hexdigest() for n in ['kontrola-modelu.json','kontrola-rizeni.json','kontrola-vuli.json','kinematika.json','auticko-silovy-prevod-25.FCStd']}
+OLD=App.openDocument(str(CACHE/'archive-comparison.FCStd'))
+def world(o):
+ sh=o.Shape.copy()
+ if o.Name.startswith(('AssemblySteeringWheel','AssemblyWheelClip')):sh.Placement=D.getObject('WheelCarrier'+o.Name[-1]).Placement.multiply(sh.Placement)
+ if o.Name.startswith('AssemblyHornLock'):sh.Placement=D.HornLockCarrier.Placement.multiply(sh.Placement)
+ return sh
+objects=[D.getObject(i['name']) for i in R['assembly_instances']]+[D.getObject(n) for n in R['references']]
+assert Counter(i['part'] for i in R['assembly_instances'])==Counter({k:v['copies'] for k,v in R['parts'].items()})
+def overlap(a,b):
+ x,y=a.BoundBox,b.BoundBox
+ if x.XMax<y.XMin or y.XMax<x.XMin or x.YMax<y.YMin or y.YMax<x.YMin or x.ZMax<y.ZMin or y.ZMax<x.ZMin:return 0
+ return a.common(b).Volume
+pairs=[];bad=[];shapes={o.Name:world(o) for o in objects}
+for i,a in enumerate(objects):
+ for b in objects[i+1:]:
+  if {a.Name,b.Name}=={'ServoReference','AssemblyHornReference'}:continue
+  v=overlap(shapes[a.Name],shapes[b.Name]);pairs.append({'a':a.Name,'b':b.Name,'overlap_mm3':v})
+  if v>1e-6:bad.append(pairs[-1]);print('COLLISION',pairs[-1],flush=True)
+assert not bad,bad
+print('NOMINAL_ASSEMBLY_PASS',len(pairs),flush=True)
+# Změněná vrtání nemění zuby: porovnáme skutečnou plochu každého obrysu se zmrazeným CAD.
+profiles=[]
+for name in ['Input18Outline','A18Outline','B22Outline','A54Outline','B60Outline','Output55Outline']:
+ a=Part.Face(D.getObject(name).Shape).extrude(App.Vector(0,0,1));b=Part.Face(OLD.getObject(name).Shape).extrude(App.Vector(0,0,1))
+ difference=a.cut(b).Volume+b.cut(a).Volume;assert difference<1e-8,(name,difference)
+ profiles.append({'object':name,'symmetric_difference_mm3_at_1mm':difference,'archive_fcstd_sha256':oldsha})
+for name in ['Stage1','Stage2','Stage3','AX','BX','MotorX','AxleHeight']:
+ assert abs(float(getattr(S,name).Value)-float(getattr(OLD.Parameters,name).Value))<1e-9
+assert R['gear_phases_deg']==oldreport['gear_phases_deg']
+unchanged=[];changed=[]
+for k,p in R['parts'].items():
+ same=p['sha256']==oldreport['parts'][k]['sha256'];(unchanged if same else changed).append(k)
+# Stejná kinematika: všechna geometrická čísla tabulky řízení zůstala beze změny.
+steering_cells=[]
+for i in range(2,70):
+ try:
+  n=D.Steering.get('A'+str(i));before=OLD.Steering.get('B'+str(i));after=D.Steering.get('B'+str(i));assert before==after,(n,before,after);steering_cells.append(n)
+ except (IndexError,AttributeError):pass
+ except Exception as e:
+  if 'Invalid cell' not in str(e) and 'Cell' not in str(e):raise
+# Axiální kombinace výstupu±0.3, A/B±0.2, motor/pastorek0..+0.4; z CAD parametrů.
+out=.2+float(S.CrossPinBore.Value)-float(S.CrossPinDiameter.Value);compound=.2;motor=.4
+base=[D.AssemblyOutput.Shape.copy(),D.AssemblyB.Shape.copy(),D.AssemblyA.Shape.copy(),D.AssemblyPinion.Shape.copy()];axial=[]
+for o in (-out,out):
+ for b in (-compound,compound):
+  for a in (-compound,compound):
+   for p in (0,motor):
+    q=[]
+    for sh,y in zip(base,(o,b,a,p)):
+     m=sh.copy();m.translate(App.Vector(0,y,0));q.append(m)
+    values=[overlap(q[0],q[1]),overlap(q[1],q[2]),overlap(q[2],q[3])]+[overlap(s,D.SteeringFrame.Shape) for s in q]
+    assert max(values)<1e-6,(o,b,a,p,values)
+    axial.append({'output':o,'B':b,'A':a,'pinion':p,'maximum_overlap_mm3':max(values)})
+margin=2-out-compound;assert margin>=1.499999
+# Zúžené statické otvory v pohyblivé objímce kontrolujeme navíc v obou krajích.
+changed_moving=[]
+for angle in (-27,27):
+ D.Steering.set('B9',f'={angle} deg');D.recompute()
+ for n in ['AssemblyHornTray','AssemblyHornLid']:
+  for k in ['AssemblyHornLockPin','AssemblyHornLockClip','AssemblyHornSpacer','AssemblyDrag','AssemblyHornPivotClip','AssemblyHornReference']:
+   v=overlap(world(D.getObject(n)),world(D.getObject(k)));assert v<1e-6,(angle,n,k,v);changed_moving.append({'angle':angle,'a':n,'b':k,'overlap_mm3':v})
+D.Steering.set('B9','=0 deg');D.recompute()
+radial_comp=(float(S.RunningBore.Value)-8+float(S.FixedSeatBore.Value)-8)/2
+radial_out=(float(S.RearBearingBore.Value)-12+float(S.OutputBore.Value)-12)/2
+contact=[]
+for z1,z2,a in [(18,54,float(S.Stage1.Value)+.15+radial_comp),(18,60,float(S.Stage2.Value)+2*radial_comp),(22,55,float(S.Stage3.Value)+radial_comp+radial_out)]:
+ rb1=z1/2*math.cos(math.radians(20));rb2=z2/2*math.cos(math.radians(20));ra1=z1/2+1.1;ra2=z2/2+1.2
+ eps=(math.sqrt(ra1*ra1-rb1*rb1)+math.sqrt(ra2*ra2-rb2*rb2)-math.sqrt(a*a-(rb1+rb2)**2))/(math.pi*math.cos(math.radians(20)))
+ contact.append({'teeth':[z1,z2],'maximum_nominal_clearance_centre_mm':a,'ideal_contact_ratio':eps})
+result={'nominal_cad_validation_pass':True,'full_nominal_radial_clearance_scenario_pass':False,'input_fcstd_sha256':input_hash,'source_hashes':R['source_hashes'],'nominal_pairs':pairs,'nominal_collisions':bad,'gear_outline_identity':profiles,'unchanged_stl_parts':unchanged,'changed_stl_parts':changed,'unchanged_steering_cells':steering_cells,'axial_extremes':axial,'stage3_full_8mm_contact_minimum_margin_mm':margin,'changed_horn_voids_extreme_checks':changed_moving,'conservative_radial_contact_ratios':contact,'reused_evidence':{'archive':str(archive.relative_to(ROOT)),'member_sha256':members,'scope':'Pouze původní nominální65fázový záběr, neměnné vnější rotační obálky, kinematika a původní řízení/axiální kontrola kol. Doložena shoda6profilů, nominálních roztečí/fází a tabulky řízení. Starý radiální min/maxPASS se NEPŘEBÍRÁ.'},'limit':'Autorizovaný nominální tiskový prototyp. Reálná boční vůle, fit pevných otvorů, naklopení, ohyb, nosnost a jízda neověřeny. Celé konzervativní radiální okno není pokryté.','saved':False}
+(ROOT/'kontrola-revize-fitu.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n');print('NOMINAL_REVISION_PASS',len(pairs),len(axial),len(unchanged),flush=True)

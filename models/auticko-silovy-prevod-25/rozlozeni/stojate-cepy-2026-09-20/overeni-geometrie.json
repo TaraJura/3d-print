@@ -1,0 +1,575 @@
+{
+  "status": "pass",
+  "plate": 3,
+  "count": 13,
+  "upright_pin_numbers": [
+    3,
+    4,
+    6,
+    7,
+    8,
+    9
+  ],
+  "units": "mm",
+  "scale": 1,
+  "min_z": 0,
+  "max_z_mm": 72.0,
+  "minimum_hull_gap_mm": 23.0,
+  "minimum_edge_mm": 25.0,
+  "source_zip_sha256": "3e6ea7b537a1b2cb9197cbcf23623bbfbc9b7354323d0415af6e7eac19d7aa6f",
+  "geometry_3mf_sha256": "664e3e56fe199a456bb6246deec810323ce7cda6784d7356e9b7de80acf8ab12",
+  "unchanged": {
+    "auticko-silovy-prevod-25.FCStd": "68ea656115ca166e95adf049ba3347167bbedb6a44fdd77c22d8aef21761e6e9",
+    "tiskovy-balicek.zip": "3e6ea7b537a1b2cb9197cbcf23623bbfbc9b7354323d0415af6e7eac19d7aa6f",
+    "rozlozeni/auticko-25-podlozka-01.3mf": "59e9a082fa7d9a2bee8c40823dda2ca6239e76152cf8901afe754b4aaabcce62",
+    "rozlozeni/auticko-25-podlozka-02.3mf": "d6ef30b6b062b8526a847644c4b9b71200f9e52ccb4a3feef2e2c9993f87ba6f"
+  },
+  "items": [
+    {
+      "number": 1,
+      "name": "plosina-170x60__01.stl",
+      "upright_pin": false,
+      "bounds_mm": [
+        [
+          29.0,
+          25.0,
+          0.0
+        ],
+        [
+          231.0,
+          113.0,
+          72.0
+        ]
+      ],
+      "planar_contact_mm2": 17600.0,
+      "triangles": 6932,
+      "source_sha256": "45d8828d928ab3e710758b9855a7f4e9e1522ca0efa34d2d4be95f6e8efaca08",
+      "rotation_matrix": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "translation_mm": [
+        29.0,
+        25.0,
+        -0.0
+      ]
+    },
+    {
+      "number": 2,
+      "name": "rozperka-zadni-17_6__01.stl",
+      "upright_pin": false,
+      "bounds_mm": [
+        [
+          31.0,
+          151.00279772118665,
+          0.0
+        ],
+        [
+          49.0,
+          168.99720227881335,
+          17.600000381469727
+        ]
+      ],
+      "planar_contact_mm2": 129.72540818450676,
+      "triangles": 1008,
+      "source_sha256": "3b772e4da5cf86901cec92e33da4d372c0bc2cd57376ec4930bfa20d72d2d205",
+      "rotation_matrix": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "translation_mm": [
+        31.0,
+        151.00000035925768,
+        -0.0
+      ]
+    },
+    {
+      "number": 3,
+      "name": "cep-plosiny-4x19_5__01.stl",
+      "upright_pin": true,
+      "bounds_mm": [
+        [
+          72.0,
+          156.0,
+          0.0
+        ],
+        [
+          80.0,
+          164.0,
+          19.5
+        ]
+      ],
+      "planar_contact_mm2": 64.0,
+      "triangles": 1524,
+      "source_sha256": "ca809f5002b17f92be2453f7cbc73e78e0f17619d2a0040cec2acae125e639fc",
+      "rotation_matrix": [
+        [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "translation_mm": [
+        80.0,
+        156.0,
+        -0.0
+      ]
+    },
+    {
+      "number": 4,
+      "name": "spolecny-cep-mustku-4x30_5__02.stl",
+      "upright_pin": true,
+      "bounds_mm": [
+        [
+          108.0,
+          156.0012431932264,
+          0.0
+        ],
+        [
+          116.0,
+          163.9987568067736,
+          30.5
+        ]
+      ],
+      "planar_contact_mm2": 50.244653112289996,
+      "triangles": 2012,
+      "source_sha256": "163175e6a521505acfa6a9a0793011728c6362d44e775abb203fb3357bcccd34",
+      "rotation_matrix": [
+        [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "translation_mm": [
+        116.0,
+        155.99999992124503,
+        -0.0
+      ]
+    },
+    {
+      "number": 5,
+      "name": "pojistka-6_9__03.stl",
+      "upright_pin": false,
+      "bounds_mm": [
+        [
+          141.8550017713569,
+          153.5000077866298,
+          0.0
+        ],
+        [
+          154.1449982286431,
+          166.4999922133702,
+          1.2999999523162842
+        ]
+      ],
+      "planar_contact_mm2": 75.7989802527184,
+      "triangles": 772,
+      "source_sha256": "7be6176012c834bfba0b745c0048f7139799b85b0654688302d0bba3353007e0",
+      "rotation_matrix": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "translation_mm": [
+        141.8529774309136,
+        153.49999984276474,
+        -0.0
+      ]
+    },
+    {
+      "number": 6,
+      "name": "cep-tahla-dlouhy__01.stl",
+      "upright_pin": true,
+      "bounds_mm": [
+        [
+          179.0,
+          155.00155428954167,
+          0.0
+        ],
+        [
+          189.0,
+          164.99844571045833,
+          15.600000381469727
+        ]
+      ],
+      "planar_contact_mm2": 78.50726984011897,
+      "triangles": 2012,
+      "source_sha256": "22f9d6b375883daaa08772d6c17d3ff2c9c0197f84218d6dd81c82a8f6b8e503",
+      "rotation_matrix": [
+        [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "translation_mm": [
+        189.0,
+        155.00000019959407,
+        -0.0
+      ]
+    },
+    {
+      "number": 7,
+      "name": "cep-plosiny-4x19_5__03.stl",
+      "upright_pin": true,
+      "bounds_mm": [
+        [
+          216.0,
+          156.0,
+          0.0
+        ],
+        [
+          224.0,
+          164.0,
+          19.5
+        ]
+      ],
+      "planar_contact_mm2": 64.0,
+      "triangles": 1524,
+      "source_sha256": "ca809f5002b17f92be2453f7cbc73e78e0f17619d2a0040cec2acae125e639fc",
+      "rotation_matrix": [
+        [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "translation_mm": [
+        224.0,
+        156.0,
+        -0.0
+      ]
+    },
+    {
+      "number": 8,
+      "name": "cep-plosiny-4x19_5__02.stl",
+      "upright_pin": true,
+      "bounds_mm": [
+        [
+          36.0,
+          206.0,
+          0.0
+        ],
+        [
+          44.0,
+          214.0,
+          19.5
+        ]
+      ],
+      "planar_contact_mm2": 64.0,
+      "triangles": 1524,
+      "source_sha256": "ca809f5002b17f92be2453f7cbc73e78e0f17619d2a0040cec2acae125e639fc",
+      "rotation_matrix": [
+        [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "translation_mm": [
+        44.0,
+        206.0,
+        -0.0
+      ]
+    },
+    {
+      "number": 9,
+      "name": "objimka-cep-4x25_5__01.stl",
+      "upright_pin": true,
+      "bounds_mm": [
+        [
+          72.5,
+          206.50108776427805,
+          0.0
+        ],
+        [
+          79.5,
+          213.49891223572195,
+          25.5
+        ]
+      ],
+      "planar_contact_mm2": 38.46856240569751,
+      "triangles": 2012,
+      "source_sha256": "1a77990df981081e08aafe455b3f1d3777a7ba97abb2b9c89f1080c162737afa",
+      "rotation_matrix": [
+        [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "translation_mm": [
+        79.5,
+        206.4999999012798,
+        -0.0
+      ]
+    },
+    {
+      "number": 10,
+      "name": "pojistka-6_9__02.stl",
+      "upright_pin": false,
+      "bounds_mm": [
+        [
+          105.85500177135691,
+          203.5000077866298,
+          0.0
+        ],
+        [
+          118.14499822864309,
+          216.4999922133702,
+          1.2999999523162842
+        ]
+      ],
+      "planar_contact_mm2": 75.7989802527184,
+      "triangles": 772,
+      "source_sha256": "7be6176012c834bfba0b745c0048f7139799b85b0654688302d0bba3353007e0",
+      "rotation_matrix": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "translation_mm": [
+        105.8529774309136,
+        203.49999984276474,
+        -0.0
+      ]
+    },
+    {
+      "number": 11,
+      "name": "pojistka-kloubu-4_9__01.stl",
+      "upright_pin": false,
+      "bounds_mm": [
+        [
+          143.22056401951704,
+          205.00000178576295,
+          0.0
+        ],
+        [
+          152.77943598048296,
+          214.99999821423705,
+          1.2999999523162842
+        ]
+      ],
+      "planar_contact_mm2": 48.44983452492959,
+      "triangles": 788,
+      "source_sha256": "16f315d7f9a68525af9bfd74d99b27113de4dcb9e2ce6369fecf930b6a8928cd",
+      "rotation_matrix": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "translation_mm": [
+        143.2190083147725,
+        205.00000012158569,
+        -0.0
+      ]
+    },
+    {
+      "number": 12,
+      "name": "pojistka-3_1__08.stl",
+      "upright_pin": false,
+      "bounds_mm": [
+        [
+          180.61541295051575,
+          206.50043194633326,
+          0.0
+        ],
+        [
+          187.38458704948425,
+          213.49956805366674,
+          1.2999999523162842
+        ]
+      ],
+      "planar_contact_mm2": 25.764301245435124,
+      "triangles": 808,
+      "source_sha256": "b6b33f593dff03ea8d4ee5eb90d42629c0973c982cd988b141ce50b2897a08c4",
+      "rotation_matrix": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "translation_mm": [
+        180.61541295051575,
+        206.50000006813207,
+        -0.0
+      ]
+    },
+    {
+      "number": 13,
+      "name": "pojistka-3_1__04.stl",
+      "upright_pin": false,
+      "bounds_mm": [
+        [
+          216.61541295051575,
+          206.50043194633326,
+          0.0
+        ],
+        [
+          223.38458704948425,
+          213.49956805366674,
+          1.2999999523162842
+        ]
+      ],
+      "planar_contact_mm2": 25.764301245435124,
+      "triangles": 808,
+      "source_sha256": "b6b33f593dff03ea8d4ee5eb90d42629c0973c982cd988b141ce50b2897a08c4",
+      "rotation_matrix": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "translation_mm": [
+        216.61541295051575,
+        206.50000006813207,
+        -0.0
+      ]
+    }
+  ]
+}

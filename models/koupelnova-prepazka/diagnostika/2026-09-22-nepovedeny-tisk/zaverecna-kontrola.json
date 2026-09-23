@@ -1,0 +1,12 @@
+{
+  "checked_at": "2026-09-22T20:43:29.293693+02:00",
+  "delivery_70_file_manifest_changed_only": [
+    "README.md",
+    "rozlozeni/README.md"
+  ],
+  "all_model_original_snapshot_hashes_valid": true,
+  "all_temporary_snapshot_hashes_valid": true,
+  "model_stl_3mf_gcode_unchanged": true,
+  "printer_not_controlled": true,
+  "physical_job_file_unidentified": true
+}

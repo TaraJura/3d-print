@@ -1,0 +1,43 @@
+# -*- coding: utf-8 -*-
+from pathlib import Path
+import json
+import FreeCAD as App
+import FreeCADGui as Gui
+from PySide import QtCore
+OUT=Path(__file__).resolve().parent
+D=App.openDocument(str(OUT/'zkouska-prevodu.FCStd'))
+report=json.loads((OUT/'kontrola-modelu.json').read_text())
+for o in D.Objects:
+ if hasattr(o,'ViewObject'): o.ViewObject.Visibility=False
+palette={'FixtureFrame':(.72,.75,.79),'CompoundA':(.18,.52,.78),'CompoundB':(.25,.68,.46),'FixedGearPin':(.89,.56,.2),'GearPinClip':(.75,.3,.35)}
+for name,color in palette.items():
+ o=D.getObject(name)
+ o.ViewObject.ShapeColor=color
+ o.ViewObject.LineColor=(.16,.19,.22)
+ o.ViewObject.DisplayMode='Flat Lines'
+for name in report['assembly_object_names']:
+ D.getObject(name).ViewObject.Visibility=True
+
+def camera(eye):
+ view=Gui.activeDocument().activeView(); up=App.Vector(0,0,1)
+ view.setCameraType('Orthographic'); view.setCameraOrientation(App.Rotation(up.cross(eye),up,eye,'ZXY').Q)
+ view.fitAll(); view.redraw(); Gui.updateGui()
+def first():
+ camera(App.Vector(.65,-1.3,1.1)); QtCore.QTimer.singleShot(800,second)
+def second():
+ Gui.activeDocument().activeView().saveImage(str(OUT/'nahled.png'),1600,1100,'White')
+ camera(App.Vector(-.6,1.3,1)); QtCore.QTimer.singleShot(800,finish)
+def finish():
+ global D
+ Gui.activeDocument().activeView().saveImage(str(OUT/'opacna-strana.png'),1600,1100,'White')
+ camera(App.Vector(.65,-1.3,1.1)); D.recompute(); D.save()
+ App.closeDocument(D.Name); D=App.openDocument(str(OUT/'zkouska-prevodu.FCStd'))
+ bad=[o.Name for o in D.Objects if 'Invalid' in o.State]
+ visible=[o.Name for o in D.Objects if hasattr(o,'ViewObject') and o.ViewObject.Visibility]
+ assert not bad,bad
+ assert set(visible)==set(report['assembly_object_names']),visible
+ report['gui_validation']={'saved_and_reopened':True,'visible_objects':visible,'invalid_objects':bad}
+ (OUT/'kontrola-modelu.json').write_text(json.dumps(report,indent=2,ensure_ascii=False)+'\n')
+ print('COMPLETE: fixture GUI and reopened document',flush=True)
+ App.closeDocument(D.Name); Gui.getMainWindow().close()
+QtCore.QTimer.singleShot(800,first)

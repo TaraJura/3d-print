@@ -329,7 +329,7 @@
       "sha256": "16f315d7f9a68525af9bfd74d99b27113de4dcb9e2ce6369fecf930b6a8928cd"
     }
   },
-  "source_sha256": "574b051b43b958778ba83cdd340eba640475fe5e6f8cfa43c9e8616c443a4286",
+  "source_sha256": "96078fc1bd9645d89334f790f00e6925360d516669e00930c11960f97ec25692",
   "original_assets": {
     "/home/novakj/3d-print/models/auticko-s-prevodovkou/nahled.FCMacro": "3036d502eee2ab90b051adb7c3a44346524668034918f604be7bd8b1a737ebeb",
     "/home/novakj/3d-print/models/auticko-s-prevodovkou/rozlozena-plosina.png": "5bc0e64bc9cbfcaa4111529a89bbf2776609e2200ab2395aa150b7bc01894021",
@@ -523,7 +523,138 @@
     }
   },
   "reuse_drivetrain_validation": "../auticko-s-prevodovkou/kontrola-modelu.json",
-  "motion": {},
+  "motion": {
+    "samples": [
+      {
+        "wheel_deg": -24,
+        "servo_deg": 31.618298800529573,
+        "closure_error_mm": 0.0
+      },
+      {
+        "wheel_deg": -22,
+        "servo_deg": 28.863382894745712,
+        "closure_error_mm": 7.105427357601002e-15
+      },
+      {
+        "wheel_deg": -20,
+        "servo_deg": 26.16666352617608,
+        "closure_error_mm": 7.105427357601002e-15
+      },
+      {
+        "wheel_deg": -18,
+        "servo_deg": 23.512507782726175,
+        "closure_error_mm": 0.0
+      },
+      {
+        "wheel_deg": -16,
+        "servo_deg": 20.888306908083052,
+        "closure_error_mm": 0.0
+      },
+      {
+        "wheel_deg": -14,
+        "servo_deg": 18.28366328897303,
+        "closure_error_mm": 7.105427357601002e-15
+      },
+      {
+        "wheel_deg": -12,
+        "servo_deg": 15.689843894008618,
+        "closure_error_mm": 7.105427357601002e-15
+      },
+      {
+        "wheel_deg": -10,
+        "servo_deg": 13.09940362829525,
+        "closure_error_mm": 0.0
+      },
+      {
+        "wheel_deg": -8,
+        "servo_deg": 10.505921424196003,
+        "closure_error_mm": 0.0
+      },
+      {
+        "wheel_deg": -6,
+        "servo_deg": 7.903813935917412,
+        "closure_error_mm": 7.105427357601002e-15
+      },
+      {
+        "wheel_deg": -4,
+        "servo_deg": 5.288204607267119,
+        "closure_error_mm": 7.105427357601002e-15
+      },
+      {
+        "wheel_deg": -2,
+        "servo_deg": 2.65483372480125,
+        "closure_error_mm": 0.0
+      },
+      {
+        "wheel_deg": 0,
+        "servo_deg": 0.0,
+        "closure_error_mm": 0.0
+      },
+      {
+        "wheel_deg": 2,
+        "servo_deg": -2.679472580026612,
+        "closure_error_mm": 7.105427357601002e-15
+      },
+      {
+        "wheel_deg": 4,
+        "servo_deg": -5.386246766750844,
+        "closure_error_mm": 1.4210854715202004e-14
+      },
+      {
+        "wheel_deg": 6,
+        "servo_deg": -8.122465615793885,
+        "closure_error_mm": 0.0
+      },
+      {
+        "wheel_deg": 8,
+        "servo_deg": -10.889729292284187,
+        "closure_error_mm": 7.105427357601002e-15
+      },
+      {
+        "wheel_deg": 10,
+        "servo_deg": -13.689056117653934,
+        "closure_error_mm": 7.105427357601002e-15
+      },
+      {
+        "wheel_deg": 12,
+        "servo_deg": -16.52082840392859,
+        "closure_error_mm": 0.0
+      },
+      {
+        "wheel_deg": 14,
+        "servo_deg": -19.38472335530929,
+        "closure_error_mm": 0.0
+      },
+      {
+        "wheel_deg": 16,
+        "servo_deg": -22.27962922564251,
+        "closure_error_mm": 7.105427357601002e-15
+      },
+      {
+        "wheel_deg": 18,
+        "servo_deg": -25.203547012174738,
+        "closure_error_mm": 7.105427357601002e-15
+      },
+      {
+        "wheel_deg": 20,
+        "servo_deg": -28.15347826910235,
+        "closure_error_mm": 7.105427357601002e-15
+      },
+      {
+        "wheel_deg": 22,
+        "servo_deg": -31.12530018747833,
+        "closure_error_mm": 0.0
+      },
+      {
+        "wheel_deg": 24,
+        "servo_deg": -34.113629980812675,
+        "closure_error_mm": 0.0
+      }
+    ],
+    "pair_checks": 11106,
+    "collisions": [],
+    "rotation_envelope": "full wheel disc Ø76 ×12 minus Ø8.6 bearing bore, for each steering sample"
+  },
   "assembly_object_names": [
     "AssemblyDeck",
     "AssemblyRearLeft",
@@ -561,5 +692,1422 @@
     "AssemblyHornReference",
     "HornScrewReference"
   ],
-  "rear_gear_reuse_geometric_difference_mm3": 0.0
+  "rear_gear_reuse_geometric_difference_mm3": 0.0,
+  "mechanical_stops": [
+    {
+      "wheel_deg": -24.5,
+      "intentional_stop_overlap_mm3": [
+        0.06217151208868097,
+        0.06217151208802206
+      ]
+    },
+    {
+      "wheel_deg": 24.5,
+      "intentional_stop_overlap_mm3": [
+        0.062171512088047914,
+        0.06217151208804488
+      ]
+    }
+  ],
+  "parametric_checks": [
+    {
+      "parameter": "HornRadius",
+      "original": 15.0,
+      "trial": 14.5,
+      "drag_length_mm": 44.22951503238533,
+      "tie_length_mm": 88.0,
+      "max_changed_volume_mm3": 0.6439754230125345,
+      "max_restored_volume_error_mm3": 0.0
+    },
+    {
+      "parameter": "StopAngle",
+      "original": 24.0,
+      "trial": 23,
+      "drag_length_mm": 44.28317965096906,
+      "tie_length_mm": 88.0,
+      "max_changed_volume_mm3": 3.675663404763327,
+      "max_restored_volume_error_mm3": 0.0
+    },
+    {
+      "parameter": "HalfTrack",
+      "original": 44.0,
+      "trial": 45,
+      "drag_length_mm": 45.27692569068709,
+      "tie_length_mm": 90.0,
+      "max_changed_volume_mm3": 200.0,
+      "max_restored_volume_error_mm3": 0.0
+    }
+  ],
+  "tread_checks": [
+    {
+      "z_mm": 3,
+      "radius_mm": 37.5,
+      "angle_deg": 0.0,
+      "inside_material": false
+    },
+    {
+      "z_mm": 3,
+      "radius_mm": 37.5,
+      "angle_deg": 7.5,
+      "inside_material": true
+    },
+    {
+      "z_mm": 9,
+      "radius_mm": 37.5,
+      "angle_deg": 7.5,
+      "inside_material": false
+    },
+    {
+      "z_mm": 9,
+      "radius_mm": 37.5,
+      "angle_deg": 0.0,
+      "inside_material": true
+    }
+  ],
+  "ground_clearance_mm": {
+    "gear_at_outer_tread": 4.7,
+    "gear_at_tread_root_conservative": 3.7,
+    "frame_at_outer_tread": 14,
+    "frame_at_tread_root": 13,
+    "deck_wheel_vertical_nominal": 8
+  },
+  "original_assets_unchanged": true,
+  "kinematics": {
+    "nominal": {
+      "horn_radius_mm": 15,
+      "sample_count": 4801,
+      "wheel_range_deg": [
+        -24,
+        24
+      ],
+      "servo_range_deg": [
+        -34.113629980812675,
+        31.618298800529562
+      ],
+      "working_endpoints": [
+        {
+          "wheel_deg": -20,
+          "servo_deg": 26.16666352617607,
+          "closure_mm": 7.105427357601002e-15,
+          "d_wheel_d_servo": -0.7481902538544322,
+          "wheel_lever_mm": 18.420862731280465,
+          "servo_lever_mm": 13.782309963134379,
+          "length_mm": 44.28317965096906
+        },
+        {
+          "wheel_deg": 20,
+          "servo_deg": -28.153478269102397,
+          "closure_mm": 0.0,
+          "d_wheel_d_servo": -0.6752960388051581,
+          "wheel_lever_mm": 19.086203709230016,
+          "servo_lever_mm": 12.888837760671345,
+          "length_mm": 44.28317965096906
+        }
+      ],
+      "maximum_closure_error_mm": 1.4210854715202004e-14,
+      "minimum_wheel_moment_arm_mm": 18.073991687939337,
+      "minimum_servo_moment_arm_mm": 12.286352471906833,
+      "derivative_range": [
+        -0.7721490330387853,
+        -0.6679031741838715
+      ],
+      "continuous_monotonic_same_branch": true,
+      "no_dead_centre": true
+    },
+    "parameter_samples": [
+      {
+        "horn_radius_mm": 14.5,
+        "sample_count": 4801,
+        "wheel_range_deg": [
+          -24,
+          24
+        ],
+        "servo_range_deg": [
+          -35.22819084386936,
+          33.047104827890145
+        ],
+        "working_endpoints": [
+          {
+            "wheel_deg": -20,
+            "servo_deg": 27.266605325544294,
+            "closure_mm": 0.0,
+            "d_wheel_d_servo": -0.70908265034678,
+            "wheel_lever_mm": 18.520009130948964,
+            "servo_lever_mm": 13.132217159019858,
+            "length_mm": 44.22951503238533
+          },
+          {
+            "wheel_deg": 20,
+            "servo_deg": -29.071595351419532,
+            "closure_mm": 0.0,
+            "d_wheel_d_servo": -0.6539854143054675,
+            "wheel_lever_mm": 19.01039989870034,
+            "servo_lever_mm": 12.432524253864157,
+            "length_mm": 44.22951503238533
+          }
+        ],
+        "maximum_closure_error_mm": 1.4210854715202004e-14,
+        "minimum_wheel_moment_arm_mm": 18.191873757051297,
+        "minimum_servo_moment_arm_mm": 11.822624608233328,
+        "derivative_range": [
+          -0.7417530675105581,
+          -0.6463251080263713
+        ],
+        "continuous_monotonic_same_branch": true,
+        "no_dead_centre": true
+      },
+      {
+        "horn_radius_mm": 15.5,
+        "sample_count": 4801,
+        "wheel_range_deg": [
+          -24,
+          24
+        ],
+        "servo_range_deg": [
+          -33.076585906228026,
+          30.312479788737463
+        ],
+        "working_endpoints": [
+          {
+            "wheel_deg": -20,
+            "servo_deg": 25.15274031659522,
+            "closure_mm": 0.0,
+            "d_wheel_d_servo": -0.7871901407644246,
+            "wheel_lever_mm": 18.320041104228668,
+            "servo_lever_mm": 14.42135573564781,
+            "length_mm": 44.34241761564202
+          },
+          {
+            "wheel_deg": 20,
+            "servo_deg": -27.297270085936017,
+            "closure_mm": 7.105427357601002e-15,
+            "d_wheel_d_servo": -0.6962556434808793,
+            "wheel_lever_mm": 19.158426031379598,
+            "servo_lever_mm": 13.33916224455903,
+            "length_mm": 44.34241761564202
+          }
+        ],
+        "maximum_closure_error_mm": 1.4210854715202004e-14,
+        "minimum_wheel_moment_arm_mm": 17.955193741298334,
+        "minimum_servo_moment_arm_mm": 12.742679029663808,
+        "derivative_range": [
+          -0.8036361956402265,
+          -0.6889978784064421
+        ],
+        "continuous_monotonic_same_branch": true,
+        "no_dead_centre": true
+      }
+    ],
+    "limit": "Ideální tuhé vazby a body, bez deformace, vůle nebo fyzické kalibrace serva.",
+    "impossible_horn_radius_1_mm_rejected": true
+  },
+  "validation_pass": true,
+  "axial_clearances": {
+    "front_nominal_inner_gap_mm": 0.2,
+    "front_nominal_outer_gap_mm": 0.4,
+    "front_extra_clip_float_mm": 0.1,
+    "front_extremes": [
+      {
+        "wheel_deg": -24,
+        "side": "L",
+        "outward_shift_mm": -0.2,
+        "fixed": "SteeringFrame",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": -24,
+        "side": "L",
+        "outward_shift_mm": -0.2,
+        "fixed": "Deck",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": -24,
+        "side": "L",
+        "outward_shift_mm": -0.2,
+        "fixed": "MotorReference",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": -24,
+        "side": "L",
+        "outward_shift_mm": -0.2,
+        "fixed": "AssemblyPinion",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": -24,
+        "side": "L",
+        "outward_shift_mm": -0.2,
+        "fixed": "AssemblyCompound",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": -24,
+        "side": "L",
+        "outward_shift_mm": -0.2,
+        "fixed": "ServoReference",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": -24,
+        "side": "L",
+        "outward_shift_mm": -0.2,
+        "fixed": "AssemblyTie",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": -24,
+        "side": "L",
+        "outward_shift_mm": -0.2,
+        "fixed": "AssemblyDrag",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": -24,
+        "side": "L",
+        "outward_shift_mm": -0.2,
+        "fixed": "AssemblyHornSpacer",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": -24,
+        "side": "L",
+        "outward_shift_mm": -0.2,
+        "fixed": "AssemblyHornReference",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": -24,
+        "side": "L",
+        "outward_shift_mm": -0.2,
+        "fixed": "AssemblyKnuckleL",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": -24,
+        "side": "L",
+        "outward_shift_mm": -0.2,
+        "fixed": "AssemblyForkCapL",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": -24,
+        "side": "L",
+        "outward_shift_mm": -0.2,
+        "fixed": "AssemblyKingpinL",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": -24,
+        "side": "L",
+        "outward_shift_mm": 0.5,
+        "fixed": "SteeringFrame",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": -24,
+        "side": "L",
+        "outward_shift_mm": 0.5,
+        "fixed": "Deck",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": -24,
+        "side": "L",
+        "outward_shift_mm": 0.5,
+        "fixed": "MotorReference",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": -24,
+        "side": "L",
+        "outward_shift_mm": 0.5,
+        "fixed": "AssemblyPinion",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": -24,
+        "side": "L",
+        "outward_shift_mm": 0.5,
+        "fixed": "AssemblyCompound",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": -24,
+        "side": "L",
+        "outward_shift_mm": 0.5,
+        "fixed": "ServoReference",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": -24,
+        "side": "L",
+        "outward_shift_mm": 0.5,
+        "fixed": "AssemblyTie",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": -24,
+        "side": "L",
+        "outward_shift_mm": 0.5,
+        "fixed": "AssemblyDrag",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": -24,
+        "side": "L",
+        "outward_shift_mm": 0.5,
+        "fixed": "AssemblyHornSpacer",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": -24,
+        "side": "L",
+        "outward_shift_mm": 0.5,
+        "fixed": "AssemblyHornReference",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": -24,
+        "side": "L",
+        "outward_shift_mm": 0.5,
+        "fixed": "AssemblyKnuckleL",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": -24,
+        "side": "L",
+        "outward_shift_mm": 0.5,
+        "fixed": "AssemblyForkCapL",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": -24,
+        "side": "L",
+        "outward_shift_mm": 0.5,
+        "fixed": "AssemblyKingpinL",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": -24,
+        "side": "R",
+        "outward_shift_mm": -0.2,
+        "fixed": "SteeringFrame",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": -24,
+        "side": "R",
+        "outward_shift_mm": -0.2,
+        "fixed": "Deck",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": -24,
+        "side": "R",
+        "outward_shift_mm": -0.2,
+        "fixed": "MotorReference",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": -24,
+        "side": "R",
+        "outward_shift_mm": -0.2,
+        "fixed": "AssemblyPinion",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": -24,
+        "side": "R",
+        "outward_shift_mm": -0.2,
+        "fixed": "AssemblyCompound",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": -24,
+        "side": "R",
+        "outward_shift_mm": -0.2,
+        "fixed": "ServoReference",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": -24,
+        "side": "R",
+        "outward_shift_mm": -0.2,
+        "fixed": "AssemblyTie",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": -24,
+        "side": "R",
+        "outward_shift_mm": -0.2,
+        "fixed": "AssemblyDrag",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": -24,
+        "side": "R",
+        "outward_shift_mm": -0.2,
+        "fixed": "AssemblyHornSpacer",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": -24,
+        "side": "R",
+        "outward_shift_mm": -0.2,
+        "fixed": "AssemblyHornReference",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": -24,
+        "side": "R",
+        "outward_shift_mm": -0.2,
+        "fixed": "AssemblyKnuckleR",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": -24,
+        "side": "R",
+        "outward_shift_mm": -0.2,
+        "fixed": "AssemblyForkCapR",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": -24,
+        "side": "R",
+        "outward_shift_mm": -0.2,
+        "fixed": "AssemblyKingpinR",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": -24,
+        "side": "R",
+        "outward_shift_mm": 0.5,
+        "fixed": "SteeringFrame",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": -24,
+        "side": "R",
+        "outward_shift_mm": 0.5,
+        "fixed": "Deck",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": -24,
+        "side": "R",
+        "outward_shift_mm": 0.5,
+        "fixed": "MotorReference",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": -24,
+        "side": "R",
+        "outward_shift_mm": 0.5,
+        "fixed": "AssemblyPinion",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": -24,
+        "side": "R",
+        "outward_shift_mm": 0.5,
+        "fixed": "AssemblyCompound",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": -24,
+        "side": "R",
+        "outward_shift_mm": 0.5,
+        "fixed": "ServoReference",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": -24,
+        "side": "R",
+        "outward_shift_mm": 0.5,
+        "fixed": "AssemblyTie",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": -24,
+        "side": "R",
+        "outward_shift_mm": 0.5,
+        "fixed": "AssemblyDrag",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": -24,
+        "side": "R",
+        "outward_shift_mm": 0.5,
+        "fixed": "AssemblyHornSpacer",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": -24,
+        "side": "R",
+        "outward_shift_mm": 0.5,
+        "fixed": "AssemblyHornReference",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": -24,
+        "side": "R",
+        "outward_shift_mm": 0.5,
+        "fixed": "AssemblyKnuckleR",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": -24,
+        "side": "R",
+        "outward_shift_mm": 0.5,
+        "fixed": "AssemblyForkCapR",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": -24,
+        "side": "R",
+        "outward_shift_mm": 0.5,
+        "fixed": "AssemblyKingpinR",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": 0,
+        "side": "L",
+        "outward_shift_mm": -0.2,
+        "fixed": "SteeringFrame",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": 0,
+        "side": "L",
+        "outward_shift_mm": -0.2,
+        "fixed": "Deck",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": 0,
+        "side": "L",
+        "outward_shift_mm": -0.2,
+        "fixed": "MotorReference",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": 0,
+        "side": "L",
+        "outward_shift_mm": -0.2,
+        "fixed": "AssemblyPinion",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": 0,
+        "side": "L",
+        "outward_shift_mm": -0.2,
+        "fixed": "AssemblyCompound",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": 0,
+        "side": "L",
+        "outward_shift_mm": -0.2,
+        "fixed": "ServoReference",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": 0,
+        "side": "L",
+        "outward_shift_mm": -0.2,
+        "fixed": "AssemblyTie",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": 0,
+        "side": "L",
+        "outward_shift_mm": -0.2,
+        "fixed": "AssemblyDrag",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": 0,
+        "side": "L",
+        "outward_shift_mm": -0.2,
+        "fixed": "AssemblyHornSpacer",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": 0,
+        "side": "L",
+        "outward_shift_mm": -0.2,
+        "fixed": "AssemblyHornReference",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": 0,
+        "side": "L",
+        "outward_shift_mm": -0.2,
+        "fixed": "AssemblyKnuckleL",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": 0,
+        "side": "L",
+        "outward_shift_mm": -0.2,
+        "fixed": "AssemblyForkCapL",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": 0,
+        "side": "L",
+        "outward_shift_mm": -0.2,
+        "fixed": "AssemblyKingpinL",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": 0,
+        "side": "L",
+        "outward_shift_mm": 0.5,
+        "fixed": "SteeringFrame",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": 0,
+        "side": "L",
+        "outward_shift_mm": 0.5,
+        "fixed": "Deck",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": 0,
+        "side": "L",
+        "outward_shift_mm": 0.5,
+        "fixed": "MotorReference",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": 0,
+        "side": "L",
+        "outward_shift_mm": 0.5,
+        "fixed": "AssemblyPinion",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": 0,
+        "side": "L",
+        "outward_shift_mm": 0.5,
+        "fixed": "AssemblyCompound",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": 0,
+        "side": "L",
+        "outward_shift_mm": 0.5,
+        "fixed": "ServoReference",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": 0,
+        "side": "L",
+        "outward_shift_mm": 0.5,
+        "fixed": "AssemblyTie",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": 0,
+        "side": "L",
+        "outward_shift_mm": 0.5,
+        "fixed": "AssemblyDrag",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": 0,
+        "side": "L",
+        "outward_shift_mm": 0.5,
+        "fixed": "AssemblyHornSpacer",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": 0,
+        "side": "L",
+        "outward_shift_mm": 0.5,
+        "fixed": "AssemblyHornReference",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": 0,
+        "side": "L",
+        "outward_shift_mm": 0.5,
+        "fixed": "AssemblyKnuckleL",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": 0,
+        "side": "L",
+        "outward_shift_mm": 0.5,
+        "fixed": "AssemblyForkCapL",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": 0,
+        "side": "L",
+        "outward_shift_mm": 0.5,
+        "fixed": "AssemblyKingpinL",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": 0,
+        "side": "R",
+        "outward_shift_mm": -0.2,
+        "fixed": "SteeringFrame",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": 0,
+        "side": "R",
+        "outward_shift_mm": -0.2,
+        "fixed": "Deck",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": 0,
+        "side": "R",
+        "outward_shift_mm": -0.2,
+        "fixed": "MotorReference",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": 0,
+        "side": "R",
+        "outward_shift_mm": -0.2,
+        "fixed": "AssemblyPinion",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": 0,
+        "side": "R",
+        "outward_shift_mm": -0.2,
+        "fixed": "AssemblyCompound",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": 0,
+        "side": "R",
+        "outward_shift_mm": -0.2,
+        "fixed": "ServoReference",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": 0,
+        "side": "R",
+        "outward_shift_mm": -0.2,
+        "fixed": "AssemblyTie",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": 0,
+        "side": "R",
+        "outward_shift_mm": -0.2,
+        "fixed": "AssemblyDrag",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": 0,
+        "side": "R",
+        "outward_shift_mm": -0.2,
+        "fixed": "AssemblyHornSpacer",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": 0,
+        "side": "R",
+        "outward_shift_mm": -0.2,
+        "fixed": "AssemblyHornReference",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": 0,
+        "side": "R",
+        "outward_shift_mm": -0.2,
+        "fixed": "AssemblyKnuckleR",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": 0,
+        "side": "R",
+        "outward_shift_mm": -0.2,
+        "fixed": "AssemblyForkCapR",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": 0,
+        "side": "R",
+        "outward_shift_mm": -0.2,
+        "fixed": "AssemblyKingpinR",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": 0,
+        "side": "R",
+        "outward_shift_mm": 0.5,
+        "fixed": "SteeringFrame",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": 0,
+        "side": "R",
+        "outward_shift_mm": 0.5,
+        "fixed": "Deck",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": 0,
+        "side": "R",
+        "outward_shift_mm": 0.5,
+        "fixed": "MotorReference",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": 0,
+        "side": "R",
+        "outward_shift_mm": 0.5,
+        "fixed": "AssemblyPinion",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": 0,
+        "side": "R",
+        "outward_shift_mm": 0.5,
+        "fixed": "AssemblyCompound",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": 0,
+        "side": "R",
+        "outward_shift_mm": 0.5,
+        "fixed": "ServoReference",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": 0,
+        "side": "R",
+        "outward_shift_mm": 0.5,
+        "fixed": "AssemblyTie",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": 0,
+        "side": "R",
+        "outward_shift_mm": 0.5,
+        "fixed": "AssemblyDrag",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": 0,
+        "side": "R",
+        "outward_shift_mm": 0.5,
+        "fixed": "AssemblyHornSpacer",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": 0,
+        "side": "R",
+        "outward_shift_mm": 0.5,
+        "fixed": "AssemblyHornReference",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": 0,
+        "side": "R",
+        "outward_shift_mm": 0.5,
+        "fixed": "AssemblyKnuckleR",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": 0,
+        "side": "R",
+        "outward_shift_mm": 0.5,
+        "fixed": "AssemblyForkCapR",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": 0,
+        "side": "R",
+        "outward_shift_mm": 0.5,
+        "fixed": "AssemblyKingpinR",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": 24,
+        "side": "L",
+        "outward_shift_mm": -0.2,
+        "fixed": "SteeringFrame",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": 24,
+        "side": "L",
+        "outward_shift_mm": -0.2,
+        "fixed": "Deck",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": 24,
+        "side": "L",
+        "outward_shift_mm": -0.2,
+        "fixed": "MotorReference",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": 24,
+        "side": "L",
+        "outward_shift_mm": -0.2,
+        "fixed": "AssemblyPinion",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": 24,
+        "side": "L",
+        "outward_shift_mm": -0.2,
+        "fixed": "AssemblyCompound",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": 24,
+        "side": "L",
+        "outward_shift_mm": -0.2,
+        "fixed": "ServoReference",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": 24,
+        "side": "L",
+        "outward_shift_mm": -0.2,
+        "fixed": "AssemblyTie",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": 24,
+        "side": "L",
+        "outward_shift_mm": -0.2,
+        "fixed": "AssemblyDrag",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": 24,
+        "side": "L",
+        "outward_shift_mm": -0.2,
+        "fixed": "AssemblyHornSpacer",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": 24,
+        "side": "L",
+        "outward_shift_mm": -0.2,
+        "fixed": "AssemblyHornReference",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": 24,
+        "side": "L",
+        "outward_shift_mm": -0.2,
+        "fixed": "AssemblyKnuckleL",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": 24,
+        "side": "L",
+        "outward_shift_mm": -0.2,
+        "fixed": "AssemblyForkCapL",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": 24,
+        "side": "L",
+        "outward_shift_mm": -0.2,
+        "fixed": "AssemblyKingpinL",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": 24,
+        "side": "L",
+        "outward_shift_mm": 0.5,
+        "fixed": "SteeringFrame",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": 24,
+        "side": "L",
+        "outward_shift_mm": 0.5,
+        "fixed": "Deck",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": 24,
+        "side": "L",
+        "outward_shift_mm": 0.5,
+        "fixed": "MotorReference",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": 24,
+        "side": "L",
+        "outward_shift_mm": 0.5,
+        "fixed": "AssemblyPinion",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": 24,
+        "side": "L",
+        "outward_shift_mm": 0.5,
+        "fixed": "AssemblyCompound",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": 24,
+        "side": "L",
+        "outward_shift_mm": 0.5,
+        "fixed": "ServoReference",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": 24,
+        "side": "L",
+        "outward_shift_mm": 0.5,
+        "fixed": "AssemblyTie",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": 24,
+        "side": "L",
+        "outward_shift_mm": 0.5,
+        "fixed": "AssemblyDrag",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": 24,
+        "side": "L",
+        "outward_shift_mm": 0.5,
+        "fixed": "AssemblyHornSpacer",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": 24,
+        "side": "L",
+        "outward_shift_mm": 0.5,
+        "fixed": "AssemblyHornReference",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": 24,
+        "side": "L",
+        "outward_shift_mm": 0.5,
+        "fixed": "AssemblyKnuckleL",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": 24,
+        "side": "L",
+        "outward_shift_mm": 0.5,
+        "fixed": "AssemblyForkCapL",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": 24,
+        "side": "L",
+        "outward_shift_mm": 0.5,
+        "fixed": "AssemblyKingpinL",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": 24,
+        "side": "R",
+        "outward_shift_mm": -0.2,
+        "fixed": "SteeringFrame",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": 24,
+        "side": "R",
+        "outward_shift_mm": -0.2,
+        "fixed": "Deck",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": 24,
+        "side": "R",
+        "outward_shift_mm": -0.2,
+        "fixed": "MotorReference",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": 24,
+        "side": "R",
+        "outward_shift_mm": -0.2,
+        "fixed": "AssemblyPinion",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": 24,
+        "side": "R",
+        "outward_shift_mm": -0.2,
+        "fixed": "AssemblyCompound",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": 24,
+        "side": "R",
+        "outward_shift_mm": -0.2,
+        "fixed": "ServoReference",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": 24,
+        "side": "R",
+        "outward_shift_mm": -0.2,
+        "fixed": "AssemblyTie",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": 24,
+        "side": "R",
+        "outward_shift_mm": -0.2,
+        "fixed": "AssemblyDrag",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": 24,
+        "side": "R",
+        "outward_shift_mm": -0.2,
+        "fixed": "AssemblyHornSpacer",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": 24,
+        "side": "R",
+        "outward_shift_mm": -0.2,
+        "fixed": "AssemblyHornReference",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": 24,
+        "side": "R",
+        "outward_shift_mm": -0.2,
+        "fixed": "AssemblyKnuckleR",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": 24,
+        "side": "R",
+        "outward_shift_mm": -0.2,
+        "fixed": "AssemblyForkCapR",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": 24,
+        "side": "R",
+        "outward_shift_mm": -0.2,
+        "fixed": "AssemblyKingpinR",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": 24,
+        "side": "R",
+        "outward_shift_mm": 0.5,
+        "fixed": "SteeringFrame",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": 24,
+        "side": "R",
+        "outward_shift_mm": 0.5,
+        "fixed": "Deck",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": 24,
+        "side": "R",
+        "outward_shift_mm": 0.5,
+        "fixed": "MotorReference",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": 24,
+        "side": "R",
+        "outward_shift_mm": 0.5,
+        "fixed": "AssemblyPinion",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": 24,
+        "side": "R",
+        "outward_shift_mm": 0.5,
+        "fixed": "AssemblyCompound",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": 24,
+        "side": "R",
+        "outward_shift_mm": 0.5,
+        "fixed": "ServoReference",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": 24,
+        "side": "R",
+        "outward_shift_mm": 0.5,
+        "fixed": "AssemblyTie",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": 24,
+        "side": "R",
+        "outward_shift_mm": 0.5,
+        "fixed": "AssemblyDrag",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": 24,
+        "side": "R",
+        "outward_shift_mm": 0.5,
+        "fixed": "AssemblyHornSpacer",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": 24,
+        "side": "R",
+        "outward_shift_mm": 0.5,
+        "fixed": "AssemblyHornReference",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": 24,
+        "side": "R",
+        "outward_shift_mm": 0.5,
+        "fixed": "AssemblyKnuckleR",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": 24,
+        "side": "R",
+        "outward_shift_mm": 0.5,
+        "fixed": "AssemblyForkCapR",
+        "overlap_mm3": 0.0
+      },
+      {
+        "wheel_deg": 24,
+        "side": "R",
+        "outward_shift_mm": 0.5,
+        "fixed": "AssemblyKingpinR",
+        "overlap_mm3": 0.0
+      }
+    ],
+    "rear_extremes": [
+      {
+        "rear_shift_y_mm": 0.5,
+        "middle_shift_y_mm": -0.9,
+        "gears_overlap_mm3": 0.0,
+        "middle_motor_overlap_mm3": 0.0,
+        "rear_frame_overlap_mm3": 0.0
+      },
+      {
+        "rear_shift_y_mm": -1,
+        "middle_shift_y_mm": 0.5,
+        "gears_overlap_mm3": 0.0,
+        "middle_motor_overlap_mm3": 0.0,
+        "rear_frame_overlap_mm3": 0.0
+      },
+      {
+        "rear_shift_y_mm": 0.5,
+        "middle_shift_y_mm": 0.5,
+        "gears_overlap_mm3": 0.0,
+        "middle_motor_overlap_mm3": 0.0,
+        "rear_frame_overlap_mm3": 0.0
+      },
+      {
+        "rear_shift_y_mm": -1,
+        "middle_shift_y_mm": -0.9,
+        "gears_overlap_mm3": 0.0,
+        "middle_motor_overlap_mm3": 0.0,
+        "rear_frame_overlap_mm3": 0.0
+      }
+    ],
+    "limit": "Krajní nominální axiální posuny bez deformace; tištěné vůle mohou být jiné."
+  },
+  "final_print_group": [
+    "Deck",
+    "Pinion",
+    "CompoundGear",
+    "MiddleAxle",
+    "RearSpacer",
+    "LongSpacer",
+    "MiddleSpacer",
+    "Clip",
+    "TreadWheelRear",
+    "TreadWheelRight",
+    "TreadWheelFront",
+    "MainAxle",
+    "SteeringFrame",
+    "ForkCap",
+    "Kingpin",
+    "KnuckleL",
+    "KnuckleR",
+    "TieBar",
+    "DragLink",
+    "HornSpacer",
+    "JointPinLong",
+    "JointPinShort",
+    "SmallClip"
+  ],
+  "gui_validation": {
+    "saved_and_reopened": true,
+    "visible_objects": [
+      "Assembly",
+      "AssemblyCompound",
+      "AssemblyDeck",
+      "AssemblyDrag",
+      "AssemblyForkCapL",
+      "AssemblyForkCapR",
+      "AssemblyHornReference",
+      "AssemblyHornSpacer",
+      "AssemblyJointClipL",
+      "AssemblyJointClipR",
+      "AssemblyJointPinL",
+      "AssemblyJointPinR",
+      "AssemblyKingClipL",
+      "AssemblyKingClipR",
+      "AssemblyKingpinL",
+      "AssemblyKingpinR",
+      "AssemblyKnuckleL",
+      "AssemblyKnuckleR",
+      "AssemblyMiddleAxle",
+      "AssemblyMiddleClip",
+      "AssemblyMiddleSpacerLeft",
+      "AssemblyMiddleSpacerRight",
+      "AssemblyPinion",
+      "AssemblyRearAxle",
+      "AssemblyRearClip",
+      "AssemblyRearLeft",
+      "AssemblyRearLong",
+      "AssemblyRearRight",
+      "AssemblyRearSpacer",
+      "AssemblySteeringFrame",
+      "AssemblySteeringWheelL",
+      "AssemblySteeringWheelR",
+      "AssemblyTie",
+      "AssemblyWheelClipL",
+      "AssemblyWheelClipR",
+      "HornScrewReference",
+      "MotorReference",
+      "ServoReference",
+      "WheelCarrierL",
+      "WheelCarrierR"
+    ],
+    "invalid_objects": [],
+    "wheel_angle_deg": 0,
+    "images": [
+      "rovne.png",
+      "doleva.png",
+      "doprava.png",
+      "mechanismus.png"
+    ]
+  }
 }

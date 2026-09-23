@@ -1,0 +1,152 @@
+# -*- coding: utf-8 -*-
+"""Seven-part manual 18->60 functional sample, derived from immutable native CAD.
+Writes ONLY this folder. Uses the archived FCStd, NOT the current main generator.
+No custom proxy; all retained parametric dependencies and the crop are native objects.
+"""
+from pathlib import Path
+from collections import Counter
+import hashlib, json, math, tempfile, zipfile
+import FreeCAD as App
+import Part, MeshPart
+
+OUT=Path(__file__).resolve().parent
+ARCHIVE=OUT.parent/'historie/pred-kalibraci-8_6-12_6-2026-09-20/puvodni-revize.zip'
+SOURCE_NAME='auticko-silovy-prevod-25.FCStd'
+SOURCE_SHA='33e6369daa80e11193a0c473c726f60a1f78c2f4cba7d32f66e4d51d3360754e'
+with zipfile.ZipFile(ARCHIVE) as z: source=z.read(SOURCE_NAME)
+assert hashlib.sha256(source).hexdigest()==SOURCE_SHA, 'Frozen source changed'
+(OUT/'stl').mkdir(exist_ok=True)
+tmp=tempfile.TemporaryDirectory(prefix='auticko-manual-sample-')
+src=Path(tmp.name)/SOURCE_NAME; src.write_bytes(source)
+D=App.openDocument(str(src)); D.Label='Ruční zkouška 18→60 — původní 20° ozubení, vedení Ø8.6'
+P=D.getObject('Parameters')
+source_targets=['SteeringFrame','CompoundA','CompoundB','FixedGearPin','GearPinClip']
+original={n:D.getObject(n).Shape.copy() for n in source_targets}
+link_defs=[('AssemblyA','CompoundA','dvojkolo-a'),('AssemblyB','CompoundB','dvojkolo-b'),
+ ('AssemblyFixedPinA','FixedGearPin','pevny-cep-8x53_9'),('AssemblyFixedPinB','FixedGearPin','pevny-cep-8x53_9'),
+ ('AssemblyFixedPinClipA','GearPinClip','pojistka-6_9'),('AssemblyFixedPinClipB','GearPinClip','pojistka-6_9')]
+placements={n:D.getObject(n).Placement for n,_,_ in link_defs}
+keep={P.Name}
+for n in source_targets:
+ o=D.getObject(n); keep.add(n); keep.update(q.Name for q in o.OutListRecursive)
+for o in reversed(D.Objects):
+ if o.Name not in keep: D.removeObject(o.Name)
+D.recompute()
+assert all('Invalid' not in o.State for o in D.Objects)
+assert abs(P.FixedSeatBore.Value-8.1)<1e-9 and abs(P.RunningBore.Value-8.2)<1e-9
+P.set(P.getCellFromAlias('RunningBore'),'8.6 mm')
+P.set('D1','ZKOUSKA 18->60: puvodni 20deg profil; pouze RunningBore 8.2->8.6.')
+P.set('D2','Neni cely vuz ani overeni 12mm vystupu; fyzicky chod zatim neoveren.')
+P.setColumnWidth('D',650)
+D.recompute()
+# Crop remains editable and follows actual parameterized source axes.
+clip=D.addObject('Part::Box','FixtureCropBox')
+clip.setExpression('Length','Parameters.AX - Parameters.BX + 20 mm')
+clip.Width=70; clip.Height=45
+clip.setExpression('Placement.Base.x','Parameters.BX - 10 mm'); clip.Placement.Base.y=-36
+fixture=D.addObject('Part::Common','FixtureFrame')
+fixture.Base=D.getObject('SteeringFrame'); fixture.Tool=clip; fixture.Refine=True
+fixture.Label='Výřez původního rámu — uložení A/B a dorazy'
+D.recompute()
+assert fixture.Shape.isValid() and len(fixture.Shape.Solids)==1
+assert abs(P.AX.Value-P.BX.Value-39.4)<1e-8
+report={'kind':'Manual functional sample of original 20 degree 18->60 gear stage; no motor',
+ 'unit':'mm','generator_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
+ 'source':{'archive':str(ARCHIVE.relative_to(OUT.parent)),'member':SOURCE_NAME,'sha256':SOURCE_SHA},
+ 'scope':'Seven physical parts only, not whole car or 12mm output test; physical performance unverified',
+ 'native_source_objects_retained':len(keep),'changed_source_parameter':{'RunningBore':{'before_mm':8.2,'after_mm':8.6}},
+ 'fixed_seat_bore_mm':P.FixedSeatBore.Value,'pin_diameter_mm':P.FixedPinDiameter.Value,
+ 'guide_length_each_mm':P.JournalLength.Value,'guide_count_per_gear':2,'middle_relief_mm':P.MiddleBore.Value,
+ 'axis_distance_mm':P.AX.Value-P.BX.Value,'gear_pressure_angle_deg':20,
+ 'crop':{'box_min_mm':[P.BX.Value-10,-36,0],'box_max_mm':[P.AX.Value+10,34,45],
+         'valid':True,'solids':1,'volume_mm3':fixture.Shape.Volume},
+ 'geometry_change_checks':{},'retained_support_envelopes':[],'bore_probes':[], 'parts':{}}
+# A/B may lose material ONLY in the existing two 5mm bearing bands.
+for name in ['CompoundA','CompoundB']:
+ shape=D.getObject(name).Shape
+ removed=original[name].cut(shape); added=shape.cut(original[name]).Volume
+ expected=math.pi*(4.3**2-4.1**2)*10
+ outside=removed.cut(Part.makeCylinder(4.300001,30.000002,App.Vector(0,0,-.000001))).Volume
+ assert abs(removed.Volume-expected)<1e-5 and added<1e-6 and outside<1e-6,(name,removed.Volume,expected,added,outside)
+ report['geometry_change_checks'][name]={'removed_mm3':removed.Volume,'expected_two_bands_mm3':expected,'added_mm3':added,'removed_outside_bore_mm3':outside}
+for name in ['SteeringFrame','FixedGearPin','GearPinClip']:
+ delta=D.getObject(name).Shape.cut(original[name]).Volume+original[name].cut(D.getObject(name).Shape).Volume
+ assert delta<1e-6,(name,delta)
+ report['geometry_change_checks'][name]={'symmetric_difference_mm3':delta}
+# Full actual source material in every support + stop + keyed-head envelope survives.
+for label,x,lo,hi,r in [('A',P.AX.Value,-10,22,6.5),('B',P.BX.Value,-20,12,7)]:
+ for side,y,depth in [('left_with_keyed_head_pocket',lo-10.7,10.7),('right_with_thrust_boss',hi-1.8,10.1)]:
+  envelope=Part.makeBox(16.02,depth,38.01,App.Vector(x-8.01,y,-.005))
+  expected=original['SteeringFrame'].common(envelope); actual=fixture.Shape.common(envelope)
+  delta=expected.cut(actual).Volume+actual.cut(expected).Volume
+  assert delta<1e-6,(label,side,delta)
+  report['retained_support_envelopes'].append({'axis':label,'support':side,'source_material_mm3':expected.Volume,'symmetric_difference_mm3':delta})
+# Probe the final bores, not just their input parameters; each radius bracket ±0.01mm.
+for n in ['CompoundA','CompoundB']:
+ shape=D.getObject(n).Shape
+ for z,r in [(.05,4.3),(2.5,4.3),(4.95,4.3),(5.05,4.5),(15,4.5),(24.95,4.5),(25.05,4.3),(27.5,4.3),(29.95,4.3)]:
+  for i in range(12):
+   a=2*math.pi*i/12
+   assert not shape.isInside(App.Vector((r-.01)*math.cos(a),(r-.01)*math.sin(a),z),1e-7,True),(n,z,r,'inside')
+   assert shape.isInside(App.Vector((r+.01)*math.cos(a),(r+.01)*math.sin(a),z),1e-7,True),(n,z,r,'wall')
+  report['bore_probes'].append({'part':n,'local_z_mm':z,'diameter_mm':r*2,'radial_angles':12,'tolerance_bracket_mm':.01})
+for label,x,ys in [('A',P.AX.Value,[-15,26]),('B',P.BX.Value,[-25,16])]:
+ for y in ys:
+  for i in range(12):
+   a=2*math.pi*i/12
+   for radius,inside in [(4.04,False),(4.06,True)]:
+    q=App.Vector(x+radius*math.cos(a),y,28+radius*math.sin(a))
+    assert fixture.Shape.isInside(q,1e-7,True)==inside,(label,y,i,radius)
+  report['bore_probes'].append({'part':'FixtureFrame','axis':label,'global_y_mm':y,'diameter_mm':8.1,'radial_angles':12,'tolerance_bracket_mm':.01})
+# Verify the retained spreadsheet-driven guide booleans recompute, then restore.
+vols={n:D.getObject(n).Shape.Volume for n in ['CompoundA','CompoundB']}
+P.set(P.getCellFromAlias('RunningBore'),'8.7 mm'); D.recompute()
+assert all(D.getObject(n).Shape.Volume<vols[n]-1 for n in vols)
+P.set(P.getCellFromAlias('RunningBore'),'8.6 mm'); D.recompute()
+assert all(abs(D.getObject(n).Shape.Volume-vols[n])<1e-5 for n in vols)
+report['parameter_recompute_test']={'trial_running_bore_mm':8.7,'restored_running_bore_mm':8.6,'restored_volumes_pass':True}
+parts={'vyrez-ramu':fixture,'dvojkolo-a':D.getObject('CompoundA'),'dvojkolo-b':D.getObject('CompoundB'),
+ 'pevny-cep-8x53_9':D.getObject('FixedGearPin'),'pojistka-6_9':D.getObject('GearPinClip')}
+assembly=D.addObject('App::DocumentObjectGroup','ManualTestAssembly'); assembly.Label='Sedm skutečných kusů ruční zkoušky'
+frame_link=D.addObject('App::Link','TestFrame'); frame_link.setLink(fixture); assembly.addObject(frame_link)
+instances=[{'name':frame_link.Name,'part':'vyrez-ramu','stl':'stl/vyrez-ramu.stl'}]
+for old,part,key in link_defs:
+ l=D.addObject('App::Link','Test'+old.removeprefix('Assembly')); l.setLink(D.getObject(part)); l.Placement=placements[old]
+ # Preserve native expression coupling of shaft X/Z coordinates to the original parameters.
+ axis='A' if old.endswith('A') else 'B'
+ l.setExpression('Placement.Base.x','Parameters.'+axis+'X'); l.setExpression('Placement.Base.z','Parameters.AxleHeight')
+ assembly.addObject(l); instances.append({'name':l.Name,'part':key,'stl':'stl/'+key+'.stl'})
+D.recompute()
+counts=Counter(i['part'] for i in instances); assert len(instances)==7 and counts['pevny-cep-8x53_9']==counts['pojistka-6_9']==2
+report.update(assembly_instances=instances,assembly_object_names=[i['name'] for i in instances],references=[],counts_derived_from_assembly=True,total_print_count=7)
+# Nominal installed assembly: broadphase then exact native shape intersections.
+pairs=[]; maximum=0
+for i,a in enumerate(assembly.Group):
+ for b in assembly.Group[i+1:]:
+  v=a.Shape.common(b.Shape).Volume if a.Shape.BoundBox.intersect(b.Shape.BoundBox) else 0
+  maximum=max(maximum,v); pairs.append({'a':a.Name,'b':b.Name,'intersection_mm3':v})
+assert maximum<1e-5,('Assembly collision',maximum,pairs)
+report['nominal_assembly_intersections']={'maximum_mm3':maximum,'pairs':pairs,'threshold_mm3':1e-5,
+ 'limitation':'Nominal pose only, not shifted/tilted shafts, real friction or three-turn physical proof.'}
+# Preserve original print orientation; translate each rigid part to Z=0, no scaling.
+for key,o in parts.items():
+ shape=o.Shape.copy(); orientation='flat'
+ if key.startswith('dvojkolo'): shape.rotate(App.Vector(),App.Vector(1,0,0),180); orientation='large_gear_face_down'
+ elif key=='pevny-cep-8x53_9': shape.rotate(App.Vector(),App.Vector(0,1,0),90); orientation='round_pin_horizontal'
+ b=shape.BoundBox; shape.translate(App.Vector(-b.XMin,-b.YMin,-b.ZMin)); b=shape.BoundBox
+ assert shape.isValid() and len(shape.Solids)==1 and abs(b.ZMin)<1e-7
+ mesh=MeshPart.meshFromShape(Shape=shape,LinearDeflection=.015,AngularDeflection=.1,Relative=False); assert mesh.isSolid()
+ path=OUT/'stl'/f'{key}.stl'; mesh.write(str(path))
+ report['parts'][key]={'object':o.Name,'stl':'stl/'+path.name,'copies':counts[key], 'print_orientation':orientation,
+  'valid':True,'solid_count':1,'closed_mesh':True,'facets':mesh.CountFacets,'volume_mm3':shape.Volume,
+  'bbox_mm':[b.XLength,b.YLength,b.ZLength], 'stl_sha256':hashlib.sha256(path.read_bytes()).hexdigest()}
+D.recompute(); assert not [o.Name for o in D.Objects if 'Invalid' in o.State]
+D.saveAs(str(OUT/'zkouska-prevodu.FCStd'))
+with zipfile.ZipFile(OUT/'zkouska-prevodu.zip','w',zipfile.ZIP_DEFLATED) as z:
+ for key,info in report['parts'].items():
+  for i in range(1,info['copies']+1): z.write(OUT/info['stl'],f'{key}__{i:02}.stl')
+ z.writestr('CTI-ME.txt','RUCNI ZKOUSKA 18->60: 7 kusu, kazdy STL jednou. mm, 100 %.\nPuvodni 20deg profil, roztec39.4, vedeni8.6, pevna sedla8.1.\nNeni cela66kusova sada ani reseni12mm vystupu.\nBez motoru, nasadit bez sily; 3 otacky B obema smery s lehkym odporem prstu.\nZachovat orientaci, zkontrolovat lokalni podpory a skutecne drahy.\n')
+report['validation_pass']=True
+(OUT/'kontrola-modelu.json').write_text(json.dumps(report,indent=2,ensure_ascii=False)+'\n')
+App.closeDocument(D.Name); tmp.cleanup()
+print('COMPLETE: manual 18->60 sample, 5 types, 7 physical copies, 20deg, running8.6/fixed8.1',flush=True)

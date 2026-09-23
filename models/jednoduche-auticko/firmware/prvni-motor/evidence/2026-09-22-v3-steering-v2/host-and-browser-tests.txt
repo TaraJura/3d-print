@@ -1,0 +1,102 @@
+Sketch: /home/novakj/.codex/worktrees/e339/3d-print/models/jednoduche-auticko/firmware/prvni-motor/prvni-motor.ino
+SHA256: fcefad5f61f703e3294ac1464206d1022e72fcf85fc7acea3f634947d1b8a5b6
+PASS 109 parser + 109 complete HTTP loop cases (no request alone starts motor)
+PASS arm never moves; fresh challenge starts, heartbeat renews, stop latches, new press works
+PASS STOP before delayed ARM or first HOLD prevents later start
+PASS duplicate and in-flight heartbeat after STOP cannot restart
+PASS expired ARM needs new real press
+PASS independent IRQ cuts motor within 505 ms without loop or heartbeat; expired HOLD cannot renew
+PASS page refresh stops output and invalidates previous session
+PASS fresh delayed heartbeat gets full 500ms lease from receipt, fixing double-RTT expiry
+PASS press counter never wraps within a session
+PASS watchdog deadline survives millis wraparound
+PASS 20 sustained heartbeat cycles each at 200/250/300/400ms intervals stay live
+PASS ARM waits OFF up to 3000ms but first challenge remains bounded to 500ms
+PASS obsolete STOP/ARM/HOLD and malformed requests cannot stop or renew newer press
+PASS lost STOP plus last delayed in-flight HOLD still switches OFF within 1000ms of release
+PASS session rotation stops; repeated recovery request returns current session without cutting new run
+PASS older session replay rejected; only immediately previous recovery token is idempotent
+PASS normal page navigation clears recovery cache and fences old sessions
+PASS new real press may acquire fresh session after boot without browser reload; session alone is OFF
+PASS session RNG failure is OFF and next explicit recovery request can succeed
+PASS blocking status: IRQ cutoff=500 ms
+PASS blocking connected: IRQ cutoff=500 ms
+PASS blocking available: IRQ cutoff=500 ms
+PASS blocking read: IRQ cutoff=500 ms
+PASS blocking write: IRQ cutoff=500 ms
+PASS blocking stop: IRQ cutoff=500 ms
+PASS blocking serial: IRQ cutoff=500 ms
+PASS partial or stalled HTTP cannot prolong motor lease
+PASS transient WiFi 255/0/77 stops; rate-limited recovery keeps server and rejects queued old session
+PASS missing module at startup can recover, never starts motor
+PASS server start failure can recover without motion
+PASS AP start failure can recover without motion
+PASS boot always OFF; old page cannot start before new page load
+PASS RNG failure or exhausted token counter cannot authorize motion
+PASS PWM or watchdog initialization failures fail closed
+PASS challenge RNG failure stops instead of running without next challenge
+PASS PWM update failure and failed PWM OFF use GPIO fallback, disallow further motion
+PASS startup uses only nominal1500us; servo-only ARM/HOLD/session never powers motor; PWM490/50 retained
+PASS single-flight intent updates independently release motor/steering; duplicate and after-STOP intents cannot restore either
+PASS shared500ms IRQ expiry stops motor and centers steering; late steering cannot resurrect expired lease
+PASS page/session invalidation also centers servo and fences old control packets
+PASS WiFi invalidation clears both actuator intentions
+PASS servo initialization/update/neutral failure disables both control paths and falls back to LOW, never claims centering
+PASS steering IRQ under blocking status
+PASS steering IRQ under blocking connected
+PASS steering IRQ under blocking available
+PASS steering IRQ under blocking read
+PASS steering IRQ under blocking write
+PASS steering IRQ under blocking stop
+PASS steering IRQ under blocking serial
+PASS all host checks (34 named protocol/recovery/failure scenarios); no hardware accessed
+PASS browser load/click/secondary pointer do not start motor
+PASS browser mouse hold chain, release, next real press
+PASS browser touch hold chain, release, next real press
+PASS browser pointercancel stops and requires new press
+PASS browser lostpointercapture stops and requires new press
+PASS browser blur stops and requires new press
+PASS browser pagehide stops and requires new press
+PASS browser offline stops and requires new press
+PASS browser visibilitychange stops and requires new press
+PASS browser unrelated pointer release does not stop current hold
+PASS browser delayed ARM response after release never sends HOLD
+PASS browser delayed HOLD after release cannot schedule another heartbeat or show running
+PASS browser network failure stops without automatic retry
+PASS browser HTTP failure stops without automatic retry
+PASS browser bad-challenge failure stops without automatic retry
+PASS browser timeout failure stops without automatic retry
+PASS browser failed STOP requires new press then recovers session without reload
+PASS browser error while still physically held requires release before new session
+PASS browser release while recovery response pending cannot arm or run
+PASS browser keyboard Space down/up and repeat suppression
+PASS browser keyboard Enter down/up and repeat suppression
+PASS browser steering alone and release never request motor power
+PASS browser steering first, secondary touch drives; releasing drive preserves steering with motor0
+PASS browser drive first, secondary touch steers; steering release preserves motor and centers
+PASS browser intent change during outstanding HOLD waits for nonce, never parallelizes HOLD
+PASS browser center alone sends only STOP; center while driving retains drive but clears turn
+PASS browser opposing steering touches request neutral until one releases
+PASS browser arrow keys independently control motor and steering
+PASS browser combined controls cancel invalidates both and never resumes held input
+PASS browser combined controls network invalidates both and never resumes held input
+PASS browser combined controls blur invalidates both and never resumes held input
+PASS browser combined controls offline invalidates both and never resumes held input
+PASS browser combined controls hidden invalidates both and never resumes held input
+PASS 33 actual-inline-JavaScript browser scenarios; no hardware or network accessed
+PASS Chromium HTTP hold >2s with 200ms roundtrip +20ms browser pause
+PASS Chromium HTTP hold >2s with 300ms roundtrip +20ms browser pause
+PASS Chromium HTTP hold >2s with 400ms roundtrip +20ms browser pause
+PASS Chromium HTTP jittered response chain remains live then touch release stops
+PASS Chromium HTTP release while ARM response pending cannot start motor
+PASS Chromium HTTP dropped STOP expires without retrigger, new press refreshes session
+PASS Chromium HTTP HOLD loss stops; connection recovery alone cannot restart
+PASS Chromium HTTP lost session response can retry on next press without token lockout
+PASS Chromium HTTP stale duplicate HOLD and earlier STOP do not cut a newer press
+PASS Chromium HTTP real multitouch drive first, independent release and safe stop
+PASS Chromium HTTP real multitouch left first, independent release and safe stop
+PASS Chromium HTTP servo-only keyboard, explicit center, combined arrows and focus loss
+PASS Chromium HTTP dropped STOP with both actuators returns motorOFF/neutral without new input
+Screenshot: /home/novakj/.codex/worktrees/e339/3d-print/elektronika/auticko/nahled-ovladani-v3.png
+PASS Chromium HTTP mobile UI has no overflow and screenshot is actual sketch page
+PASS 14 real Chromium HTTP scenarios against actual persistent C++ sketch; hardware remains mocked

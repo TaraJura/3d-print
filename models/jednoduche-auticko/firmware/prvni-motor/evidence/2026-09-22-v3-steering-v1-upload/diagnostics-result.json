@@ -1,0 +1,22 @@
+{
+  "started_utc": "2026-09-22T19:48:20.660475+00:00",
+  "finished_utc": "2026-09-22T19:48:37.953842+00:00",
+  "serial_device": "3CDC75F1A2D4",
+  "baud": 115200,
+  "serial_data_bytes_written": 0,
+  "http_requests_sent": 0,
+  "motion_commands_sent": 0,
+  "build_snapshot_count": 3,
+  "checks": {
+    "build_snapshots_at_least_three": true,
+    "build_and_motor_idle": true,
+    "steering": true,
+    "lease": true,
+    "network": true,
+    "boot": true
+  },
+  "passed": true,
+  "physical_motor_tested": false,
+  "physical_servo_tested": false,
+  "electrical_pulses_measured": false
+}

@@ -1,0 +1,549 @@
+{
+  "evidence_scope": "Historical XY-only layout before upright plate 3; current plate-3 evidence is stojate-cepy-2026-09-20/overeni-geometrie.json and overeni-projektu.json. Original plate 1 may be a user-saved native project; source shapes preserved.",
+  "status": "pass",
+  "method": "Installed Anycubic Slicer Next CLI import/export, isolated cache, arrange=0 orient=0. No slicing, G-code or printer communication. Roundtrip outputs are not delivery files.",
+  "plate_count": 3,
+  "objects": 66,
+  "plates": [
+    {
+      "file": "auticko-25-podlozka-01.3mf",
+      "source_sha256": "346503c0ab30c7c1b338f7ab1ac3ee9db69d53bd13e101cbf77ddd8a33419e39",
+      "status": "pass",
+      "command": [
+        "/usr/bin/AnycubicSlicerNext",
+        "--datadir",
+        "/home/novakj/.cache/auticko-packing/full-refresh/next/isolated-profile",
+        "--arrange",
+        "0",
+        "--orient",
+        "0",
+        "--debug",
+        "3",
+        "--export-3mf",
+        "roundtrip.3mf",
+        "--outputdir",
+        "/home/novakj/.cache/auticko-packing/full-refresh/next/auticko-25-podlozka-01",
+        "/home/novakj/3d-print/models/auticko-silovy-prevod-25/rozlozeni/auticko-25-podlozka-01.3mf"
+      ],
+      "objects": 26,
+      "triangles": 100162,
+      "max_world_vertex_delta_mm": 1.5483000026961236e-05,
+      "object_records": [
+        {
+          "name": "spojovaci-tahlo__01",
+          "vertices": 944,
+          "triangles": 1892,
+          "max_world_vertex_delta_mm": 7.675000006202026e-06,
+          "ordered_triangle_indices_preserved": true
+        },
+        {
+          "name": "kolo-76x12-predni__02",
+          "vertices": 1232,
+          "triangles": 2496,
+          "max_world_vertex_delta_mm": 7.581999994954458e-06,
+          "ordered_triangle_indices_preserved": true
+        },
+        {
+          "name": "kolo-76x12-predni__01",
+          "vertices": 1232,
+          "triangles": 2496,
+          "max_world_vertex_delta_mm": 4.703999991306773e-06,
+          "ordered_triangle_indices_preserved": true
+        },
+        {
+          "name": "kolo-76x12-zadni-d__01",
+          "vertices": 1168,
+          "triangles": 2368,
+          "max_world_vertex_delta_mm": 1.5429000001176973e-05,
+          "ordered_triangle_indices_preserved": true
+        },
+        {
+          "name": "mezikolo-b-60_22__01",
+          "vertices": 15676,
+          "triangles": 31352,
+          "max_world_vertex_delta_mm": 7.729999992989178e-06,
+          "ordered_triangle_indices_preserved": true
+        },
+        {
+          "name": "kolo-76x12-zadni-d__02",
+          "vertices": 1168,
+          "triangles": 2368,
+          "max_world_vertex_delta_mm": 1.4835000001767185e-05,
+          "ordered_triangle_indices_preserved": true
+        },
+        {
+          "name": "mezikolo-a-54_18__01",
+          "vertices": 13860,
+          "triangles": 27720,
+          "max_world_vertex_delta_mm": 1.5117000003783687e-05,
+          "ordered_triangle_indices_preserved": true
+        },
+        {
+          "name": "osa-zadni-12x150_6__01",
+          "vertices": 2369,
+          "triangles": 4738,
+          "max_world_vertex_delta_mm": 7.879999998294807e-06,
+          "ordered_triangle_indices_preserved": true
+        },
+        {
+          "name": "servo-viko__01",
+          "vertices": 520,
+          "triangles": 1048,
+          "max_world_vertex_delta_mm": 7.210000006807604e-06,
+          "ordered_triangle_indices_preserved": true
+        },
+        {
+          "name": "servo-tahlo-r15__01",
+          "vertices": 966,
+          "triangles": 1936,
+          "max_world_vertex_delta_mm": 1.4539999995122344e-05,
+          "ordered_triangle_indices_preserved": true
+        },
+        {
+          "name": "tehlice-prava__01",
+          "vertices": 2810,
+          "triangles": 5624,
+          "max_world_vertex_delta_mm": 1.5483000026961236e-05,
+          "ordered_triangle_indices_preserved": true
+        },
+        {
+          "name": "svisly-cep-8__02",
+          "vertices": 1008,
+          "triangles": 2012,
+          "max_world_vertex_delta_mm": 1.5143000013040364e-05,
+          "ordered_triangle_indices_preserved": true
+        },
+        {
+          "name": "pevny-cep-8x53_9__01",
+          "vertices": 764,
+          "triangles": 1524,
+          "max_world_vertex_delta_mm": 7.600000003549212e-06,
+          "ordered_triangle_indices_preserved": true
+        },
+        {
+          "name": "servo-cep-4x51_2__01",
+          "vertices": 1008,
+          "triangles": 2012,
+          "max_world_vertex_delta_mm": 1.505599999518381e-05,
+          "ordered_triangle_indices_preserved": true
+        },
+        {
+          "name": "celist-horni__02",
+          "vertices": 486,
+          "triangles": 972,
+          "max_world_vertex_delta_mm": 1.4955000011696029e-05,
+          "ordered_triangle_indices_preserved": true
+        },
+        {
+          "name": "motorovy-mustek__01",
+          "vertices": 624,
+          "triangles": 1252,
+          "max_world_vertex_delta_mm": 7.236000016064281e-06,
+          "ordered_triangle_indices_preserved": true
+        },
+        {
+          "name": "pricny-klinek-4x27_1__01",
+          "vertices": 1008,
+          "triangles": 2012,
+          "max_world_vertex_delta_mm": 7.769000006874194e-06,
+          "ordered_triangle_indices_preserved": true
+        },
+        {
+          "name": "pojistka-6_9__04",
+          "vertices": 388,
+          "triangles": 772,
+          "max_world_vertex_delta_mm": 1.5469999993911188e-05,
+          "ordered_triangle_indices_preserved": true
+        },
+        {
+          "name": "cep-plosiny-4x19_5__04",
+          "vertices": 764,
+          "triangles": 1524,
+          "max_world_vertex_delta_mm": 7.92200000887533e-06,
+          "ordered_triangle_indices_preserved": true
+        },
+        {
+          "name": "motorovy-klinek__02",
+          "vertices": 8,
+          "triangles": 12,
+          "max_world_vertex_delta_mm": 2.527999996004837e-06,
+          "ordered_triangle_indices_preserved": true
+        },
+        {
+          "name": "pojistka-kloubu-4_9__02",
+          "vertices": 396,
+          "triangles": 788,
+          "max_world_vertex_delta_mm": 7.832999983747868e-06,
+          "ordered_triangle_indices_preserved": true
+        },
+        {
+          "name": "motorovy-klinek__01",
+          "vertices": 8,
+          "triangles": 12,
+          "max_world_vertex_delta_mm": 6.9760000087626395e-06,
+          "ordered_triangle_indices_preserved": true
+        },
+        {
+          "name": "pojistka-3_1__07",
+          "vertices": 406,
+          "triangles": 808,
+          "max_world_vertex_delta_mm": 7.827999979781453e-06,
+          "ordered_triangle_indices_preserved": true
+        },
+        {
+          "name": "pojistka-3_1__02",
+          "vertices": 406,
+          "triangles": 808,
+          "max_world_vertex_delta_mm": 7.689999989679563e-06,
+          "ordered_triangle_indices_preserved": true
+        },
+        {
+          "name": "pojistka-3_1__01",
+          "vertices": 406,
+          "triangles": 808,
+          "max_world_vertex_delta_mm": 1.5044000008401781e-05,
+          "ordered_triangle_indices_preserved": true
+        },
+        {
+          "name": "pojistka-3_1__03",
+          "vertices": 406,
+          "triangles": 808,
+          "max_world_vertex_delta_mm": 1.4859000003752953e-05,
+          "ordered_triangle_indices_preserved": true
+        }
+      ]
+    },
+    {
+      "file": "auticko-25-podlozka-02.3mf",
+      "source_sha256": "d6ef30b6b062b8526a847644c4b9b71200f9e52ccb4a3feef2e2c9993f87ba6f",
+      "status": "pass",
+      "command": [
+        "/usr/bin/AnycubicSlicerNext",
+        "--datadir",
+        "/home/novakj/.cache/auticko-packing/full-refresh/next/isolated-profile",
+        "--arrange",
+        "0",
+        "--orient",
+        "0",
+        "--debug",
+        "3",
+        "--export-3mf",
+        "roundtrip.3mf",
+        "--outputdir",
+        "/home/novakj/.cache/auticko-packing/full-refresh/next/auticko-25-podlozka-02",
+        "/home/novakj/3d-print/models/auticko-silovy-prevod-25/rozlozeni/auticko-25-podlozka-02.3mf"
+      ],
+      "objects": 27,
+      "triangles": 79946,
+      "max_world_vertex_delta_mm": 1.557100000582068e-05,
+      "object_records": [
+        {
+          "name": "ram-25__01",
+          "vertices": 9346,
+          "triangles": 18788,
+          "max_world_vertex_delta_mm": 1.0183000028973765e-05,
+          "ordered_triangle_indices_preserved": true
+        },
+        {
+          "name": "vystupni-kolo-55__01",
+          "vertices": 10194,
+          "triangles": 20396,
+          "max_world_vertex_delta_mm": 1.5039000004435366e-05,
+          "ordered_triangle_indices_preserved": true
+        },
+        {
+          "name": "objimka-packy-spodek__01",
+          "vertices": 761,
+          "triangles": 1530,
+          "max_world_vertex_delta_mm": 7.67099999166021e-06,
+          "ordered_triangle_indices_preserved": true
+        },
+        {
+          "name": "tehlice-leva__01",
+          "vertices": 2810,
+          "triangles": 5624,
+          "max_world_vertex_delta_mm": 7.401999994272046e-06,
+          "ordered_triangle_indices_preserved": true
+        },
+        {
+          "name": "objimka-packy-viko__01",
+          "vertices": 1230,
+          "triangles": 2460,
+          "max_world_vertex_delta_mm": 1.061099999333237e-05,
+          "ordered_triangle_indices_preserved": true
+        },
+        {
+          "name": "celist-horni__01",
+          "vertices": 486,
+          "triangles": 972,
+          "max_world_vertex_delta_mm": 1.5114999996512779e-05,
+          "ordered_triangle_indices_preserved": true
+        },
+        {
+          "name": "pojistka-osy-10_9__04",
+          "vertices": 380,
+          "triangles": 756,
+          "max_world_vertex_delta_mm": 1.5084000011711396e-05,
+          "ordered_triangle_indices_preserved": true
+        },
+        {
+          "name": "pojistka-osy-10_9__01",
+          "vertices": 380,
+          "triangles": 756,
+          "max_world_vertex_delta_mm": 7.533000001558321e-06,
+          "ordered_triangle_indices_preserved": true
+        },
+        {
+          "name": "rozperka-zadni-17_6__02",
+          "vertices": 504,
+          "triangles": 1008,
+          "max_world_vertex_delta_mm": 1.515900001436421e-05,
+          "ordered_triangle_indices_preserved": true
+        },
+        {
+          "name": "pastorek-18-otvor-2_2__01",
+          "vertices": 3996,
+          "triangles": 7992,
+          "max_world_vertex_delta_mm": 1.5360000020336884e-05,
+          "ordered_triangle_indices_preserved": true
+        },
+        {
+          "name": "pevny-cep-8x53_9__02",
+          "vertices": 764,
+          "triangles": 1524,
+          "max_world_vertex_delta_mm": 7.629999998925996e-06,
+          "ordered_triangle_indices_preserved": true
+        },
+        {
+          "name": "svisly-cep-8__01",
+          "vertices": 1008,
+          "triangles": 2012,
+          "max_world_vertex_delta_mm": 1.51259999654485e-05,
+          "ordered_triangle_indices_preserved": true
+        },
+        {
+          "name": "pojistka-osy-10_9__03",
+          "vertices": 380,
+          "triangles": 756,
+          "max_world_vertex_delta_mm": 1.5289000032225886e-05,
+          "ordered_triangle_indices_preserved": true
+        },
+        {
+          "name": "motorovy-mustek__02",
+          "vertices": 624,
+          "triangles": 1252,
+          "max_world_vertex_delta_mm": 1.9070000050191993e-06,
+          "ordered_triangle_indices_preserved": true
+        },
+        {
+          "name": "pojistka-osy-10_9__02",
+          "vertices": 380,
+          "triangles": 756,
+          "max_world_vertex_delta_mm": 7.831999994323269e-06,
+          "ordered_triangle_indices_preserved": true
+        },
+        {
+          "name": "servo-cep-4x51_2__02",
+          "vertices": 1008,
+          "triangles": 2012,
+          "max_world_vertex_delta_mm": 1.496500001962886e-05,
+          "ordered_triangle_indices_preserved": true
+        },
+        {
+          "name": "pojistka-6_9__01",
+          "vertices": 388,
+          "triangles": 772,
+          "max_world_vertex_delta_mm": 1.522800002362601e-05,
+          "ordered_triangle_indices_preserved": true
+        },
+        {
+          "name": "pojistka-6_9__06",
+          "vertices": 388,
+          "triangles": 772,
+          "max_world_vertex_delta_mm": 1.557100000582068e-05,
+          "ordered_triangle_indices_preserved": true
+        },
+        {
+          "name": "pojistka-6_9__07",
+          "vertices": 388,
+          "triangles": 772,
+          "max_world_vertex_delta_mm": 1.5019000016991413e-05,
+          "ordered_triangle_indices_preserved": true
+        },
+        {
+          "name": "pojistka-6_9__05",
+          "vertices": 388,
+          "triangles": 772,
+          "max_world_vertex_delta_mm": 1.5025999999807027e-05,
+          "ordered_triangle_indices_preserved": true
+        },
+        {
+          "name": "podlozka-packy-1_8__01",
+          "vertices": 504,
+          "triangles": 1008,
+          "max_world_vertex_delta_mm": 7.760000016787671e-06,
+          "ordered_triangle_indices_preserved": true
+        },
+        {
+          "name": "spolecny-cep-mustku-4x30_5__01",
+          "vertices": 1008,
+          "triangles": 2012,
+          "max_world_vertex_delta_mm": 1.4835999991191784e-05,
+          "ordered_triangle_indices_preserved": true
+        },
+        {
+          "name": "cep-tahla-kratky__01",
+          "vertices": 1008,
+          "triangles": 2012,
+          "max_world_vertex_delta_mm": 1.460100000372222e-05,
+          "ordered_triangle_indices_preserved": true
+        },
+        {
+          "name": "pojistka-3_1__06",
+          "vertices": 406,
+          "triangles": 808,
+          "max_world_vertex_delta_mm": 1.505700001303012e-05,
+          "ordered_triangle_indices_preserved": true
+        },
+        {
+          "name": "pojistka-3_1__05",
+          "vertices": 406,
+          "triangles": 808,
+          "max_world_vertex_delta_mm": 7.440820013471239e-06,
+          "ordered_triangle_indices_preserved": true
+        },
+        {
+          "name": "pojistka-3_1__10",
+          "vertices": 406,
+          "triangles": 808,
+          "max_world_vertex_delta_mm": 7.81900001811664e-06,
+          "ordered_triangle_indices_preserved": true
+        },
+        {
+          "name": "pojistka-3_1__09",
+          "vertices": 406,
+          "triangles": 808,
+          "max_world_vertex_delta_mm": 1.4663000001746695e-05,
+          "ordered_triangle_indices_preserved": true
+        }
+      ]
+    },
+    {
+      "file": "auticko-25-podlozka-03.3mf",
+      "source_sha256": "a312a73f40cbfa0f8b854c046cfd73ce617b981511f85ced81357312a045a742",
+      "status": "pass",
+      "command": [
+        "/usr/bin/AnycubicSlicerNext",
+        "--datadir",
+        "/home/novakj/.cache/auticko-packing/full-refresh/next/isolated-profile",
+        "--arrange",
+        "0",
+        "--orient",
+        "0",
+        "--debug",
+        "3",
+        "--export-3mf",
+        "roundtrip.3mf",
+        "--outputdir",
+        "/home/novakj/.cache/auticko-packing/full-refresh/next/auticko-25-podlozka-03",
+        "/home/novakj/3d-print/models/auticko-silovy-prevod-25/rozlozeni/auticko-25-podlozka-03.3mf"
+      ],
+      "objects": 13,
+      "triangles": 22496,
+      "max_world_vertex_delta_mm": 1.567399999657937e-05,
+      "object_records": [
+        {
+          "name": "plosina-170x60__01",
+          "vertices": 3452,
+          "triangles": 6932,
+          "max_world_vertex_delta_mm": 7.451000016089893e-06,
+          "ordered_triangle_indices_preserved": true
+        },
+        {
+          "name": "rozperka-zadni-17_6__01",
+          "vertices": 504,
+          "triangles": 1008,
+          "max_world_vertex_delta_mm": 7.529000015438214e-06,
+          "ordered_triangle_indices_preserved": true
+        },
+        {
+          "name": "cep-plosiny-4x19_5__01",
+          "vertices": 764,
+          "triangles": 1524,
+          "max_world_vertex_delta_mm": 7.629999998925996e-06,
+          "ordered_triangle_indices_preserved": true
+        },
+        {
+          "name": "spolecny-cep-mustku-4x30_5__02",
+          "vertices": 1008,
+          "triangles": 2012,
+          "max_world_vertex_delta_mm": 3.851000002441651e-06,
+          "ordered_triangle_indices_preserved": true
+        },
+        {
+          "name": "pojistka-6_9__03",
+          "vertices": 388,
+          "triangles": 772,
+          "max_world_vertex_delta_mm": 1.532000001702727e-05,
+          "ordered_triangle_indices_preserved": true
+        },
+        {
+          "name": "cep-tahla-dlouhy__01",
+          "vertices": 1008,
+          "triangles": 2012,
+          "max_world_vertex_delta_mm": 7.743999987042116e-06,
+          "ordered_triangle_indices_preserved": true
+        },
+        {
+          "name": "cep-plosiny-4x19_5__03",
+          "vertices": 764,
+          "triangles": 1524,
+          "max_world_vertex_delta_mm": 7.775000000265209e-06,
+          "ordered_triangle_indices_preserved": true
+        },
+        {
+          "name": "cep-plosiny-4x19_5__02",
+          "vertices": 764,
+          "triangles": 1524,
+          "max_world_vertex_delta_mm": 7.67000000223561e-06,
+          "ordered_triangle_indices_preserved": true
+        },
+        {
+          "name": "objimka-cep-4x25_5__01",
+          "vertices": 1008,
+          "triangles": 2012,
+          "max_world_vertex_delta_mm": 1.535100003025036e-05,
+          "ordered_triangle_indices_preserved": true
+        },
+        {
+          "name": "pojistka-6_9__02",
+          "vertices": 388,
+          "triangles": 772,
+          "max_world_vertex_delta_mm": 1.567399999657937e-05,
+          "ordered_triangle_indices_preserved": true
+        },
+        {
+          "name": "pojistka-kloubu-4_9__01",
+          "vertices": 396,
+          "triangles": 788,
+          "max_world_vertex_delta_mm": 7.70400001215421e-06,
+          "ordered_triangle_indices_preserved": true
+        },
+        {
+          "name": "pojistka-3_1__08",
+          "vertices": 406,
+          "triangles": 808,
+          "max_world_vertex_delta_mm": 7.905000018126884e-06,
+          "ordered_triangle_indices_preserved": true
+        },
+        {
+          "name": "pojistka-3_1__04",
+          "vertices": 406,
+          "triangles": 808,
+          "max_world_vertex_delta_mm": 8.02499999963402e-06,
+          "ordered_triangle_indices_preserved": true
+        }
+      ]
+    }
+  ]
+}

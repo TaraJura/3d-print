@@ -1,0 +1,27 @@
+{
+  "detected_ports": [
+    {
+      "matching_boards": [
+        {
+          "name": "Arduino UNO R4 WiFi",
+          "fqbn": "arduino:renesas_uno:unor4wifi"
+        }
+      ],
+      "port": {
+        "address": "/dev/ttyACM0",
+        "label": "/dev/ttyACM0",
+        "protocol": "serial",
+        "protocol_label": "Serial Port (USB)",
+        "properties": {
+          "configuration": "TinyUSB Device",
+          "manufacturer": "Arduino",
+          "pid": "0x1002",
+          "product": "UNO WiFi R4 CMSIS-DAP",
+          "serialNumber": "3CDC75F1A2D4",
+          "vid": "0x2341"
+        },
+        "hardware_id": "3CDC75F1A2D4"
+      }
+    }
+  ]
+}

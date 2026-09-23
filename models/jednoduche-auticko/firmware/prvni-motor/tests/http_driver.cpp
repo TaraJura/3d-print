@@ -21,7 +21,8 @@ int main(){
     } else if(command=="WIFI")WiFi.state=std::stoi(data);
     else if(command=="LOOP")loop();
     else if(command!="STATE")return 2;
-    std::cout<<"{\"time\":"<<clockMs<<",\"motor\":"<<enabled<<",\"state\":"<<int(driveState)
+    std::cout<<"{\"time\":"<<clockMs<<",\"motor\":"<<enabled<<",\"steeringUs\":"<<servoPulseUs<<",\"state\":"<<int(driveState)
+      <<",\"motorDirection\":"<<int(motorDirection)<<",\"in1\":"<<pins[7]<<",\"in2\":"<<pins[8]<<",\"reversePauseMs\":"<<reversePauseRemaining()
       <<",\"watchdog\":"<<watchdogStops<<",\"press\":"<<lastPress<<",\"responseHex\":\""<<hex(response)<<"\"}"<<std::endl;
   }
   return 0;

@@ -1,0 +1,73 @@
+{
+  "status": "pass",
+  "note": "Full Next projects; current plate 1 upright, same physical BOM 1/1/5. Source meshes match and print configuration equals verified slice except recorded process label or zero-array padding. No G-code/printer IO.",
+  "projects": [
+    {
+      "plate": 1,
+      "file": "projekty-next/dotisk-25-01-nastaveny-projekt.3mf",
+      "sha256": "b31dba70c153963be84ccf267dd77a5f6bf8760aeae8906fdbd93475cbf8b9f2",
+      "objects": 1,
+      "gcode_embedded": false,
+      "maximum_vertex_delta_mm": 7.6293000006444345e-06,
+      "same_triangle_indices": true,
+      "printer_model": "Anycubic Kobra X",
+      "printer_settings_id": "Anycubic Kobra X 0.4 nozzle",
+      "process": "V3 dotisk 01 - stojata osa - podpory - 0.12 mm",
+      "support": "1",
+      "brim_width": "12",
+      "config_differences_from_verified_slice": {
+        "machine_max_junction_deviation": {
+          "project": [
+            "0",
+            "0"
+          ],
+          "sliced": [
+            "0",
+            "0",
+            "0"
+          ]
+        }
+      }
+    },
+    {
+      "plate": 2,
+      "file": "projekty-next/dotisk-25-02-nastaveny-projekt.3mf",
+      "sha256": "d96db0e523669279484f9a6e21336bf276d81c73d97405f782a4c0f727b21929",
+      "objects": 1,
+      "gcode_embedded": false,
+      "maximum_vertex_delta_mm": 1.1639999996759798e-05,
+      "same_triangle_indices": true,
+      "printer_model": "Anycubic Kobra X",
+      "printer_settings_id": "Anycubic Kobra X 0.4 nozzle",
+      "process": "Dotisk V3 - 02 tehlice - podpory - 0.12 mm",
+      "support": "1",
+      "brim_width": "8",
+      "config_differences_from_verified_slice": {
+        "print_settings_id": {
+          "project": "Dotisk V3 - 02 tehlice - podpory - 0.12 mm",
+          "sliced": "Dotisk V3 diagnostic plate 2 0.12mm"
+        }
+      }
+    },
+    {
+      "plate": 3,
+      "file": "projekty-next/dotisk-25-03-nastaveny-projekt.3mf",
+      "sha256": "fb22797bc7d373b2a37f05733560734fb8a8c9aa6fe51f62caf76ddc1e4d684d",
+      "objects": 5,
+      "gcode_embedded": false,
+      "maximum_vertex_delta_mm": 7.629999998925996e-06,
+      "same_triangle_indices": true,
+      "printer_model": "Anycubic Kobra X",
+      "printer_settings_id": "Anycubic Kobra X 0.4 nozzle",
+      "process": "Dotisk V3 - 03 cepy - bez podpor - 0.12 mm",
+      "support": "0",
+      "brim_width": "8",
+      "config_differences_from_verified_slice": {
+        "print_settings_id": {
+          "project": "Dotisk V3 - 03 cepy - bez podpor - 0.12 mm",
+          "sliced": "Dotisk V3 diagnostic plate 3 0.12mm"
+        }
+      }
+    }
+  ]
+}

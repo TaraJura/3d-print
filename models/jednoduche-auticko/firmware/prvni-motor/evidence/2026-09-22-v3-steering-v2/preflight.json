@@ -1,0 +1,20 @@
+{
+  "time_utc": "2026-09-22T21:25:54.391163+00:00",
+  "physical_state": {
+    "origin": "Explicit user confirmation relayed by task 01a0caa4-9807-78f0-9152-893a808ca99a",
+    "servo_red_positive_disconnected": true,
+    "motor_unpowered": true,
+    "linkage_disconnected": true,
+    "uno_connected_usb": true,
+    "agent_measured": false
+  },
+  "board_identity_verified": true,
+  "fuser_exit": 1,
+  "serial_owners": "",
+  "source_sha256": "fcefad5f61f703e3294ac1464206d1022e72fcf85fc7acea3f634947d1b8a5b6",
+  "binary_sha256": "a015d71e247945f736a7966f95ef7d5980a644abacebab28e493f74620a22591",
+  "bin_bytes": 84948,
+  "independent_review": "Source only build ID/offset/comment, test expectations only. Old40-file archive and historic manifests verified.",
+  "regression_exit": 0,
+  "compile_exit": 0
+}

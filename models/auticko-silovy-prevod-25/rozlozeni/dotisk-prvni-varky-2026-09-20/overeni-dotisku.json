@@ -1,0 +1,392 @@
+{
+  "status": "pass",
+  "units": "mm",
+  "counts": [
+    1,
+    1,
+    5
+  ],
+  "total_repair_copies": 7,
+  "source_zip_sha256": "3e6ea7b537a1b2cb9197cbcf23623bbfbc9b7354323d0415af6e7eac19d7aa6f",
+  "orientation_only": true,
+  "original_cad_stl_unchanged": true,
+  "print_order": "by layer",
+  "geometry_only": true,
+  "embedded_supports": false,
+  "embedded_brim": false,
+  "clearance_reserve_mm": 8.1,
+  "overhang_metric": "Sum of XY-projected downward triangles steeper than 45 degrees above Z0.201; not generated supports.",
+  "items": [
+    {
+      "name": "osa-zadni-12x150_6__01.stl",
+      "original_plate": 1,
+      "original_number": 8,
+      "plate": 1,
+      "source_sha256": "d9c287fe20b5b7c1df883dcb33d3a426dfefb12102ad702be0b134094b475f58",
+      "rotation_matrix": [
+        [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "translation_mm": [
+        136.0,
+        124.00000005865877,
+        -2.037966234177522e-19
+      ],
+      "scale": 1.0,
+      "bounds_mm": [
+        [
+          124.0,
+          124.00045961236174,
+          0.0
+        ],
+        [
+          136.0,
+          135.99954038763826,
+          150.60000610351562
+        ]
+      ],
+      "height_mm": 150.60000610351562,
+      "volume_mm3": 16279.948637373798,
+      "triangles": 4738,
+      "watertight": true,
+      "planar_contact_area_mm2": 100.67362501156676,
+      "downward_overhang_xy_projection_mm2": 122.03300654103398
+    },
+    {
+      "name": "tehlice-prava__01.stl",
+      "original_plate": 1,
+      "original_number": 11,
+      "plate": 2,
+      "source_sha256": "57965a41b07b256bcf550bc7c603bdeec5c489cdd0616eb062b4951894af2ec7",
+      "rotation_matrix": [
+        [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "translation_mm": [
+        147.85000038146973,
+        114.34940959035885,
+        -3.552713678800501e-15
+      ],
+      "scale": 1.0,
+      "bounds_mm": [
+        [
+          112.14999961853027,
+          114.35059117258061,
+          0.0
+        ],
+        [
+          147.85000038146973,
+          145.6494088274194,
+          32.900001525878906
+        ]
+      ],
+      "height_mm": 32.900001525878906,
+      "volume_mm3": 4309.986694813,
+      "triangles": 5624,
+      "watertight": true,
+      "planar_contact_area_mm2": 107.73422001700192,
+      "downward_overhang_xy_projection_mm2": 282.0947216532667
+    },
+    {
+      "name": "svisly-cep-8__02.stl",
+      "original_plate": 1,
+      "original_number": 12,
+      "plate": 3,
+      "source_sha256": "6ce92d30b28a9e7543339b1e0847aef8647ebabba7cdeba89ba701b449810c44",
+      "rotation_matrix": [
+        [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "translation_mm": [
+        91.5,
+        103.4999997826526,
+        -0.0
+      ],
+      "scale": 1.0,
+      "bounds_mm": [
+        [
+          78.5,
+          103.50202009954955,
+          0.0
+        ],
+        [
+          91.5,
+          116.49797990045045,
+          35.29999923706055
+        ]
+      ],
+      "height_mm": 35.29999923706055,
+      "volume_mm3": 1917.587124975983,
+      "triangles": 2012,
+      "watertight": true,
+      "planar_contact_area_mm2": 132.67728535906232,
+      "downward_overhang_xy_projection_mm2": 13.94289075792338
+    },
+    {
+      "name": "pevny-cep-8x53_9__01.stl",
+      "original_plate": 1,
+      "original_number": 13,
+      "plate": 3,
+      "source_sha256": "dadc7cac8a1ab3539f123e7abdd65fa3d0555b4b37d583de85756956aaa5e795",
+      "rotation_matrix": [
+        [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "translation_mm": [
+        136.0,
+        104.0,
+        -0.0
+      ],
+      "scale": 1.0,
+      "bounds_mm": [
+        [
+          124.0,
+          104.0,
+          0.0
+        ],
+        [
+          136.0,
+          116.0,
+          53.900001525878906
+        ]
+      ],
+      "height_mm": 53.900001525878906,
+      "volume_mm3": 2874.783193526051,
+      "triangles": 1524,
+      "watertight": true,
+      "planar_contact_area_mm2": 144.0,
+      "downward_overhang_xy_projection_mm2": 13.942890491189445
+    },
+    {
+      "name": "servo-cep-4x51_2__01.stl",
+      "original_plate": 1,
+      "original_number": 14,
+      "plate": 3,
+      "source_sha256": "113049edfed69399da6e6df4c7381cd91e54f38f8d7933579a1d73f99becffba",
+      "rotation_matrix": [
+        [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "translation_mm": [
+        179.0,
+        105.99999992124503,
+        -0.0
+      ],
+      "scale": 1.0,
+      "bounds_mm": [
+        [
+          171.0,
+          106.0012431932264,
+          0.0
+        ],
+        [
+          179.0,
+          113.9987568067736,
+          51.20000076293945
+        ]
+      ],
+      "height_mm": 51.20000076293945,
+      "volume_mm3": 710.2552806706341,
+      "triangles": 2012,
+      "watertight": true,
+      "planar_contact_area_mm2": 50.244653112289996,
+      "downward_overhang_xy_projection_mm2": 5.495509017395534
+    },
+    {
+      "name": "pricny-klinek-4x27_1__01.stl",
+      "original_plate": 1,
+      "original_number": 17,
+      "plate": 3,
+      "source_sha256": "39ccbc90327cf3cc0ce7a91f9430515797d55a2b332c9eb09c70b50763f0b020",
+      "rotation_matrix": [
+        [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "translation_mm": [
+        108.5,
+        151.4999999012798,
+        -0.0
+      ],
+      "scale": 1.0,
+      "bounds_mm": [
+        [
+          101.5,
+          151.50108776427805,
+          0.0
+        ],
+        [
+          108.5,
+          158.49891223572195,
+          27.100000381469727
+        ]
+      ],
+      "height_mm": 27.100000381469727,
+      "volume_mm3": 383.97905888696965,
+      "triangles": 2012,
+      "watertight": true,
+      "planar_contact_area_mm2": 38.46856240569751,
+      "downward_overhang_xy_projection_mm2": 5.495508871721654
+    },
+    {
+      "name": "cep-plosiny-4x19_5__04.stl",
+      "original_plate": 1,
+      "original_number": 19,
+      "plate": 3,
+      "source_sha256": "ca809f5002b17f92be2453f7cbc73e78e0f17619d2a0040cec2acae125e639fc",
+      "rotation_matrix": [
+        [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "translation_mm": [
+        159.0,
+        151.0,
+        -0.0
+      ],
+      "scale": 1.0,
+      "bounds_mm": [
+        [
+          151.0,
+          151.0,
+          0.0
+        ],
+        [
+          159.0,
+          159.0,
+          19.5
+        ]
+      ],
+      "height_mm": 19.5,
+      "volume_mm3": 339.57709209998137,
+      "triangles": 1524,
+      "watertight": true,
+      "planar_contact_area_mm2": 64.0,
+      "downward_overhang_xy_projection_mm2": 5.495509017395534
+    }
+  ],
+  "plates": [
+    {
+      "plate": 1,
+      "file": "dotisk-25-podlozka-01.3mf",
+      "sha256": "40f0a3e4437711f27e6bd75b8040a5753d5f91c4569f2bad586383d5b10e441d",
+      "objects": 1,
+      "minimum_part_clearance_mm": null,
+      "minimum_edge_clearance_mm": 124.0,
+      "maximum_inverse_vertex_error_mm": 5.000018177270249e-10,
+      "triangles_preserved": true,
+      "only_rigid_transforms": true
+    },
+    {
+      "plate": 2,
+      "file": "dotisk-25-podlozka-02.3mf",
+      "sha256": "6bdd55b6e0f3848186ea1dad5c309d1be05555835fb0a31c14f44d6ec3a20d53",
+      "objects": 1,
+      "minimum_part_clearance_mm": null,
+      "minimum_edge_clearance_mm": 112.14999961853027,
+      "maximum_inverse_vertex_error_mm": 4.995115432393504e-10,
+      "triangles_preserved": true,
+      "only_rigid_transforms": true
+    },
+    {
+      "plate": 3,
+      "file": "dotisk-25-podlozka-03.3mf",
+      "sha256": "cca1b7b622171b187933257e4d46158267253f48fedfe1dd2851a5aee1c5afe7",
+      "objects": 5,
+      "minimum_part_clearance_mm": 32.5,
+      "minimum_edge_clearance_mm": 78.5,
+      "maximum_inverse_vertex_error_mm": 4.992557478544768e-10,
+      "triangles_preserved": true,
+      "only_rigid_transforms": true
+    }
+  ]
+}

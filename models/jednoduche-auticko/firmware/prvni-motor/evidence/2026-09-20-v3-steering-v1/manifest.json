@@ -1,0 +1,60 @@
+{
+  "build": "v3-steering-v1",
+  "created_utc": "2026-09-19T23:45:11.999992+00:00",
+  "source_sha256": "9f7477c851898e97e7c9fd50ca632104c9214259b415a3fa9996ca6a48d8760c",
+  "compiled": true,
+  "uploaded": false,
+  "hardware_accessed": false,
+  "physical_tested": false,
+  "archived_v2_verified_files": 26,
+  "archived_v2_source_sha256": "1760730b716a6fb281ed900400d533eaac17d96c9b779a6c91e2e99502d69110",
+  "compile": {
+    "board": "arduino:renesas_uno:unor4wifi",
+    "core": "1.6.0",
+    "exit_code": 0,
+    "flash_bytes": 84908,
+    "ram_bytes": 9864,
+    "warnings": "Existing Arduino core/library warnings; no warning located in current .ino."
+  },
+  "tests": {
+    "parser": 109,
+    "complete_http_loop": 109,
+    "named_protocol_recovery_failure_groups": 34,
+    "motor_blocking_irq_scenarios": 7,
+    "combined_motor_steering_blocking_irq_scenarios": 7,
+    "javascript": 33,
+    "real_chromium_http": 14,
+    "passed": true,
+    "hardware_is_mocked": true
+  },
+  "files_sha256": {
+    "prvni-motor.ino": "9f7477c851898e97e7c9fd50ca632104c9214259b415a3fa9996ca6a48d8760c",
+    "tests/FspTimer.h": "ac85c43a925fba57cf3a10ffed4136202cd0471624887c9669391b0f5bab91bd",
+    "tests/README.md": "83611882a7944996b5f8a687719c6db2e2aee4a7738466cf80be8557d2b04a7e",
+    "tests/WiFiS3.h": "4428e7316010a3a15232e5cf1b093d2f8f3824771883f51b3c0c4f8f2dad2a77",
+    "tests/browser_http_tests.js": "ff0f2f0e49b7be735229e4831e1e12a4cb96ef0fa671f6266641069753435563",
+    "tests/browser_tests.js": "5622e2c549f6ffcf86fe5775bcc60ea42742338c176be6ea7a983f7d0c0c06e8",
+    "tests/export_preview.py": "1ba9915e80eae0dc10de255f25c6d9a12fcdc709c86198197489dbf82adf1772",
+    "tests/http_driver.cpp": "620c5585a92b5cd61f6301bcd133bd3e07260aa4f834c8aff79be3c8a1455295",
+    "tests/http_tests.cpp": "47382d03bc0724cc6c5332c4b9f49d1b49b6bd3286e73a324ed09e493f777a07",
+    "tests/pwm.h": "615c29247e04436143b5a77f00a3a5fd37def2ef7b12ac5702b5ee219e10af95",
+    "tests/run_http_tests.py": "13b7a8c134dd4d37f3e865ccda700ae04fe62ccdd16d10f757aa0df4fdcb9b90",
+    "evidence/2026-09-20-v3-steering-v1/host-and-browser-tests.txt": "c04c3058edc15c23d7726b2d9be2f55072a3914a86afe0f0db5c438d183ad9a8",
+    "evidence/2026-09-20-v3-steering-v1/arduino-compile.txt": "5f19bdfca5c8b3582d4db7698d4a1b2a1f08eb7e19a571f8bc5288bf9ddde8e1"
+  },
+  "artifacts": {
+    "mobile_screenshot": "/home/novakj/3d-print/elektronika/auticko/nahled-ovladani-v3.png",
+    "offline_preview": "/home/novakj/3d-print/elektronika/auticko/nahled-ovladani-v3.html"
+  },
+  "limits": [
+    "No device was opened or uploaded; physical acceptance belongs only to archived v2.",
+    "1500us is nominal startup/timeout center,1350/1650us are commissioning commands, not measured angles or physical center.",
+    "The5ms software ISR requires a running CPU and enabled interrupts; hardware PWM continues during ordinary WiFi blocking.",
+    "A failed servo PWM update disables motor and drives servo signal LOW; reaching neutral is not guaranteed for failed hardware.",
+    "Control changes share a single-flight challenge; lost stop plus delayed last HOLD can delay OFF/neutral command up to1s."
+  ],
+  "compiled_artifacts_sha256": {
+    ".cache/arduino-v3-build/prvni-motor.ino.bin": "15cd31e1f12aa6f19edcf755ddfd930c05b9e571ff671d6a4faefd02c0b9b6b6",
+    ".cache/arduino-v3-build/prvni-motor.ino.elf": "db86354a09207b838d3b9e1a87e0daafd6f33c19d30f0bf356f211bdae93bb93"
+  }
+}

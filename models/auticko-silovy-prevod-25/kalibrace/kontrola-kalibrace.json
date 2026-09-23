@@ -1,0 +1,390 @@
+{
+  "kind": "Kalibracni navrh, fyzicky netestovano",
+  "parts": {
+    "otvory-8-svisle": {
+      "copies": 1,
+      "kind": "coupon",
+      "nominal_holes_mm": [
+        8.1,
+        8.2,
+        8.3,
+        8.4,
+        8.6
+      ],
+      "bore_depth_mm": 8,
+      "bore_axis_in_print": "Z",
+      "index": "Od vystupku, vzestupne 1..5",
+      "object": "Coupon8V",
+      "stl": "stl/otvory-8-svisle.stl",
+      "bbox_mm": [
+        74.0,
+        14.0,
+        8.0
+      ],
+      "volume_mm3": 5704.384255535995,
+      "valid": true,
+      "solid_count": 1,
+      "closed_mesh": true,
+      "facets": 2148
+    },
+    "otvory-8-vodorovne": {
+      "copies": 1,
+      "kind": "coupon",
+      "nominal_holes_mm": [
+        8.1,
+        8.2,
+        8.3,
+        8.4,
+        8.6
+      ],
+      "bore_depth_mm": 8,
+      "bore_axis_in_print": "Y",
+      "index": "Od vystupku, vzestupne 1..5",
+      "object": "Coupon8H",
+      "stl": "stl/otvory-8-vodorovne.stl",
+      "bbox_mm": [
+        74.0,
+        8.000000000000004,
+        14.0
+      ],
+      "volume_mm3": 5704.384255535999,
+      "valid": true,
+      "solid_count": 1,
+      "closed_mesh": true,
+      "facets": 2148
+    },
+    "otvory-12-svisle": {
+      "copies": 1,
+      "kind": "coupon",
+      "nominal_holes_mm": [
+        12.1,
+        12.2,
+        12.3,
+        12.4,
+        12.6
+      ],
+      "bore_depth_mm": 8,
+      "bore_axis_in_print": "Z",
+      "index": "Od vystupku, vzestupne 1..5",
+      "object": "Coupon12V",
+      "stl": "stl/otvory-12-svisle.stl",
+      "bbox_mm": [
+        94.0,
+        18.0,
+        8.0
+      ],
+      "volume_mm3": 8230.685360732263,
+      "valid": true,
+      "solid_count": 1,
+      "closed_mesh": true,
+      "facets": 2148
+    },
+    "otvory-12-vodorovne": {
+      "copies": 1,
+      "kind": "coupon",
+      "nominal_holes_mm": [
+        12.1,
+        12.2,
+        12.3,
+        12.4,
+        12.6
+      ],
+      "bore_depth_mm": 8,
+      "bore_axis_in_print": "Y",
+      "index": "Od vystupku, vzestupne 1..5",
+      "object": "Coupon12H",
+      "stl": "stl/otvory-12-vodorovne.stl",
+      "bbox_mm": [
+        94.0,
+        8.000000000000004,
+        18.0
+      ],
+      "volume_mm3": 8230.685360732263,
+      "valid": true,
+      "solid_count": 1,
+      "closed_mesh": true,
+      "facets": 2148
+    },
+    "otvory-4-svisle": {
+      "copies": 1,
+      "kind": "coupon",
+      "nominal_holes_mm": [
+        4.1,
+        4.2,
+        4.3
+      ],
+      "bore_depth_mm": 8,
+      "bore_axis_in_print": "Z",
+      "index": "Od vystupku, vzestupne 1..3",
+      "object": "Coupon4V",
+      "stl": "stl/otvory-4-svisle.stl",
+      "bbox_mm": [
+        33.099999999999994,
+        9.7,
+        8.0
+      ],
+      "volume_mm3": 1965.5281698379122,
+      "valid": true,
+      "solid_count": 1,
+      "closed_mesh": true,
+      "facets": 1300
+    },
+    "cep-4-kulaty-nalezato": {
+      "copies": 1,
+      "kind": "pin",
+      "diameter_mm": 4,
+      "length_mm": 24,
+      "axis_in_print": "X",
+      "working_flat": false,
+      "supports_required": true,
+      "object": "Pin4",
+      "stl": "stl/cep-4-kulaty-nalezato.stl",
+      "bbox_mm": [
+        24.0,
+        4.0,
+        4.000000000000005
+      ],
+      "volume_mm3": 301.5928947446201,
+      "valid": true,
+      "solid_count": 1,
+      "closed_mesh": true,
+      "facets": 416
+    },
+    "cep-8-kulaty-nalezato": {
+      "copies": 1,
+      "kind": "pin",
+      "diameter_mm": 8,
+      "length_mm": 24,
+      "axis_in_print": "X",
+      "working_flat": false,
+      "supports_required": true,
+      "object": "Pin8",
+      "stl": "stl/cep-8-kulaty-nalezato.stl",
+      "bbox_mm": [
+        24.0,
+        8.0,
+        8.000000000000005
+      ],
+      "volume_mm3": 1206.3715789784803,
+      "valid": true,
+      "solid_count": 1,
+      "closed_mesh": true,
+      "facets": 416
+    },
+    "cep-12-kulaty-nalezato": {
+      "copies": 1,
+      "kind": "pin",
+      "diameter_mm": 12,
+      "length_mm": 24,
+      "axis_in_print": "X",
+      "working_flat": false,
+      "supports_required": true,
+      "object": "Pin12",
+      "stl": "stl/cep-12-kulaty-nalezato.stl",
+      "bbox_mm": [
+        24.0,
+        12.0,
+        12.000000000000005
+      ],
+      "volume_mm3": 2714.3360527015816,
+      "valid": true,
+      "solid_count": 1,
+      "closed_mesh": true,
+      "facets": 416
+    }
+  },
+  "display_objects": [
+    "ViewCoupon8V",
+    "ViewCoupon8H",
+    "ViewCoupon12V",
+    "ViewCoupon12H",
+    "ViewCoupon4V",
+    "ViewPin4",
+    "ViewPin8",
+    "ViewPin12"
+  ],
+  "generator_sha256": "b51f21ace3308521df36066cd451fdcbecf6d8bbb36662fd6ba997fbe1b07622",
+  "dimensions_are": "NOMINALNI CAD, nikoli zmerene vytisky",
+  "unit": "mm",
+  "coupon_minimum_nominal_wall_mm": 2.7,
+  "support_removal_not_verified": true,
+  "parameter_checks": [
+    {
+      "parameter": "BoreDepth",
+      "trial_mm": 9,
+      "changed_parts": [
+        "otvory-8-svisle",
+        "otvory-8-vodorovne",
+        "otvory-12-svisle",
+        "otvory-12-vodorovne",
+        "otvory-4-svisle"
+      ],
+      "restored_max_volume_difference_mm3": 0.0
+    },
+    {
+      "parameter": "PinLength",
+      "trial_mm": 25,
+      "changed_parts": [
+        "cep-4-kulaty-nalezato",
+        "cep-8-kulaty-nalezato",
+        "cep-12-kulaty-nalezato"
+      ],
+      "restored_max_volume_difference_mm3": 0.0
+    }
+  ],
+  "bore_checks": [
+    {
+      "coupon": "otvory-8-svisle",
+      "diameter_mm": 8.1,
+      "axis_empty": true,
+      "wall_at_radius_plus_0_1_mm": true
+    },
+    {
+      "coupon": "otvory-8-svisle",
+      "diameter_mm": 8.2,
+      "axis_empty": true,
+      "wall_at_radius_plus_0_1_mm": true
+    },
+    {
+      "coupon": "otvory-8-svisle",
+      "diameter_mm": 8.3,
+      "axis_empty": true,
+      "wall_at_radius_plus_0_1_mm": true
+    },
+    {
+      "coupon": "otvory-8-svisle",
+      "diameter_mm": 8.4,
+      "axis_empty": true,
+      "wall_at_radius_plus_0_1_mm": true
+    },
+    {
+      "coupon": "otvory-8-svisle",
+      "diameter_mm": 8.6,
+      "axis_empty": true,
+      "wall_at_radius_plus_0_1_mm": true
+    },
+    {
+      "coupon": "otvory-8-vodorovne",
+      "diameter_mm": 8.1,
+      "axis_empty": true,
+      "wall_at_radius_plus_0_1_mm": true
+    },
+    {
+      "coupon": "otvory-8-vodorovne",
+      "diameter_mm": 8.2,
+      "axis_empty": true,
+      "wall_at_radius_plus_0_1_mm": true
+    },
+    {
+      "coupon": "otvory-8-vodorovne",
+      "diameter_mm": 8.3,
+      "axis_empty": true,
+      "wall_at_radius_plus_0_1_mm": true
+    },
+    {
+      "coupon": "otvory-8-vodorovne",
+      "diameter_mm": 8.4,
+      "axis_empty": true,
+      "wall_at_radius_plus_0_1_mm": true
+    },
+    {
+      "coupon": "otvory-8-vodorovne",
+      "diameter_mm": 8.6,
+      "axis_empty": true,
+      "wall_at_radius_plus_0_1_mm": true
+    },
+    {
+      "coupon": "otvory-12-svisle",
+      "diameter_mm": 12.1,
+      "axis_empty": true,
+      "wall_at_radius_plus_0_1_mm": true
+    },
+    {
+      "coupon": "otvory-12-svisle",
+      "diameter_mm": 12.2,
+      "axis_empty": true,
+      "wall_at_radius_plus_0_1_mm": true
+    },
+    {
+      "coupon": "otvory-12-svisle",
+      "diameter_mm": 12.3,
+      "axis_empty": true,
+      "wall_at_radius_plus_0_1_mm": true
+    },
+    {
+      "coupon": "otvory-12-svisle",
+      "diameter_mm": 12.4,
+      "axis_empty": true,
+      "wall_at_radius_plus_0_1_mm": true
+    },
+    {
+      "coupon": "otvory-12-svisle",
+      "diameter_mm": 12.6,
+      "axis_empty": true,
+      "wall_at_radius_plus_0_1_mm": true
+    },
+    {
+      "coupon": "otvory-12-vodorovne",
+      "diameter_mm": 12.1,
+      "axis_empty": true,
+      "wall_at_radius_plus_0_1_mm": true
+    },
+    {
+      "coupon": "otvory-12-vodorovne",
+      "diameter_mm": 12.2,
+      "axis_empty": true,
+      "wall_at_radius_plus_0_1_mm": true
+    },
+    {
+      "coupon": "otvory-12-vodorovne",
+      "diameter_mm": 12.3,
+      "axis_empty": true,
+      "wall_at_radius_plus_0_1_mm": true
+    },
+    {
+      "coupon": "otvory-12-vodorovne",
+      "diameter_mm": 12.4,
+      "axis_empty": true,
+      "wall_at_radius_plus_0_1_mm": true
+    },
+    {
+      "coupon": "otvory-12-vodorovne",
+      "diameter_mm": 12.6,
+      "axis_empty": true,
+      "wall_at_radius_plus_0_1_mm": true
+    },
+    {
+      "coupon": "otvory-4-svisle",
+      "diameter_mm": 4.1,
+      "axis_empty": true,
+      "wall_at_radius_plus_0_1_mm": true
+    },
+    {
+      "coupon": "otvory-4-svisle",
+      "diameter_mm": 4.2,
+      "axis_empty": true,
+      "wall_at_radius_plus_0_1_mm": true
+    },
+    {
+      "coupon": "otvory-4-svisle",
+      "diameter_mm": 4.3,
+      "axis_empty": true,
+      "wall_at_radius_plus_0_1_mm": true
+    }
+  ],
+  "validation_pass": true,
+  "gui_validation": {
+    "saved_and_reopened": true,
+    "visible_objects": [
+      "ViewCoupon8V",
+      "ViewCoupon8H",
+      "ViewCoupon12V",
+      "ViewCoupon12H",
+      "ViewCoupon4V",
+      "ViewPin4",
+      "ViewPin8",
+      "ViewPin12"
+    ],
+    "invalid_objects": []
+  }
+}

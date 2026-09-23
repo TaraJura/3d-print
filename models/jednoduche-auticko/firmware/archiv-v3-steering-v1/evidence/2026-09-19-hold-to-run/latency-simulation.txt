@@ -1,0 +1,19 @@
+Sketch SHA256: 46cee7f55931e12fe802de19b01724e76f8e1184860f316b5da6176acbc7e631
+INTERVAL 200 ms (includes browser 100ms + simulated remaining latency 100ms)
+ t=200ms before=1 HTTP=200 motor=128 lease=300ms watchdog=0
+ t=400ms before=1 HTTP=200 motor=128 lease=300ms watchdog=0
+ t=600ms before=1 HTTP=200 motor=128 lease=300ms watchdog=0
+ t=800ms before=1 HTTP=200 motor=128 lease=300ms watchdog=0
+ t=1000ms before=1 HTTP=200 motor=128 lease=300ms watchdog=0
+INTERVAL 250 ms (includes browser 100ms + simulated remaining latency 150ms)
+ t=250ms before=1 HTTP=200 motor=128 lease=250ms watchdog=0
+ t=500ms before=0 HTTP=400 motor=0 lease=0ms watchdog=1
+INTERVAL 300 ms (includes browser 100ms + simulated remaining latency 200ms)
+ t=300ms before=1 HTTP=200 motor=128 lease=200ms watchdog=0
+ t=600ms before=0 HTTP=400 motor=0 lease=0ms watchdog=1
+ARM response delay=200ms first HOLD t=200ms HTTP=200 motor=128 lease=300ms watchdog=0
+ next HOLD +200ms HTTP=200 motor=128 watchdog=0
+ARM response delay=400ms first HOLD t=400ms HTTP=200 motor=128 lease=100ms watchdog=0
+ next HOLD +200ms HTTP=400 motor=0 watchdog=1
+ARM response delay=500ms first HOLD t=500ms HTTP=400 motor=0 lease=0ms watchdog=1
+ARM response delay=600ms first HOLD t=600ms HTTP=400 motor=0 lease=0ms watchdog=1

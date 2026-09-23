@@ -1,0 +1,29 @@
+# -*- coding: utf-8 -*-
+"""Read-only probes of final reopened CAD, 0.01 mm inside/outside each bore wall."""
+from pathlib import Path
+import hashlib, json, math
+import FreeCAD as App
+
+OUT=Path(__file__).resolve().parent
+path=OUT/'kalibrace-4-v2.FCStd'
+D=App.openDocument(str(path))
+records=[]
+for axis in ('Z','Y'):
+    obj=D.getObject('Coupon4V2'+axis); shape=obj.Shape
+    assert shape.isValid() and len(shape.Solids)==1
+    for index,diameter in enumerate((4.4,4.6,4.8)):
+        x=5.1+index*10.2
+        count=0
+        for depth in (.05,4,7.95):
+            center=App.Vector(x,5.1,depth) if axis=='Z' else App.Vector(x,depth,5.1)
+            for degrees in range(0,360,30):
+                angle=math.radians(degrees)
+                radial=App.Vector(math.cos(angle),math.sin(angle),0) if axis=='Z' else App.Vector(math.cos(angle),0,math.sin(angle))
+                assert not shape.isInside(center+radial*(diameter/2-.01),1e-7,True),(axis,diameter,depth,degrees,'blocked inside')
+                assert shape.isInside(center+radial*(diameter/2+.01),1e-7,True),(axis,diameter,depth,degrees,'wall missing outside')
+                count+=2
+        records.append({'axis':axis,'diameter_mm':diameter,'checked_depths_mm':[.05,4,7.95],'angles_step_deg':30,'radial_probe_offset_mm':.01,'point_checks':count,'pass':True})
+App.closeDocument(D.Name)
+report={'status':'pass','method':'Reopened final FCStd, actual final cut bodies; no model modification. Every hole is empty 0.01mm inside expected radius and solid 0.01mm outside, at 12 angles and three depths.','fcstd_sha256':hashlib.sha256(path.read_bytes()).hexdigest(),'point_checks':sum(r['point_checks'] for r in records),'holes':records}
+(OUT/'overeni-prumeru.json').write_text(json.dumps(report,indent=2)+'\n')
+print('PASS actual final CAD: six bores, 432 radial point probes, unchanged file',flush=True)

@@ -1,0 +1,317 @@
+{
+  "status": "geometry-only working alternative; not sliced, not print-ready, no physical validation",
+  "generated_utc": "2026-09-22T17:07:56.449169+00:00",
+  "printer_profile_evidence": {
+    "path": "/home/novakj/.config/AnycubicSlicerNext/system/Anycubic/machine/Anycubic Kobra X 0.4 nozzle.json",
+    "sha256": "baf80d3287e1e863fba29cdfd240b9b5ebc28bd87e1b4d03fc79e53f0009570a",
+    "name": "Anycubic Kobra X 0.4 nozzle",
+    "printable_area_mm": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        260.0,
+        0.0
+      ],
+      [
+        260.0,
+        260.0
+      ],
+      [
+        0.0,
+        260.0
+      ]
+    ],
+    "printable_height_mm": 260.0,
+    "nozzle_mm": 0.4
+  },
+  "output": "prepazka-B-pracovni-geometrie.3mf",
+  "output_sha256": "91ed7b9a835d1933bab5597e49a9d476ed24cd33f138028e89587f80937db892",
+  "unit": "millimeter",
+  "plates": 1,
+  "physical_parts": 3,
+  "object_instances": 3,
+  "contains_process_or_filament": false,
+  "contains_gcode": false,
+  "scale_1_to_1": true,
+  "all_flat_bases_at_z0": true,
+  "plate_contents_bounds_mm": [
+    [
+      29.0,
+      70.0,
+      0.0
+    ],
+    [
+      231.0,
+      170.0,
+      9.999418258666992
+    ]
+  ],
+  "plate_edge_margins_mm_left_right_front_back": [
+    29.0,
+    29.0,
+    70.0,
+    90.0
+  ],
+  "minimum_plate_edge_margin_mm": 29.0,
+  "pairwise_gaps": [
+    {
+      "objects": [
+        1,
+        2
+      ],
+      "xy_bounding_box_gap_mm": 20.0
+    },
+    {
+      "objects": [
+        1,
+        3
+      ],
+      "xy_bounding_box_gap_mm": 60.0
+    },
+    {
+      "objects": [
+        2,
+        3
+      ],
+      "xy_bounding_box_gap_mm": 20.0
+    }
+  ],
+  "minimum_xy_bounding_box_gap_mm": 20.0,
+  "parts": [
+    {
+      "bounds_mm": [
+        [
+          1.2908414537770834e-19,
+          0.0,
+          0.0
+        ],
+        [
+          196.0,
+          20.0,
+          9.999418258666992
+        ]
+      ],
+      "dimensions_mm": [
+        196.0,
+        20.0,
+        9.999418258666992
+      ],
+      "vertices": 140,
+      "triangles": 276,
+      "edges": 414,
+      "connected_components": 1,
+      "nonmanifold_or_boundary_edges": 0,
+      "inconsistent_winding_edges": 0,
+      "degenerate_triangles": 0,
+      "duplicate_faces": 0,
+      "euler_characteristic": 2,
+      "closed_manifold": true,
+      "consistently_oriented": true,
+      "signed_volume_mm3": 23136.025625331928,
+      "planar_base_area_at_z0_mm2": 3800.0,
+      "stl": "stl/dil-1.stl",
+      "stl_sha256": "020a27dfc436aa3994375fd11fd5512ed9a1a61515739dafa28cfc68a424fc46",
+      "object_id": 1,
+      "nominal_cad_dimensions_mm": [
+        196.0,
+        20.0,
+        10.0
+      ],
+      "mesh_dimension_tolerance_mm": 0.001,
+      "mesh_minus_nominal_dimensions_mm": [
+        0.0,
+        0.0,
+        -0.0005817413330078125
+      ],
+      "translation_mm": [
+        32.0,
+        70.0,
+        0.0
+      ],
+      "rotation_degrees": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "placed_bounds_mm": [
+        [
+          32.0,
+          70.0,
+          0.0
+        ],
+        [
+          228.0,
+          90.0,
+          9.999418258666992
+        ]
+      ],
+      "inside_printable_volume": true,
+      "flat_base_on_z0": true
+    },
+    {
+      "bounds_mm": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          202.0,
+          20.0,
+          9.999418258666992
+        ]
+      ],
+      "dimensions_mm": [
+        202.0,
+        20.0,
+        9.999418258666992
+      ],
+      "vertices": 144,
+      "triangles": 284,
+      "edges": 426,
+      "connected_components": 1,
+      "nonmanifold_or_boundary_edges": 0,
+      "inconsistent_winding_edges": 0,
+      "degenerate_triangles": 0,
+      "duplicate_faces": 0,
+      "euler_characteristic": 2,
+      "closed_manifold": true,
+      "consistently_oriented": true,
+      "signed_volume_mm3": 23440.579658584822,
+      "planar_base_area_at_z0_mm2": 3800.0,
+      "stl": "stl/dil-2.stl",
+      "stl_sha256": "34994e07718f9fccc99f8f6b9b2ba07d0859e7b714c3c8e80a6bcf310bd37061",
+      "object_id": 2,
+      "nominal_cad_dimensions_mm": [
+        202.0,
+        20.0,
+        10.0
+      ],
+      "mesh_dimension_tolerance_mm": 0.001,
+      "mesh_minus_nominal_dimensions_mm": [
+        0.0,
+        0.0,
+        -0.0005817413330078125
+      ],
+      "translation_mm": [
+        29.0,
+        110.0,
+        0.0
+      ],
+      "rotation_degrees": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "placed_bounds_mm": [
+        [
+          29.0,
+          110.0,
+          0.0
+        ],
+        [
+          231.0,
+          130.0,
+          9.999418258666992
+        ]
+      ],
+      "inside_printable_volume": true,
+      "flat_base_on_z0": true
+    },
+    {
+      "bounds_mm": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          196.0,
+          20.0,
+          9.999418258666992
+        ]
+      ],
+      "dimensions_mm": [
+        196.0,
+        20.0,
+        9.999418258666992
+      ],
+      "vertices": 140,
+      "triangles": 276,
+      "edges": 414,
+      "connected_components": 1,
+      "nonmanifold_or_boundary_edges": 0,
+      "inconsistent_winding_edges": 0,
+      "degenerate_triangles": 0,
+      "duplicate_faces": 0,
+      "euler_characteristic": 2,
+      "closed_manifold": true,
+      "consistently_oriented": true,
+      "signed_volume_mm3": 23745.133512702356,
+      "planar_base_area_at_z0_mm2": 3800.0,
+      "stl": "stl/dil-3.stl",
+      "stl_sha256": "b297b0995a9c4dab6c04448efe0f87c28cda79422b9b304fcb1195f543103db9",
+      "object_id": 3,
+      "nominal_cad_dimensions_mm": [
+        196.0,
+        20.0,
+        10.0
+      ],
+      "mesh_dimension_tolerance_mm": 0.001,
+      "mesh_minus_nominal_dimensions_mm": [
+        0.0,
+        0.0,
+        -0.0005817413330078125
+      ],
+      "translation_mm": [
+        32.0,
+        150.0,
+        0.0
+      ],
+      "rotation_degrees": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "placed_bounds_mm": [
+        [
+          32.0,
+          150.0,
+          0.0
+        ],
+        [
+          228.0,
+          170.0,
+          9.999418258666992
+        ]
+      ],
+      "inside_printable_volume": true,
+      "flat_base_on_z0": true
+    }
+  ],
+  "reopened_zip_xml_meshes_and_transforms_verified": true,
+  "limitations": [
+    "Slicer import and toolpaths have not been checked.",
+    "Filament type, hardness and print process are unknown.",
+    "Mesh closure does not establish watertight physical printing or joint sealing.",
+    "The layout reserves no specific brim or support envelope because no print process is selected.",
+    "No physical fit, adhesion, flexibility or water test has been performed."
+  ]
+}

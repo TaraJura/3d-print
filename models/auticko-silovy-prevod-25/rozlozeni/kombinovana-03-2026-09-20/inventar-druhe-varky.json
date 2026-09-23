@@ -1,0 +1,273 @@
+{
+  "date": "2026-09-20",
+  "photos": [
+    {
+      "path": "/home/novakj/Downloads/20260920_185846.jpg",
+      "sha256": "9ea06660f8c06da5b38b3c60e8badf7ab14d6695c85314e48e093c4bab4aff4d",
+      "scope": "original plate 02 on bed"
+    },
+    {
+      "path": "/home/novakj/Downloads/20260920_192335.jpg",
+      "sha256": "02f699311b4cc5bca0dceee8f86dfec993ec16344bdc3f37f7006de1026ac2fc",
+      "scope": "preserved parts from BOTH first and second batches"
+    }
+  ],
+  "second_plate_planned": 27,
+  "confirmed_replacement_count": 6,
+  "selected_original_numbers": [
+    4,
+    11,
+    12,
+    16,
+    22,
+    23
+  ],
+  "items": [
+    {
+      "original_number": 1,
+      "copy_id": "ram-25__01",
+      "source_sha256": "a4affc1bfec28e6fe91daeb82b2c4e7f1721fe98e06291b8ede8fac313e88ed4",
+      "status": "unresolved_frame_detail_requested",
+      "reprint": false,
+      "reason": "Rám je celý, ale pod motorovým dorazem a předními vyloženými částmi jsou propadlé dráhy. Chybí boční detail pevného průřezu; není potvrzeno, zda stačí očistit, nebo je nutný nový rám."
+    },
+    {
+      "original_number": 2,
+      "copy_id": "vystupni-kolo-55__01",
+      "source_sha256": "362a0bf7a58bd3e94f05b97b10140cea8adbcf1df410e39c81f9903b902eedaf",
+      "status": "retained_visual_only",
+      "reprint": false,
+      "reason": "Přítomnost přiřazena z podložky a společné fotografie obou várek. U identických pojistek je doložen počet, nikoli fyzická identita konkrétní kopie. Spodní povrch, pevnost a montážní fit nejsou ověřeny."
+    },
+    {
+      "original_number": 3,
+      "copy_id": "objimka-packy-spodek__01",
+      "source_sha256": "be241901c13b19cc68b4620e25466e9933ab77915d62676c96df474d6295836f",
+      "status": "retained_visual_only",
+      "reprint": false,
+      "reason": "Přítomnost přiřazena z podložky a společné fotografie obou várek. U identických pojistek je doložen počet, nikoli fyzická identita konkrétní kopie. Spodní povrch, pevnost a montážní fit nejsou ověřeny."
+    },
+    {
+      "original_number": 4,
+      "copy_id": "tehlice-leva__01",
+      "source_sha256": "3a1d6842f80eefdb1d92141f7329a75fae7d4c409c88bf4db069e47e2a4df655",
+      "status": "replacement_selected",
+      "reprint": true,
+      "reason": "Levá těhlice má propadlé dráhy a smyčky pod funkčními převisy."
+    },
+    {
+      "original_number": 5,
+      "copy_id": "objimka-packy-viko__01",
+      "source_sha256": "c50191d432602244f2ae62f0c347d0a245ec26dee4cd61bbb1dedc2cc9f79bf5",
+      "status": "unresolved_inventory_user_question_pending",
+      "reprint": false,
+      "reason": "Víko objímky páčky je na podložce, ale není jednoznačně rozpoznané na společné fotografii zachovaných dílů. Může být mimo záběr; není prokázaně vadné."
+    },
+    {
+      "original_number": 6,
+      "copy_id": "celist-horni__01",
+      "source_sha256": "bbdfc0d4ba793f973ad7c13b947867d38b9739c58f13362b41cbaced25f51872",
+      "status": "retained_visual_only",
+      "reprint": false,
+      "reason": "Přítomnost přiřazena z podložky a společné fotografie obou várek. U identických pojistek je doložen počet, nikoli fyzická identita konkrétní kopie. Spodní povrch, pevnost a montážní fit nejsou ověřeny."
+    },
+    {
+      "original_number": 7,
+      "copy_id": "pojistka-osy-10_9__04",
+      "source_sha256": "8fcc87ded5822951c16b6e075e3ca719e7c240d0e64890de46f22b4bd372ea29",
+      "status": "retained_visual_only",
+      "reprint": false,
+      "reason": "Přítomnost přiřazena z podložky a společné fotografie obou várek. U identických pojistek je doložen počet, nikoli fyzická identita konkrétní kopie. Spodní povrch, pevnost a montážní fit nejsou ověřeny."
+    },
+    {
+      "original_number": 8,
+      "copy_id": "pojistka-osy-10_9__01",
+      "source_sha256": "8fcc87ded5822951c16b6e075e3ca719e7c240d0e64890de46f22b4bd372ea29",
+      "status": "retained_visual_only",
+      "reprint": false,
+      "reason": "Přítomnost přiřazena z podložky a společné fotografie obou várek. U identických pojistek je doložen počet, nikoli fyzická identita konkrétní kopie. Spodní povrch, pevnost a montážní fit nejsou ověřeny."
+    },
+    {
+      "original_number": 9,
+      "copy_id": "rozperka-zadni-17_6__02",
+      "source_sha256": "3b772e4da5cf86901cec92e33da4d372c0bc2cd57376ec4930bfa20d72d2d205",
+      "status": "retained_visual_only",
+      "reprint": false,
+      "reason": "Přítomnost přiřazena z podložky a společné fotografie obou várek. U identických pojistek je doložen počet, nikoli fyzická identita konkrétní kopie. Spodní povrch, pevnost a montážní fit nejsou ověřeny."
+    },
+    {
+      "original_number": 10,
+      "copy_id": "pastorek-18-otvor-2_2__01",
+      "source_sha256": "2233c44357635fbeb14e6831d92572bb7da8ed279732ba0a64e24bd971268eb0",
+      "status": "retained_visual_only",
+      "reprint": false,
+      "reason": "Přítomnost přiřazena z podložky a společné fotografie obou várek. U identických pojistek je doložen počet, nikoli fyzická identita konkrétní kopie. Spodní povrch, pevnost a montážní fit nejsou ověřeny."
+    },
+    {
+      "original_number": 11,
+      "copy_id": "pevny-cep-8x53_9__02",
+      "source_sha256": "dadc7cac8a1ab3539f123e7abdd65fa3d0555b4b37d583de85756956aaa5e795",
+      "status": "replacement_selected",
+      "reprint": true,
+      "reason": "Čep není mezi zachovanými díly; na fotografii podložky jsou neúspěšné vodorovné čepy. Počet je podle původního manifestu, nikoli počtu úlomků."
+    },
+    {
+      "original_number": 12,
+      "copy_id": "svisly-cep-8__01",
+      "source_sha256": "6ce92d30b28a9e7543339b1e0847aef8647ebabba7cdeba89ba701b449810c44",
+      "status": "replacement_selected",
+      "reprint": true,
+      "reason": "Čep není mezi zachovanými díly; na fotografii podložky jsou neúspěšné vodorovné čepy. Počet je podle původního manifestu, nikoli počtu úlomků."
+    },
+    {
+      "original_number": 13,
+      "copy_id": "pojistka-osy-10_9__03",
+      "source_sha256": "8fcc87ded5822951c16b6e075e3ca719e7c240d0e64890de46f22b4bd372ea29",
+      "status": "retained_visual_only",
+      "reprint": false,
+      "reason": "Přítomnost přiřazena z podložky a společné fotografie obou várek. U identických pojistek je doložen počet, nikoli fyzická identita konkrétní kopie. Spodní povrch, pevnost a montážní fit nejsou ověřeny."
+    },
+    {
+      "original_number": 14,
+      "copy_id": "motorovy-mustek__02",
+      "source_sha256": "6b3d81a3b4963a98f01334b87b32dbea474997b194dd0811bbcfb7487eac8c5b",
+      "status": "retained_visual_only",
+      "reprint": false,
+      "reason": "Přítomnost přiřazena z podložky a společné fotografie obou várek. U identických pojistek je doložen počet, nikoli fyzická identita konkrétní kopie. Spodní povrch, pevnost a montážní fit nejsou ověřeny."
+    },
+    {
+      "original_number": 15,
+      "copy_id": "pojistka-osy-10_9__02",
+      "source_sha256": "8fcc87ded5822951c16b6e075e3ca719e7c240d0e64890de46f22b4bd372ea29",
+      "status": "retained_visual_only",
+      "reprint": false,
+      "reason": "Přítomnost přiřazena z podložky a společné fotografie obou várek. U identických pojistek je doložen počet, nikoli fyzická identita konkrétní kopie. Spodní povrch, pevnost a montážní fit nejsou ověřeny."
+    },
+    {
+      "original_number": 16,
+      "copy_id": "servo-cep-4x51_2__02",
+      "source_sha256": "113049edfed69399da6e6df4c7381cd91e54f38f8d7933579a1d73f99becffba",
+      "status": "replacement_selected",
+      "reprint": true,
+      "reason": "Čep není mezi zachovanými díly; na fotografii podložky jsou neúspěšné vodorovné čepy. Počet je podle původního manifestu, nikoli počtu úlomků."
+    },
+    {
+      "original_number": 17,
+      "copy_id": "pojistka-6_9__01",
+      "source_sha256": "7be6176012c834bfba0b745c0048f7139799b85b0654688302d0bba3353007e0",
+      "status": "retained_visual_only",
+      "reprint": false,
+      "reason": "Přítomnost přiřazena z podložky a společné fotografie obou várek. U identických pojistek je doložen počet, nikoli fyzická identita konkrétní kopie. Spodní povrch, pevnost a montážní fit nejsou ověřeny."
+    },
+    {
+      "original_number": 18,
+      "copy_id": "pojistka-6_9__06",
+      "source_sha256": "7be6176012c834bfba0b745c0048f7139799b85b0654688302d0bba3353007e0",
+      "status": "retained_visual_only",
+      "reprint": false,
+      "reason": "Přítomnost přiřazena z podložky a společné fotografie obou várek. U identických pojistek je doložen počet, nikoli fyzická identita konkrétní kopie. Spodní povrch, pevnost a montážní fit nejsou ověřeny."
+    },
+    {
+      "original_number": 19,
+      "copy_id": "pojistka-6_9__07",
+      "source_sha256": "7be6176012c834bfba0b745c0048f7139799b85b0654688302d0bba3353007e0",
+      "status": "retained_visual_only",
+      "reprint": false,
+      "reason": "Přítomnost přiřazena z podložky a společné fotografie obou várek. U identických pojistek je doložen počet, nikoli fyzická identita konkrétní kopie. Spodní povrch, pevnost a montážní fit nejsou ověřeny."
+    },
+    {
+      "original_number": 20,
+      "copy_id": "pojistka-6_9__05",
+      "source_sha256": "7be6176012c834bfba0b745c0048f7139799b85b0654688302d0bba3353007e0",
+      "status": "retained_visual_only",
+      "reprint": false,
+      "reason": "Přítomnost přiřazena z podložky a společné fotografie obou várek. U identických pojistek je doložen počet, nikoli fyzická identita konkrétní kopie. Spodní povrch, pevnost a montážní fit nejsou ověřeny."
+    },
+    {
+      "original_number": 21,
+      "copy_id": "podlozka-packy-1_8__01",
+      "source_sha256": "aeb339e15530e621e9b971f623145d6be8d3bf3efe1257eefd44743d12ac3345",
+      "status": "retained_visual_only",
+      "reprint": false,
+      "reason": "Přítomnost přiřazena z podložky a společné fotografie obou várek. U identických pojistek je doložen počet, nikoli fyzická identita konkrétní kopie. Spodní povrch, pevnost a montážní fit nejsou ověřeny."
+    },
+    {
+      "original_number": 22,
+      "copy_id": "spolecny-cep-mustku-4x30_5__01",
+      "source_sha256": "163175e6a521505acfa6a9a0793011728c6362d44e775abb203fb3357bcccd34",
+      "status": "replacement_selected",
+      "reprint": true,
+      "reason": "Čep není mezi zachovanými díly; na fotografii podložky jsou neúspěšné vodorovné čepy. Počet je podle původního manifestu, nikoli počtu úlomků."
+    },
+    {
+      "original_number": 23,
+      "copy_id": "cep-tahla-kratky__01",
+      "source_sha256": "48fdf64462d8451bcf8dc93d661ccfafb24d372e493809f26744f9b55dd054d4",
+      "status": "replacement_selected",
+      "reprint": true,
+      "reason": "Čep není mezi zachovanými díly; na fotografii podložky jsou neúspěšné vodorovné čepy. Počet je podle původního manifestu, nikoli počtu úlomků."
+    },
+    {
+      "original_number": 24,
+      "copy_id": "pojistka-3_1__06",
+      "source_sha256": "b6b33f593dff03ea8d4ee5eb90d42629c0973c982cd988b141ce50b2897a08c4",
+      "status": "retained_visual_only",
+      "reprint": false,
+      "reason": "Přítomnost přiřazena z podložky a společné fotografie obou várek. U identických pojistek je doložen počet, nikoli fyzická identita konkrétní kopie. Spodní povrch, pevnost a montážní fit nejsou ověřeny."
+    },
+    {
+      "original_number": 25,
+      "copy_id": "pojistka-3_1__05",
+      "source_sha256": "b6b33f593dff03ea8d4ee5eb90d42629c0973c982cd988b141ce50b2897a08c4",
+      "status": "retained_visual_only",
+      "reprint": false,
+      "reason": "Přítomnost přiřazena z podložky a společné fotografie obou várek. U identických pojistek je doložen počet, nikoli fyzická identita konkrétní kopie. Spodní povrch, pevnost a montážní fit nejsou ověřeny."
+    },
+    {
+      "original_number": 26,
+      "copy_id": "pojistka-3_1__10",
+      "source_sha256": "b6b33f593dff03ea8d4ee5eb90d42629c0973c982cd988b141ce50b2897a08c4",
+      "status": "retained_visual_only",
+      "reprint": false,
+      "reason": "Přítomnost přiřazena z podložky a společné fotografie obou várek. U identických pojistek je doložen počet, nikoli fyzická identita konkrétní kopie. Spodní povrch, pevnost a montážní fit nejsou ověřeny."
+    },
+    {
+      "original_number": 27,
+      "copy_id": "pojistka-3_1__09",
+      "source_sha256": "b6b33f593dff03ea8d4ee5eb90d42629c0973c982cd988b141ce50b2897a08c4",
+      "status": "retained_visual_only",
+      "reprint": false,
+      "reason": "Přítomnost přiřazena z podložky a společné fotografie obou várek. U identických pojistek je doložen počet, nikoli fyzická identita konkrétní kopie. Spodní povrch, pevnost a montážní fit nejsou ověřeny."
+    }
+  ],
+  "combined_plate": {
+    "original_unprinted": 13,
+    "first_batch_replacements": 7,
+    "second_batch_replacements": 6,
+    "total": 26
+  },
+  "remaining_questions": [
+    {
+      "item": "ram-25__01",
+      "question": "Boční detail motorového dorazu; rozlišit volná vlákna od chybějícího funkčního tvaru.",
+      "replacement_decision": "pending"
+    },
+    {
+      "item": "objimka-packy-viko__01",
+      "question": "Je mimo záběr zachovaných dílů?",
+      "replacement_decision": "pending"
+    },
+    {
+      "item": "motorove-klinky",
+      "question": "Jsou zachované oba klínky? Původní fotografie první várky uváděla dva, nová společná ukazuje jasně jeden.",
+      "replacement_decision": "pending"
+    }
+  ],
+  "not_additional_replacements": [
+    "tehlice-prava__01 is already in first seven",
+    "both motorovy-mustek copies are visible",
+    "six pin fragments do not mean six pin types; second plate has five separate pins"
+  ],
+  "physical_fit_or_assembly_verified": false,
+  "scope": "26 is a complete prepared selection, not a final assertion that every remaining physical component is usable."
+}

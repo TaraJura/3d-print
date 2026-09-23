@@ -1,0 +1,289 @@
+{
+  "audit": "Independent source and provenance review of the user-authorized nominal print prototype",
+  "updated_utc": "2026-09-19T22:52:24.192166+00:00",
+  "pass": true,
+  "scope": "source_diff_and_nominal_geometry_provenance_only",
+  "nominal_provenance_pass": true,
+  "full_nominal_radial_clearance_scenario_pass": false,
+  "full_play_scenario_is_release_gate": false,
+  "physical_assembly_or_load_test_claimed": false,
+  "source_sha256": "f970d5b78660a9bcd2cdd57ad66e9e7e9df38eb19f755fcae27e62a91e319df2",
+  "source_hashes": {
+    "auticko-silovy-prevod-25.FCMacro": "f970d5b78660a9bcd2cdd57ad66e9e7e9df38eb19f755fcae27e62a91e319df2",
+    "rizeni-geometrie.py": "00de3cdfd40525ca7ef1b0d50cd2ba6953114b9f29b53cb15b997eb785255dcd",
+    "servo-uchyceni.py": "b9607955472bd3815e171139796e4d373b1fc03a4d0a64e88e9a8e3099397646",
+    "rizeni-sestava.py": "ad23bb77641200fc0f4ada5e97a5363b22f0fa44e3c76a01d51516032da44d0b"
+  },
+  "snapshot_fcstd_sha256": "68ea656115ca166e95adf049ba3347167bbedb6a44fdd77c22d8aef21761e6e9",
+  "current_fcstd_sha256": "68ea656115ca166e95adf049ba3347167bbedb6a44fdd77c22d8aef21761e6e9",
+  "final_gui_saved_fcstd_binding": true,
+  "current_brep_data_fingerprint_sha256": "b0425a77ab0db531b84a930b26e268b5ee5cf0c97a32059ab41c69ff075f2e0a",
+  "executed_audit_script_sha256": "98c7bea762badea4b306e126396b8732047e454b147b6fa41ad0b94be2db66c0",
+  "checks": {
+    "archived_86_files_match_manifest": true,
+    "source_matches_independently_reviewed_diff": true,
+    "model_report_binds_current_source": true,
+    "steering_and_kinematics_source_unchanged": true,
+    "only_reviewed_fit_dimensions_changed": true,
+    "original_tooth_profile_parameters": true,
+    "teeth_ratio_phases_and_centres_unchanged": true,
+    "fcstd_matches_final_gui_saved_hash": true,
+    "steering_spreadsheet_unchanged": true,
+    "all_existing_placements_unchanged_within_1e-10": true,
+    "all_reported_assembly_objects_exist_in_fcstd": true,
+    "stl_hashes_match_model_report": true,
+    "34_types_66_instances_unchanged": true,
+    "counts_derived_from_assembly_match_parts": true,
+    "four_wheels": true,
+    "all_34_exports_valid_single_closed_solids": true,
+    "conservative_full_play_scenario_not_claimed_pass": true,
+    "supplied_geometry_report_binds_reviewed_source": true,
+    "supplied_nominal_geometry_pass": true,
+    "supplied_nominal_pairs_have_no_interference": true,
+    "supplied_six_outlines_identical_to_archived_geometry": true,
+    "supplied_historical_member_hashes_match_archive": true,
+    "supplied_changed_horn_void_extremes_clear": true,
+    "supplied_stage3_retains_full_8mm_contact_width": true
+  },
+  "counts": {
+    "celist-horni": 2,
+    "cep-plosiny-4x19_5": 4,
+    "cep-tahla-dlouhy": 1,
+    "cep-tahla-kratky": 1,
+    "kolo-76x12-predni": 2,
+    "kolo-76x12-zadni-d": 2,
+    "mezikolo-a-54_18": 1,
+    "mezikolo-b-60_22": 1,
+    "motorovy-klinek": 2,
+    "motorovy-mustek": 2,
+    "objimka-cep-4x25_5": 1,
+    "objimka-packy-spodek": 1,
+    "objimka-packy-viko": 1,
+    "osa-zadni-12x150_6": 1,
+    "pastorek-18-otvor-2_2": 1,
+    "pevny-cep-8x53_9": 2,
+    "plosina-170x60": 1,
+    "podlozka-packy-1_8": 1,
+    "pojistka-3_1": 10,
+    "pojistka-6_9": 7,
+    "pojistka-kloubu-4_9": 2,
+    "pojistka-osy-10_9": 4,
+    "pricny-klinek-4x27_1": 1,
+    "ram-25": 1,
+    "rozperka-zadni-17_6": 2,
+    "servo-cep-4x51_2": 2,
+    "servo-tahlo-r15": 1,
+    "servo-viko": 1,
+    "spojovaci-tahlo": 1,
+    "spolecny-cep-mustku-4x30_5": 2,
+    "svisly-cep-8": 2,
+    "tehlice-leva": 1,
+    "tehlice-prava": 1,
+    "vystupni-kolo-55": 1
+  },
+  "instance_count": 66,
+  "wheel_count": 4,
+  "fit_parameter_changes_mm": {
+    "CrossPinBore": [
+      4.2,
+      null
+    ],
+    "DeckSocketBore": [
+      null,
+      8.1
+    ],
+    "DriveBore": [
+      12.3,
+      12.1
+    ],
+    "DriveFlat": [
+      4.2,
+      4.05
+    ],
+    "OutputBore": [
+      null,
+      12.1
+    ],
+    "RearBearingBore": [
+      12.2,
+      12.6
+    ],
+    "RunningBore": [
+      8.2,
+      8.6
+    ],
+    "StaticLockBore": [
+      null,
+      4.1
+    ]
+  },
+  "reviewed_source_diffs": {
+    "auticko-silovy-prevod-25.FCMacro": {
+      "baseline_sha256": "f18881bce5b080de9924a39a8e4102bc449c8eab49ff603e3952c355cfae00e8",
+      "current_sha256": "f970d5b78660a9bcd2cdd57ad66e9e7e9df38eb19f755fcae27e62a91e319df2",
+      "unified_diff_sha256": "f2b5979a4bf2a9cb0b80cd580fe9d5af5c998c2d2424d3c42cc91eefae1cd883"
+    },
+    "servo-uchyceni.py": {
+      "baseline_sha256": "3e0114bd80be3dbf9adf63565c30482be01f252bdc066636d972bfdeb8612ba2",
+      "current_sha256": "b9607955472bd3815e171139796e4d373b1fc03a4d0a64e88e9a8e3099397646",
+      "unified_diff_sha256": "074a9f58353d1e1b7c5dabe955e709a59cef3bf5b00161065d73c7c0e8423071"
+    }
+  },
+  "unchanged_sources": {
+    "rizeni-geometrie.py": true,
+    "rizeni-sestava.py": true,
+    "kinematika.py": true
+  },
+  "placement_check": {
+    "count": 656,
+    "numeric_tolerance": 1e-10,
+    "maximum_difference": 0
+  },
+  "gear_outline_serialization": {
+    "A54Outline.Shape.brp": {
+      "baseline_sha256": "867dee3216fb25a6b29bd3026047a0b413c3f0ed06c052904431ea93d6928532",
+      "current_sha256": "867dee3216fb25a6b29bd3026047a0b413c3f0ed06c052904431ea93d6928532",
+      "serialized_bytes_identical": true
+    },
+    "A18Outline.Shape.brp": {
+      "baseline_sha256": "1c069a8319dafd7cacdb8b96d9a2506a57fd7e9645376196e24636dbebc4f974",
+      "current_sha256": "1c069a8319dafd7cacdb8b96d9a2506a57fd7e9645376196e24636dbebc4f974",
+      "serialized_bytes_identical": true
+    },
+    "B60Outline.Shape.brp": {
+      "baseline_sha256": "23a93250f34bc207be80293893c1e61eea5443aa6cd7f70403c48f798c3c7a44",
+      "current_sha256": "23a93250f34bc207be80293893c1e61eea5443aa6cd7f70403c48f798c3c7a44",
+      "serialized_bytes_identical": true
+    },
+    "B22Outline.Shape.brp": {
+      "baseline_sha256": "988fa00e7b71230bd04144473375de0c2244903b05a7a51ebdff06e24c102dae",
+      "current_sha256": "988fa00e7b71230bd04144473375de0c2244903b05a7a51ebdff06e24c102dae",
+      "serialized_bytes_identical": true
+    },
+    "Output55Outline.Shape.brp": {
+      "baseline_sha256": "25ecfd9055be7baeabeae8693a480edaf84d250b7c3ee0928ce864b00ed78d11",
+      "current_sha256": "25ecfd9055be7baeabeae8693a480edaf84d250b7c3ee0928ce864b00ed78d11",
+      "serialized_bytes_identical": true
+    },
+    "Input18Outline.Shape.brp": {
+      "baseline_sha256": "1c069a8319dafd7cacdb8b96d9a2506a57fd7e9645376196e24636dbebc4f974",
+      "current_sha256": "1c069a8319dafd7cacdb8b96d9a2506a57fd7e9645376196e24636dbebc4f974",
+      "serialized_bytes_identical": true
+    }
+  },
+  "current_stl_sha256": {
+    "stl/mezikolo-a-54_18.stl": "92b682b472098d9d4f269c12f76eb6121963a9d5950780d93ee3108bf602cb26",
+    "stl/mezikolo-b-60_22.stl": "e9a7172ec7ac3183205fff3d9ac4ff05ffab035afc3ce89490cedd6ed61f9bae",
+    "stl/vystupni-kolo-55.stl": "362a0bf7a58bd3e94f05b97b10140cea8adbcf1df410e39c81f9903b902eedaf",
+    "stl/pastorek-18-otvor-2_2.stl": "2233c44357635fbeb14e6831d92572bb7da8ed279732ba0a64e24bd971268eb0",
+    "stl/ram-25.stl": "a4affc1bfec28e6fe91daeb82b2c4e7f1721fe98e06291b8ede8fac313e88ed4",
+    "stl/pevny-cep-8x53_9.stl": "dadc7cac8a1ab3539f123e7abdd65fa3d0555b4b37d583de85756956aaa5e795",
+    "stl/pojistka-6_9.stl": "7be6176012c834bfba0b745c0048f7139799b85b0654688302d0bba3353007e0",
+    "stl/pricny-klinek-4x27_1.stl": "39ccbc90327cf3cc0ce7a91f9430515797d55a2b332c9eb09c70b50763f0b020",
+    "stl/pojistka-3_1.stl": "b6b33f593dff03ea8d4ee5eb90d42629c0973c982cd988b141ce50b2897a08c4",
+    "stl/spolecny-cep-mustku-4x30_5.stl": "163175e6a521505acfa6a9a0793011728c6362d44e775abb203fb3357bcccd34",
+    "stl/cep-plosiny-4x19_5.stl": "ca809f5002b17f92be2453f7cbc73e78e0f17619d2a0040cec2acae125e639fc",
+    "stl/pojistka-osy-10_9.stl": "8fcc87ded5822951c16b6e075e3ca719e7c240d0e64890de46f22b4bd372ea29",
+    "stl/osa-zadni-12x150_6.stl": "d9c287fe20b5b7c1df883dcb33d3a426dfefb12102ad702be0b134094b475f58",
+    "stl/rozperka-zadni-17_6.stl": "3b772e4da5cf86901cec92e33da4d372c0bc2cd57376ec4930bfa20d72d2d205",
+    "stl/kolo-76x12-zadni-d.stl": "434869ad956aec81b362c1a0d4f236a6b8528be879c35f706f9892c8f4332d2d",
+    "stl/kolo-76x12-predni.stl": "5568c0fa1f7ffd7393a11d45d2609aefdff0d16024d7f8138f2396972ece76fe",
+    "stl/motorovy-mustek.stl": "6b3d81a3b4963a98f01334b87b32dbea474997b194dd0811bbcfb7487eac8c5b",
+    "stl/motorovy-klinek.stl": "b05c7ac17b7d8806d0ed986e239bb29b1f1c55f3d07ca1d605613de8ed9a14f8",
+    "stl/plosina-170x60.stl": "45d8828d928ab3e710758b9855a7f4e9e1522ca0efa34d2d4be95f6e8efaca08",
+    "stl/servo-viko.stl": "c1c735144b7cb1a0330d0e63ee376f5aa66310aadb6580be783ceab849caf9dc",
+    "stl/servo-cep-4x51_2.stl": "113049edfed69399da6e6df4c7381cd91e54f38f8d7933579a1d73f99becffba",
+    "stl/objimka-packy-spodek.stl": "be241901c13b19cc68b4620e25466e9933ab77915d62676c96df474d6295836f",
+    "stl/objimka-packy-viko.stl": "c50191d432602244f2ae62f0c347d0a245ec26dee4cd61bbb1dedc2cc9f79bf5",
+    "stl/objimka-cep-4x25_5.stl": "1a77990df981081e08aafe455b3f1d3777a7ba97abb2b9c89f1080c162737afa",
+    "stl/podlozka-packy-1_8.stl": "aeb339e15530e621e9b971f623145d6be8d3bf3efe1257eefd44743d12ac3345",
+    "stl/celist-horni.stl": "bbdfc0d4ba793f973ad7c13b947867d38b9739c58f13362b41cbaced25f51872",
+    "stl/svisly-cep-8.stl": "6ce92d30b28a9e7543339b1e0847aef8647ebabba7cdeba89ba701b449810c44",
+    "stl/tehlice-leva.stl": "3a1d6842f80eefdb1d92141f7329a75fae7d4c409c88bf4db069e47e2a4df655",
+    "stl/tehlice-prava.stl": "57965a41b07b256bcf550bc7c603bdeec5c489cdd0616eb062b4951894af2ec7",
+    "stl/spojovaci-tahlo.stl": "10e9fb72b2d571a950851eab0dcc2d6d28d2d0078c72035b2f7c40ad204603f5",
+    "stl/servo-tahlo-r15.stl": "3774b9d11426ba0328b9d34ae06aebcbf31c1e33b43eb61432b854adab7eb7ff",
+    "stl/cep-tahla-dlouhy.stl": "22f9d6b375883daaa08772d6c17d3ff2c9c0197f84218d6dd81c82a8f6b8e503",
+    "stl/cep-tahla-kratky.stl": "48fdf64462d8451bcf8dc93d661ccfafb24d372e493809f26744f9b55dd054d4",
+    "stl/pojistka-kloubu-4_9.stl": "16f315d7f9a68525af9bfd74d99b27113de4dcb9e2ce6369fecf930b6a8928cd"
+  },
+  "supplied_current_geometry_evidence": {
+    "report": "kontrola-revize-fitu.json",
+    "report_sha256": "cf4e8961d5bb5489f29431676e8c442cdfcad1aaa58537cebb40eb786e0dfb97",
+    "executed_by_this_independent_audit": false,
+    "input_fcstd_sha256_before_final_gui_save": "93771baf0bcd2d23dd986a76747e0fb48b7bd9a9efe71076761e641d5bd0694a",
+    "nominal_pair_count": 2345,
+    "nominal_collision_count": 0,
+    "gear_outline_identity": [
+      {
+        "object": "Input18Outline",
+        "symmetric_difference_mm3_at_1mm": 0.0,
+        "archive_fcstd_sha256": "33e6369daa80e11193a0c473c726f60a1f78c2f4cba7d32f66e4d51d3360754e"
+      },
+      {
+        "object": "A18Outline",
+        "symmetric_difference_mm3_at_1mm": 0.0,
+        "archive_fcstd_sha256": "33e6369daa80e11193a0c473c726f60a1f78c2f4cba7d32f66e4d51d3360754e"
+      },
+      {
+        "object": "B22Outline",
+        "symmetric_difference_mm3_at_1mm": 0.0,
+        "archive_fcstd_sha256": "33e6369daa80e11193a0c473c726f60a1f78c2f4cba7d32f66e4d51d3360754e"
+      },
+      {
+        "object": "A54Outline",
+        "symmetric_difference_mm3_at_1mm": 0.0,
+        "archive_fcstd_sha256": "33e6369daa80e11193a0c473c726f60a1f78c2f4cba7d32f66e4d51d3360754e"
+      },
+      {
+        "object": "B60Outline",
+        "symmetric_difference_mm3_at_1mm": 0.0,
+        "archive_fcstd_sha256": "33e6369daa80e11193a0c473c726f60a1f78c2f4cba7d32f66e4d51d3360754e"
+      },
+      {
+        "object": "Output55Outline",
+        "symmetric_difference_mm3_at_1mm": 0.0,
+        "archive_fcstd_sha256": "33e6369daa80e11193a0c473c726f60a1f78c2f4cba7d32f66e4d51d3360754e"
+      }
+    ],
+    "changed_horn_void_extreme_pairs": 24,
+    "stage3_full_8mm_contact_minimum_margin_mm": 1.5000000000000002
+  },
+  "archive": {
+    "path": "historie/pred-kalibraci-8_6-12_6-2026-09-20/puvodni-revize.zip",
+    "zip_sha256": "4542c2ec27acef32b1284fbcb6d1ab4ee3949032a1b7dcfdaf5e4c261e63bb9e",
+    "manifest_sha256": "8a5af58d2f716fe3fce8ec164e17ff66462227e90e63c138860d18ff47885307",
+    "verified_files": 86,
+    "manifest_mismatches": [],
+    "archived_final_fcstd_sha256": "33e6369daa80e11193a0c473c726f60a1f78c2f4cba7d32f66e4d51d3360754e"
+  },
+  "historical_evidence": {
+    "current_cad_checks_rerun_by_this_audit": false,
+    "reuse_scope": "Only unchanged tooth profiles, axes, outer material geometry and kinematics; changed fit voids require current nominal geometry checks in kontrola-modelu.json. No inherited clearance guarantee.",
+    "steering": {
+      "archive_report": "nezavisla-kontrola.json",
+      "report_sha256": "996a32cbb754cc27f6f4f492734b8584540f2740fe80a54c5ec0f009b7a01ccf",
+      "snapshot_fcstd_sha256": "4d004b26fdadf4a7cba14c2da16fc47507f41d1e6d189d1fed30264070920ba9",
+      "source_sha256": "f18881bce5b080de9924a39a8e4102bc449c8eab49ff603e3952c355cfae00e8",
+      "samples": 9,
+      "pair_checks": 9450,
+      "collisions": 0,
+      "is_current_revision_rerun": false
+    },
+    "gears": {
+      "archive_report": "kontrola-modelu.json",
+      "report_sha256": "4814444d44e5ba53d79cf609f7c7fa3b9f0f259c4c47c44a62d24c4853b197c2",
+      "source_sha256": "f18881bce5b080de9924a39a8e4102bc449c8eab49ff603e3952c355cfae00e8",
+      "phase_samples": 65,
+      "is_current_revision_rerun": false
+    },
+    "snapshot_note": "Historical independent audit snapshot hash differs from later archived GUI-saved FCStd. Both are named explicitly; source and current XML placement checks establish source-level continuity, not byte identity or a new motion rerun."
+  },
+  "limitations": [
+    "PASS refers to the listed source/provenance checks, not every tolerance combination or measured load capacity.",
+    "Nominal CAD diametric differences are not measured running clearances. Actual printed radial play is unknown.",
+    "The original20degree/m1 gear geometry is retained; no successful full enlarged radial-play envelope is claimed.",
+    "8.1/12.1 fixed fits,4.1static locks and Dflat4.05 are requested nominal fit drafts; complete revised car has not been physically assembled.",
+    "Byte differences in regenerated BREP serialization are not by themselves geometry differences; current geometry comparison is a separate writer-produced check."
+  ]
+}

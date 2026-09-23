@@ -1,0 +1,549 @@
+{
+  "candidate": {
+    "module": 1.1,
+    "pressure_angle": 14,
+    "small_addendum": 1.31,
+    "large_addendum": 1.59,
+    "dedendum": 1.7,
+    "centre_extra": 0.8
+  },
+  "pairs": [
+    {
+      "teeth": [
+        18,
+        54
+      ],
+      "centres": {
+        "min": 39.9,
+        "nominal": 40.4,
+        "max": 40.9
+      },
+      "small_profile": {
+        "teeth": 18,
+        "tip_edges": 18,
+        "minimum_actual_tip_chord": 0.5691349346713672,
+        "minimum_flank_endpoint_radius": 9.625463538213813,
+        "nominal_tip_curve_radius": 11.341000000004234
+      },
+      "large_profile": {
+        "teeth": 54,
+        "tip_edges": 54,
+        "minimum_actual_tip_chord": 0.569912224952603,
+        "minimum_flank_endpoint_radius": 28.845734087498474,
+        "nominal_tip_curve_radius": 31.449000000278375
+      },
+      "phases": [
+        {
+          "large_angle_deg": 0.0,
+          "minimum_centre_overlap_mm3": 0.0
+        },
+        {
+          "large_angle_deg": 0.20833333333333334,
+          "minimum_centre_overlap_mm3": 0.0
+        },
+        {
+          "large_angle_deg": 0.4166666666666667,
+          "minimum_centre_overlap_mm3": 0.0
+        },
+        {
+          "large_angle_deg": 0.625,
+          "minimum_centre_overlap_mm3": 0.0
+        },
+        {
+          "large_angle_deg": 0.8333333333333334,
+          "minimum_centre_overlap_mm3": 0.0
+        },
+        {
+          "large_angle_deg": 1.0416666666666667,
+          "minimum_centre_overlap_mm3": 0.0
+        },
+        {
+          "large_angle_deg": 1.25,
+          "minimum_centre_overlap_mm3": 0.0
+        },
+        {
+          "large_angle_deg": 1.4583333333333333,
+          "minimum_centre_overlap_mm3": 0.0
+        },
+        {
+          "large_angle_deg": 1.6666666666666667,
+          "minimum_centre_overlap_mm3": 0.0
+        },
+        {
+          "large_angle_deg": 1.875,
+          "minimum_centre_overlap_mm3": 0.0
+        },
+        {
+          "large_angle_deg": 2.0833333333333335,
+          "minimum_centre_overlap_mm3": 0.0
+        },
+        {
+          "large_angle_deg": 2.2916666666666665,
+          "minimum_centre_overlap_mm3": 0.0
+        },
+        {
+          "large_angle_deg": 2.5,
+          "minimum_centre_overlap_mm3": 0.0
+        },
+        {
+          "large_angle_deg": 2.7083333333333335,
+          "minimum_centre_overlap_mm3": 0.0
+        },
+        {
+          "large_angle_deg": 2.9166666666666665,
+          "minimum_centre_overlap_mm3": 0.0
+        },
+        {
+          "large_angle_deg": 3.125,
+          "minimum_centre_overlap_mm3": 0.0
+        },
+        {
+          "large_angle_deg": 3.3333333333333335,
+          "minimum_centre_overlap_mm3": 0.0
+        },
+        {
+          "large_angle_deg": 3.5416666666666665,
+          "minimum_centre_overlap_mm3": 0.0
+        },
+        {
+          "large_angle_deg": 3.75,
+          "minimum_centre_overlap_mm3": 0.0
+        },
+        {
+          "large_angle_deg": 3.9583333333333335,
+          "minimum_centre_overlap_mm3": 0.0
+        },
+        {
+          "large_angle_deg": 4.166666666666667,
+          "minimum_centre_overlap_mm3": 0.0
+        },
+        {
+          "large_angle_deg": 4.375,
+          "minimum_centre_overlap_mm3": 0.0
+        },
+        {
+          "large_angle_deg": 4.583333333333333,
+          "minimum_centre_overlap_mm3": 0.0
+        },
+        {
+          "large_angle_deg": 4.791666666666667,
+          "minimum_centre_overlap_mm3": 0.0
+        },
+        {
+          "large_angle_deg": 5.0,
+          "minimum_centre_overlap_mm3": 0.0
+        },
+        {
+          "large_angle_deg": 5.208333333333333,
+          "minimum_centre_overlap_mm3": 0.0
+        },
+        {
+          "large_angle_deg": 5.416666666666667,
+          "minimum_centre_overlap_mm3": 0.0
+        },
+        {
+          "large_angle_deg": 5.625,
+          "minimum_centre_overlap_mm3": 0.0
+        },
+        {
+          "large_angle_deg": 5.833333333333333,
+          "minimum_centre_overlap_mm3": 0.0
+        },
+        {
+          "large_angle_deg": 6.041666666666667,
+          "minimum_centre_overlap_mm3": 0.0
+        },
+        {
+          "large_angle_deg": 6.25,
+          "minimum_centre_overlap_mm3": 0.0
+        },
+        {
+          "large_angle_deg": 6.458333333333333,
+          "minimum_centre_overlap_mm3": 0.0
+        }
+      ],
+      "max_interference_mm3": 0.0,
+      "collision_free": true,
+      "active_involute_estimate": [
+        {
+          "centre_type": "min",
+          "ideal_contact_ratio": 2.3465509986636035,
+          "active_spline_contact_ratio": 1.615128514883669,
+          "large_tip_below_small_base_path_mm": 1.839588723430925
+        },
+        {
+          "centre_type": "nominal",
+          "ideal_contact_ratio": 1.8311902713007246,
+          "active_spline_contact_ratio": 1.615128514883669,
+          "large_tip_below_small_base_path_mm": 0.11153198925158314
+        },
+        {
+          "centre_type": "max",
+          "ideal_contact_ratio": 1.3736527460547305,
+          "active_spline_contact_ratio": 1.3736527460547305,
+          "large_tip_below_small_base_path_mm": 0
+        }
+      ]
+    },
+    {
+      "teeth": [
+        18,
+        60
+      ],
+      "centres": {
+        "min": 43.0,
+        "nominal": 43.7,
+        "max": 44.400000000000006
+      },
+      "small_profile": {
+        "teeth": 18,
+        "tip_edges": 18,
+        "minimum_actual_tip_chord": 0.5691349346713672,
+        "minimum_flank_endpoint_radius": 9.625463538213813,
+        "nominal_tip_curve_radius": 11.341000000004234
+      },
+      "large_profile": {
+        "teeth": 60,
+        "tip_edges": 60,
+        "minimum_actual_tip_chord": 0.5939958987597661,
+        "minimum_flank_endpoint_radius": 32.048635941975455,
+        "nominal_tip_curve_radius": 34.749000000268346
+      },
+      "phases": [
+        {
+          "large_angle_deg": 0.0,
+          "minimum_centre_overlap_mm3": 0.004319409705318842
+        },
+        {
+          "large_angle_deg": 0.1875,
+          "minimum_centre_overlap_mm3": 0.0043811028543466225
+        },
+        {
+          "large_angle_deg": 0.375,
+          "minimum_centre_overlap_mm3": 0.004565454224440455
+        },
+        {
+          "large_angle_deg": 0.5625,
+          "minimum_centre_overlap_mm3": 0.004914980634550953
+        },
+        {
+          "large_angle_deg": 0.75,
+          "minimum_centre_overlap_mm3": 0.005385617498846466
+        },
+        {
+          "large_angle_deg": 0.9375,
+          "minimum_centre_overlap_mm3": 0.005560217559464887
+        },
+        {
+          "large_angle_deg": 1.125,
+          "minimum_centre_overlap_mm3": 0.005339572665633685
+        },
+        {
+          "large_angle_deg": 1.3125,
+          "minimum_centre_overlap_mm3": 0.004681570068432233
+        },
+        {
+          "large_angle_deg": 1.5,
+          "minimum_centre_overlap_mm3": 0.0035727413338794744
+        },
+        {
+          "large_angle_deg": 1.6875,
+          "minimum_centre_overlap_mm3": 0.0020571972730577953
+        },
+        {
+          "large_angle_deg": 1.875,
+          "minimum_centre_overlap_mm3": 0.00037360813751923655
+        },
+        {
+          "large_angle_deg": 2.0625,
+          "minimum_centre_overlap_mm3": 0.0
+        },
+        {
+          "large_angle_deg": 2.25,
+          "minimum_centre_overlap_mm3": 0.0
+        },
+        {
+          "large_angle_deg": 2.4375,
+          "minimum_centre_overlap_mm3": 0.0
+        },
+        {
+          "large_angle_deg": 2.625,
+          "minimum_centre_overlap_mm3": 0.0
+        },
+        {
+          "large_angle_deg": 2.8125,
+          "minimum_centre_overlap_mm3": 0.0
+        },
+        {
+          "large_angle_deg": 3.0,
+          "minimum_centre_overlap_mm3": 0.0
+        },
+        {
+          "large_angle_deg": 3.1875,
+          "minimum_centre_overlap_mm3": 0.0
+        },
+        {
+          "large_angle_deg": 3.375,
+          "minimum_centre_overlap_mm3": 0.0
+        },
+        {
+          "large_angle_deg": 3.5625,
+          "minimum_centre_overlap_mm3": 0.0
+        },
+        {
+          "large_angle_deg": 3.75,
+          "minimum_centre_overlap_mm3": 0.0
+        },
+        {
+          "large_angle_deg": 3.9375,
+          "minimum_centre_overlap_mm3": 0.0
+        },
+        {
+          "large_angle_deg": 4.125,
+          "minimum_centre_overlap_mm3": 0.00035304393397598085
+        },
+        {
+          "large_angle_deg": 4.3125,
+          "minimum_centre_overlap_mm3": 0.002022057569770139
+        },
+        {
+          "large_angle_deg": 4.5,
+          "minimum_centre_overlap_mm3": 0.0035297293859100276
+        },
+        {
+          "large_angle_deg": 4.6875,
+          "minimum_centre_overlap_mm3": 0.004633279778271413
+        },
+        {
+          "large_angle_deg": 4.875,
+          "minimum_centre_overlap_mm3": 0.005287868100583178
+        },
+        {
+          "large_angle_deg": 5.0625,
+          "minimum_centre_overlap_mm3": 0.005506729188250253
+        },
+        {
+          "large_angle_deg": 5.25,
+          "minimum_centre_overlap_mm3": 0.0053319008236640455
+        },
+        {
+          "large_angle_deg": 5.4375,
+          "minimum_centre_overlap_mm3": 0.004868512737712782
+        },
+        {
+          "large_angle_deg": 5.625,
+          "minimum_centre_overlap_mm3": 0.0045351471357104114
+        },
+        {
+          "large_angle_deg": 5.8125,
+          "minimum_centre_overlap_mm3": 0.004366148883240122
+        }
+      ],
+      "max_interference_mm3": 0.005560217559464887,
+      "collision_free": false,
+      "active_involute_estimate": [
+        {
+          "centre_type": "min",
+          "ideal_contact_ratio": 2.607577273483332,
+          "active_spline_contact_ratio": 1.615128514883669,
+          "large_tip_below_small_base_path_mm": 2.7148362695683925
+        },
+        {
+          "centre_type": "nominal",
+          "ideal_contact_ratio": 1.8561858154933237,
+          "active_spline_contact_ratio": 1.615128514883669,
+          "large_tip_below_small_base_path_mm": 0.19534458142856614
+        },
+        {
+          "centre_type": "max",
+          "ideal_contact_ratio": 1.2165230286832627,
+          "active_spline_contact_ratio": 1.2165230286832627,
+          "large_tip_below_small_base_path_mm": 0
+        }
+      ]
+    },
+    {
+      "teeth": [
+        22,
+        55
+      ],
+      "centres": {
+        "min": 42.449999999999996,
+        "nominal": 43.15,
+        "max": 43.85
+      },
+      "small_profile": {
+        "teeth": 22,
+        "tip_edges": 22,
+        "minimum_actual_tip_chord": 0.630663788227795,
+        "minimum_flank_endpoint_radius": 11.760494693499378,
+        "nominal_tip_curve_radius": 13.54100000001273
+      },
+      "large_profile": {
+        "teeth": 55,
+        "tip_edges": 55,
+        "minimum_actual_tip_chord": 0.5742423995603693,
+        "minimum_flank_endpoint_radius": 29.379549918885388,
+        "nominal_tip_curve_radius": 31.9990000003716
+      },
+      "phases": [
+        {
+          "large_angle_deg": 0.0,
+          "minimum_centre_overlap_mm3": 0.0002632910393438237
+        },
+        {
+          "large_angle_deg": 0.20454545454545456,
+          "minimum_centre_overlap_mm3": 0.0002085522214570311
+        },
+        {
+          "large_angle_deg": 0.4090909090909091,
+          "minimum_centre_overlap_mm3": 7.685730564343186e-05
+        },
+        {
+          "large_angle_deg": 0.6136363636363636,
+          "minimum_centre_overlap_mm3": 0.0
+        },
+        {
+          "large_angle_deg": 0.8181818181818182,
+          "minimum_centre_overlap_mm3": 0.0
+        },
+        {
+          "large_angle_deg": 1.0227272727272727,
+          "minimum_centre_overlap_mm3": 0.0
+        },
+        {
+          "large_angle_deg": 1.2272727272727273,
+          "minimum_centre_overlap_mm3": 0.0
+        },
+        {
+          "large_angle_deg": 1.4318181818181819,
+          "minimum_centre_overlap_mm3": 0.0
+        },
+        {
+          "large_angle_deg": 1.6363636363636365,
+          "minimum_centre_overlap_mm3": 0.0
+        },
+        {
+          "large_angle_deg": 1.8409090909090908,
+          "minimum_centre_overlap_mm3": 0.0
+        },
+        {
+          "large_angle_deg": 2.0454545454545454,
+          "minimum_centre_overlap_mm3": 0.0
+        },
+        {
+          "large_angle_deg": 2.25,
+          "minimum_centre_overlap_mm3": 0.0
+        },
+        {
+          "large_angle_deg": 2.4545454545454546,
+          "minimum_centre_overlap_mm3": 0.0
+        },
+        {
+          "large_angle_deg": 2.659090909090909,
+          "minimum_centre_overlap_mm3": 0.0
+        },
+        {
+          "large_angle_deg": 2.8636363636363638,
+          "minimum_centre_overlap_mm3": 0.0
+        },
+        {
+          "large_angle_deg": 3.0681818181818183,
+          "minimum_centre_overlap_mm3": 0.0
+        },
+        {
+          "large_angle_deg": 3.272727272727273,
+          "minimum_centre_overlap_mm3": 0.0
+        },
+        {
+          "large_angle_deg": 3.477272727272727,
+          "minimum_centre_overlap_mm3": 0.0
+        },
+        {
+          "large_angle_deg": 3.6818181818181817,
+          "minimum_centre_overlap_mm3": 0.0
+        },
+        {
+          "large_angle_deg": 3.8863636363636362,
+          "minimum_centre_overlap_mm3": 0.0
+        },
+        {
+          "large_angle_deg": 4.090909090909091,
+          "minimum_centre_overlap_mm3": 0.0
+        },
+        {
+          "large_angle_deg": 4.295454545454546,
+          "minimum_centre_overlap_mm3": 0.0
+        },
+        {
+          "large_angle_deg": 4.5,
+          "minimum_centre_overlap_mm3": 0.0
+        },
+        {
+          "large_angle_deg": 4.704545454545454,
+          "minimum_centre_overlap_mm3": 0.0
+        },
+        {
+          "large_angle_deg": 4.909090909090909,
+          "minimum_centre_overlap_mm3": 0.0
+        },
+        {
+          "large_angle_deg": 5.113636363636363,
+          "minimum_centre_overlap_mm3": 0.0
+        },
+        {
+          "large_angle_deg": 5.318181818181818,
+          "minimum_centre_overlap_mm3": 0.0
+        },
+        {
+          "large_angle_deg": 5.5227272727272725,
+          "minimum_centre_overlap_mm3": 0.0
+        },
+        {
+          "large_angle_deg": 5.7272727272727275,
+          "minimum_centre_overlap_mm3": 0.0
+        },
+        {
+          "large_angle_deg": 5.931818181818182,
+          "minimum_centre_overlap_mm3": 0.0
+        },
+        {
+          "large_angle_deg": 6.136363636363637,
+          "minimum_centre_overlap_mm3": 7.282737418650022e-05
+        },
+        {
+          "large_angle_deg": 6.340909090909091,
+          "minimum_centre_overlap_mm3": 0.00020604356589958874
+        }
+      ],
+      "max_interference_mm3": 0.0002632910393438237,
+      "collision_free": false,
+      "active_involute_estimate": [
+        {
+          "centre_type": "min",
+          "ideal_contact_ratio": 2.636429512238914,
+          "active_spline_contact_ratio": 1.8080334023592641,
+          "large_tip_below_small_base_path_mm": 2.0935492464912127
+        },
+        {
+          "centre_type": "nominal",
+          "ideal_contact_ratio": 1.886159732571553,
+          "active_spline_contact_ratio": 1.8080334023592641,
+          "large_tip_below_small_base_path_mm": 0
+        },
+        {
+          "centre_type": "max",
+          "ideal_contact_ratio": 1.2482764466925962,
+          "active_spline_contact_ratio": 1.2482764466925955,
+          "large_tip_below_small_base_path_mm": 0
+        }
+      ]
+    }
+  ],
+  "control": {
+    "maximum_overlap_mm3": 0.0,
+    "samples": 8
+  },
+  "scope": "1mm extrusion of actual fcgear planar profile, 32 unique phases per pair, no chassis generation.",
+  "passed": false
+}

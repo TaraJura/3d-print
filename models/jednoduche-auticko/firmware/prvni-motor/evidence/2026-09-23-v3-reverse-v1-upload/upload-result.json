@@ -1,0 +1,25 @@
+{
+  "command": [
+    "/home/novakj/.cache/auticko-arduino-test/ide-cli/resources/app/lib/backend/resources/arduino-cli",
+    "--config-file",
+    "/home/novakj/.cache/auticko-arduino-test/arduino-cli.yaml",
+    "upload",
+    "--fqbn",
+    "arduino:renesas_uno:unor4wifi",
+    "--port",
+    "/dev/ttyACM0",
+    "--input-file",
+    "/home/novakj/3d-print/models/jednoduche-auticko/firmware/prvni-motor/.cache/arduino-v3-reverse-v1-build/prvni-motor.ino.bin",
+    "--verbose"
+  ],
+  "started_utc": "2026-09-22T22:09:20.794473+00:00",
+  "finished_utc": "2026-09-22T22:09:27.713728+00:00",
+  "exit_code": 0,
+  "performed": true,
+  "source_sha256": "d24a87631fd32a41685baedd7488c425a75ca6f9e300706349c61e09e79fe930",
+  "bin_sha256": "663fbe045211770308dab03aa696c69ea0b61f314b063ae9fc5bf7310c0ae19e",
+  "bin_bytes": 86716,
+  "usb_serial": "3CDC75F1A2D4",
+  "flash_readback_verified": false,
+  "pages": 22
+}

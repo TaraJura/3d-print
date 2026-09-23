@@ -1,0 +1,119 @@
+{
+  "date": "2026-09-20",
+  "created_utc": "2026-09-19T23:46:27.452874+00:00",
+  "source": "prvni-motor.ino",
+  "sha256": "9f7477c851898e97e7c9fd50ca632104c9214259b415a3fa9996ca6a48d8760c",
+  "build_id": "v3-steering-v1",
+  "board": "Arduino UNO R4 WiFi",
+  "fqbn": "arduino:renesas_uno:unor4wifi",
+  "arduino_cli": "1.5.1",
+  "core": "arduino:renesas_uno@1.6.0",
+  "compile_passed": true,
+  "flash_bytes": 84908,
+  "flash_capacity": 262144,
+  "global_ram_bytes": 9864,
+  "ram_capacity": 32768,
+  "compile_warnings": "Existing Arduino core/library warnings; no warning located in current .ino.",
+  "host_tests": {
+    "source_sha256": "9f7477c851898e97e7c9fd50ca632104c9214259b415a3fa9996ca6a48d8760c",
+    "parser": 109,
+    "complete_http_loop": 109,
+    "named_protocol_recovery_failure_groups": 34,
+    "motor_blocking_irq_scenarios": 7,
+    "combined_motor_steering_blocking_irq_scenarios": 7,
+    "javascript": 33,
+    "real_chromium_http": 14,
+    "passed": true,
+    "hardware_is_mocked": true,
+    "physical_hardware_used": false,
+    "scope": "Actual sketch C++ with mocked hardware; actual inline JS in Node and real Chromium against localhost HTTP to mocked sketch. No USB, Arduino WiFi, or physical actuators accessed."
+  },
+  "behavior": {
+    "mode": "shared hold-to-run motor and steering intent",
+    "motor_pins": {
+      "D5": "L293D pin1 EN",
+      "D7": "L293D pin2 IN1 HIGH during motor ON",
+      "D8": "L293D pin7 IN2 LOW"
+    },
+    "motor_pwm_hz": 490,
+    "motor_pwm_8bit_equivalent": 128,
+    "steering_pin": "D9",
+    "servo_pwm_hz": 50,
+    "nominal_center_us": 1500,
+    "initial_offset_us": 150,
+    "steering_sign": 1,
+    "initial_left_us": 1350,
+    "initial_right_us": 1650,
+    "pulse_to_angle_measured": false,
+    "boot": "Motor OFF; servo immediately commanded nominal center. First centering without horn/linkage.",
+    "steer_only": "Explicit motor=0; motor OFF even with active steering lease.",
+    "controls": "Motor and steering hold independently, both multitouch orders, release turn centers, release drive switches motor off, Center preserves only an already held motor request.",
+    "lease_ms": 500,
+    "timer_tick_ms": 5,
+    "heartbeat_ms_after_reply": 20,
+    "arm_off_phase_timeout_ms": 3000,
+    "challenge_max_age_ms_exclusive": 500,
+    "lost_stop_inflight_hold_conservative_bound_ms": 1000,
+    "bound_scope": "From browser processing release or communication loss to motor OFF and neutral command; excludes event delivery delay, up to next 20ms servo PWM period and mechanical motion. Timer interrupts must run.",
+    "failure": "PWM/timer startup failure prevents control. Servo PWM failure switches motor OFF and servo signal LOW; physical centering not guaranteed.",
+    "hardware_watchdog_independent_of_cpu": false
+  },
+  "hardware_uploaded": false,
+  "hardware_accessed": false,
+  "upload": {
+    "performed": false
+  },
+  "physical_motor_tested": false,
+  "physical_servo_tested": false,
+  "phone_hold_release_tested": false,
+  "physical_network_loss_stop_tested": false,
+  "physical_acceptance": null,
+  "last_known_uploaded_version": {
+    "build_id": "hold-to-run-v2",
+    "source_sha256": "1760730b716a6fb281ed900400d533eaac17d96c9b779a6c91e2e99502d69110",
+    "record": "../archiv-hold-to-run-v2/overeni-programu.json",
+    "source": "../archiv-hold-to-run-v2/prvni-motor.ino",
+    "user_accepted_hold_release": true,
+    "status": "Historical upload and user acceptance only; current hardware was not queried during V3 preparation.",
+    "archive_files_verified": 26
+  },
+  "read_only_reviews": {
+    "source_sha256": "9f7477c851898e97e7c9fd50ca632104c9214259b415a3fa9996ca6a48d8760c",
+    "protocol_ui_isr": "Independent agent review: no blocking finding; root inspected actual source and reviewed test evidence.",
+    "timer_pin_power": "Independent audit of installed core1.6.0: motor GPT0A, servo GPT7B, D8 stays GPIO, safety GPT4. No dynamic allocation, waiting or modem calls in PWM duty updates.",
+    "physical_scope": "No electrical pulse/current/angle measurement.",
+    "final_documentation": "Independent review confirmed source, reports and logs; ambiguous pending power wording corrected. Actual second USB voltage/current remains unconfirmed."
+  },
+  "power": {
+    "planned": "Existing powerbank output 1 to UNO USB-C; output 2 directly to SG90 only after confirming 5 V and current rating. Common GND; AA holder remains motor source.",
+    "final_wiring_ready": false,
+    "pending": "Second USB V/A rating and shared limit plus available cable/breakout to expose +5V/GND."
+  },
+  "evidence": {
+    "manifest": "evidence/2026-09-20-v3-steering-v1/manifest.json",
+    "compile": "evidence/2026-09-20-v3-steering-v1/arduino-compile.txt",
+    "host_and_browser_tests": "evidence/2026-09-20-v3-steering-v1/host-and-browser-tests.txt"
+  },
+  "preview": {
+    "html": "../../../../elektronika/auticko/nahled-ovladani-v3.html",
+    "screenshot": "../../../../elektronika/auticko/nahled-ovladani-v3.png",
+    "html_sha256": "ba0059d04554c1b5ba5f801ba8e7873bdc3b33cfbcec428f47ad0fc0b0ad9867",
+    "screenshot_sha256": "8df4584044474b30d9f0d34528e56b0c718dd705ed37c8098fcbb6df77868a4f",
+    "screenshot_viewport_px": [
+      390,
+      844
+    ],
+    "scope": "Screenshot of actual sketch UI served by local mocked C++ test. Separate offline HTML uses the same embedded UI, visible simulation notice, mock fetch and CSP connect-src none."
+  },
+  "compiled_artifacts_sha256": {
+    ".cache/arduino-v3-build/prvni-motor.ino.bin": "15cd31e1f12aa6f19edcf755ddfd930c05b9e571ff671d6a4faefd02c0b9b6b6",
+    ".cache/arduino-v3-build/prvni-motor.ino.elf": "db86354a09207b838d3b9e1a87e0daafd6f33c19d30f0bf356f211bdae93bb93"
+  },
+  "limitations": [
+    "Source, compile and simulations are ready; V3 upload and physical commissioning not performed.",
+    "SG90 neutral, direction, actual angle, load, startup power and current reserve unmeasured.",
+    "Unknown DC motor current, earlier heavy start, battery population and missing decoupling remain hardware concerns.",
+    "No claim that CAD fit, printed steering or actual vehicle performance is proven by software tests."
+  ],
+  "workspace_policy": "All new artifacts in personal 3d-print repo; existing CAD/print set untouched, no Desktop, no device control, no commit/push."
+}

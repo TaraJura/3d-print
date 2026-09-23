@@ -1,0 +1,225 @@
+{
+  "model": "auticko-silovy-prevod-25",
+  "revision": "2026-09-20 post fit revision",
+  "photos": [
+    {
+      "file": "/home/novakj/Downloads/20260920_124057.jpg",
+      "sha256": "a7cdc1c9b53ca46f037a4fdd01d6cc01ef761bb96e0282c5321fb95a3072ced3"
+    },
+    {
+      "file": "/home/novakj/Downloads/20260920_125550.jpg",
+      "sha256": "5b4e07a843a1ebb4d31cccbd54c68a92d922936eee32098278923e8e3d7fda18"
+    }
+  ],
+  "original_plate_counts": [
+    26,
+    27,
+    13
+  ],
+  "first_plate": {
+    "planned": 26,
+    "visible_preserved_objects": 20,
+    "visible_without_large_defect": 19,
+    "visible_defective": 1,
+    "absent_from_preserved_set": 6,
+    "repair_count": 7,
+    "items": [
+      {
+        "original_number": 1,
+        "name": "spojovaci-tahlo__01.stl",
+        "state": "present_no_large_visible_defect",
+        "reason": "Visible in second photo; underside, dimensions, fit and strength not verified.",
+        "reprint": false
+      },
+      {
+        "original_number": 2,
+        "name": "kolo-76x12-predni__02.stl",
+        "state": "present_no_large_visible_defect",
+        "reason": "Visible in second photo; underside, dimensions, fit and strength not verified.",
+        "reprint": false
+      },
+      {
+        "original_number": 3,
+        "name": "kolo-76x12-predni__01.stl",
+        "state": "present_no_large_visible_defect",
+        "reason": "Visible in second photo; underside, dimensions, fit and strength not verified.",
+        "reprint": false
+      },
+      {
+        "original_number": 4,
+        "name": "kolo-76x12-zadni-d__01.stl",
+        "state": "present_no_large_visible_defect",
+        "reason": "Visible in second photo; underside, dimensions, fit and strength not verified.",
+        "reprint": false
+      },
+      {
+        "original_number": 5,
+        "name": "mezikolo-b-60_22__01.stl",
+        "state": "present_no_large_visible_defect",
+        "reason": "Visible in second photo; underside, dimensions, fit and strength not verified.",
+        "reprint": false
+      },
+      {
+        "original_number": 6,
+        "name": "kolo-76x12-zadni-d__02.stl",
+        "state": "present_no_large_visible_defect",
+        "reason": "Visible in second photo; underside, dimensions, fit and strength not verified.",
+        "reprint": false
+      },
+      {
+        "original_number": 7,
+        "name": "mezikolo-a-54_18__01.stl",
+        "state": "present_no_large_visible_defect",
+        "reason": "Visible in second photo; underside, dimensions, fit and strength not verified.",
+        "reprint": false
+      },
+      {
+        "original_number": 8,
+        "name": "osa-zadni-12x150_6__01.stl",
+        "state": "not_in_preserved_set",
+        "reason": "Absent from laid-out 20-part set; corresponding first-photo positions include failed shafts/pins. Reprint one copy.",
+        "reprint": true
+      },
+      {
+        "original_number": 9,
+        "name": "servo-viko__01.stl",
+        "state": "present_no_large_visible_defect",
+        "reason": "Visible in second photo; underside, dimensions, fit and strength not verified.",
+        "reprint": false
+      },
+      {
+        "original_number": 10,
+        "name": "servo-tahlo-r15__01.stl",
+        "state": "present_no_large_visible_defect",
+        "reason": "Visible in second photo; underside, dimensions, fit and strength not verified.",
+        "reprint": false
+      },
+      {
+        "original_number": 11,
+        "name": "tehlice-prava__01.stl",
+        "state": "present_visibly_defective",
+        "reason": "Second photo reveals damaged underside, arm and stub; replace.",
+        "reprint": true
+      },
+      {
+        "original_number": 12,
+        "name": "svisly-cep-8__02.stl",
+        "state": "not_in_preserved_set",
+        "reason": "Absent from laid-out 20-part set; corresponding first-photo positions include failed shafts/pins. Reprint one copy.",
+        "reprint": true
+      },
+      {
+        "original_number": 13,
+        "name": "pevny-cep-8x53_9__01.stl",
+        "state": "not_in_preserved_set",
+        "reason": "Absent from laid-out 20-part set; corresponding first-photo positions include failed shafts/pins. Reprint one copy.",
+        "reprint": true
+      },
+      {
+        "original_number": 14,
+        "name": "servo-cep-4x51_2__01.stl",
+        "state": "not_in_preserved_set",
+        "reason": "Absent from laid-out 20-part set; corresponding first-photo positions include failed shafts/pins. Reprint one copy.",
+        "reprint": true
+      },
+      {
+        "original_number": 15,
+        "name": "celist-horni__02.stl",
+        "state": "present_no_large_visible_defect",
+        "reason": "Visible in second photo; underside, dimensions, fit and strength not verified.",
+        "reprint": false
+      },
+      {
+        "original_number": 16,
+        "name": "motorovy-mustek__01.stl",
+        "state": "present_no_large_visible_defect",
+        "reason": "Visible in second photo; underside, dimensions, fit and strength not verified.",
+        "reprint": false
+      },
+      {
+        "original_number": 17,
+        "name": "pricny-klinek-4x27_1__01.stl",
+        "state": "not_in_preserved_set",
+        "reason": "Absent from laid-out 20-part set; corresponding first-photo positions include failed shafts/pins. Reprint one copy.",
+        "reprint": true
+      },
+      {
+        "original_number": 18,
+        "name": "pojistka-6_9__04.stl",
+        "state": "present_no_large_visible_defect",
+        "reason": "Visible in second photo; underside, dimensions, fit and strength not verified.",
+        "reprint": false
+      },
+      {
+        "original_number": 19,
+        "name": "cep-plosiny-4x19_5__04.stl",
+        "state": "not_in_preserved_set",
+        "reason": "Absent from laid-out 20-part set; corresponding first-photo positions include failed shafts/pins. Reprint one copy.",
+        "reprint": true
+      },
+      {
+        "original_number": 20,
+        "name": "motorovy-klinek__02.stl",
+        "state": "present_no_large_visible_defect",
+        "reason": "Visible in second photo; underside, dimensions, fit and strength not verified.",
+        "reprint": false
+      },
+      {
+        "original_number": 21,
+        "name": "pojistka-kloubu-4_9__02.stl",
+        "state": "present_no_large_visible_defect",
+        "reason": "Visible in second photo; underside, dimensions, fit and strength not verified.",
+        "reprint": false
+      },
+      {
+        "original_number": 22,
+        "name": "motorovy-klinek__01.stl",
+        "state": "present_no_large_visible_defect",
+        "reason": "Visible in second photo; underside, dimensions, fit and strength not verified.",
+        "reprint": false
+      },
+      {
+        "original_number": 23,
+        "name": "pojistka-3_1__07.stl",
+        "state": "present_no_large_visible_defect",
+        "reason": "Visible in second photo; underside, dimensions, fit and strength not verified.",
+        "reprint": false
+      },
+      {
+        "original_number": 24,
+        "name": "pojistka-3_1__02.stl",
+        "state": "present_no_large_visible_defect",
+        "reason": "Visible in second photo; underside, dimensions, fit and strength not verified.",
+        "reprint": false
+      },
+      {
+        "original_number": 25,
+        "name": "pojistka-3_1__01.stl",
+        "state": "present_no_large_visible_defect",
+        "reason": "Visible in second photo; underside, dimensions, fit and strength not verified.",
+        "reprint": false
+      },
+      {
+        "original_number": 26,
+        "name": "pojistka-3_1__03.stl",
+        "state": "present_no_large_visible_defect",
+        "reason": "Visible in second photo; underside, dimensions, fit and strength not verified.",
+        "reprint": false
+      }
+    ]
+  },
+  "second_plate": {
+    "count": 27,
+    "state": "printing",
+    "source": "User report relayed by originating task; completion and quality unconfirmed",
+    "automatic_reprint": false
+  },
+  "third_plate": {
+    "count": 13,
+    "state": "planned_unprinted",
+    "source": "Original remaining plate, not first-plate failure",
+    "automatic_reprint": false
+  },
+  "accounting": "19 retained + 7 replacements + 27 currently printing + 13 planned = 66 required parts",
+  "physical_assembly_verified": false
+}

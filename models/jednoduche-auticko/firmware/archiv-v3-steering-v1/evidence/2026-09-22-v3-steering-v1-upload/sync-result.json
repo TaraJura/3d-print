@@ -1,0 +1,55 @@
+{
+  "completed_utc": "2026-09-22T19:53:31.990686+00:00",
+  "source_checkout": "/home/novakj/.codex/worktrees/e339/3d-print",
+  "canonical_checkout": "/home/novakj/3d-print",
+  "method": "Compared each destination document byte-for-byte with preserved pre-task contents before writing only the five updated files. Added new dated upload evidence directory; no whole-checkout copy.",
+  "documents_updated": [
+    "README.md",
+    "elektronika/auticko/README.md",
+    "elektronika/auticko/rizeni-v3.md",
+    "models/jednoduche-auticko/firmware/prvni-motor/README.md",
+    "models/jednoduche-auticko/firmware/prvni-motor/overeni-programu.json"
+  ],
+  "new_evidence_files": [
+    "models/jednoduche-auticko/firmware/prvni-motor/evidence/2026-09-22-v3-steering-v1-upload/README.md",
+    "models/jednoduche-auticko/firmware/prvni-motor/evidence/2026-09-22-v3-steering-v1-upload/board-after.json",
+    "models/jednoduche-auticko/firmware/prvni-motor/evidence/2026-09-22-v3-steering-v1-upload/board-before.json",
+    "models/jednoduche-auticko/firmware/prvni-motor/evidence/2026-09-22-v3-steering-v1-upload/diagnostics-result.json",
+    "models/jednoduche-auticko/firmware/prvni-motor/evidence/2026-09-22-v3-steering-v1-upload/preflight.json",
+    "models/jednoduche-auticko/firmware/prvni-motor/evidence/2026-09-22-v3-steering-v1-upload/serial-after.txt",
+    "models/jednoduche-auticko/firmware/prvni-motor/evidence/2026-09-22-v3-steering-v1-upload/serial-before.txt",
+    "models/jednoduche-auticko/firmware/prvni-motor/evidence/2026-09-22-v3-steering-v1-upload/upload-result.json",
+    "models/jednoduche-auticko/firmware/prvni-motor/evidence/2026-09-22-v3-steering-v1-upload/upload.txt",
+    "models/jednoduche-auticko/firmware/prvni-motor/evidence/2026-09-22-v3-steering-v1-upload/verification-before-upload.json"
+  ],
+  "sha256": {
+    "README.md": "bbe4fffdb843f574caedb0fde6a59d281484743455ed2ab6cae170039ed13c03",
+    "elektronika/auticko/README.md": "0a325cf10b7c37ded5c5e806b332ded7ab6fc51ad7e7115961f761400065f174",
+    "elektronika/auticko/rizeni-v3.md": "191ec312ec8199a922129671a0f818119a0aec51c787f29f802243d6a2c8bea4",
+    "models/jednoduche-auticko/firmware/prvni-motor/README.md": "4b7651d1fa9f3888ef5c3af63d3f78bc95abeee2744c393d57a18585a4f08015",
+    "models/jednoduche-auticko/firmware/prvni-motor/overeni-programu.json": "9d986483f13e6f27ed3265f41c9b076e36b3ed661c06049218c52ac8945164d7",
+    "models/jednoduche-auticko/firmware/prvni-motor/evidence/2026-09-22-v3-steering-v1-upload/verification-before-upload.json": "32b7b6dea785f3291c11cbd352548e8326e5fa72695ad6221a2c32cb5b9af793",
+    "models/jednoduche-auticko/firmware/prvni-motor/evidence/2026-09-22-v3-steering-v1-upload/README.md": "b3a0c8e74edb341291146f0c889d074bdb89ba526eb7e7f34a6b5407b20e570e",
+    "models/jednoduche-auticko/firmware/prvni-motor/evidence/2026-09-22-v3-steering-v1-upload/preflight.json": "0235547458cd5aa81b570fd2331fde95c3408605e794ecffe346d24f0ffc04d9",
+    "models/jednoduche-auticko/firmware/prvni-motor/evidence/2026-09-22-v3-steering-v1-upload/upload-result.json": "8945f2693b5c74be8e7a425370c1d37a11c8dc351a6063b052f5a94a95a1c91c",
+    "models/jednoduche-auticko/firmware/prvni-motor/evidence/2026-09-22-v3-steering-v1-upload/serial-after.txt": "b873649bdf3ea4da58f743016a97422c65de8a9c3c6c5a24d206ae0210bde26c",
+    "models/jednoduche-auticko/firmware/prvni-motor/evidence/2026-09-22-v3-steering-v1-upload/serial-before.txt": "4ac86c8067d7a7c60d691b1d3efcaa380067843cc5fd63fa429a4177255ee966",
+    "models/jednoduche-auticko/firmware/prvni-motor/evidence/2026-09-22-v3-steering-v1-upload/board-after.json": "f9f93cdc251ad8ef1cae96a2cb70035f5405c099527f306bc4d8ece693154b7c",
+    "models/jednoduche-auticko/firmware/prvni-motor/evidence/2026-09-22-v3-steering-v1-upload/upload.txt": "ac13cb14300080e8e970cbcb50b2d76e3c57a8ec0d7ad061db2e9050b8d7bbcd",
+    "models/jednoduche-auticko/firmware/prvni-motor/evidence/2026-09-22-v3-steering-v1-upload/board-before.json": "f9f93cdc251ad8ef1cae96a2cb70035f5405c099527f306bc4d8ece693154b7c",
+    "models/jednoduche-auticko/firmware/prvni-motor/evidence/2026-09-22-v3-steering-v1-upload/diagnostics-result.json": "1e8b13464d792a93424b3be57cda0c5f9ddee64f736eb9d7f4ab4495e1af6e12"
+  },
+  "existing_canonical_files_checked": 1148,
+  "changed_existing_files": [
+    "README.md",
+    "elektronika/auticko/README.md",
+    "elektronika/auticko/rizeni-v3.md",
+    "models/jednoduche-auticko/firmware/prvni-motor/README.md",
+    "models/jednoduche-auticko/firmware/prvni-motor/overeni-programu.json"
+  ],
+  "other_existing_files_unchanged": true,
+  "firmware_source_unchanged": true,
+  "cad_and_print_files_unchanged": true,
+  "commit_or_push": false,
+  "followup_user_report": "2026-09-22: user newly confirms orange SG90 to UNO D9, brown to UNO GND, red disconnected; user report only, no direct inspection or further hardware action."
+}

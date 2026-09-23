@@ -1,0 +1,48 @@
+{
+  "status": "pass",
+  "method": "Installed Anycubic Slicer Next CLI import/export, isolated cache, arrange=0 orient=0. No slicing, G-code or printer communication. Roundtrip outputs are not delivery files.",
+  "plate_count": 1,
+  "objects": 2,
+  "plates": [
+    {
+      "file": "kalibrace-4-v2-podlozka-01.3mf",
+      "source_sha256": "e9ff259b1f6a3ac4e2155896c951eed0a3a265532c4a9591f1172c26d930fa21",
+      "status": "pass",
+      "command": [
+        "/usr/bin/AnycubicSlicerNext",
+        "--datadir",
+        "/home/novakj/.cache/auticko4-v2/next-import/isolated-profile",
+        "--arrange",
+        "0",
+        "--orient",
+        "0",
+        "--debug",
+        "3",
+        "--export-3mf",
+        "roundtrip.3mf",
+        "--outputdir",
+        "/home/novakj/.cache/auticko4-v2/next-import/kalibrace-4-v2-podlozka-01",
+        "/home/novakj/3d-print/models/auticko-silovy-prevod-25/kalibrace-4-v2/kalibrace-4-v2-podlozka-01.3mf"
+      ],
+      "objects": 2,
+      "triangles": 7108,
+      "max_world_vertex_delta_mm": 7.633999985046103e-06,
+      "object_records": [
+        {
+          "name": "kalibrace-4-v2-z__01",
+          "vertices": 1776,
+          "triangles": 3560,
+          "max_world_vertex_delta_mm": 7.633999985046103e-06,
+          "ordered_triangle_indices_preserved": true
+        },
+        {
+          "name": "kalibrace-4-v2-y__01",
+          "vertices": 1770,
+          "triangles": 3548,
+          "max_world_vertex_delta_mm": 7.55700000354409e-06,
+          "ordered_triangle_indices_preserved": true
+        }
+      ]
+    }
+  ]
+}

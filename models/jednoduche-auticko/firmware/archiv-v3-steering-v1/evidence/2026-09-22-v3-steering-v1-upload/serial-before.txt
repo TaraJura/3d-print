@@ -1,0 +1,1 @@
+Passive USB read before upload; 115200 baud; no serial data writes or reset request. DTR/RTS disabled before opening.

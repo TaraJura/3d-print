@@ -1,13 +1,18 @@
 # -*- coding: utf-8 -*-
 """Skutečné CAD náhledy a viditelnost. Zápis pouze v nové složce modelu."""
 from pathlib import Path
-import json
+import json,hashlib
 import FreeCAD as App, FreeCADGui as Gui
 from PySide import QtCore
 OUT=Path(__file__).resolve().parent
 R=json.loads((OUT/'kontrola-modelu.json').read_text());assert R['validation_pass']
 D=App.openDocument(str(OUT/'auticko-se-zatacenim.FCStd'));V=Gui.activeDocument().activeView();S=D.Steering
-names=set(R['assembly_object_names'])
+names=set(R['assembly_object_names']);names.add('Assembly')
+D.PrintParts.Group=[D.getObject(i['object']) for i in R['parts'].values()]
+D.PrintParts.Label='FINÁLNÍ TISKOVÉ DÍLY — nikoli konstrukční polotovary'
+for i in R['parts'].values():assert abs(D.getObject(i['object']).Shape.Volume-i['volume_mm3'])<1e-5
+R['source_sha256']=hashlib.sha256((OUT/'auticko-se-zatacenim.FCMacro').read_bytes()).hexdigest()
+R['final_print_group']=[o.Name for o in D.PrintParts.Group]
 for tag in ('L','R'):names.update(o.Name for o in D.getObject('WheelCarrier'+tag).Group)
 def color(n):
     q=n.lower()

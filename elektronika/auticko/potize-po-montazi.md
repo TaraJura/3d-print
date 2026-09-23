@@ -1,6 +1,6 @@
 # Potíže s rozjezdem — 19. 9. 2026
 
-**Aktuálně je v2 dokončená a nahraná; uživatel po návratu potvrdil funkční držení, puštění a nový stisk.** Následující záznam zachovává potíže a diagnostiku před touto akceptací. Uživatel výslovně odvolal návrat k sekundovému pulzu ještě před jeho uploadem. Příčina původního těžkého rozjezdu nebyla určená: první hlášení v této etapě přišlo po nasazení střechy a nahrání v1, ale uživatel upřesnil, že těžký rozjezd měl už na starém pulzním programu.
+**Poslední doložená nahraná verze je v2; uživatel po návratu potvrdil funkční držení, puštění a nový stisk.** Příprava [řízení V3](rizeni-v3.md) z 20. 9. 2026 mění lokální zdroj, nikoli tento výsledek nebo skutečně nahranou verzi. Následující záznam zachovává potíže a diagnostiku před akceptací v2. Uživatel výslovně odvolal návrat k sekundovému pulzu ještě před jeho uploadem. Příčina původního těžkého rozjezdu nebyla určená: první hlášení v této etapě přišlo po nasazení střechy a nahrání v1, ale uživatel upřesnil, že těžký rozjezd měl už na starém pulzním programu.
 
 Časová osa podle upřesnění uživatele:
 
@@ -101,3 +101,7 @@ Aktuální dokončení překladu, testů a uploadu uvádí [firmwarový návod](
 ## Uživatelská akceptace v2 po návratu — 19. 9. 2026
 
 Jiří po návratu obnovil ovládací stránku a na pokyn vyzkoušet držení, puštění a nový stisk opakovaně hlásil „Jo, funguje to, perfektní“. Tento výsledek patří nahrané verzi `hold-to-run-v2`, SHA256 `1760730b716a6fb281ed900400d533eaac17d96c9b779a6c91e2e99502d69110`. Potvrzuje základní funkci ovládání podle uživatele. Agent další upload ani motorový povel neprovedl. Přesná délka držení, doběh, maximální zátěž, elektrické parametry a všechny druhy výpadků sítě nejsou změřené. Zpětně tím nemažeme historii těžkého rozjezdu ani z něj neodvozujeme příčinu.
+
+## Nové mechanické hlášení k převodovce V2 — 19. 9. 2026
+
+Jiří uvádí opakované zasekávání sestavy `auticko-s-prevodovkou` 12:1 a odpor, který podle něj převyšuje přínos převodu. Hlásil sekundové lepidlo a poté olej, bez přesného místa/množství. Později vyslovil podezření na rozpěrku na špatné straně a slíbil přestavbu; její výsledek a zkouška bez motoru zatím nejsou potvrzené. Jde o mechanickou V2, nikoli nové selhání firmwaru `hold-to-run-v2`. Přesné tiskové a elektrické podmínky neznáme, příčina není prokázaná. [Technický audit](../../models/auticko-s-prevodovkou/revize-prevodovky.md) zachovává dosavadní geometrii i firmware a připravuje směr revize podle volby uložení.

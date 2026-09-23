@@ -1,0 +1,15 @@
+2026-09-22T21:26:16.469903+00:00 DIAG build=v3-steering-v2 safety=1 drive=0 ENread=0 IN1=0 IN2=0 watchdog=0
+2026-09-22T21:26:16.479672+00:00 DIAG steeringReady=1 steeringUs=1500 neutralUs=1500 rangeUs=300
+2026-09-22T21:26:16.480072+00:00 DIAG armExpired=0 runExpired=0 stopReason=0 leaseMs=0 challengeAgeMs=15905
+2026-09-22T21:26:16.488717+00:00 DIAG 15911 boot=server-started fw=0.4.1 ip=192.168.4.1
+2026-09-22T21:26:16.489075+00:00 DIAG ready=1 server=1 APstart=7 statusLast=7 ageMs=30 HTTP=0 closed=0
+2026-09-22T21:26:21.468881+00:00 DIAG build=v3-steering-v2 safety=1 drive=0 ENread=0 IN1=0 IN2=0 watchdog=0
+2026-09-22T21:26:21.479161+00:00 DIAG steeringReady=1 steeringUs=1500 neutralUs=1500 rangeUs=300
+2026-09-22T21:26:21.479584+00:00 DIAG armExpired=0 runExpired=0 stopReason=0 leaseMs=0 challengeAgeMs=20907
+2026-09-22T21:26:21.487608+00:00 DIAG 20913 boot=server-started fw=0.4.1 ip=192.168.4.1
+2026-09-22T21:26:21.487983+00:00 DIAG ready=1 server=1 APstart=7 statusLast=7 ageMs=28 HTTP=0 closed=0
+2026-09-22T21:26:26.469318+00:00 DIAG build=v3-steering-v2 safety=1 drive=0 ENread=0 IN1=0 IN2=0 watchdog=0
+2026-09-22T21:26:26.479520+00:00 DIAG steeringReady=1 steeringUs=1500 neutralUs=1500 rangeUs=300
+2026-09-22T21:26:26.479953+00:00 DIAG armExpired=0 runExpired=0 stopReason=0 leaseMs=0 challengeAgeMs=25910
+2026-09-22T21:26:26.488148+00:00 DIAG 25916 boot=server-started fw=0.4.1 ip=192.168.4.1
+2026-09-22T21:26:26.488536+00:00 DIAG ready=1 server=1 APstart=7 statusLast=7 ageMs=36 HTTP=0 closed=0

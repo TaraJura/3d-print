@@ -1,0 +1,1 @@
+Pracovní checkpoint před požadavkem na SG90 řízení. Není určen k tisku: statická kontrola našla průnik zadních čepů plošiny s ložiskovými bloky a přední osy s nohami plošiny. Finální model v nadřazené složce tyto konstrukce mění.

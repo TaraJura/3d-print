@@ -1,0 +1,107 @@
+{
+  "date": "2026-09-22",
+  "created_utc": "2026-09-22T21:35:45.172714+00:00",
+  "source": "prvni-motor.ino",
+  "sha256": "0e56dfc88e022d18fcf4b8d33e511c5f99cc0671d2a23572686be4324a19dbb3",
+  "build_id": "v3-steering-v3",
+  "board": "Arduino UNO R4 WiFi",
+  "fqbn": "arduino:renesas_uno:unor4wifi",
+  "arduino_cli": "1.5.1",
+  "core": "arduino:renesas_uno@1.6.0",
+  "compile_passed": true,
+  "flash_bytes": 84940,
+  "flash_capacity": 262144,
+  "global_ram_bytes": 9864,
+  "ram_capacity": 32768,
+  "compile_warnings": "Arduino core/library warnings; no diagnostic at current sketch line.",
+  "host_tests": {
+    "source_sha256": "24c474b2e9af0a3d148c8c8c251f6d65dc8c97107ae309426fc8a9bd181a46b6",
+    "parser": 109,
+    "complete_http_loop": 109,
+    "named_protocol_recovery_failure_groups": 34,
+    "motor_blocking_irq_scenarios": 7,
+    "combined_motor_steering_blocking_irq_scenarios": 7,
+    "javascript": 33,
+    "real_chromium_http": 14,
+    "passed": true,
+    "hardware_is_mocked": true,
+    "physical_hardware_used": false,
+    "final_source_comment_only_change": "evidence/2026-09-22-v3-steering-v3/comment-only-followup.json"
+  },
+  "behavior": {
+    "mode": "shared hold-to-run motor and steering intent",
+    "motor_pins": {
+      "D5": "L293D pin1 EN",
+      "D7": "L293D pin2 IN1 HIGH during motor ON",
+      "D8": "L293D pin7 IN2 LOW"
+    },
+    "motor_pwm_hz": 490,
+    "motor_pwm_8bit_equivalent": 128,
+    "steering_pin": "D9",
+    "servo_pwm_hz": 50,
+    "nominal_center_us": 1525,
+    "initial_offset_us": 300,
+    "steering_sign": 1,
+    "initial_left_us": 1225,
+    "initial_right_us": 1825,
+    "pulse_to_angle_measured": false,
+    "boot": "Motor OFF; servo immediately commanded nominal center. First centering without horn/linkage.",
+    "steer_only": "Explicit motor=0; motor OFF even with active steering lease.",
+    "controls": "Motor and steering hold independently, both multitouch orders, release turn centers, release drive switches motor off, Center preserves only an already held motor request.",
+    "lease_ms": 500,
+    "timer_tick_ms": 5,
+    "heartbeat_ms_after_reply": 20,
+    "arm_off_phase_timeout_ms": 3000,
+    "challenge_max_age_ms_exclusive": 500,
+    "lost_stop_inflight_hold_conservative_bound_ms": 1000,
+    "bound_scope": "From browser processing release or communication loss to motor OFF and neutral command; excludes event delivery delay, up to next 20ms servo PWM period and mechanical motion. Timer interrupts must run.",
+    "failure": "PWM/timer startup failure prevents control. Servo PWM failure switches motor OFF and servo signal LOW; physical centering not guaranteed.",
+    "hardware_watchdog_independent_of_cpu": false
+  },
+  "hardware_uploaded": false,
+  "physical_motor_tested": false,
+  "physical_servo_tested": false,
+  "physical_acceptance": null,
+  "previous_verified_record": "evidence/2026-09-22-v3-steering-v3/previous-v2/overeni-programu.json",
+  "physical_trial_record": "../../../../elektronika/auticko/kontrolni-zapojeni.md#hlasova-zkouska-22-9-2026",
+  "pre_upload_physical_state": {
+    "origin": "Explicit current user confirmation relayed by task 01a0caa4-9807-78f0-9152-893a808ca99a",
+    "reported_words": "Červenej vodič serva odpojen. Ano, potvrzuji, můžeš to nahrát.",
+    "question_included_motor_unpowered_and_uno_usb": true,
+    "servo_red_positive_disconnected": true,
+    "motor_unpowered": true,
+    "uno_connected_usb": true,
+    "linkage_may_remain_attached": true,
+    "agent_measured": false
+  },
+  "evidence": {
+    "directory": "evidence/2026-09-22-v3-steering-v3/",
+    "compile": "evidence/2026-09-22-v3-steering-v3/arduino-compile.txt",
+    "host_and_browser_tests": "evidence/2026-09-22-v3-steering-v3/host-and-browser-tests.txt"
+  },
+  "compiled_artifacts_sha256": {
+    ".cache/arduino-v3-steering-v3-build/prvni-motor.ino.bin": "de8a2cec4fdbcb5964f5de09e3f6ffff767a263dd92e09b27f684d8a51e52dc0",
+    ".cache/arduino-v3-steering-v3-build/prvni-motor.ino.elf": "d3ad5de650f309ace411eef680a0e86130f5b2d1b83d9032a97d3780c565ec89"
+  },
+  "limitations": [
+    "First unmeasured calibration step; center1525us has no physical alignment acceptance. User-confirmed both free-servo directions apply to previous v2 only.",
+    "No electrical PWM or loaded supply measurement; user-reported servo source 6.35V exceeds stated SG90 4.8-6V range, used for user-accepted short trials without regulator.",
+    "Motor, steering sign, WiFi and safety logic unchanged; previously audited WiFi timeout and AP recovery limitations remain.",
+    "Software interrupt requires running CPU and enabled interrupts; mechanical arrival at center is not measured."
+  ],
+  "change_scope": "Only build ID and first +25us center trim towards Right; offset300us/50Hz/motor/WiFi/safety unchanged. Existing pulse expectations updated and stale startup comment generalized; no new tests/refactor.",
+  "previous_known_uploaded_version": {
+    "build_id": "v3-steering-v1",
+    "source_sha256": "9f7477c851898e97e7c9fd50ca632104c9214259b415a3fa9996ca6a48d8760c",
+    "record": "evidence/2026-09-22-v3-steering-v1-upload/README.md",
+    "physical_trial": "User reports first small servo movement after correcting source negative from IOREF to GND; no complete driving or steering acceptance. See electronics chronology."
+  },
+  "last_known_uploaded_version": {
+    "build_id": "v3-steering-v2",
+    "source_sha256": "fcefad5f61f703e3294ac1464206d1022e72fcf85fc7acea3f634947d1b8a5b6",
+    "record": "evidence/2026-09-22-v3-steering-v2/README.md",
+    "user_reported_trial": "User explicitly confirmed free servo moves nicely right and left, then reported wheels slightly left at center after work on linkage. No complete loaded steering/driving acceptance."
+  },
+  "hardware_accessed": false,
+  "last_updated_utc": "2026-09-22T21:35:45.172714+00:00"
+}

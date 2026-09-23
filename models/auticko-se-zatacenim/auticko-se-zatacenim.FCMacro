@@ -179,6 +179,8 @@ D.recompute();D.saveAs(str(OUT/'auticko-se-zatacenim.FCStd'));print('PROGRESS fi
 # Registr finálních tiskových dílů. Původní STL se kopírují byte-for-byte.
 reuse=[('plosina-170x60','Deck',1),('pastorek-18z-otvor-2_2','Pinion',1),('mezikolo-54_18z','CompoundGear',1),('osa-mezi-65_2','MiddleAxle',1),('rozperka-8_6','RearSpacer',1),('rozperka-17_6','LongSpacer',1),('rozperka-1_6','MiddleSpacer',2),('pojistka-c','Clip',6)]
 new=[('kolo-zadni-76x12-72z',wheels['Rear'],1,'flat'),('kolo-zadni-76x12-prave',wheels['Right'],1,'flat'),('kolo-predni-76x12',wheels['Front'],2,'flat'),('osa-zadni-109_3',D.MainAxle,1,'axle'),('ram-rizeni',frame,1,'flat'),('celist-horni',cap,2,'cap'),('svisly-cep',king,2,'axle'),('tehlice-leva',knuckles[-1],1,'knuckle'),('tehlice-prava',knuckles[1],1,'knuckle'),('spojovaci-tahlo',tie,1,'flat'),('servo-tahlo-r15',drag,1,'flat'),('distanc-packy',spacer,1,'flat'),('cep-tahla-dlouhy',jointlong,1,'axle'),('cep-tahla-kratky',jointshort,1,'axle'),('pojistka-mala',smallclip,2,'flat')]
+D.PrintParts.Group=[D.getObject(n) for _,n,_ in reuse]+[o for _,o,_,_ in new]
+D.PrintParts.Label='FINÁLNÍ TISKOVÉ DÍLY — nikoli konstrukční polotovary'
 report={'status':'CAD PROTOTYP, NEVYTIŠTĚNO; SG90 fit mimo potvrzený r15 nutno ověřit','parts':{},'source_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),'original_assets':protected,'steering_parameters':{n:{'value':v,'unit':u} for n,v,u in params},'reuse_drivetrain_validation':'../auticko-s-prevodovkou/kontrola-modelu.json','motion':{},'assembly_object_names':[a.Name for a in A.Group]}
 # Odstranit pouze již neplatné STL staršího pracovního návrhu v této nové složce.
 for obsolete in ('kolo-zadni-72z','kolo-zadni-prave','kolo-predni','osa-hlavni-101_3'):

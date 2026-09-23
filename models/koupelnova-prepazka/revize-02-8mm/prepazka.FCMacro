@@ -1,0 +1,233 @@
+# -*- coding: utf-8 -*-
+"""FreeCAD macro: B profile, 8 mm TPU bodies + 2 mm nominal adhesive bed; 570 x MAX20 x approx10.
+
+OUT is this macro's directory. Regeneration OVERWRITES prepazka-B.FCStd,
+stl/dil-[1-3].stl, vzorek/spoj-[1-2].stl and kontrola-modelu.json. GUI previews are made separately
+by nahled.FCMacro. No slicing, network or printer operations.
+Only native Spreadsheet, Sketcher and Part objects are stored.
+"""
+from pathlib import Path
+import json
+import math
+import FreeCAD as App
+import Part
+import Sketcher
+import MeshPart
+
+OUT = Path(__file__).resolve().parent
+(OUT / 'stl').mkdir(exist_ok=True)
+(OUT / 'vzorek').mkdir(exist_ok=True)
+VALUES = [
+    ('TotalLength', 'Délka sestavy', 570, 'ZADÁNO / měření Jiřího'),
+    ('Width', 'Šířka — MAXIMUM 20 mm', 20, 'ZADÁNO: limit; nominál bez fyzické tolerance'),
+    ('Height', 'Výška TPU těla bez lože', 8, 'NÁVRH: instalace cílově cca10 mm'),
+    ('Lap', 'Délka bočního přeplátování', 12, 'NÁVRH — není ověřen fit'),
+    ('NoseRadius', 'Poloměr nízkého zaobleného náběhu', 0.5, 'NÁVRH'),
+    ('BackRadius', 'Zaoblení vysoké hrany', 3, 'NÁVRH'),
+    ('Bed', 'Tloušťka lepicího lože', 2, 'NÁVRH dle min. lepené spáry Fix ALL Flexi'),
+    ('GlueGap', 'Lepicí mezery ve spojích', 2, 'NÁVRH — lepený spoj; ověřit vzorkem'),
+    ('EndSeal', 'Prostor pro tmel na každém konci', 2, 'NÁVRH uvnitř celkové délky570 mm'),
+]
+doc = App.newDocument('KoupelnovaPrepazka')
+doc.Label = 'Přepážka B — těla8 mm + lože2 mm — návrh'
+sheet = doc.addObject('Spreadsheet::Sheet', 'Parameters')
+sheet.Label = 'Parametry v mm — sloupec B'
+for cell, value in [('A1','Parametr'),('B1','Hodnota'),('C1','Původ / stav')]:
+    sheet.set(cell,value)
+sheet.setStyle('A1:C1','bold','add')
+for row, (alias, label, value, status) in enumerate(VALUES,2):
+    sheet.set(f'A{row}',label); sheet.set(f'B{row}',f'{value} mm')
+    sheet.setAlias(f'B{row}',alias); sheet.set(f'C{row}',status)
+    sheet.setBackground(f'B{row}',(0.84,0.94,0.87) if row<5 else (1.0,0.94,0.76))
+for row,alias,label,formula in [
+    (11,'Pitch','Úsek v hotové sestavě','=TotalLength / 3'),
+    (12,'HalfLap','Polovina přesahu','=Lap / 2'),
+    (13,'SplitWidth','Dělení spoje v šířce','=Width / 2'),
+    (14,'EndLength','Délka krajního výtisku','=Pitch + HalfLap - GlueGap / 2 - EndSeal'),
+    (15,'MiddleLength','Délka prostředního výtisku','=Pitch + Lap - GlueGap')]:
+    sheet.set(f'A{row}',label); sheet.set(f'B{row}',formula); sheet.setAlias(f'B{row}',alias)
+    sheet.set(f'C{row}','ODVOZENO; 3 díly jsou návrhová volba')
+sheet.set('A17','Těla8 mm + lože2 mm; spoje a konce vyplnit lepidlem, nejprve fyzický vzorek.')
+sheet.mergeCells('A17:C17')
+sheet.set('A18','Alzament TPU 95A; souvislá kachlička dle uživatele. Fit a těsnost neověřeny.')
+sheet.mergeCells('A18:C18')
+sheet.setColumnWidth('A',370);sheet.setColumnWidth('B',145);sheet.setColumnWidth('C',440)
+doc.recompute()
+def p(name): return 'Parameters.'+name
+def exp(obj,field,value): obj.setExpression(field,value)
+
+# Analytic common tangent between two circular shoulders. Native expressions
+# avoid fragile edge-index dependencies during a dimensional recompute.
+DERIVED = [
+ ('Dy','Width - BackRadius - NoseRadius'),
+ ('Dz','Height - BackRadius - NoseRadius'),
+ ('D','sqrt(Dy * Dy + Dz * Dz)'),
+ ('Alpha','(NoseRadius - BackRadius) / D'),
+ ('Beta','sqrt(1 - Alpha * Alpha)'),
+ ('Ny','Alpha * Dy / D - Beta * Dz / D'),
+ ('Nz','Alpha * Dz / D + Beta * Dy / D'),
+ ('Ty0','NoseRadius + Ny * NoseRadius'),
+ ('Tz0','NoseRadius + Nz * NoseRadius'),
+ ('Ty1','Width - BackRadius + Ny * BackRadius'),
+ ('Tz1','Height - BackRadius + Nz * BackRadius'),
+]
+for row,(alias,formula) in enumerate(DERIVED,21):
+    sheet.set(f'A{row}',alias);sheet.set(f'B{row}','='+formula);sheet.setAlias(f'B{row}',alias)
+    sheet.set(f'C{row}','Odvozená tečna zaobleného profilu')
+doc.recompute()
+sk=doc.addObject('Sketcher::SketchObject','ProfileSketch')
+sk.Label='Parametrické jádro náběhu mezi kruhovými rameny'
+sk.Placement.Rotation=App.Rotation(App.Vector(0,1,0),App.Vector(0,0,1),App.Vector(1,0,0),'ZXY')
+sk.Placement.Base=App.Vector(0,-1,1)
+exp(sk,'Placement.Base.z',p('Bed')+' - 1 mm')
+# Positive sketch coordinates (+1) make all coordinate constraints nonzero.
+coords=[('0 mm','0 mm'),(p('Width'),'0 mm'),
+        (p('Width'),p('Height')+' - '+p('BackRadius')),
+        (p('Width')+' - '+p('BackRadius'),p('Height')+' - '+p('BackRadius')),
+        (p('Ty1'),p('Tz1')),(p('Ty0'),p('Tz0')),
+        (p('NoseRadius'),p('NoseRadius')),('0 mm',p('NoseRadius'))]
+numeric=[(0,0),(20,0),(20,7),(17,7),(sheet.Ty1.Value,sheet.Tz1.Value),
+         (sheet.Ty0.Value,sheet.Tz0.Value),(.5,.5),(0,.5)]
+for i in range(len(coords)):
+    a,b=numeric[i],numeric[(i+1)%len(coords)]
+    sk.addGeometry(Part.LineSegment(App.Vector(a[0]+1,a[1]+1,0),App.Vector(b[0]+1,b[1]+1,0)),False)
+for i in range(len(coords)):
+    sk.addConstraint(Sketcher.Constraint('Coincident',i,2,(i+1)%len(coords),1))
+    for axis,value,formula in zip(('DistanceX','DistanceY'),numeric[i],coords[i]):
+        c=sk.addConstraint(Sketcher.Constraint(axis,i,1,float(value+1)))
+        sk.setExpression(f'Constraints[{c}]','('+formula+') + 1 mm')
+core=doc.addObject('Part::Extrusion','RampCore')
+core.Base=sk;core.DirMode='Normal';core.Solid=True;exp(core,'LengthFwd',p('TotalLength'))
+def cylinder(name,r,y,z):
+    o=doc.addObject('Part::Cylinder',name)
+    o.Placement.Rotation=App.Rotation(App.Vector(0,1,0),90)
+    exp(o,'Radius',r);exp(o,'Height',p('TotalLength'))
+    exp(o,'Placement.Base.y',y);exp(o,'Placement.Base.z',p('Bed')+' + ('+z+')')
+    return o
+nose=cylinder('RoundedNose',p('NoseRadius'),p('NoseRadius'),p('NoseRadius'))
+back=cylinder('RoundedShoulder',p('BackRadius'),p('Width')+' - '+p('BackRadius'),p('Height')+' - '+p('BackRadius'))
+rounded=doc.addObject('Part::MultiFuse','ContinuousProfile')
+rounded.Shapes=[core,nose,back];rounded.Refine=True
+doc.recompute()
+
+def box(name,x,length,y,width):
+    o=doc.addObject('Part::Box',name)
+    for field,val in [('Length',length),('Width',width),('Height',p('Height')+' + 2 mm'),
+                      ('Placement.Base.x',x),('Placement.Base.y',y),('Placement.Base.z',p('Bed')+' - 1 mm')]:
+        exp(o,field,val)
+    return o
+def cut(name,base,tool):
+    o=doc.addObject('Part::Cut',name);o.Base=base;o.Tool=tool;o.Refine=True;return o
+starts=[p('EndSeal'),p('Pitch')+' - '+p('HalfLap')+' + '+p('GlueGap')+' / 2','2 * '+p('Pitch')+' - '+p('HalfLap')+' + '+p('GlueGap')+' / 2']
+ends=[p('Pitch')+' + '+p('HalfLap')+' - '+p('GlueGap')+' / 2','2 * '+p('Pitch')+' + '+p('HalfLap')+' - '+p('GlueGap')+' / 2',p('TotalLength')+' - '+p('EndSeal')]
+parts=[]
+for i in range(3):
+    mask=box(f'SectionBox{i+1}',starts[i],ends[i]+' - ('+starts[i]+')','0 mm',p('Width'))
+    if i>0:
+        tool=box(f'LeadingStep{i+1}',starts[i],p('Lap'),'0 mm',p('SplitWidth')+' + '+p('GlueGap')+' / 2')
+        mask=cut(f'WithoutLeadingHalf{i+1}',mask,tool)
+    if i<2:
+        tool=box(f'TrailingStep{i+1}',ends[i]+' - '+p('Lap'),p('Lap'),p('SplitWidth')+' - '+p('GlueGap')+' / 2',p('Width')+' - '+p('SplitWidth')+' + '+p('GlueGap')+' / 2')
+        mask=cut(f'WithoutTrailingHalf{i+1}',mask,tool)
+    o=doc.addObject('Part::Common',f'Part{i+1}')
+    o.Label=f'Díl {i+1} — '+('střední' if i==1 else 'krajní')
+    o.Base=rounded;o.Tool=mask;o.Refine=True
+    o.addProperty('App::PropertyString','DesignStatus','Návrh')
+    o.DesignStatus='Boční stupňovitý lepený spoj, mezery2 mm; fit TPU a těsnost neověřeny.'
+    parts.append(o)
+doc.recompute()
+
+# Adhesive is explicit reference geometry, never exported as TPU STL.
+tpu=doc.addObject('Part::MultiFuse','AllTPUBodies');tpu.Shapes=parts;tpu.Refine=True
+glue=doc.addObject('Part::Cut','JointAdhesive');glue.Base=rounded;glue.Tool=tpu;glue.Refine=True
+glue.Label='Lepidlo — 2 spoje + 2 konce, znázornění'
+bed=doc.addObject('Part::Box','AdhesiveBed');bed.Label='Lepicí lože2 mm — znázornění'
+exp(bed,'Length',p('TotalLength'));exp(bed,'Width',p('Width'));exp(bed,'Height',p('Bed'))
+envelope=doc.addObject('Part::MultiFuse','ConstructionEnvelope');envelope.Shapes=[rounded,bed];envelope.Refine=True
+envelope.Label='Konstrukční obrys instalace — pomocný'
+samples=[]
+samplebox=box('SampleWindow',p('Pitch')+' - 25 mm','50 mm','0 mm',p('Width'))
+for i in range(2):
+    o=doc.addObject('Part::Common','Sample'+str(i+1));o.Base=parts[i];o.Tool=samplebox;o.Refine=True
+    o.Label='Zkušební konec spoje '+str(i+1);samples.append(o)
+doc.recompute()
+
+def dimensions(s):
+    b=s.BoundBox;return [b.XLength,b.YLength,b.ZLength]
+def audit():
+    bad=[o.Name for o in doc.Objects if 'Invalid' in o.State]
+    assert not bad,bad
+    shapes=[o.Shape for o in parts]
+    assert all(s.isValid() and len(s.Solids)==1 for s in shapes)
+    overlaps=[shapes[i].common(shapes[j]).Volume for i in range(3) for j in range(i+1,3)]
+    fused=shapes[0].fuse(shapes[1:]).removeSplitter()
+    filled=fused.fuse([glue.Shape,bed.Shape]).removeSplitter()
+    reference=envelope.Shape
+    missing=reference.cut(filled).Volume;excess=filled.cut(reference).Volume
+    target=[sheet.TotalLength.Value,sheet.Width.Value,sheet.Height.Value+sheet.Bed.Value]
+    actual=dimensions(filled)
+    assert max(abs(a-b) for a,b in zip(target,actual))<1e-6,(target,actual)
+    assert max(overlaps)<1e-6 and missing<1e-6 and excess<1e-6
+    assert filled.isValid() and len(filled.Solids)==1
+    assert len(fused.Solids)==3 and glue.Shape.isValid() and len(glue.Shape.Solids)==4
+    assert fused.common(glue.Shape).Volume<1e-6 and fused.common(bed.Shape).Volume<1e-6
+    gaps=[]
+    for i in range(2):
+        distance=shapes[i].distToShape(shapes[i+1])[0]
+        assert abs(distance-sheet.GlueGap.Value)<1e-6
+        gaps.append({'joint':i+1,'minimum_body_distance_mm':distance})
+    bottom_areas=[sum(f.Area for f in sh.Faces if abs(f.BoundBox.ZMin-sheet.Bed.Value)<1e-7 and abs(f.BoundBox.ZMax-sheet.Bed.Value)<1e-7) for sh in shapes]
+    assert min(bottom_areas)>0
+    for sh in shapes:
+        assert sh.BoundBox.YMin>=-1e-6 and sh.BoundBox.YMax<=20+1e-6
+    return {'installed_envelope_mm':actual,'tpu_body_height_mm':sheet.Height.Value,'adhesive_bed_mm':sheet.Bed.Value,
+            'parts_valid':True,'part_solid_counts':[len(sh.Solids) for sh in shapes],
+            'part_bounds_mm':[dimensions(sh) for sh in shapes], 'pair_overlap_mm3':overlaps,
+            'intentional_joint_and_end_adhesive_volume_mm3':glue.Shape.Volume,'adhesive_fill_solids':4,
+            'bed_volume_mm3':bed.Shape.Volume,'tpu_volume_mm3':fused.Volume,
+            'missing_from_envelope_after_adhesive_mm3':missing,'excess_over_envelope_mm3':excess,
+            'filled_envelope_solid_count':len(filled.Solids),'joint_gaps':gaps,
+            'bottom_contact_areas_mm2':bottom_areas,'sketch_fully_constrained':sk.FullyConstrained,'invalid_objects':bad}
+
+report={'status':'GEOMETRICKÝ NÁVRH pro Alzament TPU 95A; těsnost, fit a tisk neověřeny',
+        'user_parameters_mm':{'length':570,'width_maximum':20,'preferred_installed_height_approx':10},
+        'nominal_width_mm':20,'design_parameters_mm':{a:v for a,_,v,_ in VALUES if a not in ('TotalLength','Width')},
+        'part_count_design_choice':3,'joint_type':'stepped side lap with 2 mm adhesive gaps; STL normalized to z=0',
+        'nominal_joint_adhesive_gap_mm':2,'end_seal_each_mm':2,'body_height_mm':8,'bed_mm':2,'freecad_version':App.Version()[:3]}
+report['nominal']=audit()
+print('NOMINAL_OK',flush=True)
+# Perturb coupled dimensions and overlap, then restore BEFORE final exports.
+tests=[]
+for overrides in [{'TotalLength':600,'Width':18,'Height':9,'Lap':16,'GlueGap':2.5,'Bed':2.5},
+                  {'NoseRadius':0.7,'BackRadius':2.5}]:
+    for alias,val in overrides.items():sheet.set(sheet.getCellFromAlias(alias),f'{val} mm')
+    doc.recompute();print('PARAMETER_CASE '+str(overrides),flush=True);tests.append({'changes_mm':overrides,'result':audit()})
+    for alias,_,val,_ in VALUES:sheet.set(sheet.getCellFromAlias(alias),f'{val} mm')
+    doc.recompute()
+report['parameter_tests']=tests
+report['nominal_after_restore']=audit()
+report['stl']=[]
+for i,o in enumerate(parts,1):
+    shape=o.Shape.copy();bb=shape.BoundBox
+    shape.translate(App.Vector(-bb.XMin,-bb.YMin,-bb.ZMin))
+    mesh=MeshPart.meshFromShape(Shape=shape,LinearDeflection=0.015,AngularDeflection=0.10,Relative=False)
+    assert mesh.isSolid()
+    path=OUT/'stl'/f'dil-{i}.stl';mesh.write(str(path))
+    report['stl'].append({'file':str(path.relative_to(OUT)),'facets':mesh.CountFacets,
+                          'closed':mesh.isSolid(),'bounds_mm':dimensions(shape),'origin_min_mm':[0,0,0]})
+report['test_sample_stl']=[]
+for i,o in enumerate(samples,1):
+    shape=o.Shape.copy();bb=shape.BoundBox
+    assert shape.isValid() and len(shape.Solids)==1
+    shape.translate(App.Vector(-bb.XMin,-bb.YMin,-bb.ZMin))
+    mesh=MeshPart.meshFromShape(Shape=shape,LinearDeflection=0.015,AngularDeflection=0.10,Relative=False)
+    assert mesh.isSolid()
+    path=OUT/'vzorek'/f'spoj-{i}.stl';mesh.write(str(path))
+    report['test_sample_stl'].append({'file':str(path.relative_to(OUT)),'closed':True,'facets':mesh.CountFacets,'bounds_mm':dimensions(shape)})
+if App.GuiUp:
+    for obj in doc.Objects:obj.ViewObject.Visibility=obj in parts+[glue,bed]
+doc.recompute()
+doc.saveAs(str(OUT/'prepazka-B.FCStd'))
+report['validation_pass']=True
+(OUT/'kontrola-modelu.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+print('BARRIER_GEOMETRY_OK '+json.dumps(report['nominal']),flush=True)

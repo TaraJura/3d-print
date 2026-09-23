@@ -1,0 +1,1245 @@
+{
+  "status": "pass_with_recorded_profile_warnings",
+  "count": 26,
+  "source_geometry_sha256": "07930866cf33e2190432e892014c82be640e48a143fe1eadfccea370038e2768",
+  "project_sha256": "72b6a0458b39c3d23acffbd7665b0c4bad99420d2810447914c21dddf2bab7f1",
+  "sliced_sha256": "588e55c509f4569ba1356e54b3b9ebccfb7973dd1a35208472f809202e146e13",
+  "gcode_sha256": "087b5183f51304094d75dd44989227974589183df097607f62867a6227689ae1",
+  "no_gcode_in_delivered_project": true,
+  "maximum_mesh_vertex_delta_mm": 1.180700002123558e-05,
+  "metadata": {
+    "prediction": "70637",
+    "weight": "120.09",
+    "outside": "false",
+    "support_used": "true"
+  },
+  "warnings": [
+    {
+      "msg": "bed_temperature_too_high_than_filament",
+      "level": "1",
+      "error_code": "1000C001"
+    },
+    {
+      "msg": "not_support_traditional_timelapse",
+      "level": "1",
+      "error_code": "1000C003"
+    }
+  ],
+  "normalization": {
+    "machine_max_junction_deviation": [
+      [
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0"
+      ]
+    ]
+  },
+  "actual_path_envelopes_disjoint": true,
+  "nearest_actual_extrusion_envelopes": {
+    "a": "rozperka-zadni-17_6__01",
+    "b": "servo-cep-4x51_2__02",
+    "gap_mm": 3.5629133486361706
+  },
+  "minimum_actual_extrusion_edge_mm": 4.389010615857718,
+  "settings": {
+    "printer_model": "Anycubic Kobra X",
+    "printer_settings_id": "Anycubic Kobra X 0.4 nozzle",
+    "print_settings_id": "V3 kombinovana 03 - 26 kusu - stojate cepy - lokalni podpory",
+    "filament_settings_id": [
+      "Anycubic PLA @Anycubic Kobra X 0.4 nozzle"
+    ],
+    "filament_type": [
+      "PLA"
+    ],
+    "nozzle_diameter": [
+      "0.4"
+    ],
+    "layer_height": "0.12",
+    "initial_layer_print_height": "0.2",
+    "enable_support": "0",
+    "support_type": "normal(auto)",
+    "support_style": "snug",
+    "support_on_build_plate_only": "0",
+    "support_remove_small_overhang": "0",
+    "support_threshold_angle": "45",
+    "support_top_z_distance": "0.12",
+    "support_bottom_z_distance": "0.12",
+    "support_object_xy_distance": "0.35",
+    "support_interface_top_layers": "3",
+    "brim_type": "outer_only",
+    "brim_width": "8",
+    "brim_object_gap": "0.1",
+    "initial_layer_speed": "20",
+    "inner_wall_speed": "150",
+    "outer_wall_speed": "60",
+    "small_perimeter_speed": "50%",
+    "small_perimeter_threshold": "0",
+    "default_acceleration": "500",
+    "initial_layer_acceleration": "500",
+    "wall_loops": "2",
+    "sparse_infill_density": "15%",
+    "sparse_infill_pattern": "3dhoneycomb",
+    "top_surface_pattern": "monotonicline",
+    "print_sequence": "by layer",
+    "nozzle_temperature": [
+      "205"
+    ],
+    "nozzle_temperature_initial_layer": [
+      "220"
+    ],
+    "hot_plate_temp": [
+      "60"
+    ],
+    "hot_plate_temp_initial_layer": [
+      "60"
+    ],
+    "textured_plate_temp": [
+      "60"
+    ],
+    "textured_plate_temp_initial_layer": [
+      "60"
+    ],
+    "curr_bed_type": "Textured PEI Plate",
+    "temperature_vitrification": [
+      "54"
+    ]
+  },
+  "objects": [
+    {
+      "copy_id": "plosina-170x60__01",
+      "number": 1,
+      "source_plate": 3,
+      "source_number": 1,
+      "purpose": "original_remaining",
+      "settings": {
+        "enable_support": "1"
+      },
+      "brim_segments": 654,
+      "max_extrusion_width_mm": 0.658463,
+      "all_extrusion_bounds_mm": [
+        [
+          23.815,
+          8.815,
+          0.2
+        ],
+        [
+          238.185,
+          111.185,
+          71.96
+        ]
+      ],
+      "footprint_includes_model_brim_supports_and_half_line_width": true,
+      "support_roles": {
+        "Support": {
+          "segments": 646,
+          "bounds_mm": [
+            [
+              24.25,
+              12.25,
+              0.2
+            ],
+            [
+              227.803,
+              107.75,
+              67.604
+            ]
+          ]
+        },
+        "Support interface": {
+          "segments": 2317,
+          "bounds_mm": [
+            [
+              28.777,
+              17.197,
+              3.123
+            ],
+            [
+              228.223,
+              102.803,
+              68.84
+            ]
+          ]
+        }
+      },
+      "model_extrusion_max_z_mm": 71.96,
+      "model_extrusion_segments": 202079
+    },
+    {
+      "copy_id": "rozperka-zadni-17_6__01",
+      "number": 2,
+      "source_plate": 3,
+      "source_number": 2,
+      "purpose": "original_remaining",
+      "settings": {
+        "enable_support": "0",
+        "wall_loops": "4",
+        "sparse_infill_density": "100%",
+        "sparse_infill_pattern": "rectilinear",
+        "outer_wall_speed": "30",
+        "inner_wall_speed": "50",
+        "small_perimeter_speed": "20",
+        "small_perimeter_threshold": "20",
+        "top_surface_speed": "30",
+        "sparse_infill_speed": "50",
+        "internal_solid_infill_speed": "50",
+        "gap_infill_speed": "30"
+      },
+      "brim_segments": 1518,
+      "max_extrusion_width_mm": 0.668566,
+      "all_extrusion_bounds_mm": [
+        [
+          66.818,
+          193.818,
+          0.2
+        ],
+        [
+          99.182,
+          226.182,
+          17.6
+        ]
+      ],
+      "footprint_includes_model_brim_supports_and_half_line_width": true,
+      "support_roles": {},
+      "model_extrusion_max_z_mm": 17.6,
+      "model_extrusion_segments": 65466
+    },
+    {
+      "copy_id": "cep-plosiny-4x19_5__01",
+      "number": 3,
+      "source_plate": 3,
+      "source_number": 3,
+      "purpose": "original_remaining",
+      "settings": {
+        "enable_support": "0",
+        "wall_loops": "4",
+        "sparse_infill_density": "100%",
+        "sparse_infill_pattern": "rectilinear",
+        "outer_wall_speed": "30",
+        "inner_wall_speed": "50",
+        "small_perimeter_speed": "20",
+        "small_perimeter_threshold": "20",
+        "top_surface_speed": "30",
+        "sparse_infill_speed": "50",
+        "internal_solid_infill_speed": "50",
+        "gap_infill_speed": "30"
+      },
+      "brim_segments": 752,
+      "max_extrusion_width_mm": 0.503906,
+      "all_extrusion_bounds_mm": [
+        [
+          38.815,
+          167.315,
+          0.2
+        ],
+        [
+          61.185,
+          189.685,
+          19.52
+        ]
+      ],
+      "footprint_includes_model_brim_supports_and_half_line_width": true,
+      "support_roles": {},
+      "model_extrusion_max_z_mm": 19.52,
+      "model_extrusion_segments": 16800
+    },
+    {
+      "copy_id": "spolecny-cep-mustku-4x30_5__02",
+      "number": 4,
+      "source_plate": 3,
+      "source_number": 4,
+      "purpose": "original_remaining",
+      "settings": {
+        "enable_support": "0",
+        "wall_loops": "4",
+        "sparse_infill_density": "100%",
+        "sparse_infill_pattern": "rectilinear",
+        "outer_wall_speed": "30",
+        "inner_wall_speed": "50",
+        "small_perimeter_speed": "20",
+        "small_perimeter_threshold": "20",
+        "top_surface_speed": "30",
+        "sparse_infill_speed": "50",
+        "internal_solid_infill_speed": "50",
+        "gap_infill_speed": "30"
+      },
+      "brim_segments": 1212,
+      "max_extrusion_width_mm": 0.512152,
+      "all_extrusion_bounds_mm": [
+        [
+          70.818,
+          167.326,
+          0.2
+        ],
+        [
+          93.182,
+          189.683,
+          30.44
+        ]
+      ],
+      "footprint_includes_model_brim_supports_and_half_line_width": true,
+      "support_roles": {},
+      "model_extrusion_max_z_mm": 30.44,
+      "model_extrusion_segments": 31587
+    },
+    {
+      "copy_id": "pojistka-6_9__03",
+      "number": 5,
+      "source_plate": 3,
+      "source_number": 5,
+      "purpose": "original_remaining",
+      "settings": {
+        "enable_support": "0",
+        "wall_loops": "4",
+        "sparse_infill_density": "100%",
+        "sparse_infill_pattern": "rectilinear",
+        "outer_wall_speed": "30",
+        "inner_wall_speed": "50",
+        "small_perimeter_speed": "20",
+        "small_perimeter_threshold": "20",
+        "top_surface_speed": "30",
+        "sparse_infill_speed": "50",
+        "internal_solid_infill_speed": "50",
+        "gap_infill_speed": "30"
+      },
+      "brim_segments": 1781,
+      "max_extrusion_width_mm": 0.562741,
+      "all_extrusion_bounds_mm": [
+        [
+          100.67,
+          164.818,
+          0.2
+        ],
+        [
+          127.317,
+          192.183,
+          1.28
+        ]
+      ],
+      "footprint_includes_model_brim_supports_and_half_line_width": true,
+      "support_roles": {},
+      "model_extrusion_max_z_mm": 1.28,
+      "model_extrusion_segments": 3002
+    },
+    {
+      "copy_id": "cep-tahla-dlouhy__01",
+      "number": 6,
+      "source_plate": 3,
+      "source_number": 6,
+      "purpose": "original_remaining",
+      "settings": {
+        "enable_support": "0",
+        "wall_loops": "4",
+        "sparse_infill_density": "100%",
+        "sparse_infill_pattern": "rectilinear",
+        "outer_wall_speed": "30",
+        "inner_wall_speed": "50",
+        "small_perimeter_speed": "20",
+        "small_perimeter_threshold": "20",
+        "top_surface_speed": "30",
+        "sparse_infill_speed": "50",
+        "internal_solid_infill_speed": "50",
+        "gap_infill_speed": "30"
+      },
+      "brim_segments": 1337,
+      "max_extrusion_width_mm": 0.632518,
+      "all_extrusion_bounds_mm": [
+        [
+          133.818,
+          166.326,
+          0.2
+        ],
+        [
+          158.182,
+          190.683,
+          15.56
+        ]
+      ],
+      "footprint_includes_model_brim_supports_and_half_line_width": true,
+      "support_roles": {},
+      "model_extrusion_max_z_mm": 15.56,
+      "model_extrusion_segments": 26585
+    },
+    {
+      "copy_id": "cep-plosiny-4x19_5__03",
+      "number": 7,
+      "source_plate": 3,
+      "source_number": 7,
+      "purpose": "original_remaining",
+      "settings": {
+        "enable_support": "0",
+        "wall_loops": "4",
+        "sparse_infill_density": "100%",
+        "sparse_infill_pattern": "rectilinear",
+        "outer_wall_speed": "30",
+        "inner_wall_speed": "50",
+        "small_perimeter_speed": "20",
+        "small_perimeter_threshold": "20",
+        "top_surface_speed": "30",
+        "sparse_infill_speed": "50",
+        "internal_solid_infill_speed": "50",
+        "gap_infill_speed": "30"
+      },
+      "brim_segments": 752,
+      "max_extrusion_width_mm": 0.503906,
+      "all_extrusion_bounds_mm": [
+        [
+          166.815,
+          167.315,
+          0.2
+        ],
+        [
+          189.185,
+          189.685,
+          19.52
+        ]
+      ],
+      "footprint_includes_model_brim_supports_and_half_line_width": true,
+      "support_roles": {},
+      "model_extrusion_max_z_mm": 19.52,
+      "model_extrusion_segments": 16809
+    },
+    {
+      "copy_id": "cep-plosiny-4x19_5__02",
+      "number": 8,
+      "source_plate": 3,
+      "source_number": 8,
+      "purpose": "original_remaining",
+      "settings": {
+        "enable_support": "0",
+        "wall_loops": "4",
+        "sparse_infill_density": "100%",
+        "sparse_infill_pattern": "rectilinear",
+        "outer_wall_speed": "30",
+        "inner_wall_speed": "50",
+        "small_perimeter_speed": "20",
+        "small_perimeter_threshold": "20",
+        "top_surface_speed": "30",
+        "sparse_infill_speed": "50",
+        "internal_solid_infill_speed": "50",
+        "gap_infill_speed": "30"
+      },
+      "brim_segments": 752,
+      "max_extrusion_width_mm": 0.503906,
+      "all_extrusion_bounds_mm": [
+        [
+          198.815,
+          167.315,
+          0.2
+        ],
+        [
+          221.185,
+          189.685,
+          19.52
+        ]
+      ],
+      "footprint_includes_model_brim_supports_and_half_line_width": true,
+      "support_roles": {},
+      "model_extrusion_max_z_mm": 19.52,
+      "model_extrusion_segments": 16809
+    },
+    {
+      "copy_id": "objimka-cep-4x25_5__01",
+      "number": 9,
+      "source_plate": 3,
+      "source_number": 9,
+      "purpose": "original_remaining",
+      "settings": {
+        "enable_support": "0",
+        "wall_loops": "4",
+        "sparse_infill_density": "100%",
+        "sparse_infill_pattern": "rectilinear",
+        "outer_wall_speed": "30",
+        "inner_wall_speed": "50",
+        "small_perimeter_speed": "20",
+        "small_perimeter_threshold": "20",
+        "top_surface_speed": "30",
+        "sparse_infill_speed": "50",
+        "internal_solid_infill_speed": "50",
+        "gap_infill_speed": "30"
+      },
+      "brim_segments": 1141,
+      "max_extrusion_width_mm": 0.504293,
+      "all_extrusion_bounds_mm": [
+        [
+          231.318,
+          167.826,
+          0.2
+        ],
+        [
+          252.682,
+          189.183,
+          25.52
+        ]
+      ],
+      "footprint_includes_model_brim_supports_and_half_line_width": true,
+      "support_roles": {},
+      "model_extrusion_max_z_mm": 25.52,
+      "model_extrusion_segments": 26357
+    },
+    {
+      "copy_id": "pojistka-6_9__02",
+      "number": 10,
+      "source_plate": 3,
+      "source_number": 10,
+      "purpose": "original_remaining",
+      "settings": {
+        "enable_support": "0",
+        "wall_loops": "4",
+        "sparse_infill_density": "100%",
+        "sparse_infill_pattern": "rectilinear",
+        "outer_wall_speed": "30",
+        "inner_wall_speed": "50",
+        "small_perimeter_speed": "20",
+        "small_perimeter_threshold": "20",
+        "top_surface_speed": "30",
+        "sparse_infill_speed": "50",
+        "internal_solid_infill_speed": "50",
+        "gap_infill_speed": "30"
+      },
+      "brim_segments": 1784,
+      "max_extrusion_width_mm": 0.562039,
+      "all_extrusion_bounds_mm": [
+        [
+          4.67,
+          196.318,
+          0.2
+        ],
+        [
+          31.317,
+          223.683,
+          1.28
+        ]
+      ],
+      "footprint_includes_model_brim_supports_and_half_line_width": true,
+      "support_roles": {},
+      "model_extrusion_max_z_mm": 1.28,
+      "model_extrusion_segments": 3033
+    },
+    {
+      "copy_id": "pojistka-kloubu-4_9__01",
+      "number": 11,
+      "source_plate": 3,
+      "source_number": 11,
+      "purpose": "original_remaining",
+      "settings": {
+        "enable_support": "0",
+        "wall_loops": "4",
+        "sparse_infill_density": "100%",
+        "sparse_infill_pattern": "rectilinear",
+        "outer_wall_speed": "30",
+        "inner_wall_speed": "50",
+        "small_perimeter_speed": "20",
+        "small_perimeter_threshold": "20",
+        "top_surface_speed": "30",
+        "sparse_infill_speed": "50",
+        "internal_solid_infill_speed": "50",
+        "gap_infill_speed": "30"
+      },
+      "brim_segments": 1540,
+      "max_extrusion_width_mm": 0.518341,
+      "all_extrusion_bounds_mm": [
+        [
+          38.036,
+          197.818,
+          0.2
+        ],
+        [
+          61.943,
+          222.183,
+          1.28
+        ]
+      ],
+      "footprint_includes_model_brim_supports_and_half_line_width": true,
+      "support_roles": {},
+      "model_extrusion_max_z_mm": 1.28,
+      "model_extrusion_segments": 2173
+    },
+    {
+      "copy_id": "pojistka-3_1__08",
+      "number": 12,
+      "source_plate": 3,
+      "source_number": 12,
+      "purpose": "original_remaining",
+      "settings": {
+        "enable_support": "0",
+        "wall_loops": "4",
+        "sparse_infill_density": "100%",
+        "sparse_infill_pattern": "rectilinear",
+        "outer_wall_speed": "30",
+        "inner_wall_speed": "50",
+        "small_perimeter_speed": "20",
+        "small_perimeter_threshold": "20",
+        "top_surface_speed": "30",
+        "sparse_infill_speed": "50",
+        "internal_solid_infill_speed": "50",
+        "gap_infill_speed": "30"
+      },
+      "brim_segments": 1166,
+      "max_extrusion_width_mm": 0.5,
+      "all_extrusion_bounds_mm": [
+        [
+          7.433,
+          167.822,
+          0.2
+        ],
+        [
+          28.558,
+          189.182,
+          1.28
+        ]
+      ],
+      "footprint_includes_model_brim_supports_and_half_line_width": true,
+      "support_roles": {},
+      "model_extrusion_max_z_mm": 1.28,
+      "model_extrusion_segments": 1589
+    },
+    {
+      "copy_id": "pojistka-3_1__04",
+      "number": 13,
+      "source_plate": 3,
+      "source_number": 13,
+      "purpose": "original_remaining",
+      "settings": {
+        "enable_support": "0",
+        "wall_loops": "4",
+        "sparse_infill_density": "100%",
+        "sparse_infill_pattern": "rectilinear",
+        "outer_wall_speed": "30",
+        "inner_wall_speed": "50",
+        "small_perimeter_speed": "20",
+        "small_perimeter_threshold": "20",
+        "top_surface_speed": "30",
+        "sparse_infill_speed": "50",
+        "internal_solid_infill_speed": "50",
+        "gap_infill_speed": "30"
+      },
+      "brim_segments": 1173,
+      "max_extrusion_width_mm": 0.5,
+      "all_extrusion_bounds_mm": [
+        [
+          103.433,
+          199.322,
+          0.2
+        ],
+        [
+          124.558,
+          220.682,
+          1.28
+        ]
+      ],
+      "footprint_includes_model_brim_supports_and_half_line_width": true,
+      "support_roles": {},
+      "model_extrusion_max_z_mm": 1.28,
+      "model_extrusion_segments": 1586
+    },
+    {
+      "copy_id": "osa-zadni-12x150_6__01",
+      "number": 14,
+      "source_plate": 1,
+      "source_number": 8,
+      "purpose": "first_batch_replacement",
+      "settings": {
+        "enable_support": "1",
+        "wall_loops": "4",
+        "sparse_infill_density": "100%",
+        "sparse_infill_pattern": "rectilinear",
+        "outer_wall_speed": "20",
+        "inner_wall_speed": "30",
+        "small_perimeter_speed": "15",
+        "small_perimeter_threshold": "20",
+        "top_surface_speed": "30",
+        "sparse_infill_speed": "50",
+        "internal_solid_infill_speed": "50",
+        "gap_infill_speed": "30",
+        "brim_width": "12",
+        "outer_wall_acceleration": "300",
+        "support_speed": "30",
+        "support_interface_speed": "20"
+      },
+      "brim_segments": 1649,
+      "max_extrusion_width_mm": 0.713472,
+      "all_extrusion_bounds_mm": [
+        [
+          136.247,
+          121.25,
+          0.2
+        ],
+        [
+          169.756,
+          156.754,
+          150.56
+        ]
+      ],
+      "footprint_includes_model_brim_supports_and_half_line_width": true,
+      "support_roles": {
+        "Support": {
+          "segments": 1511,
+          "bounds_mm": [
+            [
+              148.07,
+              123.183,
+              0.2
+            ],
+            [
+              164.993,
+              154.906,
+              52.92
+            ]
+          ]
+        },
+        "Support interface": {
+          "segments": 1510,
+          "bounds_mm": [
+            [
+              147.779,
+              132.778,
+              1.76
+            ],
+            [
+              160.214,
+              145.221,
+              149.0
+            ]
+          ]
+        }
+      },
+      "model_extrusion_max_z_mm": 150.56,
+      "model_extrusion_segments": 361671
+    },
+    {
+      "copy_id": "tehlice-prava__01",
+      "number": 15,
+      "source_plate": 1,
+      "source_number": 11,
+      "purpose": "first_batch_replacement",
+      "settings": {
+        "enable_support": "1",
+        "wall_loops": "4",
+        "sparse_infill_density": "100%",
+        "sparse_infill_pattern": "rectilinear",
+        "outer_wall_speed": "30",
+        "inner_wall_speed": "50",
+        "small_perimeter_speed": "20",
+        "small_perimeter_threshold": "20",
+        "top_surface_speed": "30",
+        "sparse_infill_speed": "50",
+        "internal_solid_infill_speed": "50",
+        "gap_infill_speed": "30"
+      },
+      "brim_segments": 1059,
+      "max_extrusion_width_mm": 0.793651,
+      "all_extrusion_bounds_mm": [
+        [
+          11.975,
+          117.168,
+          0.2
+        ],
+        [
+          57.942,
+          159.421,
+          32.96
+        ]
+      ],
+      "footprint_includes_model_brim_supports_and_half_line_width": true,
+      "support_roles": {
+        "Support": {
+          "segments": 5774,
+          "bounds_mm": [
+            [
+              22.354,
+              118.422,
+              0.2
+            ],
+            [
+              57.942,
+              159.421,
+              16.28
+            ]
+          ]
+        },
+        "Support interface": {
+          "segments": 1876,
+          "bounds_mm": [
+            [
+              24.927,
+              123.484,
+              3.68
+            ],
+            [
+              52.994,
+              154.473,
+              17.6
+            ]
+          ]
+        }
+      },
+      "model_extrusion_max_z_mm": 32.96,
+      "model_extrusion_segments": 100946
+    },
+    {
+      "copy_id": "svisly-cep-8__02",
+      "number": 16,
+      "source_plate": 1,
+      "source_number": 12,
+      "purpose": "first_batch_replacement",
+      "settings": {
+        "enable_support": "0",
+        "wall_loops": "4",
+        "sparse_infill_density": "100%",
+        "sparse_infill_pattern": "rectilinear",
+        "outer_wall_speed": "30",
+        "inner_wall_speed": "50",
+        "small_perimeter_speed": "20",
+        "small_perimeter_threshold": "20",
+        "top_surface_speed": "30",
+        "sparse_infill_speed": "50",
+        "internal_solid_infill_speed": "50",
+        "gap_infill_speed": "30"
+      },
+      "brim_segments": 1516,
+      "max_extrusion_width_mm": 0.551724,
+      "all_extrusion_bounds_mm": [
+        [
+          132.318,
+          196.327,
+          0.2
+        ],
+        [
+          159.682,
+          223.674,
+          35.24
+        ]
+      ],
+      "footprint_includes_model_brim_supports_and_half_line_width": true,
+      "support_roles": {},
+      "model_extrusion_max_z_mm": 35.24,
+      "model_extrusion_segments": 102344
+    },
+    {
+      "copy_id": "pevny-cep-8x53_9__01",
+      "number": 17,
+      "source_plate": 1,
+      "source_number": 13,
+      "purpose": "first_batch_replacement",
+      "settings": {
+        "enable_support": "0",
+        "wall_loops": "4",
+        "sparse_infill_density": "100%",
+        "sparse_infill_pattern": "rectilinear",
+        "outer_wall_speed": "30",
+        "inner_wall_speed": "50",
+        "small_perimeter_speed": "20",
+        "small_perimeter_threshold": "20",
+        "top_surface_speed": "30",
+        "sparse_infill_speed": "50",
+        "internal_solid_infill_speed": "50",
+        "gap_infill_speed": "30"
+      },
+      "brim_segments": 743,
+      "max_extrusion_width_mm": 0.551723,
+      "all_extrusion_bounds_mm": [
+        [
+          164.815,
+          196.815,
+          0.2
+        ],
+        [
+          191.185,
+          223.185,
+          53.96
+        ]
+      ],
+      "footprint_includes_model_brim_supports_and_half_line_width": true,
+      "support_roles": {},
+      "model_extrusion_max_z_mm": 53.96,
+      "model_extrusion_segments": 154115
+    },
+    {
+      "copy_id": "servo-cep-4x51_2__01",
+      "number": 18,
+      "source_plate": 1,
+      "source_number": 14,
+      "purpose": "first_batch_replacement",
+      "settings": {
+        "enable_support": "0",
+        "wall_loops": "4",
+        "sparse_infill_density": "100%",
+        "sparse_infill_pattern": "rectilinear",
+        "outer_wall_speed": "30",
+        "inner_wall_speed": "50",
+        "small_perimeter_speed": "20",
+        "small_perimeter_threshold": "20",
+        "top_surface_speed": "30",
+        "sparse_infill_speed": "50",
+        "internal_solid_infill_speed": "50",
+        "gap_infill_speed": "30"
+      },
+      "brim_segments": 1218,
+      "max_extrusion_width_mm": 0.512069,
+      "all_extrusion_bounds_mm": [
+        [
+          198.822,
+          198.826,
+          0.2
+        ],
+        [
+          221.178,
+          221.183,
+          51.2
+        ]
+      ],
+      "footprint_includes_model_brim_supports_and_half_line_width": true,
+      "support_roles": {},
+      "model_extrusion_max_z_mm": 51.2,
+      "model_extrusion_segments": 51302
+    },
+    {
+      "copy_id": "pricny-klinek-4x27_1__01",
+      "number": 19,
+      "source_plate": 1,
+      "source_number": 17,
+      "purpose": "first_batch_replacement",
+      "settings": {
+        "enable_support": "0",
+        "wall_loops": "4",
+        "sparse_infill_density": "100%",
+        "sparse_infill_pattern": "rectilinear",
+        "outer_wall_speed": "30",
+        "inner_wall_speed": "50",
+        "small_perimeter_speed": "20",
+        "small_perimeter_threshold": "20",
+        "top_surface_speed": "30",
+        "sparse_infill_speed": "50",
+        "internal_solid_infill_speed": "50",
+        "gap_infill_speed": "30"
+      },
+      "brim_segments": 1142,
+      "max_extrusion_width_mm": 0.504293,
+      "all_extrusion_bounds_mm": [
+        [
+          231.318,
+          199.326,
+          0.2
+        ],
+        [
+          252.682,
+          220.683,
+          27.08
+        ]
+      ],
+      "footprint_includes_model_brim_supports_and_half_line_width": true,
+      "support_roles": {},
+      "model_extrusion_max_z_mm": 27.08,
+      "model_extrusion_segments": 27506
+    },
+    {
+      "copy_id": "cep-plosiny-4x19_5__04",
+      "number": 20,
+      "source_plate": 1,
+      "source_number": 19,
+      "purpose": "first_batch_replacement",
+      "settings": {
+        "enable_support": "0",
+        "wall_loops": "4",
+        "sparse_infill_density": "100%",
+        "sparse_infill_pattern": "rectilinear",
+        "outer_wall_speed": "30",
+        "inner_wall_speed": "50",
+        "small_perimeter_speed": "20",
+        "small_perimeter_threshold": "20",
+        "top_surface_speed": "30",
+        "sparse_infill_speed": "50",
+        "internal_solid_infill_speed": "50",
+        "gap_infill_speed": "30"
+      },
+      "brim_segments": 752,
+      "max_extrusion_width_mm": 0.503906,
+      "all_extrusion_bounds_mm": [
+        [
+          6.815,
+          230.315,
+          0.2
+        ],
+        [
+          29.185,
+          252.685,
+          19.52
+        ]
+      ],
+      "footprint_includes_model_brim_supports_and_half_line_width": true,
+      "support_roles": {},
+      "model_extrusion_max_z_mm": 19.52,
+      "model_extrusion_segments": 16797
+    },
+    {
+      "copy_id": "tehlice-leva__01",
+      "number": 21,
+      "source_plate": 2,
+      "source_number": 4,
+      "purpose": "second_batch_replacement",
+      "settings": {
+        "enable_support": "1",
+        "wall_loops": "4",
+        "sparse_infill_density": "100%",
+        "sparse_infill_pattern": "rectilinear",
+        "outer_wall_speed": "30",
+        "inner_wall_speed": "50",
+        "small_perimeter_speed": "20",
+        "small_perimeter_threshold": "20",
+        "top_surface_speed": "30",
+        "sparse_infill_speed": "50",
+        "internal_solid_infill_speed": "50",
+        "gap_infill_speed": "30"
+      },
+      "brim_segments": 1055,
+      "max_extrusion_width_mm": 0.794551,
+      "all_extrusion_bounds_mm": [
+        [
+          70.975,
+          118.581,
+          0.2
+        ],
+        [
+          116.94,
+          160.834,
+          32.96
+        ]
+      ],
+      "footprint_includes_model_brim_supports_and_half_line_width": true,
+      "support_roles": {
+        "Support": {
+          "segments": 6131,
+          "bounds_mm": [
+            [
+              81.354,
+              118.581,
+              0.2
+            ],
+            [
+              116.94,
+              159.398,
+              16.28
+            ]
+          ]
+        },
+        "Support interface": {
+          "segments": 1881,
+          "bounds_mm": [
+            [
+              83.927,
+              123.527,
+              3.68
+            ],
+            [
+              111.994,
+              154.451,
+              17.6
+            ]
+          ]
+        }
+      },
+      "model_extrusion_max_z_mm": 32.96,
+      "model_extrusion_segments": 101125
+    },
+    {
+      "copy_id": "pevny-cep-8x53_9__02",
+      "number": 22,
+      "source_plate": 2,
+      "source_number": 11,
+      "purpose": "second_batch_replacement",
+      "settings": {
+        "enable_support": "0",
+        "wall_loops": "4",
+        "sparse_infill_density": "100%",
+        "sparse_infill_pattern": "rectilinear",
+        "outer_wall_speed": "30",
+        "inner_wall_speed": "50",
+        "small_perimeter_speed": "20",
+        "small_perimeter_threshold": "20",
+        "top_surface_speed": "30",
+        "sparse_infill_speed": "50",
+        "internal_solid_infill_speed": "50",
+        "gap_infill_speed": "30"
+      },
+      "brim_segments": 743,
+      "max_extrusion_width_mm": 0.551724,
+      "all_extrusion_bounds_mm": [
+        [
+          36.815,
+          228.315,
+          0.2
+        ],
+        [
+          63.185,
+          254.685,
+          53.96
+        ]
+      ],
+      "footprint_includes_model_brim_supports_and_half_line_width": true,
+      "support_roles": {},
+      "model_extrusion_max_z_mm": 53.96,
+      "model_extrusion_segments": 154012
+    },
+    {
+      "copy_id": "svisly-cep-8__01",
+      "number": 23,
+      "source_plate": 2,
+      "source_number": 12,
+      "purpose": "second_batch_replacement",
+      "settings": {
+        "enable_support": "0",
+        "wall_loops": "4",
+        "sparse_infill_density": "100%",
+        "sparse_infill_pattern": "rectilinear",
+        "outer_wall_speed": "30",
+        "inner_wall_speed": "50",
+        "small_perimeter_speed": "20",
+        "small_perimeter_threshold": "20",
+        "top_surface_speed": "30",
+        "sparse_infill_speed": "50",
+        "internal_solid_infill_speed": "50",
+        "gap_infill_speed": "30"
+      },
+      "brim_segments": 1518,
+      "max_extrusion_width_mm": 0.551726,
+      "all_extrusion_bounds_mm": [
+        [
+          100.318,
+          227.827,
+          0.2
+        ],
+        [
+          127.682,
+          255.174,
+          35.24
+        ]
+      ],
+      "footprint_includes_model_brim_supports_and_half_line_width": true,
+      "support_roles": {},
+      "model_extrusion_max_z_mm": 35.24,
+      "model_extrusion_segments": 102371
+    },
+    {
+      "copy_id": "servo-cep-4x51_2__02",
+      "number": 24,
+      "source_plate": 2,
+      "source_number": 16,
+      "purpose": "second_batch_replacement",
+      "settings": {
+        "enable_support": "0",
+        "wall_loops": "4",
+        "sparse_infill_density": "100%",
+        "sparse_infill_pattern": "rectilinear",
+        "outer_wall_speed": "30",
+        "inner_wall_speed": "50",
+        "small_perimeter_speed": "20",
+        "small_perimeter_threshold": "20",
+        "top_surface_speed": "30",
+        "sparse_infill_speed": "50",
+        "internal_solid_infill_speed": "50",
+        "gap_infill_speed": "30"
+      },
+      "brim_segments": 1210,
+      "max_extrusion_width_mm": 0.512152,
+      "all_extrusion_bounds_mm": [
+        [
+          70.818,
+          230.326,
+          0.2
+        ],
+        [
+          93.182,
+          252.683,
+          51.2
+        ]
+      ],
+      "footprint_includes_model_brim_supports_and_half_line_width": true,
+      "support_roles": {},
+      "model_extrusion_max_z_mm": 51.2,
+      "model_extrusion_segments": 51466
+    },
+    {
+      "copy_id": "spolecny-cep-mustku-4x30_5__01",
+      "number": 25,
+      "source_plate": 2,
+      "source_number": 22,
+      "purpose": "second_batch_replacement",
+      "settings": {
+        "enable_support": "0",
+        "wall_loops": "4",
+        "sparse_infill_density": "100%",
+        "sparse_infill_pattern": "rectilinear",
+        "outer_wall_speed": "30",
+        "inner_wall_speed": "50",
+        "small_perimeter_speed": "20",
+        "small_perimeter_threshold": "20",
+        "top_surface_speed": "30",
+        "sparse_infill_speed": "50",
+        "internal_solid_infill_speed": "50",
+        "gap_infill_speed": "30"
+      },
+      "brim_segments": 1217,
+      "max_extrusion_width_mm": 0.512069,
+      "all_extrusion_bounds_mm": [
+        [
+          134.822,
+          230.326,
+          0.2
+        ],
+        [
+          157.178,
+          252.683,
+          30.44
+        ]
+      ],
+      "footprint_includes_model_brim_supports_and_half_line_width": true,
+      "support_roles": {},
+      "model_extrusion_max_z_mm": 30.44,
+      "model_extrusion_segments": 31522
+    },
+    {
+      "copy_id": "cep-tahla-kratky__01",
+      "number": 26,
+      "source_plate": 2,
+      "source_number": 23,
+      "purpose": "second_batch_replacement",
+      "settings": {
+        "enable_support": "0",
+        "wall_loops": "4",
+        "sparse_infill_density": "100%",
+        "sparse_infill_pattern": "rectilinear",
+        "outer_wall_speed": "30",
+        "inner_wall_speed": "50",
+        "small_perimeter_speed": "20",
+        "small_perimeter_threshold": "20",
+        "top_surface_speed": "30",
+        "sparse_infill_speed": "50",
+        "internal_solid_infill_speed": "50",
+        "gap_infill_speed": "30"
+      },
+      "brim_segments": 1338,
+      "max_extrusion_width_mm": 0.632522,
+      "all_extrusion_bounds_mm": [
+        [
+          165.818,
+          229.326,
+          0.2
+        ],
+        [
+          190.182,
+          253.683,
+          12.2
+        ]
+      ],
+      "footprint_includes_model_brim_supports_and_half_line_width": true,
+      "support_roles": {},
+      "model_extrusion_max_z_mm": 12.2,
+      "model_extrusion_segments": 21090
+    }
+  ],
+  "limits": "All extrusion XY convex envelopes include model/support/brim paths and half maximum extrusion width. Startup/custom G-code excluded. Physical stability, removability, surface fit and machine performance not proven."
+}

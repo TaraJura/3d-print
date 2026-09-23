@@ -1,0 +1,208 @@
+{
+  "source_zip_sha256": "ea277264711d9accb6f2fe3c14dc05b4669c28e56cca7b53ea3f58bf22df0663",
+  "all_passed": true,
+  "plates": [
+    {
+      "plate": 1,
+      "objects": 7,
+      "all_within_6mm_edge": true,
+      "minimum_hull_clearance_mm": 11.047080886232624,
+      "minimum_brim_envelope_clearance_mm": 0.8470808862326251,
+      "minimum_edge_clearance_mm": 6.0,
+      "minimum_brim_to_bed_edge_mm": 0.9000000000000004,
+      "group_bbox_center_mm": [
+        130.0,
+        130.0
+      ],
+      "pair_checks": 21,
+      "pair_distances": [
+        {
+          "a": "vyrez-ramu__01.stl",
+          "b": "dvojkolo-b__01.stl",
+          "clearance_mm": 11.049999600753623
+        },
+        {
+          "a": "vyrez-ramu__01.stl",
+          "b": "dvojkolo-a__01.stl",
+          "clearance_mm": 84.38477250205509
+        },
+        {
+          "a": "vyrez-ramu__01.stl",
+          "b": "pevny-cep-8x53_9__01.stl",
+          "clearance_mm": 150.84387248301442
+        },
+        {
+          "a": "vyrez-ramu__01.stl",
+          "b": "pevny-cep-8x53_9__02.stl",
+          "clearance_mm": 124.29585733280814
+        },
+        {
+          "a": "vyrez-ramu__01.stl",
+          "b": "pojistka-6_9__01.stl",
+          "clearance_mm": 74.29146206564884
+        },
+        {
+          "a": "vyrez-ramu__01.stl",
+          "b": "pojistka-6_9__02.stl",
+          "clearance_mm": 11.047080886232624
+        },
+        {
+          "a": "dvojkolo-b__01.stl",
+          "b": "dvojkolo-a__01.stl",
+          "clearance_mm": 11.050000000000047
+        },
+        {
+          "a": "dvojkolo-b__01.stl",
+          "b": "pevny-cep-8x53_9__01.stl",
+          "clearance_mm": 78.45133828881008
+        },
+        {
+          "a": "dvojkolo-b__01.stl",
+          "b": "pevny-cep-8x53_9__02.stl",
+          "clearance_mm": 57.88844588969987
+        },
+        {
+          "a": "dvojkolo-b__01.stl",
+          "b": "pojistka-6_9__01.stl",
+          "clearance_mm": 11.050000000000024
+        },
+        {
+          "a": "dvojkolo-b__01.stl",
+          "b": "pojistka-6_9__02.stl",
+          "clearance_mm": 11.049947091588713
+        },
+        {
+          "a": "dvojkolo-a__01.stl",
+          "b": "pevny-cep-8x53_9__01.stl",
+          "clearance_mm": 11.050000000000015
+        },
+        {
+          "a": "dvojkolo-a__01.stl",
+          "b": "pevny-cep-8x53_9__02.stl",
+          "clearance_mm": 11.704253802012625
+        },
+        {
+          "a": "dvojkolo-a__01.stl",
+          "b": "pojistka-6_9__01.stl",
+          "clearance_mm": 11.048706551247495
+        },
+        {
+          "a": "dvojkolo-a__01.stl",
+          "b": "pojistka-6_9__02.stl",
+          "clearance_mm": 73.09516204772312
+        },
+        {
+          "a": "pevny-cep-8x53_9__01.stl",
+          "b": "pevny-cep-8x53_9__02.stl",
+          "clearance_mm": 11.050000000000031
+        },
+        {
+          "a": "pevny-cep-8x53_9__01.stl",
+          "b": "pojistka-6_9__01.stl",
+          "clearance_mm": 65.9255653565523
+        },
+        {
+          "a": "pevny-cep-8x53_9__01.stl",
+          "b": "pojistka-6_9__02.stl",
+          "clearance_mm": 133.82189047149245
+        },
+        {
+          "a": "pevny-cep-8x53_9__02.stl",
+          "b": "pojistka-6_9__01.stl",
+          "clearance_mm": 37.155141590933965
+        },
+        {
+          "a": "pevny-cep-8x53_9__02.stl",
+          "b": "pojistka-6_9__02.stl",
+          "clearance_mm": 104.07981627421881
+        },
+        {
+          "a": "pojistka-6_9__01.stl",
+          "b": "pojistka-6_9__02.stl",
+          "clearance_mm": 54.92648040167345
+        }
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "name": "vyrez-ramu__01.stl",
+      "plate": 1,
+      "source_sha256": "3c12c56b7f7a4196f4924686df52d557a7fd9f60a826dec0b43adfbcb3354899",
+      "triangle_count": 3244,
+      "mesh_z_bounds_mm": [
+        3.552713678800501e-15,
+        38.0
+      ],
+      "transform_determinant": 1.0
+    },
+    {
+      "name": "dvojkolo-b__01.stl",
+      "plate": 1,
+      "source_sha256": "bec15ad87b7c0b46d7112950ec1d94ba81aaa6c049646001c6b3bea1d73ccb7d",
+      "triangle_count": 33464,
+      "mesh_z_bounds_mm": [
+        0.0,
+        30.0
+      ],
+      "transform_determinant": 1.0
+    },
+    {
+      "name": "dvojkolo-a__01.stl",
+      "plate": 1,
+      "source_sha256": "78204b0a42d90bd7d0f74274b9efb47f6750258ec6f9ee6ff28b255e5f855528",
+      "triangle_count": 27720,
+      "mesh_z_bounds_mm": [
+        0.0,
+        30.0
+      ],
+      "transform_determinant": 1.0
+    },
+    {
+      "name": "pevny-cep-8x53_9__01.stl",
+      "plate": 1,
+      "source_sha256": "dadc7cac8a1ab3539f123e7abdd65fa3d0555b4b37d583de85756956aaa5e795",
+      "triangle_count": 1524,
+      "mesh_z_bounds_mm": [
+        0.0,
+        12.0
+      ],
+      "transform_determinant": 1.0
+    },
+    {
+      "name": "pevny-cep-8x53_9__02.stl",
+      "plate": 1,
+      "source_sha256": "dadc7cac8a1ab3539f123e7abdd65fa3d0555b4b37d583de85756956aaa5e795",
+      "triangle_count": 1524,
+      "mesh_z_bounds_mm": [
+        0.0,
+        12.0
+      ],
+      "transform_determinant": 1.0
+    },
+    {
+      "name": "pojistka-6_9__01.stl",
+      "plate": 1,
+      "source_sha256": "9e0bea84aaedbfd01be7359a0ca83644f25736050aa7b0d7448b1942ea491dab",
+      "triangle_count": 772,
+      "mesh_z_bounds_mm": [
+        0.0,
+        1.2999999523162842
+      ],
+      "transform_determinant": 1.0
+    },
+    {
+      "name": "pojistka-6_9__02.stl",
+      "plate": 1,
+      "source_sha256": "9e0bea84aaedbfd01be7359a0ca83644f25736050aa7b0d7448b1942ea491dab",
+      "triangle_count": 772,
+      "mesh_z_bounds_mm": [
+        0.0,
+        1.2999999523162842
+      ],
+      "transform_determinant": 1.0
+    }
+  ],
+  "count": 7,
+  "method": "All original STL vertices, all-height convex XY hulls, pairwise Euclidean distances, no hole nesting; rigid Z rotations and XY translations only. Brim assumption width5mm + objectgap0.1mm. Does not prove support toolpath envelope or sliced layers."
+}

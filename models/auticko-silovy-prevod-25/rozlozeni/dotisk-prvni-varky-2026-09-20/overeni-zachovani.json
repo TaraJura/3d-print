@@ -1,0 +1,21 @@
+{
+  "evidence_scope": "Historical pre-upright repair audit. Plate 3 has since been deliberately replaced after archival; see ../stojate-cepy-2026-09-20/overeni-geometrie.json for current preserved source hashes.",
+  "status": "pass_for_source_geometry_with_preexisting_original_project_change",
+  "source_fcstd_sha256": "68ea656115ca166e95adf049ba3347167bbedb6a44fdd77c22d8aef21761e6e9",
+  "source_zip_sha256": "3e6ea7b537a1b2cb9197cbcf23623bbfbc9b7354323d0415af6e7eac19d7aa6f",
+  "original_plate_1_sha256": "59e9a082fa7d9a2bee8c40823dda2ca6239e76152cf8901afe754b4aaabcce62",
+  "original_plate_1_mtime_before_task": "2026-09-20 01:29:29 local",
+  "original_plate_1_matches_prior_delivery_zip_hash": false,
+  "original_plate_1_mesh_and_positions_match_manifest": true,
+  "original_plate_1_differences": [],
+  "note": "Original first 3MF was already a saved Next project at task start, different archive hash from prior report. It has not been rewritten by this repair. Canonical source STL/ZIP and CAD remain unchanged; plates2/3 still match prior hashes. Only repair folder and documentation written.",
+  "original_plate_1_saved_settings": {
+    "printer_model": "Anycubic Kobra X",
+    "printer_settings_id": "Anycubic Kobra X 0.4 nozzle",
+    "print_settings_id": "0.12mm High Quality @Anycubic Kobra X 0.4 nozzle",
+    "enable_support": "0",
+    "layer_height": "0.12",
+    "brim_type": "auto_brim",
+    "brim_width": "5"
+  }
+}

@@ -1,0 +1,173 @@
+{
+  "units": "mm",
+  "transform_convention": "Rotate original STL about +Z counterclockwise by angle_deg (right-handed), then translate by dx_mm,dy_mm,dz_mm; scale=1. Z unchanged. Plate origin is front-left0,0.",
+  "source_zip": "/home/novakj/3d-print/models/auticko-silovy-prevod-25/kalibrace-4-v2/kalibrace-4-v2.zip",
+  "source_zip_sha256": "4084c3dea334c65aebe281016e6be6b8fb906acb315fcdd785c418d6c8dd1361",
+  "plate_mm": [
+    260,
+    260
+  ],
+  "clearance_policy": {
+    "minimum_hull_gap_mm": 11.0,
+    "minimum_edge_mm": 6.0,
+    "process_assumption": "brim_width=5mm, brim_object_gap=0.1mm, no skirt; supports disabled in verified default profile. Local support toolpaths have not been sliced or verified and must fit inside the reserved envelope."
+  },
+  "count": 2,
+  "items": [
+    {
+      "name": "kalibrace-4-v2-z__01.stl",
+      "plate": 1,
+      "angle_deg": 0,
+      "dx_mm": 77.475,
+      "dy_mm": 121.69999980926514,
+      "dz_mm": 0.0,
+      "scale": 1.0,
+      "source_sha256": "35c1398141e2f7e386350ab155f17bec9fcc11ee67dcd02594cbb5db1592a538",
+      "source_bounds_mm": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          47.0,
+          16.600000381469727,
+          8.600000381469727
+        ]
+      ],
+      "placed_hull_xy": [
+        [
+          77.475,
+          121.69999980926514
+        ],
+        [
+          77.475,
+          138.30000019073486
+        ],
+        [
+          124.475,
+          138.30000019073486
+        ],
+        [
+          124.475,
+          121.69999980926514
+        ],
+        [
+          77.475,
+          121.69999980926514
+        ]
+      ]
+    },
+    {
+      "name": "kalibrace-4-v2-y__01.stl",
+      "plate": 1,
+      "angle_deg": 0,
+      "dx_mm": 135.52499999999998,
+      "dy_mm": 121.69999980926514,
+      "dz_mm": 0.0,
+      "scale": 1.0,
+      "source_sha256": "8782bf06c9a2da47bc176fb4791b9f97a60bc4fdfcacc0c78bb05b70a0f171f6",
+      "source_bounds_mm": [
+        [
+          0.0,
+          -5.327414251151514e-16,
+          0.0
+        ],
+        [
+          47.0,
+          8.0,
+          10.800000190734863
+        ]
+      ],
+      "placed_hull_xy": [
+        [
+          160.96516647338865,
+          121.69999980926514
+        ],
+        [
+          140.57015266418455,
+          121.69999980926514
+        ],
+        [
+          140.46059360504148,
+          121.69999980926514
+        ],
+        [
+          140.35144367218015,
+          121.69999980926514
+        ],
+        [
+          140.24297418594358,
+          121.69999980926514
+        ],
+        [
+          140.135454082489,
+          121.69999980926514
+        ],
+        [
+          140.02915086746214,
+          121.69999980926514
+        ],
+        [
+          139.92432918548582,
+          121.69999980926514
+        ],
+        [
+          139.82124986648557,
+          121.69999980926514
+        ],
+        [
+          139.7201684951782,
+          121.69999980926514
+        ],
+        [
+          135.52499999999998,
+          121.69999980926514
+        ],
+        [
+          135.52499999999998,
+          129.69999980926514
+        ],
+        [
+          182.52499999999998,
+          129.69999980926514
+        ],
+        [
+          182.52499999999998,
+          121.69999980926514
+        ],
+        [
+          161.32342567443845,
+          121.69999980926514
+        ],
+        [
+          161.2043518066406,
+          121.69999980926514
+        ],
+        [
+          161.0848335266113,
+          121.69999980926514
+        ],
+        [
+          160.96516647338865,
+          121.69999980926514
+        ]
+      ]
+    }
+  ],
+  "proof": [
+    {
+      "plate": 1,
+      "count": 2,
+      "minimum_hull_clearance_mm": 11.049999999999983,
+      "minimum_edge_clearance_mm": 77.475,
+      "group_bbox_center_mm": [
+        130,
+        130
+      ],
+      "all_pairs_tested": 1,
+      "all_inside": true
+    }
+  ],
+  "heuristic": "convex hulls over all Z, no nesting in holes; greedy no-fit polygon search, rotations0/90/180/270; no claim global optimum"
+}

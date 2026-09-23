@@ -1,0 +1,28 @@
+{
+  "source_sha256": "0ee42b5512b97240a9d466e833e46a4360a3d4b5a7d112ae647146946781126e",
+  "previous_source_sha256": "0e56dfc88e022d18fcf4b8d33e511c5f99cc0671d2a23572686be4324a19dbb3",
+  "exact_diff_only_build_id_and_center": true,
+  "right_direction": 1,
+  "steering_sign": 1,
+  "center_us": 1575,
+  "offset_us": 300,
+  "pulses_us": [
+    1275,
+    1575,
+    1875
+  ],
+  "frequency_hz": 50,
+  "duty_percent": [
+    6.375,
+    7.875,
+    9.375
+  ],
+  "timer_counts_nominal": [
+    3825,
+    4725,
+    5625
+  ],
+  "motor_network_safety_logic_unchanged": true,
+  "browser_regression_rerun": false,
+  "reason": "Explicitly scoped incremental calibration; previous full v3 regression remains historical. Only existing pulse expectations updated, no new tests."
+}

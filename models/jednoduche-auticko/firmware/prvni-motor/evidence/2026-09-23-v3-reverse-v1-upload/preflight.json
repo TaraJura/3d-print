@@ -1,0 +1,21 @@
+{
+  "recorded_utc": "2026-09-22T22:08:55.067125+00:00",
+  "source_sha256": "d24a87631fd32a41685baedd7488c425a75ca6f9e300706349c61e09e79fe930",
+  "bin_sha256": "663fbe045211770308dab03aa696c69ea0b61f314b063ae9fc5bf7310c0ae19e",
+  "bin_bytes": 86716,
+  "port": "/dev/ttyACM0",
+  "usb_serial": "3CDC75F1A2D4",
+  "user_confirmation": {
+    "source_task": "01a0caa4-9807-78f0-9152-893a808ca99a",
+    "question": "Je Arduino připojené přes USB a napájení motoru i červený vodič serva odpojené?",
+    "answer": "ano, servo odpojeno",
+    "authorization": "Upload exact prepared reverse-v1; then passive diagnostics only.",
+    "servo_positive_disconnected": true,
+    "motor_unpowered": "Confirmed question; last known one cell disconnected, no reported change.",
+    "uno_usb_connected": true,
+    "electrically_measured_by_agent": false,
+    "linkage_unchanged": true
+  },
+  "rebuild_or_regression_rerun": false,
+  "preparation_evidence": "../2026-09-22-v3-reverse-v1/README.md"
+}

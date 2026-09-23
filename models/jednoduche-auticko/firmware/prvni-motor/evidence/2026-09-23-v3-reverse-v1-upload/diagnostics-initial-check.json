@@ -1,0 +1,24 @@
+{
+  "started_utc": "2026-09-22T22:10:07.616754+00:00",
+  "finished_utc": "2026-09-22T22:10:19.122848+00:00",
+  "port": "/dev/ttyACM0",
+  "usb_serial": "3CDC75F1A2D4",
+  "baud": 115200,
+  "dtr": true,
+  "serial_data_bytes_written": 0,
+  "http_requests_sent": 0,
+  "motion_commands_sent": 0,
+  "build_snapshot_count": 3,
+  "checks": {
+    "at_least_three_build_snapshots": true,
+    "all_build_motor_idle": true,
+    "steering": true,
+    "lease": true,
+    "network": false,
+    "boot": true
+  },
+  "passed": false,
+  "serial_monitor_closed": true,
+  "electrical_pwm_measured": false,
+  "physical_actuators_tested": false
+}

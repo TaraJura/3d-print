@@ -1,0 +1,86 @@
+{
+  "status": "pass",
+  "method": "Reopened final FCStd, actual final cut bodies; no model modification. Every hole is empty 0.01mm inside expected radius and solid 0.01mm outside, at 12 angles and three depths.",
+  "fcstd_sha256": "4a4e0d3b3309eb8f5dd5bcfd6e98368cffa1609879aa4a4a5ff17abf3ba299a6",
+  "point_checks": 432,
+  "holes": [
+    {
+      "axis": "Z",
+      "diameter_mm": 4.4,
+      "checked_depths_mm": [
+        0.05,
+        4,
+        7.95
+      ],
+      "angles_step_deg": 30,
+      "radial_probe_offset_mm": 0.01,
+      "point_checks": 72,
+      "pass": true
+    },
+    {
+      "axis": "Z",
+      "diameter_mm": 4.6,
+      "checked_depths_mm": [
+        0.05,
+        4,
+        7.95
+      ],
+      "angles_step_deg": 30,
+      "radial_probe_offset_mm": 0.01,
+      "point_checks": 72,
+      "pass": true
+    },
+    {
+      "axis": "Z",
+      "diameter_mm": 4.8,
+      "checked_depths_mm": [
+        0.05,
+        4,
+        7.95
+      ],
+      "angles_step_deg": 30,
+      "radial_probe_offset_mm": 0.01,
+      "point_checks": 72,
+      "pass": true
+    },
+    {
+      "axis": "Y",
+      "diameter_mm": 4.4,
+      "checked_depths_mm": [
+        0.05,
+        4,
+        7.95
+      ],
+      "angles_step_deg": 30,
+      "radial_probe_offset_mm": 0.01,
+      "point_checks": 72,
+      "pass": true
+    },
+    {
+      "axis": "Y",
+      "diameter_mm": 4.6,
+      "checked_depths_mm": [
+        0.05,
+        4,
+        7.95
+      ],
+      "angles_step_deg": 30,
+      "radial_probe_offset_mm": 0.01,
+      "point_checks": 72,
+      "pass": true
+    },
+    {
+      "axis": "Y",
+      "diameter_mm": 4.8,
+      "checked_depths_mm": [
+        0.05,
+        4,
+        7.95
+      ],
+      "angles_step_deg": 30,
+      "radial_probe_offset_mm": 0.01,
+      "point_checks": 72,
+      "pass": true
+    }
+  ]
+}

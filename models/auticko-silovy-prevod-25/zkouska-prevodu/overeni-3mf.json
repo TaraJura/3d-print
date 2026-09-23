@@ -1,0 +1,154 @@
+{
+  "wheel_objects_verified": [],
+  "status": "pass",
+  "source_zip_sha256": "ea277264711d9accb6f2fe3c14dc05b4669c28e56cca7b53ea3f58bf22df0663",
+  "objects": 7,
+  "unit": "millimeter",
+  "scale": 1,
+  "rotation_only_about_z": true,
+  "preserved_source_facets": true,
+  "minimum_required_object_gap_mm": 11,
+  "minimum_required_edge_clearance_mm": 6,
+  "configuration_embedded": false,
+  "plate_count": 1,
+  "plates": [
+    {
+      "file": "zkouska-prevodu-podlozka-01.3mf",
+      "sha256": "2d001c67b6299568b6544d4fbd94c75e0eff9888868929b3398d1b26894981a6",
+      "count": 7,
+      "minimum_convex_hull_gap_mm": 11.04708088594206,
+      "center_mm": [
+        130.0,
+        130.0
+      ],
+      "objects": [
+        {
+          "name": "vyrez-ramu__01",
+          "facets": 3244,
+          "max_facet_error_mm": 4.999876068723097e-10,
+          "edge_clearance_mm": 6.0,
+          "bounds_mm": [
+            [
+              6.0,
+              91.811634262,
+              0.0
+            ],
+            [
+              76.0,
+              151.211635787,
+              38.0
+            ]
+          ]
+        },
+        {
+          "name": "dvojkolo-b__01",
+          "facets": 33464,
+          "max_facet_error_mm": 4.999520797355217e-10,
+          "edge_clearance_mm": 87.049999601,
+          "bounds_mm": [
+            [
+              87.049999601,
+              91.811634262,
+              0.0
+            ],
+            [
+              149.449986339,
+              154.211621,
+              30.0
+            ]
+          ]
+        },
+        {
+          "name": "dvojkolo-a__01",
+          "facets": 27720,
+          "max_facet_error_mm": 4.999805014449521e-10,
+          "edge_clearance_mm": 43.21516130300001,
+          "bounds_mm": [
+            [
+              160.384772502,
+              91.811634262,
+              0.0
+            ],
+            [
+              216.784838697,
+              148.148254592,
+              30.0
+            ]
+          ]
+        },
+        {
+          "name": "pevny-cep-8x53_9__01",
+          "facets": 1524,
+          "max_facet_error_mm": 4.956053345495093e-10,
+          "edge_clearance_mm": 21.156127516999987,
+          "bounds_mm": [
+            [
+              226.843872483,
+              91.811634262,
+              0.0
+            ],
+            [
+              238.843872483,
+              145.711635787,
+              12.0
+            ]
+          ]
+        },
+        {
+          "name": "pevny-cep-8x53_9__02",
+          "facets": 1524,
+          "max_facet_error_mm": 4.956053345495093e-10,
+          "edge_clearance_mm": 6.0,
+          "bounds_mm": [
+            [
+              200.099998474,
+              156.185385302,
+              0.0
+            ],
+            [
+              254.0,
+              168.185385302,
+              12.0
+            ]
+          ]
+        },
+        {
+          "name": "pojistka-6_9__01",
+          "facets": 772,
+          "max_facet_error_mm": 4.985172274984961e-10,
+          "edge_clearance_mm": 96.72702361099999,
+          "bounds_mm": [
+            [
+              150.272991962,
+              146.360000364,
+              0.0
+            ],
+            [
+              163.272976389,
+              158.649996822,
+              1.299999952
+            ]
+          ]
+        },
+        {
+          "name": "pojistka-6_9__02",
+          "facets": 772,
+          "max_facet_error_mm": 4.990141633243184e-10,
+          "edge_clearance_mm": 83.020197773,
+          "bounds_mm": [
+            [
+              83.020197773,
+              155.898369281,
+              0.0
+            ],
+            [
+              96.0201822,
+              168.188365738,
+              1.299999952
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}

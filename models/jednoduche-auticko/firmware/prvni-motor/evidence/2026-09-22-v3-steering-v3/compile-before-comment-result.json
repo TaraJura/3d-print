@@ -1,0 +1,18 @@
+{
+  "command": [
+    "/home/novakj/.cache/auticko-arduino-test/ide-cli/resources/app/lib/backend/resources/arduino-cli",
+    "--config-file",
+    "/home/novakj/.cache/auticko-arduino-test/arduino-cli.yaml",
+    "compile",
+    "--fqbn",
+    "arduino:renesas_uno:unor4wifi",
+    "--build-path",
+    "/home/novakj/.codex/worktrees/e339/3d-print/models/jednoduche-auticko/firmware/prvni-motor/.cache/arduino-v3-steering-v3-build",
+    "--warnings",
+    "all",
+    "/home/novakj/.codex/worktrees/e339/3d-print/models/jednoduche-auticko/firmware/prvni-motor"
+  ],
+  "started_utc": "2026-09-22T21:34:11.966084+00:00",
+  "finished_utc": "2026-09-22T21:34:17.945025+00:00",
+  "exit_code": 0
+}

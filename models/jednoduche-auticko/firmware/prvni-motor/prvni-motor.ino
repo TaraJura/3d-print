@@ -5,9 +5,11 @@
 #include <string.h>
 #include <stdio.h>
 
-// Ovládání při držení. Zapojení zůstává stejné jako u prvního stolního testu.
-const char BUILD_ID[] = "hold-to-run-v2";
-constexpr uint8_t EN = 5, IN1 = 7, IN2 = 8;
+// Obousměrný pohon se stejným výkonem; zachovaný uživatelem ověřený střed SG90.
+const char BUILD_ID[] = "v3-reverse-v1";
+constexpr uint8_t EN = 5, IN1 = 7, IN2 = 8, STEER_PIN = 9;
+constexpr uint16_t STEER_CENTER_US=1575, STEER_OFFSET_US=300;
+constexpr int8_t STEER_SIGN=1; // Ověřit směr s odpojeným táhlem; ±300 us není změřený úhel.
 const char SSID[] = "Auticko-test", PASSWORD[] = "auticko123"; // Veřejné demo heslo.
 WiFiServer server(80);
 bool ready = false;
@@ -17,17 +19,26 @@ char motorToken[33]="", previousSessionToken[33]="", requestToken[33]="";
 enum Request { INVALID, PAGE, SESSION, ARM, HOLD, STOP };
 enum DriveState { IDLE, ARMED, RUNNING };
 constexpr uint32_t LEASE_MS=500, ARM_WAIT_MS=3000, TIMER_TICK_MS=5;
+constexpr uint32_t REVERSE_PAUSE_MS=250; // Electrical OFF interval, not proof of mechanical standstill.
 PwmOut motorPwm(EN);
+PwmOut steeringPwm(STEER_PIN);
 FspTimer safetyTimer;
-volatile bool pwmReady=false, safetyReady=false;
+volatile bool pwmReady=false, servoReady=false, safetyReady=false;
+volatile uint16_t steeringPulseUs=STEER_CENTER_US;
+int8_t requestMotor=1;
+volatile int8_t motorDirection=0, lastMotorDirection=0;
+volatile uint32_t motorStoppedAt=0;
+bool reversalRejected=false;
+int8_t requestSteer=0;
 volatile DriveState driveState=IDLE;
 volatile uint16_t leaseTicks=0;
 volatile uint32_t watchdogStops=0, armExpiries=0, runExpiries=0;
-volatile uint8_t stopReason=0; // 0=start/local, 1=STOP, 2=ARM expiry, 3=RUN expiry, 4=network, 5=session, 6=PWM/RNG
+volatile uint8_t stopReason=0; // 0=start/local, 1=STOP, 2=ARM expiry, 3=RUN expiry, 4=network, 5=session, 6=PWM/RNG, 7=reversal
 uint32_t diagnosticRequestLogAt=0;
 uint32_t lastPress=0, requestPress=0, challengeIssuedAt=0;
 char holdChallenge[33]="", requestChallenge[33]="";
 Request readRequest(WiFiClient &client); // Explicitně kvůli Arduino generování prototypů.
+bool setSteering(int8_t direction);
 
 // UNO R4 WiFi Serial je UART přes ESP bridge: bool() vždy true, bez detekce monitoru.
 // Krátký synchronní přenos při 115200; žádné čekání na monitor ani Serial.flush().
@@ -56,6 +67,9 @@ void diagnosticPoll() {
     BUILD_ID,int(safetyReady),state,int(digitalRead(EN)),int(digitalRead(IN1)),int(digitalRead(IN2)),
     static_cast<unsigned long>(watchdogStops));
   if(detail>0 && detail<int(sizeof(line)))Serial.write(reinterpret_cast<uint8_t *>(line),size_t(detail));
+  detail=snprintf(line,sizeof(line),"DIAG steeringReady=%d steeringUs=%u neutralUs=%u rangeUs=%u\n",
+    int(servoReady),unsigned(steeringPulseUs),unsigned(STEER_CENTER_US),unsigned(STEER_OFFSET_US));
+  if(detail>0 && detail<int(sizeof(line)))Serial.write(reinterpret_cast<uint8_t *>(line),size_t(detail));
   int counters=snprintf(line,sizeof(line),"DIAG armExpired=%lu runExpired=%lu stopReason=%u leaseMs=%u challengeAgeMs=%lu\n",
     static_cast<unsigned long>(armExpiries),static_cast<unsigned long>(runExpiries),unsigned(stopReason),
     unsigned(leaseTicks*TIMER_TICK_MS),static_cast<unsigned long>(uint32_t(millis()-challengeIssuedAt)));
@@ -72,46 +86,73 @@ void diagnosticPoll() {
 }
 const char HTML[] = R"HTML(<!doctype html><html lang="cs"><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1"><title>Ovládání autíčka</title>
-<style>body{font:18px system-ui;max-width:32rem;margin:3rem auto;padding:1rem;line-height:1.5}
-button{font:inherit;padding:1.3rem 2rem;border-radius:.5rem;cursor:pointer;touch-action:none;user-select:none;-webkit-user-select:none}
-button[data-running="true"]{background:#1d6845;color:white}button:disabled{cursor:wait}</style>
-<h1>Ovládání autíčka</h1><p>Drž tlačítko pro pohon vpřed. Puštěním pohon vypneš; kola mohou dobíhat.
-Při výpadku spojení se pohon sám vypne. Pokud se ztratí i povel STOP, může vypnutí trvat až 1 sekundu; kola mohou dále dobíhat.</p>
-<button id="drive" type="button">Držet pro jízdu vpřed</button>
-<p id="result" role="status" aria-live="polite">Připraveno. Motor je vypnutý.</p><script>
+<style>
+*{box-sizing:border-box}body{font:17px system-ui;max-width:32rem;margin:0 auto;padding:1.25rem;line-height:1.5;color:#172a32;background:#f5f7f8}
+h1{font-size:1.7rem;margin:.25rem 0}.label{color:#596b75;font-size:.85rem;margin:0 0 1.5rem}p{margin:.8rem 0}
+button{font:inherit;font-weight:600;min-height:76px;padding:1rem .6rem;border:1px solid #bac9cf;border-radius:12px;color:inherit;background:#fff;cursor:pointer;touch-action:none;user-select:none;-webkit-user-select:none}
+button:focus-visible{outline:3px solid #167bcb;outline-offset:3px}button:disabled{cursor:wait;opacity:.6}
+.drive{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin:.7rem 0 1.25rem}.drive button{background:#174d3a;color:#fff;border-color:#174d3a;min-height:108px}
+.drive button[data-running="true"]{background:#267a55}.steering{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.6rem}
+button[data-active="true"]{background:#dceeff;border-color:#167bcb}.hint{font-size:.88rem;color:#50636e}
+#result{background:#fff;border:1px solid #dce3e7;border-radius:12px;padding:1rem;min-height:82px;margin-top:1.4rem}
+.warning{font-size:.83rem;padding-top:1rem;border-top:1px solid #dce3e7;color:#53636c}
+</style>
+<h1>Ovládání autíčka</h1><p class="label">Pohon vpřed a vzad · řízení SG90</p>
+<p>Drž pro jízdu. Druhým prstem můžeš současně zatáčet.</p>
+<div class="drive" role="group" aria-label="Pohon">
+<button id="drive" type="button">↑<br>Držet pro jízdu vpřed</button>
+<button id="reverse" type="button">↓<br>Držet pro couvání</button>
+</div>
+<div class="steering" role="group" aria-label="Řízení">
+<button id="left" type="button" aria-label="Držet doleva">←<br>Doleva</button>
+<button id="center" type="button">Rovně</button>
+<button id="right" type="button" aria-label="Držet doprava">→<br>Doprava</button>
+</div>
+<p class="hint">Doleva a doprava drž. Puštěním směru se řízení vrátí rovně. Samotné řízení motor nespustí.</p>
+<p class="hint">Před změnou směru pohon pusť. Při rychlém přepnutí nebo držení obou směrů se vypne; pusť ovladače a stiskni znovu. Kola mohou ještě dobíhat.</p>
+<p id="result" role="status" aria-live="polite">Připraveno. Motor je vypnutý, řízení rovně.</p>
+<p class="warning">Zkušební malý rozsah řízení. Po zapnutí servo dostane povel na střed; první nastavení proveď bez připojeného táhla. Při výpadku se pohon vypne a řízení vrátí na střed. Ztracený povel může znamenat prodlevu až 1 s; kola mohou dobíhat.</p><script>
 const button=document.getElementById('drive'), result=document.getElementById('result');
+const controls={drive:button,reverse:document.getElementById('reverse'),left:document.getElementById('left'),right:document.getElementById('right')};
+const centerButton=document.getElementById('center');
+const owners={drive:null,reverse:null,left:null,right:null}, active={drive:false,reverse:false,left:false,right:false};
+const contacts=Object.fromEntries(Object.keys(owners).map(name=>[name,new Set()]));
 let token='@TOKEN@', sessionNeeded=false;
-let press=0, held=false, generation=0, pointer=null, keyboard=null, timer=null, pending=null, stopping=false;
+let press=0, held=false, generation=0, timer=null, pending=null, stopping=false, nonce=null, dirty=false;
+let rearmRequired=false;
 const headers=(id,challenge)=>({'X-Motor-Control':'1','X-Motor-Token':token,'X-Motor-Press':String(id),
   ...(challenge?{'X-Motor-Challenge':challenge}:{})});
-async function command(path,id,challenge) {
+const intent=()=>({motor:active.drive?1:active.reverse?-1:0,steer:active.left===active.right?'center':active.left?'left':'right'});
+const anyActive=()=>Object.values(active).some(Boolean);
+function paint(){for(const [name,control] of Object.entries(controls))control.dataset.active=String(active[name]);}
+function disable(value){for(const control of [...Object.values(controls),centerButton])control.disabled=value;}
+async function command(path,id,challenge,state) {
   const controller=new AbortController(); pending=controller;
   const deadline=setTimeout(()=>controller.abort(),1200);
   try {
-    const options={cache:'no-store',signal:controller.signal};
-    Object.assign(options,{method:'POST',headers:path==='/session'?{'X-Motor-Control':'1','X-Motor-Token':token}:headers(id,challenge),body:''});
-    const reply=await fetch(path,options);
-    const text=await reply.text();
-    if(!reply.ok) throw new Error('request');
-    return text;
+    const fields=path==='/session'?{'X-Motor-Control':'1','X-Motor-Token':token}:headers(id,challenge);
+    if(state)Object.assign(fields,{'X-Control-Motor':String(state.motor),'X-Control-Steer':state.steer});
+    const reply=await fetch(path,{method:'POST',headers:fields,body:'',cache:'no-store',signal:controller.signal});
+    const text=await reply.text();if(!reply.ok)throw new Error('request');return text;
   } finally {clearTimeout(deadline);if(pending===controller)pending=null;}
 }
-function stop(message='Pohon vypnutý. Pro další jízdu stiskni znovu.',failed=false) {
-  if(!held) return;
-  held=false;generation++;clearTimeout(timer);
-  if(pending) pending.abort();
-  if(failed)sessionNeeded=true;
-  button.dataset.running='false';button.disabled=true;stopping=true;
-  result.textContent='Zastavuji…';
+function stop(message='Pohon vypnutý, řízení rovně. Pro další jízdu stiskni znovu.',failed=false,force=false) {
+  if((!held && !force) || stopping)return;
+  held=false;generation++;clearTimeout(timer);timer=null;nonce=null;
+  for(const name of Object.keys(active))active[name]=false;paint();
+  if(pending)pending.abort();if(failed)sessionNeeded=true;
+  // Retain physical owners on error: a still-held touch/key cannot restart itself.
+  button.dataset.running=controls.reverse.dataset.running='false';disable(true);stopping=true;result.textContent='Zastavuji a vracím řízení rovně…';
+  if(force && press===0)press=1;
   const controller=new AbortController(), deadline=setTimeout(()=>controller.abort(),1500);
   fetch('/stop',{method:'POST',headers:headers(press),body:'',cache:'no-store',keepalive:true,signal:controller.signal})
     .then(async reply=>{if(!reply.ok || await reply.text()!=='STOP_OK')throw new Error();result.textContent=message;})
-    .catch(()=>{sessionNeeded=true;result.textContent='Spojení přerušeno, pohon vypne časovač. Pusť tlačítko a pro nový pokus stiskni znovu.';})
-    .finally(()=>{clearTimeout(deadline);stopping=false;button.disabled=false;});
+    .catch(()=>{sessionNeeded=true;result.textContent='Spojení přerušeno. Časovač vypne pohon a vrátí řízení. Pusť ovladače a stiskni znovu.';})
+    .finally(()=>{clearTimeout(deadline);stopping=false;disable(false);});
 }
 async function start() {
-  if(held || stopping || button.disabled || document.hidden) return;
-  held=true;const gen=++generation;result.textContent='Připravuji jízdu…';
+  if(held || stopping || button.disabled || document.hidden || !anyActive())return;
+  held=true;nonce=null;const gen=++generation;result.textContent='Připravuji ovládání…';
   try {
     if(sessionNeeded) {
       const session=await command('/session');
@@ -119,53 +160,120 @@ async function start() {
       if(!/^SESSION_OK:[0-9a-f]{32}$/.test(session))throw new Error();
       token=session.slice(11);press=0;sessionNeeded=false;
     }
-    const id=++press;
-    const armed=await command('/arm',id);
-    if(!held || gen!==generation) return;
-    if(!/^ARM_OK:[0-9a-f]{32}$/.test(armed)) throw new Error();
-    await heartbeat(armed.slice(7),id,gen);
-  } catch (_) {if(held && gen===generation)stop('Jízda přerušena. Pusť tlačítko a stiskni znovu.',true);}
+    const id=++press,armed=await command('/arm',id);
+    if(!held || gen!==generation)return;
+    if(!/^ARM_OK:[0-9a-f]{32}$/.test(armed))throw new Error();
+    nonce=armed.slice(7);await heartbeat(id,gen);
+  } catch(_){if(held && gen===generation)stop(undefined,true);}
 }
-async function heartbeat(challenge,id,gen) {
-  if(!held || gen!==generation) return;
+async function heartbeat(id,gen) {
+  if(!held || gen!==generation || !nonce || pending)return;
+  const challenge=nonce,state=intent();nonce=null;dirty=false;
   try {
-    const reply=await command('/hold',id,challenge);
-    if(!held || gen!==generation) return;
+    const reply=await command('/hold',id,challenge,state);
+    if(!held || gen!==generation)return;
+    if(reply==='HOLD_REARM'){rearmRequired=true;stop('Změna směru: pusť ovladače a stiskni znovu.');return;}
     if(!/^HOLD_OK:[0-9a-f]{32}$/.test(reply))throw new Error();
-    button.dataset.running='true';result.textContent='Pohon vpřed — puštěním zastavíš.';
-    timer=setTimeout(()=>heartbeat(reply.slice(8),id,gen),20);
-  } catch (_) {if(held && gen===generation)stop('Jízda přerušena. Pusť tlačítko a stiskni znovu.',true);}
+    nonce=reply.slice(8);button.dataset.running=String(state.motor===1);controls.reverse.dataset.running=String(state.motor===-1);
+    result.textContent=(state.motor===1?'Pohon vpřed':state.motor===-1?'Pohon vzad':'Motor vypnutý')+' · '+({left:'řízení doleva',center:'řízení rovně',right:'řízení doprava'}[state.steer])+'.';
+    timer=setTimeout(()=>{timer=null;heartbeat(id,gen);},dirty?0:20);
+  } catch(_){if(held && gen===generation)stop(undefined,true);}
 }
-button.addEventListener('pointerdown',event=>{
-  if(!event.isPrimary || event.button!==0 || pointer!==null || keyboard!==null || held || stopping || button.disabled)return;
-  event.preventDefault();pointer=event.pointerId;button.setPointerCapture(pointer);start();
+function changed() {
+  paint();if(!anyActive()){stop();return;}
+  if(!held){start();return;}
+  dirty=true;
+  if(nonce && !pending){clearTimeout(timer);timer=null;heartbeat(press,generation);}
+}
+function begin(name,owner) {
+  if(document.hidden || contacts[name].has(owner))return;
+  contacts[name].add(owner);
+  // Track rejected contacts too: they must be released, never silently forgotten.
+  if(rearmRequired || stopping || controls[name].disabled){rearmRequired=true;return;}
+  if(owners[name]!==null)return; // No transfer to a second contact on the same button.
+  owners[name]=owner;
+  if((name==='drive' && contacts.reverse.size) || (name==='reverse' && contacts.drive.size)){
+    rearmRequired=true;stop('Oba směry pohonu: pusť ovladače a stiskni znovu.',false,true);return;
+  }
+  active[name]=true;changed();
+}
+function release(owner) {
+  let found=false;
+  for(const heldContacts of Object.values(contacts))if(heldContacts.delete(owner))found=true;
+  for(const name of Object.keys(owners))if(owners[name]===owner){owners[name]=null;active[name]=false;found=true;}
+  if(!Object.values(contacts).some(value=>value.size))rearmRequired=false;
+  if(found)changed();
+}
+for(const [name,control] of Object.entries(controls)) {
+  control.addEventListener('pointerdown',event=>{
+    if(event.button!==0 || (event.pointerType!=='touch' && !event.isPrimary) || document.hidden)return;
+    event.preventDefault();control.setPointerCapture(event.pointerId);begin(name,'p'+event.pointerId);
+  });
+  control.addEventListener('lostpointercapture',event=>release('p'+event.pointerId));
+  control.addEventListener('contextmenu',event=>event.preventDefault());
+  control.addEventListener('keydown',event=>{
+    if(event.code!=='Space' && event.code!=='Enter')return;
+    event.preventDefault();if(!event.repeat)begin(name,'k'+event.code);
+  });
+}
+window.addEventListener('pointerup',event=>release('p'+event.pointerId));
+// Cancellation may signal a system gesture: invalidate both controls together.
+window.addEventListener('pointercancel',event=>{stop();release('p'+event.pointerId);});
+window.addEventListener('keydown',event=>{
+  const name={ArrowUp:'drive',ArrowDown:'reverse',ArrowLeft:'left',ArrowRight:'right'}[event.code];
+  if(name){event.preventDefault();if(!event.repeat)begin(name,'k'+event.code);}
 });
-function releasePointer(event){if(event.pointerId===pointer){pointer=null;stop();}}
-window.addEventListener('pointerup',releasePointer);
-window.addEventListener('pointercancel',releasePointer);
-button.addEventListener('lostpointercapture',releasePointer);
-button.addEventListener('contextmenu',event=>event.preventDefault());
-button.addEventListener('keydown',event=>{
-  if(event.code!=='Space' && event.code!=='Enter')return;
-  event.preventDefault();if(event.repeat || keyboard!==null || pointer!==null || held || stopping || button.disabled)return;
-  keyboard=event.code;start();
+window.addEventListener('keyup',event=>{if(['Space','Enter','ArrowUp','ArrowDown','ArrowLeft','ArrowRight'].includes(event.code)){event.preventDefault();release('k'+event.code);}});
+centerButton.addEventListener('click',()=>{
+  active.left=active.right=false;paint();
+  if(anyActive())changed();else stop('Motor vypnutý, řízení rovně.',false,true);
 });
-window.addEventListener('keyup',event=>{if(event.code===keyboard){event.preventDefault();keyboard=null;stop();}});
-function leave(){stop();pointer=null;keyboard=null;}
-window.addEventListener('blur',leave);
-window.addEventListener('pagehide',leave);
-window.addEventListener('offline',()=>stop('Spojení přerušeno. Pusť tlačítko a stiskni znovu.',true));
+function leave(){stop();for(const name of Object.keys(owners)){owners[name]=null;contacts[name].clear();}rearmRequired=false;}
+window.addEventListener('blur',leave);window.addEventListener('pagehide',leave);
+window.addEventListener('offline',()=>stop(undefined,true));
 document.addEventListener('visibilitychange',()=>{if(document.hidden)leave();});
 </script></html>)HTML";
 
 // Volat jen v ISR nebo krátké kritické sekci. PWM je předem inicializované:
 // žádná alokace, modem, čekání ani Serial. Směrové GPIO jdou LOW i při chybě PWM.
-void outputsOff() {
+void motorOutputsOff() {
   if (pwmReady && !motorPwm.pulse_perc(0.0f)) {
     // Fail closed if the PWM peripheral ever refuses the OFF update.
     pinMode(EN,OUTPUT); digitalWrite(EN,LOW); pwmReady=false; safetyReady=false;
   }
   digitalWrite(IN1,LOW); digitalWrite(IN2,LOW); digitalWrite(LED_BUILTIN,LOW);
+  if(motorDirection!=0){lastMotorDirection=motorDirection;motorDirection=0;motorStoppedAt=millis();}
+}
+uint32_t reversePauseRemaining() {
+  const uint32_t elapsed=uint32_t(millis()-motorStoppedAt);
+  return motorDirection==0 && lastMotorDirection!=0 && elapsed<REVERSE_PAUSE_MS ? REVERSE_PAUSE_MS-elapsed : 0;
+}
+// Called only inside the HOLD critical section. No timer or loop restarts motion.
+bool setMotorDirection(int8_t direction) {
+  if(direction==0){motorOutputsOff();return safetyReady;}
+  if(motorDirection!=0 && motorDirection!=direction)motorOutputsOff();
+  if(!safetyReady)return false;
+  if(motorDirection==0 && lastMotorDirection!=0 && direction!=lastMotorDirection && reversePauseRemaining()){
+    reversalRejected=true;return false;
+  }
+  digitalWrite(IN1,direction>0?HIGH:LOW);digitalWrite(IN2,direction<0?HIGH:LOW);
+  if(!motorPwm.pulse_perc(128.0f*100.0f/255.0f))return false;
+  motorDirection=direction;digitalWrite(LED_BUILTIN,HIGH);return true;
+}
+bool setSteering(int8_t direction) {
+  if (!servoReady || direction < -1 || direction > 1) return false;
+  const uint16_t pulse=STEER_CENTER_US + STEER_SIGN*int(direction)*STEER_OFFSET_US;
+  if (!steeringPwm.pulse_perc(float(pulse)/200.0f)) {
+    pinMode(STEER_PIN,OUTPUT); digitalWrite(STEER_PIN,LOW);
+    servoReady=false; safetyReady=false; return false;
+  }
+  steeringPulseUs=pulse; return true;
+}
+void outputsOff() {
+  motorOutputsOff();
+  // Hardware50Hz PWM keeps producing the neutral pulse even if WiFi blocks.
+  // A failed peripheral update disables all motion; LOW cannot promise centering.
+  if (servoReady && !setSteering(0)) stopReason=6;
 }
 void motorStop() {
   noInterrupts(); driveState=IDLE; leaseTicks=0; outputsOff(); interrupts();
@@ -181,6 +289,12 @@ bool initializeSafety() {
   // Reserve the PWM timer before asking for a separate, genuinely free timer.
   pwmReady=motorPwm.begin(490.0f,0.0f);
   if (!pwmReady) {pinMode(EN,OUTPUT); digitalWrite(EN,LOW); return false;}
+  // Reserve D9 PWM too before allocating the independent5ms safety timer.
+  // Startup commands the configured center; first set up without linkage.
+  servoReady=steeringPwm.begin(50.0f,float(STEER_CENTER_US)/200.0f);
+  if (!servoReady || !setSteering(0)) {
+    pinMode(STEER_PIN,OUTPUT); digitalWrite(STEER_PIN,LOW); servoReady=false; return false;
+  }
   uint8_t type=GPT_TIMER;
   const int8_t channel=FspTimer::get_available_timer(type);
   return channel>=0 && safetyTimer.begin(TIMER_MODE_PERIODIC,type,uint8_t(channel),
@@ -211,7 +325,9 @@ bool applyArm(uint32_t press) {
   noInterrupts(); leaseTicks=ARM_WAIT_MS/TIMER_TICK_MS; driveState=ARMED; interrupts();
   return true;
 }
-bool applyHold(uint32_t press, const char *challenge) {
+bool applyHold(uint32_t press, const char *challenge, int8_t motor, int8_t steer) {
+  reversalRejected=false;
+  if(motor < -1 || motor > 1 || steer < -1 || steer > 1)return false;
   if (!safetyReady || press!=lastPress || !holdChallenge[0] || strcmp(challenge,holdChallenge)) return false;
   // Consume before any operation that could delay execution. A duplicate cannot renew.
   holdChallenge[0]='\0';
@@ -225,10 +341,10 @@ bool applyHold(uint32_t press, const char *challenge) {
     leaseTicks=LEASE_MS/TIMER_TICK_MS; // One fresh packet grants a full lease; no double-RTT dependency.
     // Single-flight, one-use challenge expires after 500 ms. Lost STOP plus one
     // in-flight HOLD can extend physical release-to-OFF to at most 1000 ms.
-    digitalWrite(IN1,HIGH); digitalWrite(IN2,LOW);
-    if (motorPwm.pulse_perc(128.0f*100.0f/255.0f)) {
-      driveState=RUNNING; digitalWrite(LED_BUILTIN,HIGH);
-    } else { driveState=IDLE; leaseTicks=0; stopReason=6; outputsOff(); }
+    bool outputOk=setSteering(steer);
+    if(outputOk)outputOk=setMotorDirection(motor);
+    if (outputOk) driveState=RUNNING; // Control lease may steer while motor is OFF.
+    else { driveState=IDLE; leaseTicks=0; stopReason=reversalRejected?7:6; outputsOff(); }
   }
   const bool running=valid && driveState==RUNNING;
   interrupts();
@@ -294,7 +410,9 @@ Request readRequest(WiFiClient &client) {
   // Jedno spojení současně: buffer mimo malý zásobník UNO R4.
   static char line[MAX_HTTP_LINE+1]; size_t length=0, bytes=0;
   bool first=true, cr=false, host=false, zeroLength=false, trigger=false, token=false, press=false, challenge=false, origin=false;
+  bool motorIntent=false, steerIntent=false;
   requestPress=0; requestChallenge[0]='\0'; requestToken[0]='\0';
+  requestMotor=1; requestSteer=0; // Exact motor-onlyv2 protocol remains supported.
   Request request=INVALID; const uint32_t started=millis();
   while (uint32_t(millis()-started)<HTTP_READ_TIMEOUT_MS) {
     if (!client.connected()) return INVALID;
@@ -313,6 +431,8 @@ Request readRequest(WiFiClient &client) {
         else return INVALID;
         first=false;
       } else if (!length) {
+        // A partial/invalid new intent must never fall back to legacy motor ON.
+        if (motorIntent!=steerIntent || ((motorIntent || steerIntent) && request!=HOLD)) return INVALID;
         const bool sessionToken=token && (request==SESSION || (motorToken[0]&&!strcmp(requestToken,motorToken)));
         return host && (request==PAGE || (zeroLength && trigger && sessionToken && (request==SESSION || (press && (request!=HOLD || challenge))))) ? request : INVALID;
       } else {
@@ -351,6 +471,16 @@ Request readRequest(WiFiClient &client) {
           if (challenge || strlen(value)!=32) return INVALID;
           for (const char *p=value;*p;++p) if (!strchr("0123456789abcdef",*p)) return INVALID;
           memcpy(requestChallenge,value,33); challenge=true;
+        } else if (!strcmp(line,"x-control-motor")) {
+          if (motorIntent || (strcmp(value,"-1") && strcmp(value,"0") && strcmp(value,"1"))) return INVALID;
+          motorIntent=true; requestMotor=!strcmp(value,"-1")?-1:!strcmp(value,"1")?1:0;
+        } else if (!strcmp(line,"x-control-steer")) {
+          if (steerIntent) return INVALID;
+          if (!strcmp(value,"left")) requestSteer=-1;
+          else if (!strcmp(value,"center")) requestSteer=0;
+          else if (!strcmp(value,"right")) requestSteer=1;
+          else return INVALID;
+          steerIntent=true;
         } else if (!strcmp(line,"origin")) {
           if (origin || (strcmp(value,"http://192.168.4.1") && strcmp(value,"http://192.168.4.1:80"))) return INVALID;
           origin=true;
@@ -390,7 +520,8 @@ void respondPage(WiFiClient &client) {
 }
 void setup() {
   digitalWrite(EN,LOW); digitalWrite(IN1,LOW); digitalWrite(IN2,LOW);
-  pinMode(EN,OUTPUT); pinMode(IN1,OUTPUT); pinMode(IN2,OUTPUT); pinMode(LED_BUILTIN,OUTPUT);
+  digitalWrite(STEER_PIN,LOW);
+  pinMode(EN,OUTPUT); pinMode(IN1,OUTPUT); pinMode(IN2,OUTPUT); pinMode(STEER_PIN,OUTPUT); pinMode(LED_BUILTIN,OUTPUT);
   motorStop(); safetyReady=initializeSafety(); motorStop();
   Serial.begin(115200); diagnosticEvent(BUILD_ID,0);
   diagnosticEvent("safety-timer-ready",int(safetyReady));
@@ -426,8 +557,13 @@ void loop() {
     if (request==STOP) { applyStop(requestPress); ok=true; snprintf(reply,sizeof(reply),"STOP_OK"); }
     else if (fresh && request==ARM && applyArm(requestPress)) {
       ok=true;snprintf(reply,sizeof(reply),"ARM_OK:%s",holdChallenge);
-    } else if (fresh && request==HOLD && applyHold(requestPress,requestChallenge)) {
-      ok=true;snprintf(reply,sizeof(reply),"HOLD_OK:%s",holdChallenge);
+    } else if (fresh && request==HOLD) {
+      if(applyHold(requestPress,requestChallenge,requestMotor,requestSteer)){
+        ok=true;snprintf(reply,sizeof(reply),"HOLD_OK:%s",holdChallenge);
+      } else if(reversalRejected){
+        // No next nonce: this press is latched OFF, even after the pause expires.
+        ok=true;snprintf(reply,sizeof(reply),"HOLD_REARM");
+      }
     } // Invalid/obsolete requests cannot renew a lease or stop a newer press.
     respond(client,ok,"text/plain; charset=utf-8",reply);
   }

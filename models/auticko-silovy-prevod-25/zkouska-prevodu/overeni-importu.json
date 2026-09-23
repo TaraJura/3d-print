@@ -1,0 +1,83 @@
+{
+  "status": "pass",
+  "method": "Installed Anycubic Slicer Next CLI import/export, isolated cache, arrange=0 orient=0. No slicing, G-code or printer communication. Roundtrip outputs are not delivery files.",
+  "plate_count": 1,
+  "objects": 7,
+  "plates": [
+    {
+      "file": "zkouska-prevodu-podlozka-01.3mf",
+      "source_sha256": "2d001c67b6299568b6544d4fbd94c75e0eff9888868929b3398d1b26894981a6",
+      "status": "pass",
+      "command": [
+        "/usr/bin/AnycubicSlicerNext",
+        "--datadir",
+        "/home/novakj/.cache/auticko-functional-test/next/isolated-profile",
+        "--arrange",
+        "0",
+        "--orient",
+        "0",
+        "--debug",
+        "3",
+        "--export-3mf",
+        "roundtrip.3mf",
+        "--outputdir",
+        "/home/novakj/.cache/auticko-functional-test/next/zkouska-prevodu-podlozka-01",
+        "/home/novakj/3d-print/models/auticko-silovy-prevod-25/zkouska-prevodu/zkouska-prevodu-podlozka-01.3mf"
+      ],
+      "objects": 7,
+      "triangles": 69020,
+      "max_world_vertex_delta_mm": 1.5100999974038132e-05,
+      "object_records": [
+        {
+          "name": "vyrez-ramu__01",
+          "vertices": 1614,
+          "triangles": 3244,
+          "max_world_vertex_delta_mm": 7.517999989659074e-06,
+          "ordered_triangle_indices_preserved": true
+        },
+        {
+          "name": "dvojkolo-b__01",
+          "vertices": 16732,
+          "triangles": 33464,
+          "max_world_vertex_delta_mm": 1.0813000017151353e-05,
+          "ordered_triangle_indices_preserved": true
+        },
+        {
+          "name": "dvojkolo-a__01",
+          "vertices": 13860,
+          "triangles": 27720,
+          "max_world_vertex_delta_mm": 1.4824000004409754e-05,
+          "ordered_triangle_indices_preserved": true
+        },
+        {
+          "name": "pevny-cep-8x53_9__01",
+          "vertices": 764,
+          "triangles": 1524,
+          "max_world_vertex_delta_mm": 7.63699998174161e-06,
+          "ordered_triangle_indices_preserved": true
+        },
+        {
+          "name": "pevny-cep-8x53_9__02",
+          "vertices": 764,
+          "triangles": 1524,
+          "max_world_vertex_delta_mm": 7.284000020035819e-06,
+          "ordered_triangle_indices_preserved": true
+        },
+        {
+          "name": "pojistka-6_9__01",
+          "vertices": 388,
+          "triangles": 772,
+          "max_world_vertex_delta_mm": 1.5100999974038132e-05,
+          "ordered_triangle_indices_preserved": true
+        },
+        {
+          "name": "pojistka-6_9__02",
+          "vertices": 388,
+          "triangles": 772,
+          "max_world_vertex_delta_mm": 1.48740000156522e-05,
+          "ordered_triangle_indices_preserved": true
+        }
+      ]
+    }
+  ]
+}

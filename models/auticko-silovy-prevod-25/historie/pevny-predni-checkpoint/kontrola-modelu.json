@@ -1,0 +1,6109 @@
+{
+  "status": "PRACOVNÍ PROTOTYP, čeká závěrečnou kolizní kontrolu",
+  "source_sha256": "038f220ed394c84ff2662b1dd34420daf79b1dde3f86c05ad997736c8f49f4d9",
+  "parameters_mm": {
+    "FrameLength": 210,
+    "FrameWidth": 112,
+    "FrameThickness": 4,
+    "RearX": 35,
+    "FrontX": 185,
+    "AxleHeight": 28,
+    "WheelDiameter": 80,
+    "WheelThickness": 12,
+    "WheelOuterY": 72,
+    "RearAxleDiameter": 12,
+    "RearBearingBore": 12.2,
+    "WheelBore": 12.3,
+    "DriveBore": 12.3,
+    "AxleFlat": 4,
+    "DriveFlat": 4.2,
+    "MainAxleLength": 150.6,
+    "MainAxleStartY": -75.3,
+    "BearingY": 48,
+    "RearBearingY": 36,
+    "BearingWidth": 12,
+    "MotorDiameter": 22.5,
+    "MotorLength": 26,
+    "MotorFrontY": 20.5,
+    "MotorShaftLength": 6,
+    "PinionBore": 2.2,
+    "PinionThickness": 5,
+    "GearModule": 1,
+    "CentreExtra": 0.4,
+    "FixedPinDiameter": 8,
+    "FixedSeatBore": 8.1,
+    "RunningBore": 8.2,
+    "MiddleBore": 9,
+    "JournalLength": 7,
+    "CrossPinDiameter": 4,
+    "CrossPinBore": 4.2,
+    "DeckBottom": 76
+  },
+  "gear_phases_deg": {
+    "B": 8.181818181818182,
+    "A": 2.727272727272729,
+    "input": 1.818181818181813
+  },
+  "ratio": 25,
+  "teeth": [
+    18,
+    54,
+    18,
+    60,
+    22,
+    55
+  ],
+  "parts": {
+    "mezikolo-a-54_18": {
+      "object": "CompoundA",
+      "copies": 1,
+      "stl": "stl/mezikolo-a-54_18.stl",
+      "bbox_mm": [
+        55.99971112449244,
+        55.945644364086064,
+        30.00000000000011
+      ],
+      "volume_mm3": 20318.88305708571,
+      "solid_count": 1,
+      "valid": true,
+      "closed_mesh": true,
+      "print_orientation": "gear_face",
+      "sha256": "a95d7a4ebc4dba0a4dcdb81dd610db88b4140a388ba28874cd13a226cbdbc047"
+    },
+    "mezikolo-b-60_22": {
+      "object": "CompoundB",
+      "copies": 1,
+      "stl": "stl/mezikolo-b-60_22.stl",
+      "bbox_mm": [
+        61.99968312554567,
+        61.99968312554567,
+        30.000000000000295
+      ],
+      "volume_mm3": 36549.51756158682,
+      "solid_count": 1,
+      "valid": true,
+      "closed_mesh": true,
+      "print_orientation": "gear_face",
+      "sha256": "b2edb5db08195892cff9a1dd999ec74c2b334f43dcd507b7a844afa6c999da66"
+    },
+    "vystupni-kolo-55": {
+      "object": "OutputGear",
+      "copies": 1,
+      "stl": "stl/vystupni-kolo-55.stl",
+      "bbox_mm": [
+        56.97321260984132,
+        56.99393048890444,
+        22.000000000000007
+      ],
+      "volume_mm3": 29464.07862775461,
+      "solid_count": 1,
+      "valid": true,
+      "closed_mesh": true,
+      "print_orientation": "gear_face",
+      "sha256": "8f9e6e21424f84265fc6455194e34c29eb548ab3d72c6f85909eb3717c2c1987"
+    },
+    "pastorek-18-otvor-2_2": {
+      "object": "Pinion",
+      "copies": 1,
+      "stl": "stl/pastorek-18-otvor-2_2.stl",
+      "bbox_mm": [
+        20.00022814274878,
+        19.805173061414713,
+        5.0
+      ],
+      "volume_mm3": 1222.9560122154016,
+      "solid_count": 1,
+      "valid": true,
+      "closed_mesh": true,
+      "print_orientation": "flat",
+      "sha256": "98bbcdcfc9dfae6cfc950538b2f0565fd9cab7c0d34344501b8963f003dc294a"
+    },
+    "ram-25": {
+      "object": "Frame",
+      "copies": 1,
+      "stl": "stl/ram-25.stl",
+      "bbox_mm": [
+        210.0,
+        112.0,
+        42.0
+      ],
+      "volume_mm3": 157455.96955320428,
+      "solid_count": 1,
+      "valid": true,
+      "closed_mesh": true,
+      "print_orientation": "flat",
+      "sha256": "3eb7c161e277086187f7329a165d7bd2350472d55aa7b8156899dfe7e3082164"
+    },
+    "pevny-cep-8x53_9": {
+      "object": "FixedGearPin",
+      "copies": 2,
+      "stl": "stl/pevny-cep-8x53_9.stl",
+      "bbox_mm": [
+        53.9,
+        12.0,
+        12.0
+      ],
+      "volume_mm3": 2875.8555324680565,
+      "solid_count": 1,
+      "valid": true,
+      "closed_mesh": true,
+      "print_orientation": "round_pin",
+      "sha256": "dadc7cac8a1ab3539f123e7abdd65fa3d0555b4b37d583de85756956aaa5e795"
+    },
+    "pojistka-6_9": {
+      "object": "GearPinClip",
+      "copies": 2,
+      "stl": "stl/pojistka-6_9.stl",
+      "bbox_mm": [
+        12.289996032458323,
+        12.999984112269885,
+        1.3
+      ],
+      "volume_mm3": 98.58605431087922,
+      "solid_count": 1,
+      "valid": true,
+      "closed_mesh": true,
+      "print_orientation": "flat",
+      "sha256": "7be6176012c834bfba0b745c0048f7139799b85b0654688302d0bba3353007e0"
+    },
+    "pricny-klinek-4x27_1": {
+      "object": "OutputCrossPin",
+      "copies": 1,
+      "stl": "stl/pricny-klinek-4x27_1.stl",
+      "bbox_mm": [
+        27.1,
+        6.997824274005715,
+        7.0
+      ],
+      "volume_mm3": 384.1382417176919,
+      "solid_count": 1,
+      "valid": true,
+      "closed_mesh": true,
+      "print_orientation": "round_pin",
+      "sha256": "39ccbc90327cf3cc0ce7a91f9430515797d55a2b332c9eb09c70b50763f0b020"
+    },
+    "pojistka-3_1": {
+      "object": "SmallClip",
+      "copies": 7,
+      "stl": "stl/pojistka-3_1.stl",
+      "bbox_mm": [
+        6.769174207655505,
+        6.999136243605749,
+        1.3
+      ],
+      "volume_mm3": 33.50889081444551,
+      "solid_count": 1,
+      "valid": true,
+      "closed_mesh": true,
+      "print_orientation": "flat",
+      "sha256": "b6b33f593dff03ea8d4ee5eb90d42629c0973c982cd988b141ce50b2897a08c4"
+    },
+    "spolecny-cep-mustku-4x30_5": {
+      "object": "MotorLockPin",
+      "copies": 2,
+      "stl": "stl/spolecny-cep-mustku-4x30_5.stl",
+      "bbox_mm": [
+        30.5,
+        7.997513456006531,
+        8.0
+      ],
+      "volume_mm3": 450.4258467084366,
+      "solid_count": 1,
+      "valid": true,
+      "closed_mesh": true,
+      "print_orientation": "round_pin",
+      "sha256": "163175e6a521505acfa6a9a0793011728c6362d44e775abb203fb3357bcccd34"
+    },
+    "cep-plosiny-4x19_5": {
+      "object": "DeckLockPin",
+      "copies": 4,
+      "stl": "stl/cep-plosiny-4x19_5.stl",
+      "bbox_mm": [
+        19.5,
+        8.0,
+        8.0
+      ],
+      "volume_mm3": 339.6648050356123,
+      "solid_count": 1,
+      "valid": true,
+      "closed_mesh": true,
+      "print_orientation": "round_pin",
+      "sha256": "ca809f5002b17f92be2453f7cbc73e78e0f17619d2a0040cec2acae125e639fc"
+    },
+    "pojistka-osy-10_9": {
+      "object": "AxleClip",
+      "copies": 8,
+      "stl": "stl/pojistka-osy-10_9.stl",
+      "bbox_mm": [
+        16.644442425710327,
+        17.996273540008993,
+        1.3
+      ],
+      "volume_mm3": 161.12060829201755,
+      "solid_count": 1,
+      "valid": true,
+      "closed_mesh": true,
+      "print_orientation": "flat",
+      "sha256": "8fcc87ded5822951c16b6e075e3ca719e7c240d0e64890de46f22b4bd372ea29"
+    },
+    "osa-zadni-12x150_6": {
+      "object": "RearAxle",
+      "copies": 1,
+      "stl": "stl/osa-zadni-12x150_6.stl",
+      "bbox_mm": [
+        150.60000000000002,
+        11.999080892580217,
+        12.000000000000009
+      ],
+      "volume_mm3": 16277.87148901487,
+      "solid_count": 1,
+      "valid": true,
+      "closed_mesh": true,
+      "print_orientation": "round_pin",
+      "sha256": "0c22d6cfe06aeadbfcf137d4bf299d948dc3c86d4ee6474937ffd9af6381209f"
+    },
+    "osa-predni-12x150_6": {
+      "object": "FrontAxle",
+      "copies": 1,
+      "stl": "stl/osa-predni-12x150_6.stl",
+      "bbox_mm": [
+        150.6,
+        11.996270184009798,
+        12.000000000000018
+      ],
+      "volume_mm3": 16903.527768199096,
+      "solid_count": 1,
+      "valid": true,
+      "closed_mesh": true,
+      "print_orientation": "round_pin",
+      "sha256": "5212a72184e5e38c0c7c9115b86500c5ca341d71f3bcbc4bdca6f1f334c22b3b"
+    },
+    "rozperka-predni-5_6": {
+      "object": "WheelSpacer",
+      "copies": 2,
+      "stl": "stl/rozperka-predni-5_6.stl",
+      "bbox_mm": [
+        18.0,
+        17.994405276014692,
+        5.6
+      ],
+      "volume_mm3": 726.7634781108486,
+      "solid_count": 1,
+      "valid": true,
+      "closed_mesh": true,
+      "print_orientation": "flat",
+      "sha256": "84419d50a10dad64242163ef4b83b154cc0a936817de8b3ded01a237a9137dd6"
+    },
+    "rozperka-zadni-17_6": {
+      "object": "RearWheelSpacer",
+      "copies": 2,
+      "stl": "stl/rozperka-zadni-17_6.stl",
+      "bbox_mm": [
+        18.0,
+        17.994405276014692,
+        17.6
+      ],
+      "volume_mm3": 2284.1137883483816,
+      "solid_count": 1,
+      "valid": true,
+      "closed_mesh": true,
+      "print_orientation": "flat",
+      "sha256": "3b772e4da5cf86901cec92e33da4d372c0bc2cd57376ec4930bfa20d72d2d205"
+    },
+    "kolo-80x12-zadni-d": {
+      "object": "RearWheel",
+      "copies": 2,
+      "stl": "stl/kolo-80x12-zadni-d.stl",
+      "bbox_mm": [
+        79.99911099586035,
+        79.9982219917207,
+        12.0
+      ],
+      "volume_mm3": 28526.059692806877,
+      "solid_count": 1,
+      "valid": true,
+      "closed_mesh": true,
+      "print_orientation": "flat",
+      "sha256": "d3fb768e104177deeeae0994888634109cc91b9150c09d3a977df6eb92ccf1ac"
+    },
+    "kolo-80x12-predni": {
+      "object": "FrontWheel",
+      "copies": 2,
+      "stl": "stl/kolo-80x12-predni.stl",
+      "bbox_mm": [
+        79.99911099586035,
+        79.9982219917207,
+        12.0
+      ],
+      "volume_mm3": 28380.746200429086,
+      "solid_count": 1,
+      "valid": true,
+      "closed_mesh": true,
+      "print_orientation": "flat",
+      "sha256": "0c54202c141c2a1c99e05957770fb46ea0349bf57b85b31b80bc1d71e5333567"
+    },
+    "motorovy-mustek": {
+      "object": "MotorBridge",
+      "copies": 2,
+      "stl": "stl/motorovy-mustek.stl",
+      "bbox_mm": [
+        40.0,
+        6.000000000000002,
+        18.0
+      ],
+      "volume_mm3": 2784.844067485166,
+      "solid_count": 1,
+      "valid": true,
+      "closed_mesh": true,
+      "print_orientation": "flat",
+      "sha256": "803331906133c3d3b7074bc94466f5af4b331b4fa5e5f333cddc796795e693c1"
+    },
+    "motorovy-klinek": {
+      "object": "MotorWedge",
+      "copies": 2,
+      "stl": "stl/motorovy-klinek.stl",
+      "bbox_mm": [
+        6.0,
+        10.0,
+        4.0
+      ],
+      "volume_mm3": 210.0,
+      "solid_count": 1,
+      "valid": true,
+      "closed_mesh": true,
+      "print_orientation": "flat",
+      "sha256": "b05c7ac17b7d8806d0ed986e239bb29b1f1c55f3d07ca1d605613de8ed9a14f8"
+    },
+    "plosina-170x60": {
+      "object": "Deck",
+      "copies": 1,
+      "stl": "stl/plosina-170x60.stl",
+      "bbox_mm": [
+        200.0,
+        88.0,
+        72.00000000000001
+      ],
+      "volume_mm3": 121173.35320086588,
+      "solid_count": 1,
+      "valid": true,
+      "closed_mesh": true,
+      "print_orientation": "deck",
+      "sha256": "303e1a6cc6f05e9c25db2803e523f02cc7d0c34c42419cefb4ee88986ba556f0"
+    }
+  },
+  "assembly_instances": [
+    {
+      "name": "AssemblyFrame",
+      "part": "ram-25",
+      "stl": "stl/ram-25.stl"
+    },
+    {
+      "name": "AssemblyDeck",
+      "part": "plosina-170x60",
+      "stl": "stl/plosina-170x60.stl"
+    },
+    {
+      "name": "AssemblyRearAxle",
+      "part": "osa-zadni-12x150_6",
+      "stl": "stl/osa-zadni-12x150_6.stl"
+    },
+    {
+      "name": "AssemblyRearWheel1",
+      "part": "kolo-80x12-zadni-d",
+      "stl": "stl/kolo-80x12-zadni-d.stl"
+    },
+    {
+      "name": "AssemblyRearSpacer1",
+      "part": "rozperka-zadni-17_6",
+      "stl": "stl/rozperka-zadni-17_6.stl"
+    },
+    {
+      "name": "AssemblyRearInnerClip1",
+      "part": "pojistka-osy-10_9",
+      "stl": "stl/pojistka-osy-10_9.stl"
+    },
+    {
+      "name": "AssemblyRearOuterClip1",
+      "part": "pojistka-osy-10_9",
+      "stl": "stl/pojistka-osy-10_9.stl"
+    },
+    {
+      "name": "AssemblyRearWheel3",
+      "part": "kolo-80x12-zadni-d",
+      "stl": "stl/kolo-80x12-zadni-d.stl"
+    },
+    {
+      "name": "AssemblyRearSpacer3",
+      "part": "rozperka-zadni-17_6",
+      "stl": "stl/rozperka-zadni-17_6.stl"
+    },
+    {
+      "name": "AssemblyRearInnerClip3",
+      "part": "pojistka-osy-10_9",
+      "stl": "stl/pojistka-osy-10_9.stl"
+    },
+    {
+      "name": "AssemblyRearOuterClip3",
+      "part": "pojistka-osy-10_9",
+      "stl": "stl/pojistka-osy-10_9.stl"
+    },
+    {
+      "name": "AssemblyFrontAxle",
+      "part": "osa-predni-12x150_6",
+      "stl": "stl/osa-predni-12x150_6.stl"
+    },
+    {
+      "name": "AssemblyFrontWheel1",
+      "part": "kolo-80x12-predni",
+      "stl": "stl/kolo-80x12-predni.stl"
+    },
+    {
+      "name": "AssemblyFrontSpacer1",
+      "part": "rozperka-predni-5_6",
+      "stl": "stl/rozperka-predni-5_6.stl"
+    },
+    {
+      "name": "AssemblyFrontInnerClip1",
+      "part": "pojistka-osy-10_9",
+      "stl": "stl/pojistka-osy-10_9.stl"
+    },
+    {
+      "name": "AssemblyFrontOuterClip1",
+      "part": "pojistka-osy-10_9",
+      "stl": "stl/pojistka-osy-10_9.stl"
+    },
+    {
+      "name": "AssemblyFrontWheel3",
+      "part": "kolo-80x12-predni",
+      "stl": "stl/kolo-80x12-predni.stl"
+    },
+    {
+      "name": "AssemblyFrontSpacer3",
+      "part": "rozperka-predni-5_6",
+      "stl": "stl/rozperka-predni-5_6.stl"
+    },
+    {
+      "name": "AssemblyFrontInnerClip3",
+      "part": "pojistka-osy-10_9",
+      "stl": "stl/pojistka-osy-10_9.stl"
+    },
+    {
+      "name": "AssemblyFrontOuterClip3",
+      "part": "pojistka-osy-10_9",
+      "stl": "stl/pojistka-osy-10_9.stl"
+    },
+    {
+      "name": "AssemblyA",
+      "part": "mezikolo-a-54_18",
+      "stl": "stl/mezikolo-a-54_18.stl"
+    },
+    {
+      "name": "AssemblyB",
+      "part": "mezikolo-b-60_22",
+      "stl": "stl/mezikolo-b-60_22.stl"
+    },
+    {
+      "name": "AssemblyOutput",
+      "part": "vystupni-kolo-55",
+      "stl": "stl/vystupni-kolo-55.stl"
+    },
+    {
+      "name": "AssemblyPinion",
+      "part": "pastorek-18-otvor-2_2",
+      "stl": "stl/pastorek-18-otvor-2_2.stl"
+    },
+    {
+      "name": "AssemblyFixedPinA",
+      "part": "pevny-cep-8x53_9",
+      "stl": "stl/pevny-cep-8x53_9.stl"
+    },
+    {
+      "name": "AssemblyFixedPinClipA",
+      "part": "pojistka-6_9",
+      "stl": "stl/pojistka-6_9.stl"
+    },
+    {
+      "name": "AssemblyFixedPinB",
+      "part": "pevny-cep-8x53_9",
+      "stl": "stl/pevny-cep-8x53_9.stl"
+    },
+    {
+      "name": "AssemblyFixedPinClipB",
+      "part": "pojistka-6_9",
+      "stl": "stl/pojistka-6_9.stl"
+    },
+    {
+      "name": "AssemblyCrossPin",
+      "part": "pricny-klinek-4x27_1",
+      "stl": "stl/pricny-klinek-4x27_1.stl"
+    },
+    {
+      "name": "AssemblyCrossPinClip",
+      "part": "pojistka-3_1",
+      "stl": "stl/pojistka-3_1.stl"
+    },
+    {
+      "name": "AssemblyMotorBridge0",
+      "part": "motorovy-mustek",
+      "stl": "stl/motorovy-mustek.stl"
+    },
+    {
+      "name": "AssemblyMotorWedge0",
+      "part": "motorovy-klinek",
+      "stl": "stl/motorovy-klinek.stl"
+    },
+    {
+      "name": "AssemblyMotorBridge1",
+      "part": "motorovy-mustek",
+      "stl": "stl/motorovy-mustek.stl"
+    },
+    {
+      "name": "AssemblyMotorWedge1",
+      "part": "motorovy-klinek",
+      "stl": "stl/motorovy-klinek.stl"
+    },
+    {
+      "name": "AssemblyMotorPin1",
+      "part": "spolecny-cep-mustku-4x30_5",
+      "stl": "stl/spolecny-cep-mustku-4x30_5.stl"
+    },
+    {
+      "name": "AssemblyMotorPinClip1",
+      "part": "pojistka-3_1",
+      "stl": "stl/pojistka-3_1.stl"
+    },
+    {
+      "name": "AssemblyMotorPin3",
+      "part": "spolecny-cep-mustku-4x30_5",
+      "stl": "stl/spolecny-cep-mustku-4x30_5.stl"
+    },
+    {
+      "name": "AssemblyMotorPinClip3",
+      "part": "pojistka-3_1",
+      "stl": "stl/pojistka-3_1.stl"
+    },
+    {
+      "name": "AssemblyDeckPin0",
+      "part": "cep-plosiny-4x19_5",
+      "stl": "stl/cep-plosiny-4x19_5.stl"
+    },
+    {
+      "name": "AssemblyDeckPinClip0",
+      "part": "pojistka-3_1",
+      "stl": "stl/pojistka-3_1.stl"
+    },
+    {
+      "name": "AssemblyDeckPin1",
+      "part": "cep-plosiny-4x19_5",
+      "stl": "stl/cep-plosiny-4x19_5.stl"
+    },
+    {
+      "name": "AssemblyDeckPinClip1",
+      "part": "pojistka-3_1",
+      "stl": "stl/pojistka-3_1.stl"
+    },
+    {
+      "name": "AssemblyDeckPin2",
+      "part": "cep-plosiny-4x19_5",
+      "stl": "stl/cep-plosiny-4x19_5.stl"
+    },
+    {
+      "name": "AssemblyDeckPinClip2",
+      "part": "pojistka-3_1",
+      "stl": "stl/pojistka-3_1.stl"
+    },
+    {
+      "name": "AssemblyDeckPin3",
+      "part": "cep-plosiny-4x19_5",
+      "stl": "stl/cep-plosiny-4x19_5.stl"
+    },
+    {
+      "name": "AssemblyDeckPinClip3",
+      "part": "pojistka-3_1",
+      "stl": "stl/pojistka-3_1.stl"
+    }
+  ],
+  "references": [
+    "MotorReference"
+  ],
+  "assembly_object_names": [
+    "AssemblyFrame",
+    "AssemblyDeck",
+    "AssemblyRearAxle",
+    "AssemblyRearWheel1",
+    "AssemblyRearSpacer1",
+    "AssemblyRearInnerClip1",
+    "AssemblyRearOuterClip1",
+    "AssemblyRearWheel3",
+    "AssemblyRearSpacer3",
+    "AssemblyRearInnerClip3",
+    "AssemblyRearOuterClip3",
+    "AssemblyFrontAxle",
+    "AssemblyFrontWheel1",
+    "AssemblyFrontSpacer1",
+    "AssemblyFrontInnerClip1",
+    "AssemblyFrontOuterClip1",
+    "AssemblyFrontWheel3",
+    "AssemblyFrontSpacer3",
+    "AssemblyFrontInnerClip3",
+    "AssemblyFrontOuterClip3",
+    "AssemblyA",
+    "AssemblyB",
+    "AssemblyOutput",
+    "AssemblyPinion",
+    "AssemblyFixedPinA",
+    "AssemblyFixedPinClipA",
+    "AssemblyFixedPinB",
+    "AssemblyFixedPinClipB",
+    "AssemblyCrossPin",
+    "AssemblyCrossPinClip",
+    "AssemblyMotorBridge0",
+    "AssemblyMotorWedge0",
+    "AssemblyMotorBridge1",
+    "AssemblyMotorWedge1",
+    "AssemblyMotorPin1",
+    "AssemblyMotorPinClip1",
+    "AssemblyMotorPin3",
+    "AssemblyMotorPinClip3",
+    "AssemblyDeckPin0",
+    "AssemblyDeckPinClip0",
+    "AssemblyDeckPin1",
+    "AssemblyDeckPinClip1",
+    "AssemblyDeckPin2",
+    "AssemblyDeckPinClip2",
+    "AssemblyDeckPin3",
+    "AssemblyDeckPinClip3",
+    "MotorReference"
+  ],
+  "total_print_count": 46,
+  "counts_derived_from_assembly": true,
+  "gear_centres_mm": [
+    36.4,
+    39.4,
+    38.9
+  ],
+  "assembly_pairs": [
+    {
+      "a": "AssemblyFrame",
+      "b": "AssemblyDeck",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFrame",
+      "b": "AssemblyRearAxle",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFrame",
+      "b": "AssemblyRearWheel1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrame",
+      "b": "AssemblyRearSpacer1",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFrame",
+      "b": "AssemblyRearInnerClip1",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFrame",
+      "b": "AssemblyRearOuterClip1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrame",
+      "b": "AssemblyRearWheel3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrame",
+      "b": "AssemblyRearSpacer3",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFrame",
+      "b": "AssemblyRearInnerClip3",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFrame",
+      "b": "AssemblyRearOuterClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrame",
+      "b": "AssemblyFrontAxle",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFrame",
+      "b": "AssemblyFrontWheel1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrame",
+      "b": "AssemblyFrontSpacer1",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFrame",
+      "b": "AssemblyFrontInnerClip1",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFrame",
+      "b": "AssemblyFrontOuterClip1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrame",
+      "b": "AssemblyFrontWheel3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrame",
+      "b": "AssemblyFrontSpacer3",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFrame",
+      "b": "AssemblyFrontInnerClip3",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFrame",
+      "b": "AssemblyFrontOuterClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrame",
+      "b": "AssemblyA",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFrame",
+      "b": "AssemblyB",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFrame",
+      "b": "AssemblyOutput",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFrame",
+      "b": "AssemblyPinion",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFrame",
+      "b": "AssemblyFixedPinA",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFrame",
+      "b": "AssemblyFixedPinClipA",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFrame",
+      "b": "AssemblyFixedPinB",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFrame",
+      "b": "AssemblyFixedPinClipB",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFrame",
+      "b": "AssemblyCrossPin",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFrame",
+      "b": "AssemblyCrossPinClip",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFrame",
+      "b": "AssemblyMotorBridge0",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFrame",
+      "b": "AssemblyMotorWedge0",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFrame",
+      "b": "AssemblyMotorBridge1",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFrame",
+      "b": "AssemblyMotorWedge1",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFrame",
+      "b": "AssemblyMotorPin1",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFrame",
+      "b": "AssemblyMotorPinClip1",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFrame",
+      "b": "AssemblyMotorPin3",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFrame",
+      "b": "AssemblyMotorPinClip3",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFrame",
+      "b": "AssemblyDeckPin0",
+      "overlap_mm3": 16.33628179866693
+    },
+    {
+      "a": "AssemblyFrame",
+      "b": "AssemblyDeckPinClip0",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFrame",
+      "b": "AssemblyDeckPin1",
+      "overlap_mm3": 16.33628179866693
+    },
+    {
+      "a": "AssemblyFrame",
+      "b": "AssemblyDeckPinClip1",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFrame",
+      "b": "AssemblyDeckPin2",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFrame",
+      "b": "AssemblyDeckPinClip2",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFrame",
+      "b": "AssemblyDeckPin3",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFrame",
+      "b": "AssemblyDeckPinClip3",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFrame",
+      "b": "MotorReference",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyDeck",
+      "b": "AssemblyRearAxle",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyDeck",
+      "b": "AssemblyRearWheel1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyDeck",
+      "b": "AssemblyRearSpacer1",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyDeck",
+      "b": "AssemblyRearInnerClip1",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyDeck",
+      "b": "AssemblyRearOuterClip1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyDeck",
+      "b": "AssemblyRearWheel3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyDeck",
+      "b": "AssemblyRearSpacer3",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyDeck",
+      "b": "AssemblyRearInnerClip3",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyDeck",
+      "b": "AssemblyRearOuterClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyDeck",
+      "b": "AssemblyFrontAxle",
+      "overlap_mm3": 619.0983280988113
+    },
+    {
+      "a": "AssemblyDeck",
+      "b": "AssemblyFrontWheel1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyDeck",
+      "b": "AssemblyFrontSpacer1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyDeck",
+      "b": "AssemblyFrontInnerClip1",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyDeck",
+      "b": "AssemblyFrontOuterClip1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyDeck",
+      "b": "AssemblyFrontWheel3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyDeck",
+      "b": "AssemblyFrontSpacer3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyDeck",
+      "b": "AssemblyFrontInnerClip3",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyDeck",
+      "b": "AssemblyFrontOuterClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyDeck",
+      "b": "AssemblyA",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyDeck",
+      "b": "AssemblyB",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyDeck",
+      "b": "AssemblyOutput",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyDeck",
+      "b": "AssemblyPinion",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyDeck",
+      "b": "AssemblyFixedPinA",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyDeck",
+      "b": "AssemblyFixedPinClipA",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyDeck",
+      "b": "AssemblyFixedPinB",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyDeck",
+      "b": "AssemblyFixedPinClipB",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyDeck",
+      "b": "AssemblyCrossPin",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyDeck",
+      "b": "AssemblyCrossPinClip",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyDeck",
+      "b": "AssemblyMotorBridge0",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyDeck",
+      "b": "AssemblyMotorWedge0",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyDeck",
+      "b": "AssemblyMotorBridge1",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyDeck",
+      "b": "AssemblyMotorWedge1",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyDeck",
+      "b": "AssemblyMotorPin1",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyDeck",
+      "b": "AssemblyMotorPinClip1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyDeck",
+      "b": "AssemblyMotorPin3",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyDeck",
+      "b": "AssemblyMotorPinClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyDeck",
+      "b": "AssemblyDeckPin0",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyDeck",
+      "b": "AssemblyDeckPinClip0",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyDeck",
+      "b": "AssemblyDeckPin1",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyDeck",
+      "b": "AssemblyDeckPinClip1",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyDeck",
+      "b": "AssemblyDeckPin2",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyDeck",
+      "b": "AssemblyDeckPinClip2",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyDeck",
+      "b": "AssemblyDeckPin3",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyDeck",
+      "b": "AssemblyDeckPinClip3",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyDeck",
+      "b": "MotorReference",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyRearAxle",
+      "b": "AssemblyRearWheel1",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyRearAxle",
+      "b": "AssemblyRearSpacer1",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyRearAxle",
+      "b": "AssemblyRearInnerClip1",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyRearAxle",
+      "b": "AssemblyRearOuterClip1",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyRearAxle",
+      "b": "AssemblyRearWheel3",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyRearAxle",
+      "b": "AssemblyRearSpacer3",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyRearAxle",
+      "b": "AssemblyRearInnerClip3",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyRearAxle",
+      "b": "AssemblyRearOuterClip3",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyRearAxle",
+      "b": "AssemblyFrontAxle",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearAxle",
+      "b": "AssemblyFrontWheel1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearAxle",
+      "b": "AssemblyFrontSpacer1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearAxle",
+      "b": "AssemblyFrontInnerClip1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearAxle",
+      "b": "AssemblyFrontOuterClip1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearAxle",
+      "b": "AssemblyFrontWheel3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearAxle",
+      "b": "AssemblyFrontSpacer3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearAxle",
+      "b": "AssemblyFrontInnerClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearAxle",
+      "b": "AssemblyFrontOuterClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearAxle",
+      "b": "AssemblyA",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearAxle",
+      "b": "AssemblyB",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearAxle",
+      "b": "AssemblyOutput",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyRearAxle",
+      "b": "AssemblyPinion",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearAxle",
+      "b": "AssemblyFixedPinA",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearAxle",
+      "b": "AssemblyFixedPinClipA",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearAxle",
+      "b": "AssemblyFixedPinB",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearAxle",
+      "b": "AssemblyFixedPinClipB",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearAxle",
+      "b": "AssemblyCrossPin",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyRearAxle",
+      "b": "AssemblyCrossPinClip",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearAxle",
+      "b": "AssemblyMotorBridge0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearAxle",
+      "b": "AssemblyMotorWedge0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearAxle",
+      "b": "AssemblyMotorBridge1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearAxle",
+      "b": "AssemblyMotorWedge1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearAxle",
+      "b": "AssemblyMotorPin1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearAxle",
+      "b": "AssemblyMotorPinClip1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearAxle",
+      "b": "AssemblyMotorPin3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearAxle",
+      "b": "AssemblyMotorPinClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearAxle",
+      "b": "AssemblyDeckPin0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearAxle",
+      "b": "AssemblyDeckPinClip0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearAxle",
+      "b": "AssemblyDeckPin1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearAxle",
+      "b": "AssemblyDeckPinClip1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearAxle",
+      "b": "AssemblyDeckPin2",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearAxle",
+      "b": "AssemblyDeckPinClip2",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearAxle",
+      "b": "AssemblyDeckPin3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearAxle",
+      "b": "AssemblyDeckPinClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearAxle",
+      "b": "MotorReference",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearWheel1",
+      "b": "AssemblyRearSpacer1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearWheel1",
+      "b": "AssemblyRearInnerClip1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearWheel1",
+      "b": "AssemblyRearOuterClip1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearWheel1",
+      "b": "AssemblyRearWheel3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearWheel1",
+      "b": "AssemblyRearSpacer3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearWheel1",
+      "b": "AssemblyRearInnerClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearWheel1",
+      "b": "AssemblyRearOuterClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearWheel1",
+      "b": "AssemblyFrontAxle",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearWheel1",
+      "b": "AssemblyFrontWheel1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearWheel1",
+      "b": "AssemblyFrontSpacer1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearWheel1",
+      "b": "AssemblyFrontInnerClip1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearWheel1",
+      "b": "AssemblyFrontOuterClip1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearWheel1",
+      "b": "AssemblyFrontWheel3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearWheel1",
+      "b": "AssemblyFrontSpacer3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearWheel1",
+      "b": "AssemblyFrontInnerClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearWheel1",
+      "b": "AssemblyFrontOuterClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearWheel1",
+      "b": "AssemblyA",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearWheel1",
+      "b": "AssemblyB",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearWheel1",
+      "b": "AssemblyOutput",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearWheel1",
+      "b": "AssemblyPinion",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearWheel1",
+      "b": "AssemblyFixedPinA",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearWheel1",
+      "b": "AssemblyFixedPinClipA",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearWheel1",
+      "b": "AssemblyFixedPinB",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearWheel1",
+      "b": "AssemblyFixedPinClipB",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearWheel1",
+      "b": "AssemblyCrossPin",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearWheel1",
+      "b": "AssemblyCrossPinClip",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearWheel1",
+      "b": "AssemblyMotorBridge0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearWheel1",
+      "b": "AssemblyMotorWedge0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearWheel1",
+      "b": "AssemblyMotorBridge1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearWheel1",
+      "b": "AssemblyMotorWedge1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearWheel1",
+      "b": "AssemblyMotorPin1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearWheel1",
+      "b": "AssemblyMotorPinClip1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearWheel1",
+      "b": "AssemblyMotorPin3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearWheel1",
+      "b": "AssemblyMotorPinClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearWheel1",
+      "b": "AssemblyDeckPin0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearWheel1",
+      "b": "AssemblyDeckPinClip0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearWheel1",
+      "b": "AssemblyDeckPin1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearWheel1",
+      "b": "AssemblyDeckPinClip1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearWheel1",
+      "b": "AssemblyDeckPin2",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearWheel1",
+      "b": "AssemblyDeckPinClip2",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearWheel1",
+      "b": "AssemblyDeckPin3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearWheel1",
+      "b": "AssemblyDeckPinClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearWheel1",
+      "b": "MotorReference",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearSpacer1",
+      "b": "AssemblyRearInnerClip1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearSpacer1",
+      "b": "AssemblyRearOuterClip1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearSpacer1",
+      "b": "AssemblyRearWheel3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearSpacer1",
+      "b": "AssemblyRearSpacer3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearSpacer1",
+      "b": "AssemblyRearInnerClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearSpacer1",
+      "b": "AssemblyRearOuterClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearSpacer1",
+      "b": "AssemblyFrontAxle",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearSpacer1",
+      "b": "AssemblyFrontWheel1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearSpacer1",
+      "b": "AssemblyFrontSpacer1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearSpacer1",
+      "b": "AssemblyFrontInnerClip1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearSpacer1",
+      "b": "AssemblyFrontOuterClip1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearSpacer1",
+      "b": "AssemblyFrontWheel3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearSpacer1",
+      "b": "AssemblyFrontSpacer3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearSpacer1",
+      "b": "AssemblyFrontInnerClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearSpacer1",
+      "b": "AssemblyFrontOuterClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearSpacer1",
+      "b": "AssemblyA",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearSpacer1",
+      "b": "AssemblyB",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearSpacer1",
+      "b": "AssemblyOutput",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearSpacer1",
+      "b": "AssemblyPinion",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearSpacer1",
+      "b": "AssemblyFixedPinA",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearSpacer1",
+      "b": "AssemblyFixedPinClipA",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearSpacer1",
+      "b": "AssemblyFixedPinB",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearSpacer1",
+      "b": "AssemblyFixedPinClipB",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearSpacer1",
+      "b": "AssemblyCrossPin",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearSpacer1",
+      "b": "AssemblyCrossPinClip",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearSpacer1",
+      "b": "AssemblyMotorBridge0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearSpacer1",
+      "b": "AssemblyMotorWedge0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearSpacer1",
+      "b": "AssemblyMotorBridge1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearSpacer1",
+      "b": "AssemblyMotorWedge1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearSpacer1",
+      "b": "AssemblyMotorPin1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearSpacer1",
+      "b": "AssemblyMotorPinClip1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearSpacer1",
+      "b": "AssemblyMotorPin3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearSpacer1",
+      "b": "AssemblyMotorPinClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearSpacer1",
+      "b": "AssemblyDeckPin0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearSpacer1",
+      "b": "AssemblyDeckPinClip0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearSpacer1",
+      "b": "AssemblyDeckPin1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearSpacer1",
+      "b": "AssemblyDeckPinClip1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearSpacer1",
+      "b": "AssemblyDeckPin2",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearSpacer1",
+      "b": "AssemblyDeckPinClip2",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearSpacer1",
+      "b": "AssemblyDeckPin3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearSpacer1",
+      "b": "AssemblyDeckPinClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearSpacer1",
+      "b": "MotorReference",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearInnerClip1",
+      "b": "AssemblyRearOuterClip1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearInnerClip1",
+      "b": "AssemblyRearWheel3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearInnerClip1",
+      "b": "AssemblyRearSpacer3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearInnerClip1",
+      "b": "AssemblyRearInnerClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearInnerClip1",
+      "b": "AssemblyRearOuterClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearInnerClip1",
+      "b": "AssemblyFrontAxle",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearInnerClip1",
+      "b": "AssemblyFrontWheel1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearInnerClip1",
+      "b": "AssemblyFrontSpacer1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearInnerClip1",
+      "b": "AssemblyFrontInnerClip1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearInnerClip1",
+      "b": "AssemblyFrontOuterClip1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearInnerClip1",
+      "b": "AssemblyFrontWheel3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearInnerClip1",
+      "b": "AssemblyFrontSpacer3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearInnerClip1",
+      "b": "AssemblyFrontInnerClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearInnerClip1",
+      "b": "AssemblyFrontOuterClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearInnerClip1",
+      "b": "AssemblyA",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearInnerClip1",
+      "b": "AssemblyB",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearInnerClip1",
+      "b": "AssemblyOutput",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearInnerClip1",
+      "b": "AssemblyPinion",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearInnerClip1",
+      "b": "AssemblyFixedPinA",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearInnerClip1",
+      "b": "AssemblyFixedPinClipA",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearInnerClip1",
+      "b": "AssemblyFixedPinB",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearInnerClip1",
+      "b": "AssemblyFixedPinClipB",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearInnerClip1",
+      "b": "AssemblyCrossPin",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearInnerClip1",
+      "b": "AssemblyCrossPinClip",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearInnerClip1",
+      "b": "AssemblyMotorBridge0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearInnerClip1",
+      "b": "AssemblyMotorWedge0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearInnerClip1",
+      "b": "AssemblyMotorBridge1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearInnerClip1",
+      "b": "AssemblyMotorWedge1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearInnerClip1",
+      "b": "AssemblyMotorPin1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearInnerClip1",
+      "b": "AssemblyMotorPinClip1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearInnerClip1",
+      "b": "AssemblyMotorPin3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearInnerClip1",
+      "b": "AssemblyMotorPinClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearInnerClip1",
+      "b": "AssemblyDeckPin0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearInnerClip1",
+      "b": "AssemblyDeckPinClip0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearInnerClip1",
+      "b": "AssemblyDeckPin1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearInnerClip1",
+      "b": "AssemblyDeckPinClip1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearInnerClip1",
+      "b": "AssemblyDeckPin2",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearInnerClip1",
+      "b": "AssemblyDeckPinClip2",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearInnerClip1",
+      "b": "AssemblyDeckPin3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearInnerClip1",
+      "b": "AssemblyDeckPinClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearInnerClip1",
+      "b": "MotorReference",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearOuterClip1",
+      "b": "AssemblyRearWheel3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearOuterClip1",
+      "b": "AssemblyRearSpacer3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearOuterClip1",
+      "b": "AssemblyRearInnerClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearOuterClip1",
+      "b": "AssemblyRearOuterClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearOuterClip1",
+      "b": "AssemblyFrontAxle",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearOuterClip1",
+      "b": "AssemblyFrontWheel1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearOuterClip1",
+      "b": "AssemblyFrontSpacer1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearOuterClip1",
+      "b": "AssemblyFrontInnerClip1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearOuterClip1",
+      "b": "AssemblyFrontOuterClip1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearOuterClip1",
+      "b": "AssemblyFrontWheel3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearOuterClip1",
+      "b": "AssemblyFrontSpacer3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearOuterClip1",
+      "b": "AssemblyFrontInnerClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearOuterClip1",
+      "b": "AssemblyFrontOuterClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearOuterClip1",
+      "b": "AssemblyA",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearOuterClip1",
+      "b": "AssemblyB",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearOuterClip1",
+      "b": "AssemblyOutput",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearOuterClip1",
+      "b": "AssemblyPinion",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearOuterClip1",
+      "b": "AssemblyFixedPinA",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearOuterClip1",
+      "b": "AssemblyFixedPinClipA",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearOuterClip1",
+      "b": "AssemblyFixedPinB",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearOuterClip1",
+      "b": "AssemblyFixedPinClipB",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearOuterClip1",
+      "b": "AssemblyCrossPin",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearOuterClip1",
+      "b": "AssemblyCrossPinClip",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearOuterClip1",
+      "b": "AssemblyMotorBridge0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearOuterClip1",
+      "b": "AssemblyMotorWedge0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearOuterClip1",
+      "b": "AssemblyMotorBridge1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearOuterClip1",
+      "b": "AssemblyMotorWedge1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearOuterClip1",
+      "b": "AssemblyMotorPin1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearOuterClip1",
+      "b": "AssemblyMotorPinClip1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearOuterClip1",
+      "b": "AssemblyMotorPin3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearOuterClip1",
+      "b": "AssemblyMotorPinClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearOuterClip1",
+      "b": "AssemblyDeckPin0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearOuterClip1",
+      "b": "AssemblyDeckPinClip0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearOuterClip1",
+      "b": "AssemblyDeckPin1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearOuterClip1",
+      "b": "AssemblyDeckPinClip1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearOuterClip1",
+      "b": "AssemblyDeckPin2",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearOuterClip1",
+      "b": "AssemblyDeckPinClip2",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearOuterClip1",
+      "b": "AssemblyDeckPin3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearOuterClip1",
+      "b": "AssemblyDeckPinClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearOuterClip1",
+      "b": "MotorReference",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearWheel3",
+      "b": "AssemblyRearSpacer3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearWheel3",
+      "b": "AssemblyRearInnerClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearWheel3",
+      "b": "AssemblyRearOuterClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearWheel3",
+      "b": "AssemblyFrontAxle",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearWheel3",
+      "b": "AssemblyFrontWheel1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearWheel3",
+      "b": "AssemblyFrontSpacer1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearWheel3",
+      "b": "AssemblyFrontInnerClip1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearWheel3",
+      "b": "AssemblyFrontOuterClip1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearWheel3",
+      "b": "AssemblyFrontWheel3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearWheel3",
+      "b": "AssemblyFrontSpacer3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearWheel3",
+      "b": "AssemblyFrontInnerClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearWheel3",
+      "b": "AssemblyFrontOuterClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearWheel3",
+      "b": "AssemblyA",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearWheel3",
+      "b": "AssemblyB",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearWheel3",
+      "b": "AssemblyOutput",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearWheel3",
+      "b": "AssemblyPinion",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearWheel3",
+      "b": "AssemblyFixedPinA",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearWheel3",
+      "b": "AssemblyFixedPinClipA",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearWheel3",
+      "b": "AssemblyFixedPinB",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearWheel3",
+      "b": "AssemblyFixedPinClipB",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearWheel3",
+      "b": "AssemblyCrossPin",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearWheel3",
+      "b": "AssemblyCrossPinClip",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearWheel3",
+      "b": "AssemblyMotorBridge0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearWheel3",
+      "b": "AssemblyMotorWedge0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearWheel3",
+      "b": "AssemblyMotorBridge1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearWheel3",
+      "b": "AssemblyMotorWedge1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearWheel3",
+      "b": "AssemblyMotorPin1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearWheel3",
+      "b": "AssemblyMotorPinClip1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearWheel3",
+      "b": "AssemblyMotorPin3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearWheel3",
+      "b": "AssemblyMotorPinClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearWheel3",
+      "b": "AssemblyDeckPin0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearWheel3",
+      "b": "AssemblyDeckPinClip0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearWheel3",
+      "b": "AssemblyDeckPin1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearWheel3",
+      "b": "AssemblyDeckPinClip1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearWheel3",
+      "b": "AssemblyDeckPin2",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearWheel3",
+      "b": "AssemblyDeckPinClip2",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearWheel3",
+      "b": "AssemblyDeckPin3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearWheel3",
+      "b": "AssemblyDeckPinClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearWheel3",
+      "b": "MotorReference",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearSpacer3",
+      "b": "AssemblyRearInnerClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearSpacer3",
+      "b": "AssemblyRearOuterClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearSpacer3",
+      "b": "AssemblyFrontAxle",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearSpacer3",
+      "b": "AssemblyFrontWheel1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearSpacer3",
+      "b": "AssemblyFrontSpacer1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearSpacer3",
+      "b": "AssemblyFrontInnerClip1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearSpacer3",
+      "b": "AssemblyFrontOuterClip1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearSpacer3",
+      "b": "AssemblyFrontWheel3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearSpacer3",
+      "b": "AssemblyFrontSpacer3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearSpacer3",
+      "b": "AssemblyFrontInnerClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearSpacer3",
+      "b": "AssemblyFrontOuterClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearSpacer3",
+      "b": "AssemblyA",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearSpacer3",
+      "b": "AssemblyB",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearSpacer3",
+      "b": "AssemblyOutput",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearSpacer3",
+      "b": "AssemblyPinion",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearSpacer3",
+      "b": "AssemblyFixedPinA",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearSpacer3",
+      "b": "AssemblyFixedPinClipA",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearSpacer3",
+      "b": "AssemblyFixedPinB",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearSpacer3",
+      "b": "AssemblyFixedPinClipB",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearSpacer3",
+      "b": "AssemblyCrossPin",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearSpacer3",
+      "b": "AssemblyCrossPinClip",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearSpacer3",
+      "b": "AssemblyMotorBridge0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearSpacer3",
+      "b": "AssemblyMotorWedge0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearSpacer3",
+      "b": "AssemblyMotorBridge1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearSpacer3",
+      "b": "AssemblyMotorWedge1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearSpacer3",
+      "b": "AssemblyMotorPin1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearSpacer3",
+      "b": "AssemblyMotorPinClip1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearSpacer3",
+      "b": "AssemblyMotorPin3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearSpacer3",
+      "b": "AssemblyMotorPinClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearSpacer3",
+      "b": "AssemblyDeckPin0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearSpacer3",
+      "b": "AssemblyDeckPinClip0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearSpacer3",
+      "b": "AssemblyDeckPin1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearSpacer3",
+      "b": "AssemblyDeckPinClip1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearSpacer3",
+      "b": "AssemblyDeckPin2",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearSpacer3",
+      "b": "AssemblyDeckPinClip2",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearSpacer3",
+      "b": "AssemblyDeckPin3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearSpacer3",
+      "b": "AssemblyDeckPinClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearSpacer3",
+      "b": "MotorReference",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearInnerClip3",
+      "b": "AssemblyRearOuterClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearInnerClip3",
+      "b": "AssemblyFrontAxle",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearInnerClip3",
+      "b": "AssemblyFrontWheel1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearInnerClip3",
+      "b": "AssemblyFrontSpacer1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearInnerClip3",
+      "b": "AssemblyFrontInnerClip1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearInnerClip3",
+      "b": "AssemblyFrontOuterClip1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearInnerClip3",
+      "b": "AssemblyFrontWheel3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearInnerClip3",
+      "b": "AssemblyFrontSpacer3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearInnerClip3",
+      "b": "AssemblyFrontInnerClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearInnerClip3",
+      "b": "AssemblyFrontOuterClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearInnerClip3",
+      "b": "AssemblyA",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearInnerClip3",
+      "b": "AssemblyB",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearInnerClip3",
+      "b": "AssemblyOutput",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearInnerClip3",
+      "b": "AssemblyPinion",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearInnerClip3",
+      "b": "AssemblyFixedPinA",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearInnerClip3",
+      "b": "AssemblyFixedPinClipA",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearInnerClip3",
+      "b": "AssemblyFixedPinB",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearInnerClip3",
+      "b": "AssemblyFixedPinClipB",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearInnerClip3",
+      "b": "AssemblyCrossPin",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearInnerClip3",
+      "b": "AssemblyCrossPinClip",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearInnerClip3",
+      "b": "AssemblyMotorBridge0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearInnerClip3",
+      "b": "AssemblyMotorWedge0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearInnerClip3",
+      "b": "AssemblyMotorBridge1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearInnerClip3",
+      "b": "AssemblyMotorWedge1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearInnerClip3",
+      "b": "AssemblyMotorPin1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearInnerClip3",
+      "b": "AssemblyMotorPinClip1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearInnerClip3",
+      "b": "AssemblyMotorPin3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearInnerClip3",
+      "b": "AssemblyMotorPinClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearInnerClip3",
+      "b": "AssemblyDeckPin0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearInnerClip3",
+      "b": "AssemblyDeckPinClip0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearInnerClip3",
+      "b": "AssemblyDeckPin1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearInnerClip3",
+      "b": "AssemblyDeckPinClip1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearInnerClip3",
+      "b": "AssemblyDeckPin2",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearInnerClip3",
+      "b": "AssemblyDeckPinClip2",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearInnerClip3",
+      "b": "AssemblyDeckPin3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearInnerClip3",
+      "b": "AssemblyDeckPinClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearInnerClip3",
+      "b": "MotorReference",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearOuterClip3",
+      "b": "AssemblyFrontAxle",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearOuterClip3",
+      "b": "AssemblyFrontWheel1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearOuterClip3",
+      "b": "AssemblyFrontSpacer1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearOuterClip3",
+      "b": "AssemblyFrontInnerClip1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearOuterClip3",
+      "b": "AssemblyFrontOuterClip1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearOuterClip3",
+      "b": "AssemblyFrontWheel3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearOuterClip3",
+      "b": "AssemblyFrontSpacer3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearOuterClip3",
+      "b": "AssemblyFrontInnerClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearOuterClip3",
+      "b": "AssemblyFrontOuterClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearOuterClip3",
+      "b": "AssemblyA",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearOuterClip3",
+      "b": "AssemblyB",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearOuterClip3",
+      "b": "AssemblyOutput",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearOuterClip3",
+      "b": "AssemblyPinion",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearOuterClip3",
+      "b": "AssemblyFixedPinA",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearOuterClip3",
+      "b": "AssemblyFixedPinClipA",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearOuterClip3",
+      "b": "AssemblyFixedPinB",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearOuterClip3",
+      "b": "AssemblyFixedPinClipB",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearOuterClip3",
+      "b": "AssemblyCrossPin",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearOuterClip3",
+      "b": "AssemblyCrossPinClip",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearOuterClip3",
+      "b": "AssemblyMotorBridge0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearOuterClip3",
+      "b": "AssemblyMotorWedge0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearOuterClip3",
+      "b": "AssemblyMotorBridge1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearOuterClip3",
+      "b": "AssemblyMotorWedge1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearOuterClip3",
+      "b": "AssemblyMotorPin1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearOuterClip3",
+      "b": "AssemblyMotorPinClip1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearOuterClip3",
+      "b": "AssemblyMotorPin3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearOuterClip3",
+      "b": "AssemblyMotorPinClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearOuterClip3",
+      "b": "AssemblyDeckPin0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearOuterClip3",
+      "b": "AssemblyDeckPinClip0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearOuterClip3",
+      "b": "AssemblyDeckPin1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearOuterClip3",
+      "b": "AssemblyDeckPinClip1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearOuterClip3",
+      "b": "AssemblyDeckPin2",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearOuterClip3",
+      "b": "AssemblyDeckPinClip2",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearOuterClip3",
+      "b": "AssemblyDeckPin3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearOuterClip3",
+      "b": "AssemblyDeckPinClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyRearOuterClip3",
+      "b": "MotorReference",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontAxle",
+      "b": "AssemblyFrontWheel1",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFrontAxle",
+      "b": "AssemblyFrontSpacer1",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFrontAxle",
+      "b": "AssemblyFrontInnerClip1",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFrontAxle",
+      "b": "AssemblyFrontOuterClip1",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFrontAxle",
+      "b": "AssemblyFrontWheel3",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFrontAxle",
+      "b": "AssemblyFrontSpacer3",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFrontAxle",
+      "b": "AssemblyFrontInnerClip3",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFrontAxle",
+      "b": "AssemblyFrontOuterClip3",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFrontAxle",
+      "b": "AssemblyA",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontAxle",
+      "b": "AssemblyB",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontAxle",
+      "b": "AssemblyOutput",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontAxle",
+      "b": "AssemblyPinion",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontAxle",
+      "b": "AssemblyFixedPinA",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontAxle",
+      "b": "AssemblyFixedPinClipA",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontAxle",
+      "b": "AssemblyFixedPinB",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontAxle",
+      "b": "AssemblyFixedPinClipB",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontAxle",
+      "b": "AssemblyCrossPin",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontAxle",
+      "b": "AssemblyCrossPinClip",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontAxle",
+      "b": "AssemblyMotorBridge0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontAxle",
+      "b": "AssemblyMotorWedge0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontAxle",
+      "b": "AssemblyMotorBridge1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontAxle",
+      "b": "AssemblyMotorWedge1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontAxle",
+      "b": "AssemblyMotorPin1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontAxle",
+      "b": "AssemblyMotorPinClip1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontAxle",
+      "b": "AssemblyMotorPin3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontAxle",
+      "b": "AssemblyMotorPinClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontAxle",
+      "b": "AssemblyDeckPin0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontAxle",
+      "b": "AssemblyDeckPinClip0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontAxle",
+      "b": "AssemblyDeckPin1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontAxle",
+      "b": "AssemblyDeckPinClip1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontAxle",
+      "b": "AssemblyDeckPin2",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontAxle",
+      "b": "AssemblyDeckPinClip2",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontAxle",
+      "b": "AssemblyDeckPin3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontAxle",
+      "b": "AssemblyDeckPinClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontAxle",
+      "b": "MotorReference",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontWheel1",
+      "b": "AssemblyFrontSpacer1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontWheel1",
+      "b": "AssemblyFrontInnerClip1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontWheel1",
+      "b": "AssemblyFrontOuterClip1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontWheel1",
+      "b": "AssemblyFrontWheel3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontWheel1",
+      "b": "AssemblyFrontSpacer3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontWheel1",
+      "b": "AssemblyFrontInnerClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontWheel1",
+      "b": "AssemblyFrontOuterClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontWheel1",
+      "b": "AssemblyA",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontWheel1",
+      "b": "AssemblyB",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontWheel1",
+      "b": "AssemblyOutput",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontWheel1",
+      "b": "AssemblyPinion",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontWheel1",
+      "b": "AssemblyFixedPinA",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontWheel1",
+      "b": "AssemblyFixedPinClipA",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontWheel1",
+      "b": "AssemblyFixedPinB",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontWheel1",
+      "b": "AssemblyFixedPinClipB",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontWheel1",
+      "b": "AssemblyCrossPin",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontWheel1",
+      "b": "AssemblyCrossPinClip",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontWheel1",
+      "b": "AssemblyMotorBridge0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontWheel1",
+      "b": "AssemblyMotorWedge0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontWheel1",
+      "b": "AssemblyMotorBridge1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontWheel1",
+      "b": "AssemblyMotorWedge1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontWheel1",
+      "b": "AssemblyMotorPin1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontWheel1",
+      "b": "AssemblyMotorPinClip1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontWheel1",
+      "b": "AssemblyMotorPin3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontWheel1",
+      "b": "AssemblyMotorPinClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontWheel1",
+      "b": "AssemblyDeckPin0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontWheel1",
+      "b": "AssemblyDeckPinClip0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontWheel1",
+      "b": "AssemblyDeckPin1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontWheel1",
+      "b": "AssemblyDeckPinClip1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontWheel1",
+      "b": "AssemblyDeckPin2",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontWheel1",
+      "b": "AssemblyDeckPinClip2",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontWheel1",
+      "b": "AssemblyDeckPin3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontWheel1",
+      "b": "AssemblyDeckPinClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontWheel1",
+      "b": "MotorReference",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontSpacer1",
+      "b": "AssemblyFrontInnerClip1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontSpacer1",
+      "b": "AssemblyFrontOuterClip1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontSpacer1",
+      "b": "AssemblyFrontWheel3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontSpacer1",
+      "b": "AssemblyFrontSpacer3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontSpacer1",
+      "b": "AssemblyFrontInnerClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontSpacer1",
+      "b": "AssemblyFrontOuterClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontSpacer1",
+      "b": "AssemblyA",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontSpacer1",
+      "b": "AssemblyB",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontSpacer1",
+      "b": "AssemblyOutput",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontSpacer1",
+      "b": "AssemblyPinion",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontSpacer1",
+      "b": "AssemblyFixedPinA",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontSpacer1",
+      "b": "AssemblyFixedPinClipA",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontSpacer1",
+      "b": "AssemblyFixedPinB",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontSpacer1",
+      "b": "AssemblyFixedPinClipB",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontSpacer1",
+      "b": "AssemblyCrossPin",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontSpacer1",
+      "b": "AssemblyCrossPinClip",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontSpacer1",
+      "b": "AssemblyMotorBridge0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontSpacer1",
+      "b": "AssemblyMotorWedge0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontSpacer1",
+      "b": "AssemblyMotorBridge1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontSpacer1",
+      "b": "AssemblyMotorWedge1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontSpacer1",
+      "b": "AssemblyMotorPin1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontSpacer1",
+      "b": "AssemblyMotorPinClip1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontSpacer1",
+      "b": "AssemblyMotorPin3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontSpacer1",
+      "b": "AssemblyMotorPinClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontSpacer1",
+      "b": "AssemblyDeckPin0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontSpacer1",
+      "b": "AssemblyDeckPinClip0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontSpacer1",
+      "b": "AssemblyDeckPin1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontSpacer1",
+      "b": "AssemblyDeckPinClip1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontSpacer1",
+      "b": "AssemblyDeckPin2",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontSpacer1",
+      "b": "AssemblyDeckPinClip2",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontSpacer1",
+      "b": "AssemblyDeckPin3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontSpacer1",
+      "b": "AssemblyDeckPinClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontSpacer1",
+      "b": "MotorReference",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontInnerClip1",
+      "b": "AssemblyFrontOuterClip1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontInnerClip1",
+      "b": "AssemblyFrontWheel3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontInnerClip1",
+      "b": "AssemblyFrontSpacer3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontInnerClip1",
+      "b": "AssemblyFrontInnerClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontInnerClip1",
+      "b": "AssemblyFrontOuterClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontInnerClip1",
+      "b": "AssemblyA",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontInnerClip1",
+      "b": "AssemblyB",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontInnerClip1",
+      "b": "AssemblyOutput",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontInnerClip1",
+      "b": "AssemblyPinion",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontInnerClip1",
+      "b": "AssemblyFixedPinA",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontInnerClip1",
+      "b": "AssemblyFixedPinClipA",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontInnerClip1",
+      "b": "AssemblyFixedPinB",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontInnerClip1",
+      "b": "AssemblyFixedPinClipB",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontInnerClip1",
+      "b": "AssemblyCrossPin",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontInnerClip1",
+      "b": "AssemblyCrossPinClip",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontInnerClip1",
+      "b": "AssemblyMotorBridge0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontInnerClip1",
+      "b": "AssemblyMotorWedge0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontInnerClip1",
+      "b": "AssemblyMotorBridge1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontInnerClip1",
+      "b": "AssemblyMotorWedge1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontInnerClip1",
+      "b": "AssemblyMotorPin1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontInnerClip1",
+      "b": "AssemblyMotorPinClip1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontInnerClip1",
+      "b": "AssemblyMotorPin3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontInnerClip1",
+      "b": "AssemblyMotorPinClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontInnerClip1",
+      "b": "AssemblyDeckPin0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontInnerClip1",
+      "b": "AssemblyDeckPinClip0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontInnerClip1",
+      "b": "AssemblyDeckPin1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontInnerClip1",
+      "b": "AssemblyDeckPinClip1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontInnerClip1",
+      "b": "AssemblyDeckPin2",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontInnerClip1",
+      "b": "AssemblyDeckPinClip2",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontInnerClip1",
+      "b": "AssemblyDeckPin3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontInnerClip1",
+      "b": "AssemblyDeckPinClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontInnerClip1",
+      "b": "MotorReference",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontOuterClip1",
+      "b": "AssemblyFrontWheel3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontOuterClip1",
+      "b": "AssemblyFrontSpacer3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontOuterClip1",
+      "b": "AssemblyFrontInnerClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontOuterClip1",
+      "b": "AssemblyFrontOuterClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontOuterClip1",
+      "b": "AssemblyA",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontOuterClip1",
+      "b": "AssemblyB",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontOuterClip1",
+      "b": "AssemblyOutput",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontOuterClip1",
+      "b": "AssemblyPinion",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontOuterClip1",
+      "b": "AssemblyFixedPinA",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontOuterClip1",
+      "b": "AssemblyFixedPinClipA",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontOuterClip1",
+      "b": "AssemblyFixedPinB",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontOuterClip1",
+      "b": "AssemblyFixedPinClipB",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontOuterClip1",
+      "b": "AssemblyCrossPin",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontOuterClip1",
+      "b": "AssemblyCrossPinClip",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontOuterClip1",
+      "b": "AssemblyMotorBridge0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontOuterClip1",
+      "b": "AssemblyMotorWedge0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontOuterClip1",
+      "b": "AssemblyMotorBridge1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontOuterClip1",
+      "b": "AssemblyMotorWedge1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontOuterClip1",
+      "b": "AssemblyMotorPin1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontOuterClip1",
+      "b": "AssemblyMotorPinClip1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontOuterClip1",
+      "b": "AssemblyMotorPin3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontOuterClip1",
+      "b": "AssemblyMotorPinClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontOuterClip1",
+      "b": "AssemblyDeckPin0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontOuterClip1",
+      "b": "AssemblyDeckPinClip0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontOuterClip1",
+      "b": "AssemblyDeckPin1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontOuterClip1",
+      "b": "AssemblyDeckPinClip1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontOuterClip1",
+      "b": "AssemblyDeckPin2",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontOuterClip1",
+      "b": "AssemblyDeckPinClip2",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontOuterClip1",
+      "b": "AssemblyDeckPin3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontOuterClip1",
+      "b": "AssemblyDeckPinClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontOuterClip1",
+      "b": "MotorReference",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontWheel3",
+      "b": "AssemblyFrontSpacer3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontWheel3",
+      "b": "AssemblyFrontInnerClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontWheel3",
+      "b": "AssemblyFrontOuterClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontWheel3",
+      "b": "AssemblyA",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontWheel3",
+      "b": "AssemblyB",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontWheel3",
+      "b": "AssemblyOutput",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontWheel3",
+      "b": "AssemblyPinion",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontWheel3",
+      "b": "AssemblyFixedPinA",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontWheel3",
+      "b": "AssemblyFixedPinClipA",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontWheel3",
+      "b": "AssemblyFixedPinB",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontWheel3",
+      "b": "AssemblyFixedPinClipB",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontWheel3",
+      "b": "AssemblyCrossPin",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontWheel3",
+      "b": "AssemblyCrossPinClip",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontWheel3",
+      "b": "AssemblyMotorBridge0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontWheel3",
+      "b": "AssemblyMotorWedge0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontWheel3",
+      "b": "AssemblyMotorBridge1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontWheel3",
+      "b": "AssemblyMotorWedge1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontWheel3",
+      "b": "AssemblyMotorPin1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontWheel3",
+      "b": "AssemblyMotorPinClip1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontWheel3",
+      "b": "AssemblyMotorPin3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontWheel3",
+      "b": "AssemblyMotorPinClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontWheel3",
+      "b": "AssemblyDeckPin0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontWheel3",
+      "b": "AssemblyDeckPinClip0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontWheel3",
+      "b": "AssemblyDeckPin1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontWheel3",
+      "b": "AssemblyDeckPinClip1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontWheel3",
+      "b": "AssemblyDeckPin2",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontWheel3",
+      "b": "AssemblyDeckPinClip2",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontWheel3",
+      "b": "AssemblyDeckPin3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontWheel3",
+      "b": "AssemblyDeckPinClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontWheel3",
+      "b": "MotorReference",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontSpacer3",
+      "b": "AssemblyFrontInnerClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontSpacer3",
+      "b": "AssemblyFrontOuterClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontSpacer3",
+      "b": "AssemblyA",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontSpacer3",
+      "b": "AssemblyB",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontSpacer3",
+      "b": "AssemblyOutput",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontSpacer3",
+      "b": "AssemblyPinion",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontSpacer3",
+      "b": "AssemblyFixedPinA",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontSpacer3",
+      "b": "AssemblyFixedPinClipA",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontSpacer3",
+      "b": "AssemblyFixedPinB",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontSpacer3",
+      "b": "AssemblyFixedPinClipB",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontSpacer3",
+      "b": "AssemblyCrossPin",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontSpacer3",
+      "b": "AssemblyCrossPinClip",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontSpacer3",
+      "b": "AssemblyMotorBridge0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontSpacer3",
+      "b": "AssemblyMotorWedge0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontSpacer3",
+      "b": "AssemblyMotorBridge1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontSpacer3",
+      "b": "AssemblyMotorWedge1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontSpacer3",
+      "b": "AssemblyMotorPin1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontSpacer3",
+      "b": "AssemblyMotorPinClip1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontSpacer3",
+      "b": "AssemblyMotorPin3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontSpacer3",
+      "b": "AssemblyMotorPinClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontSpacer3",
+      "b": "AssemblyDeckPin0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontSpacer3",
+      "b": "AssemblyDeckPinClip0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontSpacer3",
+      "b": "AssemblyDeckPin1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontSpacer3",
+      "b": "AssemblyDeckPinClip1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontSpacer3",
+      "b": "AssemblyDeckPin2",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontSpacer3",
+      "b": "AssemblyDeckPinClip2",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontSpacer3",
+      "b": "AssemblyDeckPin3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontSpacer3",
+      "b": "AssemblyDeckPinClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontSpacer3",
+      "b": "MotorReference",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontInnerClip3",
+      "b": "AssemblyFrontOuterClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontInnerClip3",
+      "b": "AssemblyA",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontInnerClip3",
+      "b": "AssemblyB",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontInnerClip3",
+      "b": "AssemblyOutput",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontInnerClip3",
+      "b": "AssemblyPinion",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontInnerClip3",
+      "b": "AssemblyFixedPinA",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontInnerClip3",
+      "b": "AssemblyFixedPinClipA",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontInnerClip3",
+      "b": "AssemblyFixedPinB",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontInnerClip3",
+      "b": "AssemblyFixedPinClipB",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontInnerClip3",
+      "b": "AssemblyCrossPin",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontInnerClip3",
+      "b": "AssemblyCrossPinClip",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontInnerClip3",
+      "b": "AssemblyMotorBridge0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontInnerClip3",
+      "b": "AssemblyMotorWedge0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontInnerClip3",
+      "b": "AssemblyMotorBridge1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontInnerClip3",
+      "b": "AssemblyMotorWedge1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontInnerClip3",
+      "b": "AssemblyMotorPin1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontInnerClip3",
+      "b": "AssemblyMotorPinClip1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontInnerClip3",
+      "b": "AssemblyMotorPin3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontInnerClip3",
+      "b": "AssemblyMotorPinClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontInnerClip3",
+      "b": "AssemblyDeckPin0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontInnerClip3",
+      "b": "AssemblyDeckPinClip0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontInnerClip3",
+      "b": "AssemblyDeckPin1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontInnerClip3",
+      "b": "AssemblyDeckPinClip1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontInnerClip3",
+      "b": "AssemblyDeckPin2",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontInnerClip3",
+      "b": "AssemblyDeckPinClip2",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontInnerClip3",
+      "b": "AssemblyDeckPin3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontInnerClip3",
+      "b": "AssemblyDeckPinClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontInnerClip3",
+      "b": "MotorReference",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontOuterClip3",
+      "b": "AssemblyA",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontOuterClip3",
+      "b": "AssemblyB",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontOuterClip3",
+      "b": "AssemblyOutput",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontOuterClip3",
+      "b": "AssemblyPinion",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontOuterClip3",
+      "b": "AssemblyFixedPinA",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontOuterClip3",
+      "b": "AssemblyFixedPinClipA",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontOuterClip3",
+      "b": "AssemblyFixedPinB",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontOuterClip3",
+      "b": "AssemblyFixedPinClipB",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontOuterClip3",
+      "b": "AssemblyCrossPin",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontOuterClip3",
+      "b": "AssemblyCrossPinClip",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontOuterClip3",
+      "b": "AssemblyMotorBridge0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontOuterClip3",
+      "b": "AssemblyMotorWedge0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontOuterClip3",
+      "b": "AssemblyMotorBridge1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontOuterClip3",
+      "b": "AssemblyMotorWedge1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontOuterClip3",
+      "b": "AssemblyMotorPin1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontOuterClip3",
+      "b": "AssemblyMotorPinClip1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontOuterClip3",
+      "b": "AssemblyMotorPin3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontOuterClip3",
+      "b": "AssemblyMotorPinClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontOuterClip3",
+      "b": "AssemblyDeckPin0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontOuterClip3",
+      "b": "AssemblyDeckPinClip0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontOuterClip3",
+      "b": "AssemblyDeckPin1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontOuterClip3",
+      "b": "AssemblyDeckPinClip1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontOuterClip3",
+      "b": "AssemblyDeckPin2",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontOuterClip3",
+      "b": "AssemblyDeckPinClip2",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontOuterClip3",
+      "b": "AssemblyDeckPin3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontOuterClip3",
+      "b": "AssemblyDeckPinClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFrontOuterClip3",
+      "b": "MotorReference",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyA",
+      "b": "AssemblyB",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyA",
+      "b": "AssemblyOutput",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyA",
+      "b": "AssemblyPinion",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyA",
+      "b": "AssemblyFixedPinA",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyA",
+      "b": "AssemblyFixedPinClipA",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyA",
+      "b": "AssemblyFixedPinB",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyA",
+      "b": "AssemblyFixedPinClipB",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyA",
+      "b": "AssemblyCrossPin",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyA",
+      "b": "AssemblyCrossPinClip",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyA",
+      "b": "AssemblyMotorBridge0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyA",
+      "b": "AssemblyMotorWedge0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyA",
+      "b": "AssemblyMotorBridge1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyA",
+      "b": "AssemblyMotorWedge1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyA",
+      "b": "AssemblyMotorPin1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyA",
+      "b": "AssemblyMotorPinClip1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyA",
+      "b": "AssemblyMotorPin3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyA",
+      "b": "AssemblyMotorPinClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyA",
+      "b": "AssemblyDeckPin0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyA",
+      "b": "AssemblyDeckPinClip0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyA",
+      "b": "AssemblyDeckPin1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyA",
+      "b": "AssemblyDeckPinClip1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyA",
+      "b": "AssemblyDeckPin2",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyA",
+      "b": "AssemblyDeckPinClip2",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyA",
+      "b": "AssemblyDeckPin3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyA",
+      "b": "AssemblyDeckPinClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyA",
+      "b": "MotorReference",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyB",
+      "b": "AssemblyOutput",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyB",
+      "b": "AssemblyPinion",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyB",
+      "b": "AssemblyFixedPinA",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyB",
+      "b": "AssemblyFixedPinClipA",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyB",
+      "b": "AssemblyFixedPinB",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyB",
+      "b": "AssemblyFixedPinClipB",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyB",
+      "b": "AssemblyCrossPin",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyB",
+      "b": "AssemblyCrossPinClip",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyB",
+      "b": "AssemblyMotorBridge0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyB",
+      "b": "AssemblyMotorWedge0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyB",
+      "b": "AssemblyMotorBridge1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyB",
+      "b": "AssemblyMotorWedge1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyB",
+      "b": "AssemblyMotorPin1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyB",
+      "b": "AssemblyMotorPinClip1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyB",
+      "b": "AssemblyMotorPin3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyB",
+      "b": "AssemblyMotorPinClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyB",
+      "b": "AssemblyDeckPin0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyB",
+      "b": "AssemblyDeckPinClip0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyB",
+      "b": "AssemblyDeckPin1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyB",
+      "b": "AssemblyDeckPinClip1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyB",
+      "b": "AssemblyDeckPin2",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyB",
+      "b": "AssemblyDeckPinClip2",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyB",
+      "b": "AssemblyDeckPin3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyB",
+      "b": "AssemblyDeckPinClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyB",
+      "b": "MotorReference",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyOutput",
+      "b": "AssemblyPinion",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyOutput",
+      "b": "AssemblyFixedPinA",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyOutput",
+      "b": "AssemblyFixedPinClipA",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyOutput",
+      "b": "AssemblyFixedPinB",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyOutput",
+      "b": "AssemblyFixedPinClipB",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyOutput",
+      "b": "AssemblyCrossPin",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyOutput",
+      "b": "AssemblyCrossPinClip",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyOutput",
+      "b": "AssemblyMotorBridge0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyOutput",
+      "b": "AssemblyMotorWedge0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyOutput",
+      "b": "AssemblyMotorBridge1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyOutput",
+      "b": "AssemblyMotorWedge1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyOutput",
+      "b": "AssemblyMotorPin1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyOutput",
+      "b": "AssemblyMotorPinClip1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyOutput",
+      "b": "AssemblyMotorPin3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyOutput",
+      "b": "AssemblyMotorPinClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyOutput",
+      "b": "AssemblyDeckPin0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyOutput",
+      "b": "AssemblyDeckPinClip0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyOutput",
+      "b": "AssemblyDeckPin1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyOutput",
+      "b": "AssemblyDeckPinClip1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyOutput",
+      "b": "AssemblyDeckPin2",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyOutput",
+      "b": "AssemblyDeckPinClip2",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyOutput",
+      "b": "AssemblyDeckPin3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyOutput",
+      "b": "AssemblyDeckPinClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyOutput",
+      "b": "MotorReference",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyPinion",
+      "b": "AssemblyFixedPinA",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyPinion",
+      "b": "AssemblyFixedPinClipA",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyPinion",
+      "b": "AssemblyFixedPinB",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyPinion",
+      "b": "AssemblyFixedPinClipB",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyPinion",
+      "b": "AssemblyCrossPin",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyPinion",
+      "b": "AssemblyCrossPinClip",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyPinion",
+      "b": "AssemblyMotorBridge0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyPinion",
+      "b": "AssemblyMotorWedge0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyPinion",
+      "b": "AssemblyMotorBridge1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyPinion",
+      "b": "AssemblyMotorWedge1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyPinion",
+      "b": "AssemblyMotorPin1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyPinion",
+      "b": "AssemblyMotorPinClip1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyPinion",
+      "b": "AssemblyMotorPin3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyPinion",
+      "b": "AssemblyMotorPinClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyPinion",
+      "b": "AssemblyDeckPin0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyPinion",
+      "b": "AssemblyDeckPinClip0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyPinion",
+      "b": "AssemblyDeckPin1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyPinion",
+      "b": "AssemblyDeckPinClip1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyPinion",
+      "b": "AssemblyDeckPin2",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyPinion",
+      "b": "AssemblyDeckPinClip2",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyPinion",
+      "b": "AssemblyDeckPin3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyPinion",
+      "b": "AssemblyDeckPinClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyPinion",
+      "b": "MotorReference",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFixedPinA",
+      "b": "AssemblyFixedPinClipA",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFixedPinA",
+      "b": "AssemblyFixedPinB",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFixedPinA",
+      "b": "AssemblyFixedPinClipB",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFixedPinA",
+      "b": "AssemblyCrossPin",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFixedPinA",
+      "b": "AssemblyCrossPinClip",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFixedPinA",
+      "b": "AssemblyMotorBridge0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFixedPinA",
+      "b": "AssemblyMotorWedge0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFixedPinA",
+      "b": "AssemblyMotorBridge1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFixedPinA",
+      "b": "AssemblyMotorWedge1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFixedPinA",
+      "b": "AssemblyMotorPin1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFixedPinA",
+      "b": "AssemblyMotorPinClip1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFixedPinA",
+      "b": "AssemblyMotorPin3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFixedPinA",
+      "b": "AssemblyMotorPinClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFixedPinA",
+      "b": "AssemblyDeckPin0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFixedPinA",
+      "b": "AssemblyDeckPinClip0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFixedPinA",
+      "b": "AssemblyDeckPin1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFixedPinA",
+      "b": "AssemblyDeckPinClip1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFixedPinA",
+      "b": "AssemblyDeckPin2",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFixedPinA",
+      "b": "AssemblyDeckPinClip2",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFixedPinA",
+      "b": "AssemblyDeckPin3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFixedPinA",
+      "b": "AssemblyDeckPinClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFixedPinA",
+      "b": "MotorReference",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFixedPinClipA",
+      "b": "AssemblyFixedPinB",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFixedPinClipA",
+      "b": "AssemblyFixedPinClipB",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFixedPinClipA",
+      "b": "AssemblyCrossPin",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFixedPinClipA",
+      "b": "AssemblyCrossPinClip",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFixedPinClipA",
+      "b": "AssemblyMotorBridge0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFixedPinClipA",
+      "b": "AssemblyMotorWedge0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFixedPinClipA",
+      "b": "AssemblyMotorBridge1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFixedPinClipA",
+      "b": "AssemblyMotorWedge1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFixedPinClipA",
+      "b": "AssemblyMotorPin1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFixedPinClipA",
+      "b": "AssemblyMotorPinClip1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFixedPinClipA",
+      "b": "AssemblyMotorPin3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFixedPinClipA",
+      "b": "AssemblyMotorPinClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFixedPinClipA",
+      "b": "AssemblyDeckPin0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFixedPinClipA",
+      "b": "AssemblyDeckPinClip0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFixedPinClipA",
+      "b": "AssemblyDeckPin1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFixedPinClipA",
+      "b": "AssemblyDeckPinClip1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFixedPinClipA",
+      "b": "AssemblyDeckPin2",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFixedPinClipA",
+      "b": "AssemblyDeckPinClip2",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFixedPinClipA",
+      "b": "AssemblyDeckPin3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFixedPinClipA",
+      "b": "AssemblyDeckPinClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFixedPinClipA",
+      "b": "MotorReference",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFixedPinB",
+      "b": "AssemblyFixedPinClipB",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyFixedPinB",
+      "b": "AssemblyCrossPin",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFixedPinB",
+      "b": "AssemblyCrossPinClip",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFixedPinB",
+      "b": "AssemblyMotorBridge0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFixedPinB",
+      "b": "AssemblyMotorWedge0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFixedPinB",
+      "b": "AssemblyMotorBridge1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFixedPinB",
+      "b": "AssemblyMotorWedge1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFixedPinB",
+      "b": "AssemblyMotorPin1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFixedPinB",
+      "b": "AssemblyMotorPinClip1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFixedPinB",
+      "b": "AssemblyMotorPin3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFixedPinB",
+      "b": "AssemblyMotorPinClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFixedPinB",
+      "b": "AssemblyDeckPin0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFixedPinB",
+      "b": "AssemblyDeckPinClip0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFixedPinB",
+      "b": "AssemblyDeckPin1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFixedPinB",
+      "b": "AssemblyDeckPinClip1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFixedPinB",
+      "b": "AssemblyDeckPin2",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFixedPinB",
+      "b": "AssemblyDeckPinClip2",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFixedPinB",
+      "b": "AssemblyDeckPin3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFixedPinB",
+      "b": "AssemblyDeckPinClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFixedPinB",
+      "b": "MotorReference",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFixedPinClipB",
+      "b": "AssemblyCrossPin",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFixedPinClipB",
+      "b": "AssemblyCrossPinClip",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFixedPinClipB",
+      "b": "AssemblyMotorBridge0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFixedPinClipB",
+      "b": "AssemblyMotorWedge0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFixedPinClipB",
+      "b": "AssemblyMotorBridge1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFixedPinClipB",
+      "b": "AssemblyMotorWedge1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFixedPinClipB",
+      "b": "AssemblyMotorPin1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFixedPinClipB",
+      "b": "AssemblyMotorPinClip1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFixedPinClipB",
+      "b": "AssemblyMotorPin3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFixedPinClipB",
+      "b": "AssemblyMotorPinClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFixedPinClipB",
+      "b": "AssemblyDeckPin0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFixedPinClipB",
+      "b": "AssemblyDeckPinClip0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFixedPinClipB",
+      "b": "AssemblyDeckPin1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFixedPinClipB",
+      "b": "AssemblyDeckPinClip1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFixedPinClipB",
+      "b": "AssemblyDeckPin2",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFixedPinClipB",
+      "b": "AssemblyDeckPinClip2",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFixedPinClipB",
+      "b": "AssemblyDeckPin3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFixedPinClipB",
+      "b": "AssemblyDeckPinClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyFixedPinClipB",
+      "b": "MotorReference",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyCrossPin",
+      "b": "AssemblyCrossPinClip",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyCrossPin",
+      "b": "AssemblyMotorBridge0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyCrossPin",
+      "b": "AssemblyMotorWedge0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyCrossPin",
+      "b": "AssemblyMotorBridge1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyCrossPin",
+      "b": "AssemblyMotorWedge1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyCrossPin",
+      "b": "AssemblyMotorPin1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyCrossPin",
+      "b": "AssemblyMotorPinClip1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyCrossPin",
+      "b": "AssemblyMotorPin3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyCrossPin",
+      "b": "AssemblyMotorPinClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyCrossPin",
+      "b": "AssemblyDeckPin0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyCrossPin",
+      "b": "AssemblyDeckPinClip0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyCrossPin",
+      "b": "AssemblyDeckPin1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyCrossPin",
+      "b": "AssemblyDeckPinClip1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyCrossPin",
+      "b": "AssemblyDeckPin2",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyCrossPin",
+      "b": "AssemblyDeckPinClip2",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyCrossPin",
+      "b": "AssemblyDeckPin3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyCrossPin",
+      "b": "AssemblyDeckPinClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyCrossPin",
+      "b": "MotorReference",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyCrossPinClip",
+      "b": "AssemblyMotorBridge0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyCrossPinClip",
+      "b": "AssemblyMotorWedge0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyCrossPinClip",
+      "b": "AssemblyMotorBridge1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyCrossPinClip",
+      "b": "AssemblyMotorWedge1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyCrossPinClip",
+      "b": "AssemblyMotorPin1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyCrossPinClip",
+      "b": "AssemblyMotorPinClip1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyCrossPinClip",
+      "b": "AssemblyMotorPin3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyCrossPinClip",
+      "b": "AssemblyMotorPinClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyCrossPinClip",
+      "b": "AssemblyDeckPin0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyCrossPinClip",
+      "b": "AssemblyDeckPinClip0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyCrossPinClip",
+      "b": "AssemblyDeckPin1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyCrossPinClip",
+      "b": "AssemblyDeckPinClip1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyCrossPinClip",
+      "b": "AssemblyDeckPin2",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyCrossPinClip",
+      "b": "AssemblyDeckPinClip2",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyCrossPinClip",
+      "b": "AssemblyDeckPin3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyCrossPinClip",
+      "b": "AssemblyDeckPinClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyCrossPinClip",
+      "b": "MotorReference",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyMotorBridge0",
+      "b": "AssemblyMotorWedge0",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyMotorBridge0",
+      "b": "AssemblyMotorBridge1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyMotorBridge0",
+      "b": "AssemblyMotorWedge1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyMotorBridge0",
+      "b": "AssemblyMotorPin1",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyMotorBridge0",
+      "b": "AssemblyMotorPinClip1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyMotorBridge0",
+      "b": "AssemblyMotorPin3",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyMotorBridge0",
+      "b": "AssemblyMotorPinClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyMotorBridge0",
+      "b": "AssemblyDeckPin0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyMotorBridge0",
+      "b": "AssemblyDeckPinClip0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyMotorBridge0",
+      "b": "AssemblyDeckPin1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyMotorBridge0",
+      "b": "AssemblyDeckPinClip1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyMotorBridge0",
+      "b": "AssemblyDeckPin2",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyMotorBridge0",
+      "b": "AssemblyDeckPinClip2",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyMotorBridge0",
+      "b": "AssemblyDeckPin3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyMotorBridge0",
+      "b": "AssemblyDeckPinClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyMotorBridge0",
+      "b": "MotorReference",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyMotorWedge0",
+      "b": "AssemblyMotorBridge1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyMotorWedge0",
+      "b": "AssemblyMotorWedge1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyMotorWedge0",
+      "b": "AssemblyMotorPin1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyMotorWedge0",
+      "b": "AssemblyMotorPinClip1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyMotorWedge0",
+      "b": "AssemblyMotorPin3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyMotorWedge0",
+      "b": "AssemblyMotorPinClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyMotorWedge0",
+      "b": "AssemblyDeckPin0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyMotorWedge0",
+      "b": "AssemblyDeckPinClip0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyMotorWedge0",
+      "b": "AssemblyDeckPin1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyMotorWedge0",
+      "b": "AssemblyDeckPinClip1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyMotorWedge0",
+      "b": "AssemblyDeckPin2",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyMotorWedge0",
+      "b": "AssemblyDeckPinClip2",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyMotorWedge0",
+      "b": "AssemblyDeckPin3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyMotorWedge0",
+      "b": "AssemblyDeckPinClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyMotorWedge0",
+      "b": "MotorReference",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyMotorBridge1",
+      "b": "AssemblyMotorWedge1",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyMotorBridge1",
+      "b": "AssemblyMotorPin1",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyMotorBridge1",
+      "b": "AssemblyMotorPinClip1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyMotorBridge1",
+      "b": "AssemblyMotorPin3",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyMotorBridge1",
+      "b": "AssemblyMotorPinClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyMotorBridge1",
+      "b": "AssemblyDeckPin0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyMotorBridge1",
+      "b": "AssemblyDeckPinClip0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyMotorBridge1",
+      "b": "AssemblyDeckPin1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyMotorBridge1",
+      "b": "AssemblyDeckPinClip1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyMotorBridge1",
+      "b": "AssemblyDeckPin2",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyMotorBridge1",
+      "b": "AssemblyDeckPinClip2",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyMotorBridge1",
+      "b": "AssemblyDeckPin3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyMotorBridge1",
+      "b": "AssemblyDeckPinClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyMotorBridge1",
+      "b": "MotorReference",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyMotorWedge1",
+      "b": "AssemblyMotorPin1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyMotorWedge1",
+      "b": "AssemblyMotorPinClip1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyMotorWedge1",
+      "b": "AssemblyMotorPin3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyMotorWedge1",
+      "b": "AssemblyMotorPinClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyMotorWedge1",
+      "b": "AssemblyDeckPin0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyMotorWedge1",
+      "b": "AssemblyDeckPinClip0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyMotorWedge1",
+      "b": "AssemblyDeckPin1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyMotorWedge1",
+      "b": "AssemblyDeckPinClip1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyMotorWedge1",
+      "b": "AssemblyDeckPin2",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyMotorWedge1",
+      "b": "AssemblyDeckPinClip2",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyMotorWedge1",
+      "b": "AssemblyDeckPin3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyMotorWedge1",
+      "b": "AssemblyDeckPinClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyMotorWedge1",
+      "b": "MotorReference",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyMotorPin1",
+      "b": "AssemblyMotorPinClip1",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyMotorPin1",
+      "b": "AssemblyMotorPin3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyMotorPin1",
+      "b": "AssemblyMotorPinClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyMotorPin1",
+      "b": "AssemblyDeckPin0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyMotorPin1",
+      "b": "AssemblyDeckPinClip0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyMotorPin1",
+      "b": "AssemblyDeckPin1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyMotorPin1",
+      "b": "AssemblyDeckPinClip1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyMotorPin1",
+      "b": "AssemblyDeckPin2",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyMotorPin1",
+      "b": "AssemblyDeckPinClip2",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyMotorPin1",
+      "b": "AssemblyDeckPin3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyMotorPin1",
+      "b": "AssemblyDeckPinClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyMotorPin1",
+      "b": "MotorReference",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyMotorPinClip1",
+      "b": "AssemblyMotorPin3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyMotorPinClip1",
+      "b": "AssemblyMotorPinClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyMotorPinClip1",
+      "b": "AssemblyDeckPin0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyMotorPinClip1",
+      "b": "AssemblyDeckPinClip0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyMotorPinClip1",
+      "b": "AssemblyDeckPin1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyMotorPinClip1",
+      "b": "AssemblyDeckPinClip1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyMotorPinClip1",
+      "b": "AssemblyDeckPin2",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyMotorPinClip1",
+      "b": "AssemblyDeckPinClip2",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyMotorPinClip1",
+      "b": "AssemblyDeckPin3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyMotorPinClip1",
+      "b": "AssemblyDeckPinClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyMotorPinClip1",
+      "b": "MotorReference",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyMotorPin3",
+      "b": "AssemblyMotorPinClip3",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyMotorPin3",
+      "b": "AssemblyDeckPin0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyMotorPin3",
+      "b": "AssemblyDeckPinClip0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyMotorPin3",
+      "b": "AssemblyDeckPin1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyMotorPin3",
+      "b": "AssemblyDeckPinClip1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyMotorPin3",
+      "b": "AssemblyDeckPin2",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyMotorPin3",
+      "b": "AssemblyDeckPinClip2",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyMotorPin3",
+      "b": "AssemblyDeckPin3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyMotorPin3",
+      "b": "AssemblyDeckPinClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyMotorPin3",
+      "b": "MotorReference",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyMotorPinClip3",
+      "b": "AssemblyDeckPin0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyMotorPinClip3",
+      "b": "AssemblyDeckPinClip0",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyMotorPinClip3",
+      "b": "AssemblyDeckPin1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyMotorPinClip3",
+      "b": "AssemblyDeckPinClip1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyMotorPinClip3",
+      "b": "AssemblyDeckPin2",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyMotorPinClip3",
+      "b": "AssemblyDeckPinClip2",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyMotorPinClip3",
+      "b": "AssemblyDeckPin3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyMotorPinClip3",
+      "b": "AssemblyDeckPinClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyMotorPinClip3",
+      "b": "MotorReference",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyDeckPin0",
+      "b": "AssemblyDeckPinClip0",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyDeckPin0",
+      "b": "AssemblyDeckPin1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyDeckPin0",
+      "b": "AssemblyDeckPinClip1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyDeckPin0",
+      "b": "AssemblyDeckPin2",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyDeckPin0",
+      "b": "AssemblyDeckPinClip2",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyDeckPin0",
+      "b": "AssemblyDeckPin3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyDeckPin0",
+      "b": "AssemblyDeckPinClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyDeckPin0",
+      "b": "MotorReference",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyDeckPinClip0",
+      "b": "AssemblyDeckPin1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyDeckPinClip0",
+      "b": "AssemblyDeckPinClip1",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyDeckPinClip0",
+      "b": "AssemblyDeckPin2",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyDeckPinClip0",
+      "b": "AssemblyDeckPinClip2",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyDeckPinClip0",
+      "b": "AssemblyDeckPin3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyDeckPinClip0",
+      "b": "AssemblyDeckPinClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyDeckPinClip0",
+      "b": "MotorReference",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyDeckPin1",
+      "b": "AssemblyDeckPinClip1",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyDeckPin1",
+      "b": "AssemblyDeckPin2",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyDeckPin1",
+      "b": "AssemblyDeckPinClip2",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyDeckPin1",
+      "b": "AssemblyDeckPin3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyDeckPin1",
+      "b": "AssemblyDeckPinClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyDeckPin1",
+      "b": "MotorReference",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyDeckPinClip1",
+      "b": "AssemblyDeckPin2",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyDeckPinClip1",
+      "b": "AssemblyDeckPinClip2",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyDeckPinClip1",
+      "b": "AssemblyDeckPin3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyDeckPinClip1",
+      "b": "AssemblyDeckPinClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyDeckPinClip1",
+      "b": "MotorReference",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyDeckPin2",
+      "b": "AssemblyDeckPinClip2",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyDeckPin2",
+      "b": "AssemblyDeckPin3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyDeckPin2",
+      "b": "AssemblyDeckPinClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyDeckPin2",
+      "b": "MotorReference",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyDeckPinClip2",
+      "b": "AssemblyDeckPin3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyDeckPinClip2",
+      "b": "AssemblyDeckPinClip3",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyDeckPinClip2",
+      "b": "MotorReference",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyDeckPin3",
+      "b": "AssemblyDeckPinClip3",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "AssemblyDeckPin3",
+      "b": "MotorReference",
+      "overlap_mm3": 0
+    },
+    {
+      "a": "AssemblyDeckPinClip3",
+      "b": "MotorReference",
+      "overlap_mm3": 0
+    }
+  ],
+  "assembly_collisions": [
+    {
+      "a": "AssemblyFrame",
+      "b": "AssemblyDeckPin0",
+      "overlap_mm3": 16.33628179866693
+    },
+    {
+      "a": "AssemblyFrame",
+      "b": "AssemblyDeckPin1",
+      "overlap_mm3": 16.33628179866693
+    },
+    {
+      "a": "AssemblyDeck",
+      "b": "AssemblyFrontAxle",
+      "overlap_mm3": 619.0983280988113
+    }
+  ]
+}

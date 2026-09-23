@@ -1,0 +1,5862 @@
+{
+  "snapshot_fcstd_sha256": "4d004b26fdadf4a7cba14c2da16fc47507f41d1e6d189d1fed30264070920ba9",
+  "source_sha256": "f18881bce5b080de9924a39a8e4102bc449c8eab49ff603e3952c355cfae00e8",
+  "counts": {
+    "ram-25": 1,
+    "plosina-170x60": 1,
+    "osa-zadni-12x150_6": 1,
+    "kolo-76x12-zadni-d": 2,
+    "rozperka-zadni-17_6": 2,
+    "pojistka-osy-10_9": 4,
+    "mezikolo-a-54_18": 1,
+    "mezikolo-b-60_22": 1,
+    "vystupni-kolo-55": 1,
+    "pastorek-18-otvor-2_2": 1,
+    "pevny-cep-8x53_9": 2,
+    "pojistka-6_9": 7,
+    "pricny-klinek-4x27_1": 1,
+    "pojistka-3_1": 10,
+    "motorovy-mustek": 2,
+    "motorovy-klinek": 2,
+    "spolecny-cep-mustku-4x30_5": 2,
+    "cep-plosiny-4x19_5": 4,
+    "celist-horni": 2,
+    "svisly-cep-8": 2,
+    "tehlice-leva": 1,
+    "kolo-76x12-predni": 2,
+    "cep-tahla-dlouhy": 1,
+    "pojistka-kloubu-4_9": 2,
+    "tehlice-prava": 1,
+    "cep-tahla-kratky": 1,
+    "spojovaci-tahlo": 1,
+    "servo-tahlo-r15": 1,
+    "podlozka-packy-1_8": 1,
+    "objimka-packy-spodek": 1,
+    "objimka-packy-viko": 1,
+    "objimka-cep-4x25_5": 1,
+    "servo-viko": 1,
+    "servo-cep-4x51_2": 2
+  },
+  "instance_count": 66,
+  "instances": [
+    [
+      "AssemblyFrame",
+      "ram-25"
+    ],
+    [
+      "AssemblyDeck",
+      "plosina-170x60"
+    ],
+    [
+      "AssemblyRearAxle",
+      "osa-zadni-12x150_6"
+    ],
+    [
+      "AssemblyRearWheel1",
+      "kolo-76x12-zadni-d"
+    ],
+    [
+      "AssemblyRearSpacer1",
+      "rozperka-zadni-17_6"
+    ],
+    [
+      "AssemblyRearInnerClip1",
+      "pojistka-osy-10_9"
+    ],
+    [
+      "AssemblyRearOuterClip1",
+      "pojistka-osy-10_9"
+    ],
+    [
+      "AssemblyRearWheel3",
+      "kolo-76x12-zadni-d"
+    ],
+    [
+      "AssemblyRearSpacer3",
+      "rozperka-zadni-17_6"
+    ],
+    [
+      "AssemblyRearInnerClip3",
+      "pojistka-osy-10_9"
+    ],
+    [
+      "AssemblyRearOuterClip3",
+      "pojistka-osy-10_9"
+    ],
+    [
+      "AssemblyA",
+      "mezikolo-a-54_18"
+    ],
+    [
+      "AssemblyB",
+      "mezikolo-b-60_22"
+    ],
+    [
+      "AssemblyOutput",
+      "vystupni-kolo-55"
+    ],
+    [
+      "AssemblyPinion",
+      "pastorek-18-otvor-2_2"
+    ],
+    [
+      "AssemblyFixedPinA",
+      "pevny-cep-8x53_9"
+    ],
+    [
+      "AssemblyFixedPinClipA",
+      "pojistka-6_9"
+    ],
+    [
+      "AssemblyFixedPinB",
+      "pevny-cep-8x53_9"
+    ],
+    [
+      "AssemblyFixedPinClipB",
+      "pojistka-6_9"
+    ],
+    [
+      "AssemblyCrossPin",
+      "pricny-klinek-4x27_1"
+    ],
+    [
+      "AssemblyCrossPinClip",
+      "pojistka-3_1"
+    ],
+    [
+      "AssemblyMotorBridge0",
+      "motorovy-mustek"
+    ],
+    [
+      "AssemblyMotorWedge0",
+      "motorovy-klinek"
+    ],
+    [
+      "AssemblyMotorBridge1",
+      "motorovy-mustek"
+    ],
+    [
+      "AssemblyMotorWedge1",
+      "motorovy-klinek"
+    ],
+    [
+      "AssemblyMotorPin1",
+      "spolecny-cep-mustku-4x30_5"
+    ],
+    [
+      "AssemblyMotorPinClip1",
+      "pojistka-3_1"
+    ],
+    [
+      "AssemblyMotorPin3",
+      "spolecny-cep-mustku-4x30_5"
+    ],
+    [
+      "AssemblyMotorPinClip3",
+      "pojistka-3_1"
+    ],
+    [
+      "AssemblyDeckPin0",
+      "cep-plosiny-4x19_5"
+    ],
+    [
+      "AssemblyDeckPinClip0",
+      "pojistka-3_1"
+    ],
+    [
+      "AssemblyDeckPin1",
+      "cep-plosiny-4x19_5"
+    ],
+    [
+      "AssemblyDeckPinClip1",
+      "pojistka-3_1"
+    ],
+    [
+      "AssemblyDeckPin2",
+      "cep-plosiny-4x19_5"
+    ],
+    [
+      "AssemblyDeckPinClip2",
+      "pojistka-3_1"
+    ],
+    [
+      "AssemblyDeckPin3",
+      "cep-plosiny-4x19_5"
+    ],
+    [
+      "AssemblyDeckPinClip3",
+      "pojistka-3_1"
+    ],
+    [
+      "AssemblyForkCapL",
+      "celist-horni"
+    ],
+    [
+      "AssemblyKingpinL",
+      "svisly-cep-8"
+    ],
+    [
+      "AssemblyKingClipL",
+      "pojistka-6_9"
+    ],
+    [
+      "AssemblyKnuckleL",
+      "tehlice-leva"
+    ],
+    [
+      "AssemblySteeringWheelL",
+      "kolo-76x12-predni"
+    ],
+    [
+      "AssemblyWheelClipL",
+      "pojistka-6_9"
+    ],
+    [
+      "AssemblyJointPinL",
+      "cep-tahla-dlouhy"
+    ],
+    [
+      "AssemblyJointClipL",
+      "pojistka-kloubu-4_9"
+    ],
+    [
+      "AssemblyForkCapR",
+      "celist-horni"
+    ],
+    [
+      "AssemblyKingpinR",
+      "svisly-cep-8"
+    ],
+    [
+      "AssemblyKingClipR",
+      "pojistka-6_9"
+    ],
+    [
+      "AssemblyKnuckleR",
+      "tehlice-prava"
+    ],
+    [
+      "AssemblySteeringWheelR",
+      "kolo-76x12-predni"
+    ],
+    [
+      "AssemblyWheelClipR",
+      "pojistka-6_9"
+    ],
+    [
+      "AssemblyJointPinR",
+      "cep-tahla-kratky"
+    ],
+    [
+      "AssemblyJointClipR",
+      "pojistka-kloubu-4_9"
+    ],
+    [
+      "AssemblyTie",
+      "spojovaci-tahlo"
+    ],
+    [
+      "AssemblyDrag",
+      "servo-tahlo-r15"
+    ],
+    [
+      "AssemblyHornSpacer",
+      "podlozka-packy-1_8"
+    ],
+    [
+      "AssemblyHornTray",
+      "objimka-packy-spodek"
+    ],
+    [
+      "AssemblyHornLid",
+      "objimka-packy-viko"
+    ],
+    [
+      "AssemblyHornLockPin",
+      "objimka-cep-4x25_5"
+    ],
+    [
+      "AssemblyHornLockClip",
+      "pojistka-3_1"
+    ],
+    [
+      "AssemblyHornPivotClip",
+      "pojistka-6_9"
+    ],
+    [
+      "AssemblyServoCap",
+      "servo-viko"
+    ],
+    [
+      "AssemblyServoMountPin1",
+      "servo-cep-4x51_2"
+    ],
+    [
+      "AssemblyServoMountClip1",
+      "pojistka-3_1"
+    ],
+    [
+      "AssemblyServoMountPin3",
+      "servo-cep-4x51_2"
+    ],
+    [
+      "AssemblyServoMountClip3",
+      "pojistka-3_1"
+    ]
+  ],
+  "world_bounds": {
+    "AssemblySteeringWheelL": [
+      148.3,
+      224.3,
+      -93.00000000000001,
+      -80.99999999999999,
+      -10.0,
+      66.0
+    ],
+    "AssemblySteeringWheelR": [
+      148.3,
+      224.3,
+      80.99999999999999,
+      93.00000000000001,
+      -10.0,
+      66.0
+    ],
+    "AssemblyHornLockPin": [
+      195.5,
+      202.5,
+      -12.2,
+      13.3,
+      43.0,
+      50.0
+    ]
+  },
+  "steering": [
+    {
+      "wheel_deg": -27.0,
+      "servo_deg": 36.42472235519446,
+      "tests": 1050,
+      "collisions": []
+    },
+    {
+      "wheel_deg": -25.0,
+      "servo_deg": 33.51228231489026,
+      "tests": 1050,
+      "collisions": []
+    },
+    {
+      "wheel_deg": -18,
+      "servo_deg": 23.824628370099248,
+      "tests": 1050,
+      "collisions": []
+    },
+    {
+      "wheel_deg": -9,
+      "servo_deg": 11.893816141764091,
+      "tests": 1050,
+      "collisions": []
+    },
+    {
+      "wheel_deg": 0,
+      "servo_deg": 0.0,
+      "tests": 1050,
+      "collisions": []
+    },
+    {
+      "wheel_deg": 9,
+      "servo_deg": -12.188338036744312,
+      "tests": 1050,
+      "collisions": []
+    },
+    {
+      "wheel_deg": 18,
+      "servo_deg": -24.858830533452334,
+      "tests": 1050,
+      "collisions": []
+    },
+    {
+      "wheel_deg": 25.0,
+      "servo_deg": -35.098074396923266,
+      "tests": 1050,
+      "collisions": []
+    },
+    {
+      "wheel_deg": 27.0,
+      "servo_deg": -38.08402723205694,
+      "tests": 1050,
+      "collisions": []
+    }
+  ],
+  "rotors": [
+    {
+      "moving": "A54",
+      "fixed": "AssemblyFrame",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "A54",
+      "fixed": "AssemblyDeck",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "A54",
+      "fixed": "AssemblyMotorBridge0",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "A54",
+      "fixed": "AssemblyMotorBridge1",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "A54",
+      "fixed": "AssemblyMotorPin1",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "A54",
+      "fixed": "AssemblyMotorPinClip1",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "A54",
+      "fixed": "AssemblyMotorPin3",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "A54",
+      "fixed": "AssemblyMotorPinClip3",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "A54",
+      "fixed": "MotorReference",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "A54",
+      "fixed": "ServoReference",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "A54",
+      "fixed": "AssemblyServoCap",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "A18",
+      "fixed": "AssemblyFrame",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "A18",
+      "fixed": "AssemblyDeck",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "A18",
+      "fixed": "AssemblyMotorBridge0",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "A18",
+      "fixed": "AssemblyMotorBridge1",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "A18",
+      "fixed": "AssemblyMotorPin1",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "A18",
+      "fixed": "AssemblyMotorPinClip1",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "A18",
+      "fixed": "AssemblyMotorPin3",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "A18",
+      "fixed": "AssemblyMotorPinClip3",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "A18",
+      "fixed": "MotorReference",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "A18",
+      "fixed": "ServoReference",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "A18",
+      "fixed": "AssemblyServoCap",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "AHub",
+      "fixed": "AssemblyFrame",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "AHub",
+      "fixed": "AssemblyDeck",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "AHub",
+      "fixed": "AssemblyMotorBridge0",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "AHub",
+      "fixed": "AssemblyMotorBridge1",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "AHub",
+      "fixed": "AssemblyMotorPin1",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "AHub",
+      "fixed": "AssemblyMotorPinClip1",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "AHub",
+      "fixed": "AssemblyMotorPin3",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "AHub",
+      "fixed": "AssemblyMotorPinClip3",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "AHub",
+      "fixed": "MotorReference",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "AHub",
+      "fixed": "ServoReference",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "AHub",
+      "fixed": "AssemblyServoCap",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "B60",
+      "fixed": "AssemblyFrame",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "B60",
+      "fixed": "AssemblyDeck",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "B60",
+      "fixed": "AssemblyMotorBridge0",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "B60",
+      "fixed": "AssemblyMotorBridge1",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "B60",
+      "fixed": "AssemblyMotorPin1",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "B60",
+      "fixed": "AssemblyMotorPinClip1",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "B60",
+      "fixed": "AssemblyMotorPin3",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "B60",
+      "fixed": "AssemblyMotorPinClip3",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "B60",
+      "fixed": "MotorReference",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "B60",
+      "fixed": "ServoReference",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "B60",
+      "fixed": "AssemblyServoCap",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "B22",
+      "fixed": "AssemblyFrame",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "B22",
+      "fixed": "AssemblyDeck",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "B22",
+      "fixed": "AssemblyMotorBridge0",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "B22",
+      "fixed": "AssemblyMotorBridge1",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "B22",
+      "fixed": "AssemblyMotorPin1",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "B22",
+      "fixed": "AssemblyMotorPinClip1",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "B22",
+      "fixed": "AssemblyMotorPin3",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "B22",
+      "fixed": "AssemblyMotorPinClip3",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "B22",
+      "fixed": "MotorReference",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "B22",
+      "fixed": "ServoReference",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "B22",
+      "fixed": "AssemblyServoCap",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "BHub",
+      "fixed": "AssemblyFrame",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "BHub",
+      "fixed": "AssemblyDeck",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "BHub",
+      "fixed": "AssemblyMotorBridge0",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "BHub",
+      "fixed": "AssemblyMotorBridge1",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "BHub",
+      "fixed": "AssemblyMotorPin1",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "BHub",
+      "fixed": "AssemblyMotorPinClip1",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "BHub",
+      "fixed": "AssemblyMotorPin3",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "BHub",
+      "fixed": "AssemblyMotorPinClip3",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "BHub",
+      "fixed": "MotorReference",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "BHub",
+      "fixed": "ServoReference",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "BHub",
+      "fixed": "AssemblyServoCap",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "Output55",
+      "fixed": "AssemblyFrame",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "Output55",
+      "fixed": "AssemblyDeck",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "Output55",
+      "fixed": "AssemblyMotorBridge0",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "Output55",
+      "fixed": "AssemblyMotorBridge1",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "Output55",
+      "fixed": "AssemblyMotorPin1",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "Output55",
+      "fixed": "AssemblyMotorPinClip1",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "Output55",
+      "fixed": "AssemblyMotorPin3",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "Output55",
+      "fixed": "AssemblyMotorPinClip3",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "Output55",
+      "fixed": "MotorReference",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "Output55",
+      "fixed": "ServoReference",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "Output55",
+      "fixed": "AssemblyServoCap",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "OutputHub",
+      "fixed": "AssemblyFrame",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "OutputHub",
+      "fixed": "AssemblyDeck",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "OutputHub",
+      "fixed": "AssemblyMotorBridge0",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "OutputHub",
+      "fixed": "AssemblyMotorBridge1",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "OutputHub",
+      "fixed": "AssemblyMotorPin1",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "OutputHub",
+      "fixed": "AssemblyMotorPinClip1",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "OutputHub",
+      "fixed": "AssemblyMotorPin3",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "OutputHub",
+      "fixed": "AssemblyMotorPinClip3",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "OutputHub",
+      "fixed": "MotorReference",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "OutputHub",
+      "fixed": "ServoReference",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "OutputHub",
+      "fixed": "AssemblyServoCap",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "Input",
+      "fixed": "AssemblyFrame",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "Input",
+      "fixed": "AssemblyDeck",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "Input",
+      "fixed": "AssemblyMotorBridge0",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "Input",
+      "fixed": "AssemblyMotorBridge1",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "Input",
+      "fixed": "AssemblyMotorPin1",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "Input",
+      "fixed": "AssemblyMotorPinClip1",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "Input",
+      "fixed": "AssemblyMotorPin3",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "Input",
+      "fixed": "AssemblyMotorPinClip3",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "Input",
+      "fixed": "MotorReference",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "Input",
+      "fixed": "ServoReference",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "Input",
+      "fixed": "AssemblyServoCap",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "CrossPinAndClip",
+      "fixed": "AssemblyFrame",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "CrossPinAndClip",
+      "fixed": "AssemblyDeck",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "CrossPinAndClip",
+      "fixed": "AssemblyMotorBridge0",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "CrossPinAndClip",
+      "fixed": "AssemblyMotorBridge1",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "CrossPinAndClip",
+      "fixed": "AssemblyMotorPin1",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "CrossPinAndClip",
+      "fixed": "AssemblyMotorPinClip1",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "CrossPinAndClip",
+      "fixed": "AssemblyMotorPin3",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "CrossPinAndClip",
+      "fixed": "AssemblyMotorPinClip3",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "CrossPinAndClip",
+      "fixed": "MotorReference",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "CrossPinAndClip",
+      "fixed": "ServoReference",
+      "overlap_mm3": 0.0
+    },
+    {
+      "moving": "CrossPinAndClip",
+      "fixed": "AssemblyServoCap",
+      "overlap_mm3": 0.0
+    }
+  ],
+  "actual_tooth_tips": [
+    {
+      "minimum_actual_flank_endpoint_radius_mm": 8.475893583895083,
+      "outline": "Input18Outline",
+      "teeth": 18,
+      "radius_mm": 10.100000000009635,
+      "minimum_actual_chord_mm": 0.5588573912495662,
+      "maximum_actual_chord_mm": 0.55885739124957,
+      "minimum_actual_arc_mm": 0.5589287091646177,
+      "tips": [
+        {
+          "chord_mm": 0.5588573912495675,
+          "arc_mm": 0.5589287091646223,
+          "endpoints": [
+            [
+              10.097435146390115,
+              -0.27916484635681,
+              0.0
+            ],
+            [
+              10.096126630408598,
+              0.279691013002469,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            10.101293459106897,
+            10.100000000000001
+          ],
+          "circle_center_offset_mm": 0.02338587013286815
+        },
+        {
+          "chord_mm": 0.5588573912495688,
+          "arc_mm": 0.5589287091646191,
+          "endpoints": [
+            [
+              9.583965296689513,
+              3.191197069885665,
+              0.0
+            ],
+            [
+              9.39159573276105,
+              3.715902258185006,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            10.101293459106897,
+            10.1
+          ],
+          "circle_center_offset_mm": 0.023385870132745464
+        },
+        {
+          "chord_mm": 0.5588573912495662,
+          "arc_mm": 0.5589287091646189,
+          "endpoints": [
+            [
+              7.914527787944614,
+              6.276653522447154,
+              0.0
+            ],
+            [
+              7.554299784551374,
+              6.703920850153814,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            10.101293459106895,
+            10.1
+          ],
+          "circle_center_offset_mm": 0.02338587013295346
+        },
+        {
+          "chord_mm": 0.5588573912495678,
+          "arc_mm": 0.5589287091646191,
+          "endpoints": [
+            [
+              5.290481421983635,
+              8.605052926661276,
+              0.0
+            ],
+            [
+              4.805843792733958,
+              8.883347648259665,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            10.101293459106897,
+            10.100000000000001
+          ],
+          "circle_center_offset_mm": 0.023385870132603112
+        },
+        {
+          "chord_mm": 0.5588573912495673,
+          "arc_mm": 0.55892870916462,
+          "endpoints": [
+            [
+              2.028324917341306,
+              9.895555950864416,
+              0.0
+            ],
+            [
+              1.477732112812349,
+              9.9913116157371,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            10.101293459106897,
+            10.099999999999998
+          ],
+          "circle_center_offset_mm": 0.023385870132767616
+        },
+        {
+          "chord_mm": 0.5588573912495671,
+          "arc_mm": 0.5589287091646197,
+          "endpoints": [
+            [
+              -1.478477507220008,
+              9.992508884541472,
+              0.0
+            ],
+            [
+              -2.028615868917688,
+              9.894175946301711,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            10.101293459106895,
+            10.100000000000001
+          ],
+          "circle_center_offset_mm": 0.023385870132960864
+        },
+        {
+          "chord_mm": 0.5588573912495685,
+          "arc_mm": 0.5589287091646254,
+          "endpoints": [
+            [
+              -4.806953724406477,
+              8.884217773018086,
+              0.0
+            ],
+            [
+              -5.290282837674637,
+              8.603656635257192,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            10.101293459106895,
+            10.099999999999996
+          ],
+          "circle_center_offset_mm": 0.023385870132758647
+        },
+        {
+          "chord_mm": 0.5588573912495666,
+          "arc_mm": 0.5589287091646263,
+          "endpoints": [
+            [
+              -7.555640379348207,
+              6.704358880978751,
+              0.0
+            ],
+            [
+              -7.9138636199487,
+              6.275409357552098,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            10.101293459106897,
+            10.099999999999998
+          ],
+          "circle_center_offset_mm": 0.023385870132765045
+        },
+        {
+          "chord_mm": 0.5588573912495669,
+          "arc_mm": 0.5589287091646199,
+          "endpoints": [
+            [
+              -9.393005295164624,
+              3.715855362094319,
+              0.0
+            ],
+            [
+              -9.582915653469062,
+              3.190255096147895,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            10.101293459106897,
+            10.1
+          ],
+          "circle_center_offset_mm": 0.023385870132666468
+        },
+        {
+          "chord_mm": 0.5588573912495675,
+          "arc_mm": 0.5589287091646223,
+          "endpoints": [
+            [
+              -10.097435146390115,
+              0.279164846356811,
+              0.0
+            ],
+            [
+              -10.096126630408598,
+              -0.279691013002468,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            10.101293459106897,
+            10.100000000000001
+          ],
+          "circle_center_offset_mm": 0.023385870132869368
+        },
+        {
+          "chord_mm": 0.5588573912495688,
+          "arc_mm": 0.558928709164619,
+          "endpoints": [
+            [
+              -9.583965296689513,
+              -3.191197069885664,
+              0.0
+            ],
+            [
+              -9.39159573276105,
+              -3.715902258185005,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            10.101293459106897,
+            10.1
+          ],
+          "circle_center_offset_mm": 0.02338587013274862
+        },
+        {
+          "chord_mm": 0.5588573912495662,
+          "arc_mm": 0.5589287091646189,
+          "endpoints": [
+            [
+              -7.914527787944614,
+              -6.276653522447154,
+              0.0
+            ],
+            [
+              -7.554299784551374,
+              -6.703920850153814,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            10.101293459106895,
+            10.1
+          ],
+          "circle_center_offset_mm": 0.02338587013295346
+        },
+        {
+          "chord_mm": 0.5588573912495687,
+          "arc_mm": 0.5589287091646191,
+          "endpoints": [
+            [
+              -5.290481421983639,
+              -8.605052926661273,
+              0.0
+            ],
+            [
+              -4.805843792733961,
+              -8.883347648259662,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            10.101293459106897,
+            10.1
+          ],
+          "circle_center_offset_mm": 0.023385870132607074
+        },
+        {
+          "chord_mm": 0.5588573912495675,
+          "arc_mm": 0.55892870916462,
+          "endpoints": [
+            [
+              -2.028324917341305,
+              -9.895555950864416,
+              0.0
+            ],
+            [
+              -1.477732112812348,
+              -9.9913116157371,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            10.101293459106897,
+            10.099999999999998
+          ],
+          "circle_center_offset_mm": 0.023385870132766745
+        },
+        {
+          "chord_mm": 0.5588573912495676,
+          "arc_mm": 0.5589287091646226,
+          "endpoints": [
+            [
+              1.478477507220005,
+              -9.992508884541472,
+              0.0
+            ],
+            [
+              2.028615868917685,
+              -9.894175946301711,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            10.101293459106895,
+            10.100000000000001
+          ],
+          "circle_center_offset_mm": 0.023385870132795264
+        },
+        {
+          "chord_mm": 0.55885739124957,
+          "arc_mm": 0.5589287091646177,
+          "endpoints": [
+            [
+              4.806953724406481,
+              -8.884217773018086,
+              0.0
+            ],
+            [
+              5.290282837674642,
+              -8.603656635257192,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            10.101293459106897,
+            10.099999999999998
+          ],
+          "circle_center_offset_mm": 0.023385870132876067
+        },
+        {
+          "chord_mm": 0.5588573912495682,
+          "arc_mm": 0.5589287091646217,
+          "endpoints": [
+            [
+              7.555640379348205,
+              -6.704358880978753,
+              0.0
+            ],
+            [
+              7.9138636199487,
+              -6.2754093575521,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            10.101293459106897,
+            10.1
+          ],
+          "circle_center_offset_mm": 0.023385870132720175
+        },
+        {
+          "chord_mm": 0.5588573912495673,
+          "arc_mm": 0.5589287091646193,
+          "endpoints": [
+            [
+              9.39300529516462,
+              -3.715855362094325,
+              0.0
+            ],
+            [
+              9.582915653469058,
+              -3.190255096147901,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            10.101293459106895,
+            10.099999999999998
+          ],
+          "circle_center_offset_mm": 0.023385870132896572
+        }
+      ]
+    },
+    {
+      "minimum_actual_flank_endpoint_radius_mm": 8.475893583895083,
+      "outline": "A18Outline",
+      "teeth": 18,
+      "radius_mm": 10.100000000009635,
+      "minimum_actual_chord_mm": 0.5588573912495662,
+      "maximum_actual_chord_mm": 0.55885739124957,
+      "minimum_actual_arc_mm": 0.5589287091646177,
+      "tips": [
+        {
+          "chord_mm": 0.5588573912495675,
+          "arc_mm": 0.5589287091646223,
+          "endpoints": [
+            [
+              10.097435146390115,
+              -0.27916484635681,
+              0.0
+            ],
+            [
+              10.096126630408598,
+              0.279691013002469,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            10.101293459106897,
+            10.100000000000001
+          ],
+          "circle_center_offset_mm": 0.02338587013286815
+        },
+        {
+          "chord_mm": 0.5588573912495688,
+          "arc_mm": 0.5589287091646191,
+          "endpoints": [
+            [
+              9.583965296689513,
+              3.191197069885665,
+              0.0
+            ],
+            [
+              9.39159573276105,
+              3.715902258185006,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            10.101293459106897,
+            10.1
+          ],
+          "circle_center_offset_mm": 0.023385870132745464
+        },
+        {
+          "chord_mm": 0.5588573912495662,
+          "arc_mm": 0.5589287091646189,
+          "endpoints": [
+            [
+              7.914527787944614,
+              6.276653522447154,
+              0.0
+            ],
+            [
+              7.554299784551374,
+              6.703920850153814,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            10.101293459106895,
+            10.1
+          ],
+          "circle_center_offset_mm": 0.02338587013295346
+        },
+        {
+          "chord_mm": 0.5588573912495678,
+          "arc_mm": 0.5589287091646191,
+          "endpoints": [
+            [
+              5.290481421983635,
+              8.605052926661276,
+              0.0
+            ],
+            [
+              4.805843792733958,
+              8.883347648259665,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            10.101293459106897,
+            10.100000000000001
+          ],
+          "circle_center_offset_mm": 0.023385870132603112
+        },
+        {
+          "chord_mm": 0.5588573912495673,
+          "arc_mm": 0.55892870916462,
+          "endpoints": [
+            [
+              2.028324917341306,
+              9.895555950864416,
+              0.0
+            ],
+            [
+              1.477732112812349,
+              9.9913116157371,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            10.101293459106897,
+            10.099999999999998
+          ],
+          "circle_center_offset_mm": 0.023385870132767616
+        },
+        {
+          "chord_mm": 0.5588573912495671,
+          "arc_mm": 0.5589287091646197,
+          "endpoints": [
+            [
+              -1.478477507220008,
+              9.992508884541472,
+              0.0
+            ],
+            [
+              -2.028615868917688,
+              9.894175946301711,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            10.101293459106895,
+            10.100000000000001
+          ],
+          "circle_center_offset_mm": 0.023385870132960864
+        },
+        {
+          "chord_mm": 0.5588573912495685,
+          "arc_mm": 0.5589287091646254,
+          "endpoints": [
+            [
+              -4.806953724406477,
+              8.884217773018086,
+              0.0
+            ],
+            [
+              -5.290282837674637,
+              8.603656635257192,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            10.101293459106895,
+            10.099999999999996
+          ],
+          "circle_center_offset_mm": 0.023385870132758647
+        },
+        {
+          "chord_mm": 0.5588573912495666,
+          "arc_mm": 0.5589287091646263,
+          "endpoints": [
+            [
+              -7.555640379348207,
+              6.704358880978751,
+              0.0
+            ],
+            [
+              -7.9138636199487,
+              6.275409357552098,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            10.101293459106897,
+            10.099999999999998
+          ],
+          "circle_center_offset_mm": 0.023385870132765045
+        },
+        {
+          "chord_mm": 0.5588573912495669,
+          "arc_mm": 0.5589287091646199,
+          "endpoints": [
+            [
+              -9.393005295164624,
+              3.715855362094319,
+              0.0
+            ],
+            [
+              -9.582915653469062,
+              3.190255096147895,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            10.101293459106897,
+            10.1
+          ],
+          "circle_center_offset_mm": 0.023385870132666468
+        },
+        {
+          "chord_mm": 0.5588573912495675,
+          "arc_mm": 0.5589287091646223,
+          "endpoints": [
+            [
+              -10.097435146390115,
+              0.279164846356811,
+              0.0
+            ],
+            [
+              -10.096126630408598,
+              -0.279691013002468,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            10.101293459106897,
+            10.100000000000001
+          ],
+          "circle_center_offset_mm": 0.023385870132869368
+        },
+        {
+          "chord_mm": 0.5588573912495688,
+          "arc_mm": 0.558928709164619,
+          "endpoints": [
+            [
+              -9.583965296689513,
+              -3.191197069885664,
+              0.0
+            ],
+            [
+              -9.39159573276105,
+              -3.715902258185005,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            10.101293459106897,
+            10.1
+          ],
+          "circle_center_offset_mm": 0.02338587013274862
+        },
+        {
+          "chord_mm": 0.5588573912495662,
+          "arc_mm": 0.5589287091646189,
+          "endpoints": [
+            [
+              -7.914527787944614,
+              -6.276653522447154,
+              0.0
+            ],
+            [
+              -7.554299784551374,
+              -6.703920850153814,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            10.101293459106895,
+            10.1
+          ],
+          "circle_center_offset_mm": 0.02338587013295346
+        },
+        {
+          "chord_mm": 0.5588573912495687,
+          "arc_mm": 0.5589287091646191,
+          "endpoints": [
+            [
+              -5.290481421983639,
+              -8.605052926661273,
+              0.0
+            ],
+            [
+              -4.805843792733961,
+              -8.883347648259662,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            10.101293459106897,
+            10.1
+          ],
+          "circle_center_offset_mm": 0.023385870132607074
+        },
+        {
+          "chord_mm": 0.5588573912495675,
+          "arc_mm": 0.55892870916462,
+          "endpoints": [
+            [
+              -2.028324917341305,
+              -9.895555950864416,
+              0.0
+            ],
+            [
+              -1.477732112812348,
+              -9.9913116157371,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            10.101293459106897,
+            10.099999999999998
+          ],
+          "circle_center_offset_mm": 0.023385870132766745
+        },
+        {
+          "chord_mm": 0.5588573912495676,
+          "arc_mm": 0.5589287091646226,
+          "endpoints": [
+            [
+              1.478477507220005,
+              -9.992508884541472,
+              0.0
+            ],
+            [
+              2.028615868917685,
+              -9.894175946301711,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            10.101293459106895,
+            10.100000000000001
+          ],
+          "circle_center_offset_mm": 0.023385870132795264
+        },
+        {
+          "chord_mm": 0.55885739124957,
+          "arc_mm": 0.5589287091646177,
+          "endpoints": [
+            [
+              4.806953724406481,
+              -8.884217773018086,
+              0.0
+            ],
+            [
+              5.290282837674642,
+              -8.603656635257192,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            10.101293459106897,
+            10.099999999999998
+          ],
+          "circle_center_offset_mm": 0.023385870132876067
+        },
+        {
+          "chord_mm": 0.5588573912495682,
+          "arc_mm": 0.5589287091646217,
+          "endpoints": [
+            [
+              7.555640379348205,
+              -6.704358880978753,
+              0.0
+            ],
+            [
+              7.9138636199487,
+              -6.2754093575521,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            10.101293459106897,
+            10.1
+          ],
+          "circle_center_offset_mm": 0.023385870132720175
+        },
+        {
+          "chord_mm": 0.5588573912495673,
+          "arc_mm": 0.5589287091646193,
+          "endpoints": [
+            [
+              9.39300529516462,
+              -3.715855362094325,
+              0.0
+            ],
+            [
+              9.582915653469058,
+              -3.190255096147901,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            10.101293459106895,
+            10.099999999999998
+          ],
+          "circle_center_offset_mm": 0.023385870132896572
+        }
+      ]
+    },
+    {
+      "minimum_actual_flank_endpoint_radius_mm": 10.356344939746444,
+      "outline": "B22Outline",
+      "teeth": 22,
+      "radius_mm": 12.100000000017014,
+      "minimum_actual_chord_mm": 0.591057822706247,
+      "maximum_actual_chord_mm": 0.5910578227062504,
+      "minimum_actual_arc_mm": 0.5911166020229007,
+      "tips": [
+        {
+          "chord_mm": 0.5910578227062486,
+          "arc_mm": 0.5911166020229105,
+          "endpoints": [
+            [
+              12.09760034147007,
+              -0.295295838170324,
+              0.0
+            ],
+            [
+              12.0963848148047,
+              0.295760734652597,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            12.101203810116473,
+            12.1
+          ],
+          "circle_center_offset_mm": 0.02465210347488574
+        },
+        {
+          "chord_mm": 0.5910578227062496,
+          "arc_mm": 0.591116602022907,
+          "endpoints": [
+            [
+              11.690756976749233,
+              3.124953593986085,
+              0.0
+            ],
+            [
+              11.523070807955238,
+              3.691725769183001,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            12.101203810116472,
+            12.1
+          ],
+          "circle_center_offset_mm": 0.024652103474893404
+        },
+        {
+          "chord_mm": 0.5910578227062504,
+          "arc_mm": 0.5911166020229084,
+          "endpoints": [
+            [
+              10.336798009381038,
+              6.292037870772363,
+              0.0
+            ],
+            [
+              10.01622613458606,
+              6.788609137432735,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            12.101203810116472,
+            12.1
+          ],
+          "circle_center_offset_mm": 0.02465210347486886
+        },
+        {
+          "chord_mm": 0.591057822706247,
+          "arc_mm": 0.5911166020229095,
+          "endpoints": [
+            [
+              8.145413142597627,
+              8.949378659458727,
+              0.0
+            ],
+            [
+              7.697926388583205,
+              9.33551976678076,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            12.101203810116473,
+            12.099999999999998
+          ],
+          "circle_center_offset_mm": 0.024652103475078232
+        },
+        {
+          "chord_mm": 0.5910578227062471,
+          "arc_mm": 0.5911166020229113,
+          "endpoints": [
+            [
+              5.294135345638171,
+              10.881694013159994,
+              0.0
+            ],
+            [
+              4.755986427908358,
+              11.126122105098052,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            12.101203810116473,
+            12.1
+          ],
+          "circle_center_offset_mm": 0.024652103474461194
+        },
+        {
+          "chord_mm": 0.5910578227062488,
+          "arc_mm": 0.5911166020229007,
+          "endpoints": [
+            [
+              2.01395818841034,
+              11.93243923384118,
+              0.0
+            ],
+            [
+              1.428744731784755,
+              12.01535220005628,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            12.101203810116468,
+            12.099999999999998
+          ],
+          "circle_center_offset_mm": 0.024652103474828733
+        },
+        {
+          "chord_mm": 0.5910578227062477,
+          "arc_mm": 0.5911166020229052,
+          "endpoints": [
+            [
+              -1.429377883771962,
+              12.016489192745151,
+              0.0
+            ],
+            [
+              -2.014245365435949,
+              11.931169917816938,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            12.101203810116473,
+            12.100000000000001
+          ],
+          "circle_center_offset_mm": 0.02465210347462017
+        },
+        {
+          "chord_mm": 0.59105782270625,
+          "arc_mm": 0.5911166020229043,
+          "endpoints": [
+            [
+              -4.756914260648655,
+              11.12703466206585,
+              0.0
+            ],
+            [
+              -5.294053282327475,
+              10.88039520623574,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            12.101203810116472,
+            12.1
+          ],
+          "circle_center_offset_mm": 0.024652103474588835
+        },
+        {
+          "chord_mm": 0.5910578227062493,
+          "arc_mm": 0.5911166020229114,
+          "endpoints": [
+            [
+              -7.699073734586013,
+              9.336133958089139,
+              0.0
+            ],
+            [
+              -8.14496848723201,
+              8.948155583247168,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            12.10120381011647,
+            12.099999999999998
+          ],
+          "circle_center_offset_mm": 0.024652103474401617
+        },
+        {
+          "chord_mm": 0.591057822706247,
+          "arc_mm": 0.5911166020229085,
+          "endpoints": [
+            [
+              -10.017500042701759,
+              6.788875204954627,
+              0.0
+            ],
+            [
+              -10.336026785293754,
+              6.290989611634251,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            12.101203810116473,
+            12.1
+          ],
+          "circle_center_offset_mm": 0.02465210347491889
+        },
+        {
+          "chord_mm": 0.591057822706249,
+          "arc_mm": 0.5911166020229044,
+          "endpoints": [
+            [
+              -11.524368073724517,
+              3.691622157710145,
+              0.0
+            ],
+            [
+              -11.689721663929191,
+              3.124165075642544,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            12.101203810116473,
+            12.100000000000001
+          ],
+          "circle_center_offset_mm": 0.024652103474555178
+        },
+        {
+          "chord_mm": 0.5910578227062486,
+          "arc_mm": 0.5911166020229105,
+          "endpoints": [
+            [
+              -12.09760034147007,
+              0.295295838170326,
+              0.0
+            ],
+            [
+              -12.0963848148047,
+              -0.295760734652595,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            12.101203810116473,
+            12.1
+          ],
+          "circle_center_offset_mm": 0.02465210347488724
+        },
+        {
+          "chord_mm": 0.5910578227062496,
+          "arc_mm": 0.591116602022908,
+          "endpoints": [
+            [
+              -11.690756976749235,
+              -3.124953593986081,
+              0.0
+            ],
+            [
+              -11.52307080795524,
+              -3.691725769182997,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            12.101203810116472,
+            12.1
+          ],
+          "circle_center_offset_mm": 0.024652103474896665
+        },
+        {
+          "chord_mm": 0.5910578227062504,
+          "arc_mm": 0.5911166020229084,
+          "endpoints": [
+            [
+              -10.336798009381038,
+              -6.292037870772363,
+              0.0
+            ],
+            [
+              -10.01622613458606,
+              -6.788609137432735,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            12.101203810116472,
+            12.1
+          ],
+          "circle_center_offset_mm": 0.02465210347486886
+        },
+        {
+          "chord_mm": 0.591057822706247,
+          "arc_mm": 0.5911166020229017,
+          "endpoints": [
+            [
+              -8.145413142597627,
+              -8.949378659458727,
+              0.0
+            ],
+            [
+              -7.697926388583205,
+              -9.33551976678076,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            12.101203810116473,
+            12.099999999999998
+          ],
+          "circle_center_offset_mm": 0.024652103474819654
+        },
+        {
+          "chord_mm": 0.5910578227062495,
+          "arc_mm": 0.5911166020229047,
+          "endpoints": [
+            [
+              -5.294135345638171,
+              -10.881694013159994,
+              0.0
+            ],
+            [
+              -4.755986427908356,
+              -11.126122105098053,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            12.101203810116473,
+            12.100000000000001
+          ],
+          "circle_center_offset_mm": 0.02465210347462083
+        },
+        {
+          "chord_mm": 0.5910578227062491,
+          "arc_mm": 0.5911166020229007,
+          "endpoints": [
+            [
+              -2.013958188410342,
+              -11.93243923384118,
+              0.0
+            ],
+            [
+              -1.428744731784757,
+              -12.01535220005628,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            12.10120381011647,
+            12.099999999999998
+          ],
+          "circle_center_offset_mm": 0.024652103474830055
+        },
+        {
+          "chord_mm": 0.5910578227062488,
+          "arc_mm": 0.5911166020229052,
+          "endpoints": [
+            [
+              1.42937788377196,
+              -12.016489192745151,
+              0.0
+            ],
+            [
+              2.014245365435948,
+              -11.931169917816938,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            12.101203810116472,
+            12.100000000000001
+          ],
+          "circle_center_offset_mm": 0.024652103474620067
+        },
+        {
+          "chord_mm": 0.59105782270625,
+          "arc_mm": 0.5911166020229068,
+          "endpoints": [
+            [
+              4.756914260648653,
+              -11.12703466206585,
+              0.0
+            ],
+            [
+              5.294053282327473,
+              -10.88039520623574,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            12.101203810116472,
+            12.099999999999998
+          ],
+          "circle_center_offset_mm": 0.024652103475045154
+        },
+        {
+          "chord_mm": 0.5910578227062486,
+          "arc_mm": 0.5911166020229067,
+          "endpoints": [
+            [
+              7.699073734586017,
+              -9.336133958089139,
+              0.0
+            ],
+            [
+              8.144968487232013,
+              -8.948155583247168,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            12.101203810116473,
+            12.100000000000001
+          ],
+          "circle_center_offset_mm": 0.024652103474780918
+        },
+        {
+          "chord_mm": 0.5910578227062496,
+          "arc_mm": 0.5911166020229087,
+          "endpoints": [
+            [
+              10.017500042701759,
+              -6.788875204954623,
+              0.0
+            ],
+            [
+              10.336026785293758,
+              -6.290989611634247,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            12.101203810116472,
+            12.100000000000001
+          ],
+          "circle_center_offset_mm": 0.024652103474560347
+        },
+        {
+          "chord_mm": 0.5910578227062491,
+          "arc_mm": 0.5911166020229071,
+          "endpoints": [
+            [
+              11.524368073724515,
+              -3.691622157710146,
+              0.0
+            ],
+            [
+              11.689721663929191,
+              -3.124165075642545,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            12.101203810116472,
+            12.100000000000001
+          ],
+          "circle_center_offset_mm": 0.02465210347467073
+        }
+      ]
+    },
+    {
+      "minimum_actual_flank_endpoint_radius_mm": 26.04158939101101,
+      "outline": "A54Outline",
+      "teeth": 54,
+      "radius_mm": 28.200000000132576,
+      "minimum_actual_chord_mm": 0.5942794739912769,
+      "maximum_actual_chord_mm": 0.5942794739912899,
+      "minimum_actual_arc_mm": 0.5942904712497097,
+      "tips": [
+        {
+          "chord_mm": 0.59427947399128,
+          "arc_mm": 0.5942904712497143,
+          "endpoints": [
+            [
+              28.19874416248395,
+              -0.297074475375687,
+              0.0
+            ],
+            [
+              28.19843380822716,
+              0.297204917576473,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.20030896258306,
+            28.200000000000003
+          ],
+          "circle_center_offset_mm": 0.014661877264710126
+        },
+        {
+          "chord_mm": 0.5942794739912798,
+          "arc_mm": 0.5942904712497141,
+          "endpoints": [
+            [
+              28.04256258388935,
+              2.97860862044539,
+              0.0
+            ],
+            [
+              27.973262701604625,
+              3.56883367881099,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.200308962583062,
+            28.200000000000003
+          ],
+          "circle_center_offset_mm": 0.014661877263833323
+        },
+        {
+          "chord_mm": 0.59427947399128,
+          "arc_mm": 0.5942904712497176,
+          "endpoints": [
+            [
+              27.507153452911872,
+              6.214011144430033,
+              0.0
+            ],
+            [
+              27.369801204624288,
+              6.792200086816256,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.200308962583055,
+            28.2
+          ],
+          "circle_center_offset_mm": 0.01466187726426456
+        },
+        {
+          "chord_mm": 0.5942794739912779,
+          "arc_mm": 0.5942904712497298,
+          "endpoints": [
+            [
+              26.599757259562267,
+              9.365379827722244,
+              0.0
+            ],
+            [
+              26.39621009880435,
+              9.923713640557128,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.200308962583055,
+            28.200000000000006
+          ],
+          "circle_center_offset_mm": 0.014661877264141554
+        },
+        {
+          "chord_mm": 0.5942794739912807,
+          "arc_mm": 0.5942904712497388,
+          "endpoints": [
+            [
+              25.332644980732034,
+              12.390097815002697,
+              0.0
+            ],
+            [
+              25.06565553367114,
+              12.92102599128031,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.200308962583062,
+            28.2
+          ],
+          "circle_center_offset_mm": 0.01466187726518686
+        },
+        {
+          "chord_mm": 0.5942794739912769,
+          "arc_mm": 0.5942904712497163,
+          "endpoints": [
+            [
+              23.722952136281652,
+              15.247260984348387,
+              0.0
+            ],
+            [
+              23.396130977173204,
+              15.743603631283303,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.200308962583065,
+            28.200000000000006
+          ],
+          "circle_center_offset_mm": 0.014661877264221837
+        },
+        {
+          "chord_mm": 0.5942794739912782,
+          "arc_mm": 0.594290471249728,
+          "endpoints": [
+            [
+              21.792447060530172,
+              17.89823110531128,
+              0.0
+            ],
+            [
+              21.410213884894674,
+              18.35327604007152,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.20030896258306,
+            28.2
+          ],
+          "circle_center_offset_mm": 0.014661877264627877
+        },
+        {
+          "chord_mm": 0.5942794739912813,
+          "arc_mm": 0.5942904712497387,
+          "endpoints": [
+            [
+              19.56723652287679,
+              20.30715835470189,
+              0.0
+            ],
+            [
+              19.13476037869986,
+              20.71475187516708,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.200308962583055,
+            28.200000000000003
+          ],
+          "circle_center_offset_mm": 0.014661877265231492
+        },
+        {
+          "chord_mm": 0.5942794739912841,
+          "arc_mm": 0.594290471249722,
+          "endpoints": [
+            [
+              17.077412678530457,
+              22.44146612394809,
+              0.0
+            ],
+            [
+              16.600542063756226,
+              22.79609622697405,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.200308962583062,
+            28.200000000000006
+          ],
+          "circle_center_offset_mm": 0.014661877264364192
+        },
+        {
+          "chord_mm": 0.5942794739912794,
+          "arc_mm": 0.5942904712497377,
+          "endpoints": [
+            [
+              14.356646123733256,
+              24.2722915618414,
+              0.0
+            ],
+            [
+              13.841829895362695,
+              24.569162483646924,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.20030896258306,
+            28.2
+          ],
+          "circle_center_offset_mm": 0.014661877265276678
+        },
+        {
+          "chord_mm": 0.5942794739912799,
+          "arc_mm": 0.5942904712497185,
+          "endpoints": [
+            [
+              11.441730558707647,
+              25.77487589508586,
+              0.0
+            ],
+            [
+              10.895930723070524,
+              26.00997296573082,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.200308962583062,
+            28.200000000000006
+          ],
+          "circle_center_offset_mm": 0.01466187726507264
+        },
+        {
+          "chord_mm": 0.5942794739912814,
+          "arc_mm": 0.5942904712497392,
+          "endpoints": [
+            [
+              8.372085215979919,
+              26.92889924823354,
+              0.0
+            ],
+            [
+              7.802682779542399,
+              27.099043183142697,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.200308962583062,
+            28.200000000000003
+          ],
+          "circle_center_offset_mm": 0.014661877264554037
+        },
+        {
+          "chord_mm": 0.594279473991278,
+          "arc_mm": 0.5942904712497097,
+          "endpoints": [
+            [
+              5.18922178288334,
+              27.718755435141592,
+              0.0
+            ],
+            [
+              4.603916936797543,
+              27.821645329474475,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.200308962583062,
+            28.200000000000003
+          ],
+          "circle_center_offset_mm": 0.014661877264528424
+        },
+        {
+          "chord_mm": 0.5942794739912803,
+          "arc_mm": 0.594290471249731,
+          "endpoints": [
+            [
+              1.936183027199616,
+              28.133763005867635,
+              0.0
+            ],
+            [
+              1.342891015427815,
+              28.168007450309354,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.200308962583055,
+            28.2
+          ],
+          "circle_center_offset_mm": 0.01466187726568378
+        },
+        {
+          "chord_mm": 0.5942794739912804,
+          "arc_mm": 0.5942904712497172,
+          "endpoints": [
+            [
+              -1.343039282436201,
+              28.168309694956413,
+              0.0
+            ],
+            [
+              -1.936295203217677,
+              28.133445592141683,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.200308962583055,
+            28.200000000000003
+          ],
+          "circle_center_offset_mm": 0.014661877264879893
+        },
+        {
+          "chord_mm": 0.594279473991279,
+          "arc_mm": 0.5942904712497286,
+          "endpoints": [
+            [
+              -4.604099289739316,
+              27.82192831770228,
+              0.0
+            ],
+            [
+              -5.189296350922868,
+              27.718427144812864,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.200308962583055,
+            28.2
+          ],
+          "circle_center_offset_mm": 0.014661877265417868
+        },
+        {
+          "chord_mm": 0.5942794739912808,
+          "arc_mm": 0.5942904712497159,
+          "endpoints": [
+            [
+              -7.802896752406847,
+              27.09930308802094,
+              0.0
+            ],
+            [
+              -8.372121167636099,
+              26.928564520865567,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.200308962583062,
+            28.200000000000003
+          ],
+          "circle_center_offset_mm": 0.014661877264880855
+        },
+        {
+          "chord_mm": 0.5942794739912831,
+          "arc_mm": 0.5942904712497196,
+          "endpoints": [
+            [
+              -10.896173422241716,
+              26.01020627249187,
+              0.0
+            ],
+            [
+              -11.441727407796005,
+              25.774539257292062,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.200308962583055,
+            28.2
+          ],
+          "circle_center_offset_mm": 0.014661877265019893
+        },
+        {
+          "chord_mm": 0.5942794739912819,
+          "arc_mm": 0.5942904712497199,
+          "endpoints": [
+            [
+              -13.842098038750684,
+              24.569366037217087,
+              0.0
+            ],
+            [
+              -14.356603912864458,
+              24.271957566070455,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.20030896258305,
+            28.199999999999996
+          ],
+          "circle_center_offset_mm": 0.014661877264863017
+        },
+        {
+          "chord_mm": 0.5942794739912899,
+          "arc_mm": 0.5942904712497223,
+          "endpoints": [
+            [
+              -16.60083202518169,
+              22.796267274640478,
+              0.0
+            ],
+            [
+              -17.0773319785341,
+              22.441139286919835,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.20030896258306,
+            28.200000000000006
+          ],
+          "circle_center_offset_mm": 0.01466187726498369
+        },
+        {
+          "chord_mm": 0.5942794739912777,
+          "arc_mm": 0.5942904712497146,
+          "endpoints": [
+            [
+              -19.135068236931957,
+              20.71488810380351,
+              0.0
+            ],
+            [
+              -19.567118425081887,
+              20.306843096326443,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.20030896258306,
+            28.2
+          ],
+          "circle_center_offset_mm": 0.014661877265714557
+        },
+        {
+          "chord_mm": 0.5942794739912808,
+          "arc_mm": 0.5942904712497338,
+          "endpoints": [
+            [
+              -21.410535476678923,
+              18.353375607419345,
+              0.0
+            ],
+            [
+              -21.7922931620068,
+              17.897931688917346,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.200308962583055,
+            28.2
+          ],
+          "circle_center_offset_mm": 0.014661877266640005
+        },
+        {
+          "chord_mm": 0.5942794739912817,
+          "arc_mm": 0.5942904712497259,
+          "endpoints": [
+            [
+              -23.39646195353241,
+              15.743665190864945,
+              0.0
+            ],
+            [
+              -23.722764518243324,
+              15.246981459029048,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.200308962583055,
+            28.2
+          ],
+          "circle_center_offset_mm": 0.014661877265158723
+        },
+        {
+          "chord_mm": 0.5942794739912788,
+          "arc_mm": 0.5942904712497363,
+          "endpoints": [
+            [
+              -25.065991418717843,
+              12.921048710608037,
+              0.0
+            ],
+            [
+              -25.33242618039087,
+              12.389841960858385,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.200308962583055,
+            28.199999999999996
+          ],
+          "circle_center_offset_mm": 0.014661877265940197
+        },
+        {
+          "chord_mm": 0.5942794739912776,
+          "arc_mm": 0.5942904712497292,
+          "endpoints": [
+            [
+              -26.396546350269485,
+              9.923697212391005,
+              0.0
+            ],
+            [
+              -26.599510235817537,
+              9.365151104741344,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.20030896258306,
+            28.2
+          ],
+          "circle_center_offset_mm": 0.014661877265525132
+        },
+        {
+          "chord_mm": 0.5942794739912812,
+          "arc_mm": 0.5942904712497131,
+          "endpoints": [
+            [
+              -27.370133275283635,
+              6.792144733319047,
+              0.0
+            ],
+            [
+              -27.506881546335954,
+              6.213812645698487,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.200308962583055,
+            28.2
+          ],
+          "circle_center_offset_mm": 0.01466187726456624
+        },
+        {
+          "chord_mm": 0.5942794739912799,
+          "arc_mm": 0.5942904712497266,
+          "endpoints": [
+            [
+              -27.973586100772174,
+              3.568740148543787,
+              0.0
+            ],
+            [
+              -28.04226947155223,
+              2.978443030318023,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.200308962583062,
+            28.200000000000003
+          ],
+          "circle_center_offset_mm": 0.014661877264306122
+        },
+        {
+          "chord_mm": 0.59427947399128,
+          "arc_mm": 0.5942904712497143,
+          "endpoints": [
+            [
+              -28.19874416248395,
+              0.297074475375691,
+              0.0
+            ],
+            [
+              -28.19843380822716,
+              -0.297204917576469,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.20030896258306,
+            28.200000000000003
+          ],
+          "circle_center_offset_mm": 0.014661877264713576
+        },
+        {
+          "chord_mm": 0.5942794739912811,
+          "arc_mm": 0.5942904712497141,
+          "endpoints": [
+            [
+              -28.04256258388935,
+              -2.978608620445386,
+              0.0
+            ],
+            [
+              -27.973262701604625,
+              -3.568833678810987,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.200308962583062,
+            28.2
+          ],
+          "circle_center_offset_mm": 0.014661877263836843
+        },
+        {
+          "chord_mm": 0.5942794739912809,
+          "arc_mm": 0.5942904712497176,
+          "endpoints": [
+            [
+              -27.507153452911872,
+              -6.21401114443003,
+              0.0
+            ],
+            [
+              -27.369801204624288,
+              -6.792200086816253,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.200308962583055,
+            28.199999999999996
+          ],
+          "circle_center_offset_mm": 0.014661877264268004
+        },
+        {
+          "chord_mm": 0.5942794739912779,
+          "arc_mm": 0.5942904712497298,
+          "endpoints": [
+            [
+              -26.599757259562267,
+              -9.365379827722244,
+              0.0
+            ],
+            [
+              -26.39621009880435,
+              -9.923713640557128,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.200308962583055,
+            28.200000000000006
+          ],
+          "circle_center_offset_mm": 0.01466187726414322
+        },
+        {
+          "chord_mm": 0.5942794739912775,
+          "arc_mm": 0.5942904712497122,
+          "endpoints": [
+            [
+              -25.332644980732027,
+              -12.390097815002694,
+              0.0
+            ],
+            [
+              -25.06565553367114,
+              -12.921025991280306,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.200308962583055,
+            28.2
+          ],
+          "circle_center_offset_mm": 0.014661877266495012
+        },
+        {
+          "chord_mm": 0.5942794739912769,
+          "arc_mm": 0.5942904712497163,
+          "endpoints": [
+            [
+              -23.722952136281652,
+              -15.247260984348387,
+              0.0
+            ],
+            [
+              -23.396130977173204,
+              -15.743603631283303,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.200308962583065,
+            28.200000000000006
+          ],
+          "circle_center_offset_mm": 0.014661877264221837
+        },
+        {
+          "chord_mm": 0.5942794739912782,
+          "arc_mm": 0.594290471249728,
+          "endpoints": [
+            [
+              -21.792447060530172,
+              -17.89823110531128,
+              0.0
+            ],
+            [
+              -21.410213884894674,
+              -18.35327604007152,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.20030896258306,
+            28.2
+          ],
+          "circle_center_offset_mm": 0.014661877264627877
+        },
+        {
+          "chord_mm": 0.5942794739912813,
+          "arc_mm": 0.5942904712497387,
+          "endpoints": [
+            [
+              -19.56723652287679,
+              -20.30715835470189,
+              0.0
+            ],
+            [
+              -19.13476037869986,
+              -20.71475187516708,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.200308962583055,
+            28.200000000000003
+          ],
+          "circle_center_offset_mm": 0.014661877265231492
+        },
+        {
+          "chord_mm": 0.5942794739912841,
+          "arc_mm": 0.594290471249722,
+          "endpoints": [
+            [
+              -17.077412678530457,
+              -22.44146612394809,
+              0.0
+            ],
+            [
+              -16.600542063756226,
+              -22.79609622697405,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.200308962583062,
+            28.200000000000006
+          ],
+          "circle_center_offset_mm": 0.014661877264364192
+        },
+        {
+          "chord_mm": 0.5942794739912812,
+          "arc_mm": 0.5942904712497237,
+          "endpoints": [
+            [
+              -14.356646123733267,
+              -24.272291561841392,
+              0.0
+            ],
+            [
+              -13.841829895362705,
+              -24.56916248364692,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.20030896258306,
+            28.2
+          ],
+          "circle_center_offset_mm": 0.014661877264762174
+        },
+        {
+          "chord_mm": 0.5942794739912812,
+          "arc_mm": 0.5942904712497254,
+          "endpoints": [
+            [
+              -11.441730558707647,
+              -25.774875895085856,
+              0.0
+            ],
+            [
+              -10.895930723070524,
+              -26.00997296573082,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.20030896258306,
+            28.200000000000006
+          ],
+          "circle_center_offset_mm": 0.014661877265096506
+        },
+        {
+          "chord_mm": 0.5942794739912824,
+          "arc_mm": 0.5942904712497178,
+          "endpoints": [
+            [
+              -8.372085215979927,
+              -26.928899248233535,
+              0.0
+            ],
+            [
+              -7.802682779542408,
+              -27.099043183142694,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.20030896258306,
+            28.200000000000003
+          ],
+          "circle_center_offset_mm": 0.014661877265632546
+        },
+        {
+          "chord_mm": 0.5942794739912771,
+          "arc_mm": 0.5942904712497131,
+          "endpoints": [
+            [
+              -5.189221782883337,
+              -27.71875543514159,
+              0.0
+            ],
+            [
+              -4.603916936797541,
+              -27.82164532947447,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.200308962583055,
+            28.2
+          ],
+          "circle_center_offset_mm": 0.01466187726450352
+        },
+        {
+          "chord_mm": 0.5942794739912804,
+          "arc_mm": 0.5942904712497319,
+          "endpoints": [
+            [
+              -1.936183027199625,
+              -28.133763005867635,
+              0.0
+            ],
+            [
+              -1.342891015427824,
+              -28.168007450309357,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.200308962583055,
+            28.200000000000003
+          ],
+          "circle_center_offset_mm": 0.014661877265116178
+        },
+        {
+          "chord_mm": 0.5942794739912793,
+          "arc_mm": 0.5942904712497218,
+          "endpoints": [
+            [
+              1.343039282436204,
+              -28.168309694956413,
+              0.0
+            ],
+            [
+              1.936295203217679,
+              -28.133445592141683,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.200308962583055,
+            28.200000000000003
+          ],
+          "circle_center_offset_mm": 0.014661877264873484
+        },
+        {
+          "chord_mm": 0.5942794739912799,
+          "arc_mm": 0.5942904712497287,
+          "endpoints": [
+            [
+              4.604099289739306,
+              -27.821928317702287,
+              0.0
+            ],
+            [
+              5.189296350922859,
+              -27.71842714481287,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.20030896258306,
+            28.200000000000006
+          ],
+          "circle_center_offset_mm": 0.01466187726539947
+        },
+        {
+          "chord_mm": 0.5942794739912808,
+          "arc_mm": 0.5942904712497159,
+          "endpoints": [
+            [
+              7.80289675240685,
+              -27.09930308802094,
+              0.0
+            ],
+            [
+              8.372121167636102,
+              -26.928564520865567,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.200308962583062,
+            28.200000000000006
+          ],
+          "circle_center_offset_mm": 0.014661877264877466
+        },
+        {
+          "chord_mm": 0.5942794739912831,
+          "arc_mm": 0.5942904712497196,
+          "endpoints": [
+            [
+              10.89617342224171,
+              -26.01020627249187,
+              0.0
+            ],
+            [
+              11.441727407795998,
+              -25.774539257292062,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.200308962583055,
+            28.199999999999996
+          ],
+          "circle_center_offset_mm": 0.014661877265027835
+        },
+        {
+          "chord_mm": 0.5942794739912803,
+          "arc_mm": 0.5942904712497126,
+          "endpoints": [
+            [
+              13.842098038750697,
+              -24.569366037217087,
+              0.0
+            ],
+            [
+              14.356603912864468,
+              -24.271957566070455,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.20030896258306,
+            28.200000000000003
+          ],
+          "circle_center_offset_mm": 0.014661877266872026
+        },
+        {
+          "chord_mm": 0.5942794739912849,
+          "arc_mm": 0.5942904712497245,
+          "endpoints": [
+            [
+              16.60083202518169,
+              -22.79626727464047,
+              0.0
+            ],
+            [
+              17.077331978534097,
+              -22.44113928691983,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.20030896258305,
+            28.2
+          ],
+          "circle_center_offset_mm": 0.014661877264215617
+        },
+        {
+          "chord_mm": 0.5942794739912777,
+          "arc_mm": 0.5942904712497146,
+          "endpoints": [
+            [
+              19.135068236931964,
+              -20.714888103803503,
+              0.0
+            ],
+            [
+              19.567118425081894,
+              -20.306843096326435,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.20030896258306,
+            28.2
+          ],
+          "circle_center_offset_mm": 0.01466187726570451
+        },
+        {
+          "chord_mm": 0.5942794739912808,
+          "arc_mm": 0.5942904712497338,
+          "endpoints": [
+            [
+              21.410535476678916,
+              -18.35337560741935,
+              0.0
+            ],
+            [
+              21.792293162006793,
+              -17.89793168891735,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.20030896258305,
+            28.2
+          ],
+          "circle_center_offset_mm": 0.014661877266645
+        },
+        {
+          "chord_mm": 0.5942794739912817,
+          "arc_mm": 0.5942904712497259,
+          "endpoints": [
+            [
+              23.396461953532416,
+              -15.743665190864935,
+              0.0
+            ],
+            [
+              23.72276451824333,
+              -15.246981459029037,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.200308962583055,
+            28.2
+          ],
+          "circle_center_offset_mm": 0.014661877265145918
+        },
+        {
+          "chord_mm": 0.594279473991282,
+          "arc_mm": 0.5942904712497334,
+          "endpoints": [
+            [
+              25.065991418717843,
+              -12.92104871060804,
+              0.0
+            ],
+            [
+              25.332426180390872,
+              -12.389841960858387,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.200308962583055,
+            28.200000000000003
+          ],
+          "circle_center_offset_mm": 0.014661877265625066
+        },
+        {
+          "chord_mm": 0.594279473991281,
+          "arc_mm": 0.5942904712497362,
+          "endpoints": [
+            [
+              26.39654635026949,
+              -9.923697212391,
+              0.0
+            ],
+            [
+              26.59951023581754,
+              -9.365151104741335,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.20030896258306,
+            28.2
+          ],
+          "circle_center_offset_mm": 0.0146618772649084
+        },
+        {
+          "chord_mm": 0.5942794739912812,
+          "arc_mm": 0.5942904712497136,
+          "endpoints": [
+            [
+              27.370133275283635,
+              -6.79214473331905,
+              0.0
+            ],
+            [
+              27.506881546335954,
+              -6.21381264569849,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.200308962583055,
+            28.2
+          ],
+          "circle_center_offset_mm": 0.01466187726571977
+        },
+        {
+          "chord_mm": 0.5942794739912812,
+          "arc_mm": 0.5942904712497274,
+          "endpoints": [
+            [
+              27.973586100772174,
+              -3.568740148543778,
+              0.0
+            ],
+            [
+              28.04226947155223,
+              -2.978443030318013,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.20030896258306,
+            28.200000000000003
+          ],
+          "circle_center_offset_mm": 0.014661877264285318
+        }
+      ]
+    },
+    {
+      "minimum_actual_flank_endpoint_radius_mm": 29.035713967668137,
+      "outline": "B60Outline",
+      "teeth": 60,
+      "radius_mm": 31.200000000182317,
+      "minimum_actual_chord_mm": 0.6036803263413326,
+      "maximum_actual_chord_mm": 0.6036803263413464,
+      "minimum_actual_arc_mm": 0.6036897434792181,
+      "tips": [
+        {
+          "chord_mm": 0.603680326341344,
+          "arc_mm": 0.6036897434792446,
+          "endpoints": [
+            [
+              31.198774533292006,
+              -0.301789778070404,
+              0.0
+            ],
+            [
+              31.198539422936257,
+              0.301890502487701,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            31.20023412491223,
+            31.200000000000003
+          ],
+          "circle_center_offset_mm": 0.0121008630601833
+        },
+        {
+          "chord_mm": 0.6036803263413438,
+          "arc_mm": 0.6036897434792557,
+          "endpoints": [
+            [
+              31.059410003748567,
+              2.961023415709668,
+              0.0
+            ],
+            [
+              30.99607440932022,
+              3.56137209680258,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            31.200234124912228,
+            31.199999999999996
+          ],
+          "circle_center_offset_mm": 0.012100863060559876
+        },
+        {
+          "chord_mm": 0.6036803263413419,
+          "arc_mm": 0.6036897434792314,
+          "endpoints": [
+            [
+              30.57975207860467,
+              6.191395017313239,
+              0.0
+            ],
+            [
+              30.454009918130104,
+              6.781834553159864,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            31.200234124912235,
+            31.199999999999996
+          ],
+          "circle_center_offset_mm": 0.012100863059881386
+        },
+        {
+          "chord_mm": 0.6036803263413458,
+          "arc_mm": 0.6036897434792465,
+          "endpoints": [
+            [
+              29.765055990463054,
+              9.353932399474424,
+              0.0
+            ],
+            [
+              29.578284921365672,
+              9.927993810962615,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            31.200234124912235,
+            31.2
+          ],
+          "circle_center_offset_mm": 0.012100863059635286
+        },
+        {
+          "chord_mm": 0.6036803263413432,
+          "arc_mm": 0.603689743479248,
+          "endpoints": [
+            [
+              28.624247720151516,
+              12.413986140830769,
+              0.0
+            ],
+            [
+              28.37849404534871,
+              12.965379891006183,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            31.20023412491223,
+            31.199999999999996
+          ],
+          "circle_center_offset_mm": 0.012100863060192469
+        },
+        {
+          "chord_mm": 0.6036803263413453,
+          "arc_mm": 0.6036897434792357,
+          "endpoints": [
+            [
+              27.169826201809073,
+              15.338029652234564,
+              0.0
+            ],
+            [
+              26.867782449989242,
+              15.860714555783723,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            31.200234124912228,
+            31.199999999999992
+          ],
+          "circle_center_offset_mm": 0.01210086306073086
+        },
+        {
+          "chord_mm": 0.6036803263413404,
+          "arc_mm": 0.6036897434792299,
+          "endpoints": [
+            [
+              25.417726381947954,
+              18.094026501079433,
+              0.0
+            ],
+            [
+              25.062701807662762,
+              18.5822759128202,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            31.200234124912235,
+            31.200000000000003
+          ],
+          "circle_center_offset_mm": 0.012100863059138175
+        },
+        {
+          "chord_mm": 0.6036803263413419,
+          "arc_mm": 0.60368974347923,
+          "endpoints": [
+            [
+              23.387144632845022,
+              20.651781409159994,
+              0.0
+            ],
+            [
+              22.983028959623997,
+              21.100245966364582,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            31.20023412491224,
+            31.200000000000003
+          ],
+          "circle_center_offset_mm": 0.012100863061572592
+        },
+        {
+          "chord_mm": 0.6036803263413378,
+          "arc_mm": 0.6036897434792181,
+          "endpoints": [
+            [
+              21.100328433069976,
+              22.983271078458706,
+              0.0
+            ],
+            [
+              20.651549236795574,
+              23.387037309591136,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            31.20023412491223,
+            31.199999999999996
+          ],
+          "circle_center_offset_mm": 0.012100863059767352
+        },
+        {
+          "chord_mm": 0.6036803263413449,
+          "arc_mm": 0.6036897434792495,
+          "endpoints": [
+            [
+              18.582332619454633,
+              25.062951220263148,
+              0.0
+            ],
+            [
+              18.093806818914317,
+              25.41759537800163,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            31.20023412491223,
+            31.2
+          ],
+          "circle_center_offset_mm": 0.012100863061147545
+        },
+        {
+          "chord_mm": 0.6036803263413422,
+          "arc_mm": 0.6036897434792295,
+          "endpoints": [
+            [
+              15.860744881057446,
+              26.868036423738673,
+              0.0
+            ],
+            [
+              15.337824867152534,
+              27.169672952476947,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            31.200234124912235,
+            31.2
+          ],
+          "circle_center_offset_mm": 0.012100863059161662
+        },
+        {
+          "chord_mm": 0.6036803263413463,
+          "arc_mm": 0.6036897434792395,
+          "endpoints": [
+            [
+              12.965383502669148,
+              28.37874979765762,
+              0.0
+            ],
+            [
+              12.413798496500029,
+              28.62407390446534,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            31.20023412491223,
+            31.200000000000003
+          ],
+          "circle_center_offset_mm": 0.012100863060786947
+        },
+        {
+          "chord_mm": 0.6036803263413442,
+          "arc_mm": 0.6036897434792371,
+          "endpoints": [
+            [
+              9.927970669444676,
+              29.578539650158252,
+              0.0
+            ],
+            [
+              9.353763951765522,
+              29.764863512783855,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            31.200234124912228,
+            31.199999999999996
+          ],
+          "circle_center_offset_mm": 0.012100863060936667
+        },
+        {
+          "chord_mm": 0.6036803263413433,
+          "arc_mm": 0.6036897434792561,
+          "endpoints": [
+            [
+              6.781784912004348,
+              30.4542608325444,
+              0.0
+            ],
+            [
+              6.191247611774534,
+              30.579543047758186,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            31.20023412491223,
+            31.2
+          ],
+          "circle_center_offset_mm": 0.012100863060490687
+        },
+        {
+          "chord_mm": 0.6036803263413429,
+          "arc_mm": 0.6036897434792502,
+          "endpoints": [
+            [
+              3.56129649988837,
+              30.996318760285398,
+              0.0
+            ],
+            [
+              2.960898667347088,
+              31.059186709920496,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            31.20023412491223,
+            31.199999999999996
+          ],
+          "circle_center_offset_mm": 0.012100863059866239
+        },
+        {
+          "chord_mm": 0.6036803263413433,
+          "arc_mm": 0.6036897434792446,
+          "endpoints": [
+            [
+              0.301789778070405,
+              31.198774533292006,
+              0.0
+            ],
+            [
+              -0.301890502487699,
+              31.198539422936257,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            31.20023412491223,
+            31.200000000000003
+          ],
+          "circle_center_offset_mm": 0.01210086306018519
+        },
+        {
+          "chord_mm": 0.603680326341343,
+          "arc_mm": 0.6036897434792482,
+          "endpoints": [
+            [
+              -2.961023415709663,
+              31.059410003748567,
+              0.0
+            ],
+            [
+              -3.561372096802575,
+              30.996074409320222,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            31.200234124912228,
+            31.2
+          ],
+          "circle_center_offset_mm": 0.012100863060583259
+        },
+        {
+          "chord_mm": 0.6036803263413446,
+          "arc_mm": 0.6036897434792314,
+          "endpoints": [
+            [
+              -6.191395017313232,
+              30.57975207860467,
+              0.0
+            ],
+            [
+              -6.781834553159859,
+              30.454009918130104,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            31.20023412491223,
+            31.199999999999996
+          ],
+          "circle_center_offset_mm": 0.01210086305988746
+        },
+        {
+          "chord_mm": 0.603680326341343,
+          "arc_mm": 0.6036897434792411,
+          "endpoints": [
+            [
+              -9.35393239947442,
+              29.765055990463054,
+              0.0
+            ],
+            [
+              -9.92799381096261,
+              29.578284921365675,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            31.20023412491223,
+            31.2
+          ],
+          "circle_center_offset_mm": 0.01210086305974647
+        },
+        {
+          "chord_mm": 0.6036803263413449,
+          "arc_mm": 0.6036897434792576,
+          "endpoints": [
+            [
+              -12.413986140830765,
+              28.62424772015152,
+              0.0
+            ],
+            [
+              -12.965379891006183,
+              28.378494045348717,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            31.20023412491223,
+            31.200000000000003
+          ],
+          "circle_center_offset_mm": 0.012100863060228806
+        },
+        {
+          "chord_mm": 0.6036803263413453,
+          "arc_mm": 0.6036897434792357,
+          "endpoints": [
+            [
+              -15.33802965223456,
+              27.169826201809073,
+              0.0
+            ],
+            [
+              -15.86071455578372,
+              26.867782449989242,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            31.200234124912228,
+            31.199999999999992
+          ],
+          "circle_center_offset_mm": 0.012100863060735448
+        },
+        {
+          "chord_mm": 0.6036803263413425,
+          "arc_mm": 0.6036897434792299,
+          "endpoints": [
+            [
+              -18.094026501079426,
+              25.417726381947958,
+              0.0
+            ],
+            [
+              -18.582275912820194,
+              25.062701807662762,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            31.20023412491223,
+            31.2
+          ],
+          "circle_center_offset_mm": 0.012100863059143886
+        },
+        {
+          "chord_mm": 0.6036803263413445,
+          "arc_mm": 0.6036897434792511,
+          "endpoints": [
+            [
+              -20.651781409159984,
+              23.387144632845025,
+              0.0
+            ],
+            [
+              -21.100245966364575,
+              22.983028959624,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            31.20023412491223,
+            31.2
+          ],
+          "circle_center_offset_mm": 0.012100863060717415
+        },
+        {
+          "chord_mm": 0.6036803263413326,
+          "arc_mm": 0.6036897434792393,
+          "endpoints": [
+            [
+              -22.9832710784587,
+              21.100328433069976,
+              0.0
+            ],
+            [
+              -23.38703730959113,
+              20.65154923679558,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            31.200234124912225,
+            31.199999999999996
+          ],
+          "circle_center_offset_mm": 0.012100863059715895
+        },
+        {
+          "chord_mm": 0.6036803263413428,
+          "arc_mm": 0.6036897434792409,
+          "endpoints": [
+            [
+              -25.062951220263148,
+              18.582332619454633,
+              0.0
+            ],
+            [
+              -25.417595378001625,
+              18.093806818914317,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            31.20023412491223,
+            31.199999999999996
+          ],
+          "circle_center_offset_mm": 0.012100863059941238
+        },
+        {
+          "chord_mm": 0.6036803263413424,
+          "arc_mm": 0.6036897434792534,
+          "endpoints": [
+            [
+              -26.868036423738666,
+              15.860744881057451,
+              0.0
+            ],
+            [
+              -27.169672952476944,
+              15.337824867152541,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            31.20023412491223,
+            31.200000000000003
+          ],
+          "circle_center_offset_mm": 0.012100863058988809
+        },
+        {
+          "chord_mm": 0.6036803263413463,
+          "arc_mm": 0.6036897434792481,
+          "endpoints": [
+            [
+              -28.378749797657612,
+              12.96538350266915,
+              0.0
+            ],
+            [
+              -28.624073904465334,
+              12.41379849650003,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            31.200234124912225,
+            31.199999999999996
+          ],
+          "circle_center_offset_mm": 0.012100863060786345
+        },
+        {
+          "chord_mm": 0.6036803263413442,
+          "arc_mm": 0.6036897434792371,
+          "endpoints": [
+            [
+              -29.578539650158252,
+              9.92797066944468,
+              0.0
+            ],
+            [
+              -29.764863512783855,
+              9.353763951765526,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            31.20023412491223,
+            31.2
+          ],
+          "circle_center_offset_mm": 0.012100863060936667
+        },
+        {
+          "chord_mm": 0.6036803263413442,
+          "arc_mm": 0.6036897434792561,
+          "endpoints": [
+            [
+              -30.4542608325444,
+              6.781784912004357,
+              0.0
+            ],
+            [
+              -30.579543047758186,
+              6.191247611774543,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            31.20023412491223,
+            31.2
+          ],
+          "circle_center_offset_mm": 0.01210086306049939
+        },
+        {
+          "chord_mm": 0.6036803263413434,
+          "arc_mm": 0.6036897434792502,
+          "endpoints": [
+            [
+              -30.996318760285398,
+              3.561296499888372,
+              0.0
+            ],
+            [
+              -31.059186709920496,
+              2.96089866734709,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            31.20023412491223,
+            31.199999999999996
+          ],
+          "circle_center_offset_mm": 0.012100863059868001
+        },
+        {
+          "chord_mm": 0.6036803263413433,
+          "arc_mm": 0.6036897434792446,
+          "endpoints": [
+            [
+              -31.19877453329201,
+              0.301789778070407,
+              0.0
+            ],
+            [
+              -31.198539422936257,
+              -0.301890502487697,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            31.200234124912235,
+            31.2
+          ],
+          "circle_center_offset_mm": 0.01210086306018713
+        },
+        {
+          "chord_mm": 0.6036803263413444,
+          "arc_mm": 0.6036897434792495,
+          "endpoints": [
+            [
+              -31.059410003748575,
+              -2.961023415709654,
+              0.0
+            ],
+            [
+              -30.996074409320226,
+              -3.561372096802567,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            31.200234124912235,
+            31.200000000000003
+          ],
+          "circle_center_offset_mm": 0.012100863059228056
+        },
+        {
+          "chord_mm": 0.6036803263413446,
+          "arc_mm": 0.6036897434792314,
+          "endpoints": [
+            [
+              -30.57975207860467,
+              -6.19139501731323,
+              0.0
+            ],
+            [
+              -30.454009918130104,
+              -6.781834553159857,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            31.20023412491223,
+            31.199999999999996
+          ],
+          "circle_center_offset_mm": 0.012100863059889196
+        },
+        {
+          "chord_mm": 0.6036803263413447,
+          "arc_mm": 0.6036897434792411,
+          "endpoints": [
+            [
+              -29.765055990463054,
+              -9.353932399474417,
+              0.0
+            ],
+            [
+              -29.578284921365675,
+              -9.927993810962608,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            31.20023412491223,
+            31.2
+          ],
+          "circle_center_offset_mm": 0.012100863059748149
+        },
+        {
+          "chord_mm": 0.6036803263413464,
+          "arc_mm": 0.603689743479245,
+          "endpoints": [
+            [
+              -28.624247720151523,
+              -12.413986140830758,
+              0.0
+            ],
+            [
+              -28.378494045348717,
+              -12.965379891006176,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            31.20023412491223,
+            31.2
+          ],
+          "circle_center_offset_mm": 0.012100863060129067
+        },
+        {
+          "chord_mm": 0.6036803263413435,
+          "arc_mm": 0.6036897434792455,
+          "endpoints": [
+            [
+              -27.169826201809073,
+              -15.338029652234557,
+              0.0
+            ],
+            [
+              -26.867782449989246,
+              -15.860714555783716,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            31.200234124912225,
+            31.199999999999992
+          ],
+          "circle_center_offset_mm": 0.012100863061267052
+        },
+        {
+          "chord_mm": 0.6036803263413404,
+          "arc_mm": 0.603689743479254,
+          "endpoints": [
+            [
+              -25.417726381947958,
+              -18.094026501079426,
+              0.0
+            ],
+            [
+              -25.062701807662766,
+              -18.582275912820194,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            31.20023412491223,
+            31.2
+          ],
+          "circle_center_offset_mm": 0.01210086306013061
+        },
+        {
+          "chord_mm": 0.6036803263413419,
+          "arc_mm": 0.60368974347923,
+          "endpoints": [
+            [
+              -23.38714463284503,
+              -20.651781409159987,
+              0.0
+            ],
+            [
+              -22.983028959624004,
+              -21.100245966364575,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            31.20023412491224,
+            31.200000000000003
+          ],
+          "circle_center_offset_mm": 0.012100863061582631
+        },
+        {
+          "chord_mm": 0.6036803263413352,
+          "arc_mm": 0.6036897434792393,
+          "endpoints": [
+            [
+              -21.100328433069983,
+              -22.9832710784587,
+              0.0
+            ],
+            [
+              -20.651549236795585,
+              -23.38703730959113,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            31.20023412491223,
+            31.199999999999996
+          ],
+          "circle_center_offset_mm": 0.012100863059721226
+        },
+        {
+          "chord_mm": 0.6036803263413428,
+          "arc_mm": 0.6036897434792409,
+          "endpoints": [
+            [
+              -18.582332619454633,
+              -25.062951220263148,
+              0.0
+            ],
+            [
+              -18.093806818914317,
+              -25.417595378001625,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            31.20023412491223,
+            31.199999999999996
+          ],
+          "circle_center_offset_mm": 0.012100863059941238
+        },
+        {
+          "chord_mm": 0.6036803263413439,
+          "arc_mm": 0.6036897434792444,
+          "endpoints": [
+            [
+              -15.860744881057457,
+              -26.868036423738666,
+              0.0
+            ],
+            [
+              -15.337824867152545,
+              -27.169672952476944,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            31.200234124912235,
+            31.200000000000003
+          ],
+          "circle_center_offset_mm": 0.012100863060002258
+        },
+        {
+          "chord_mm": 0.6036803263413446,
+          "arc_mm": 0.6036897434792432,
+          "endpoints": [
+            [
+              -12.965383502669162,
+              -28.378749797657612,
+              0.0
+            ],
+            [
+              -12.413798496500045,
+              -28.624073904465334,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            31.20023412491223,
+            31.200000000000003
+          ],
+          "circle_center_offset_mm": 0.012100863059435998
+        },
+        {
+          "chord_mm": 0.6036803263413442,
+          "arc_mm": 0.6036897434792371,
+          "endpoints": [
+            [
+              -9.92797066944468,
+              -29.578539650158252,
+              0.0
+            ],
+            [
+              -9.353763951765526,
+              -29.764863512783855,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            31.20023412491223,
+            31.2
+          ],
+          "circle_center_offset_mm": 0.012100863060940053
+        },
+        {
+          "chord_mm": 0.6036803263413425,
+          "arc_mm": 0.6036897434792561,
+          "endpoints": [
+            [
+              -6.781784912004358,
+              -30.4542608325444,
+              0.0
+            ],
+            [
+              -6.191247611774545,
+              -30.579543047758186,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            31.200234124912235,
+            31.2
+          ],
+          "circle_center_offset_mm": 0.012100863060501135
+        },
+        {
+          "chord_mm": 0.6036803263413437,
+          "arc_mm": 0.6036897434792515,
+          "endpoints": [
+            [
+              -3.561296499888388,
+              -30.996318760285398,
+              0.0
+            ],
+            [
+              -2.960898667347106,
+              -31.0591867099205,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            31.20023412491223,
+            31.2
+          ],
+          "circle_center_offset_mm": 0.012100863059882862
+        },
+        {
+          "chord_mm": 0.6036803263413433,
+          "arc_mm": 0.6036897434792446,
+          "endpoints": [
+            [
+              -0.301789778070409,
+              -31.19877453329201,
+              0.0
+            ],
+            [
+              0.301890502487695,
+              -31.198539422936257,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            31.200234124912235,
+            31.2
+          ],
+          "circle_center_offset_mm": 0.01210086306018902
+        },
+        {
+          "chord_mm": 0.6036803263413448,
+          "arc_mm": 0.6036897434792495,
+          "endpoints": [
+            [
+              2.961023415709652,
+              -31.059410003748575,
+              0.0
+            ],
+            [
+              3.561372096802565,
+              -30.996074409320226,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            31.200234124912235,
+            31.200000000000003
+          ],
+          "circle_center_offset_mm": 0.012100863059230261
+        },
+        {
+          "chord_mm": 0.603680326341343,
+          "arc_mm": 0.6036897434792479,
+          "endpoints": [
+            [
+              6.191395017313215,
+              -30.57975207860467,
+              0.0
+            ],
+            [
+              6.781834553159841,
+              -30.454009918130108,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            31.200234124912228,
+            31.199999999999996
+          ],
+          "circle_center_offset_mm": 0.012100863060113813
+        },
+        {
+          "chord_mm": 0.603680326341343,
+          "arc_mm": 0.6036897434792411,
+          "endpoints": [
+            [
+              9.353932399474417,
+              -29.765055990463054,
+              0.0
+            ],
+            [
+              9.927993810962606,
+              -29.578284921365675,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            31.20023412491223,
+            31.2
+          ],
+          "circle_center_offset_mm": 0.012100863059749837
+        },
+        {
+          "chord_mm": 0.6036803263413449,
+          "arc_mm": 0.6036897434792506,
+          "endpoints": [
+            [
+              12.413986140830758,
+              -28.62424772015152,
+              0.0
+            ],
+            [
+              12.965379891006176,
+              -28.378494045348717,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            31.200234124912228,
+            31.2
+          ],
+          "circle_center_offset_mm": 0.01210086306018881
+        },
+        {
+          "chord_mm": 0.6036803263413453,
+          "arc_mm": 0.6036897434792571,
+          "endpoints": [
+            [
+              15.338029652234546,
+              -27.169826201809087,
+              0.0
+            ],
+            [
+              15.860714555783705,
+              -26.867782449989257,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            31.20023412491223,
+            31.199999999999996
+          ],
+          "circle_center_offset_mm": 0.012100863061275748
+        },
+        {
+          "chord_mm": 0.6036803263413404,
+          "arc_mm": 0.603689743479254,
+          "endpoints": [
+            [
+              18.094026501079423,
+              -25.417726381947958,
+              0.0
+            ],
+            [
+              18.58227591282019,
+              -25.062701807662766,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            31.20023412491223,
+            31.2
+          ],
+          "circle_center_offset_mm": 0.01210086306013346
+        },
+        {
+          "chord_mm": 0.6036803263413422,
+          "arc_mm": 0.60368974347923,
+          "endpoints": [
+            [
+              20.651781409159984,
+              -23.38714463284503,
+              0.0
+            ],
+            [
+              21.100245966364575,
+              -22.983028959624008,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            31.200234124912235,
+            31.200000000000006
+          ],
+          "circle_center_offset_mm": 0.012100863061585245
+        },
+        {
+          "chord_mm": 0.6036803263413326,
+          "arc_mm": 0.6036897434792181,
+          "endpoints": [
+            [
+              22.983271078458692,
+              -21.10032843306999,
+              0.0
+            ],
+            [
+              23.387037309591122,
+              -20.651549236795596,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            31.20023412491223,
+            31.2
+          ],
+          "circle_center_offset_mm": 0.012100863059790072
+        },
+        {
+          "chord_mm": 0.6036803263413372,
+          "arc_mm": 0.6036897434792349,
+          "endpoints": [
+            [
+              25.06295122026315,
+              -18.582332619454633,
+              0.0
+            ],
+            [
+              25.41759537800163,
+              -18.093806818914324,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            31.200234124912235,
+            31.200000000000003
+          ],
+          "circle_center_offset_mm": 0.012100863058766727
+        },
+        {
+          "chord_mm": 0.6036803263413439,
+          "arc_mm": 0.6036897434792444,
+          "endpoints": [
+            [
+              26.868036423738666,
+              -15.860744881057457,
+              0.0
+            ],
+            [
+              27.169672952476944,
+              -15.337824867152545,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            31.200234124912235,
+            31.200000000000003
+          ],
+          "circle_center_offset_mm": 0.012100863060002258
+        },
+        {
+          "chord_mm": 0.603680326341343,
+          "arc_mm": 0.6036897434792413,
+          "endpoints": [
+            [
+              28.37874979765761,
+              -12.965383502669162,
+              0.0
+            ],
+            [
+              28.62407390446533,
+              -12.413798496500046,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            31.200234124912228,
+            31.2
+          ],
+          "circle_center_offset_mm": 0.012100863060691773
+        },
+        {
+          "chord_mm": 0.6036803263413442,
+          "arc_mm": 0.6036897434792371,
+          "endpoints": [
+            [
+              29.578539650158252,
+              -9.927970669444683,
+              0.0
+            ],
+            [
+              29.764863512783855,
+              -9.35376395176553,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            31.20023412491223,
+            31.2
+          ],
+          "circle_center_offset_mm": 0.012100863060940053
+        },
+        {
+          "chord_mm": 0.6036803263413433,
+          "arc_mm": 0.6036897434792561,
+          "endpoints": [
+            [
+              30.4542608325444,
+              -6.781784912004361,
+              0.0
+            ],
+            [
+              30.579543047758186,
+              -6.191247611774547,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            31.200234124912235,
+            31.2
+          ],
+          "circle_center_offset_mm": 0.012100863060503743
+        },
+        {
+          "chord_mm": 0.6036803263413429,
+          "arc_mm": 0.6036897434792502,
+          "endpoints": [
+            [
+              30.996318760285398,
+              -3.56129649988839,
+              0.0
+            ],
+            [
+              31.059186709920496,
+              -2.960898667347108,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            31.20023412491223,
+            31.2
+          ],
+          "circle_center_offset_mm": 0.012100863059885692
+        }
+      ]
+    },
+    {
+      "minimum_actual_flank_endpoint_radius_mm": 26.540500151183025,
+      "outline": "Output55Outline",
+      "teeth": 55,
+      "radius_mm": 28.700000000217276,
+      "minimum_actual_chord_mm": 0.5959769695917041,
+      "maximum_actual_chord_mm": 0.5959769695917154,
+      "minimum_actual_arc_mm": 0.5959876782353436,
+      "tips": [
+        {
+          "chord_mm": 0.5959769695917108,
+          "arc_mm": 0.5959876782353732,
+          "endpoints": [
+            [
+              28.698748111841066,
+              -0.297926071758411,
+              0.0
+            ],
+            [
+              28.698452322486933,
+              0.298050824431682,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.700294478125734,
+            28.7
+          ],
+          "circle_center_offset_mm": 0.014181755617067507
+        },
+        {
+          "chord_mm": 0.5959769695917103,
+          "arc_mm": 0.595987678235348,
+          "endpoints": [
+            [
+              28.545643089445687,
+              2.975426648586131,
+              0.0
+            ],
+            [
+              28.47741298146595,
+              3.567485092195199,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.700294478125738,
+            28.700000000000006
+          ],
+          "circle_center_offset_mm": 0.014181755615635418
+        },
+        {
+          "chord_mm": 0.5959769695917093,
+          "arc_mm": 0.5959876782353594,
+          "endpoints": [
+            [
+              28.02040195444463,
+              6.209990132237751,
+              0.0
+            ],
+            [
+              27.885127011641302,
+              6.790411736016654,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.700294478125738,
+            28.700000000000003
+          ],
+          "circle_center_offset_mm": 0.014181755615094759
+        },
+        {
+          "chord_mm": 0.5959769695917148,
+          "arc_mm": 0.595987678235374,
+          "endpoints": [
+            [
+              27.129872028285433,
+              9.363596897559736,
+              0.0
+            ],
+            [
+              26.92931576641432,
+              9.92481497826278,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.700294478125738,
+            28.700000000000003
+          ],
+          "circle_center_offset_mm": 0.014181755614904323
+        },
+        {
+          "chord_mm": 0.5959769695917102,
+          "arc_mm": 0.5959876782353747,
+          "endpoints": [
+            [
+              25.885662730445574,
+              12.395134857546147,
+              0.0
+            ],
+            [
+              25.622439707091445,
+              12.929833079218923,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.700294478125734,
+            28.700000000000003
+          ],
+          "circle_center_offset_mm": 0.014181755616880941
+        },
+        {
+          "chord_mm": 0.5959769695917149,
+          "arc_mm": 0.5959876782353655,
+          "endpoints": [
+            [
+              24.303994231895295,
+              15.265083278748762,
+              0.0
+            ],
+            [
+              23.98153596171529,
+              15.766291032356229,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.70029447812574,
+            28.700000000000003
+          ],
+          "circle_center_offset_mm": 0.014181755614613876
+        },
+        {
+          "chord_mm": 0.5959769695917116,
+          "arc_mm": 0.5959876782353536,
+          "endpoints": [
+            [
+              22.405486000363403,
+              17.93602799447677,
+              0.0
+            ],
+            [
+              22.0279962200457,
+              18.397211270452182,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.70029447812574,
+            28.700000000000006
+          ],
+          "circle_center_offset_mm": 0.014181755616143259
+        },
+        {
+          "chord_mm": 0.5959769695917041,
+          "arc_mm": 0.5959876782353665,
+          "endpoints": [
+            [
+              20.214887994042066,
+              20.373149155677154,
+              0.0
+            ],
+            [
+              19.78728786016932,
+              20.788295724729245,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.700294478125738,
+            28.700000000000006
+          ],
+          "circle_center_offset_mm": 0.014181755614740067
+        },
+        {
+          "chord_mm": 0.5959769695917131,
+          "arc_mm": 0.5959876782353617,
+          "endpoints": [
+            [
+              17.760758008031573,
+              22.5446751609172,
+              0.0
+            ],
+            [
+              17.28862194227893,
+              22.908372952633535,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.700294478125738,
+            28.700000000000003
+          ],
+          "circle_center_offset_mm": 0.014181755614939992
+        },
+        {
+          "chord_mm": 0.5959769695917144,
+          "arc_mm": 0.5959876782353714,
+          "endpoints": [
+            [
+              15.075089379807661,
+              24.422296847797604,
+              0.0
+            ],
+            [
+              14.564572397831267,
+              24.729804505259068,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.700294478125734,
+            28.700000000000003
+          ],
+          "circle_center_offset_mm": 0.014181755615326681
+        },
+        {
+          "chord_mm": 0.595976969591713,
+          "arc_mm": 0.5959876782353742,
+          "endpoints": [
+            [
+              12.192893907140059,
+              25.981536546177583,
+              0.0
+            ],
+            [
+              11.650651378535077,
+              26.22884523679681,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.700294478125734,
+            28.700000000000003
+          ],
+          "circle_center_offset_mm": 0.014181755617411291
+        },
+        {
+          "chord_mm": 0.5959769695917088,
+          "arc_mm": 0.5959876782353627,
+          "endpoints": [
+            [
+              9.151745415764879,
+              27.20206718203896,
+              0.0
+            ],
+            [
+              8.58484630114475,
+              27.385952858823835,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.700294478125734,
+            28.700000000000003
+          ],
+          "circle_center_offset_mm": 0.014181755614815727
+        },
+        {
+          "chord_mm": 0.5959769695917085,
+          "arc_mm": 0.5959876782353689,
+          "endpoints": [
+            [
+              5.991289927104406,
+              28.06797727198225,
+              0.0
+            ],
+            [
+              5.407124623388659,
+              28.18604270391898,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.70029447812574,
+            28.700000000000003
+          ],
+          "circle_center_offset_mm": 0.014181755616933234
+        },
+        {
+          "chord_mm": 0.5959769695917102,
+          "arc_mm": 0.5959876782353629,
+          "endpoints": [
+            [
+              2.752728811747068,
+              28.567978353746206,
+              0.0
+            ],
+            [
+              2.158912807035331,
+              28.618684377371693,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.70029447812573,
+            28.699999999999996
+          ],
+          "circle_center_offset_mm": 0.01418175561526467
+        },
+        {
+          "chord_mm": 0.5959769695917105,
+          "arc_mm": 0.5959876782353599,
+          "endpoints": [
+            [
+              -0.521718333427546,
+              28.695552148576972,
+              0.0
+            ],
+            [
+              -1.117443739389318,
+              28.67823773332838,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.70029447812574,
+            28.700000000000003
+          ],
+          "circle_center_offset_mm": 0.014181755614868872
+        },
+        {
+          "chord_mm": 0.5959769695917108,
+          "arc_mm": 0.5959876782353666,
+          "endpoints": [
+            [
+              -3.789364082260573,
+              28.44903553695992,
+              0.0
+            ],
+            [
+              -4.379232697761077,
+              28.36392640271901,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.70029447812574,
+            28.700000000000006
+          ],
+          "circle_center_offset_mm": 0.014181755614936616
+        },
+        {
+          "chord_mm": 0.5959769695917119,
+          "arc_mm": 0.5959876782353584,
+          "endpoints": [
+            [
+              -7.007609675195853,
+              27.831642239926055,
+              0.0
+            ],
+            [
+              -7.583931660744257,
+              27.679847914415298,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.700294478125738,
+            28.7
+          ],
+          "circle_center_offset_mm": 0.014181755617577254
+        },
+        {
+          "chord_mm": 0.5959769695917111,
+          "arc_mm": 0.5959876782353585,
+          "endpoints": [
+            [
+              -10.13450035925716,
+              26.851420923283577,
+              0.0
+            ],
+            [
+              -10.689762476400956,
+              26.634920277675512,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.700294478125734,
+            28.700000000000003
+          ],
+          "circle_center_offset_mm": 0.014181755615152796
+        },
+        {
+          "chord_mm": 0.5959769695917092,
+          "arc_mm": 0.5959876782353604,
+          "endpoints": [
+            [
+              -13.129272332414772,
+              25.52115027095022,
+              0.0
+            ],
+            [
+              -13.656235890293022,
+              25.24276572225541,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.700294478125734,
+            28.7
+          ],
+          "circle_center_offset_mm": 0.014181755615004068
+        },
+        {
+          "chord_mm": 0.5959769695917115,
+          "arc_mm": 0.5959876782353525,
+          "endpoints": [
+            [
+              -15.952884162085097,
+              23.858172395265925,
+              0.0
+            ],
+            [
+              -16.444679384833968,
+              23.521533111810907,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.700294478125734,
+            28.700000000000003
+          ],
+          "circle_center_offset_mm": 0.014181755614955834
+        },
+        {
+          "chord_mm": 0.5959769695917138,
+          "arc_mm": 0.5959876782353675,
+          "endpoints": [
+            [
+              -18.568525749910645,
+              21.884166756037107,
+              0.0
+            ],
+            [
+              -19.01874133469774,
+              21.493661345705142,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.70029447812573,
+            28.699999999999996
+          ],
+          "circle_center_offset_mm": 0.014181755618171187
+        },
+        {
+          "chord_mm": 0.5959769695917111,
+          "arc_mm": 0.5959876782353547,
+          "endpoints": [
+            [
+              -20.942098207685834,
+              19.62486753562368,
+              0.0
+            ],
+            [
+              -21.34486490584746,
+              19.185586833639512,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.700294478125734,
+            28.700000000000003
+          ],
+          "circle_center_offset_mm": 0.01418175561618844
+        },
+        {
+          "chord_mm": 0.5959769695917072,
+          "arc_mm": 0.595987678235362,
+          "endpoints": [
+            [
+              -23.042658388512336,
+              17.109728154516567,
+              0.0
+            ],
+            [
+              -23.392725520185664,
+              16.627398856623806,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.70029447812574,
+            28.700000000000006
+          ],
+          "circle_center_offset_mm": 0.014181755615068655
+        },
+        {
+          "chord_mm": 0.5959769695917073,
+          "arc_mm": 0.5959876782353695,
+          "endpoints": [
+            [
+              -24.84282227804028,
+              14.371537300958458,
+              0.0
+            ],
+            [
+              -25.135626182805275,
+              13.852447307182729,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.700294478125738,
+            28.700000000000003
+          ],
+          "circle_center_offset_mm": 0.014181755615749969
+        },
+        {
+          "chord_mm": 0.595976969591709,
+          "arc_mm": 0.5959876782353686,
+          "endpoints": [
+            [
+              -26.319121986973833,
+              11.44599148024868,
+              0.0
+            ],
+            [
+              -26.550845518146026,
+              10.896907922504681,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.70029447812574,
+            28.700000000000003
+          ],
+          "circle_center_offset_mm": 0.014181755616724107
+        },
+        {
+          "chord_mm": 0.5959769695917134,
+          "arc_mm": 0.5959876782353646,
+          "endpoints": [
+            [
+              -27.452311690897602,
+              8.371229656205912,
+              0.0
+            ],
+            [
+              -27.619933977872698,
+              7.799310678383913,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.700294478125734,
+            28.700000000000003
+          ],
+          "circle_center_offset_mm": 0.014181755615165307
+        },
+        {
+          "chord_mm": 0.5959769695917104,
+          "arc_mm": 0.5959876782353635,
+          "endpoints": [
+            [
+              -28.22761852903066,
+              5.187336051448701,
+              0.0
+            ],
+            [
+              -28.328954358952686,
+              4.600037492061967,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.700294478125734,
+            28.700000000000003
+          ],
+          "circle_center_offset_mm": 0.014181755614993354
+        },
+        {
+          "chord_mm": 0.595976969591711,
+          "arc_mm": 0.5959876782353739,
+          "endpoints": [
+            [
+              -28.634935191058936,
+              1.935817588252806,
+              0.0
+            ],
+            [
+              -28.668663496411682,
+              1.34079578218033,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.70029447812573,
+            28.700000000000003
+          ],
+          "circle_center_offset_mm": 0.014181755615517941
+        },
+        {
+          "chord_mm": 0.5959769695917111,
+          "arc_mm": 0.5959876782353677,
+          "endpoints": [
+            [
+              -28.668951681382346,
+              -1.340937217657429,
+              0.0
+            ],
+            [
+              -28.63463276212474,
+              -1.935925251204919,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.700294478125734,
+            28.700000000000003
+          ],
+          "circle_center_offset_mm": 0.014181755614766594
+        },
+        {
+          "chord_mm": 0.5959769695917115,
+          "arc_mm": 0.5959876782353735,
+          "endpoints": [
+            [
+              -28.329224543028,
+              -4.600210856236311,
+              0.0
+            ],
+            [
+              -28.227305798756582,
+              -5.187408538324598,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.700294478125734,
+            28.7
+          ],
+          "circle_center_offset_mm": 0.014181755615409304
+        },
+        {
+          "chord_mm": 0.5959769695917098,
+          "arc_mm": 0.5959876782353541,
+          "endpoints": [
+            [
+              -27.620182638790048,
+              -7.799513711188364,
+              0.0
+            ],
+            [
+              -27.451992736201035,
+              -8.371266022028308,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.700294478125734,
+            28.7
+          ],
+          "circle_center_offset_mm": 0.01418175561594493
+        },
+        {
+          "chord_mm": 0.5959769695917094,
+          "arc_mm": 0.595987678235352,
+          "endpoints": [
+            [
+              -26.551069414230078,
+              -10.897137977096135,
+              0.0
+            ],
+            [
+              -26.31880096591702,
+              -11.44599125093347,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.700294478125738,
+            28.700000000000003
+          ],
+          "circle_center_offset_mm": 0.014181755616565827
+        },
+        {
+          "chord_mm": 0.5959769695917142,
+          "arc_mm": 0.5959876782353639,
+          "endpoints": [
+            [
+              -25.135822395228168,
+              -13.852701384447755,
+              0.0
+            ],
+            [
+              -24.842503375623636,
+              -14.371500479495115,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.700294478125738,
+            28.700000000000003
+          ],
+          "circle_center_offset_mm": 0.014181755615572235
+        },
+        {
+          "chord_mm": 0.5959769695917052,
+          "arc_mm": 0.5959876782353519,
+          "endpoints": [
+            [
+              -23.392891491018382,
+              -16.62767364427671,
+              0.0
+            ],
+            [
+              -23.04234576211656,
+              -17.109655220929184,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.700294478125734,
+            28.700000000000006
+          ],
+          "circle_center_offset_mm": 0.014181755615688053
+        },
+        {
+          "chord_mm": 0.5959769695917048,
+          "arc_mm": 0.5959876782353436,
+          "endpoints": [
+            [
+              -21.3449984714064,
+              -19.185878749402995,
+              0.0
+            ],
+            [
+              -20.941795932874108,
+              -19.624759440713092,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.70029447812574,
+            28.700000000000003
+          ],
+          "circle_center_offset_mm": 0.014181755615168032
+        },
+        {
+          "chord_mm": 0.5959769695917142,
+          "arc_mm": 0.5959876782353571,
+          "endpoints": [
+            [
+              -19.01884075375157,
+              -21.49396658401081,
+              0.0
+            ],
+            [
+              -18.56823776729739,
+              -21.884024908985804,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.70029447812574,
+            28.700000000000006
+          ],
+          "circle_center_offset_mm": 0.014181755615909846
+        },
+        {
+          "chord_mm": 0.5959769695917153,
+          "arc_mm": 0.5959876782353702,
+          "endpoints": [
+            [
+              -16.444743361303274,
+              -23.521847693410628,
+              0.0
+            ],
+            [
+              -15.952614225964094,
+              -23.857998645267134,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.70029447812574,
+            28.700000000000006
+          ],
+          "circle_center_offset_mm": 0.014181755615955433
+        },
+        {
+          "chord_mm": 0.5959769695917088,
+          "arc_mm": 0.595987678235359,
+          "endpoints": [
+            [
+              -13.65626359014669,
+              -25.243085546096943,
+              0.0
+            ],
+            [
+              -13.129023961816173,
+              -25.52094688310088,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.700294478125734,
+            28.699999999999996
+          ],
+          "circle_center_offset_mm": 0.014181755616203611
+        },
+        {
+          "chord_mm": 0.5959769695917077,
+          "arc_mm": 0.595987678235368,
+          "endpoints": [
+            [
+              -10.689753538529043,
+              -26.635241174365973,
+              0.0
+            ],
+            [
+              -10.134276792071569,
+              -26.851190549055353,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.700294478125738,
+            28.7
+          ],
+          "circle_center_offset_mm": 0.014181755615620024
+        },
+        {
+          "chord_mm": 0.5959769695917115,
+          "arc_mm": 0.5959876782353736,
+          "endpoints": [
+            [
+              -7.583886201665592,
+              -27.68016570057558,
+              0.0
+            ],
+            [
+              -7.007413825963428,
+              -27.831387882599323,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.700294478125734,
+            28.699999999999996
+          ],
+          "circle_center_offset_mm": 0.014181755616087565
+        },
+        {
+          "chord_mm": 0.5959769695917105,
+          "arc_mm": 0.59598767823536,
+          "endpoints": [
+            [
+              -4.379151310104244,
+              -28.364236935520523,
+              0.0
+            ],
+            [
+              -3.789198504175547,
+              -28.44876051247143,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.70029447812573,
+            28.7
+          ],
+          "circle_center_offset_mm": 0.014181755617684234
+        },
+        {
+          "chord_mm": 0.5959769695917116,
+          "arc_mm": 0.5959876782353503,
+          "endpoints": [
+            [
+              -1.117327484166917,
+              -28.67853696450117,
+              0.0
+            ],
+            [
+              -0.521585185053502,
+              -28.69526004229153,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.700294478125738,
+            28.700000000000003
+          ],
+          "circle_center_offset_mm": 0.014181755615665283
+        },
+        {
+          "chord_mm": 0.595976969591711,
+          "arc_mm": 0.5959876782353523,
+          "endpoints": [
+            [
+              2.159062414258688,
+              -28.6189684059798,
+              0.0
+            ],
+            [
+              2.75282779461745,
+              -28.567672973715965,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.700294478125734,
+            28.7
+          ],
+          "circle_center_offset_mm": 0.014181755614641366
+        },
+        {
+          "chord_mm": 0.5959769695917113,
+          "arc_mm": 0.5959876782353618,
+          "endpoints": [
+            [
+              5.407305632254021,
+              -28.186307827215124,
+              0.0
+            ],
+            [
+              5.991353454078037,
+              -28.067662599302906,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.700294478125738,
+            28.7
+          ],
+          "circle_center_offset_mm": 0.014181755616802454
+        },
+        {
+          "chord_mm": 0.595976969591709,
+          "arc_mm": 0.5959876782353525,
+          "endpoints": [
+            [
+              8.585056351924763,
+              -27.3861956205204,
+              0.0
+            ],
+            [
+              9.151772658670527,
+              -27.20174731895013,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.700294478125734,
+            28.7
+          ],
+          "circle_center_offset_mm": 0.014181755615011662
+        },
+        {
+          "chord_mm": 0.5959769695917136,
+          "arc_mm": 0.5959876782353538,
+          "endpoints": [
+            [
+              11.650887732896571,
+              -26.229062472123836,
+              0.0
+            ],
+            [
+              12.192884510824765,
+              -25.981215662583793,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.700294478125738,
+            28.7
+          ],
+          "circle_center_offset_mm": 0.01418175561694563
+        },
+        {
+          "chord_mm": 0.5959769695917154,
+          "arc_mm": 0.5959876782353802,
+          "endpoints": [
+            [
+              14.564831974533682,
+              -24.729993382221846,
+              0.0
+            ],
+            [
+              15.075043466766768,
+              -24.42197912690724,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.70029447812574,
+            28.700000000000006
+          ],
+          "circle_center_offset_mm": 0.014181755615654872
+        },
+        {
+          "chord_mm": 0.5959769695917099,
+          "arc_mm": 0.5959876782353666,
+          "endpoints": [
+            [
+              17.28890135734298,
+              -22.908531008932,
+              0.0
+            ],
+            [
+              17.760676176811778,
+              -22.54436474470795,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.70029447812574,
+            28.700000000000003
+          ],
+          "circle_center_offset_mm": 0.014181755617084256
+        },
+        {
+          "chord_mm": 0.5959769695917108,
+          "arc_mm": 0.5959876782353464,
+          "endpoints": [
+            [
+              19.787583470992338,
+              -20.78842089985781,
+              0.0
+            ],
+            [
+              20.214771311438483,
+              -20.372850090899004,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.70029447812573,
+            28.699999999999996
+          ],
+          "circle_center_offset_mm": 0.0141817556141302
+        },
+        {
+          "chord_mm": 0.5959769695917084,
+          "arc_mm": 0.5959876782353615,
+          "endpoints": [
+            [
+              22.028304172888532,
+              -18.397301932561646,
+              0.0
+            ],
+            [
+              22.4053359875122,
+              -17.9357441798965,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.700294478125738,
+            28.700000000000006
+          ],
+          "circle_center_offset_mm": 0.014181755615820803
+        },
+        {
+          "chord_mm": 0.5959769695917126,
+          "arc_mm": 0.5959876782353619,
+          "endpoints": [
+            [
+              23.981852241941674,
+              -15.766345999527342,
+              0.0
+            ],
+            [
+              24.3038128444434,
+              -15.26481841432345,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.700294478125738,
+            28.700000000000003
+          ],
+          "circle_center_offset_mm": 0.014181755615758225
+        },
+        {
+          "chord_mm": 0.5959769695917132,
+          "arc_mm": 0.5959876782353588,
+          "endpoints": [
+            [
+              25.62276019150495,
+              -12.929851634870525,
+              0.0
+            ],
+            [
+              25.885452333055838,
+              -12.394892396188615,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.700294478125738,
+            28.700000000000003
+          ],
+          "circle_center_offset_mm": 0.014181755615347288
+        },
+        {
+          "chord_mm": 0.5959769695917142,
+          "arc_mm": 0.5959876782353545,
+          "endpoints": [
+            [
+              26.929636277010484,
+              -9.924796880493597,
+              0.0
+            ],
+            [
+              27.129635363809566,
+              -9.3633800001246,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.700294478125734,
+            28.7
+          ],
+          "circle_center_offset_mm": 0.01418175561586841
+        },
+        {
+          "chord_mm": 0.5959769695917136,
+          "arc_mm": 0.5959876782353583,
+          "endpoints": [
+            [
+              27.88544337007435,
+              -6.790357220758788,
+              0.0
+            ],
+            [
+              28.02014210816602,
+              -6.209801626314782,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.700294478125734,
+            28.700000000000003
+          ],
+          "circle_center_offset_mm": 0.014181755616435672
+        },
+        {
+          "chord_mm": 0.5959769695917101,
+          "arc_mm": 0.5959876782353671,
+          "endpoints": [
+            [
+              28.4777210635199,
+              -3.567394870138402,
+              0.0
+            ],
+            [
+              28.545363448857948,
+              -2.975268991638317,
+              0.0
+            ]
+          ],
+          "endpoint_radii_mm": [
+            28.70029447812574,
+            28.699999999999996
+          ],
+          "circle_center_offset_mm": 0.014181755615970236
+        }
+      ]
+    }
+  ],
+  "active_involute_interval_from_actual_flank_endpoints": [
+    {
+      "pair": [
+        "Input18Outline",
+        "A54Outline"
+      ],
+      "centre_mm": 36.1,
+      "first_flank_start_from_base_mm": 0.5621139557022287,
+      "second_flank_start_from_base_mm": 5.868660706937278,
+      "available_path_mm": 4.95922646612301,
+      "ratio_estimate": 1.6798799704003484,
+      "limit": "Ideal involute contact interval clipped at actual generated Bezier endpoint radii; not a load or fabrication test and not a proof of exact Bezier conjugacy."
+    },
+    {
+      "pair": [
+        "Input18Outline",
+        "A54Outline"
+      ],
+      "centre_mm": 36.7,
+      "first_flank_start_from_base_mm": 0.5621139557022287,
+      "second_flank_start_from_base_mm": 5.868660706937278,
+      "available_path_mm": 3.600545929686609,
+      "ratio_estimate": 1.2196428275870974,
+      "limit": "Ideal involute contact interval clipped at actual generated Bezier endpoint radii; not a load or fabrication test and not a proof of exact Bezier conjugacy."
+    },
+    {
+      "pair": [
+        "A18Outline",
+        "B60Outline"
+      ],
+      "centre_mm": 39.1,
+      "first_flank_start_from_base_mm": 0.5621139557022287,
+      "second_flank_start_from_base_mm": 6.953609581267732,
+      "available_path_mm": 4.95922646612301,
+      "ratio_estimate": 1.6798799704003484,
+      "limit": "Ideal involute contact interval clipped at actual generated Bezier endpoint radii; not a load or fabrication test and not a proof of exact Bezier conjugacy."
+    },
+    {
+      "pair": [
+        "A18Outline",
+        "B60Outline"
+      ],
+      "centre_mm": 39.7,
+      "first_flank_start_from_base_mm": 0.5621139557022287,
+      "second_flank_start_from_base_mm": 6.953609581267732,
+      "available_path_mm": 3.6251904880441312,
+      "ratio_estimate": 1.2279908835282751,
+      "limit": "Ideal involute contact interval clipped at actual generated Bezier endpoint radii; not a load or fabrication test and not a proof of exact Bezier conjugacy."
+    },
+    {
+      "pair": [
+        "B22Outline",
+        "Output55Outline"
+      ],
+      "centre_mm": 38.55,
+      "first_flank_start_from_base_mm": 0.6388988200909559,
+      "second_flank_start_from_base_mm": 6.050834092964584,
+      "available_path_mm": 5.4629299296111204,
+      "ratio_estimate": 1.8505036281653602,
+      "limit": "Ideal involute contact interval clipped at actual generated Bezier endpoint radii; not a load or fabrication test and not a proof of exact Bezier conjugacy."
+    },
+    {
+      "pair": [
+        "B22Outline",
+        "Output55Outline"
+      ],
+      "centre_mm": 39.25,
+      "first_flank_start_from_base_mm": 0.6388988200909559,
+      "second_flank_start_from_base_mm": 6.050834092964584,
+      "available_path_mm": 3.5543995205318017,
+      "ratio_estimate": 1.2040112711388065,
+      "limit": "Ideal involute contact interval clipped at actual generated Bezier endpoint radii; not a load or fabrication test and not a proof of exact Bezier conjugacy."
+    }
+  ],
+  "positive_rotor_intersections": [],
+  "pass": true,
+  "snapshot_manifest": {
+    "auticko-silovy-prevod-25.FCStd": "4d004b26fdadf4a7cba14c2da16fc47507f41d1e6d189d1fed30264070920ba9",
+    "kontrola-modelu.json": "7b2bab9b00c4f2c27eec030e46ad6d2d02b0e6ed446e04b47445e71a45698a82",
+    "auticko-silovy-prevod-25.FCMacro": "f18881bce5b080de9924a39a8e4102bc449c8eab49ff603e3952c355cfae00e8",
+    "rizeni-geometrie.py": "00de3cdfd40525ca7ef1b0d50cd2ba6953114b9f29b53cb15b997eb785255dcd",
+    "servo-uchyceni.py": "3e0114bd80be3dbf9adf63565c30482be01f252bdc066636d972bfdeb8612ba2",
+    "rizeni-sestava.py": "ad23bb77641200fc0f4ada5e97a5363b22f0fa44e3c76a01d51516032da44d0b"
+  },
+  "method_note": "Nezávislé čtení neměnného FCStd před uložením finální GUI viditelnosti. Počty z rekurzivního procházení App::Part a App::Link; světové transformace nezávisle přes všechny rodiče. CAD náhledy a konečné kontrolní JSON mohou následným uložením změnit hash souboru, nikoli auditované generační zdroje. Fyzický tisk, pevnost, tření ani dráhy sliceru se neověřovaly.",
+  "executed_audit_script_sha256": "0a102a8eedf8fd6952256636d4eb8da9b3f9638b344ae357f7258e97903689c1"
+}

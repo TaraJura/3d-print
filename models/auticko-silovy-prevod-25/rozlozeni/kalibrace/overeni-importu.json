@@ -1,0 +1,90 @@
+{
+  "status": "pass",
+  "method": "Installed Anycubic Slicer Next CLI import/export, isolated cache, arrange=0 orient=0. No slicing, G-code or printer communication. Roundtrip outputs are not delivery files.",
+  "plate_count": 1,
+  "objects": 8,
+  "plates": [
+    {
+      "file": "kalibrace-podlozka-01.3mf",
+      "source_sha256": "17483261f837416cf2e3dea877f82004a58f6209208fc65509aa5c2c6f16a1ab",
+      "status": "pass",
+      "command": [
+        "/usr/bin/AnycubicSlicerNext",
+        "--datadir",
+        "/home/novakj/.cache/auticko-25-packing/kalibrace/isolated-profile",
+        "--arrange",
+        "0",
+        "--orient",
+        "0",
+        "--debug",
+        "3",
+        "--export-3mf",
+        "roundtrip.3mf",
+        "--outputdir",
+        "/home/novakj/.cache/auticko-25-packing/kalibrace/kalibrace-podlozka-01",
+        "/home/novakj/3d-print/models/auticko-silovy-prevod-25/rozlozeni/kalibrace/kalibrace-podlozka-01.3mf"
+      ],
+      "objects": 8,
+      "triangles": 11140,
+      "max_world_vertex_delta_mm": 1.501100001632949e-05,
+      "object_records": [
+        {
+          "name": "otvory-12-svisle__01",
+          "vertices": 1066,
+          "triangles": 2148,
+          "max_world_vertex_delta_mm": 3.831000000786844e-06,
+          "ordered_triangle_indices_preserved": true
+        },
+        {
+          "name": "otvory-8-svisle__01",
+          "vertices": 1066,
+          "triangles": 2148,
+          "max_world_vertex_delta_mm": 7.691999996950472e-06,
+          "ordered_triangle_indices_preserved": true
+        },
+        {
+          "name": "otvory-12-vodorovne__01",
+          "vertices": 1066,
+          "triangles": 2148,
+          "max_world_vertex_delta_mm": 1.0029000009126321e-05,
+          "ordered_triangle_indices_preserved": true
+        },
+        {
+          "name": "otvory-8-vodorovne__01",
+          "vertices": 1066,
+          "triangles": 2148,
+          "max_world_vertex_delta_mm": 5.16399998673478e-06,
+          "ordered_triangle_indices_preserved": true
+        },
+        {
+          "name": "otvory-4-svisle__01",
+          "vertices": 646,
+          "triangles": 1300,
+          "max_world_vertex_delta_mm": 1.501100001632949e-05,
+          "ordered_triangle_indices_preserved": true
+        },
+        {
+          "name": "cep-12-kulaty-nalezato__01",
+          "vertices": 210,
+          "triangles": 416,
+          "max_world_vertex_delta_mm": 7.557999992968689e-06,
+          "ordered_triangle_indices_preserved": true
+        },
+        {
+          "name": "cep-8-kulaty-nalezato__01",
+          "vertices": 210,
+          "triangles": 416,
+          "max_world_vertex_delta_mm": 7.614999987026749e-06,
+          "ordered_triangle_indices_preserved": true
+        },
+        {
+          "name": "cep-4-kulaty-nalezato__01",
+          "vertices": 210,
+          "triangles": 416,
+          "max_world_vertex_delta_mm": 1.4719000006380156e-05,
+          "ordered_triangle_indices_preserved": true
+        }
+      ]
+    }
+  ]
+}

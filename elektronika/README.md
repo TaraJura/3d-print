@@ -8,7 +8,7 @@ Osobní elektronické projekty, zapojení a zkušenosti Jiřího Nováka. Tato s
 
 ## Index
 
-- **[Vybavení a materiál](vybaveni.md)** — kanonický inventář potvrzených součástek a pomůcek, včetně nákupu v Hornbachu.
+- **[Sklad elektroniky a vybavení](vybaveni.md)** — kanonický inventář potvrzených součástek a pomůcek, včetně převzaté sady kondenzátorů.
 - **[Autíčko](auticko/README.md)** — aktuální stav elektroniky, zapojení, historie zkoušek a návaznost na firmware.
 - [Mechanické modely](../models/README.md), [deník tisků](../docs/denik-tisku.md) a [pravidla projektu](../AGENTS.md).
 

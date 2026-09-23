@@ -1,0 +1,314 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1840" viewBox="0 0 1800 1840" role="img" aria-labelledby="title desc">
+<title id="title">Autíčko: kontrolní zapojení UNO R4 WiFi, L293D a SG90</title>
+<desc id="desc">Referenční funkční spoje, nikoli potvrzení fyzické montáže. Všechny symboly GND jsou společná zem, stejné síťové štítky značí stejné uzly. D5 na L293D pin 1 s odporem 10 kiloohm na GND, D7 na pin 2, D8 na pin 7, D9 přímo na servo. Pin 16 je Arduino 5V, pin 8 samostatné motorové plus. Servo bylo zkoušeno přímo na 6,4V, nad uváděným rozsahem. Poslední odpojení USB ani plus serva není potvrzené. Přístupný úplný seznam spojů je v kontrolni-zapojeni.md.</desc>
+<g font-family="DejaVu Sans, sans-serif">
+<rect x="0" y="0" width="1800" height="1840" rx="0" fill="white" stroke="white" stroke-width="2"/>
+<text x="65" y="64" font-size="38" fill="#172b3a" font-weight="700" text-anchor="start">Autíčko — kontrolní zapojení</text>
+<text x="65" y="104" font-size="23" fill="#526573" font-weight="400" text-anchor="start">UNO R4 WiFi · ST L293D DIP16 · DC motor · SG90     |     stav hlášení 22. 9. 2026</text>
+<rect x="65" y="132" width="1670" height="94" rx="8" fill="#fff4ed" stroke="#915300" stroke-width="2"/>
+<text x="88" y="166" font-size="23" fill="#915300" font-weight="700" text-anchor="start">PŘED KONTROLOU ODPOJIT USB A PLUS OBOU EXTERNÍCH ZDROJŮ.</text>
+<text x="88" y="203" font-size="22" fill="#172b3a" font-weight="400" text-anchor="start">Poslední odpojení USB a plus serva není potvrzené. Obrázek neznamená, že je obvod nyní vypnutý.</text>
+<rect x="65" y="245" width="1670" height="800" rx="8" fill="#f7f9fb" stroke="#cbd5dd" stroke-width="2"/>
+<text x="85" y="278" font-size="21" fill="#526573" font-weight="600" text-anchor="start">FUNKČNÍ SPOJE · stejné štítky = stejný elektrický uzel · GND = společná zem</text>
+<rect x="95" y="325" width="285" height="660" rx="8" fill="white" stroke="#172b3a" stroke-width="2"/>
+<text x="237" y="365" font-size="28" fill="#172b3a" font-weight="700" text-anchor="middle">Arduino</text>
+<text x="237" y="400" font-size="25" fill="#172b3a" font-weight="700" text-anchor="middle">UNO R4 WiFi</text>
+<rect x="115" y="430" width="80" height="110" rx="5" fill="#f7f9fb" stroke="#cbd5dd" stroke-width="2"/>
+<text x="155" y="465" font-size="16" fill="#526573" font-weight="400" text-anchor="start">USB-C</text>
+<text x="155" y="489" font-size="16" fill="#526573" font-weight="400" text-anchor="start">napájení</text>
+<polyline points="95,478 78,478 78,315" fill="none" stroke="#526573" stroke-width="3" stroke-linejoin="round"/>
+<text x="105" y="308" font-size="18" fill="#526573" font-weight="400" text-anchor="start">USB z PC / powerbanky</text>
+<text x="350" y="582" font-size="23" fill="#172b3a" font-weight="600" text-anchor="end">5V</text>
+<polyline points="360,575 380,575" fill="none" stroke="#9c1b28" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="380" cy="575" r="5" fill="#9c1b28" stroke="#9c1b28" stroke-width="2"/>
+<text x="350" y="437" font-size="23" fill="#172b3a" font-weight="600" text-anchor="end">D5</text>
+<polyline points="360,430 380,430" fill="none" stroke="#145e96" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="380" cy="430" r="5" fill="#145e96" stroke="#145e96" stroke-width="2"/>
+<text x="350" y="487" font-size="23" fill="#172b3a" font-weight="600" text-anchor="end">D7</text>
+<polyline points="360,480 380,480" fill="none" stroke="#145e96" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="380" cy="480" r="5" fill="#145e96" stroke="#145e96" stroke-width="2"/>
+<text x="350" y="737" font-size="23" fill="#172b3a" font-weight="600" text-anchor="end">D8</text>
+<polyline points="360,730 380,730" fill="none" stroke="#145e96" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="380" cy="730" r="5" fill="#145e96" stroke="#145e96" stroke-width="2"/>
+<text x="350" y="902" font-size="23" fill="#172b3a" font-weight="600" text-anchor="end">D9</text>
+<polyline points="360,895 380,895" fill="none" stroke="#145e96" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="380" cy="895" r="5" fill="#145e96" stroke="#145e96" stroke-width="2"/>
+<text x="350" y="962" font-size="23" fill="#172b3a" font-weight="600" text-anchor="end">GND</text>
+<polyline points="360,955 380,955" fill="none" stroke="#354854" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="380" cy="955" r="5" fill="#354854" stroke="#354854" stroke-width="2"/>
+<polyline points="380,575 400,575" fill="none" stroke="#9c1b28" stroke-width="3" stroke-linejoin="round"/>
+<rect x="400" y="558" width="155" height="34" rx="3" fill="white" stroke="#9c1b28" stroke-width="2"/>
+<text x="477.5" y="582" font-size="18" fill="#9c1b28" font-weight="600" text-anchor="middle">+5V LOGIKA</text>
+<rect x="845" y="390" width="250" height="420" rx="4" fill="white" stroke="#172b3a" stroke-width="2"/>
+<path d="M 945 390 A 25 25 0 0 0 995 390" fill="none" stroke="#172b3a" stroke-width="3"/>
+<text x="970" y="334" font-size="27" fill="#172b3a" font-weight="700" text-anchor="middle">ST L293D · DIP16</text>
+<text x="970" y="365" font-size="20" fill="#526573" font-weight="400" text-anchor="middle">shora · výřez nahoře</text>
+<g id="l293d-pin-1" data-net="EN_D5">
+<polyline points="845,430 815,430" fill="none" stroke="#172b3a" stroke-width="3" stroke-linejoin="round"/>
+<text x="859" y="437" font-size="21" fill="#172b3a" font-weight="700" text-anchor="start">1</text>
+<text x="900" y="436" font-size="15" fill="#526573" font-weight="400" text-anchor="start">EN 1,2</text>
+</g>
+<g id="l293d-pin-2" data-net="IN1_D7">
+<polyline points="845,480 815,480" fill="none" stroke="#172b3a" stroke-width="3" stroke-linejoin="round"/>
+<text x="859" y="487" font-size="21" fill="#172b3a" font-weight="700" text-anchor="start">2</text>
+<text x="900" y="486" font-size="15" fill="#526573" font-weight="400" text-anchor="start">IN 1</text>
+</g>
+<g id="l293d-pin-3" data-net="M_A">
+<polyline points="845,530 815,530" fill="none" stroke="#172b3a" stroke-width="3" stroke-linejoin="round"/>
+<text x="859" y="537" font-size="21" fill="#172b3a" font-weight="700" text-anchor="start">3</text>
+<text x="900" y="536" font-size="15" fill="#526573" font-weight="400" text-anchor="start">OUT 1</text>
+</g>
+<g id="l293d-pin-4" data-net="GND">
+<polyline points="845,580 815,580" fill="none" stroke="#172b3a" stroke-width="3" stroke-linejoin="round"/>
+<text x="859" y="587" font-size="21" fill="#172b3a" font-weight="700" text-anchor="start">4</text>
+<text x="900" y="586" font-size="15" fill="#526573" font-weight="400" text-anchor="start">GND</text>
+</g>
+<g id="l293d-pin-5" data-net="GND">
+<polyline points="845,630 815,630" fill="none" stroke="#172b3a" stroke-width="3" stroke-linejoin="round"/>
+<text x="859" y="637" font-size="21" fill="#172b3a" font-weight="700" text-anchor="start">5</text>
+<text x="900" y="636" font-size="15" fill="#526573" font-weight="400" text-anchor="start">GND</text>
+</g>
+<g id="l293d-pin-6" data-net="M_B">
+<polyline points="845,680 815,680" fill="none" stroke="#172b3a" stroke-width="3" stroke-linejoin="round"/>
+<text x="859" y="687" font-size="21" fill="#172b3a" font-weight="700" text-anchor="start">6</text>
+<text x="900" y="686" font-size="15" fill="#526573" font-weight="400" text-anchor="start">OUT 2</text>
+</g>
+<g id="l293d-pin-7" data-net="IN2_D8">
+<polyline points="845,730 815,730" fill="none" stroke="#172b3a" stroke-width="3" stroke-linejoin="round"/>
+<text x="859" y="737" font-size="21" fill="#172b3a" font-weight="700" text-anchor="start">7</text>
+<text x="900" y="736" font-size="15" fill="#526573" font-weight="400" text-anchor="start">IN 2</text>
+</g>
+<g id="l293d-pin-8" data-net="MOTOR_PLUS">
+<polyline points="845,780 815,780" fill="none" stroke="#172b3a" stroke-width="3" stroke-linejoin="round"/>
+<text x="859" y="787" font-size="21" fill="#172b3a" font-weight="700" text-anchor="start">8</text>
+<text x="900" y="786" font-size="15" fill="#526573" font-weight="400" text-anchor="start">VS</text>
+</g>
+<g id="l293d-pin-9" data-net="GND">
+<polyline points="1095,780 1125,780" fill="none" stroke="#172b3a" stroke-width="3" stroke-linejoin="round"/>
+<text x="1081" y="787" font-size="21" fill="#172b3a" font-weight="700" text-anchor="end">9</text>
+<text x="1040" y="786" font-size="15" fill="#526573" font-weight="400" text-anchor="end">EN 3,4</text>
+</g>
+<g id="l293d-pin-10" data-net="GND">
+<polyline points="1095,730 1125,730" fill="none" stroke="#172b3a" stroke-width="3" stroke-linejoin="round"/>
+<text x="1081" y="737" font-size="21" fill="#172b3a" font-weight="700" text-anchor="end">10</text>
+<text x="1040" y="736" font-size="15" fill="#526573" font-weight="400" text-anchor="end">IN 3</text>
+</g>
+<g id="l293d-pin-11" data-net="NC">
+<polyline points="1095,680 1125,680" fill="none" stroke="#172b3a" stroke-width="3" stroke-linejoin="round"/>
+<text x="1081" y="687" font-size="21" fill="#172b3a" font-weight="700" text-anchor="end">11</text>
+<text x="1040" y="686" font-size="15" fill="#526573" font-weight="400" text-anchor="end">OUT 3</text>
+</g>
+<g id="l293d-pin-12" data-net="GND">
+<polyline points="1095,630 1125,630" fill="none" stroke="#172b3a" stroke-width="3" stroke-linejoin="round"/>
+<text x="1081" y="637" font-size="21" fill="#172b3a" font-weight="700" text-anchor="end">12</text>
+<text x="1040" y="636" font-size="15" fill="#526573" font-weight="400" text-anchor="end">GND</text>
+</g>
+<g id="l293d-pin-13" data-net="GND">
+<polyline points="1095,580 1125,580" fill="none" stroke="#172b3a" stroke-width="3" stroke-linejoin="round"/>
+<text x="1081" y="587" font-size="21" fill="#172b3a" font-weight="700" text-anchor="end">13</text>
+<text x="1040" y="586" font-size="15" fill="#526573" font-weight="400" text-anchor="end">GND</text>
+</g>
+<g id="l293d-pin-14" data-net="NC">
+<polyline points="1095,530 1125,530" fill="none" stroke="#172b3a" stroke-width="3" stroke-linejoin="round"/>
+<text x="1081" y="537" font-size="21" fill="#172b3a" font-weight="700" text-anchor="end">14</text>
+<text x="1040" y="536" font-size="15" fill="#526573" font-weight="400" text-anchor="end">OUT 4</text>
+</g>
+<g id="l293d-pin-15" data-net="GND">
+<polyline points="1095,480 1125,480" fill="none" stroke="#172b3a" stroke-width="3" stroke-linejoin="round"/>
+<text x="1081" y="487" font-size="21" fill="#172b3a" font-weight="700" text-anchor="end">15</text>
+<text x="1040" y="486" font-size="15" fill="#526573" font-weight="400" text-anchor="end">IN 4</text>
+</g>
+<g id="l293d-pin-16" data-net="ARDUINO_5V">
+<polyline points="1095,430 1125,430" fill="none" stroke="#172b3a" stroke-width="3" stroke-linejoin="round"/>
+<text x="1081" y="437" font-size="21" fill="#172b3a" font-weight="700" text-anchor="end">16</text>
+<text x="1040" y="436" font-size="15" fill="#526573" font-weight="400" text-anchor="end">VSS</text>
+</g>
+<polyline points="380,430 815,430" fill="none" stroke="#145e96" stroke-width="3" stroke-linejoin="round"/>
+<text x="403" y="421" font-size="19" fill="#145e96" font-weight="400" text-anchor="start">D5 → 1</text>
+<polyline points="380,480 815,480" fill="none" stroke="#145e96" stroke-width="3" stroke-linejoin="round"/>
+<text x="403" y="471" font-size="19" fill="#145e96" font-weight="400" text-anchor="start">D7 → 2</text>
+<polyline points="380,730 815,730" fill="none" stroke="#145e96" stroke-width="3" stroke-linejoin="round"/>
+<text x="403" y="721" font-size="19" fill="#145e96" font-weight="400" text-anchor="start">D8 → 7</text>
+<circle cx="690" cy="430" r="5" fill="#145e96" stroke="#145e96" stroke-width="2"/>
+<polyline points="690,430 690,397" fill="none" stroke="#145e96" stroke-width="3" stroke-linejoin="round"/>
+<rect x="680" y="345" width="20" height="52" rx="0" fill="white" stroke="#172b3a" stroke-width="2"/>
+<polyline points="690,345 690,310 745,310" fill="none" stroke="#172b3a" stroke-width="3" stroke-linejoin="round"/>
+<polyline points="745,310 745,324" fill="none" stroke="#354854" stroke-width="3" stroke-linejoin="round"/>
+<polyline points="730,324 760,324" fill="none" stroke="#354854" stroke-width="3" stroke-linejoin="round"/>
+<polyline points="735,331 755,331" fill="none" stroke="#354854" stroke-width="3" stroke-linejoin="round"/>
+<polyline points="740,338 750,338" fill="none" stroke="#354854" stroke-width="3" stroke-linejoin="round"/>
+<text x="665" y="340" font-size="20" fill="#172b3a" font-weight="600" text-anchor="end">10 kΩ</text>
+<text x="660" y="368" font-size="17" fill="#526573" font-weight="400" text-anchor="end">EN → GND</text>
+<text x="770" y="327" font-size="17" fill="#354854" font-weight="600" text-anchor="start">GND</text>
+<polyline points="815,530 730,530 730,571" fill="none" stroke="#172b3a" stroke-width="3" stroke-linejoin="round"/>
+<polyline points="815,680 730,680 730,639" fill="none" stroke="#172b3a" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="730" cy="605" r="34" fill="white" stroke="#172b3a" stroke-width="3"/>
+<text x="730" y="615" font-size="28" fill="#172b3a" font-weight="700" text-anchor="middle">M</text>
+<text x="650" y="603" font-size="19" fill="#172b3a" font-weight="400" text-anchor="end">DC motor</text>
+<text x="705" y="526" font-size="17" fill="#526573" font-weight="400" text-anchor="end">kontakt A</text>
+<text x="705" y="680" font-size="17" fill="#526573" font-weight="400" text-anchor="end">kontakt B</text>
+<polyline points="815,580 795,580 795,630 815,630" fill="none" stroke="#354854" stroke-width="3" stroke-linejoin="round"/>
+<circle cx="795" cy="630" r="5" fill="#354854" stroke="#354854" stroke-width="2"/>
+<polyline points="795,630 795,644" fill="none" stroke="#354854" stroke-width="3" stroke-linejoin="round"/>
+<polyline points="780,644 810,644" fill="none" stroke="#354854" stroke-width="3" stroke-linejoin="round"/>
+<polyline points="785,651 805,651" fill="none" stroke="#354854" stroke-width="3" stroke-linejoin="round"/>
+<polyline points="790,658 800,658" fill="none" stroke="#354854" stroke-width="3" stroke-linejoin="round"/>
+<polyline points="815,780 795,780" fill="none" stroke="#9c1b28" stroke-width="3" stroke-linejoin="round"/>
+<rect x="660" y="763" width="135" height="34" rx="3" fill="white" stroke="#9c1b28" stroke-width="2"/>
+<text x="727.5" y="787" font-size="18" fill="#9c1b28" font-weight="600" text-anchor="middle">MOTOR +</text>
+<polyline points="1125,430 1145,430" fill="none" stroke="#9c1b28" stroke-width="3" stroke-linejoin="round"/>
+<rect x="1145" y="413" width="155" height="34" rx="3" fill="white" stroke="#9c1b28" stroke-width="2"/>
+<text x="1222.5" y="437" font-size="18" fill="#9c1b28" font-weight="600" text-anchor="middle">+5V LOGIKA</text>
+<polyline points="1125,480 1170,480" fill="none" stroke="#354854" stroke-width="3" stroke-linejoin="round"/>
+<text x="1180" y="487" font-size="20" fill="#354854" font-weight="600" text-anchor="start">GND</text>
+<polyline points="1125,580 1170,580" fill="none" stroke="#354854" stroke-width="3" stroke-linejoin="round"/>
+<text x="1180" y="587" font-size="20" fill="#354854" font-weight="600" text-anchor="start">GND</text>
+<polyline points="1125,630 1170,630" fill="none" stroke="#354854" stroke-width="3" stroke-linejoin="round"/>
+<text x="1180" y="637" font-size="20" fill="#354854" font-weight="600" text-anchor="start">GND</text>
+<polyline points="1125,730 1170,730" fill="none" stroke="#354854" stroke-width="3" stroke-linejoin="round"/>
+<text x="1180" y="737" font-size="20" fill="#354854" font-weight="600" text-anchor="start">GND</text>
+<polyline points="1125,780 1170,780" fill="none" stroke="#354854" stroke-width="3" stroke-linejoin="round"/>
+<text x="1180" y="787" font-size="20" fill="#354854" font-weight="600" text-anchor="start">GND</text>
+<polyline points="1121,525 1131,535" fill="none" stroke="#526573" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="1121,535 1131,525" fill="none" stroke="#526573" stroke-width="2" stroke-linejoin="round"/>
+<text x="1145" y="536" font-size="17" fill="#526573" font-weight="400" text-anchor="start">nezapojit</text>
+<polyline points="1121,675 1131,685" fill="none" stroke="#526573" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="1121,685 1131,675" fill="none" stroke="#526573" stroke-width="2" stroke-linejoin="round"/>
+<text x="1145" y="686" font-size="17" fill="#526573" font-weight="400" text-anchor="start">nezapojit</text>
+<rect x="530" y="840" width="505" height="165" rx="8" fill="white" stroke="#cbd5dd" stroke-width="2"/>
+<text x="550" y="871" font-size="22" fill="#172b3a" font-weight="700" text-anchor="start">STARÝ ZDROJ MOTORU</text>
+<text x="550" y="902" font-size="18" fill="#526573" font-weight="400" text-anchor="start">Jeden článek vyjmutý — hlášení uživatele.</text>
+<text x="550" y="927" font-size="18" fill="#526573" font-weight="400" text-anchor="start">Aktuální napětí a složení nejsou ověřené.</text>
+<text x="550" y="980" font-size="25" fill="#172b3a" font-weight="700" text-anchor="start">−</text>
+<polyline points="575,971 600,971" fill="none" stroke="#172b3a" stroke-width="3" stroke-linejoin="round"/>
+<polyline points="600,971 600,985" fill="none" stroke="#354854" stroke-width="3" stroke-linejoin="round"/>
+<polyline points="585,985 615,985" fill="none" stroke="#354854" stroke-width="3" stroke-linejoin="round"/>
+<polyline points="590,992 610,992" fill="none" stroke="#354854" stroke-width="3" stroke-linejoin="round"/>
+<polyline points="595,999 605,999" fill="none" stroke="#354854" stroke-width="3" stroke-linejoin="round"/>
+<text x="802" y="980" font-size="25" fill="#9c1b28" font-weight="700" text-anchor="start">+</text>
+<polyline points="830,971 850,971" fill="none" stroke="#9c1b28" stroke-width="3" stroke-linejoin="round"/>
+<rect x="850" y="954" width="135" height="34" rx="3" fill="white" stroke="#9c1b28" stroke-width="2"/>
+<text x="917.5" y="978" font-size="18" fill="#9c1b28" font-weight="600" text-anchor="middle">MOTOR +</text>
+<rect x="1360" y="320" width="350" height="220" rx="8" fill="#fff4ed" stroke="#915300" stroke-width="2"/>
+<text x="1380" y="354" font-size="23" fill="#172b3a" font-weight="700" text-anchor="start">NOVÝ ZDROJ SERVA</text>
+<text x="1380" y="391" font-size="18" fill="#915300" font-weight="400" text-anchor="start">4 články · naměřeno 6,4 V</text>
+<text x="1380" y="423" font-size="18" fill="#915300" font-weight="400" text-anchor="start">měření uživatele, zátěž neznámá</text>
+<text x="1380" y="455" font-size="18" fill="#915300" font-weight="400" text-anchor="start">bez měniče · přímý pokus</text>
+<text x="1380" y="487" font-size="18" fill="#915300" font-weight="400" text-anchor="start">6,4 V &gt; uváděných 4,8–6 V</text>
+<text x="1410" y="531" font-size="25" fill="#172b3a" font-weight="700" text-anchor="start">−</text>
+<text x="1630" y="531" font-size="25" fill="#9c1b28" font-weight="700" text-anchor="start">+</text>
+<polyline points="1420,540 1420,555" fill="none" stroke="#354854" stroke-width="3" stroke-linejoin="round"/>
+<polyline points="1420,555 1420,569" fill="none" stroke="#354854" stroke-width="3" stroke-linejoin="round"/>
+<polyline points="1405,569 1435,569" fill="none" stroke="#354854" stroke-width="3" stroke-linejoin="round"/>
+<polyline points="1410,576 1430,576" fill="none" stroke="#354854" stroke-width="3" stroke-linejoin="round"/>
+<polyline points="1415,583 1425,583" fill="none" stroke="#354854" stroke-width="3" stroke-linejoin="round"/>
+<polyline points="1640,540 1640,592" fill="none" stroke="#9c1b28" stroke-width="4" stroke-linejoin="round"/>
+<circle cx="1640" cy="592" r="5" fill="white" stroke="#9c1b28" stroke-width="2"/>
+<circle cx="1640" cy="639" r="5" fill="white" stroke="#9c1b28" stroke-width="2"/>
+<polyline points="1640,592 1672,622" fill="none" stroke="#9c1b28" stroke-width="4" stroke-linejoin="round"/>
+<polyline points="1640,639 1640,687 1720,687 1720,880 1685,880" fill="none" stroke="#9c1b28" stroke-width="4" stroke-linejoin="round"/>
+<text x="1590" y="612" font-size="19" fill="#9c1b28" font-weight="700" text-anchor="end">ROZPOJIT PRO KONTROLU</text>
+<text x="1590" y="638" font-size="16" fill="#9c1b28" font-weight="400" text-anchor="end">požadovaný stav; odpojení nepotvrzené</text>
+<text x="1370" y="718" font-size="17" fill="#915300" font-weight="400" text-anchor="start">Přímé napájení = uskutečněný</text>
+<text x="1370" y="742" font-size="17" fill="#915300" font-weight="400" text-anchor="start">rizikový pokus, nikoli doporučené</text>
+<text x="1370" y="766" font-size="17" fill="#915300" font-weight="400" text-anchor="start">provozní napájení.</text>
+<rect x="1360" y="790" width="325" height="198" rx="8" fill="white" stroke="#172b3a" stroke-width="2"/>
+<text x="1519" y="826" font-size="27" fill="#172b3a" font-weight="700" text-anchor="middle">SG90</text>
+<text x="1380" y="861" font-size="20" fill="#a85800" font-weight="400" text-anchor="start">signál · oranžový</text>
+<text x="1665" y="894" font-size="20" fill="#9c1b28" font-weight="400" text-anchor="end">+ · červený</text>
+<text x="1665" y="952" font-size="20" fill="#354854" font-weight="400" text-anchor="end">GND · hnědý</text>
+<polyline points="380,895 470,895 470,820 1290,820 1290,855 1360,855" fill="none" stroke="#a85800" stroke-width="4" stroke-linejoin="round"/>
+<text x="490" y="811" font-size="20" fill="#a85800" font-weight="600" text-anchor="start">UNO D9 přímo na signál serva — není to pin 9 čipu L293D</text>
+<polyline points="1685,945 1720,945 1720,977" fill="none" stroke="#354854" stroke-width="3" stroke-linejoin="round"/>
+<polyline points="1720,977 1720,991" fill="none" stroke="#354854" stroke-width="3" stroke-linejoin="round"/>
+<polyline points="1705,991 1735,991" fill="none" stroke="#354854" stroke-width="3" stroke-linejoin="round"/>
+<polyline points="1710,998 1730,998" fill="none" stroke="#354854" stroke-width="3" stroke-linejoin="round"/>
+<polyline points="1715,1005 1725,1005" fill="none" stroke="#354854" stroke-width="3" stroke-linejoin="round"/>
+<text x="1400" y="980" font-size="15" fill="#526573" font-weight="400" text-anchor="start">Táhlo od kol odpojeno, páčka zůstala¹</text>
+<rect x="65" y="1065" width="1670" height="245" rx="8" fill="white" stroke="#cbd5dd" stroke-width="2"/>
+<text x="85" y="1102" font-size="24" fill="#172b3a" font-weight="700" text-anchor="start">SPOLEČNÁ ZEM A NEPÁJIVÉ POLE</text>
+<text x="85" y="1136" font-size="19" fill="#354854" font-weight="400" text-anchor="start">Všechny symboly GND jsou tentýž požadovaný uzel:</text>
+<text x="85" y="1166" font-size="19" fill="#354854" font-weight="400" text-anchor="start">UNO GND · SG90 hnědý · oba zdroje − · L293D 4/5/12/13/9/10/15 · odpor 10 kΩ.</text>
+<polyline points="380,955 440,955 440,1010" fill="none" stroke="#354854" stroke-width="4" stroke-linejoin="round"/>
+<polyline points="440,1010 440,1024" fill="none" stroke="#354854" stroke-width="3" stroke-linejoin="round"/>
+<polyline points="425,1024 455,1024" fill="none" stroke="#354854" stroke-width="3" stroke-linejoin="round"/>
+<polyline points="430,1031 450,1031" fill="none" stroke="#354854" stroke-width="3" stroke-linejoin="round"/>
+<polyline points="435,1038 445,1038" fill="none" stroke="#354854" stroke-width="3" stroke-linejoin="round"/>
+<polyline points="180,1207 825,1207" fill="none" stroke="#354854" stroke-width="4" stroke-linejoin="round"/>
+<polyline points="700,1207 700,1221" fill="none" stroke="#354854" stroke-width="3" stroke-linejoin="round"/>
+<polyline points="685,1221 715,1221" fill="none" stroke="#354854" stroke-width="3" stroke-linejoin="round"/>
+<polyline points="690,1228 710,1228" fill="none" stroke="#354854" stroke-width="3" stroke-linejoin="round"/>
+<polyline points="695,1235 705,1235" fill="none" stroke="#354854" stroke-width="3" stroke-linejoin="round"/>
+<text x="85" y="1252" font-size="17" fill="#526573" font-weight="400" text-anchor="start">Servo a jeho zdroj mají podle hlášení vlastní vodiče přímo do UNO GND.</text>
+<text x="85" y="1282" font-size="19" fill="#915300" font-weight="600" text-anchor="start">Spojení lišty s touto zemí dosud není potvrzené.</text>
+<polyline points="825,1207 1090,1207" fill="none" stroke="#915300" stroke-width="4" stroke-linejoin="round" stroke-dasharray="10 7"/>
+<text x="950" y="1191" font-size="18" fill="#915300" font-weight="700" text-anchor="middle">OVĚŘIT SPOJ</text>
+<rect x="1090" y="1180" width="600" height="102" rx="8" fill="#f7f9fb" stroke="#cbd5dd" stroke-width="2"/>
+<text x="1110" y="1206" font-size="20" fill="#172b3a" font-weight="600" text-anchor="start">Mínusová lišta nepájivého pole</text>
+<polyline points="1110,1240 1320,1240" fill="none" stroke="#354854" stroke-width="4" stroke-linejoin="round"/>
+<circle cx="1320" cy="1240" r="5" fill="#354854" stroke="#354854" stroke-width="2"/>
+<polyline points="1320,1240 1430,1240 1430,1263 1660,1263" fill="none" stroke="#2469aa" stroke-width="4" stroke-linejoin="round"/>
+<circle cx="1660" cy="1263" r="5" fill="white" stroke="#2469aa" stroke-width="2"/>
+<text x="1440" y="1248" font-size="15" fill="#2469aa" font-weight="400" text-anchor="start">volný modrý: konec neurčen</text>
+<text x="1110" y="1271" font-size="15" fill="#526573" font-weight="400" text-anchor="start">Lišta může být uprostřed přerušená.</text>
+<rect x="65" y="1330" width="525" height="325" rx="8" fill="#f7f9fb" stroke="#cbd5dd" stroke-width="2"/>
+<text x="85" y="1367" font-size="24" fill="#172b3a" font-weight="700" text-anchor="start">Původní otočení čipu</text>
+<text x="85" y="1399" font-size="21" fill="#526573" font-weight="400" text-anchor="start">Shora, výřez vlevo:</text>
+<rect x="110" y="1450" width="420" height="85" rx="3" fill="white" stroke="#172b3a" stroke-width="2"/>
+<path d="M 110 1477 A 16 16 0 0 1 110 1509" fill="none" stroke="#172b3a" stroke-width="3"/>
+<text x="144" y="1439" font-size="21" fill="#172b3a" font-weight="600" text-anchor="middle">16</text>
+<polyline points="144,1445 144,1450" fill="none" stroke="#172b3a" stroke-width="3" stroke-linejoin="round"/>
+<polyline points="144,1535 144,1541" fill="none" stroke="#172b3a" stroke-width="3" stroke-linejoin="round"/>
+<text x="144" y="1564" font-size="21" fill="#172b3a" font-weight="600" text-anchor="middle">1</text>
+<text x="195" y="1439" font-size="21" fill="#172b3a" font-weight="600" text-anchor="middle">15</text>
+<polyline points="195,1445 195,1450" fill="none" stroke="#172b3a" stroke-width="3" stroke-linejoin="round"/>
+<polyline points="195,1535 195,1541" fill="none" stroke="#172b3a" stroke-width="3" stroke-linejoin="round"/>
+<text x="195" y="1564" font-size="21" fill="#172b3a" font-weight="600" text-anchor="middle">2</text>
+<text x="246" y="1439" font-size="21" fill="#172b3a" font-weight="600" text-anchor="middle">14</text>
+<polyline points="246,1445 246,1450" fill="none" stroke="#172b3a" stroke-width="3" stroke-linejoin="round"/>
+<polyline points="246,1535 246,1541" fill="none" stroke="#172b3a" stroke-width="3" stroke-linejoin="round"/>
+<text x="246" y="1564" font-size="21" fill="#172b3a" font-weight="600" text-anchor="middle">3</text>
+<text x="297" y="1439" font-size="21" fill="#172b3a" font-weight="600" text-anchor="middle">13</text>
+<polyline points="297,1445 297,1450" fill="none" stroke="#172b3a" stroke-width="3" stroke-linejoin="round"/>
+<polyline points="297,1535 297,1541" fill="none" stroke="#172b3a" stroke-width="3" stroke-linejoin="round"/>
+<text x="297" y="1564" font-size="21" fill="#172b3a" font-weight="600" text-anchor="middle">4</text>
+<text x="348" y="1439" font-size="21" fill="#172b3a" font-weight="600" text-anchor="middle">12</text>
+<polyline points="348,1445 348,1450" fill="none" stroke="#172b3a" stroke-width="3" stroke-linejoin="round"/>
+<polyline points="348,1535 348,1541" fill="none" stroke="#172b3a" stroke-width="3" stroke-linejoin="round"/>
+<text x="348" y="1564" font-size="21" fill="#172b3a" font-weight="600" text-anchor="middle">5</text>
+<text x="399" y="1439" font-size="21" fill="#172b3a" font-weight="600" text-anchor="middle">11</text>
+<polyline points="399,1445 399,1450" fill="none" stroke="#172b3a" stroke-width="3" stroke-linejoin="round"/>
+<polyline points="399,1535 399,1541" fill="none" stroke="#172b3a" stroke-width="3" stroke-linejoin="round"/>
+<text x="399" y="1564" font-size="21" fill="#172b3a" font-weight="600" text-anchor="middle">6</text>
+<text x="450" y="1439" font-size="21" fill="#172b3a" font-weight="600" text-anchor="middle">10</text>
+<polyline points="450,1445 450,1450" fill="none" stroke="#172b3a" stroke-width="3" stroke-linejoin="round"/>
+<polyline points="450,1535 450,1541" fill="none" stroke="#172b3a" stroke-width="3" stroke-linejoin="round"/>
+<text x="450" y="1564" font-size="21" fill="#172b3a" font-weight="600" text-anchor="middle">7</text>
+<text x="501" y="1439" font-size="21" fill="#172b3a" font-weight="600" text-anchor="middle">9</text>
+<polyline points="501,1445 501,1450" fill="none" stroke="#172b3a" stroke-width="3" stroke-linejoin="round"/>
+<polyline points="501,1535 501,1541" fill="none" stroke="#172b3a" stroke-width="3" stroke-linejoin="round"/>
+<text x="501" y="1564" font-size="21" fill="#172b3a" font-weight="600" text-anchor="middle">8</text>
+<text x="85" y="1600" font-size="19" fill="#526573" font-weight="400" text-anchor="start">Horní zleva 16–9; dolní zleva 1–8.</text>
+<text x="85" y="1630" font-size="19" fill="#526573" font-weight="400" text-anchor="start">DIP16, nikoli 20pinový L293DD.</text>
+<rect x="610" y="1330" width="525" height="325" rx="8" fill="#f7f9fb" stroke="#cbd5dd" stroke-width="2"/>
+<text x="630" y="1367" font-size="23" fill="#172b3a" font-weight="700" text-anchor="start">Tři oddělená kladná napájení</text>
+<text x="630" y="1404" font-size="21" fill="#172b3a" font-weight="400" text-anchor="start">Arduino 5V → jen logika, pin 16.</text>
+<text x="630" y="1441" font-size="21" fill="#172b3a" font-weight="400" text-anchor="start">Motorový zdroj + → pin 8.</text>
+<text x="630" y="1478" font-size="21" fill="#172b3a" font-weight="400" text-anchor="start">Servo zdroj + → červený vodič.</text>
+<text x="630" y="1534" font-size="21" fill="#9c1b28" font-weight="700" text-anchor="start">Tyto tři kladné větve NESPOJOVAT.</text>
+<text x="630" y="1574" font-size="18" fill="#526573" font-weight="400" text-anchor="start">Společná je GND, ne kladné póly.</text>
+<text x="630" y="1603" font-size="18" fill="#526573" font-weight="400" text-anchor="start">Kondenzátory 100 nF: 16–GND a 8–GND.</text>
+<text x="630" y="1632" font-size="18" fill="#526573" font-weight="400" text-anchor="start">Jen návrh; dostupnost/osazení nepotvrzené.</text>
+<rect x="1155" y="1330" width="580" height="325" rx="8" fill="#fff4ed" stroke="#915300" stroke-width="2"/>
+<text x="1175" y="1367" font-size="24" fill="#172b3a" font-weight="700" text-anchor="start">Co zůstává neověřené</text>
+<text x="1175" y="1407" font-size="21" fill="#172b3a" font-weight="400" text-anchor="start">Servo se podle hlášení ze změněné polohy</text>
+<text x="1175" y="1446" font-size="21" fill="#172b3a" font-weight="400" text-anchor="start">chvěje a bzučí; samo se neustavilo.</text>
+<text x="1175" y="1485" font-size="21" fill="#172b3a" font-weight="400" text-anchor="start">Příčina není zjištěná.</text>
+<text x="1175" y="1524" font-size="21" fill="#172b3a" font-weight="400" text-anchor="start">Volný modrý vodič není diagnóza.</text>
+<text x="1175" y="1563" font-size="21" fill="#172b3a" font-weight="400" text-anchor="start">Směrová tlačítka ani jízda nepotvrzeny².</text>
+<text x="1175" y="1602" font-size="21" fill="#172b3a" font-weight="400" text-anchor="start">Poslední odpojení napájení nepotvrzené.</text>
+<text x="65" y="1697" font-size="20" fill="#526573" font-weight="400" text-anchor="start">Čáry ukazují funkční vazby, nikoli rozmístění otvorů na nepájivém poli. Barvy čar nejsou identifikací skutečných vodičů.</text>
+<text x="65" y="1730" font-size="19" fill="#526573" font-weight="400" text-anchor="start">¹ Uživatelské hlasové hlášení, bez vizuální kontroly.  ² Zkouška nebyla uživatelem potvrzená.</text>
+<text x="65" y="1763" font-size="18" fill="#526573" font-weight="400" text-anchor="start">Pinout: ST L293D datasheet str. 2. Arduino piny: zdroj v3-steering-v1, SHA256 9f7477c8…8d8760c.</text>
+<text x="65" y="1795" font-size="18" fill="#526573" font-weight="400" text-anchor="start">Úplný seznam spojů, zdroje a záznam zkoušky: kontrolni-zapojeni.md. Změna dokumentace bez zásahu do hardwaru.</text>
+</g></svg>

@@ -1,0 +1,2735 @@
+{
+  "source_zip_sha256": "cc7a791695edbe9b1e6e79a1ca828d07a3fd635075d0a3fa3aa3a1aaf2530f1d",
+  "all_passed": true,
+  "plates": [
+    {
+      "plate": 1,
+      "objects": 31,
+      "all_within_6mm_edge": true,
+      "minimum_hull_clearance_mm": 11.017514958434782,
+      "minimum_brim_envelope_clearance_mm": 0.8175149584347832,
+      "minimum_edge_clearance_mm": 6.0,
+      "minimum_brim_to_bed_edge_mm": 0.9000000000000004,
+      "group_bbox_center_mm": [
+        130.0,
+        130.0
+      ],
+      "pair_checks": 465,
+      "pair_distances": [
+        {
+          "a": "kolo-zadni-76x12-72z__01.stl",
+          "b": "kolo-zadni-76x12-prave__01.stl",
+          "clearance_mm": 11.049931589957959
+        },
+        {
+          "a": "kolo-zadni-76x12-72z__01.stl",
+          "b": "kolo-predni-76x12__01.stl",
+          "clearance_mm": 97.03889872399837
+        },
+        {
+          "a": "kolo-zadni-76x12-72z__01.stl",
+          "b": "kolo-predni-76x12__02.stl",
+          "clearance_mm": 11.049999999999974
+        },
+        {
+          "a": "kolo-zadni-76x12-72z__01.stl",
+          "b": "mezikolo-54_18z__01.stl",
+          "clearance_mm": 73.26109153408889
+        },
+        {
+          "a": "kolo-zadni-76x12-72z__01.stl",
+          "b": "spojovaci-tahlo__01.stl",
+          "clearance_mm": 96.63967181045952
+        },
+        {
+          "a": "kolo-zadni-76x12-72z__01.stl",
+          "b": "osa-zadni-109_3__01.stl",
+          "clearance_mm": 85.40064683502874
+        },
+        {
+          "a": "kolo-zadni-76x12-72z__01.stl",
+          "b": "tehlice-leva__01.stl",
+          "clearance_mm": 11.05
+        },
+        {
+          "a": "kolo-zadni-76x12-72z__01.stl",
+          "b": "tehlice-prava__01.stl",
+          "clearance_mm": 156.86966678482472
+        },
+        {
+          "a": "kolo-zadni-76x12-72z__01.stl",
+          "b": "osa-mezi-65_2__01.stl",
+          "clearance_mm": 157.38983272234677
+        },
+        {
+          "a": "kolo-zadni-76x12-72z__01.stl",
+          "b": "servo-tahlo-r15__01.stl",
+          "clearance_mm": 122.53883762933698
+        },
+        {
+          "a": "kolo-zadni-76x12-72z__01.stl",
+          "b": "svisly-cep__01.stl",
+          "clearance_mm": 53.71891851876339
+        },
+        {
+          "a": "kolo-zadni-76x12-72z__01.stl",
+          "b": "svisly-cep__02.stl",
+          "clearance_mm": 112.53993690730255
+        },
+        {
+          "a": "kolo-zadni-76x12-72z__01.stl",
+          "b": "celist-horni__01.stl",
+          "clearance_mm": 92.85944367511075
+        },
+        {
+          "a": "kolo-zadni-76x12-72z__01.stl",
+          "b": "celist-horni__02.stl",
+          "clearance_mm": 132.49545354294182
+        },
+        {
+          "a": "kolo-zadni-76x12-72z__01.stl",
+          "b": "pastorek-18z-otvor-2_2__01.stl",
+          "clearance_mm": 108.04407313859241
+        },
+        {
+          "a": "kolo-zadni-76x12-72z__01.stl",
+          "b": "pojistka-c__01.stl",
+          "clearance_mm": 151.89180280670314
+        },
+        {
+          "a": "kolo-zadni-76x12-72z__01.stl",
+          "b": "pojistka-c__02.stl",
+          "clearance_mm": 179.53962126719355
+        },
+        {
+          "a": "kolo-zadni-76x12-72z__01.stl",
+          "b": "pojistka-c__03.stl",
+          "clearance_mm": 108.67487772974007
+        },
+        {
+          "a": "kolo-zadni-76x12-72z__01.stl",
+          "b": "pojistka-c__04.stl",
+          "clearance_mm": 169.74892376412836
+        },
+        {
+          "a": "kolo-zadni-76x12-72z__01.stl",
+          "b": "pojistka-c__05.stl",
+          "clearance_mm": 187.43961444060767
+        },
+        {
+          "a": "kolo-zadni-76x12-72z__01.stl",
+          "b": "pojistka-c__06.stl",
+          "clearance_mm": 206.1882213015222
+        },
+        {
+          "a": "kolo-zadni-76x12-72z__01.stl",
+          "b": "cep-tahla-dlouhy__01.stl",
+          "clearance_mm": 137.82573660089466
+        },
+        {
+          "a": "kolo-zadni-76x12-72z__01.stl",
+          "b": "rozperka-8_6__01.stl",
+          "clearance_mm": 154.94840326498726
+        },
+        {
+          "a": "kolo-zadni-76x12-72z__01.stl",
+          "b": "rozperka-17_6__01.stl",
+          "clearance_mm": 125.5680585665021
+        },
+        {
+          "a": "kolo-zadni-76x12-72z__01.stl",
+          "b": "rozperka-1_6__01.stl",
+          "clearance_mm": 130.92312643581982
+        },
+        {
+          "a": "kolo-zadni-76x12-72z__01.stl",
+          "b": "rozperka-1_6__02.stl",
+          "clearance_mm": 138.30776492345288
+        },
+        {
+          "a": "kolo-zadni-76x12-72z__01.stl",
+          "b": "cep-tahla-kratky__01.stl",
+          "clearance_mm": 130.28110514623674
+        },
+        {
+          "a": "kolo-zadni-76x12-72z__01.stl",
+          "b": "pojistka-mala__01.stl",
+          "clearance_mm": 11.050000000000004
+        },
+        {
+          "a": "kolo-zadni-76x12-72z__01.stl",
+          "b": "pojistka-mala__02.stl",
+          "clearance_mm": 175.74433255851233
+        },
+        {
+          "a": "kolo-zadni-76x12-72z__01.stl",
+          "b": "distanc-packy__01.stl",
+          "clearance_mm": 128.41324275360714
+        },
+        {
+          "a": "kolo-zadni-76x12-prave__01.stl",
+          "b": "kolo-predni-76x12__01.stl",
+          "clearance_mm": 11.050000000000006
+        },
+        {
+          "a": "kolo-zadni-76x12-prave__01.stl",
+          "b": "kolo-predni-76x12__02.stl",
+          "clearance_mm": 11.049999999986756
+        },
+        {
+          "a": "kolo-zadni-76x12-prave__01.stl",
+          "b": "mezikolo-54_18z__01.stl",
+          "clearance_mm": 12.525500440896078
+        },
+        {
+          "a": "kolo-zadni-76x12-prave__01.stl",
+          "b": "spojovaci-tahlo__01.stl",
+          "clearance_mm": 67.55267565529903
+        },
+        {
+          "a": "kolo-zadni-76x12-prave__01.stl",
+          "b": "osa-zadni-109_3__01.stl",
+          "clearance_mm": 88.08360501245059
+        },
+        {
+          "a": "kolo-zadni-76x12-prave__01.stl",
+          "b": "tehlice-leva__01.stl",
+          "clearance_mm": 72.67012154592652
+        },
+        {
+          "a": "kolo-zadni-76x12-prave__01.stl",
+          "b": "tehlice-prava__01.stl",
+          "clearance_mm": 82.1733190684789
+        },
+        {
+          "a": "kolo-zadni-76x12-prave__01.stl",
+          "b": "osa-mezi-65_2__01.stl",
+          "clearance_mm": 105.32756652053777
+        },
+        {
+          "a": "kolo-zadni-76x12-prave__01.stl",
+          "b": "servo-tahlo-r15__01.stl",
+          "clearance_mm": 99.3938065590771
+        },
+        {
+          "a": "kolo-zadni-76x12-prave__01.stl",
+          "b": "svisly-cep__01.stl",
+          "clearance_mm": 90.36385011778869
+        },
+        {
+          "a": "kolo-zadni-76x12-prave__01.stl",
+          "b": "svisly-cep__02.stl",
+          "clearance_mm": 107.39721993912974
+        },
+        {
+          "a": "kolo-zadni-76x12-prave__01.stl",
+          "b": "celist-horni__01.stl",
+          "clearance_mm": 11.050000000000011
+        },
+        {
+          "a": "kolo-zadni-76x12-prave__01.stl",
+          "b": "celist-horni__02.stl",
+          "clearance_mm": 59.09006115105658
+        },
+        {
+          "a": "kolo-zadni-76x12-prave__01.stl",
+          "b": "pastorek-18z-otvor-2_2__01.stl",
+          "clearance_mm": 124.07823996576907
+        },
+        {
+          "a": "kolo-zadni-76x12-prave__01.stl",
+          "b": "pojistka-c__01.stl",
+          "clearance_mm": 66.9366751180221
+        },
+        {
+          "a": "kolo-zadni-76x12-prave__01.stl",
+          "b": "pojistka-c__02.stl",
+          "clearance_mm": 109.81846312613703
+        },
+        {
+          "a": "kolo-zadni-76x12-prave__01.stl",
+          "b": "pojistka-c__03.stl",
+          "clearance_mm": 137.98553400653688
+        },
+        {
+          "a": "kolo-zadni-76x12-prave__01.stl",
+          "b": "pojistka-c__04.stl",
+          "clearance_mm": 123.00902512249701
+        },
+        {
+          "a": "kolo-zadni-76x12-prave__01.stl",
+          "b": "pojistka-c__05.stl",
+          "clearance_mm": 133.7426102838928
+        },
+        {
+          "a": "kolo-zadni-76x12-prave__01.stl",
+          "b": "pojistka-c__06.stl",
+          "clearance_mm": 146.9027874031054
+        },
+        {
+          "a": "kolo-zadni-76x12-prave__01.stl",
+          "b": "cep-tahla-dlouhy__01.stl",
+          "clearance_mm": 118.71633655961628
+        },
+        {
+          "a": "kolo-zadni-76x12-prave__01.stl",
+          "b": "rozperka-8_6__01.stl",
+          "clearance_mm": 122.02795293922192
+        },
+        {
+          "a": "kolo-zadni-76x12-prave__01.stl",
+          "b": "rozperka-17_6__01.stl",
+          "clearance_mm": 160.70205748420204
+        },
+        {
+          "a": "kolo-zadni-76x12-prave__01.stl",
+          "b": "rozperka-1_6__01.stl",
+          "clearance_mm": 136.14310999953491
+        },
+        {
+          "a": "kolo-zadni-76x12-prave__01.stl",
+          "b": "rozperka-1_6__02.stl",
+          "clearance_mm": 132.3118854565218
+        },
+        {
+          "a": "kolo-zadni-76x12-prave__01.stl",
+          "b": "cep-tahla-kratky__01.stl",
+          "clearance_mm": 151.91607401325484
+        },
+        {
+          "a": "kolo-zadni-76x12-prave__01.stl",
+          "b": "pojistka-mala__01.stl",
+          "clearance_mm": 12.734083465965957
+        },
+        {
+          "a": "kolo-zadni-76x12-prave__01.stl",
+          "b": "pojistka-mala__02.stl",
+          "clearance_mm": 137.13528504576647
+        },
+        {
+          "a": "kolo-zadni-76x12-prave__01.stl",
+          "b": "distanc-packy__01.stl",
+          "clearance_mm": 45.36896953013919
+        },
+        {
+          "a": "kolo-predni-76x12__01.stl",
+          "b": "kolo-predni-76x12__02.stl",
+          "clearance_mm": 64.33927621010756
+        },
+        {
+          "a": "kolo-predni-76x12__01.stl",
+          "b": "mezikolo-54_18z__01.stl",
+          "clearance_mm": 11.050000000000015
+        },
+        {
+          "a": "kolo-predni-76x12__01.stl",
+          "b": "spojovaci-tahlo__01.stl",
+          "clearance_mm": 48.63677137905347
+        },
+        {
+          "a": "kolo-predni-76x12__01.stl",
+          "b": "osa-zadni-109_3__01.stl",
+          "clearance_mm": 108.33882587248735
+        },
+        {
+          "a": "kolo-predni-76x12__01.stl",
+          "b": "tehlice-leva__01.stl",
+          "clearance_mm": 145.10680089876232
+        },
+        {
+          "a": "kolo-predni-76x12__01.stl",
+          "b": "tehlice-prava__01.stl",
+          "clearance_mm": 11.050000000000008
+        },
+        {
+          "a": "kolo-predni-76x12__01.stl",
+          "b": "osa-mezi-65_2__01.stl",
+          "clearance_mm": 73.10430203642647
+        },
+        {
+          "a": "kolo-predni-76x12__01.stl",
+          "b": "servo-tahlo-r15__01.stl",
+          "clearance_mm": 86.44329109559187
+        },
+        {
+          "a": "kolo-predni-76x12__01.stl",
+          "b": "svisly-cep__01.stl",
+          "clearance_mm": 151.28484734779516
+        },
+        {
+          "a": "kolo-predni-76x12__01.stl",
+          "b": "svisly-cep__02.stl",
+          "clearance_mm": 124.34043214979991
+        },
+        {
+          "a": "kolo-predni-76x12__01.stl",
+          "b": "celist-horni__01.stl",
+          "clearance_mm": 12.43701211537023
+        },
+        {
+          "a": "kolo-predni-76x12__01.stl",
+          "b": "celist-horni__02.stl",
+          "clearance_mm": 11.050000000000024
+        },
+        {
+          "a": "kolo-predni-76x12__01.stl",
+          "b": "pastorek-18z-otvor-2_2__01.stl",
+          "clearance_mm": 161.5563126990587
+        },
+        {
+          "a": "kolo-predni-76x12__01.stl",
+          "b": "pojistka-c__01.stl",
+          "clearance_mm": 11.049999999999986
+        },
+        {
+          "a": "kolo-predni-76x12__01.stl",
+          "b": "pojistka-c__02.stl",
+          "clearance_mm": 49.68329236544096
+        },
+        {
+          "a": "kolo-predni-76x12__01.stl",
+          "b": "pojistka-c__03.stl",
+          "clearance_mm": 183.75644838927744
+        },
+        {
+          "a": "kolo-predni-76x12__01.stl",
+          "b": "pojistka-c__04.stl",
+          "clearance_mm": 95.8022483724303
+        },
+        {
+          "a": "kolo-predni-76x12__01.stl",
+          "b": "pojistka-c__05.stl",
+          "clearance_mm": 94.33660092527727
+        },
+        {
+          "a": "kolo-predni-76x12__01.stl",
+          "b": "pojistka-c__06.stl",
+          "clearance_mm": 97.00438364732204
+        },
+        {
+          "a": "kolo-predni-76x12__01.stl",
+          "b": "cep-tahla-dlouhy__01.stl",
+          "clearance_mm": 121.29490688994483
+        },
+        {
+          "a": "kolo-predni-76x12__01.stl",
+          "b": "rozperka-8_6__01.stl",
+          "clearance_mm": 112.85618570452628
+        },
+        {
+          "a": "kolo-predni-76x12__01.stl",
+          "b": "rozperka-17_6__01.stl",
+          "clearance_mm": 207.80264009118272
+        },
+        {
+          "a": "kolo-predni-76x12__01.stl",
+          "b": "rozperka-1_6__01.stl",
+          "clearance_mm": 162.70632870529337
+        },
+        {
+          "a": "kolo-predni-76x12__01.stl",
+          "b": "rozperka-1_6__02.stl",
+          "clearance_mm": 149.3643753597867
+        },
+        {
+          "a": "kolo-predni-76x12__01.stl",
+          "b": "cep-tahla-kratky__01.stl",
+          "clearance_mm": 190.53562377797957
+        },
+        {
+          "a": "kolo-predni-76x12__01.stl",
+          "b": "pojistka-mala__01.stl",
+          "clearance_mm": 96.71999944304282
+        },
+        {
+          "a": "kolo-predni-76x12__01.stl",
+          "b": "pojistka-mala__02.stl",
+          "clearance_mm": 117.59232282067258
+        },
+        {
+          "a": "kolo-predni-76x12__01.stl",
+          "b": "distanc-packy__01.stl",
+          "clearance_mm": 14.993680035391028
+        },
+        {
+          "a": "kolo-predni-76x12__02.stl",
+          "b": "mezikolo-54_18z__01.stl",
+          "clearance_mm": 11.049999999999997
+        },
+        {
+          "a": "kolo-predni-76x12__02.stl",
+          "b": "spojovaci-tahlo__01.stl",
+          "clearance_mm": 11.049999999999995
+        },
+        {
+          "a": "kolo-predni-76x12__02.stl",
+          "b": "osa-zadni-109_3__01.stl",
+          "clearance_mm": 11.050000000000004
+        },
+        {
+          "a": "kolo-predni-76x12__02.stl",
+          "b": "tehlice-leva__01.stl",
+          "clearance_mm": 12.960990530380371
+        },
+        {
+          "a": "kolo-predni-76x12__02.stl",
+          "b": "tehlice-prava__01.stl",
+          "clearance_mm": 97.19664314230897
+        },
+        {
+          "a": "kolo-predni-76x12__02.stl",
+          "b": "osa-mezi-65_2__01.stl",
+          "clearance_mm": 77.62708587118229
+        },
+        {
+          "a": "kolo-predni-76x12__02.stl",
+          "b": "servo-tahlo-r15__01.stl",
+          "clearance_mm": 35.498938462708246
+        },
+        {
+          "a": "kolo-predni-76x12__02.stl",
+          "b": "svisly-cep__01.stl",
+          "clearance_mm": 11.050000000000002
+        },
+        {
+          "a": "kolo-predni-76x12__02.stl",
+          "b": "svisly-cep__02.stl",
+          "clearance_mm": 32.419388979743026
+        },
+        {
+          "a": "kolo-predni-76x12__02.stl",
+          "b": "celist-horni__01.stl",
+          "clearance_mm": 93.92282401325413
+        },
+        {
+          "a": "kolo-predni-76x12__02.stl",
+          "b": "celist-horni__02.stl",
+          "clearance_mm": 70.23801290876632
+        },
+        {
+          "a": "kolo-predni-76x12__02.stl",
+          "b": "pastorek-18z-otvor-2_2__01.stl",
+          "clearance_mm": 37.65499253013742
+        },
+        {
+          "a": "kolo-predni-76x12__02.stl",
+          "b": "pojistka-c__01.stl",
+          "clearance_mm": 140.26684553662452
+        },
+        {
+          "a": "kolo-predni-76x12__02.stl",
+          "b": "pojistka-c__02.stl",
+          "clearance_mm": 110.98033238686355
+        },
+        {
+          "a": "kolo-predni-76x12__02.stl",
+          "b": "pojistka-c__03.stl",
+          "clearance_mm": 51.20265949544691
+        },
+        {
+          "a": "kolo-predni-76x12__02.stl",
+          "b": "pojistka-c__04.stl",
+          "clearance_mm": 86.3787858819803
+        },
+        {
+          "a": "kolo-predni-76x12__02.stl",
+          "b": "pojistka-c__05.stl",
+          "clearance_mm": 106.45895629318723
+        },
+        {
+          "a": "kolo-predni-76x12__02.stl",
+          "b": "pojistka-c__06.stl",
+          "clearance_mm": 127.55253800258207
+        },
+        {
+          "a": "kolo-predni-76x12__02.stl",
+          "b": "cep-tahla-dlouhy__01.stl",
+          "clearance_mm": 51.007414880469184
+        },
+        {
+          "a": "kolo-predni-76x12__02.stl",
+          "b": "rozperka-8_6__01.stl",
+          "clearance_mm": 68.3611210560716
+        },
+        {
+          "a": "kolo-predni-76x12__02.stl",
+          "b": "rozperka-17_6__01.stl",
+          "clearance_mm": 74.36978153414779
+        },
+        {
+          "a": "kolo-predni-76x12__02.stl",
+          "b": "rozperka-1_6__01.stl",
+          "clearance_mm": 52.999802270063626
+        },
+        {
+          "a": "kolo-predni-76x12__02.stl",
+          "b": "rozperka-1_6__02.stl",
+          "clearance_mm": 54.91552063340129
+        },
+        {
+          "a": "kolo-predni-76x12__02.stl",
+          "b": "cep-tahla-kratky__01.stl",
+          "clearance_mm": 65.00265344078028
+        },
+        {
+          "a": "kolo-predni-76x12__02.stl",
+          "b": "pojistka-mala__01.stl",
+          "clearance_mm": 65.82992046940666
+        },
+        {
+          "a": "kolo-predni-76x12__02.stl",
+          "b": "pojistka-mala__02.stl",
+          "clearance_mm": 89.80416904666191
+        },
+        {
+          "a": "kolo-predni-76x12__02.stl",
+          "b": "distanc-packy__01.stl",
+          "clearance_mm": 124.30913587536156
+        },
+        {
+          "a": "mezikolo-54_18z__01.stl",
+          "b": "spojovaci-tahlo__01.stl",
+          "clearance_mm": 11.049999970384011
+        },
+        {
+          "a": "mezikolo-54_18z__01.stl",
+          "b": "osa-zadni-109_3__01.stl",
+          "clearance_mm": 47.25384645651257
+        },
+        {
+          "a": "mezikolo-54_18z__01.stl",
+          "b": "tehlice-leva__01.stl",
+          "clearance_mm": 99.0424620705851
+        },
+        {
+          "a": "mezikolo-54_18z__01.stl",
+          "b": "tehlice-prava__01.stl",
+          "clearance_mm": 36.55773535028599
+        },
+        {
+          "a": "mezikolo-54_18z__01.stl",
+          "b": "osa-mezi-65_2__01.stl",
+          "clearance_mm": 42.402139084213545
+        },
+        {
+          "a": "mezikolo-54_18z__01.stl",
+          "b": "servo-tahlo-r15__01.stl",
+          "clearance_mm": 41.55493387810825
+        },
+        {
+          "a": "mezikolo-54_18z__01.stl",
+          "b": "svisly-cep__01.stl",
+          "clearance_mm": 97.11216195356556
+        },
+        {
+          "a": "mezikolo-54_18z__01.stl",
+          "b": "svisly-cep__02.stl",
+          "clearance_mm": 64.176993305432
+        },
+        {
+          "a": "mezikolo-54_18z__01.stl",
+          "b": "celist-horni__01.stl",
+          "clearance_mm": 67.75318137100149
+        },
+        {
+          "a": "mezikolo-54_18z__01.stl",
+          "b": "celist-horni__02.stl",
+          "clearance_mm": 11.049640364092502
+        },
+        {
+          "a": "mezikolo-54_18z__01.stl",
+          "b": "pastorek-18z-otvor-2_2__01.stl",
+          "clearance_mm": 100.2137496522772
+        },
+        {
+          "a": "mezikolo-54_18z__01.stl",
+          "b": "pojistka-c__01.stl",
+          "clearance_mm": 95.25473317186862
+        },
+        {
+          "a": "mezikolo-54_18z__01.stl",
+          "b": "pojistka-c__02.stl",
+          "clearance_mm": 55.9579631207216
+        },
+        {
+          "a": "mezikolo-54_18z__01.stl",
+          "b": "pojistka-c__03.stl",
+          "clearance_mm": 123.12625076870671
+        },
+        {
+          "a": "mezikolo-54_18z__01.stl",
+          "b": "pojistka-c__04.stl",
+          "clearance_mm": 60.285192255429216
+        },
+        {
+          "a": "mezikolo-54_18z__01.stl",
+          "b": "pojistka-c__05.stl",
+          "clearance_mm": 71.1342553869064
+        },
+        {
+          "a": "mezikolo-54_18z__01.stl",
+          "b": "pojistka-c__06.stl",
+          "clearance_mm": 85.98674952708006
+        },
+        {
+          "a": "mezikolo-54_18z__01.stl",
+          "b": "cep-tahla-dlouhy__01.stl",
+          "clearance_mm": 66.8007301447322
+        },
+        {
+          "a": "mezikolo-54_18z__01.stl",
+          "b": "rozperka-8_6__01.stl",
+          "clearance_mm": 63.6661671522706
+        },
+        {
+          "a": "mezikolo-54_18z__01.stl",
+          "b": "rozperka-17_6__01.stl",
+          "clearance_mm": 147.13159685968418
+        },
+        {
+          "a": "mezikolo-54_18z__01.stl",
+          "b": "rozperka-1_6__01.stl",
+          "clearance_mm": 101.71934082281346
+        },
+        {
+          "a": "mezikolo-54_18z__01.stl",
+          "b": "rozperka-1_6__02.stl",
+          "clearance_mm": 89.86683691204586
+        },
+        {
+          "a": "mezikolo-54_18z__01.stl",
+          "b": "cep-tahla-kratky__01.stl",
+          "clearance_mm": 129.1709615212411
+        },
+        {
+          "a": "mezikolo-54_18z__01.stl",
+          "b": "pojistka-mala__01.stl",
+          "clearance_mm": 97.05518505611796
+        },
+        {
+          "a": "mezikolo-54_18z__01.stl",
+          "b": "pojistka-mala__02.stl",
+          "clearance_mm": 75.91383752043907
+        },
+        {
+          "a": "mezikolo-54_18z__01.stl",
+          "b": "distanc-packy__01.stl",
+          "clearance_mm": 87.854050132334
+        },
+        {
+          "a": "spojovaci-tahlo__01.stl",
+          "b": "osa-zadni-109_3__01.stl",
+          "clearance_mm": 11.25955675753099
+        },
+        {
+          "a": "spojovaci-tahlo__01.stl",
+          "b": "tehlice-leva__01.stl",
+          "clearance_mm": 95.51192081028186
+        },
+        {
+          "a": "spojovaci-tahlo__01.stl",
+          "b": "tehlice-prava__01.stl",
+          "clearance_mm": 21.047904979667205
+        },
+        {
+          "a": "spojovaci-tahlo__01.stl",
+          "b": "osa-mezi-65_2__01.stl",
+          "clearance_mm": 11.05000000000006
+        },
+        {
+          "a": "spojovaci-tahlo__01.stl",
+          "b": "servo-tahlo-r15__01.stl",
+          "clearance_mm": 16.632390314516915
+        },
+        {
+          "a": "spojovaci-tahlo__01.stl",
+          "b": "svisly-cep__01.stl",
+          "clearance_mm": 81.37906687411933
+        },
+        {
+          "a": "spojovaci-tahlo__01.stl",
+          "b": "svisly-cep__02.stl",
+          "clearance_mm": 28.545824417920908
+        },
+        {
+          "a": "spojovaci-tahlo__01.stl",
+          "b": "celist-horni__01.stl",
+          "clearance_mm": 127.55260052172342
+        },
+        {
+          "a": "spojovaci-tahlo__01.stl",
+          "b": "celist-horni__02.stl",
+          "clearance_mm": 14.235106689470774
+        },
+        {
+          "a": "spojovaci-tahlo__01.stl",
+          "b": "pastorek-18z-otvor-2_2__01.stl",
+          "clearance_mm": 66.56025241813842
+        },
+        {
+          "a": "spojovaci-tahlo__01.stl",
+          "b": "pojistka-c__01.stl",
+          "clearance_mm": 133.01554753508964
+        },
+        {
+          "a": "spojovaci-tahlo__01.stl",
+          "b": "pojistka-c__02.stl",
+          "clearance_mm": 11.050000000000011
+        },
+        {
+          "a": "spojovaci-tahlo__01.stl",
+          "b": "pojistka-c__03.stl",
+          "clearance_mm": 91.94413755525731
+        },
+        {
+          "a": "spojovaci-tahlo__01.stl",
+          "b": "pojistka-c__04.stl",
+          "clearance_mm": 31.23667121525804
+        },
+        {
+          "a": "spojovaci-tahlo__01.stl",
+          "b": "pojistka-c__05.stl",
+          "clearance_mm": 32.18760719677235
+        },
+        {
+          "a": "spojovaci-tahlo__01.stl",
+          "b": "pojistka-c__06.stl",
+          "clearance_mm": 38.339915000299044
+        },
+        {
+          "a": "spojovaci-tahlo__01.stl",
+          "b": "cep-tahla-dlouhy__01.stl",
+          "clearance_mm": 37.61301394352592
+        },
+        {
+          "a": "spojovaci-tahlo__01.stl",
+          "b": "rozperka-8_6__01.stl",
+          "clearance_mm": 39.00981438587668
+        },
+        {
+          "a": "spojovaci-tahlo__01.stl",
+          "b": "rozperka-17_6__01.stl",
+          "clearance_mm": 115.42397593942613
+        },
+        {
+          "a": "spojovaci-tahlo__01.stl",
+          "b": "rozperka-1_6__01.stl",
+          "clearance_mm": 65.64553268174464
+        },
+        {
+          "a": "spojovaci-tahlo__01.stl",
+          "b": "rozperka-1_6__02.stl",
+          "clearance_mm": 54.5535710512821
+        },
+        {
+          "a": "spojovaci-tahlo__01.stl",
+          "b": "cep-tahla-kratky__01.stl",
+          "clearance_mm": 95.05731308486646
+        },
+        {
+          "a": "spojovaci-tahlo__01.stl",
+          "b": "pojistka-mala__01.stl",
+          "clearance_mm": 139.9688921413164
+        },
+        {
+          "a": "spojovaci-tahlo__01.stl",
+          "b": "pojistka-mala__02.stl",
+          "clearance_mm": 50.38983352898904
+        },
+        {
+          "a": "spojovaci-tahlo__01.stl",
+          "b": "distanc-packy__01.stl",
+          "clearance_mm": 139.1521689215569
+        },
+        {
+          "a": "osa-zadni-109_3__01.stl",
+          "b": "tehlice-leva__01.stl",
+          "clearance_mm": 47.570385536547995
+        },
+        {
+          "a": "osa-zadni-109_3__01.stl",
+          "b": "tehlice-prava__01.stl",
+          "clearance_mm": 114.3925458138414
+        },
+        {
+          "a": "osa-zadni-109_3__01.stl",
+          "b": "osa-mezi-65_2__01.stl",
+          "clearance_mm": 73.5
+        },
+        {
+          "a": "osa-zadni-109_3__01.stl",
+          "b": "servo-tahlo-r15__01.stl",
+          "clearance_mm": 11.049126290799924
+        },
+        {
+          "a": "osa-zadni-109_3__01.stl",
+          "b": "svisly-cep__01.stl",
+          "clearance_mm": 20.323169796456227
+        },
+        {
+          "a": "osa-zadni-109_3__01.stl",
+          "b": "svisly-cep__02.stl",
+          "clearance_mm": 11.049999999999988
+        },
+        {
+          "a": "osa-zadni-109_3__01.stl",
+          "b": "celist-horni__01.stl",
+          "clearance_mm": 159.88681920516157
+        },
+        {
+          "a": "osa-zadni-109_3__01.stl",
+          "b": "celist-horni__02.stl",
+          "clearance_mm": 89.58464087546028
+        },
+        {
+          "a": "osa-zadni-109_3__01.stl",
+          "b": "pastorek-18z-otvor-2_2__01.stl",
+          "clearance_mm": 11.050000000000033
+        },
+        {
+          "a": "osa-zadni-109_3__01.stl",
+          "b": "pojistka-c__01.stl",
+          "clearance_mm": 192.83121887100825
+        },
+        {
+          "a": "osa-zadni-109_3__01.stl",
+          "b": "pojistka-c__02.stl",
+          "clearance_mm": 118.13198661820756
+        },
+        {
+          "a": "osa-zadni-109_3__01.stl",
+          "b": "pojistka-c__03.stl",
+          "clearance_mm": 11.050000000000004
+        },
+        {
+          "a": "osa-zadni-109_3__01.stl",
+          "b": "pojistka-c__04.stl",
+          "clearance_mm": 71.87324202664746
+        },
+        {
+          "a": "osa-zadni-109_3__01.stl",
+          "b": "pojistka-c__05.stl",
+          "clearance_mm": 95.26439362403794
+        },
+        {
+          "a": "osa-zadni-109_3__01.stl",
+          "b": "pojistka-c__06.stl",
+          "clearance_mm": 118.90467710035166
+        },
+        {
+          "a": "osa-zadni-109_3__01.stl",
+          "b": "cep-tahla-dlouhy__01.stl",
+          "clearance_mm": 25.049239869233432
+        },
+        {
+          "a": "osa-zadni-109_3__01.stl",
+          "b": "rozperka-8_6__01.stl",
+          "clearance_mm": 45.563278974368664
+        },
+        {
+          "a": "osa-zadni-109_3__01.stl",
+          "b": "rozperka-17_6__01.stl",
+          "clearance_mm": 25.009775356716656
+        },
+        {
+          "a": "osa-zadni-109_3__01.stl",
+          "b": "rozperka-1_6__01.stl",
+          "clearance_mm": 31.801035176835754
+        },
+        {
+          "a": "osa-zadni-109_3__01.stl",
+          "b": "rozperka-1_6__02.stl",
+          "clearance_mm": 34.06217377553668
+        },
+        {
+          "a": "osa-zadni-109_3__01.stl",
+          "b": "cep-tahla-kratky__01.stl",
+          "clearance_mm": 33.444114061007866
+        },
+        {
+          "a": "osa-zadni-109_3__01.stl",
+          "b": "pojistka-mala__01.stl",
+          "clearance_mm": 152.8196638106529
+        },
+        {
+          "a": "osa-zadni-109_3__01.stl",
+          "b": "pojistka-mala__02.stl",
+          "clearance_mm": 68.42770107068432
+        },
+        {
+          "a": "osa-zadni-109_3__01.stl",
+          "b": "distanc-packy__01.stl",
+          "clearance_mm": 183.87066182038467
+        },
+        {
+          "a": "tehlice-leva__01.stl",
+          "b": "tehlice-prava__01.stl",
+          "clearance_mm": 185.72155731304917
+        },
+        {
+          "a": "tehlice-leva__01.stl",
+          "b": "osa-mezi-65_2__01.stl",
+          "clearance_mm": 164.61137716724085
+        },
+        {
+          "a": "tehlice-leva__01.stl",
+          "b": "servo-tahlo-r15__01.stl",
+          "clearance_mm": 113.35464580545792
+        },
+        {
+          "a": "tehlice-leva__01.stl",
+          "b": "svisly-cep__01.stl",
+          "clearance_mm": 14.416421677066769
+        },
+        {
+          "a": "tehlice-leva__01.stl",
+          "b": "svisly-cep__02.stl",
+          "clearance_mm": 89.50373877072559
+        },
+        {
+          "a": "tehlice-leva__01.stl",
+          "b": "celist-horni__01.stl",
+          "clearance_mm": 159.7091915757976
+        },
+        {
+          "a": "tehlice-leva__01.stl",
+          "b": "celist-horni__02.stl",
+          "clearance_mm": 159.008065007741
+        },
+        {
+          "a": "tehlice-leva__01.stl",
+          "b": "pastorek-18z-otvor-2_2__01.stl",
+          "clearance_mm": 80.3798181782515
+        },
+        {
+          "a": "tehlice-leva__01.stl",
+          "b": "pojistka-c__01.stl",
+          "clearance_mm": 213.62359343071114
+        },
+        {
+          "a": "tehlice-leva__01.stl",
+          "b": "pojistka-c__02.stl",
+          "clearance_mm": 199.8653842059884
+        },
+        {
+          "a": "tehlice-leva__01.stl",
+          "b": "pojistka-c__03.stl",
+          "clearance_mm": 72.81392888463863
+        },
+        {
+          "a": "tehlice-leva__01.stl",
+          "b": "pojistka-c__04.stl",
+          "clearance_mm": 170.74879660829995
+        },
+        {
+          "a": "tehlice-leva__01.stl",
+          "b": "pojistka-c__05.stl",
+          "clearance_mm": 192.26087789258978
+        },
+        {
+          "a": "tehlice-leva__01.stl",
+          "b": "pojistka-c__06.stl",
+          "clearance_mm": 214.29562544838438
+        },
+        {
+          "a": "tehlice-leva__01.stl",
+          "b": "cep-tahla-dlouhy__01.stl",
+          "clearance_mm": 124.76091386728932
+        },
+        {
+          "a": "tehlice-leva__01.stl",
+          "b": "rozperka-8_6__01.stl",
+          "clearance_mm": 147.86859869690488
+        },
+        {
+          "a": "tehlice-leva__01.stl",
+          "b": "rozperka-17_6__01.stl",
+          "clearance_mm": 85.42149913488907
+        },
+        {
+          "a": "tehlice-leva__01.stl",
+          "b": "rozperka-1_6__01.stl",
+          "clearance_mm": 106.21934996265487
+        },
+        {
+          "a": "tehlice-leva__01.stl",
+          "b": "rozperka-1_6__02.stl",
+          "clearance_mm": 117.71998146505302
+        },
+        {
+          "a": "tehlice-leva__01.stl",
+          "b": "cep-tahla-kratky__01.stl",
+          "clearance_mm": 96.59917963752208
+        },
+        {
+          "a": "tehlice-leva__01.stl",
+          "b": "pojistka-mala__01.stl",
+          "clearance_mm": 96.35250897243722
+        },
+        {
+          "a": "tehlice-leva__01.stl",
+          "b": "pojistka-mala__02.stl",
+          "clearance_mm": 170.5534654127124
+        },
+        {
+          "a": "tehlice-leva__01.stl",
+          "b": "distanc-packy__01.stl",
+          "clearance_mm": 193.62662107413718
+        },
+        {
+          "a": "tehlice-prava__01.stl",
+          "b": "osa-mezi-65_2__01.stl",
+          "clearance_mm": 34.78363072575251
+        },
+        {
+          "a": "tehlice-prava__01.stl",
+          "b": "servo-tahlo-r15__01.stl",
+          "clearance_mm": 69.55944340529003
+        },
+        {
+          "a": "tehlice-prava__01.stl",
+          "b": "svisly-cep__01.stl",
+          "clearance_mm": 181.5012995288786
+        },
+        {
+          "a": "tehlice-prava__01.stl",
+          "b": "svisly-cep__02.stl",
+          "clearance_mm": 124.49089082152226
+        },
+        {
+          "a": "tehlice-prava__01.stl",
+          "b": "celist-horni__01.stl",
+          "clearance_mm": 99.39252691900224
+        },
+        {
+          "a": "tehlice-prava__01.stl",
+          "b": "celist-horni__02.stl",
+          "clearance_mm": 11.212992386502577
+        },
+        {
+          "a": "tehlice-prava__01.stl",
+          "b": "pastorek-18z-otvor-2_2__01.stl",
+          "clearance_mm": 169.94177006054827
+        },
+        {
+          "a": "tehlice-prava__01.stl",
+          "b": "pojistka-c__01.stl",
+          "clearance_mm": 86.88102706375696
+        },
+        {
+          "a": "tehlice-prava__01.stl",
+          "b": "pojistka-c__02.stl",
+          "clearance_mm": 11.050000000000018
+        },
+        {
+          "a": "tehlice-prava__01.stl",
+          "b": "pojistka-c__03.stl",
+          "clearance_mm": 196.53658956677518
+        },
+        {
+          "a": "tehlice-prava__01.stl",
+          "b": "pojistka-c__04.stl",
+          "clearance_mm": 71.73077147337331
+        },
+        {
+          "a": "tehlice-prava__01.stl",
+          "b": "pojistka-c__05.stl",
+          "clearance_mm": 64.21037762239693
+        },
+        {
+          "a": "tehlice-prava__01.stl",
+          "b": "pojistka-c__06.stl",
+          "clearance_mm": 58.63312316339532
+        },
+        {
+          "a": "tehlice-prava__01.stl",
+          "b": "cep-tahla-dlouhy__01.stl",
+          "clearance_mm": 110.64304296864314
+        },
+        {
+          "a": "tehlice-prava__01.stl",
+          "b": "rozperka-8_6__01.stl",
+          "clearance_mm": 96.55098944467493
+        },
+        {
+          "a": "tehlice-prava__01.stl",
+          "b": "rozperka-17_6__01.stl",
+          "clearance_mm": 219.66431653549984
+        },
+        {
+          "a": "tehlice-prava__01.stl",
+          "b": "rozperka-1_6__01.stl",
+          "clearance_mm": 163.32202637903083
+        },
+        {
+          "a": "tehlice-prava__01.stl",
+          "b": "rozperka-1_6__02.stl",
+          "clearance_mm": 144.98624297965046
+        },
+        {
+          "a": "tehlice-prava__01.stl",
+          "b": "cep-tahla-kratky__01.stl",
+          "clearance_mm": 197.73209109468144
+        },
+        {
+          "a": "tehlice-prava__01.stl",
+          "b": "pojistka-mala__01.stl",
+          "clearance_mm": 170.83179215099523
+        },
+        {
+          "a": "tehlice-prava__01.stl",
+          "b": "pojistka-mala__02.stl",
+          "clearance_mm": 95.27404293416947
+        },
+        {
+          "a": "tehlice-prava__01.stl",
+          "b": "distanc-packy__01.stl",
+          "clearance_mm": 99.93779825361466
+        },
+        {
+          "a": "osa-mezi-65_2__01.stl",
+          "b": "servo-tahlo-r15__01.stl",
+          "clearance_mm": 11.046663951546156
+        },
+        {
+          "a": "osa-mezi-65_2__01.stl",
+          "b": "svisly-cep__01.stl",
+          "clearance_mm": 150.806665475422
+        },
+        {
+          "a": "osa-mezi-65_2__01.stl",
+          "b": "svisly-cep__02.stl",
+          "clearance_mm": 76.13967098378505
+        },
+        {
+          "a": "osa-mezi-65_2__01.stl",
+          "b": "celist-horni__01.stl",
+          "clearance_mm": 153.4427031041716
+        },
+        {
+          "a": "osa-mezi-65_2__01.stl",
+          "b": "celist-horni__02.stl",
+          "clearance_mm": 39.24440794205172
+        },
+        {
+          "a": "osa-mezi-65_2__01.stl",
+          "b": "pastorek-18z-otvor-2_2__01.stl",
+          "clearance_mm": 123.23521080557003
+        },
+        {
+          "a": "osa-mezi-65_2__01.stl",
+          "b": "pojistka-c__01.stl",
+          "clearance_mm": 154.82301074865862
+        },
+        {
+          "a": "osa-mezi-65_2__01.stl",
+          "b": "pojistka-c__02.stl",
+          "clearance_mm": 13.035841090525201
+        },
+        {
+          "a": "osa-mezi-65_2__01.stl",
+          "b": "pojistka-c__03.stl",
+          "clearance_mm": 151.86993062645323
+        },
+        {
+          "a": "osa-mezi-65_2__01.stl",
+          "b": "pojistka-c__04.stl",
+          "clearance_mm": 11.049999999999969
+        },
+        {
+          "a": "osa-mezi-65_2__01.stl",
+          "b": "pojistka-c__05.stl",
+          "clearance_mm": 11.049999999999974
+        },
+        {
+          "a": "osa-mezi-65_2__01.stl",
+          "b": "pojistka-c__06.stl",
+          "clearance_mm": 11.04999999999998
+        },
+        {
+          "a": "osa-mezi-65_2__01.stl",
+          "b": "cep-tahla-dlouhy__01.stl",
+          "clearance_mm": 53.01769442391873
+        },
+        {
+          "a": "osa-mezi-65_2__01.stl",
+          "b": "rozperka-8_6__01.stl",
+          "clearance_mm": 34.75060171266055
+        },
+        {
+          "a": "osa-mezi-65_2__01.stl",
+          "b": "rozperka-17_6__01.stl",
+          "clearance_mm": 172.90212206865158
+        },
+        {
+          "a": "osa-mezi-65_2__01.stl",
+          "b": "rozperka-1_6__01.stl",
+          "clearance_mm": 110.56414214689386
+        },
+        {
+          "a": "osa-mezi-65_2__01.stl",
+          "b": "rozperka-1_6__02.stl",
+          "clearance_mm": 89.3285367099639
+        },
+        {
+          "a": "osa-mezi-65_2__01.stl",
+          "b": "cep-tahla-kratky__01.stl",
+          "clearance_mm": 148.6465950911571
+        },
+        {
+          "a": "osa-mezi-65_2__01.stl",
+          "b": "pojistka-mala__01.stl",
+          "clearance_mm": 188.83514970748695
+        },
+        {
+          "a": "osa-mezi-65_2__01.stl",
+          "b": "pojistka-mala__02.stl",
+          "clearance_mm": 32.52376469699735
+        },
+        {
+          "a": "osa-mezi-65_2__01.stl",
+          "b": "distanc-packy__01.stl",
+          "clearance_mm": 163.85788809290855
+        },
+        {
+          "a": "servo-tahlo-r15__01.stl",
+          "b": "svisly-cep__01.stl",
+          "clearance_mm": 91.99079048671577
+        },
+        {
+          "a": "servo-tahlo-r15__01.stl",
+          "b": "svisly-cep__02.stl",
+          "clearance_mm": 11.046663466863802
+        },
+        {
+          "a": "servo-tahlo-r15__01.stl",
+          "b": "celist-horni__01.stl",
+          "clearance_mm": 157.85496476527226
+        },
+        {
+          "a": "servo-tahlo-r15__01.stl",
+          "b": "celist-horni__02.stl",
+          "clearance_mm": 52.349309734671955
+        },
+        {
+          "a": "servo-tahlo-r15__01.stl",
+          "b": "pastorek-18z-otvor-2_2__01.stl",
+          "clearance_mm": 58.412540558686004
+        },
+        {
+          "a": "servo-tahlo-r15__01.stl",
+          "b": "pojistka-c__01.stl",
+          "clearance_mm": 173.42170290983867
+        },
+        {
+          "a": "servo-tahlo-r15__01.stl",
+          "b": "pojistka-c__02.stl",
+          "clearance_mm": 61.60759002379643
+        },
+        {
+          "a": "servo-tahlo-r15__01.stl",
+          "b": "pojistka-c__03.stl",
+          "clearance_mm": 86.77086704553153
+        },
+        {
+          "a": "servo-tahlo-r15__01.stl",
+          "b": "pojistka-c__04.stl",
+          "clearance_mm": 11.04805579315516
+        },
+        {
+          "a": "servo-tahlo-r15__01.stl",
+          "b": "pojistka-c__05.stl",
+          "clearance_mm": 32.55634469408168
+        },
+        {
+          "a": "servo-tahlo-r15__01.stl",
+          "b": "pojistka-c__06.stl",
+          "clearance_mm": 55.7774390441051
+        },
+        {
+          "a": "servo-tahlo-r15__01.stl",
+          "b": "cep-tahla-dlouhy__01.stl",
+          "clearance_mm": 11.049999999999992
+        },
+        {
+          "a": "servo-tahlo-r15__01.stl",
+          "b": "rozperka-8_6__01.stl",
+          "clearance_mm": 11.049999999999978
+        },
+        {
+          "a": "servo-tahlo-r15__01.stl",
+          "b": "rozperka-17_6__01.stl",
+          "clearance_mm": 108.29306847147994
+        },
+        {
+          "a": "servo-tahlo-r15__01.stl",
+          "b": "rozperka-1_6__01.stl",
+          "clearance_mm": 49.02287061078143
+        },
+        {
+          "a": "servo-tahlo-r15__01.stl",
+          "b": "rozperka-1_6__02.stl",
+          "clearance_mm": 32.257203356363966
+        },
+        {
+          "a": "servo-tahlo-r15__01.stl",
+          "b": "cep-tahla-kratky__01.stl",
+          "clearance_mm": 84.70671027409392
+        },
+        {
+          "a": "servo-tahlo-r15__01.stl",
+          "b": "pojistka-mala__01.stl",
+          "clearance_mm": 170.90339928577933
+        },
+        {
+          "a": "servo-tahlo-r15__01.stl",
+          "b": "pojistka-mala__02.stl",
+          "clearance_mm": 22.00608380482217
+        },
+        {
+          "a": "servo-tahlo-r15__01.stl",
+          "b": "distanc-packy__01.stl",
+          "clearance_mm": 173.06389403697267
+        },
+        {
+          "a": "svisly-cep__01.stl",
+          "b": "svisly-cep__02.stl",
+          "clearance_mm": 59.32824748442272
+        },
+        {
+          "a": "svisly-cep__01.stl",
+          "b": "celist-horni__01.stl",
+          "clearance_mm": 176.2481764805644
+        },
+        {
+          "a": "svisly-cep__01.stl",
+          "b": "celist-horni__02.stl",
+          "clearance_mm": 154.40927255213109
+        },
+        {
+          "a": "svisly-cep__01.stl",
+          "b": "pastorek-18z-otvor-2_2__01.stl",
+          "clearance_mm": 48.041228133777864
+        },
+        {
+          "a": "svisly-cep__01.stl",
+          "b": "pojistka-c__01.stl",
+          "clearance_mm": 225.7823975553859
+        },
+        {
+          "a": "svisly-cep__01.stl",
+          "b": "pojistka-c__02.stl",
+          "clearance_mm": 191.51836979744476
+        },
+        {
+          "a": "svisly-cep__01.stl",
+          "b": "pojistka-c__03.stl",
+          "clearance_mm": 45.42308253054533
+        },
+        {
+          "a": "svisly-cep__01.stl",
+          "b": "pojistka-c__04.stl",
+          "clearance_mm": 152.7627115602718
+        },
+        {
+          "a": "svisly-cep__01.stl",
+          "b": "pojistka-c__05.stl",
+          "clearance_mm": 175.70417710378382
+        },
+        {
+          "a": "svisly-cep__01.stl",
+          "b": "pojistka-c__06.stl",
+          "clearance_mm": 198.89657654978888
+        },
+        {
+          "a": "svisly-cep__01.stl",
+          "b": "cep-tahla-dlouhy__01.stl",
+          "clearance_mm": 100.2603993707468
+        },
+        {
+          "a": "svisly-cep__01.stl",
+          "b": "rozperka-8_6__01.stl",
+          "clearance_mm": 125.95086193293903
+        },
+        {
+          "a": "svisly-cep__01.stl",
+          "b": "rozperka-17_6__01.stl",
+          "clearance_mm": 58.37300074065231
+        },
+        {
+          "a": "svisly-cep__01.stl",
+          "b": "rozperka-1_6__01.stl",
+          "clearance_mm": 74.34554489024805
+        },
+        {
+          "a": "svisly-cep__01.stl",
+          "b": "rozperka-1_6__02.stl",
+          "clearance_mm": 88.18681555377056
+        },
+        {
+          "a": "svisly-cep__01.stl",
+          "b": "cep-tahla-kratky__01.stl",
+          "clearance_mm": 68.29485773043218
+        },
+        {
+          "a": "svisly-cep__01.stl",
+          "b": "pojistka-mala__01.stl",
+          "clearance_mm": 128.10832785335245
+        },
+        {
+          "a": "svisly-cep__01.stl",
+          "b": "pojistka-mala__02.stl",
+          "clearance_mm": 148.99478155933144
+        },
+        {
+          "a": "svisly-cep__01.stl",
+          "b": "distanc-packy__01.stl",
+          "clearance_mm": 208.31778351621375
+        },
+        {
+          "a": "svisly-cep__02.stl",
+          "b": "celist-horni__01.stl",
+          "clearance_mm": 178.59427862306597
+        },
+        {
+          "a": "svisly-cep__02.stl",
+          "b": "celist-horni__02.stl",
+          "clearance_mm": 101.2338233655851
+        },
+        {
+          "a": "svisly-cep__02.stl",
+          "b": "pastorek-18z-otvor-2_2__01.stl",
+          "clearance_mm": 11.049999999999997
+        },
+        {
+          "a": "svisly-cep__02.stl",
+          "b": "pojistka-c__01.stl",
+          "clearance_mm": 209.6874085475397
+        },
+        {
+          "a": "svisly-cep__02.stl",
+          "b": "pojistka-c__02.stl",
+          "clearance_mm": 124.21610871941913
+        },
+        {
+          "a": "svisly-cep__02.stl",
+          "b": "pojistka-c__03.stl",
+          "clearance_mm": 40.02787341445121
+        },
+        {
+          "a": "svisly-cep__02.stl",
+          "b": "pojistka-c__04.stl",
+          "clearance_mm": 70.67631493890329
+        },
+        {
+          "a": "svisly-cep__02.stl",
+          "b": "pojistka-c__05.stl",
+          "clearance_mm": 94.70705889358187
+        },
+        {
+          "a": "svisly-cep__02.stl",
+          "b": "pojistka-c__06.stl",
+          "clearance_mm": 118.7440219135369
+        },
+        {
+          "a": "svisly-cep__02.stl",
+          "b": "cep-tahla-dlouhy__01.stl",
+          "clearance_mm": 11.049999999999995
+        },
+        {
+          "a": "svisly-cep__02.stl",
+          "b": "rozperka-8_6__01.stl",
+          "clearance_mm": 38.22730900829387
+        },
+        {
+          "a": "svisly-cep__02.stl",
+          "b": "rozperka-17_6__01.stl",
+          "clearance_mm": 60.57986898047234
+        },
+        {
+          "a": "svisly-cep__02.stl",
+          "b": "rozperka-1_6__01.stl",
+          "clearance_mm": 11.04999999999999
+        },
+        {
+          "a": "svisly-cep__02.stl",
+          "b": "rozperka-1_6__02.stl",
+          "clearance_mm": 11.050000000000017
+        },
+        {
+          "a": "svisly-cep__02.stl",
+          "b": "cep-tahla-kratky__01.stl",
+          "clearance_mm": 37.05713312015078
+        },
+        {
+          "a": "svisly-cep__02.stl",
+          "b": "pojistka-mala__01.stl",
+          "clearance_mm": 174.01577289713705
+        },
+        {
+          "a": "svisly-cep__02.stl",
+          "b": "pojistka-mala__02.stl",
+          "clearance_mm": 60.44916665060319
+        },
+        {
+          "a": "svisly-cep__02.stl",
+          "b": "distanc-packy__01.stl",
+          "clearance_mm": 201.81249980558698
+        },
+        {
+          "a": "celist-horni__01.stl",
+          "b": "celist-horni__02.stl",
+          "clearance_mm": 91.26671555076736
+        },
+        {
+          "a": "celist-horni__01.stl",
+          "b": "pastorek-18z-otvor-2_2__01.stl",
+          "clearance_mm": 204.18867185054052
+        },
+        {
+          "a": "celist-horni__01.stl",
+          "b": "pojistka-c__01.stl",
+          "clearance_mm": 35.15784014650679
+        },
+        {
+          "a": "celist-horni__01.stl",
+          "b": "pojistka-c__02.stl",
+          "clearance_mm": 137.43005102151687
+        },
+        {
+          "a": "celist-horni__01.stl",
+          "b": "pojistka-c__03.stl",
+          "clearance_mm": 220.91602608666568
+        },
+        {
+          "a": "celist-horni__01.stl",
+          "b": "pojistka-c__04.stl",
+          "clearance_mm": 172.58013363386658
+        },
+        {
+          "a": "celist-horni__01.stl",
+          "b": "pojistka-c__05.stl",
+          "clearance_mm": 176.3740500211109
+        },
+        {
+          "a": "celist-horni__01.stl",
+          "b": "pojistka-c__06.stl",
+          "clearance_mm": 183.05056705501494
+        },
+        {
+          "a": "celist-horni__01.stl",
+          "b": "cep-tahla-dlouhy__01.stl",
+          "clearance_mm": 184.8404773375681
+        },
+        {
+          "a": "celist-horni__01.stl",
+          "b": "rozperka-8_6__01.stl",
+          "clearance_mm": 181.421908226186
+        },
+        {
+          "a": "celist-horni__01.stl",
+          "b": "rozperka-17_6__01.stl",
+          "clearance_mm": 244.26364473979206
+        },
+        {
+          "a": "celist-horni__01.stl",
+          "b": "rozperka-1_6__01.stl",
+          "clearance_mm": 212.4181314915662
+        },
+        {
+          "a": "celist-horni__01.stl",
+          "b": "rozperka-1_6__02.stl",
+          "clearance_mm": 204.57197035606026
+        },
+        {
+          "a": "celist-horni__01.stl",
+          "b": "cep-tahla-kratky__01.stl",
+          "clearance_mm": 232.74340775702382
+        },
+        {
+          "a": "celist-horni__01.stl",
+          "b": "pojistka-mala__01.stl",
+          "clearance_mm": 80.17268631458288
+        },
+        {
+          "a": "celist-horni__01.stl",
+          "b": "pojistka-mala__02.stl",
+          "clearance_mm": 191.47079206593665
+        },
+        {
+          "a": "celist-horni__01.stl",
+          "b": "distanc-packy__01.stl",
+          "clearance_mm": 11.047099644273358
+        },
+        {
+          "a": "celist-horni__02.stl",
+          "b": "pastorek-18z-otvor-2_2__01.stl",
+          "clearance_mm": 145.43145323942426
+        },
+        {
+          "a": "celist-horni__02.stl",
+          "b": "pojistka-c__01.stl",
+          "clearance_mm": 97.64041417376907
+        },
+        {
+          "a": "celist-horni__02.stl",
+          "b": "pojistka-c__02.stl",
+          "clearance_mm": 30.094409271940894
+        },
+        {
+          "a": "celist-horni__02.stl",
+          "b": "pojistka-c__03.stl",
+          "clearance_mm": 171.3882170657559
+        },
+        {
+          "a": "celist-horni__02.stl",
+          "b": "pojistka-c__04.stl",
+          "clearance_mm": 60.196081308877844
+        },
+        {
+          "a": "celist-horni__02.stl",
+          "b": "pojistka-c__05.stl",
+          "clearance_mm": 60.66627481468539
+        },
+        {
+          "a": "celist-horni__02.stl",
+          "b": "pojistka-c__06.stl",
+          "clearance_mm": 68.42512043219587
+        },
+        {
+          "a": "celist-horni__02.stl",
+          "b": "cep-tahla-dlouhy__01.stl",
+          "clearance_mm": 90.83979403349406
+        },
+        {
+          "a": "celist-horni__02.stl",
+          "b": "rozperka-8_6__01.stl",
+          "clearance_mm": 79.40505451244688
+        },
+        {
+          "a": "celist-horni__02.stl",
+          "b": "rozperka-17_6__01.stl",
+          "clearance_mm": 194.7850135999388
+        },
+        {
+          "a": "celist-horni__02.stl",
+          "b": "rozperka-1_6__01.stl",
+          "clearance_mm": 140.45272883490716
+        },
+        {
+          "a": "celist-horni__02.stl",
+          "b": "rozperka-1_6__02.stl",
+          "clearance_mm": 123.38293906632045
+        },
+        {
+          "a": "celist-horni__02.stl",
+          "b": "cep-tahla-kratky__01.stl",
+          "clearance_mm": 173.563991161602
+        },
+        {
+          "a": "celist-horni__02.stl",
+          "b": "pojistka-mala__01.stl",
+          "clearance_mm": 147.5874118432219
+        },
+        {
+          "a": "celist-horni__02.stl",
+          "b": "pojistka-mala__02.stl",
+          "clearance_mm": 82.18572144155213
+        },
+        {
+          "a": "celist-horni__02.stl",
+          "b": "distanc-packy__01.stl",
+          "clearance_mm": 100.46936266932622
+        },
+        {
+          "a": "pastorek-18z-otvor-2_2__01.stl",
+          "b": "pojistka-c__01.stl",
+          "clearance_mm": 243.99241640511764
+        },
+        {
+          "a": "pastorek-18z-otvor-2_2__01.stl",
+          "b": "pojistka-c__02.stl",
+          "clearance_mm": 171.393168334599
+        },
+        {
+          "a": "pastorek-18z-otvor-2_2__01.stl",
+          "b": "pojistka-c__03.stl",
+          "clearance_mm": 11.049672826765827
+        },
+        {
+          "a": "pastorek-18z-otvor-2_2__01.stl",
+          "b": "pojistka-c__04.stl",
+          "clearance_mm": 117.04845531347733
+        },
+        {
+          "a": "pastorek-18z-otvor-2_2__01.stl",
+          "b": "pojistka-c__05.stl",
+          "clearance_mm": 141.09261503367
+        },
+        {
+          "a": "pastorek-18z-otvor-2_2__01.stl",
+          "b": "pojistka-c__06.stl",
+          "clearance_mm": 165.1376983354117
+        },
+        {
+          "a": "pastorek-18z-otvor-2_2__01.stl",
+          "b": "cep-tahla-dlouhy__01.stl",
+          "clearance_mm": 57.43629916092526
+        },
+        {
+          "a": "pastorek-18z-otvor-2_2__01.stl",
+          "b": "rozperka-8_6__01.stl",
+          "clearance_mm": 84.53610607931155
+        },
+        {
+          "a": "pastorek-18z-otvor-2_2__01.stl",
+          "b": "rozperka-17_6__01.stl",
+          "clearance_mm": 32.07473068035514
+        },
+        {
+          "a": "pastorek-18z-otvor-2_2__01.stl",
+          "b": "rozperka-1_6__01.stl",
+          "clearance_mm": 11.049999689951187
+        },
+        {
+          "a": "pastorek-18z-otvor-2_2__01.stl",
+          "b": "rozperka-1_6__02.stl",
+          "clearance_mm": 31.507164888161558
+        },
+        {
+          "a": "pastorek-18z-otvor-2_2__01.stl",
+          "b": "cep-tahla-kratky__01.stl",
+          "clearance_mm": 11.017514958434782
+        },
+        {
+          "a": "pastorek-18z-otvor-2_2__01.stl",
+          "b": "pojistka-mala__01.stl",
+          "clearance_mm": 176.0971420757988
+        },
+        {
+          "a": "pastorek-18z-otvor-2_2__01.stl",
+          "b": "pojistka-mala__02.stl",
+          "clearance_mm": 106.26440375387315
+        },
+        {
+          "a": "pastorek-18z-otvor-2_2__01.stl",
+          "b": "distanc-packy__01.stl",
+          "clearance_mm": 231.91483065787997
+        },
+        {
+          "a": "pojistka-c__01.stl",
+          "b": "pojistka-c__02.stl",
+          "clearance_mm": 129.4496045218447
+        },
+        {
+          "a": "pojistka-c__01.stl",
+          "b": "pojistka-c__03.stl",
+          "clearance_mm": 264.2999818299231
+        },
+        {
+          "a": "pojistka-c__01.stl",
+          "b": "pojistka-c__04.stl",
+          "clearance_mm": 181.92881101975172
+        },
+        {
+          "a": "pojistka-c__01.stl",
+          "b": "pojistka-c__05.stl",
+          "clearance_mm": 178.41621691083068
+        },
+        {
+          "a": "pojistka-c__01.stl",
+          "b": "pojistka-c__06.stl",
+          "clearance_mm": 177.89934837287996
+        },
+        {
+          "a": "pojistka-c__01.stl",
+          "b": "cep-tahla-dlouhy__01.stl",
+          "clearance_mm": 208.14037081748546
+        },
+        {
+          "a": "pojistka-c__01.stl",
+          "b": "rozperka-8_6__01.stl",
+          "clearance_mm": 199.90199606898994
+        },
+        {
+          "a": "pojistka-c__01.stl",
+          "b": "rozperka-17_6__01.stl",
+          "clearance_mm": 288.24489449874375
+        },
+        {
+          "a": "pojistka-c__01.stl",
+          "b": "rozperka-1_6__01.stl",
+          "clearance_mm": 247.28081104020103
+        },
+        {
+          "a": "pojistka-c__01.stl",
+          "b": "rozperka-1_6__02.stl",
+          "clearance_mm": 235.1487575227164
+        },
+        {
+          "a": "pojistka-c__01.stl",
+          "b": "cep-tahla-kratky__01.stl",
+          "clearance_mm": 272.9662124220503
+        },
+        {
+          "a": "pojistka-c__01.stl",
+          "b": "pojistka-mala__01.stl",
+          "clearance_mm": 139.77132168317922
+        },
+        {
+          "a": "pojistka-c__01.stl",
+          "b": "pojistka-mala__02.stl",
+          "clearance_mm": 204.17645472334596
+        },
+        {
+          "a": "pojistka-c__01.stl",
+          "b": "distanc-packy__01.stl",
+          "clearance_mm": 20.49151402886718
+        },
+        {
+          "a": "pojistka-c__02.stl",
+          "b": "pojistka-c__03.stl",
+          "clearance_mm": 199.3123680480249
+        },
+        {
+          "a": "pojistka-c__02.stl",
+          "b": "pojistka-c__04.stl",
+          "clearance_mm": 54.61417486170479
+        },
+        {
+          "a": "pojistka-c__02.stl",
+          "b": "pojistka-c__05.stl",
+          "clearance_mm": 40.68368927358806
+        },
+        {
+          "a": "pojistka-c__02.stl",
+          "b": "pojistka-c__06.stl",
+          "clearance_mm": 36.16353170976737
+        },
+        {
+          "a": "pojistka-c__02.stl",
+          "b": "cep-tahla-dlouhy__01.stl",
+          "clearance_mm": 104.19986352936121
+        },
+        {
+          "a": "pojistka-c__02.stl",
+          "b": "rozperka-8_6__01.stl",
+          "clearance_mm": 86.01901786639043
+        },
+        {
+          "a": "pojistka-c__02.stl",
+          "b": "rozperka-17_6__01.stl",
+          "clearance_mm": 221.41471303162365
+        },
+        {
+          "a": "pojistka-c__02.stl",
+          "b": "rozperka-1_6__01.stl",
+          "clearance_mm": 160.9419940307015
+        },
+        {
+          "a": "pojistka-c__02.stl",
+          "b": "rozperka-1_6__02.stl",
+          "clearance_mm": 140.38473225632464
+        },
+        {
+          "a": "pojistka-c__02.stl",
+          "b": "cep-tahla-kratky__01.stl",
+          "clearance_mm": 197.92550341867528
+        },
+        {
+          "a": "pojistka-c__02.stl",
+          "b": "pojistka-mala__01.stl",
+          "clearance_mm": 198.07797863000656
+        },
+        {
+          "a": "pojistka-c__02.stl",
+          "b": "pojistka-mala__02.stl",
+          "clearance_mm": 78.49471100884651
+        },
+        {
+          "a": "pojistka-c__02.stl",
+          "b": "distanc-packy__01.stl",
+          "clearance_mm": 140.4428412519901
+        },
+        {
+          "a": "pojistka-c__03.stl",
+          "b": "pojistka-c__04.stl",
+          "clearance_mm": 146.06248556943163
+        },
+        {
+          "a": "pojistka-c__03.stl",
+          "b": "pojistka-c__05.stl",
+          "clearance_mm": 170.10869315772166
+        },
+        {
+          "a": "pojistka-c__03.stl",
+          "b": "pojistka-c__06.stl",
+          "clearance_mm": 194.15510110787437
+        },
+        {
+          "a": "pojistka-c__03.stl",
+          "b": "cep-tahla-dlouhy__01.stl",
+          "clearance_mm": 86.46482083247085
+        },
+        {
+          "a": "pojistka-c__03.stl",
+          "b": "rozperka-8_6__01.stl",
+          "clearance_mm": 113.54928652157015
+        },
+        {
+          "a": "pojistka-c__03.stl",
+          "b": "rozperka-17_6__01.stl",
+          "clearance_mm": 11.050000000000013
+        },
+        {
+          "a": "pojistka-c__03.stl",
+          "b": "rozperka-1_6__01.stl",
+          "clearance_mm": 37.242990477695976
+        },
+        {
+          "a": "pojistka-c__03.stl",
+          "b": "rozperka-1_6__02.stl",
+          "clearance_mm": 59.48026923128339
+        },
+        {
+          "a": "pojistka-c__03.stl",
+          "b": "cep-tahla-kratky__01.stl",
+          "clearance_mm": 11.049999999999992
+        },
+        {
+          "a": "pojistka-c__03.stl",
+          "b": "pojistka-mala__01.stl",
+          "clearance_mm": 182.64361277760602
+        },
+        {
+          "a": "pojistka-c__03.stl",
+          "b": "pojistka-mala__02.stl",
+          "clearance_mm": 135.1124979689299
+        },
+        {
+          "a": "pojistka-c__03.stl",
+          "b": "distanc-packy__01.stl",
+          "clearance_mm": 250.33345945672863
+        },
+        {
+          "a": "pojistka-c__04.stl",
+          "b": "pojistka-c__05.stl",
+          "clearance_mm": 11.049786826370623
+        },
+        {
+          "a": "pojistka-c__04.stl",
+          "b": "pojistka-c__06.stl",
+          "clearance_mm": 35.09747578186433
+        },
+        {
+          "a": "pojistka-c__04.stl",
+          "b": "cep-tahla-dlouhy__01.stl",
+          "clearance_mm": 44.060690733724556
+        },
+        {
+          "a": "pojistka-c__04.stl",
+          "b": "rozperka-8_6__01.stl",
+          "clearance_mm": 21.759135349007277
+        },
+        {
+          "a": "pojistka-c__04.stl",
+          "b": "rozperka-17_6__01.stl",
+          "clearance_mm": 165.7720238724724
+        },
+        {
+          "a": "pojistka-c__04.stl",
+          "b": "rozperka-1_6__01.stl",
+          "clearance_mm": 101.60514213671419
+        },
+        {
+          "a": "pojistka-c__04.stl",
+          "b": "rozperka-1_6__02.stl",
+          "clearance_mm": 79.17253559618017
+        },
+        {
+          "a": "pojistka-c__04.stl",
+          "b": "cep-tahla-kratky__01.stl",
+          "clearance_mm": 140.92627070889873
+        },
+        {
+          "a": "pojistka-c__04.stl",
+          "b": "pojistka-mala__01.stl",
+          "clearance_mm": 205.08386057808457
+        },
+        {
+          "a": "pojistka-c__04.stl",
+          "b": "pojistka-mala__02.stl",
+          "clearance_mm": 11.046947390342492
+        },
+        {
+          "a": "pojistka-c__04.stl",
+          "b": "distanc-packy__01.stl",
+          "clearance_mm": 184.79938118726722
+        },
+        {
+          "a": "pojistka-c__05.stl",
+          "b": "pojistka-c__06.stl",
+          "clearance_mm": 11.049786826370594
+        },
+        {
+          "a": "pojistka-c__05.stl",
+          "b": "cep-tahla-dlouhy__01.stl",
+          "clearance_mm": 68.06144915339208
+        },
+        {
+          "a": "pojistka-c__05.stl",
+          "b": "rozperka-8_6__01.stl",
+          "clearance_mm": 45.35289385068962
+        },
+        {
+          "a": "pojistka-c__05.stl",
+          "b": "rozperka-17_6__01.stl",
+          "clearance_mm": 189.72659612114384
+        },
+        {
+          "a": "pojistka-c__05.stl",
+          "b": "rozperka-1_6__01.stl",
+          "clearance_mm": 125.3592502432789
+        },
+        {
+          "a": "pojistka-c__05.stl",
+          "b": "rozperka-1_6__02.stl",
+          "clearance_mm": 102.74643848645913
+        },
+        {
+          "a": "pojistka-c__05.stl",
+          "b": "cep-tahla-kratky__01.stl",
+          "clearance_mm": 164.83018538705022
+        },
+        {
+          "a": "pojistka-c__05.stl",
+          "b": "pojistka-mala__01.stl",
+          "clearance_mm": 218.3346618325603
+        },
+        {
+          "a": "pojistka-c__05.stl",
+          "b": "pojistka-mala__02.stl",
+          "clearance_mm": 30.06058603010492
+        },
+        {
+          "a": "pojistka-c__05.stl",
+          "b": "distanc-packy__01.stl",
+          "clearance_mm": 184.90897056211335
+        },
+        {
+          "a": "pojistka-c__06.stl",
+          "b": "cep-tahla-dlouhy__01.stl",
+          "clearance_mm": 92.0852004656307
+        },
+        {
+          "a": "pojistka-c__06.stl",
+          "b": "rozperka-8_6__01.stl",
+          "clearance_mm": 69.21361411734466
+        },
+        {
+          "a": "pojistka-c__06.stl",
+          "b": "rozperka-17_6__01.stl",
+          "clearance_mm": 213.70221212824666
+        },
+        {
+          "a": "pojistka-c__06.stl",
+          "b": "rozperka-1_6__01.stl",
+          "clearance_mm": 149.20456200471756
+        },
+        {
+          "a": "pojistka-c__06.stl",
+          "b": "rozperka-1_6__02.stl",
+          "clearance_mm": 126.48260588173434
+        },
+        {
+          "a": "pojistka-c__06.stl",
+          "b": "cep-tahla-kratky__01.stl",
+          "clearance_mm": 188.77036559564084
+        },
+        {
+          "a": "pojistka-c__06.stl",
+          "b": "pojistka-mala__01.stl",
+          "clearance_mm": 233.23752691031925
+        },
+        {
+          "a": "pojistka-c__06.stl",
+          "b": "pojistka-mala__02.stl",
+          "clearance_mm": 52.5514395199978
+        },
+        {
+          "a": "pojistka-c__06.stl",
+          "b": "distanc-packy__01.stl",
+          "clearance_mm": 187.9860581358204
+        },
+        {
+          "a": "cep-tahla-dlouhy__01.stl",
+          "b": "rozperka-8_6__01.stl",
+          "clearance_mm": 11.050000000000011
+        },
+        {
+          "a": "cep-tahla-dlouhy__01.stl",
+          "b": "rozperka-17_6__01.stl",
+          "clearance_mm": 105.8796879598922
+        },
+        {
+          "a": "cep-tahla-dlouhy__01.stl",
+          "b": "rozperka-1_6__01.stl",
+          "clearance_mm": 41.26862577279216
+        },
+        {
+          "a": "cep-tahla-dlouhy__01.stl",
+          "b": "rozperka-1_6__02.stl",
+          "clearance_mm": 18.976202647755162
+        },
+        {
+          "a": "cep-tahla-dlouhy__01.stl",
+          "b": "cep-tahla-kratky__01.stl",
+          "clearance_mm": 80.8663856430232
+        },
+        {
+          "a": "cep-tahla-dlouhy__01.stl",
+          "b": "pojistka-mala__01.stl",
+          "clearance_mm": 188.71589015992916
+        },
+        {
+          "a": "cep-tahla-dlouhy__01.stl",
+          "b": "pojistka-mala__02.stl",
+          "clearance_mm": 32.79743058093949
+        },
+        {
+          "a": "cep-tahla-dlouhy__01.stl",
+          "b": "distanc-packy__01.stl",
+          "clearance_mm": 204.2024441092999
+        },
+        {
+          "a": "rozperka-8_6__01.stl",
+          "b": "rozperka-17_6__01.stl",
+          "clearance_mm": 132.55252205793897
+        },
+        {
+          "a": "rozperka-8_6__01.stl",
+          "b": "rozperka-1_6__01.stl",
+          "clearance_mm": 68.00969559792588
+        },
+        {
+          "a": "rozperka-8_6__01.stl",
+          "b": "rozperka-1_6__02.stl",
+          "clearance_mm": 45.44021834294123
+        },
+        {
+          "a": "rozperka-8_6__01.stl",
+          "b": "cep-tahla-kratky__01.stl",
+          "clearance_mm": 107.57840631603317
+        },
+        {
+          "a": "rozperka-8_6__01.stl",
+          "b": "pojistka-mala__01.stl",
+          "clearance_mm": 198.5610507921451
+        },
+        {
+          "a": "rozperka-8_6__01.stl",
+          "b": "pojistka-mala__02.stl",
+          "clearance_mm": 11.048113509646528
+        },
+        {
+          "a": "rozperka-8_6__01.stl",
+          "b": "distanc-packy__01.stl",
+          "clearance_mm": 198.3730829094203
+        },
+        {
+          "a": "rozperka-17_6__01.stl",
+          "b": "rozperka-1_6__01.stl",
+          "clearance_mm": 53.11238197046875
+        },
+        {
+          "a": "rozperka-17_6__01.stl",
+          "b": "rozperka-1_6__02.stl",
+          "clearance_mm": 76.15861897311653
+        },
+        {
+          "a": "rozperka-17_6__01.stl",
+          "b": "cep-tahla-kratky__01.stl",
+          "clearance_mm": 13.201530969136565
+        },
+        {
+          "a": "rozperka-17_6__01.stl",
+          "b": "pojistka-mala__01.stl",
+          "clearance_mm": 202.37454310828466
+        },
+        {
+          "a": "rozperka-17_6__01.stl",
+          "b": "pojistka-mala__02.stl",
+          "clearance_mm": 153.171702371741
+        },
+        {
+          "a": "rozperka-17_6__01.stl",
+          "b": "distanc-packy__01.stl",
+          "clearance_mm": 274.0195155477783
+        },
+        {
+          "a": "rozperka-1_6__01.stl",
+          "b": "rozperka-1_6__02.stl",
+          "clearance_mm": 11.049999999999251
+        },
+        {
+          "a": "rozperka-1_6__01.stl",
+          "b": "cep-tahla-kratky__01.stl",
+          "clearance_mm": 27.865208991899983
+        },
+        {
+          "a": "rozperka-1_6__01.stl",
+          "b": "pojistka-mala__01.stl",
+          "clearance_mm": 194.46455413017148
+        },
+        {
+          "a": "rozperka-1_6__01.stl",
+          "b": "pojistka-mala__02.stl",
+          "clearance_mm": 88.12349549767323
+        },
+        {
+          "a": "rozperka-1_6__01.stl",
+          "b": "distanc-packy__01.stl",
+          "clearance_mm": 237.73958912948908
+        },
+        {
+          "a": "rozperka-1_6__02.stl",
+          "b": "cep-tahla-kratky__01.stl",
+          "clearance_mm": 50.84675026456993
+        },
+        {
+          "a": "rozperka-1_6__02.stl",
+          "b": "pojistka-mala__01.stl",
+          "clearance_mm": 196.40003201228492
+        },
+        {
+          "a": "rozperka-1_6__02.stl",
+          "b": "pojistka-mala__02.stl",
+          "clearance_mm": 65.11009090119951
+        },
+        {
+          "a": "rozperka-1_6__02.stl",
+          "b": "distanc-packy__01.stl",
+          "clearance_mm": 227.7515054790415
+        },
+        {
+          "a": "cep-tahla-kratky__01.stl",
+          "b": "pojistka-mala__01.stl",
+          "clearance_mm": 201.33988234432658
+        },
+        {
+          "a": "cep-tahla-kratky__01.stl",
+          "b": "pojistka-mala__02.stl",
+          "clearance_mm": 127.95037449240735
+        },
+        {
+          "a": "cep-tahla-kratky__01.stl",
+          "b": "distanc-packy__01.stl",
+          "clearance_mm": 260.6960754692097
+        },
+        {
+          "a": "pojistka-mala__01.stl",
+          "b": "pojistka-mala__02.stl",
+          "clearance_mm": 216.33588574346257
+        },
+        {
+          "a": "pojistka-mala__01.stl",
+          "b": "distanc-packy__01.stl",
+          "clearance_mm": 115.12299592574526
+        },
+        {
+          "a": "pojistka-mala__02.stl",
+          "b": "distanc-packy__01.stl",
+          "clearance_mm": 205.5813360117087
+        }
+      ]
+    },
+    {
+      "plate": 2,
+      "objects": 2,
+      "all_within_6mm_edge": true,
+      "minimum_hull_clearance_mm": 11.049999999999983,
+      "minimum_brim_envelope_clearance_mm": 0.8499999999999837,
+      "minimum_edge_clearance_mm": 31.0,
+      "minimum_brim_to_bed_edge_mm": 25.9,
+      "group_bbox_center_mm": [
+        130.0,
+        130.0
+      ],
+      "pair_checks": 1,
+      "pair_distances": [
+        {
+          "a": "ram-rizeni__01.stl",
+          "b": "plosina-170x60__01.stl",
+          "clearance_mm": 11.049999999999983
+        }
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "name": "kolo-zadni-76x12-72z__01.stl",
+      "plate": 1,
+      "source_sha256": "f6fd7707a172c8ce4ccb9be4a6dac8bc23e47513db308239cb3cc85c398abfdb",
+      "triangle_count": 24876,
+      "mesh_z_bounds_mm": [
+        0.0,
+        21.0
+      ],
+      "transform_determinant": 1.0
+    },
+    {
+      "name": "kolo-zadni-76x12-prave__01.stl",
+      "plate": 1,
+      "source_sha256": "ce25f07d4a84f3596e9ce28c28350eb92f3499068318f66c384b1672a1945fa0",
+      "triangle_count": 2444,
+      "mesh_z_bounds_mm": [
+        0.0,
+        12.0
+      ],
+      "transform_determinant": 1.0
+    },
+    {
+      "name": "kolo-predni-76x12__01.stl",
+      "plate": 1,
+      "source_sha256": "0ef496500370675d4bd52908cb56698f0da1bcc7f075cbf8e1e69d3c63ab5519",
+      "triangle_count": 2560,
+      "mesh_z_bounds_mm": [
+        0.0,
+        12.0
+      ],
+      "transform_determinant": 1.0
+    },
+    {
+      "name": "kolo-predni-76x12__02.stl",
+      "plate": 1,
+      "source_sha256": "0ef496500370675d4bd52908cb56698f0da1bcc7f075cbf8e1e69d3c63ab5519",
+      "triangle_count": 2560,
+      "mesh_z_bounds_mm": [
+        0.0,
+        12.0
+      ],
+      "transform_determinant": 1.0
+    },
+    {
+      "name": "mezikolo-54_18z__01.stl",
+      "plate": 1,
+      "source_sha256": "682c02fc3de7cf8fbc3986826dfedd33ad8841c019b4a6511315ae11fae4d48e",
+      "triangle_count": 26316,
+      "mesh_z_bounds_mm": [
+        0.0,
+        12.0
+      ],
+      "transform_determinant": 1.0
+    },
+    {
+      "name": "spojovaci-tahlo__01.stl",
+      "plate": 1,
+      "source_sha256": "7bed23f1fa61c425b0adcb0212e8330b0ec365b4c4e0a2752b6e32700974d3e4",
+      "triangle_count": 1884,
+      "mesh_z_bounds_mm": [
+        0.0,
+        3.0
+      ],
+      "transform_determinant": 1.0
+    },
+    {
+      "name": "osa-zadni-109_3__01.stl",
+      "plate": 1,
+      "source_sha256": "ee27741858052aac3571863ec7f1dc9d36e5f07498a32440dcd1d308f2cde78b",
+      "triangle_count": 1496,
+      "mesh_z_bounds_mm": [
+        8.881784197001252e-16,
+        9.29798698425293
+      ],
+      "transform_determinant": 1.0
+    },
+    {
+      "name": "tehlice-leva__01.stl",
+      "plate": 1,
+      "source_sha256": "a385b4110b143d247207a09e7e985b94c1e119e68685a05a327e10a98fa9e7b4",
+      "triangle_count": 4902,
+      "mesh_z_bounds_mm": [
+        2.3243789115667823e-09,
+        32.5
+      ],
+      "transform_determinant": 1.0
+    },
+    {
+      "name": "tehlice-prava__01.stl",
+      "plate": 1,
+      "source_sha256": "43f022059d7716a091d5fc33d67dd575e55ee3d1d636e4384e40b82f382b3676",
+      "triangle_count": 4902,
+      "mesh_z_bounds_mm": [
+        2.324142656107142e-09,
+        32.5
+      ],
+      "transform_determinant": 1.0
+    },
+    {
+      "name": "osa-mezi-65_2__01.stl",
+      "plate": 1,
+      "source_sha256": "2729dc64cc6e28095c0201009ee6e72f5721b95f78b3ab0d151b5f5446523f05",
+      "triangle_count": 1496,
+      "mesh_z_bounds_mm": [
+        8.881784197001252e-16,
+        9.29798698425293
+      ],
+      "transform_determinant": 1.0
+    },
+    {
+      "name": "servo-tahlo-r15__01.stl",
+      "plate": 1,
+      "source_sha256": "25c1c8213e8b5d445fee694eb1108b0df9e6e9e516d8e5ccde050088582fa3e7",
+      "triangle_count": 1896,
+      "mesh_z_bounds_mm": [
+        0.0,
+        3.0
+      ],
+      "transform_determinant": 1.0
+    },
+    {
+      "name": "svisly-cep__01.stl",
+      "plate": 1,
+      "source_sha256": "2187b532545a3620d106526d75f87524a9fb17516953a3696fca48eda3fe7f7b",
+      "triangle_count": 1496,
+      "mesh_z_bounds_mm": [
+        8.881784197001252e-16,
+        9.29798698425293
+      ],
+      "transform_determinant": 1.0
+    },
+    {
+      "name": "svisly-cep__02.stl",
+      "plate": 1,
+      "source_sha256": "2187b532545a3620d106526d75f87524a9fb17516953a3696fca48eda3fe7f7b",
+      "triangle_count": 1496,
+      "mesh_z_bounds_mm": [
+        8.881784197001252e-16,
+        9.29798698425293
+      ],
+      "transform_determinant": 1.0
+    },
+    {
+      "name": "celist-horni__01.stl",
+      "plate": 1,
+      "source_sha256": "bbdfc0d4ba793f973ad7c13b947867d38b9739c58f13362b41cbaced25f51872",
+      "triangle_count": 972,
+      "mesh_z_bounds_mm": [
+        0.0,
+        7.0
+      ],
+      "transform_determinant": 1.0
+    },
+    {
+      "name": "celist-horni__02.stl",
+      "plate": 1,
+      "source_sha256": "bbdfc0d4ba793f973ad7c13b947867d38b9739c58f13362b41cbaced25f51872",
+      "triangle_count": 972,
+      "mesh_z_bounds_mm": [
+        0.0,
+        7.0
+      ],
+      "transform_determinant": 1.0
+    },
+    {
+      "name": "pastorek-18z-otvor-2_2__01.stl",
+      "plate": 1,
+      "source_sha256": "e412ec278422cd4c66d4843b95c561de3a8655f82e5d40e6012a5ee1eaec2870",
+      "triangle_count": 7992,
+      "mesh_z_bounds_mm": [
+        0.0,
+        5.5
+      ],
+      "transform_determinant": 1.0
+    },
+    {
+      "name": "pojistka-c__01.stl",
+      "plate": 1,
+      "source_sha256": "7be6176012c834bfba0b745c0048f7139799b85b0654688302d0bba3353007e0",
+      "triangle_count": 772,
+      "mesh_z_bounds_mm": [
+        0.0,
+        1.2999999523162842
+      ],
+      "transform_determinant": 1.0
+    },
+    {
+      "name": "pojistka-c__02.stl",
+      "plate": 1,
+      "source_sha256": "7be6176012c834bfba0b745c0048f7139799b85b0654688302d0bba3353007e0",
+      "triangle_count": 772,
+      "mesh_z_bounds_mm": [
+        0.0,
+        1.2999999523162842
+      ],
+      "transform_determinant": 1.0
+    },
+    {
+      "name": "pojistka-c__03.stl",
+      "plate": 1,
+      "source_sha256": "7be6176012c834bfba0b745c0048f7139799b85b0654688302d0bba3353007e0",
+      "triangle_count": 772,
+      "mesh_z_bounds_mm": [
+        0.0,
+        1.2999999523162842
+      ],
+      "transform_determinant": 1.0
+    },
+    {
+      "name": "pojistka-c__04.stl",
+      "plate": 1,
+      "source_sha256": "7be6176012c834bfba0b745c0048f7139799b85b0654688302d0bba3353007e0",
+      "triangle_count": 772,
+      "mesh_z_bounds_mm": [
+        0.0,
+        1.2999999523162842
+      ],
+      "transform_determinant": 1.0
+    },
+    {
+      "name": "pojistka-c__05.stl",
+      "plate": 1,
+      "source_sha256": "7be6176012c834bfba0b745c0048f7139799b85b0654688302d0bba3353007e0",
+      "triangle_count": 772,
+      "mesh_z_bounds_mm": [
+        0.0,
+        1.2999999523162842
+      ],
+      "transform_determinant": 1.0
+    },
+    {
+      "name": "pojistka-c__06.stl",
+      "plate": 1,
+      "source_sha256": "7be6176012c834bfba0b745c0048f7139799b85b0654688302d0bba3353007e0",
+      "triangle_count": 772,
+      "mesh_z_bounds_mm": [
+        0.0,
+        1.2999999523162842
+      ],
+      "transform_determinant": 1.0
+    },
+    {
+      "name": "cep-tahla-dlouhy__01.stl",
+      "plate": 1,
+      "source_sha256": "c4207de7cc207a330a6273ef5323b0d71831352e8e63dc9f3ad1c2a5c194a65c",
+      "triangle_count": 1488,
+      "mesh_z_bounds_mm": [
+        0.0,
+        7.0
+      ],
+      "transform_determinant": 1.0
+    },
+    {
+      "name": "rozperka-8_6__01.stl",
+      "plate": 1,
+      "source_sha256": "788faab6835a9651d99579708fcf17a5f0c0dcfe482de3ef868c90c66d1ed56f",
+      "triangle_count": 1008,
+      "mesh_z_bounds_mm": [
+        0.0,
+        8.600000381469727
+      ],
+      "transform_determinant": 1.0
+    },
+    {
+      "name": "rozperka-17_6__01.stl",
+      "plate": 1,
+      "source_sha256": "b87e75387f5cfbed05a449c5e44efb92122315d4a1c1bfcdcf952d98dadb665a",
+      "triangle_count": 1008,
+      "mesh_z_bounds_mm": [
+        0.0,
+        17.600000381469727
+      ],
+      "transform_determinant": 1.0
+    },
+    {
+      "name": "rozperka-1_6__01.stl",
+      "plate": 1,
+      "source_sha256": "415ff9e44b8ce3e039d085c91175809c0a15446e21d1130f5e0ba59ea83fc3eb",
+      "triangle_count": 1008,
+      "mesh_z_bounds_mm": [
+        0.0,
+        1.600000023841858
+      ],
+      "transform_determinant": 1.0
+    },
+    {
+      "name": "rozperka-1_6__02.stl",
+      "plate": 1,
+      "source_sha256": "415ff9e44b8ce3e039d085c91175809c0a15446e21d1130f5e0ba59ea83fc3eb",
+      "triangle_count": 1008,
+      "mesh_z_bounds_mm": [
+        0.0,
+        1.600000023841858
+      ],
+      "transform_determinant": 1.0
+    },
+    {
+      "name": "cep-tahla-kratky__01.stl",
+      "plate": 1,
+      "source_sha256": "3e5b70662458678fbbd56df259d092098f8db31b12acbfc025f899e51b1f2d40",
+      "triangle_count": 1488,
+      "mesh_z_bounds_mm": [
+        0.0,
+        7.0
+      ],
+      "transform_determinant": 1.0
+    },
+    {
+      "name": "pojistka-mala__01.stl",
+      "plate": 1,
+      "source_sha256": "16f315d7f9a68525af9bfd74d99b27113de4dcb9e2ce6369fecf930b6a8928cd",
+      "triangle_count": 788,
+      "mesh_z_bounds_mm": [
+        0.0,
+        1.2999999523162842
+      ],
+      "transform_determinant": 1.0
+    },
+    {
+      "name": "pojistka-mala__02.stl",
+      "plate": 1,
+      "source_sha256": "16f315d7f9a68525af9bfd74d99b27113de4dcb9e2ce6369fecf930b6a8928cd",
+      "triangle_count": 788,
+      "mesh_z_bounds_mm": [
+        0.0,
+        1.2999999523162842
+      ],
+      "transform_determinant": 1.0
+    },
+    {
+      "name": "distanc-packy__01.stl",
+      "plate": 1,
+      "source_sha256": "63e038fc0b893787f7e4b3807c66f7613b53f515ddd945f93027bd989cbb02a6",
+      "triangle_count": 1008,
+      "mesh_z_bounds_mm": [
+        0.0,
+        4.900000095367432
+      ],
+      "transform_determinant": 1.0
+    },
+    {
+      "name": "ram-rizeni__01.stl",
+      "plate": 2,
+      "source_sha256": "f55430419779769759bd8593e4c29bbc6dfc79cedc61bf2ba6539b08b25e0498",
+      "triangle_count": 6804,
+      "mesh_z_bounds_mm": [
+        0.0,
+        34.0
+      ],
+      "transform_determinant": 1.0
+    },
+    {
+      "name": "plosina-170x60__01.stl",
+      "plate": 2,
+      "source_sha256": "f78e2b584a78c6044a266ba4af2171cbb3e89d0f918b795e4e0478035ab56f62",
+      "triangle_count": 1148,
+      "mesh_z_bounds_mm": [
+        0.0,
+        45.0
+      ],
+      "transform_determinant": 1.0
+    }
+  ],
+  "count": 33,
+  "method": "All original STL vertices, all-height convex XY hulls, pairwise Euclidean distances, no hole nesting; rigid Z rotations and XY translations only. Brim assumption width5mm + objectgap0.1mm. Does not prove support toolpath envelope or sliced layers."
+}

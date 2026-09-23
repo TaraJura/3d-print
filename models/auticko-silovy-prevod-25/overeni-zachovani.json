@@ -1,0 +1,427 @@
+{
+  "originals": {
+    "count": 90,
+    "all_unchanged": true,
+    "files": [
+      {
+        "path": "models/auticko-s-prevodovkou/nahled.FCMacro",
+        "sha256": "3036d502eee2ab90b051adb7c3a44346524668034918f604be7bd8b1a737ebeb"
+      },
+      {
+        "path": "models/auticko-s-prevodovkou/auticko-s-prevodovkou.FCMacro",
+        "sha256": "67d42566383f055c8669b633e4154163e0726b7e8cfca69ad44988ff5a975547"
+      },
+      {
+        "path": "models/auticko-s-prevodovkou/tiskovy-balicek.zip",
+        "sha256": "0d0fcbe4bb26ecb5e3e96aae08a9a4a25a32155945441149c125bfcd937f5f53"
+      },
+      {
+        "path": "models/auticko-s-prevodovkou/auticko-s-prevodovkou.FCStd",
+        "sha256": "82debd85b9808a58ab0f05276e91e50e4f5d9326542c6161700adb56e4551344"
+      },
+      {
+        "path": "models/auticko-s-prevodovkou/stl/rozperka-17_6.stl",
+        "sha256": "b87e75387f5cfbed05a449c5e44efb92122315d4a1c1bfcdcf952d98dadb665a"
+      },
+      {
+        "path": "models/auticko-s-prevodovkou/stl/kolo-predni.stl",
+        "sha256": "94d6b98650aa5ce4c24bcf8d6fdad3dfe449cba5a4f47bddd04d0421d510a0ad"
+      },
+      {
+        "path": "models/auticko-s-prevodovkou/stl/kolo-zadni-prave.stl",
+        "sha256": "07be566a14514ba2150a4f1f973b4ad2e095ec295cf1540701969d7a15864e08"
+      },
+      {
+        "path": "models/auticko-s-prevodovkou/stl/rozperka-8_6.stl",
+        "sha256": "788faab6835a9651d99579708fcf17a5f0c0dcfe482de3ef868c90c66d1ed56f"
+      },
+      {
+        "path": "models/auticko-s-prevodovkou/stl/rozperka-1_6.stl",
+        "sha256": "415ff9e44b8ce3e039d085c91175809c0a15446e21d1130f5e0ba59ea83fc3eb"
+      },
+      {
+        "path": "models/auticko-s-prevodovkou/stl/osa-hlavni-101_3.stl",
+        "sha256": "9710518a9ac4b2767bee2325c9555d7c06cfcd87d76badfb10b031a7a238acb7"
+      },
+      {
+        "path": "models/auticko-s-prevodovkou/stl/pastorek-18z-otvor-2_2.stl",
+        "sha256": "e412ec278422cd4c66d4843b95c561de3a8655f82e5d40e6012a5ee1eaec2870"
+      },
+      {
+        "path": "models/auticko-s-prevodovkou/stl/osa-mezi-65_2.stl",
+        "sha256": "2729dc64cc6e28095c0201009ee6e72f5721b95f78b3ab0d151b5f5446523f05"
+      },
+      {
+        "path": "models/auticko-s-prevodovkou/stl/pojistka-c.stl",
+        "sha256": "7be6176012c834bfba0b745c0048f7139799b85b0654688302d0bba3353007e0"
+      },
+      {
+        "path": "models/auticko-s-prevodovkou/stl/plosina-170x60.stl",
+        "sha256": "f78e2b584a78c6044a266ba4af2171cbb3e89d0f918b795e4e0478035ab56f62"
+      },
+      {
+        "path": "models/auticko-s-prevodovkou/stl/kolo-zadni-72z.stl",
+        "sha256": "736219a13c8860320c8ca397d3cff354665c715046efb9026be8fb5c5ab5670c"
+      },
+      {
+        "path": "models/auticko-s-prevodovkou/stl/ram.stl",
+        "sha256": "edb5ff4ab22637de28708d29308dcf7ffb534840dd4ac445efcc3f6ce28c9529"
+      },
+      {
+        "path": "models/auticko-s-prevodovkou/stl/mezikolo-54_18z.stl",
+        "sha256": "682c02fc3de7cf8fbc3986826dfedd33ad8841c019b4a6511315ae11fae4d48e"
+      },
+      {
+        "path": "models/auticko-se-zatacenim/auticko-se-zatacenim.FCMacro",
+        "sha256": "96078fc1bd9645d89334f790f00e6925360d516669e00930c11960f97ec25692"
+      },
+      {
+        "path": "models/auticko-se-zatacenim/nahled.FCMacro",
+        "sha256": "13900c19efb1ec8a9ddd0a191167f7106677d9f6c51cde1142b2ac6e91b99950"
+      },
+      {
+        "path": "models/auticko-se-zatacenim/prestavba-z-v2.zip",
+        "sha256": "bd77b9d8c039e0c21fdcceeceb6d99d314fd8a6821a0146387d8a28c89135c0d"
+      },
+      {
+        "path": "models/auticko-se-zatacenim/auticko-se-zatacenim.FCStd",
+        "sha256": "81d3ce4e3dc5c06e30d2904ab2419e19eebd83ca0d2bc8adbdcf922de31e479f"
+      },
+      {
+        "path": "models/auticko-se-zatacenim/overit-vule.FCMacro",
+        "sha256": "af4340d4b3a6a13ba6038213dce0a6d311ec624f241e223339c8095e5e8ebc3f"
+      },
+      {
+        "path": "models/auticko-se-zatacenim/tiskovy-balicek.zip",
+        "sha256": "cc7a791695edbe9b1e6e79a1ca828d07a3fd635075d0a3fa3aa3a1aaf2530f1d"
+      },
+      {
+        "path": "models/auticko-se-zatacenim/overit-rizeni.FCMacro",
+        "sha256": "867053636bf01f746964cb4aa6c8f7b62b3ae0a7cb8fd47458da1558ad6bc975"
+      },
+      {
+        "path": "models/auticko-se-zatacenim/rozlozeni/auticko-v3-podlozka-01.3mf",
+        "sha256": "69eb3075a553c2587e9b3a78c9c1d35bce327dcd9e95d6cfe5c5e20ee0f65327"
+      },
+      {
+        "path": "models/auticko-se-zatacenim/rozlozeni/auticko-v3-podlozka-02.3mf",
+        "sha256": "2e7c067b1c51f3649ff2a7c299e0aeccad0161b87f37d7a250a3bc773c249285"
+      },
+      {
+        "path": "models/auticko-se-zatacenim/stl/ram-rizeni.stl",
+        "sha256": "f55430419779769759bd8593e4c29bbc6dfc79cedc61bf2ba6539b08b25e0498"
+      },
+      {
+        "path": "models/auticko-se-zatacenim/stl/servo-tahlo-r15.stl",
+        "sha256": "25c1c8213e8b5d445fee694eb1108b0df9e6e9e516d8e5ccde050088582fa3e7"
+      },
+      {
+        "path": "models/auticko-se-zatacenim/stl/kolo-zadni-76x12-72z.stl",
+        "sha256": "f6fd7707a172c8ce4ccb9be4a6dac8bc23e47513db308239cb3cc85c398abfdb"
+      },
+      {
+        "path": "models/auticko-se-zatacenim/stl/rozperka-17_6.stl",
+        "sha256": "b87e75387f5cfbed05a449c5e44efb92122315d4a1c1bfcdcf952d98dadb665a"
+      },
+      {
+        "path": "models/auticko-se-zatacenim/stl/pojistka-mala.stl",
+        "sha256": "16f315d7f9a68525af9bfd74d99b27113de4dcb9e2ce6369fecf930b6a8928cd"
+      },
+      {
+        "path": "models/auticko-se-zatacenim/stl/distanc-packy.stl",
+        "sha256": "63e038fc0b893787f7e4b3807c66f7613b53f515ddd945f93027bd989cbb02a6"
+      },
+      {
+        "path": "models/auticko-se-zatacenim/stl/rozperka-8_6.stl",
+        "sha256": "788faab6835a9651d99579708fcf17a5f0c0dcfe482de3ef868c90c66d1ed56f"
+      },
+      {
+        "path": "models/auticko-se-zatacenim/stl/tehlice-leva.stl",
+        "sha256": "a385b4110b143d247207a09e7e985b94c1e119e68685a05a327e10a98fa9e7b4"
+      },
+      {
+        "path": "models/auticko-se-zatacenim/stl/rozperka-1_6.stl",
+        "sha256": "415ff9e44b8ce3e039d085c91175809c0a15446e21d1130f5e0ba59ea83fc3eb"
+      },
+      {
+        "path": "models/auticko-se-zatacenim/stl/spojovaci-tahlo.stl",
+        "sha256": "7bed23f1fa61c425b0adcb0212e8330b0ec365b4c4e0a2752b6e32700974d3e4"
+      },
+      {
+        "path": "models/auticko-se-zatacenim/stl/pastorek-18z-otvor-2_2.stl",
+        "sha256": "e412ec278422cd4c66d4843b95c561de3a8655f82e5d40e6012a5ee1eaec2870"
+      },
+      {
+        "path": "models/auticko-se-zatacenim/stl/celist-horni.stl",
+        "sha256": "bbdfc0d4ba793f973ad7c13b947867d38b9739c58f13362b41cbaced25f51872"
+      },
+      {
+        "path": "models/auticko-se-zatacenim/stl/osa-mezi-65_2.stl",
+        "sha256": "2729dc64cc6e28095c0201009ee6e72f5721b95f78b3ab0d151b5f5446523f05"
+      },
+      {
+        "path": "models/auticko-se-zatacenim/stl/cep-tahla-dlouhy.stl",
+        "sha256": "c4207de7cc207a330a6273ef5323b0d71831352e8e63dc9f3ad1c2a5c194a65c"
+      },
+      {
+        "path": "models/auticko-se-zatacenim/stl/pojistka-c.stl",
+        "sha256": "7be6176012c834bfba0b745c0048f7139799b85b0654688302d0bba3353007e0"
+      },
+      {
+        "path": "models/auticko-se-zatacenim/stl/cep-tahla-kratky.stl",
+        "sha256": "3e5b70662458678fbbd56df259d092098f8db31b12acbfc025f899e51b1f2d40"
+      },
+      {
+        "path": "models/auticko-se-zatacenim/stl/plosina-170x60.stl",
+        "sha256": "f78e2b584a78c6044a266ba4af2171cbb3e89d0f918b795e4e0478035ab56f62"
+      },
+      {
+        "path": "models/auticko-se-zatacenim/stl/tehlice-prava.stl",
+        "sha256": "43f022059d7716a091d5fc33d67dd575e55ee3d1d636e4384e40b82f382b3676"
+      },
+      {
+        "path": "models/auticko-se-zatacenim/stl/osa-zadni-109_3.stl",
+        "sha256": "ee27741858052aac3571863ec7f1dc9d36e5f07498a32440dcd1d308f2cde78b"
+      },
+      {
+        "path": "models/auticko-se-zatacenim/stl/svisly-cep.stl",
+        "sha256": "2187b532545a3620d106526d75f87524a9fb17516953a3696fca48eda3fe7f7b"
+      },
+      {
+        "path": "models/auticko-se-zatacenim/stl/kolo-predni-76x12.stl",
+        "sha256": "0ef496500370675d4bd52908cb56698f0da1bcc7f075cbf8e1e69d3c63ab5519"
+      },
+      {
+        "path": "models/auticko-se-zatacenim/stl/mezikolo-54_18z.stl",
+        "sha256": "682c02fc3de7cf8fbc3986826dfedd33ad8841c019b4a6511315ae11fae4d48e"
+      },
+      {
+        "path": "models/auticko-se-zatacenim/stl/kolo-zadni-76x12-prave.stl",
+        "sha256": "ce25f07d4a84f3596e9ce28c28350eb92f3499068318f66c384b1672a1945fa0"
+      },
+      {
+        "path": "models/auticko-se-zatacenim/historie/pracovni-80x8/auticko-se-zatacenim.FCMacro",
+        "sha256": "f86458931fc268b78f2492d5c0bca041a5eb9ed7a7ced261a2d2db3eb1724500"
+      },
+      {
+        "path": "models/auticko-se-zatacenim/historie/pracovni-80x8/auticko-se-zatacenim.FCStd",
+        "sha256": "21f997478546ac38aaf3383e2f0701ad72046b1c5eca0b631981364e4e431ff5"
+      },
+      {
+        "path": "models/jednoduche-auticko/auticko.FCStd",
+        "sha256": "eae583d24550c7be5645239748c07a834285db7de2b0a43ccb0596c271b3cacd"
+      },
+      {
+        "path": "models/jednoduche-auticko/nahled.FCMacro",
+        "sha256": "decf67bb6adfd61b1c30a7cde4252dad04494098ff51da5b3863acd76f2a6888"
+      },
+      {
+        "path": "models/jednoduche-auticko/vzorek-hridele-v2.FCStd",
+        "sha256": "907bbb021f70901d9c7a29d657d3127a0adce314df239425bb13304f4b4df666"
+      },
+      {
+        "path": "models/jednoduche-auticko/strecha.FCMacro",
+        "sha256": "652f97c302238026c3157207f3506b4bc595ba92e4a271aace43d2e3cfb06959"
+      },
+      {
+        "path": "models/jednoduche-auticko/overit-parametry.FCMacro",
+        "sha256": "713abe975772fca58aba94cf47115f24695223c64044ff0ac86e9d663dc676a7"
+      },
+      {
+        "path": "models/jednoduche-auticko/zbytek-auticka.zip",
+        "sha256": "74fc38db481ee733b1dd80cfe5e36d713dc03208eaae9de681e42ab04caea674"
+      },
+      {
+        "path": "models/jednoduche-auticko/nahled-strechy.FCMacro",
+        "sha256": "e6dc3130acd58d5fe4bddd375aa65f3e2709412a8fe1c4af7afe06d19c618051"
+      },
+      {
+        "path": "models/jednoduche-auticko/auticko.FCMacro",
+        "sha256": "1dd24a7eeb7087cfcc460aaefbd710995ce914086040b6a62b819ad0e0ead051"
+      },
+      {
+        "path": "models/jednoduche-auticko/auticko-se-strechou.FCStd",
+        "sha256": "40c1908db64c557c5c96ef5d57b1ab950b6a8edb01a20c1590f130cf56a52d48"
+      },
+      {
+        "path": "models/jednoduche-auticko/overit-strechu.FCMacro",
+        "sha256": "3ac64af89c649a4e963f3745488a357775ceb132b16100789b7c2990c4b9e9ab"
+      },
+      {
+        "path": "models/jednoduche-auticko/nahled-vzorku-v2.FCMacro",
+        "sha256": "ad01cc3a83b0bfdc150a78e38fff971e2a2fde405392398bc7f7e3ca592a87c8"
+      },
+      {
+        "path": "models/jednoduche-auticko/vzorek-hridele-v2.FCMacro",
+        "sha256": "fe96d9087a6000c7c1eec06000d72cdc950e111b1eae3bf80ddb6833a7bddd37"
+      },
+      {
+        "path": "models/jednoduche-auticko/stl/rozperka-dlouha.stl",
+        "sha256": "6d95f7455d561aed40f041da50b9773835322cff5e222c1986c6251776439b36"
+      },
+      {
+        "path": "models/jednoduche-auticko/stl/strecha.stl",
+        "sha256": "0566fdffebf5055082bf276c7a4d982bbc207cedd2b68e58b104ad166b8502d6"
+      },
+      {
+        "path": "models/jednoduche-auticko/stl/kolo-predni.stl",
+        "sha256": "fd3d2970d61eb7f3ba9a1593cba423bff9aa92e290ca42297e7a22e139630379"
+      },
+      {
+        "path": "models/jednoduche-auticko/stl/rozperka-kratka.stl",
+        "sha256": "db1855e5c69bb92c9c9d25192d1cbbddd153f7b7bbd2bda7a8985a4661f0ac6f"
+      },
+      {
+        "path": "models/jednoduche-auticko/stl/kolo-zadni.stl",
+        "sha256": "ab4618df29f811d36596120f4279aa22fc3efbe6ddc44be2738b3016a61e10fc"
+      },
+      {
+        "path": "models/jednoduche-auticko/stl/osa-predni.stl",
+        "sha256": "c6c537b104101b8b4f1bd7d2d17a298e456482e3b3a11466f6e9842862a6fae7"
+      },
+      {
+        "path": "models/jednoduche-auticko/stl/kolo-zadni-ozubene.stl",
+        "sha256": "35063b786f519021ab85c7742c909acd5dc07fd0646fa8baa5c7a3df4830373f"
+      },
+      {
+        "path": "models/jednoduche-auticko/stl/pojistka.stl",
+        "sha256": "3706c2b3cf27e48dab65636ae2a9292cc24bde79220ac78a477d900ccf76b77a"
+      },
+      {
+        "path": "models/jednoduche-auticko/stl/pastorek.stl",
+        "sha256": "ec158dff10d48cdbfa746b459ea87d87ca5b07464d774fa079b87a4978eead40"
+      },
+      {
+        "path": "models/jednoduche-auticko/stl/ram.stl",
+        "sha256": "8847d17a18c497d422b34a28a9598e439a526f5bfca5b64ab3c266b4108a35b6"
+      },
+      {
+        "path": "models/jednoduche-auticko/stl/osa-zadni.stl",
+        "sha256": "4abfd6962f8e4118637fee72d2ae21cd4adc0ab76fc3859204c490a95744b9cc"
+      },
+      {
+        "path": "models/jednoduche-auticko/zbytek-auticka/03-kolo-zadni.stl",
+        "sha256": "ab4618df29f811d36596120f4279aa22fc3efbe6ddc44be2738b3016a61e10fc"
+      },
+      {
+        "path": "models/jednoduche-auticko/zbytek-auticka/04-kolo-predni-1.stl",
+        "sha256": "fd3d2970d61eb7f3ba9a1593cba423bff9aa92e290ca42297e7a22e139630379"
+      },
+      {
+        "path": "models/jednoduche-auticko/zbytek-auticka/05-kolo-predni-2.stl",
+        "sha256": "fd3d2970d61eb7f3ba9a1593cba423bff9aa92e290ca42297e7a22e139630379"
+      },
+      {
+        "path": "models/jednoduche-auticko/zbytek-auticka/08-rozperka-kratka.stl",
+        "sha256": "db1855e5c69bb92c9c9d25192d1cbbddd153f7b7bbd2bda7a8985a4661f0ac6f"
+      },
+      {
+        "path": "models/jednoduche-auticko/zbytek-auticka/12-pojistka-1.stl",
+        "sha256": "3706c2b3cf27e48dab65636ae2a9292cc24bde79220ac78a477d900ccf76b77a"
+      },
+      {
+        "path": "models/jednoduche-auticko/zbytek-auticka/11-rozperka-dlouha-3.stl",
+        "sha256": "6d95f7455d561aed40f041da50b9773835322cff5e222c1986c6251776439b36"
+      },
+      {
+        "path": "models/jednoduche-auticko/zbytek-auticka/13-pojistka-2.stl",
+        "sha256": "3706c2b3cf27e48dab65636ae2a9292cc24bde79220ac78a477d900ccf76b77a"
+      },
+      {
+        "path": "models/jednoduche-auticko/zbytek-auticka/07-osa-predni.stl",
+        "sha256": "c6c537b104101b8b4f1bd7d2d17a298e456482e3b3a11466f6e9842862a6fae7"
+      },
+      {
+        "path": "models/jednoduche-auticko/zbytek-auticka/06-osa-zadni.stl",
+        "sha256": "4abfd6962f8e4118637fee72d2ae21cd4adc0ab76fc3859204c490a95744b9cc"
+      },
+      {
+        "path": "models/jednoduche-auticko/zbytek-auticka/02-kolo-zadni-ozubene.stl",
+        "sha256": "35063b786f519021ab85c7742c909acd5dc07fd0646fa8baa5c7a3df4830373f"
+      },
+      {
+        "path": "models/jednoduche-auticko/zbytek-auticka/09-rozperka-dlouha-1.stl",
+        "sha256": "6d95f7455d561aed40f041da50b9773835322cff5e222c1986c6251776439b36"
+      },
+      {
+        "path": "models/jednoduche-auticko/zbytek-auticka/10-rozperka-dlouha-2.stl",
+        "sha256": "6d95f7455d561aed40f041da50b9773835322cff5e222c1986c6251776439b36"
+      },
+      {
+        "path": "models/jednoduche-auticko/zbytek-auticka/01-ram.stl",
+        "sha256": "8847d17a18c497d422b34a28a9598e439a526f5bfca5b64ab3c266b4108a35b6"
+      },
+      {
+        "path": "models/jednoduche-auticko/firmware/prvni-motor/prvni-motor.ino",
+        "sha256": "1760730b716a6fb281ed900400d533eaac17d96c9b779a6c91e2e99502d69110"
+      },
+      {
+        "path": "models/jednoduche-auticko/firmware/archiv-hold-to-run-v1/prvni-motor.ino",
+        "sha256": "46cee7f55931e12fe802de19b01724e76f8e1184860f316b5da6176acbc7e631"
+      },
+      {
+        "path": "models/jednoduche-auticko/stl/old/vzorek-hridele.stl",
+        "sha256": "68e1def064b42dbfe3304a2905ab8acb994b0e731e20e2c212b09dd83cb5878e"
+      }
+    ]
+  },
+  "frozen_calibration": {
+    "count": 13,
+    "all_unchanged": true,
+    "files": [
+      {
+        "path": "models/auticko-silovy-prevod-25/kalibrace/stl/otvory-8-vodorovne.stl",
+        "sha256": "a65d59af643c298f2f337ab4520858b17867c8171fec4c82af89380625af5dae"
+      },
+      {
+        "path": "models/auticko-silovy-prevod-25/kalibrace/stl/otvory-12-svisle.stl",
+        "sha256": "11337018be3a66e06d9a0651244b3c94990f83b8c40a05934d3992db2f754d76"
+      },
+      {
+        "path": "models/auticko-silovy-prevod-25/kalibrace/stl/cep-12-kulaty-nalezato.stl",
+        "sha256": "c57b9ec57971d4fc40cafd42038635d81405cad326615573a3adfff6cab73f90"
+      },
+      {
+        "path": "models/auticko-silovy-prevod-25/kalibrace/stl/cep-8-kulaty-nalezato.stl",
+        "sha256": "4c90dee9f83cb70b7c6ed0640c6312489e00d422078abc718138755a2b0b54b1"
+      },
+      {
+        "path": "models/auticko-silovy-prevod-25/kalibrace/stl/otvory-8-svisle.stl",
+        "sha256": "65399aaa00595db4dcf1b221d60551c5e70df625d531bd31b6258aa6f655d536"
+      },
+      {
+        "path": "models/auticko-silovy-prevod-25/kalibrace/stl/otvory-12-vodorovne.stl",
+        "sha256": "adbdcf6e5da419c8ec2505e2c2646dd4eed3a3676ce91030f18f0bfa034dcf19"
+      },
+      {
+        "path": "models/auticko-silovy-prevod-25/kalibrace/stl/otvory-4-svisle.stl",
+        "sha256": "e962a37de25dba1609c2406f762f131f1a5e9f26801d03e4bb7b673ce5aeb7b5"
+      },
+      {
+        "path": "models/auticko-silovy-prevod-25/kalibrace/stl/cep-4-kulaty-nalezato.stl",
+        "sha256": "6970be5a3060c34831bae0e67b150605d41a8cced60fee8121a04e3ad1778427"
+      },
+      {
+        "path": "models/auticko-silovy-prevod-25/kalibrace/kalibrace.FCStd",
+        "sha256": "ed3d3e49aec5d742a7f3fc88cba5b7befa245260606c2d856956beaed67fb9f0"
+      },
+      {
+        "path": "models/auticko-silovy-prevod-25/kalibrace/nahled.FCMacro",
+        "sha256": "62668534fcd8878237b622fd785ed24f93337759e45a7f2af789d6dae94a6506"
+      },
+      {
+        "path": "models/auticko-silovy-prevod-25/kalibrace/kalibrace.FCMacro",
+        "sha256": "b51f21ace3308521df36066cd451fdcbecf6d8bbb36662fd6ba997fbe1b07622"
+      },
+      {
+        "path": "models/auticko-silovy-prevod-25/kalibrace/kalibracni-dily.zip",
+        "sha256": "25655c90515aa507d4b58c6d058bc4b389b98fcac3a669342f82bce16472b675"
+      },
+      {
+        "path": "models/auticko-silovy-prevod-25/rozlozeni/kalibrace/kalibrace-podlozka-01.3mf",
+        "sha256": "17483261f837416cf2e3dea877f82004a58f6209208fc65509aa5c2c6f16a1ab"
+      }
+    ]
+  },
+  "all_passed": true
+}

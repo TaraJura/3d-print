@@ -1,0 +1,64 @@
+{
+  "wheel_objects_verified": [],
+  "status": "pass",
+  "source_zip_sha256": "4084c3dea334c65aebe281016e6be6b8fb906acb315fcdd785c418d6c8dd1361",
+  "objects": 2,
+  "unit": "millimeter",
+  "scale": 1,
+  "rotation_only_about_z": true,
+  "preserved_source_facets": true,
+  "minimum_required_object_gap_mm": 11,
+  "minimum_required_edge_clearance_mm": 6,
+  "configuration_embedded": false,
+  "plate_count": 1,
+  "plates": [
+    {
+      "file": "kalibrace-4-v2-podlozka-01.3mf",
+      "sha256": "e9ff259b1f6a3ac4e2155896c951eed0a3a265532c4a9591f1172c26d930fa21",
+      "count": 2,
+      "minimum_convex_hull_gap_mm": 11.05000000000001,
+      "center_mm": [
+        130.0,
+        130.0
+      ],
+      "objects": [
+        {
+          "name": "kalibrace-4-v2-z__01",
+          "facets": 3560,
+          "max_facet_error_mm": 4.982894097338431e-10,
+          "edge_clearance_mm": 77.475,
+          "bounds_mm": [
+            [
+              77.475,
+              121.699999809,
+              0.0
+            ],
+            [
+              124.475,
+              138.300000191,
+              8.600000381
+            ]
+          ]
+        },
+        {
+          "name": "kalibrace-4-v2-y__01",
+          "facets": 3548,
+          "max_facet_error_mm": 5.000000413701855e-10,
+          "edge_clearance_mm": 77.475,
+          "bounds_mm": [
+            [
+              135.525,
+              121.699999809,
+              0.0
+            ],
+            [
+              182.525,
+              129.699999809,
+              10.800000191
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+"""Doplňkový test krajních axiálních poloh, samostatný od nominálního rejdu."""
+from pathlib import Path
+import json
+import FreeCAD as App,Part
+ROOT=Path(__file__).resolve().parent
+D=App.openDocument(str(ROOT/'auticko-se-zatacenim.FCStd'));R=json.loads((ROOT/'kontrola-modelu.json').read_text());assert R['validation_pass']
+checks=[]
+fixed=[D.SteeringFrame,D.Deck,D.MotorReference,D.AssemblyPinion,D.AssemblyCompound,D.ServoReference,D.AssemblyTie,D.AssemblyDrag,D.AssemblyHornSpacer,D.AssemblyHornReference]
+for deg in (-24,0,24):
+    D.Steering.set('B9',f'={deg} deg');D.recompute()
+    for side,tag in [(-1,'L'),(1,'R')]:
+        tr=D.getObject('WheelCarrier'+tag).Placement
+        for shift in (-.2,.5):
+            env=Part.makeCylinder(38,12,App.Vector(-3.7,side*(9+shift),0),App.Vector(0,side,0))
+            env=env.cut(Part.makeCylinder(4.3,14,App.Vector(-3.7,side*(8+shift),0),App.Vector(0,side,0)))
+            env.Placement=tr.multiply(env.Placement)
+            relevant=fixed+[D.getObject('AssemblyKnuckle'+tag),D.getObject('AssemblyForkCap'+tag),D.getObject('AssemblyKingpin'+tag)]
+            for o in relevant:
+                v=env.common(o.Shape).Volume
+                checks.append({'wheel_deg':deg,'side':tag,'outward_shift_mm':shift,'fixed':o.Name,'overlap_mm3':v})
+                assert v<1e-6,checks[-1]
+D.Steering.set('B9','=0 deg');D.recompute()
+rear=[]
+for ar,am in ((.5,-.9),(-1,.5),(.5,.5),(-1,-.9)):
+    a=D.AssemblyRearLeft.Shape.copy();a.translate(App.Vector(0,ar,0));b=D.AssemblyCompound.Shape.copy();b.translate(App.Vector(0,am,0))
+    vols=[a.common(b).Volume,b.common(D.MotorBody.Shape).Volume,a.common(D.SteeringFrame.Shape).Volume]
+    rear.append({'rear_shift_y_mm':ar,'middle_shift_y_mm':am,'gears_overlap_mm3':vols[0],'middle_motor_overlap_mm3':vols[1],'rear_frame_overlap_mm3':vols[2]});assert max(vols)<1e-6
+R['axial_clearances']={'front_nominal_inner_gap_mm':.2,'front_nominal_outer_gap_mm':.4,'front_extra_clip_float_mm':.1,'front_extremes':checks,'rear_extremes':rear,'limit':'Krajní nominální axiální posuny bez deformace; tištěné vůle mohou být jiné.'}
+(ROOT/'kontrola-modelu.json').write_text(json.dumps(R,ensure_ascii=False,indent=2)+'\n')
+print('AXIAL_COMPLETE',len(checks),len(rear),flush=True)

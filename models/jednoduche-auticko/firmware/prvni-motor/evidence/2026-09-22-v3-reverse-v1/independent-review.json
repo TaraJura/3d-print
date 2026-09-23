@@ -1,0 +1,21 @@
+{
+  "source_sha256": "d24a87631fd32a41685baedd7488c425a75ca6f9e300706349c61e09e79fe930",
+  "reviewer": "Independent read-only agent /root/verify_firmware_evidence",
+  "status": "clean after fixed P1",
+  "finding_fixed": "Rejected and secondary contacts must remain tracked until physical release; otherwise a newer opposite press could bypass conflict latch.",
+  "scope": [
+    "EN OFF then both direction inputs LOW before reversal",
+    "250ms continuous actual OFF; preserved through STOP/ARM/session/page",
+    "HOLD_REARM invalidates entire nonce/press sequence; timer and retry cannot restart",
+    "Canonical signed -1/0/1 parser and legacy compatibility",
+    "All physical contacts tracked; no owner transfer; new press only after release",
+    "Expiry/PWM failure and shared unchanged steering safeguards"
+  ],
+  "targeted_inline_js_reproductions_passed": [
+    "new rejected contact during conflict latch",
+    "secondary contact on same motor button",
+    "new contact while STOP response pending"
+  ],
+  "hardware_accessed": false,
+  "remaining_validation": "Completed separately: full integrated regression passed, including real native pointerdown on disabled button; see test-result.json."
+}

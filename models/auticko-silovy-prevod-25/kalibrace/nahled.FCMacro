@@ -1,0 +1,39 @@
+# -*- coding: utf-8 -*-
+from pathlib import Path
+import json
+import FreeCAD as App
+import FreeCADGui as Gui
+from PySide import QtCore
+OUT = Path(__file__).resolve().parent
+D = App.openDocument(str(OUT / 'kalibrace.FCStd'))
+report = json.loads((OUT / 'kontrola-kalibrace.json').read_text())
+for o in D.Objects:
+    if hasattr(o, 'ViewObject'): o.ViewObject.Visibility = False
+colors = [(0.18, 0.54, 0.78), (0.26, 0.67, 0.52), (0.91, 0.56, 0.18), (0.73, 0.42, 0.67)]
+for i, name in enumerate(report['display_objects']):
+    o = D.getObject(name); o.ViewObject.Visibility = True
+    try: o.ViewObject.ShapeColor = colors[i % len(colors)]
+    except Exception: pass
+def camera():
+    view = Gui.activeDocument().activeView()
+    eye = App.Vector(0.25, -1.3, 1.2); up = App.Vector(0, 0, 1)
+    view.setCameraType('Orthographic')
+    view.setCameraOrientation(App.Rotation(up.cross(eye), up, eye, 'ZXY').Q)
+    view.fitAll(); view.redraw(); Gui.updateGui()
+    QtCore.QTimer.singleShot(800, finish)
+def finish():
+    global D
+    Gui.activeDocument().activeView().saveImage(str(OUT / 'nahled.png'), 1600, 1100, 'White')
+    D.recompute(); D.save()
+    App.closeDocument(D.Name)
+    D = App.openDocument(str(OUT / 'kalibrace.FCStd'))
+    invalid = [o.Name for o in D.Objects if 'Invalid' in o.State]
+    visible = [o.Name for o in D.Objects if hasattr(o, 'ViewObject') and o.ViewObject.Visibility]
+    assert not invalid, invalid
+    assert set(visible) == set(report['display_objects']), visible
+    report['gui_validation'] = {'saved_and_reopened': True, 'visible_objects': visible, 'invalid_objects': invalid}
+    (OUT / 'kontrola-kalibrace.json').write_text(json.dumps(report, ensure_ascii=False, indent=2) + '\n')
+    print('COMPLETE calibration GUI', flush=True)
+    App.closeDocument(D.Name)
+    Gui.getMainWindow().close()
+QtCore.QTimer.singleShot(800, camera)

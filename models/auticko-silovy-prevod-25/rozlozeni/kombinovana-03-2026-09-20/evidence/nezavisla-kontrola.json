@@ -1,0 +1,41 @@
+{
+  "status": "pass",
+  "reviewer": "repair_orientation_audit (read-only independent agent)",
+  "project_sha256": "72b6a0458b39c3d23acffbd7665b0c4bad99420d2810447914c21dddf2bab7f1",
+  "sliced_sha256": "588e55c509f4569ba1356e54b3b9ebccfb7973dd1a35208472f809202e146e13",
+  "methods": [
+    "Direct decode of all meshes against canonical ZIP/STL",
+    "Independent G-code parser, not imported root parse()",
+    "Visual support/model overlay for three left-knuckle overhangs"
+  ],
+  "copies": 26,
+  "source_counts": [
+    13,
+    7,
+    6
+  ],
+  "supported_objects": [
+    "plosina-170x60__01",
+    "osa-zadni-12x150_6__01",
+    "tehlice-prava__01",
+    "tehlice-leva__01"
+  ],
+  "minimum_actual_extrusion_gap_mm": 3.5629133486361706,
+  "minimum_actual_extrusion_edge_mm": 4.389010615857718,
+  "left_knuckle_support_model_z_pairs_mm": [
+    [
+      7.04,
+      7.28
+    ],
+    [
+      10.88,
+      11.12
+    ],
+    [
+      16.52,
+      16.76
+    ]
+  ],
+  "physical_print_verified": false,
+  "scope": "Does not resolve frame or uncertain physical inventory."
+}

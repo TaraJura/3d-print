@@ -1,0 +1,25 @@
+from pathlib import Path
+import json,hashlib,os
+import FreeCAD as App
+ROOT=Path(__file__).resolve().parent
+input_path=Path(os.environ.get('CAD_VERIFY_INPUT',str(ROOT/'auticko-silovy-prevod-25.FCStd')))
+input_hash=hashlib.sha256(input_path.read_bytes()).hexdigest()
+source_hashes=json.loads((ROOT/'kontrola-modelu.json').read_text())['source_hashes']
+assert source_hashes=={n:hashlib.sha256((ROOT/n).read_bytes()).hexdigest() for n in source_hashes},'Source/export mismatch'
+D=App.openDocument(str(input_path));S=D.Parameters
+rows={}
+for i in range(2,120):
+    try:rows[S.get('A'+str(i))]=i
+    except Exception:pass
+results=[]
+for name,trial,objects in [('RunningBore',8.7,['CompoundA','CompoundB']),('FixedSeatBore',8.2,['SteeringFrame']),('RearBearingBore',12.7,['SteeringFrame']),('OutputBore',12.2,['OutputGear']),('DriveBore',12.2,['RearWheel']),('DriveFlat',4.1,['RearWheel']),('StaticLockBore',4.2,['SteeringFrame','OutputGear','RearAxle','MotorBridge','Deck','ServoCap','HornTray','HornLid']),('DeckSocketBore',8.2,['Deck']),('JournalLength',4.5,['CompoundA','CompoundB']),('WheelDiameter',75,['RearWheel','FrontWheel'])]:
+    old=float(getattr(S,name).Value);before={n:D.getObject(n).Shape.Volume for n in objects}
+    S.set('B'+str(rows[name]),f'={trial} mm');D.recompute()
+    assert all(D.getObject(n).Shape.isValid() and len(D.getObject(n).Shape.Solids)==1 for n in objects)
+    changes={n:abs(D.getObject(n).Shape.Volume-v) for n,v in before.items()};assert all(v>1e-5 for v in changes.values()),changes
+    change=max(changes.values())
+    S.set('B'+str(rows[name]),f'={old} mm');D.recompute()
+    error=max(abs(D.getObject(n).Shape.Volume-v) for n,v in before.items());assert error<1e-5
+    results.append({'parameter':name,'original':old,'trial':trial,'objects':objects,'changed_volume_by_object_mm3':changes,'max_changed_volume_mm3':change,'max_restored_volume_error_mm3':error})
+(ROOT/'kontrola-parametru.json').write_text(json.dumps({'passed':True,'input_fcstd_sha256':input_hash,'source_hashes':source_hashes,'checks':results,'saved':False},ensure_ascii=False,indent=2)+'\n')
+print('PARAMETER_CHECKS_COMPLETE',len(results),flush=True)

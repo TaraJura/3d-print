@@ -1,0 +1,33 @@
+{
+  "archived_utc": "2026-09-19T23:37:16.757460+00:00",
+  "source_build": "hold-to-run-v2",
+  "files": {
+    "README.md": "e6c99b6683d7b7e31d17876b4b49127d4f69ae66a37e1581efd019f00857efcb",
+    "historie-sekundoveho-testu.md": "61fe1867494b0874a6c4ece0a13bcf9892a59dc261bf6b53985cbfcb8cfcd8fa",
+    "overeni-programu.json": "4a313e2f3f7f2f5e6b1e18ced3b0ba2462e699997206f130a9a66fb1e5816038",
+    "historie-overeni-pulzu.json": "c28045d73887a428303dc4c504724b67f74d1825a854f64227997f9d97dafb88",
+    "prvni-motor.ino": "1760730b716a6fb281ed900400d533eaac17d96c9b779a6c91e2e99502d69110",
+    "tests/FspTimer.h": "ac85c43a925fba57cf3a10ffed4136202cd0471624887c9669391b0f5bab91bd",
+    "tests/browser_http_tests.js": "09f706064ea1d4ebdf7624bf21136de616bc3dd95051a28111f9eafbda8b4dbd",
+    "tests/README.md": "1553d090ab246a86f4cbd21186be3c0808c4aa1191eea85b9ee09f6c4f3b4280",
+    "tests/run_http_tests.py": "0f963ef12206f34036907974c0fdff942387ba2711b38f0ed448bc10b7f5ef4f",
+    "tests/browser_tests.js": "4e85a78a96856c857f141ca9fe35eb0133564a569dcf8bb7b2888f476264540e",
+    "tests/http_driver.cpp": "bb6245e76c614af68f6c1c3dc2e16b107865225e67c6b5977b1f56e2d97637ab",
+    "tests/http_tests.cpp": "0e6987d7065db69ac138d8d1ff2631ac7507c8d640c1dcfae621ac8c081a46f2",
+    "tests/WiFiS3.h": "f95bd52ad2aefb99668f667363e4918ef99f615c6ccaff16fa4d0f889c0370b8",
+    "tests/pwm.h": "a0678cfc354f16469b1330942823c377eab7ba5182c2d02a6720e27e07c4ba89",
+    "evidence/2026-09-19-hold-to-run/compile.txt": "2831bbb54e4d171e6efdbde4f9a009f758a3740f1937dcc9e6a5075a9bddc61c",
+    "evidence/2026-09-19-hold-to-run/serial-refresh.txt": "96e9e6b2cf22fc2c7f50132415ca98925b3bd833301d210c6b7dc248a5e174c3",
+    "evidence/2026-09-19-hold-to-run/latency-simulation.txt": "a017cb377e3399eff0c9be65d85058ff31df4a22196be83cec1357b462df5d79",
+    "evidence/2026-09-19-hold-to-run/serial-symptom.txt": "392d8b8b09bdfe2a10980a53ad9c0c576a3fa1fa40fab3b9222382a97fc7ac68",
+    "evidence/2026-09-19-hold-to-run/serial-unloaded.txt": "33e0f61de8bf961b8ddce45a509e52d104a6c80d204fa5d3b57041a258893c9c",
+    "evidence/2026-09-19-hold-to-run/upload.txt": "763dba196c4945a31c82da729aea6261918e122ec796b26b1a1de90a9ff091fb",
+    "evidence/2026-09-19-hold-to-run/serial.txt": "301a1210f11acd17ef9fecc444bbefb46cc880a8c29a83063fa880fbdb114239",
+    "evidence/2026-09-19-hold-to-run-v2/compile.txt": "ba34b80a436b6887a97134d0c887558edab36f272d51340907dc956b34f913e9",
+    "evidence/2026-09-19-hold-to-run-v2/host-tests.txt": "8bbc8fb523355fb4a9afa771695b1291099476e7d4eba8b9ea14f260d7f8ec51",
+    "evidence/2026-09-19-hold-to-run-v2/browser-http.txt": "6cad362b50e59c8630e78d832281148d047a284b578cba524ad100d15425d3c0",
+    "evidence/2026-09-19-hold-to-run-v2/upload.txt": "d8b7c599c0f8562bea348637a285279e2ba6c260c6afeb4f99abc8b1fb5933e8",
+    "evidence/2026-09-19-hold-to-run-v2/serial.txt": "ef2d67d4d38df8698c31cef94dbfc6b46478fda61b62db2e3258c6a269267504"
+  },
+  "note": "Exact archive before steering source edits; historical verification and physical acceptance apply to this unchanged hash only."
+}

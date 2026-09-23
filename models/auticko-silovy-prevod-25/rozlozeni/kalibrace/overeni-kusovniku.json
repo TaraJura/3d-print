@@ -1,0 +1,126 @@
+{
+  "status": "pass",
+  "method": "Calibration: actual CAD display objects -> BOM -> ZIP -> 3MF; no assembly instance claim",
+  "source_report": "/home/novakj/3d-print/models/auticko-silovy-prevod-25/kalibrace/kontrola-kalibrace.json",
+  "source_report_sha256": "eb6b2cc222afb02f428c6a1a6b322a2d6015fd07df1538dae29194e0903355c1",
+  "source_zip_sha256": "25655c90515aa507d4b58c6d058bc4b389b98fcac3a669342f82bce16472b675",
+  "verification_3mf_sha256": "790a7f0f3f691dd943b3546ca14ca6153030c49bd8494c456cbeece4a0df8033",
+  "physical_copies": 8,
+  "part_types": 8,
+  "all_counts_equal": true,
+  "all_zip_copies_identical_to_canonical_stl": true,
+  "parts": [
+    {
+      "part": "cep-12-kulaty-nalezato",
+      "assembly_or_display_count": 1,
+      "bom_count": 1,
+      "zip_count": 1,
+      "3mf_count": 1,
+      "copies": [
+        {
+          "name": "cep-12-kulaty-nalezato__01",
+          "file": "kalibrace-podlozka-01.3mf",
+          "number_in_preview": 6
+        }
+      ]
+    },
+    {
+      "part": "cep-4-kulaty-nalezato",
+      "assembly_or_display_count": 1,
+      "bom_count": 1,
+      "zip_count": 1,
+      "3mf_count": 1,
+      "copies": [
+        {
+          "name": "cep-4-kulaty-nalezato__01",
+          "file": "kalibrace-podlozka-01.3mf",
+          "number_in_preview": 8
+        }
+      ]
+    },
+    {
+      "part": "cep-8-kulaty-nalezato",
+      "assembly_or_display_count": 1,
+      "bom_count": 1,
+      "zip_count": 1,
+      "3mf_count": 1,
+      "copies": [
+        {
+          "name": "cep-8-kulaty-nalezato__01",
+          "file": "kalibrace-podlozka-01.3mf",
+          "number_in_preview": 7
+        }
+      ]
+    },
+    {
+      "part": "otvory-12-svisle",
+      "assembly_or_display_count": 1,
+      "bom_count": 1,
+      "zip_count": 1,
+      "3mf_count": 1,
+      "copies": [
+        {
+          "name": "otvory-12-svisle__01",
+          "file": "kalibrace-podlozka-01.3mf",
+          "number_in_preview": 1
+        }
+      ]
+    },
+    {
+      "part": "otvory-12-vodorovne",
+      "assembly_or_display_count": 1,
+      "bom_count": 1,
+      "zip_count": 1,
+      "3mf_count": 1,
+      "copies": [
+        {
+          "name": "otvory-12-vodorovne__01",
+          "file": "kalibrace-podlozka-01.3mf",
+          "number_in_preview": 3
+        }
+      ]
+    },
+    {
+      "part": "otvory-4-svisle",
+      "assembly_or_display_count": 1,
+      "bom_count": 1,
+      "zip_count": 1,
+      "3mf_count": 1,
+      "copies": [
+        {
+          "name": "otvory-4-svisle__01",
+          "file": "kalibrace-podlozka-01.3mf",
+          "number_in_preview": 5
+        }
+      ]
+    },
+    {
+      "part": "otvory-8-svisle",
+      "assembly_or_display_count": 1,
+      "bom_count": 1,
+      "zip_count": 1,
+      "3mf_count": 1,
+      "copies": [
+        {
+          "name": "otvory-8-svisle__01",
+          "file": "kalibrace-podlozka-01.3mf",
+          "number_in_preview": 2
+        }
+      ]
+    },
+    {
+      "part": "otvory-8-vodorovne",
+      "assembly_or_display_count": 1,
+      "bom_count": 1,
+      "zip_count": 1,
+      "3mf_count": 1,
+      "copies": [
+        {
+          "name": "otvory-8-vodorovne__01",
+          "file": "kalibrace-podlozka-01.3mf",
+          "number_in_preview": 4
+        }
+      ]
+    }
+  ]
+}

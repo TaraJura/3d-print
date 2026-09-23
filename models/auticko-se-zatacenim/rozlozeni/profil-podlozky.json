@@ -1,0 +1,33 @@
+{
+  "machine/Anycubic Kobra X 0.4 nozzle.json": {
+    "name": "Anycubic Kobra X 0.4 nozzle",
+    "printable_area": [
+      "0x0",
+      "260x0",
+      "260x260",
+      "0x260"
+    ],
+    "printable_height": "260",
+    "bed_exclude_area": [],
+    "nozzle_diameter": [
+      "0.4"
+    ]
+  },
+  "process/0.20mm Standard @Anycubic Kobra X 0.4 nozzle.json": {
+    "name": "0.20mm Standard @Anycubic Kobra X 0.4 nozzle",
+    "brim_type": "auto_brim",
+    "brim_width": "5",
+    "brim_object_gap": "0.1",
+    "skirt_loops": "0",
+    "enable_support": "0",
+    "support_type": "tree(auto)",
+    "support_expansion": "0",
+    "support_object_xy_distance": "0.35",
+    "tree_support_brim_width": "3",
+    "print_sequence": "by layer",
+    "raft_layers": "0",
+    "xy_contour_compensation": "0",
+    "xy_hole_compensation": "0",
+    "elefant_foot_compensation": "0.1"
+  }
+}

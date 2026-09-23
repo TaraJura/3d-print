@@ -1,0 +1,43 @@
+{
+  "started_utc": "2026-09-22T22:10:07.616754+00:00",
+  "finished_utc": "2026-09-22T22:10:19.122848+00:00",
+  "port": "/dev/ttyACM0",
+  "usb_serial": "3CDC75F1A2D4",
+  "baud": 115200,
+  "dtr": true,
+  "serial_data_bytes_written": 0,
+  "http_requests_sent": 0,
+  "motion_commands_sent": 0,
+  "build_snapshot_count": 3,
+  "checks": {
+    "at_least_three_build_snapshots": true,
+    "all_build_motor_idle": true,
+    "steering": true,
+    "lease": true,
+    "boot": true,
+    "network_ready": true
+  },
+  "passed": true,
+  "serial_monitor_closed": true,
+  "electrical_pwm_measured": false,
+  "physical_actuators_tested": false,
+  "observed_device_http": {
+    "accepted_counters": [
+      29,
+      29,
+      29
+    ],
+    "closed_counters": [
+      29,
+      29,
+      29
+    ],
+    "stable_during_observation": true,
+    "zero_since_boot": false,
+    "origin": "Not established by passive diagnostics; this agent sent no device HTTP or motion commands.",
+    "stop_reason": 1,
+    "meaning": "Device had accepted and closed 29 requests before the first observed snapshot. This is not evidence of physical motion or user acceptance.",
+    "counter_semantics": "HTTP counts accepted client connections before parsing, not necessarily valid requests or motion commands."
+  },
+  "validation_note": "The initial extra expectation of HTTP=0 failed. Required checks (exact build, idle outputs, center/range, lease and network readiness) passed. Nonzero stable device traffic is explicitly preserved; no repeat upload or active probing performed."
+}

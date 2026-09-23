@@ -1,0 +1,22 @@
+{
+  "command": [
+    "/home/novakj/.cache/auticko-arduino-test/ide-cli/resources/app/lib/backend/resources/arduino-cli",
+    "--config-file",
+    "/home/novakj/.cache/auticko-arduino-test/arduino-cli.yaml",
+    "upload",
+    "--fqbn",
+    "arduino:renesas_uno:unor4wifi",
+    "--port",
+    "/dev/ttyACM0",
+    "--input-file",
+    "/home/novakj/.codex/worktrees/e339/3d-print/models/jednoduche-auticko/firmware/prvni-motor/.cache/arduino-v3-steering-v4-build/prvni-motor.ino.bin",
+    "--verbose"
+  ],
+  "started_utc": "2026-09-22T21:41:41.178361+00:00",
+  "finished_utc": "2026-09-22T21:41:47.861580+00:00",
+  "exit_code": 0,
+  "source_sha256": "0ee42b5512b97240a9d466e833e46a4360a3d4b5a7d112ae647146946781126e",
+  "bin_bytes": 84948,
+  "bin_sha256": "cf654176b45a0880b17133fe6d0b54f44d77e2e4ddcf530dcc0910d7eb841bae",
+  "flash_readback_verified": false
+}

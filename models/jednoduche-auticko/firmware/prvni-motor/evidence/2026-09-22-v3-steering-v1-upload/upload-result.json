@@ -1,0 +1,22 @@
+{
+  "command": [
+    "/home/novakj/.cache/auticko-arduino-test/ide-cli/resources/app/lib/backend/resources/arduino-cli",
+    "--config-file",
+    "/home/novakj/.cache/auticko-arduino-test/arduino-cli.yaml",
+    "upload",
+    "--fqbn",
+    "arduino:renesas_uno:unor4wifi",
+    "--port",
+    "/dev/ttyACM0",
+    "--input-file",
+    "/home/novakj/.codex/worktrees/e339/3d-print/models/jednoduche-auticko/firmware/prvni-motor/.cache/upload-2026-09-22/prvni-motor.ino.bin",
+    "--verbose"
+  ],
+  "started_utc": "2026-09-22T19:47:51.863177+00:00",
+  "finished_utc": "2026-09-22T19:47:58.549594+00:00",
+  "exit_code": 0,
+  "bin_bytes": 84916,
+  "bin_sha256": "15cd31e1f12aa6f19edcf755ddfd930c05b9e571ff671d6a4faefd02c0b9b6b6",
+  "flash_readback_verified": false,
+  "verification_scope": "Uploader completion and subsequent firmware diagnostics; board upload recipe does not perform full flash readback."
+}

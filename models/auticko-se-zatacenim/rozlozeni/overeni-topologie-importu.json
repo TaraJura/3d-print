@@ -1,0 +1,47 @@
+{
+  "auticko-v3-podlozka-01": {
+    "triangle_count": 102484,
+    "all_ordered_triangle_indices_unchanged": true,
+    "objects": {
+      "kolo-zadni-76x12-72z__01": 24876,
+      "kolo-zadni-76x12-prave__01": 2444,
+      "kolo-predni-76x12__01": 2560,
+      "kolo-predni-76x12__02": 2560,
+      "mezikolo-54_18z__01": 26316,
+      "spojovaci-tahlo__01": 1884,
+      "osa-zadni-109_3__01": 1496,
+      "tehlice-leva__01": 4902,
+      "tehlice-prava__01": 4902,
+      "osa-mezi-65_2__01": 1496,
+      "servo-tahlo-r15__01": 1896,
+      "svisly-cep__01": 1496,
+      "svisly-cep__02": 1496,
+      "celist-horni__01": 972,
+      "celist-horni__02": 972,
+      "pastorek-18z-otvor-2_2__01": 7992,
+      "pojistka-c__01": 772,
+      "pojistka-c__02": 772,
+      "pojistka-c__03": 772,
+      "pojistka-c__04": 772,
+      "pojistka-c__05": 772,
+      "pojistka-c__06": 772,
+      "cep-tahla-dlouhy__01": 1488,
+      "rozperka-8_6__01": 1008,
+      "rozperka-17_6__01": 1008,
+      "rozperka-1_6__01": 1008,
+      "rozperka-1_6__02": 1008,
+      "cep-tahla-kratky__01": 1488,
+      "pojistka-mala__01": 788,
+      "pojistka-mala__02": 788,
+      "distanc-packy__01": 1008
+    }
+  },
+  "auticko-v3-podlozka-02": {
+    "triangle_count": 7952,
+    "all_ordered_triangle_indices_unchanged": true,
+    "objects": {
+      "ram-rizeni__01": 6804,
+      "plosina-170x60__01": 1148
+    }
+  }
+}

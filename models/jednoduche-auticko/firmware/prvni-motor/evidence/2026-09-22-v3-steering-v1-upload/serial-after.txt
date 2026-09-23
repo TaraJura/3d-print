@@ -1,0 +1,16 @@
+Passive USB diagnostics after upload at 115200 baud, DTR enabled for CDC reception, RTS disabled; no serial data written, no extra reset, no HTTP requests.
+2026-09-22T19:48:23.922509+00:00 DIAG build=v3-steering-v1 safety=1 drive=0 ENread=0 IN1=0 IN2=0 watchdog=0
+2026-09-22T19:48:23.932557+00:00 DIAG steeringReady=1 steeringUs=1500 neutralUs=1500 rangeUs=150
+2026-09-22T19:48:23.933021+00:00 DIAG armExpired=0 runExpired=0 stopReason=0 leaseMs=0 challengeAgeMs=25907
+2026-09-22T19:48:23.941535+00:00 DIAG 25913 boot=server-started fw=0.4.1 ip=192.168.4.1
+2026-09-22T19:48:23.941869+00:00 DIAG ready=1 server=1 APstart=7 statusLast=7 ageMs=24 HTTP=0 closed=0
+2026-09-22T19:48:28.921857+00:00 DIAG build=v3-steering-v1 safety=1 drive=0 ENread=0 IN1=0 IN2=0 watchdog=0
+2026-09-22T19:48:28.932216+00:00 DIAG steeringReady=1 steeringUs=1500 neutralUs=1500 rangeUs=150
+2026-09-22T19:48:28.932737+00:00 DIAG armExpired=0 runExpired=0 stopReason=0 leaseMs=0 challengeAgeMs=30910
+2026-09-22T19:48:28.941903+00:00 DIAG 30916 boot=server-started fw=0.4.1 ip=192.168.4.1
+2026-09-22T19:48:28.942398+00:00 DIAG ready=1 server=1 APstart=7 statusLast=7 ageMs=30 HTTP=0 closed=0
+2026-09-22T19:48:33.922247+00:00 DIAG build=v3-steering-v1 safety=1 drive=0 ENread=0 IN1=0 IN2=0 watchdog=0
+2026-09-22T19:48:33.932357+00:00 DIAG steeringReady=1 steeringUs=1500 neutralUs=1500 rangeUs=150
+2026-09-22T19:48:33.932748+00:00 DIAG armExpired=0 runExpired=0 stopReason=0 leaseMs=0 challengeAgeMs=35914
+2026-09-22T19:48:33.940963+00:00 DIAG 35920 boot=server-started fw=0.4.1 ip=192.168.4.1
+2026-09-22T19:48:33.941306+00:00 DIAG ready=1 server=1 APstart=7 statusLast=7 ageMs=35 HTTP=0 closed=0

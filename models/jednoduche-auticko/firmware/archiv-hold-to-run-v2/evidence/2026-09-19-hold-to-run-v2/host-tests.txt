@@ -1,0 +1,63 @@
+Sketch: /home/novakj/3d-print/models/jednoduche-auticko/firmware/prvni-motor/prvni-motor.ino
+SHA256: 1760730b716a6fb281ed900400d533eaac17d96c9b779a6c91e2e99502d69110
+PASS 90 parser + 90 complete HTTP loop cases (no request alone starts motor)
+PASS arm never moves; fresh challenge starts, heartbeat renews, stop latches, new press works
+PASS STOP before delayed ARM or first HOLD prevents later start
+PASS duplicate and in-flight heartbeat after STOP cannot restart
+PASS expired ARM needs new real press
+PASS independent IRQ cuts motor within 505 ms without loop or heartbeat; expired HOLD cannot renew
+PASS page refresh stops output and invalidates previous session
+PASS fresh delayed heartbeat gets full 500ms lease from receipt, fixing double-RTT expiry
+PASS press counter never wraps within a session
+PASS watchdog deadline survives millis wraparound
+PASS 20 sustained heartbeat cycles each at 200/250/300/400ms intervals stay live
+PASS ARM waits OFF up to 3000ms but first challenge remains bounded to 500ms
+PASS obsolete STOP/ARM/HOLD and malformed requests cannot stop or renew newer press
+PASS lost STOP plus last delayed in-flight HOLD still switches OFF within 1000ms of release
+PASS session rotation stops; repeated recovery request returns current session without cutting new run
+PASS older session replay rejected; only immediately previous recovery token is idempotent
+PASS normal page navigation clears recovery cache and fences old sessions
+PASS new real press may acquire fresh session after boot without browser reload; session alone is OFF
+PASS session RNG failure is OFF and next explicit recovery request can succeed
+PASS blocking status: IRQ cutoff=500 ms
+PASS blocking connected: IRQ cutoff=500 ms
+PASS blocking available: IRQ cutoff=500 ms
+PASS blocking read: IRQ cutoff=500 ms
+PASS blocking write: IRQ cutoff=500 ms
+PASS blocking stop: IRQ cutoff=500 ms
+PASS blocking serial: IRQ cutoff=500 ms
+PASS partial or stalled HTTP cannot prolong motor lease
+PASS transient WiFi 255/0/77 stops; rate-limited recovery keeps server and rejects queued old session
+PASS missing module at startup can recover, never starts motor
+PASS server start failure can recover without motion
+PASS AP start failure can recover without motion
+PASS boot always OFF; old page cannot start before new page load
+PASS RNG failure or exhausted token counter cannot authorize motion
+PASS PWM or watchdog initialization failures fail closed
+PASS challenge RNG failure stops instead of running without next challenge
+PASS PWM update failure and failed PWM OFF use GPIO fallback, disallow further motion
+PASS all host checks (28 named protocol/recovery/failure scenarios); no hardware accessed
+PASS browser load/click/secondary pointer do not start motor
+PASS browser mouse hold chain, release, next real press
+PASS browser touch hold chain, release, next real press
+PASS browser pointercancel stops and requires new press
+PASS browser lostpointercapture stops and requires new press
+PASS browser blur stops and requires new press
+PASS browser pagehide stops and requires new press
+PASS browser offline stops and requires new press
+PASS browser visibilitychange stops and requires new press
+PASS browser unrelated pointer release does not stop current hold
+PASS browser delayed ARM response after release never sends HOLD
+PASS browser delayed HOLD after release cannot schedule another heartbeat or show running
+PASS browser network failure stops without automatic retry
+PASS browser HTTP failure stops without automatic retry
+PASS browser bad-challenge failure stops without automatic retry
+PASS browser timeout failure stops without automatic retry
+PASS browser failed STOP requires new press then recovers session without reload
+PASS browser error while still physically held requires release before new session
+PASS browser release while recovery response pending cannot arm or run
+PASS browser keyboard Space down/up and repeat suppression
+PASS browser keyboard Enter down/up and repeat suppression
+PASS 21 actual-inline-JavaScript browser scenarios; no hardware or network accessed
+
+Exit status: 0

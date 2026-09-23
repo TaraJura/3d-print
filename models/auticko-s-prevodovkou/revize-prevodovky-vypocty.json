@@ -1,0 +1,211 @@
+{
+  "kind": "analyticka revize, nikoli novy CAD ani fyzicke mereni",
+  "date": "2026-09-19",
+  "source_sha256": {
+    "auticko-s-prevodovkou.FCMacro": "67d42566383f055c8669b633e4154163e0726b7e8cfca69ad44988ff5a975547",
+    "auticko-s-prevodovkou.FCStd": "82debd85b9808a58ab0f05276e91e50e4f5d9326542c6161700adb56e4551344",
+    "kontrola-modelu.json": "5235d9aa1a89ab85b4bf55140ecf707d88d76a0cd8e1bb9ce3915ef89b16d5f1"
+  },
+  "assumptions": {
+    "module_mm": 0.9,
+    "pressure_angle_deg": 20,
+    "center_extra_mm": 0.2,
+    "rear_x_mm": 32,
+    "axle_z_mm": 24,
+    "wheel_diameter_mm": 80,
+    "deck_bottom_mm": 70
+  },
+  "variants": [
+    {
+      "teeth": [
+        18,
+        54,
+        18,
+        72
+      ],
+      "ratio": 12.0,
+      "nominal_od_large_mm": [
+        50.4,
+        66.60000000000001
+      ],
+      "center_distances_mm": [
+        32.6,
+        40.7
+      ],
+      "middle_x_mm": 72.7,
+      "motor_x_mm": 105.3,
+      "ideal_force_relative_to_12": 1.0,
+      "ideal_speed_relative_to_12": 1.0,
+      "ground_clearance_large_mm": [
+        14.8,
+        6.699999999999996
+      ],
+      "to_deck_mm": [
+        20.799999999999997,
+        12.699999999999996
+      ]
+    },
+    {
+      "teeth": [
+        18,
+        72,
+        18,
+        72
+      ],
+      "ratio": 16.0,
+      "nominal_od_large_mm": [
+        66.60000000000001,
+        66.60000000000001
+      ],
+      "center_distances_mm": [
+        40.7,
+        40.7
+      ],
+      "middle_x_mm": 72.7,
+      "motor_x_mm": 113.4,
+      "ideal_force_relative_to_12": 1.3333333333333333,
+      "ideal_speed_relative_to_12": 0.75,
+      "ground_clearance_large_mm": [
+        6.699999999999996,
+        6.699999999999996
+      ],
+      "to_deck_mm": [
+        12.699999999999996,
+        12.699999999999996
+      ]
+    },
+    {
+      "teeth": [
+        18,
+        90,
+        18,
+        72
+      ],
+      "ratio": 20.0,
+      "nominal_od_large_mm": [
+        82.8,
+        66.60000000000001
+      ],
+      "center_distances_mm": [
+        48.800000000000004,
+        40.7
+      ],
+      "middle_x_mm": 72.7,
+      "motor_x_mm": 121.50000000000001,
+      "ideal_force_relative_to_12": 1.6666666666666667,
+      "ideal_speed_relative_to_12": 0.6,
+      "ground_clearance_large_mm": [
+        -1.3999999999999986,
+        6.699999999999996
+      ],
+      "to_deck_mm": [
+        4.599999999999994,
+        12.699999999999996
+      ]
+    },
+    {
+      "teeth": [
+        18,
+        80,
+        18,
+        81
+      ],
+      "ratio": 20.0,
+      "nominal_od_large_mm": [
+        73.8,
+        74.7
+      ],
+      "center_distances_mm": [
+        44.300000000000004,
+        44.75000000000001
+      ],
+      "middle_x_mm": 76.75,
+      "motor_x_mm": 121.05000000000001,
+      "ideal_force_relative_to_12": 1.6666666666666667,
+      "ideal_speed_relative_to_12": 0.6,
+      "ground_clearance_large_mm": [
+        3.1000000000000014,
+        2.6499999999999986
+      ],
+      "to_deck_mm": [
+        9.100000000000001,
+        8.649999999999999
+      ]
+    }
+  ],
+  "baseline_backlash_mm": [
+    0.1498281848314594,
+    0.14898799182251782
+  ],
+  "nominal_mesh_face_overlap_mm": [
+    5,
+    5
+  ],
+  "axial_checks": [
+    {
+      "rear_shift_mm": 0.5,
+      "middle_shift_mm": -0.9,
+      "stage1_face_overlap_mm": 4.100000000000001,
+      "stage2_face_overlap_mm": 6.399999999999999
+    },
+    {
+      "rear_shift_mm": -0.5,
+      "middle_shift_mm": 0.5,
+      "stage1_face_overlap_mm": 5.0,
+      "stage2_face_overlap_mm": 4.0
+    },
+    {
+      "rear_shift_mm": 0.5,
+      "middle_shift_mm": 0.5,
+      "stage1_face_overlap_mm": 5.0,
+      "stage2_face_overlap_mm": 5.0
+    },
+    {
+      "rear_shift_mm": -0.5,
+      "middle_shift_mm": -0.9,
+      "stage1_face_overlap_mm": 4.100000000000001,
+      "stage2_face_overlap_mm": 5.399999999999999
+    }
+  ],
+  "swapped_rear_spacers": {
+    "length_difference_mm": 9,
+    "hypothetical_rear_shift_mm": -9,
+    "rear_gear_y_mm": [
+      -49,
+      -40
+    ],
+    "middle_small_y_mm": [
+      -36,
+      -29
+    ],
+    "face_overlap_mm": 0,
+    "gap_mm": 4,
+    "condition": "swapped8.6and17.6 with same mating faces and fixed frame, not verified physical assembly"
+  },
+  "axial_checks_reopened": [
+    {
+      "rear_shift_mm": 0.5,
+      "middle_shift_mm": -0.9,
+      "stage1_face_overlap_mm": 4.100000000000001,
+      "stage2_face_overlap_mm": 6.399999999999999
+    },
+    {
+      "rear_shift_mm": -1.0,
+      "middle_shift_mm": 0.5,
+      "stage1_face_overlap_mm": 5.0,
+      "stage2_face_overlap_mm": 3.5
+    },
+    {
+      "rear_shift_mm": 0.5,
+      "middle_shift_mm": 0.5,
+      "stage1_face_overlap_mm": 5.0,
+      "stage2_face_overlap_mm": 5.0
+    },
+    {
+      "rear_shift_mm": -1.0,
+      "middle_shift_mm": -0.9,
+      "stage1_face_overlap_mm": 4.100000000000001,
+      "stage2_face_overlap_mm": 4.899999999999999
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+[
+  {
+    "source": "/home/novakj/3d-print/models/auticko-se-zatacenim/rozlozeni/auticko-v3-podlozka-01.3mf",
+    "object_count": 31,
+    "names_preserved": true,
+    "max_world_vertex_delta_mm": 1.5715000017735292e-05,
+    "world_positions_and_orientations_preserved": true
+  },
+  {
+    "source": "/home/novakj/3d-print/models/auticko-se-zatacenim/rozlozeni/auticko-v3-podlozka-02.3mf",
+    "object_count": 2,
+    "names_preserved": true,
+    "max_world_vertex_delta_mm": 7.679000020743842e-06,
+    "world_positions_and_orientations_preserved": true
+  }
+]

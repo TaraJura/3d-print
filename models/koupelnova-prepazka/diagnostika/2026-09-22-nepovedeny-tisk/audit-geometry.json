@@ -1,0 +1,4414 @@
+{
+  "created_utc": "2026-09-22T18:39:07.560445+00:00",
+  "evidence_root": "/home/novakj/3d-print/models/koupelnova-prepazka/diagnostika/2026-09-22-nepovedeny-tisk/evidence/model",
+  "method": "Independent raw mesh/transform/XML parsing; prior audit JSON not used; no slicing, regeneration, or printer operations.",
+  "evidence_file_count": 84,
+  "evidence_preserved_during_audit": true,
+  "evidence_inventory": {
+    "README.md": {
+      "bytes": 7314,
+      "sha256": "045f2a870e93749b4ef4c559774e70abbcb5b33baf1d67c25bbaa69a95bac37a"
+    },
+    "kontrola-modelu.json": {
+      "bytes": 6203,
+      "sha256": "1a2b9f30087968f4f041fddce41b0ee18024d8db039e27896a9014d4499931db"
+    },
+    "nahled.FCMacro": {
+      "bytes": 5034,
+      "sha256": "731c97fc983ef6bbef1b20653960c9ad4dbc831d290d63c4bb11b2301d4546e2"
+    },
+    "navrhy/README.md": {
+      "bytes": 5162,
+      "sha256": "3c8e0b2fbe91ba2c884066831426071b211ba9fdfaadc25a91ea885aeec3f61e"
+    },
+    "navrhy/srovnani-abc-koncept.png": {
+      "bytes": 1729492,
+      "sha256": "4c5e03df8eb27dffde37564b321491c4b49dd45247114efc1b50f47adb68e630"
+    },
+    "prepazka-B.20260922-190939.FCBak": {
+      "bytes": 49716,
+      "sha256": "66fc500b1454529d8a4b5ffc6562080ca3a9975f41fa94a6be01e7f438b20ca3"
+    },
+    "prepazka-B.FCStd": {
+      "bytes": 46904,
+      "sha256": "4ce426a74d05f9f109c622bc33c65f307e42c3e90478795ec8a9169b02d39cc7"
+    },
+    "prepazka.FCMacro": {
+      "bytes": 10630,
+      "sha256": "863c9c9294455dbae48c7a3b572cb2db921ee1447160982f0204c952427ed62e"
+    },
+    "profil-B-cad.png": {
+      "bytes": 38446,
+      "sha256": "b25942564f3992213525e97feee405d67d106fb6eb3bb816c2792598a9b1d70a"
+    },
+    "revize-02-8mm/README.md": {
+      "bytes": 8363,
+      "sha256": "5ad7e0f5a249d186ba2f6d47035645955feaca447d6b4b069504f2860e497fbf"
+    },
+    "revize-02-8mm/historie/reference-10mm/README.md": {
+      "bytes": 418,
+      "sha256": "772fa840735c008e390da87cf58a0dd5775c3c5fc8ff2d1e6ee23c2e535a0847"
+    },
+    "revize-02-8mm/historie/reference-10mm/kontrola-modelu.json": {
+      "bytes": 6721,
+      "sha256": "3681f66aa282a264f003ad230da7101f7f3a026c3ed87088b5079ef422c88db7"
+    },
+    "revize-02-8mm/historie/reference-10mm/nahled.FCMacro": {
+      "bytes": 5034,
+      "sha256": "731c97fc983ef6bbef1b20653960c9ad4dbc831d290d63c4bb11b2301d4546e2"
+    },
+    "revize-02-8mm/historie/reference-10mm/prepazka-B.FCStd": {
+      "bytes": 49716,
+      "sha256": "66fc500b1454529d8a4b5ffc6562080ca3a9975f41fa94a6be01e7f438b20ca3"
+    },
+    "revize-02-8mm/historie/reference-10mm/prepazka.FCMacro": {
+      "bytes": 10630,
+      "sha256": "863c9c9294455dbae48c7a3b572cb2db921ee1447160982f0204c952427ed62e"
+    },
+    "revize-02-8mm/historie/reference-10mm/profil-B-cad.png": {
+      "bytes": 38446,
+      "sha256": "b25942564f3992213525e97feee405d67d106fb6eb3bb816c2792598a9b1d70a"
+    },
+    "revize-02-8mm/historie/reference-10mm/rozlozeni/EXPERIMENT-prepazka-B-Alzament-TPU95A.3mf": {
+      "bytes": 531848,
+      "sha256": "4a3d64e661b7de46ff6eab75ebed5d94a69879b6b16c9791315d55dd9b6b7863"
+    },
+    "revize-02-8mm/historie/reference-10mm/rozlozeni/README.md": {
+      "bytes": 7357,
+      "sha256": "21ef90589140fdcf3e5ad86c24bc7c33251b99989bf9a34719b5c7391345676e"
+    },
+    "revize-02-8mm/historie/reference-10mm/rozlozeni/experimentalni-profily/filament.json": {
+      "bytes": 5724,
+      "sha256": "070a55c34eb7b57967e769c09997a40a5de6933d0d46af73cd4420ffa67e6632"
+    },
+    "revize-02-8mm/historie/reference-10mm/rozlozeni/experimentalni-profily/machine.json": {
+      "bytes": 10785,
+      "sha256": "31ea20ab14ccfb08e5cf4ad2b30fd13a4789f2397c41d7d6190418863116fc7c"
+    },
+    "revize-02-8mm/historie/reference-10mm/rozlozeni/experimentalni-profily/process.json": {
+      "bytes": 10332,
+      "sha256": "5402aff07d5b54088262cedab900ccef6514865ab70992e98861185a53c85c51"
+    },
+    "revize-02-8mm/historie/reference-10mm/rozlozeni/experimentalni-slice/effective-settings.json": {
+      "bytes": 33155,
+      "sha256": "df97a0f2eec150f3b0f1a723cc6c56f787155580bcb42d5134244d33acbf3b9e"
+    },
+    "revize-02-8mm/historie/reference-10mm/rozlozeni/experimentalni-slice/kontrola-gcode.json": {
+      "bytes": 9086,
+      "sha256": "ff631a78493be1efea56c459bff308b96fa201244d185d11768daaa40b19b9ab"
+    },
+    "revize-02-8mm/historie/reference-10mm/rozlozeni/experimentalni-slice/nahled-skutecnych-vrstev.png": {
+      "bytes": 213608,
+      "sha256": "723bb2060f55cd84e36485c1b4f6b0914a343cc9b4b0116b3e0bd549712bd5e4"
+    },
+    "revize-02-8mm/historie/reference-10mm/rozlozeni/experimentalni-slice/plate_1.gcode": {
+      "bytes": 2660165,
+      "sha256": "17dd48f224aadea639fa019550e16294cdde6763a997e72bf3f7912e67459da0"
+    },
+    "revize-02-8mm/historie/reference-10mm/rozlozeni/experimentalni-slice/plate_1.gcode.metadata": {
+      "bytes": 28793,
+      "sha256": "24aae27c266a959593d2e7bed7d5370e91243f2cb61f76336e65163b0af8404e"
+    },
+    "revize-02-8mm/historie/reference-10mm/rozlozeni/experimentalni-slice/result.json": {
+      "bytes": 335,
+      "sha256": "7ef43314758d15d1a78ef40d8882994653f13d944a053da746b186e1670139fb"
+    },
+    "revize-02-8mm/historie/reference-10mm/rozlozeni/kontrola-podlozky.json": {
+      "bytes": 6852,
+      "sha256": "9eaf926fe214d3f3c4d4389b8fc004b2659f8b0876cf1c724c3bc26de9f09816"
+    },
+    "revize-02-8mm/historie/reference-10mm/rozlozeni/prepazka-B-pracovni-geometrie.3mf": {
+      "bytes": 9104,
+      "sha256": "91ed7b9a835d1933bab5597e49a9d476ed24cd33f138028e89587f80937db892"
+    },
+    "revize-02-8mm/historie/reference-10mm/rozlozeni/priprav_experimentalni_slice.py": {
+      "bytes": 5003,
+      "sha256": "9be5900594c76a2daf4dafc0e68551771fdafb07564abc74f0b2a465dca6a193"
+    },
+    "revize-02-8mm/historie/reference-10mm/rozlozeni/vytvor_podlozku.py": {
+      "bytes": 15561,
+      "sha256": "986f428c32992fdb68a562f65c6541330d38eaca3a82e343bd9c2f993d67c3e0"
+    },
+    "revize-02-8mm/historie/reference-10mm/rozlozeni/zkontroluj_slice.py": {
+      "bytes": 13885,
+      "sha256": "aa997540069e14933f17d886165b0296f4bcb45625a17360a656bd34b84f3426"
+    },
+    "revize-02-8mm/historie/reference-10mm/sestava-cad.png": {
+      "bytes": 18011,
+      "sha256": "ed82a051b4bd89773d027aac7edd496b012ce8d28e4b7822eaddecff1691e4ef"
+    },
+    "revize-02-8mm/historie/reference-10mm/spoj-rozebrany-cad.png": {
+      "bytes": 43911,
+      "sha256": "c9e7ffbf80ed0a557fbfcabad49f1774e06a4b44bb0d76ac89e92d82198e9379"
+    },
+    "revize-02-8mm/historie/reference-10mm/stl/dil-1.stl": {
+      "bytes": 13884,
+      "sha256": "020a27dfc436aa3994375fd11fd5512ed9a1a61515739dafa28cfc68a424fc46"
+    },
+    "revize-02-8mm/historie/reference-10mm/stl/dil-2.stl": {
+      "bytes": 14284,
+      "sha256": "34994e07718f9fccc99f8f6b9b2ba07d0859e7b714c3c8e80a6bcf310bd37061"
+    },
+    "revize-02-8mm/historie/reference-10mm/stl/dil-3.stl": {
+      "bytes": 13884,
+      "sha256": "b297b0995a9c4dab6c04448efe0f87c28cda79422b9b304fcb1195f543103db9"
+    },
+    "revize-02-8mm/kontrola-modelu.json": {
+      "bytes": 8040,
+      "sha256": "4fb2b7b808be0b8ce41e9c165f67362e90a11843d395c59b06212958fb292840"
+    },
+    "revize-02-8mm/montaz.md": {
+      "bytes": 6319,
+      "sha256": "11136a05362e91b4561db6713ed03bb0c70fd1fc2981d55d54ec8251d0744a7a"
+    },
+    "revize-02-8mm/nahled.FCMacro": {
+      "bytes": 5994,
+      "sha256": "97b5bf6c308ca0078d1a966d2c90326705dcba395dc57bf29383353b10575b86"
+    },
+    "revize-02-8mm/navrhy/README.md": {
+      "bytes": 5312,
+      "sha256": "7a061f067b2b98ec87da97f59cd53f0ea4c78c1a6191d4865da5ed710f7efdeb"
+    },
+    "revize-02-8mm/navrhy/srovnani-abc-koncept.png": {
+      "bytes": 1729492,
+      "sha256": "4c5e03df8eb27dffde37564b321491c4b49dd45247114efc1b50f47adb68e630"
+    },
+    "revize-02-8mm/prepazka-B.FCStd": {
+      "bytes": 82343,
+      "sha256": "0d8b15e1f7361292773b3dd16a95fe65f48cd7dc3f29279aa583c413c6a83045"
+    },
+    "revize-02-8mm/prepazka.FCMacro": {
+      "bytes": 13612,
+      "sha256": "199f778dbc95fe83b9cdbb5fa140e2ee45f7a2a2649d631670645c35748b5bff"
+    },
+    "revize-02-8mm/profil-B-cad.png": {
+      "bytes": 39504,
+      "sha256": "cd98391ced871c9f1bf9fd1af03d69b811f427db18068c995354e5e222f0ea5b"
+    },
+    "revize-02-8mm/rozlozeni/EXPERIMENT-prepazka-B-Alzament-TPU95A.3mf": {
+      "bytes": 434517,
+      "sha256": "d92cda711e06503f2544e23cc85d917b6199ee62aa99040181d1e1fb0903b38c"
+    },
+    "revize-02-8mm/rozlozeni/README.md": {
+      "bytes": 7883,
+      "sha256": "88e7c0dbfc7bcc2677677eda44e32c516f5636f26ddd5a21c71fa927b2867037"
+    },
+    "revize-02-8mm/rozlozeni/TEST-EXPERIMENT-spoj-Alzament-TPU95A.3mf": {
+      "bytes": 102087,
+      "sha256": "1c04a2b9552a54f4700226fa9cf96b08383968b373eedde3a96c2785f18a7ca7"
+    },
+    "revize-02-8mm/rozlozeni/TEST-spoj-pracovni-geometrie.3mf": {
+      "bytes": 6286,
+      "sha256": "a7356aa463d8301c9cb9d777e4251779d6089941dbde13c9b848f9b5c5866a9e"
+    },
+    "revize-02-8mm/rozlozeni/experimentalni-TEST-slice/effective-settings.json": {
+      "bytes": 33155,
+      "sha256": "df97a0f2eec150f3b0f1a723cc6c56f787155580bcb42d5134244d33acbf3b9e"
+    },
+    "revize-02-8mm/rozlozeni/experimentalni-TEST-slice/kontrola-gcode.json": {
+      "bytes": 7604,
+      "sha256": "579d97e9dbd7eee8c848e2a29a3cf7abafa2e834dc600f4f22b88e7c84dd8040"
+    },
+    "revize-02-8mm/rozlozeni/experimentalni-TEST-slice/nahled-skutecnych-vrstev.png": {
+      "bytes": 155825,
+      "sha256": "ad2c964a7e7c45b47e009282625f4bf30bb29ee4e6c4843f645b84a4aee9f3e8"
+    },
+    "revize-02-8mm/rozlozeni/experimentalni-TEST-slice/plate_1.gcode": {
+      "bytes": 404657,
+      "sha256": "0ecc3349ad87684a37bbcf8be1c0c9fbe728a2787ea6e89c55954f1979ee0d7a"
+    },
+    "revize-02-8mm/rozlozeni/experimentalni-TEST-slice/plate_1.gcode.metadata": {
+      "bytes": 28329,
+      "sha256": "495f22a9048c2c43084deb7b5b7aeaee6fce15a9c324afcfdc7505563049df34"
+    },
+    "revize-02-8mm/rozlozeni/experimentalni-TEST-slice/result.json": {
+      "bytes": 335,
+      "sha256": "ade97e26f615cddb73bbd0a83e589d4271aa74b51c0dd9deaa6958350d0b6e3d"
+    },
+    "revize-02-8mm/rozlozeni/experimentalni-profily/filament.json": {
+      "bytes": 5724,
+      "sha256": "070a55c34eb7b57967e769c09997a40a5de6933d0d46af73cd4420ffa67e6632"
+    },
+    "revize-02-8mm/rozlozeni/experimentalni-profily/machine.json": {
+      "bytes": 10785,
+      "sha256": "31ea20ab14ccfb08e5cf4ad2b30fd13a4789f2397c41d7d6190418863116fc7c"
+    },
+    "revize-02-8mm/rozlozeni/experimentalni-profily/process.json": {
+      "bytes": 10332,
+      "sha256": "5402aff07d5b54088262cedab900ccef6514865ab70992e98861185a53c85c51"
+    },
+    "revize-02-8mm/rozlozeni/experimentalni-slice/effective-settings.json": {
+      "bytes": 33155,
+      "sha256": "df97a0f2eec150f3b0f1a723cc6c56f787155580bcb42d5134244d33acbf3b9e"
+    },
+    "revize-02-8mm/rozlozeni/experimentalni-slice/kontrola-gcode.json": {
+      "bytes": 8339,
+      "sha256": "2a8b0c43766215ac300b6885dd58725beed8f11208cdb92fe11c74137fb35994"
+    },
+    "revize-02-8mm/rozlozeni/experimentalni-slice/nahled-skutecnych-vrstev.png": {
+      "bytes": 221019,
+      "sha256": "feca05444bc62e66716c027668f97f55ecb6ec0d3611c4c15b6e836a6b36ae40"
+    },
+    "revize-02-8mm/rozlozeni/experimentalni-slice/plate_1.gcode": {
+      "bytes": 2128946,
+      "sha256": "33c7828ee2cd4abe8304680bf1921489a69769410db98288c56995817551b9d1"
+    },
+    "revize-02-8mm/rozlozeni/experimentalni-slice/plate_1.gcode.metadata": {
+      "bytes": 28815,
+      "sha256": "ac26b06817e9325ce853ed19258ee67eec99f8deadc337d8533739598f7bcb82"
+    },
+    "revize-02-8mm/rozlozeni/experimentalni-slice/result.json": {
+      "bytes": 335,
+      "sha256": "d6e4bc5ed6bb66ee872fbeb5757da6f704477fd65e0e8865dd3e8da2ec6cc352"
+    },
+    "revize-02-8mm/rozlozeni/kontrola-podlozky-TEST.json": {
+      "bytes": 5119,
+      "sha256": "0a280c16dc7fd508c282c046c50acf234f79038753a2b4b26d5567e95f491404"
+    },
+    "revize-02-8mm/rozlozeni/kontrola-podlozky.json": {
+      "bytes": 6864,
+      "sha256": "8188e5af339571ffbd747f4dd193cc43b679d6480a9e0de523792d73c214fd1c"
+    },
+    "revize-02-8mm/rozlozeni/prepazka-B-pracovni-geometrie.3mf": {
+      "bytes": 8548,
+      "sha256": "21a4a1b518ebbcf15b505e291313af359a7dde1943ce39fcc69f29978244ec09"
+    },
+    "revize-02-8mm/rozlozeni/priprav_experimentalni_slice.py": {
+      "bytes": 5668,
+      "sha256": "2fcd725cd56082816933cbb84b1da338f470b00f4f593f0e5cefc2da1a062e4f"
+    },
+    "revize-02-8mm/rozlozeni/teplotni-rozpor.md": {
+      "bytes": 3268,
+      "sha256": "cf0aca26f6b4638d148c49d4c9e81dc5223f10f605cfdacab23ca4b165fb2552"
+    },
+    "revize-02-8mm/rozlozeni/vytvor_podlozku.py": {
+      "bytes": 16175,
+      "sha256": "b014b0df69dafba00f2463a83d2e3bf0053aae797cb7a40ce6b16f330a615bd4"
+    },
+    "revize-02-8mm/rozlozeni/zkontroluj_slice.py": {
+      "bytes": 17373,
+      "sha256": "0ec1269014bb02817a34344d2eba3208f54d69b0b9d42a418a44bab54f35c64f"
+    },
+    "revize-02-8mm/sestava-cad.png": {
+      "bytes": 21548,
+      "sha256": "d7113341cfbf02e7acc39439eba89126ee014fff73c674ba3cac1d9b2756b248"
+    },
+    "revize-02-8mm/spoj-rozebrany-cad.png": {
+      "bytes": 40042,
+      "sha256": "65f54c5d188b906d2c73f98826a02b5d667e308b3fb7c189327c97dce8af1e98"
+    },
+    "revize-02-8mm/spoj-s-tmelem-cad.png": {
+      "bytes": 43165,
+      "sha256": "44b0c92da14c5234f1c655f6c80675057819c7570acc95cf8b5893daa5cab71c"
+    },
+    "revize-02-8mm/stl/dil-1.stl": {
+      "bytes": 13884,
+      "sha256": "e444602f06a96625370b2163a11a67eea686490883bc89083e60a7952809c3fe"
+    },
+    "revize-02-8mm/stl/dil-2.stl": {
+      "bytes": 14284,
+      "sha256": "b329883da1e90dfc6bb2afc1695f0725bed9d8df202c538cd9bd36ddeb0d7a99"
+    },
+    "revize-02-8mm/stl/dil-3.stl": {
+      "bytes": 13884,
+      "sha256": "72cb1a6af4d9bf8744adfecfaed0985d1db76eb4137b4614c7de8c974a5f04c5"
+    },
+    "revize-02-8mm/vzorek/spoj-1.stl": {
+      "bytes": 13884,
+      "sha256": "d866c1944023ec1a6b0f101f6830ee34bef23c821ffa7d3c936ccd494d523810"
+    },
+    "revize-02-8mm/vzorek/spoj-2.stl": {
+      "bytes": 13884,
+      "sha256": "b379b2e3f4feb9c8148c4cd4063b9b83edea8b0ec92bedf3cfa31705a78efd3f"
+    },
+    "sestava-cad.png": {
+      "bytes": 18011,
+      "sha256": "ed82a051b4bd89773d027aac7edd496b012ce8d28e4b7822eaddecff1691e4ef"
+    },
+    "spoj-rozebrany-cad.png": {
+      "bytes": 43911,
+      "sha256": "c9e7ffbf80ed0a557fbfcabad49f1774e06a4b44bb0d76ac89e92d82198e9379"
+    },
+    "stl/dil-1.stl": {
+      "bytes": 13884,
+      "sha256": "020a27dfc436aa3994375fd11fd5512ed9a1a61515739dafa28cfc68a424fc46"
+    },
+    "stl/dil-2.stl": {
+      "bytes": 14284,
+      "sha256": "34994e07718f9fccc99f8f6b9b2ba07d0859e7b714c3c8e80a6bcf310bd37061"
+    },
+    "stl/dil-3.stl": {
+      "bytes": 13884,
+      "sha256": "b297b0995a9c4dab6c04448efe0f87c28cda79422b9b304fcb1195f543103db9"
+    }
+  },
+  "stl": [
+    {
+      "file": "revize-02-8mm/historie/reference-10mm/stl/dil-1.stl",
+      "sha256": "020a27dfc436aa3994375fd11fd5512ed9a1a61515739dafa28cfc68a424fc46",
+      "unit_assumption": "STL has no units; project millimeters; compared against explicit 3MF millimeters.",
+      "geometry": {
+        "min_mm": [
+          1.2908414537770834e-19,
+          0.0,
+          0.0
+        ],
+        "max_mm": [
+          196.0,
+          20.0,
+          9.999418258666992
+        ],
+        "size_mm": [
+          196.0,
+          20.0,
+          9.999418258666992
+        ],
+        "input_vertices": 828,
+        "welded_vertices": 140,
+        "triangles": 276,
+        "signed_volume_mm3": 23136.025625331928,
+        "absolute_volume_mm3": 23136.025625331928,
+        "connected_vertex_components": 1,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "inconsistent_oriented_edges": 0,
+        "degenerate_triangles": 0,
+        "minimum_z_planar_area_mm2": 3800.0,
+        "translation_normalized_triangle_sha256_quantized_1e-5_mm": "eca33cb7fb7f4f040bd4c180c03cc144cf7e39bb0eee83a15bc9aae307952655"
+      }
+    },
+    {
+      "file": "revize-02-8mm/historie/reference-10mm/stl/dil-2.stl",
+      "sha256": "34994e07718f9fccc99f8f6b9b2ba07d0859e7b714c3c8e80a6bcf310bd37061",
+      "unit_assumption": "STL has no units; project millimeters; compared against explicit 3MF millimeters.",
+      "geometry": {
+        "min_mm": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_mm": [
+          202.0,
+          20.0,
+          9.999418258666992
+        ],
+        "size_mm": [
+          202.0,
+          20.0,
+          9.999418258666992
+        ],
+        "input_vertices": 852,
+        "welded_vertices": 144,
+        "triangles": 284,
+        "signed_volume_mm3": 23440.579658584822,
+        "absolute_volume_mm3": 23440.579658584822,
+        "connected_vertex_components": 1,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "inconsistent_oriented_edges": 0,
+        "degenerate_triangles": 0,
+        "minimum_z_planar_area_mm2": 3800.0,
+        "translation_normalized_triangle_sha256_quantized_1e-5_mm": "3f35ac2c0c81c41a384df026ab83515d5567f6e59d4cd41515496e0cf91a4b3c"
+      }
+    },
+    {
+      "file": "revize-02-8mm/historie/reference-10mm/stl/dil-3.stl",
+      "sha256": "b297b0995a9c4dab6c04448efe0f87c28cda79422b9b304fcb1195f543103db9",
+      "unit_assumption": "STL has no units; project millimeters; compared against explicit 3MF millimeters.",
+      "geometry": {
+        "min_mm": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_mm": [
+          196.0,
+          20.0,
+          9.999418258666992
+        ],
+        "size_mm": [
+          196.0,
+          20.0,
+          9.999418258666992
+        ],
+        "input_vertices": 828,
+        "welded_vertices": 140,
+        "triangles": 276,
+        "signed_volume_mm3": 23745.133512702356,
+        "absolute_volume_mm3": 23745.133512702356,
+        "connected_vertex_components": 1,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "inconsistent_oriented_edges": 0,
+        "degenerate_triangles": 0,
+        "minimum_z_planar_area_mm2": 3800.0,
+        "translation_normalized_triangle_sha256_quantized_1e-5_mm": "9c3a8b65fa4a6fa23b2fdaa1c44da47299e98626ed0dfbacc7861ad4498ee245"
+      }
+    },
+    {
+      "file": "revize-02-8mm/stl/dil-1.stl",
+      "sha256": "e444602f06a96625370b2163a11a67eea686490883bc89083e60a7952809c3fe",
+      "unit_assumption": "STL has no units; project millimeters; compared against explicit 3MF millimeters.",
+      "geometry": {
+        "min_mm": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_mm": [
+          193.0,
+          20.0,
+          7.999606132507324
+        ],
+        "size_mm": [
+          193.0,
+          20.0,
+          7.999606132507324
+        ],
+        "input_vertices": 828,
+        "welded_vertices": 140,
+        "triangles": 276,
+        "signed_volume_mm3": 18275.493632305435,
+        "absolute_volume_mm3": 18275.493632305435,
+        "connected_vertex_components": 1,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "inconsistent_oriented_edges": 0,
+        "degenerate_triangles": 0,
+        "minimum_z_planar_area_mm2": 3728.0,
+        "translation_normalized_triangle_sha256_quantized_1e-5_mm": "80a6059689759478da3e356dc79df44acdde9dcafd0e3166d940d012743ea0f9"
+      }
+    },
+    {
+      "file": "revize-02-8mm/stl/dil-2.stl",
+      "sha256": "b329883da1e90dfc6bb2afc1695f0725bed9d8df202c538cd9bd36ddeb0d7a99",
+      "unit_assumption": "STL has no units; project millimeters; compared against explicit 3MF millimeters.",
+      "geometry": {
+        "min_mm": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_mm": [
+          200.0,
+          20.0,
+          7.999606132507324
+        ],
+        "size_mm": [
+          200.0,
+          20.0,
+          7.999606132507324
+        ],
+        "input_vertices": 852,
+        "welded_vertices": 144,
+        "triangles": 284,
+        "signed_volume_mm3": 18543.59089702541,
+        "absolute_volume_mm3": 18543.59089702541,
+        "connected_vertex_components": 1,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "inconsistent_oriented_edges": 0,
+        "degenerate_triangles": 0,
+        "minimum_z_planar_area_mm2": 3736.0,
+        "translation_normalized_triangle_sha256_quantized_1e-5_mm": "cfe8fa1f87fe5f33a1c37ec753417c057601dbf39510dc1a9129890e86b3d21b"
+      }
+    },
+    {
+      "file": "revize-02-8mm/stl/dil-3.stl",
+      "sha256": "72cb1a6af4d9bf8744adfecfaed0985d1db76eb4137b4614c7de8c974a5f04c5",
+      "unit_assumption": "STL has no units; project millimeters; compared against explicit 3MF millimeters.",
+      "geometry": {
+        "min_mm": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_mm": [
+          193.0,
+          20.0,
+          7.999606132507324
+        ],
+        "size_mm": [
+          193.0,
+          20.0,
+          7.999606132507324
+        ],
+        "input_vertices": 828,
+        "welded_vertices": 140,
+        "triangles": 276,
+        "signed_volume_mm3": 18738.084913913688,
+        "absolute_volume_mm3": 18738.084913913688,
+        "connected_vertex_components": 1,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "inconsistent_oriented_edges": 0,
+        "degenerate_triangles": 0,
+        "minimum_z_planar_area_mm2": 3728.0,
+        "translation_normalized_triangle_sha256_quantized_1e-5_mm": "b4cf81f00fd7e0db4a66b0dddf9b9d7116e3e5b1a617972a8dfc55372cd0e827"
+      }
+    },
+    {
+      "file": "revize-02-8mm/vzorek/spoj-1.stl",
+      "sha256": "d866c1944023ec1a6b0f101f6830ee34bef23c821ffa7d3c936ccd494d523810",
+      "unit_assumption": "STL has no units; project millimeters; compared against explicit 3MF millimeters.",
+      "geometry": {
+        "min_mm": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_mm": [
+          30.0,
+          20.0,
+          7.999606132507324
+        ],
+        "size_mm": [
+          30.0,
+          20.0,
+          7.999606132507324
+        ],
+        "input_vertices": 828,
+        "welded_vertices": 140,
+        "triangles": 276,
+        "signed_volume_mm3": 2089.4290967067436,
+        "absolute_volume_mm3": 2089.4290967067436,
+        "connected_vertex_components": 1,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "inconsistent_oriented_edges": 0,
+        "degenerate_triangles": 0,
+        "minimum_z_planar_area_mm2": 468.0,
+        "translation_normalized_triangle_sha256_quantized_1e-5_mm": "e9dafd66c1ba521194f6c55c074e3efd9d5b2eb2fa03cc81c6836feff3a2ad25"
+      }
+    },
+    {
+      "file": "revize-02-8mm/vzorek/spoj-2.stl",
+      "sha256": "b379b2e3f4feb9c8148c4cd4063b9b83edea8b0ec92bedf3cfa31705a78efd3f",
+      "unit_assumption": "STL has no units; project millimeters; compared against explicit 3MF millimeters.",
+      "geometry": {
+        "min_mm": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_mm": [
+          30.0,
+          20.0,
+          7.999606132507324
+        ],
+        "size_mm": [
+          30.0,
+          20.0,
+          7.999606132507324
+        ],
+        "input_vertices": 828,
+        "welded_vertices": 140,
+        "triangles": 276,
+        "signed_volume_mm3": 2552.020364292426,
+        "absolute_volume_mm3": 2552.020364292426,
+        "connected_vertex_components": 1,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "inconsistent_oriented_edges": 0,
+        "degenerate_triangles": 0,
+        "minimum_z_planar_area_mm2": 468.0,
+        "translation_normalized_triangle_sha256_quantized_1e-5_mm": "aae975f7ba15d52585019906f5f44756d75b69703edba6302e697af9e92d4442"
+      }
+    },
+    {
+      "file": "stl/dil-1.stl",
+      "sha256": "020a27dfc436aa3994375fd11fd5512ed9a1a61515739dafa28cfc68a424fc46",
+      "unit_assumption": "STL has no units; project millimeters; compared against explicit 3MF millimeters.",
+      "geometry": {
+        "min_mm": [
+          1.2908414537770834e-19,
+          0.0,
+          0.0
+        ],
+        "max_mm": [
+          196.0,
+          20.0,
+          9.999418258666992
+        ],
+        "size_mm": [
+          196.0,
+          20.0,
+          9.999418258666992
+        ],
+        "input_vertices": 828,
+        "welded_vertices": 140,
+        "triangles": 276,
+        "signed_volume_mm3": 23136.025625331928,
+        "absolute_volume_mm3": 23136.025625331928,
+        "connected_vertex_components": 1,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "inconsistent_oriented_edges": 0,
+        "degenerate_triangles": 0,
+        "minimum_z_planar_area_mm2": 3800.0,
+        "translation_normalized_triangle_sha256_quantized_1e-5_mm": "eca33cb7fb7f4f040bd4c180c03cc144cf7e39bb0eee83a15bc9aae307952655"
+      }
+    },
+    {
+      "file": "stl/dil-2.stl",
+      "sha256": "34994e07718f9fccc99f8f6b9b2ba07d0859e7b714c3c8e80a6bcf310bd37061",
+      "unit_assumption": "STL has no units; project millimeters; compared against explicit 3MF millimeters.",
+      "geometry": {
+        "min_mm": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_mm": [
+          202.0,
+          20.0,
+          9.999418258666992
+        ],
+        "size_mm": [
+          202.0,
+          20.0,
+          9.999418258666992
+        ],
+        "input_vertices": 852,
+        "welded_vertices": 144,
+        "triangles": 284,
+        "signed_volume_mm3": 23440.579658584822,
+        "absolute_volume_mm3": 23440.579658584822,
+        "connected_vertex_components": 1,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "inconsistent_oriented_edges": 0,
+        "degenerate_triangles": 0,
+        "minimum_z_planar_area_mm2": 3800.0,
+        "translation_normalized_triangle_sha256_quantized_1e-5_mm": "3f35ac2c0c81c41a384df026ab83515d5567f6e59d4cd41515496e0cf91a4b3c"
+      }
+    },
+    {
+      "file": "stl/dil-3.stl",
+      "sha256": "b297b0995a9c4dab6c04448efe0f87c28cda79422b9b304fcb1195f543103db9",
+      "unit_assumption": "STL has no units; project millimeters; compared against explicit 3MF millimeters.",
+      "geometry": {
+        "min_mm": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_mm": [
+          196.0,
+          20.0,
+          9.999418258666992
+        ],
+        "size_mm": [
+          196.0,
+          20.0,
+          9.999418258666992
+        ],
+        "input_vertices": 828,
+        "welded_vertices": 140,
+        "triangles": 276,
+        "signed_volume_mm3": 23745.133512702356,
+        "absolute_volume_mm3": 23745.133512702356,
+        "connected_vertex_components": 1,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "inconsistent_oriented_edges": 0,
+        "degenerate_triangles": 0,
+        "minimum_z_planar_area_mm2": 3800.0,
+        "translation_normalized_triangle_sha256_quantized_1e-5_mm": "9c3a8b65fa4a6fa23b2fdaa1c44da47299e98626ed0dfbacc7861ad4498ee245"
+      }
+    }
+  ],
+  "three_mf": [
+    {
+      "file": "revize-02-8mm/historie/reference-10mm/rozlozeni/EXPERIMENT-prepazka-B-Alzament-TPU95A.3mf",
+      "sha256": "4a3d64e661b7de46ff6eab75ebed5d94a69879b6b16c9791315d55dd9b6b7863",
+      "zip_crc_error": null,
+      "model_units": {
+        "3D/3dmodel.model": "millimeter",
+        "3D/Objects/dil-1_1.model": "millimeter",
+        "3D/Objects/dil-2_2.model": "millimeter",
+        "3D/Objects/dil-3_3.model": "millimeter"
+      },
+      "root_model": "3D/3dmodel.model",
+      "embedded_gcode_members": [
+        "Metadata/plate_1.gcode"
+      ],
+      "has_project_settings": true,
+      "raw_meshes": [
+        {
+          "member": "3D/Objects/dil-1_1.model",
+          "objectid": "1",
+          "attributes": {
+            "id": "1",
+            "{http://schemas.microsoft.com/3dmanufacturing/production/2015/06}UUID": "00010000-81cb-4c03-9d28-80fed5dfa1dc",
+            "type": "model"
+          },
+          "unit": "millimeter",
+          "geometry": {
+            "min_mm": [
+              -98.0,
+              -10.0,
+              -4.99970913
+            ],
+            "max_mm": [
+              98.0,
+              10.0,
+              4.99970913
+            ],
+            "size_mm": [
+              196.0,
+              20.0,
+              9.99941826
+            ],
+            "input_vertices": 140,
+            "welded_vertices": 140,
+            "triangles": 276,
+            "signed_volume_mm3": 23136.025437226766,
+            "absolute_volume_mm3": 23136.025437226766,
+            "connected_vertex_components": 1,
+            "boundary_edges": 0,
+            "nonmanifold_edges": 0,
+            "inconsistent_oriented_edges": 0,
+            "degenerate_triangles": 0,
+            "minimum_z_planar_area_mm2": 3800.0,
+            "translation_normalized_triangle_sha256_quantized_1e-5_mm": "eca33cb7fb7f4f040bd4c180c03cc144cf7e39bb0eee83a15bc9aae307952655"
+          }
+        },
+        {
+          "member": "3D/Objects/dil-2_2.model",
+          "objectid": "3",
+          "attributes": {
+            "id": "3",
+            "{http://schemas.microsoft.com/3dmanufacturing/production/2015/06}UUID": "00020000-81cb-4c03-9d28-80fed5dfa1dc",
+            "type": "model"
+          },
+          "unit": "millimeter",
+          "geometry": {
+            "min_mm": [
+              -101.0,
+              -10.0,
+              -4.99970913
+            ],
+            "max_mm": [
+              101.0,
+              10.0,
+              4.99970913
+            ],
+            "size_mm": [
+              202.0,
+              20.0,
+              9.99941826
+            ],
+            "input_vertices": 144,
+            "welded_vertices": 144,
+            "triangles": 284,
+            "signed_volume_mm3": 23440.579502813558,
+            "absolute_volume_mm3": 23440.579502813558,
+            "connected_vertex_components": 1,
+            "boundary_edges": 0,
+            "nonmanifold_edges": 0,
+            "inconsistent_oriented_edges": 0,
+            "degenerate_triangles": 0,
+            "minimum_z_planar_area_mm2": 3800.0,
+            "translation_normalized_triangle_sha256_quantized_1e-5_mm": "3f35ac2c0c81c41a384df026ab83515d5567f6e59d4cd41515496e0cf91a4b3c"
+          }
+        },
+        {
+          "member": "3D/Objects/dil-3_3.model",
+          "objectid": "5",
+          "attributes": {
+            "id": "5",
+            "{http://schemas.microsoft.com/3dmanufacturing/production/2015/06}UUID": "00030000-81cb-4c03-9d28-80fed5dfa1dc",
+            "type": "model"
+          },
+          "unit": "millimeter",
+          "geometry": {
+            "min_mm": [
+              -98.0,
+              -10.0,
+              -4.99970913
+            ],
+            "max_mm": [
+              98.0,
+              10.0,
+              4.99970913
+            ],
+            "size_mm": [
+              196.0,
+              20.0,
+              9.99941826
+            ],
+            "input_vertices": 140,
+            "welded_vertices": 140,
+            "triangles": 276,
+            "signed_volume_mm3": 23745.13333491236,
+            "absolute_volume_mm3": 23745.13333491236,
+            "connected_vertex_components": 1,
+            "boundary_edges": 0,
+            "nonmanifold_edges": 0,
+            "inconsistent_oriented_edges": 0,
+            "degenerate_triangles": 0,
+            "minimum_z_planar_area_mm2": 3800.0,
+            "translation_normalized_triangle_sha256_quantized_1e-5_mm": "9c3a8b65fa4a6fa23b2fdaa1c44da47299e98626ed0dfbacc7861ad4498ee245"
+          }
+        }
+      ],
+      "build_items": [
+        {
+          "attributes": {
+            "objectid": "2",
+            "{http://schemas.microsoft.com/3dmanufacturing/production/2015/06}UUID": "00000002-b1ec-4553-aec9-835e5b724bb4",
+            "transform": "1 0 0 0 1 0 0 0 1 130 80 4.99970913",
+            "printable": "1"
+          },
+          "root_object_attributes": {
+            "id": "2",
+            "{http://schemas.microsoft.com/3dmanufacturing/production/2015/06}UUID": "00000001-61cb-4c03-9d28-80fed5dfa1dc",
+            "type": "model"
+          },
+          "printable_effective": true,
+          "resolved_meshes": [
+            {
+              "member": "3D/Objects/dil-1_1.model",
+              "objectid": "1",
+              "attributes": {
+                "id": "1",
+                "{http://schemas.microsoft.com/3dmanufacturing/production/2015/06}UUID": "00010000-81cb-4c03-9d28-80fed5dfa1dc",
+                "type": "model"
+              },
+              "transform_application_order": [
+                {
+                  "values": [
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "linear_determinant": 1.0,
+                  "axis_scale_lengths": [
+                    1.0,
+                    1.0,
+                    1.0
+                  ],
+                  "linear_identity": true,
+                  "translation": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "kind": "component",
+                  "attributes": {
+                    "{http://schemas.microsoft.com/3dmanufacturing/production/2015/06}path": "/3D/Objects/dil-1_1.model",
+                    "objectid": "1",
+                    "{http://schemas.microsoft.com/3dmanufacturing/production/2015/06}UUID": "00010000-b206-40ff-9872-83e8017abed1",
+                    "transform": "1 0 0 0 1 0 0 0 1 0 0 0"
+                  }
+                },
+                {
+                  "values": [
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0,
+                    130.0,
+                    80.0,
+                    4.99970913
+                  ],
+                  "linear_determinant": 1.0,
+                  "axis_scale_lengths": [
+                    1.0,
+                    1.0,
+                    1.0
+                  ],
+                  "linear_identity": true,
+                  "translation": [
+                    130.0,
+                    80.0,
+                    4.99970913
+                  ],
+                  "kind": "build",
+                  "attributes": {
+                    "objectid": "2",
+                    "{http://schemas.microsoft.com/3dmanufacturing/production/2015/06}UUID": "00000002-b1ec-4553-aec9-835e5b724bb4",
+                    "transform": "1 0 0 0 1 0 0 0 1 130 80 4.99970913",
+                    "printable": "1"
+                  }
+                }
+              ],
+              "geometry": {
+                "min_mm": [
+                  32.0,
+                  70.0,
+                  0.0
+                ],
+                "max_mm": [
+                  228.0,
+                  90.0,
+                  9.99941826
+                ],
+                "size_mm": [
+                  196.0,
+                  20.0,
+                  9.99941826
+                ],
+                "input_vertices": 140,
+                "welded_vertices": 140,
+                "triangles": 276,
+                "signed_volume_mm3": 23136.025437226755,
+                "absolute_volume_mm3": 23136.025437226755,
+                "connected_vertex_components": 1,
+                "boundary_edges": 0,
+                "nonmanifold_edges": 0,
+                "inconsistent_oriented_edges": 0,
+                "degenerate_triangles": 0,
+                "minimum_z_planar_area_mm2": 3800.0,
+                "translation_normalized_triangle_sha256_quantized_1e-5_mm": "eca33cb7fb7f4f040bd4c180c03cc144cf7e39bb0eee83a15bc9aae307952655"
+              },
+              "matching_stl_after_translation_1e-5_mm": [
+                "revize-02-8mm/historie/reference-10mm/stl/dil-1.stl",
+                "stl/dil-1.stl"
+              ]
+            }
+          ]
+        },
+        {
+          "attributes": {
+            "objectid": "4",
+            "{http://schemas.microsoft.com/3dmanufacturing/production/2015/06}UUID": "00000004-b1ec-4553-aec9-835e5b724bb4",
+            "transform": "1 0 0 0 1 0 0 0 1 130 120 4.99970913",
+            "printable": "1"
+          },
+          "root_object_attributes": {
+            "id": "4",
+            "{http://schemas.microsoft.com/3dmanufacturing/production/2015/06}UUID": "00000002-61cb-4c03-9d28-80fed5dfa1dc",
+            "type": "model"
+          },
+          "printable_effective": true,
+          "resolved_meshes": [
+            {
+              "member": "3D/Objects/dil-2_2.model",
+              "objectid": "3",
+              "attributes": {
+                "id": "3",
+                "{http://schemas.microsoft.com/3dmanufacturing/production/2015/06}UUID": "00020000-81cb-4c03-9d28-80fed5dfa1dc",
+                "type": "model"
+              },
+              "transform_application_order": [
+                {
+                  "values": [
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "linear_determinant": 1.0,
+                  "axis_scale_lengths": [
+                    1.0,
+                    1.0,
+                    1.0
+                  ],
+                  "linear_identity": true,
+                  "translation": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "kind": "component",
+                  "attributes": {
+                    "{http://schemas.microsoft.com/3dmanufacturing/production/2015/06}path": "/3D/Objects/dil-2_2.model",
+                    "objectid": "3",
+                    "{http://schemas.microsoft.com/3dmanufacturing/production/2015/06}UUID": "00020000-b206-40ff-9872-83e8017abed1",
+                    "transform": "1 0 0 0 1 0 0 0 1 0 0 0"
+                  }
+                },
+                {
+                  "values": [
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0,
+                    130.0,
+                    120.0,
+                    4.99970913
+                  ],
+                  "linear_determinant": 1.0,
+                  "axis_scale_lengths": [
+                    1.0,
+                    1.0,
+                    1.0
+                  ],
+                  "linear_identity": true,
+                  "translation": [
+                    130.0,
+                    120.0,
+                    4.99970913
+                  ],
+                  "kind": "build",
+                  "attributes": {
+                    "objectid": "4",
+                    "{http://schemas.microsoft.com/3dmanufacturing/production/2015/06}UUID": "00000004-b1ec-4553-aec9-835e5b724bb4",
+                    "transform": "1 0 0 0 1 0 0 0 1 130 120 4.99970913",
+                    "printable": "1"
+                  }
+                }
+              ],
+              "geometry": {
+                "min_mm": [
+                  29.0,
+                  110.0,
+                  0.0
+                ],
+                "max_mm": [
+                  231.0,
+                  130.0,
+                  9.99941826
+                ],
+                "size_mm": [
+                  202.0,
+                  20.0,
+                  9.99941826
+                ],
+                "input_vertices": 144,
+                "welded_vertices": 144,
+                "triangles": 284,
+                "signed_volume_mm3": 23440.57950281359,
+                "absolute_volume_mm3": 23440.57950281359,
+                "connected_vertex_components": 1,
+                "boundary_edges": 0,
+                "nonmanifold_edges": 0,
+                "inconsistent_oriented_edges": 0,
+                "degenerate_triangles": 0,
+                "minimum_z_planar_area_mm2": 3800.0,
+                "translation_normalized_triangle_sha256_quantized_1e-5_mm": "3f35ac2c0c81c41a384df026ab83515d5567f6e59d4cd41515496e0cf91a4b3c"
+              },
+              "matching_stl_after_translation_1e-5_mm": [
+                "revize-02-8mm/historie/reference-10mm/stl/dil-2.stl",
+                "stl/dil-2.stl"
+              ]
+            }
+          ]
+        },
+        {
+          "attributes": {
+            "objectid": "6",
+            "{http://schemas.microsoft.com/3dmanufacturing/production/2015/06}UUID": "00000006-b1ec-4553-aec9-835e5b724bb4",
+            "transform": "1 0 0 0 1 0 0 0 1 130 160 4.99970913",
+            "printable": "1"
+          },
+          "root_object_attributes": {
+            "id": "6",
+            "{http://schemas.microsoft.com/3dmanufacturing/production/2015/06}UUID": "00000003-61cb-4c03-9d28-80fed5dfa1dc",
+            "type": "model"
+          },
+          "printable_effective": true,
+          "resolved_meshes": [
+            {
+              "member": "3D/Objects/dil-3_3.model",
+              "objectid": "5",
+              "attributes": {
+                "id": "5",
+                "{http://schemas.microsoft.com/3dmanufacturing/production/2015/06}UUID": "00030000-81cb-4c03-9d28-80fed5dfa1dc",
+                "type": "model"
+              },
+              "transform_application_order": [
+                {
+                  "values": [
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "linear_determinant": 1.0,
+                  "axis_scale_lengths": [
+                    1.0,
+                    1.0,
+                    1.0
+                  ],
+                  "linear_identity": true,
+                  "translation": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "kind": "component",
+                  "attributes": {
+                    "{http://schemas.microsoft.com/3dmanufacturing/production/2015/06}path": "/3D/Objects/dil-3_3.model",
+                    "objectid": "5",
+                    "{http://schemas.microsoft.com/3dmanufacturing/production/2015/06}UUID": "00030000-b206-40ff-9872-83e8017abed1",
+                    "transform": "1 0 0 0 1 0 0 0 1 0 0 0"
+                  }
+                },
+                {
+                  "values": [
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0,
+                    130.0,
+                    160.0,
+                    4.99970913
+                  ],
+                  "linear_determinant": 1.0,
+                  "axis_scale_lengths": [
+                    1.0,
+                    1.0,
+                    1.0
+                  ],
+                  "linear_identity": true,
+                  "translation": [
+                    130.0,
+                    160.0,
+                    4.99970913
+                  ],
+                  "kind": "build",
+                  "attributes": {
+                    "objectid": "6",
+                    "{http://schemas.microsoft.com/3dmanufacturing/production/2015/06}UUID": "00000006-b1ec-4553-aec9-835e5b724bb4",
+                    "transform": "1 0 0 0 1 0 0 0 1 130 160 4.99970913",
+                    "printable": "1"
+                  }
+                }
+              ],
+              "geometry": {
+                "min_mm": [
+                  32.0,
+                  150.0,
+                  0.0
+                ],
+                "max_mm": [
+                  228.0,
+                  170.0,
+                  9.99941826
+                ],
+                "size_mm": [
+                  196.0,
+                  20.0,
+                  9.99941826
+                ],
+                "input_vertices": 140,
+                "welded_vertices": 140,
+                "triangles": 276,
+                "signed_volume_mm3": 23745.133334912254,
+                "absolute_volume_mm3": 23745.133334912254,
+                "connected_vertex_components": 1,
+                "boundary_edges": 0,
+                "nonmanifold_edges": 0,
+                "inconsistent_oriented_edges": 0,
+                "degenerate_triangles": 0,
+                "minimum_z_planar_area_mm2": 3800.0,
+                "translation_normalized_triangle_sha256_quantized_1e-5_mm": "9c3a8b65fa4a6fa23b2fdaa1c44da47299e98626ed0dfbacc7861ad4498ee245"
+              },
+              "matching_stl_after_translation_1e-5_mm": [
+                "revize-02-8mm/historie/reference-10mm/stl/dil-3.stl",
+                "stl/dil-3.stl"
+              ]
+            }
+          ]
+        }
+      ],
+      "model_settings": [
+        {
+          "attributes": {
+            "id": "2"
+          },
+          "metadata": [
+            {
+              "key": "name",
+              "value": "dil-1"
+            },
+            {
+              "key": "extruder",
+              "value": "1"
+            }
+          ],
+          "parts": [
+            {
+              "attributes": {
+                "id": "1",
+                "subtype": "normal_part"
+              },
+              "metadata": [
+                {
+                  "key": "name",
+                  "value": "dil-1"
+                },
+                {
+                  "key": "matrix",
+                  "value": "1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1"
+                },
+                {
+                  "key": "source_file",
+                  "value": "prepazka-B-pracovni-geometrie.3mf"
+                },
+                {
+                  "key": "source_object_id",
+                  "value": "0"
+                },
+                {
+                  "key": "source_volume_id",
+                  "value": "0"
+                },
+                {
+                  "key": "source_offset_x",
+                  "value": "98"
+                },
+                {
+                  "key": "source_offset_y",
+                  "value": "10"
+                },
+                {
+                  "key": "source_offset_z",
+                  "value": "4.9997091293334961"
+                }
+              ],
+              "mesh_stats": [
+                {
+                  "edges_fixed": "0",
+                  "degenerate_facets": "0",
+                  "facets_removed": "0",
+                  "facets_reversed": "0",
+                  "backwards_edges": "0"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "attributes": {
+            "id": "4"
+          },
+          "metadata": [
+            {
+              "key": "name",
+              "value": "dil-2"
+            },
+            {
+              "key": "extruder",
+              "value": "1"
+            }
+          ],
+          "parts": [
+            {
+              "attributes": {
+                "id": "3",
+                "subtype": "normal_part"
+              },
+              "metadata": [
+                {
+                  "key": "name",
+                  "value": "dil-2"
+                },
+                {
+                  "key": "matrix",
+                  "value": "1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1"
+                },
+                {
+                  "key": "source_file",
+                  "value": "prepazka-B-pracovni-geometrie.3mf"
+                },
+                {
+                  "key": "source_object_id",
+                  "value": "1"
+                },
+                {
+                  "key": "source_volume_id",
+                  "value": "0"
+                },
+                {
+                  "key": "source_offset_x",
+                  "value": "101"
+                },
+                {
+                  "key": "source_offset_y",
+                  "value": "10"
+                },
+                {
+                  "key": "source_offset_z",
+                  "value": "4.9997091293334961"
+                }
+              ],
+              "mesh_stats": [
+                {
+                  "edges_fixed": "0",
+                  "degenerate_facets": "0",
+                  "facets_removed": "0",
+                  "facets_reversed": "0",
+                  "backwards_edges": "0"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "attributes": {
+            "id": "6"
+          },
+          "metadata": [
+            {
+              "key": "name",
+              "value": "dil-3"
+            },
+            {
+              "key": "extruder",
+              "value": "1"
+            }
+          ],
+          "parts": [
+            {
+              "attributes": {
+                "id": "5",
+                "subtype": "normal_part"
+              },
+              "metadata": [
+                {
+                  "key": "name",
+                  "value": "dil-3"
+                },
+                {
+                  "key": "matrix",
+                  "value": "1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1"
+                },
+                {
+                  "key": "source_file",
+                  "value": "prepazka-B-pracovni-geometrie.3mf"
+                },
+                {
+                  "key": "source_object_id",
+                  "value": "2"
+                },
+                {
+                  "key": "source_volume_id",
+                  "value": "0"
+                },
+                {
+                  "key": "source_offset_x",
+                  "value": "98"
+                },
+                {
+                  "key": "source_offset_y",
+                  "value": "10"
+                },
+                {
+                  "key": "source_offset_z",
+                  "value": "4.9997091293334961"
+                }
+              ],
+              "mesh_stats": [
+                {
+                  "edges_fixed": "0",
+                  "degenerate_facets": "0",
+                  "facets_removed": "0",
+                  "facets_reversed": "0",
+                  "backwards_edges": "0"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "all_object_attributes": [
+        {
+          "member": "3D/3dmodel.model",
+          "id": "2",
+          "{http://schemas.microsoft.com/3dmanufacturing/production/2015/06}UUID": "00000001-61cb-4c03-9d28-80fed5dfa1dc",
+          "type": "model"
+        },
+        {
+          "member": "3D/3dmodel.model",
+          "id": "4",
+          "{http://schemas.microsoft.com/3dmanufacturing/production/2015/06}UUID": "00000002-61cb-4c03-9d28-80fed5dfa1dc",
+          "type": "model"
+        },
+        {
+          "member": "3D/3dmodel.model",
+          "id": "6",
+          "{http://schemas.microsoft.com/3dmanufacturing/production/2015/06}UUID": "00000003-61cb-4c03-9d28-80fed5dfa1dc",
+          "type": "model"
+        },
+        {
+          "member": "3D/Objects/dil-1_1.model",
+          "id": "1",
+          "{http://schemas.microsoft.com/3dmanufacturing/production/2015/06}UUID": "00010000-81cb-4c03-9d28-80fed5dfa1dc",
+          "type": "model"
+        },
+        {
+          "member": "3D/Objects/dil-2_2.model",
+          "id": "3",
+          "{http://schemas.microsoft.com/3dmanufacturing/production/2015/06}UUID": "00020000-81cb-4c03-9d28-80fed5dfa1dc",
+          "type": "model"
+        },
+        {
+          "member": "3D/Objects/dil-3_3.model",
+          "id": "5",
+          "{http://schemas.microsoft.com/3dmanufacturing/production/2015/06}UUID": "00030000-81cb-4c03-9d28-80fed5dfa1dc",
+          "type": "model"
+        }
+      ]
+    },
+    {
+      "file": "revize-02-8mm/historie/reference-10mm/rozlozeni/prepazka-B-pracovni-geometrie.3mf",
+      "sha256": "91ed7b9a835d1933bab5597e49a9d476ed24cd33f138028e89587f80937db892",
+      "zip_crc_error": null,
+      "model_units": {
+        "3D/3dmodel.model": "millimeter"
+      },
+      "root_model": "3D/3dmodel.model",
+      "embedded_gcode_members": [],
+      "has_project_settings": false,
+      "raw_meshes": [
+        {
+          "member": "3D/3dmodel.model",
+          "objectid": "1",
+          "attributes": {
+            "id": "1",
+            "type": "model",
+            "name": "dil-1"
+          },
+          "unit": "millimeter",
+          "geometry": {
+            "min_mm": [
+              1.29084145378e-19,
+              0.0,
+              0.0
+            ],
+            "max_mm": [
+              196.0,
+              20.0,
+              9.99941825867
+            ],
+            "size_mm": [
+              196.0,
+              20.0,
+              9.99941825867
+            ],
+            "input_vertices": 140,
+            "welded_vertices": 140,
+            "triangles": 276,
+            "signed_volume_mm3": 23136.025625312734,
+            "absolute_volume_mm3": 23136.025625312734,
+            "connected_vertex_components": 1,
+            "boundary_edges": 0,
+            "nonmanifold_edges": 0,
+            "inconsistent_oriented_edges": 0,
+            "degenerate_triangles": 0,
+            "minimum_z_planar_area_mm2": 3800.0,
+            "translation_normalized_triangle_sha256_quantized_1e-5_mm": "eca33cb7fb7f4f040bd4c180c03cc144cf7e39bb0eee83a15bc9aae307952655"
+          }
+        },
+        {
+          "member": "3D/3dmodel.model",
+          "objectid": "2",
+          "attributes": {
+            "id": "2",
+            "type": "model",
+            "name": "dil-2"
+          },
+          "unit": "millimeter",
+          "geometry": {
+            "min_mm": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "max_mm": [
+              202.0,
+              20.0,
+              9.99941825867
+            ],
+            "size_mm": [
+              202.0,
+              20.0,
+              9.99941825867
+            ],
+            "input_vertices": 144,
+            "welded_vertices": 144,
+            "triangles": 284,
+            "signed_volume_mm3": 23440.57965857324,
+            "absolute_volume_mm3": 23440.57965857324,
+            "connected_vertex_components": 1,
+            "boundary_edges": 0,
+            "nonmanifold_edges": 0,
+            "inconsistent_oriented_edges": 0,
+            "degenerate_triangles": 0,
+            "minimum_z_planar_area_mm2": 3800.0,
+            "translation_normalized_triangle_sha256_quantized_1e-5_mm": "3f35ac2c0c81c41a384df026ab83515d5567f6e59d4cd41515496e0cf91a4b3c"
+          }
+        },
+        {
+          "member": "3D/3dmodel.model",
+          "objectid": "3",
+          "attributes": {
+            "id": "3",
+            "type": "model",
+            "name": "dil-3"
+          },
+          "unit": "millimeter",
+          "geometry": {
+            "min_mm": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "max_mm": [
+              196.0,
+              20.0,
+              9.99941825867
+            ],
+            "size_mm": [
+              196.0,
+              20.0,
+              9.99941825867
+            ],
+            "input_vertices": 140,
+            "welded_vertices": 140,
+            "triangles": 276,
+            "signed_volume_mm3": 23745.133512682514,
+            "absolute_volume_mm3": 23745.133512682514,
+            "connected_vertex_components": 1,
+            "boundary_edges": 0,
+            "nonmanifold_edges": 0,
+            "inconsistent_oriented_edges": 0,
+            "degenerate_triangles": 0,
+            "minimum_z_planar_area_mm2": 3800.0,
+            "translation_normalized_triangle_sha256_quantized_1e-5_mm": "9c3a8b65fa4a6fa23b2fdaa1c44da47299e98626ed0dfbacc7861ad4498ee245"
+          }
+        }
+      ],
+      "build_items": [
+        {
+          "attributes": {
+            "objectid": "1",
+            "transform": "1 0 0 0 1 0 0 0 1 32.0 70.0 0.0"
+          },
+          "root_object_attributes": {
+            "id": "1",
+            "type": "model",
+            "name": "dil-1"
+          },
+          "printable_effective": true,
+          "resolved_meshes": [
+            {
+              "member": "3D/3dmodel.model",
+              "objectid": "1",
+              "attributes": {
+                "id": "1",
+                "type": "model",
+                "name": "dil-1"
+              },
+              "transform_application_order": [
+                {
+                  "values": [
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0,
+                    32.0,
+                    70.0,
+                    0.0
+                  ],
+                  "linear_determinant": 1.0,
+                  "axis_scale_lengths": [
+                    1.0,
+                    1.0,
+                    1.0
+                  ],
+                  "linear_identity": true,
+                  "translation": [
+                    32.0,
+                    70.0,
+                    0.0
+                  ],
+                  "kind": "build",
+                  "attributes": {
+                    "objectid": "1",
+                    "transform": "1 0 0 0 1 0 0 0 1 32.0 70.0 0.0"
+                  }
+                }
+              ],
+              "geometry": {
+                "min_mm": [
+                  32.0,
+                  70.0,
+                  0.0
+                ],
+                "max_mm": [
+                  228.0,
+                  90.0,
+                  9.99941825867
+                ],
+                "size_mm": [
+                  196.0,
+                  20.0,
+                  9.99941825867
+                ],
+                "input_vertices": 140,
+                "welded_vertices": 140,
+                "triangles": 276,
+                "signed_volume_mm3": 23136.025625312686,
+                "absolute_volume_mm3": 23136.025625312686,
+                "connected_vertex_components": 1,
+                "boundary_edges": 0,
+                "nonmanifold_edges": 0,
+                "inconsistent_oriented_edges": 0,
+                "degenerate_triangles": 0,
+                "minimum_z_planar_area_mm2": 3800.0,
+                "translation_normalized_triangle_sha256_quantized_1e-5_mm": "eca33cb7fb7f4f040bd4c180c03cc144cf7e39bb0eee83a15bc9aae307952655"
+              },
+              "matching_stl_after_translation_1e-5_mm": [
+                "revize-02-8mm/historie/reference-10mm/stl/dil-1.stl",
+                "stl/dil-1.stl"
+              ]
+            }
+          ]
+        },
+        {
+          "attributes": {
+            "objectid": "2",
+            "transform": "1 0 0 0 1 0 0 0 1 29.0 110.0 0.0"
+          },
+          "root_object_attributes": {
+            "id": "2",
+            "type": "model",
+            "name": "dil-2"
+          },
+          "printable_effective": true,
+          "resolved_meshes": [
+            {
+              "member": "3D/3dmodel.model",
+              "objectid": "2",
+              "attributes": {
+                "id": "2",
+                "type": "model",
+                "name": "dil-2"
+              },
+              "transform_application_order": [
+                {
+                  "values": [
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0,
+                    29.0,
+                    110.0,
+                    0.0
+                  ],
+                  "linear_determinant": 1.0,
+                  "axis_scale_lengths": [
+                    1.0,
+                    1.0,
+                    1.0
+                  ],
+                  "linear_identity": true,
+                  "translation": [
+                    29.0,
+                    110.0,
+                    0.0
+                  ],
+                  "kind": "build",
+                  "attributes": {
+                    "objectid": "2",
+                    "transform": "1 0 0 0 1 0 0 0 1 29.0 110.0 0.0"
+                  }
+                }
+              ],
+              "geometry": {
+                "min_mm": [
+                  29.0,
+                  110.0,
+                  0.0
+                ],
+                "max_mm": [
+                  231.0,
+                  130.0,
+                  9.99941825867
+                ],
+                "size_mm": [
+                  202.0,
+                  20.0,
+                  9.99941825867
+                ],
+                "input_vertices": 144,
+                "welded_vertices": 144,
+                "triangles": 284,
+                "signed_volume_mm3": 23440.579658573235,
+                "absolute_volume_mm3": 23440.579658573235,
+                "connected_vertex_components": 1,
+                "boundary_edges": 0,
+                "nonmanifold_edges": 0,
+                "inconsistent_oriented_edges": 0,
+                "degenerate_triangles": 0,
+                "minimum_z_planar_area_mm2": 3800.0,
+                "translation_normalized_triangle_sha256_quantized_1e-5_mm": "3f35ac2c0c81c41a384df026ab83515d5567f6e59d4cd41515496e0cf91a4b3c"
+              },
+              "matching_stl_after_translation_1e-5_mm": [
+                "revize-02-8mm/historie/reference-10mm/stl/dil-2.stl",
+                "stl/dil-2.stl"
+              ]
+            }
+          ]
+        },
+        {
+          "attributes": {
+            "objectid": "3",
+            "transform": "1 0 0 0 1 0 0 0 1 32.0 150.0 0.0"
+          },
+          "root_object_attributes": {
+            "id": "3",
+            "type": "model",
+            "name": "dil-3"
+          },
+          "printable_effective": true,
+          "resolved_meshes": [
+            {
+              "member": "3D/3dmodel.model",
+              "objectid": "3",
+              "attributes": {
+                "id": "3",
+                "type": "model",
+                "name": "dil-3"
+              },
+              "transform_application_order": [
+                {
+                  "values": [
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0,
+                    32.0,
+                    150.0,
+                    0.0
+                  ],
+                  "linear_determinant": 1.0,
+                  "axis_scale_lengths": [
+                    1.0,
+                    1.0,
+                    1.0
+                  ],
+                  "linear_identity": true,
+                  "translation": [
+                    32.0,
+                    150.0,
+                    0.0
+                  ],
+                  "kind": "build",
+                  "attributes": {
+                    "objectid": "3",
+                    "transform": "1 0 0 0 1 0 0 0 1 32.0 150.0 0.0"
+                  }
+                }
+              ],
+              "geometry": {
+                "min_mm": [
+                  32.0,
+                  150.0,
+                  0.0
+                ],
+                "max_mm": [
+                  228.0,
+                  170.0,
+                  9.99941825867
+                ],
+                "size_mm": [
+                  196.0,
+                  20.0,
+                  9.99941825867
+                ],
+                "input_vertices": 140,
+                "welded_vertices": 140,
+                "triangles": 276,
+                "signed_volume_mm3": 23745.1335126826,
+                "absolute_volume_mm3": 23745.1335126826,
+                "connected_vertex_components": 1,
+                "boundary_edges": 0,
+                "nonmanifold_edges": 0,
+                "inconsistent_oriented_edges": 0,
+                "degenerate_triangles": 0,
+                "minimum_z_planar_area_mm2": 3800.0,
+                "translation_normalized_triangle_sha256_quantized_1e-5_mm": "9c3a8b65fa4a6fa23b2fdaa1c44da47299e98626ed0dfbacc7861ad4498ee245"
+              },
+              "matching_stl_after_translation_1e-5_mm": [
+                "revize-02-8mm/historie/reference-10mm/stl/dil-3.stl",
+                "stl/dil-3.stl"
+              ]
+            }
+          ]
+        }
+      ],
+      "model_settings": [],
+      "all_object_attributes": [
+        {
+          "member": "3D/3dmodel.model",
+          "id": "1",
+          "type": "model",
+          "name": "dil-1"
+        },
+        {
+          "member": "3D/3dmodel.model",
+          "id": "2",
+          "type": "model",
+          "name": "dil-2"
+        },
+        {
+          "member": "3D/3dmodel.model",
+          "id": "3",
+          "type": "model",
+          "name": "dil-3"
+        }
+      ]
+    },
+    {
+      "file": "revize-02-8mm/rozlozeni/EXPERIMENT-prepazka-B-Alzament-TPU95A.3mf",
+      "sha256": "d92cda711e06503f2544e23cc85d917b6199ee62aa99040181d1e1fb0903b38c",
+      "zip_crc_error": null,
+      "model_units": {
+        "3D/3dmodel.model": "millimeter",
+        "3D/Objects/dil-1_1.model": "millimeter",
+        "3D/Objects/dil-3_3.model": "millimeter",
+        "3D/Objects/dil-2_2.model": "millimeter"
+      },
+      "root_model": "3D/3dmodel.model",
+      "embedded_gcode_members": [
+        "Metadata/plate_1.gcode"
+      ],
+      "has_project_settings": true,
+      "raw_meshes": [
+        {
+          "member": "3D/Objects/dil-1_1.model",
+          "objectid": "1",
+          "attributes": {
+            "id": "1",
+            "{http://schemas.microsoft.com/3dmanufacturing/production/2015/06}UUID": "00010000-81cb-4c03-9d28-80fed5dfa1dc",
+            "type": "model"
+          },
+          "unit": "millimeter",
+          "geometry": {
+            "min_mm": [
+              -96.5,
+              -10.0,
+              -3.99980307
+            ],
+            "max_mm": [
+              96.5,
+              10.0,
+              3.99980307
+            ],
+            "size_mm": [
+              193.0,
+              20.0,
+              7.99960614
+            ],
+            "input_vertices": 140,
+            "welded_vertices": 140,
+            "triangles": 276,
+            "signed_volume_mm3": 18275.49384503047,
+            "absolute_volume_mm3": 18275.49384503047,
+            "connected_vertex_components": 1,
+            "boundary_edges": 0,
+            "nonmanifold_edges": 0,
+            "inconsistent_oriented_edges": 0,
+            "degenerate_triangles": 0,
+            "minimum_z_planar_area_mm2": 3728.0,
+            "translation_normalized_triangle_sha256_quantized_1e-5_mm": "80a6059689759478da3e356dc79df44acdde9dcafd0e3166d940d012743ea0f9"
+          }
+        },
+        {
+          "member": "3D/Objects/dil-3_3.model",
+          "objectid": "5",
+          "attributes": {
+            "id": "5",
+            "{http://schemas.microsoft.com/3dmanufacturing/production/2015/06}UUID": "00030000-81cb-4c03-9d28-80fed5dfa1dc",
+            "type": "model"
+          },
+          "unit": "millimeter",
+          "geometry": {
+            "min_mm": [
+              -96.5,
+              -10.0,
+              -3.99980307
+            ],
+            "max_mm": [
+              96.5,
+              10.0,
+              3.99980307
+            ],
+            "size_mm": [
+              193.0,
+              20.0,
+              7.99960614
+            ],
+            "input_vertices": 140,
+            "welded_vertices": 140,
+            "triangles": 276,
+            "signed_volume_mm3": 18738.085143066382,
+            "absolute_volume_mm3": 18738.085143066382,
+            "connected_vertex_components": 1,
+            "boundary_edges": 0,
+            "nonmanifold_edges": 0,
+            "inconsistent_oriented_edges": 0,
+            "degenerate_triangles": 0,
+            "minimum_z_planar_area_mm2": 3728.0,
+            "translation_normalized_triangle_sha256_quantized_1e-5_mm": "b4cf81f00fd7e0db4a66b0dddf9b9d7116e3e5b1a617972a8dfc55372cd0e827"
+          }
+        },
+        {
+          "member": "3D/Objects/dil-2_2.model",
+          "objectid": "3",
+          "attributes": {
+            "id": "3",
+            "{http://schemas.microsoft.com/3dmanufacturing/production/2015/06}UUID": "00020000-81cb-4c03-9d28-80fed5dfa1dc",
+            "type": "model"
+          },
+          "unit": "millimeter",
+          "geometry": {
+            "min_mm": [
+              -100.0,
+              -10.0,
+              -3.99980307
+            ],
+            "max_mm": [
+              100.0,
+              10.0,
+              3.99980307
+            ],
+            "size_mm": [
+              200.0,
+              20.0,
+              7.99960614
+            ],
+            "input_vertices": 144,
+            "welded_vertices": 144,
+            "triangles": 284,
+            "signed_volume_mm3": 18543.591080112317,
+            "absolute_volume_mm3": 18543.591080112317,
+            "connected_vertex_components": 1,
+            "boundary_edges": 0,
+            "nonmanifold_edges": 0,
+            "inconsistent_oriented_edges": 0,
+            "degenerate_triangles": 0,
+            "minimum_z_planar_area_mm2": 3736.0,
+            "translation_normalized_triangle_sha256_quantized_1e-5_mm": "cfe8fa1f87fe5f33a1c37ec753417c057601dbf39510dc1a9129890e86b3d21b"
+          }
+        }
+      ],
+      "build_items": [
+        {
+          "attributes": {
+            "objectid": "2",
+            "{http://schemas.microsoft.com/3dmanufacturing/production/2015/06}UUID": "00000002-b1ec-4553-aec9-835e5b724bb4",
+            "transform": "1 0 0 0 1 0 0 0 1 130 80 3.99980307",
+            "printable": "1"
+          },
+          "root_object_attributes": {
+            "id": "2",
+            "{http://schemas.microsoft.com/3dmanufacturing/production/2015/06}UUID": "00000001-61cb-4c03-9d28-80fed5dfa1dc",
+            "type": "model"
+          },
+          "printable_effective": true,
+          "resolved_meshes": [
+            {
+              "member": "3D/Objects/dil-1_1.model",
+              "objectid": "1",
+              "attributes": {
+                "id": "1",
+                "{http://schemas.microsoft.com/3dmanufacturing/production/2015/06}UUID": "00010000-81cb-4c03-9d28-80fed5dfa1dc",
+                "type": "model"
+              },
+              "transform_application_order": [
+                {
+                  "values": [
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "linear_determinant": 1.0,
+                  "axis_scale_lengths": [
+                    1.0,
+                    1.0,
+                    1.0
+                  ],
+                  "linear_identity": true,
+                  "translation": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "kind": "component",
+                  "attributes": {
+                    "{http://schemas.microsoft.com/3dmanufacturing/production/2015/06}path": "/3D/Objects/dil-1_1.model",
+                    "objectid": "1",
+                    "{http://schemas.microsoft.com/3dmanufacturing/production/2015/06}UUID": "00010000-b206-40ff-9872-83e8017abed1",
+                    "transform": "1 0 0 0 1 0 0 0 1 0 0 0"
+                  }
+                },
+                {
+                  "values": [
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0,
+                    130.0,
+                    80.0,
+                    3.99980307
+                  ],
+                  "linear_determinant": 1.0,
+                  "axis_scale_lengths": [
+                    1.0,
+                    1.0,
+                    1.0
+                  ],
+                  "linear_identity": true,
+                  "translation": [
+                    130.0,
+                    80.0,
+                    3.99980307
+                  ],
+                  "kind": "build",
+                  "attributes": {
+                    "objectid": "2",
+                    "{http://schemas.microsoft.com/3dmanufacturing/production/2015/06}UUID": "00000002-b1ec-4553-aec9-835e5b724bb4",
+                    "transform": "1 0 0 0 1 0 0 0 1 130 80 3.99980307",
+                    "printable": "1"
+                  }
+                }
+              ],
+              "geometry": {
+                "min_mm": [
+                  33.5,
+                  70.0,
+                  0.0
+                ],
+                "max_mm": [
+                  226.5,
+                  90.0,
+                  7.99960614
+                ],
+                "size_mm": [
+                  193.0,
+                  20.0,
+                  7.99960614
+                ],
+                "input_vertices": 140,
+                "welded_vertices": 140,
+                "triangles": 276,
+                "signed_volume_mm3": 18275.493845030414,
+                "absolute_volume_mm3": 18275.493845030414,
+                "connected_vertex_components": 1,
+                "boundary_edges": 0,
+                "nonmanifold_edges": 0,
+                "inconsistent_oriented_edges": 0,
+                "degenerate_triangles": 0,
+                "minimum_z_planar_area_mm2": 3728.0,
+                "translation_normalized_triangle_sha256_quantized_1e-5_mm": "80a6059689759478da3e356dc79df44acdde9dcafd0e3166d940d012743ea0f9"
+              },
+              "matching_stl_after_translation_1e-5_mm": [
+                "revize-02-8mm/stl/dil-1.stl"
+              ]
+            }
+          ]
+        },
+        {
+          "attributes": {
+            "objectid": "4",
+            "{http://schemas.microsoft.com/3dmanufacturing/production/2015/06}UUID": "00000004-b1ec-4553-aec9-835e5b724bb4",
+            "transform": "1 0 0 0 1 0 0 0 1 130 120 3.99980307",
+            "printable": "1"
+          },
+          "root_object_attributes": {
+            "id": "4",
+            "{http://schemas.microsoft.com/3dmanufacturing/production/2015/06}UUID": "00000002-61cb-4c03-9d28-80fed5dfa1dc",
+            "type": "model"
+          },
+          "printable_effective": true,
+          "resolved_meshes": [
+            {
+              "member": "3D/Objects/dil-2_2.model",
+              "objectid": "3",
+              "attributes": {
+                "id": "3",
+                "{http://schemas.microsoft.com/3dmanufacturing/production/2015/06}UUID": "00020000-81cb-4c03-9d28-80fed5dfa1dc",
+                "type": "model"
+              },
+              "transform_application_order": [
+                {
+                  "values": [
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "linear_determinant": 1.0,
+                  "axis_scale_lengths": [
+                    1.0,
+                    1.0,
+                    1.0
+                  ],
+                  "linear_identity": true,
+                  "translation": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "kind": "component",
+                  "attributes": {
+                    "{http://schemas.microsoft.com/3dmanufacturing/production/2015/06}path": "/3D/Objects/dil-2_2.model",
+                    "objectid": "3",
+                    "{http://schemas.microsoft.com/3dmanufacturing/production/2015/06}UUID": "00020000-b206-40ff-9872-83e8017abed1",
+                    "transform": "1 0 0 0 1 0 0 0 1 0 0 0"
+                  }
+                },
+                {
+                  "values": [
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0,
+                    130.0,
+                    120.0,
+                    3.99980307
+                  ],
+                  "linear_determinant": 1.0,
+                  "axis_scale_lengths": [
+                    1.0,
+                    1.0,
+                    1.0
+                  ],
+                  "linear_identity": true,
+                  "translation": [
+                    130.0,
+                    120.0,
+                    3.99980307
+                  ],
+                  "kind": "build",
+                  "attributes": {
+                    "objectid": "4",
+                    "{http://schemas.microsoft.com/3dmanufacturing/production/2015/06}UUID": "00000004-b1ec-4553-aec9-835e5b724bb4",
+                    "transform": "1 0 0 0 1 0 0 0 1 130 120 3.99980307",
+                    "printable": "1"
+                  }
+                }
+              ],
+              "geometry": {
+                "min_mm": [
+                  30.0,
+                  110.0,
+                  0.0
+                ],
+                "max_mm": [
+                  230.0,
+                  130.0,
+                  7.99960614
+                ],
+                "size_mm": [
+                  200.0,
+                  20.0,
+                  7.99960614
+                ],
+                "input_vertices": 144,
+                "welded_vertices": 144,
+                "triangles": 284,
+                "signed_volume_mm3": 18543.591080112365,
+                "absolute_volume_mm3": 18543.591080112365,
+                "connected_vertex_components": 1,
+                "boundary_edges": 0,
+                "nonmanifold_edges": 0,
+                "inconsistent_oriented_edges": 0,
+                "degenerate_triangles": 0,
+                "minimum_z_planar_area_mm2": 3736.0,
+                "translation_normalized_triangle_sha256_quantized_1e-5_mm": "cfe8fa1f87fe5f33a1c37ec753417c057601dbf39510dc1a9129890e86b3d21b"
+              },
+              "matching_stl_after_translation_1e-5_mm": [
+                "revize-02-8mm/stl/dil-2.stl"
+              ]
+            }
+          ]
+        },
+        {
+          "attributes": {
+            "objectid": "6",
+            "{http://schemas.microsoft.com/3dmanufacturing/production/2015/06}UUID": "00000006-b1ec-4553-aec9-835e5b724bb4",
+            "transform": "1 0 0 0 1 0 0 0 1 130 160 3.99980307",
+            "printable": "1"
+          },
+          "root_object_attributes": {
+            "id": "6",
+            "{http://schemas.microsoft.com/3dmanufacturing/production/2015/06}UUID": "00000003-61cb-4c03-9d28-80fed5dfa1dc",
+            "type": "model"
+          },
+          "printable_effective": true,
+          "resolved_meshes": [
+            {
+              "member": "3D/Objects/dil-3_3.model",
+              "objectid": "5",
+              "attributes": {
+                "id": "5",
+                "{http://schemas.microsoft.com/3dmanufacturing/production/2015/06}UUID": "00030000-81cb-4c03-9d28-80fed5dfa1dc",
+                "type": "model"
+              },
+              "transform_application_order": [
+                {
+                  "values": [
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "linear_determinant": 1.0,
+                  "axis_scale_lengths": [
+                    1.0,
+                    1.0,
+                    1.0
+                  ],
+                  "linear_identity": true,
+                  "translation": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "kind": "component",
+                  "attributes": {
+                    "{http://schemas.microsoft.com/3dmanufacturing/production/2015/06}path": "/3D/Objects/dil-3_3.model",
+                    "objectid": "5",
+                    "{http://schemas.microsoft.com/3dmanufacturing/production/2015/06}UUID": "00030000-b206-40ff-9872-83e8017abed1",
+                    "transform": "1 0 0 0 1 0 0 0 1 0 0 0"
+                  }
+                },
+                {
+                  "values": [
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0,
+                    130.0,
+                    160.0,
+                    3.99980307
+                  ],
+                  "linear_determinant": 1.0,
+                  "axis_scale_lengths": [
+                    1.0,
+                    1.0,
+                    1.0
+                  ],
+                  "linear_identity": true,
+                  "translation": [
+                    130.0,
+                    160.0,
+                    3.99980307
+                  ],
+                  "kind": "build",
+                  "attributes": {
+                    "objectid": "6",
+                    "{http://schemas.microsoft.com/3dmanufacturing/production/2015/06}UUID": "00000006-b1ec-4553-aec9-835e5b724bb4",
+                    "transform": "1 0 0 0 1 0 0 0 1 130 160 3.99980307",
+                    "printable": "1"
+                  }
+                }
+              ],
+              "geometry": {
+                "min_mm": [
+                  33.5,
+                  150.0,
+                  0.0
+                ],
+                "max_mm": [
+                  226.5,
+                  170.0,
+                  7.99960614
+                ],
+                "size_mm": [
+                  193.0,
+                  20.0,
+                  7.99960614
+                ],
+                "input_vertices": 140,
+                "welded_vertices": 140,
+                "triangles": 276,
+                "signed_volume_mm3": 18738.085143066422,
+                "absolute_volume_mm3": 18738.085143066422,
+                "connected_vertex_components": 1,
+                "boundary_edges": 0,
+                "nonmanifold_edges": 0,
+                "inconsistent_oriented_edges": 0,
+                "degenerate_triangles": 0,
+                "minimum_z_planar_area_mm2": 3728.0,
+                "translation_normalized_triangle_sha256_quantized_1e-5_mm": "b4cf81f00fd7e0db4a66b0dddf9b9d7116e3e5b1a617972a8dfc55372cd0e827"
+              },
+              "matching_stl_after_translation_1e-5_mm": [
+                "revize-02-8mm/stl/dil-3.stl"
+              ]
+            }
+          ]
+        }
+      ],
+      "model_settings": [
+        {
+          "attributes": {
+            "id": "2"
+          },
+          "metadata": [
+            {
+              "key": "name",
+              "value": "dil-1"
+            },
+            {
+              "key": "extruder",
+              "value": "1"
+            }
+          ],
+          "parts": [
+            {
+              "attributes": {
+                "id": "1",
+                "subtype": "normal_part"
+              },
+              "metadata": [
+                {
+                  "key": "name",
+                  "value": "dil-1"
+                },
+                {
+                  "key": "matrix",
+                  "value": "1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1"
+                },
+                {
+                  "key": "source_file",
+                  "value": "prepazka-B-pracovni-geometrie.3mf"
+                },
+                {
+                  "key": "source_object_id",
+                  "value": "0"
+                },
+                {
+                  "key": "source_volume_id",
+                  "value": "0"
+                },
+                {
+                  "key": "source_offset_x",
+                  "value": "96.5"
+                },
+                {
+                  "key": "source_offset_y",
+                  "value": "10"
+                },
+                {
+                  "key": "source_offset_z",
+                  "value": "3.9998030662536621"
+                }
+              ],
+              "mesh_stats": [
+                {
+                  "edges_fixed": "0",
+                  "degenerate_facets": "0",
+                  "facets_removed": "0",
+                  "facets_reversed": "0",
+                  "backwards_edges": "0"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "attributes": {
+            "id": "4"
+          },
+          "metadata": [
+            {
+              "key": "name",
+              "value": "dil-2"
+            },
+            {
+              "key": "extruder",
+              "value": "1"
+            }
+          ],
+          "parts": [
+            {
+              "attributes": {
+                "id": "3",
+                "subtype": "normal_part"
+              },
+              "metadata": [
+                {
+                  "key": "name",
+                  "value": "dil-2"
+                },
+                {
+                  "key": "matrix",
+                  "value": "1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1"
+                },
+                {
+                  "key": "source_file",
+                  "value": "prepazka-B-pracovni-geometrie.3mf"
+                },
+                {
+                  "key": "source_object_id",
+                  "value": "1"
+                },
+                {
+                  "key": "source_volume_id",
+                  "value": "0"
+                },
+                {
+                  "key": "source_offset_x",
+                  "value": "100"
+                },
+                {
+                  "key": "source_offset_y",
+                  "value": "10"
+                },
+                {
+                  "key": "source_offset_z",
+                  "value": "3.9998030662536621"
+                }
+              ],
+              "mesh_stats": [
+                {
+                  "edges_fixed": "0",
+                  "degenerate_facets": "0",
+                  "facets_removed": "0",
+                  "facets_reversed": "0",
+                  "backwards_edges": "0"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "attributes": {
+            "id": "6"
+          },
+          "metadata": [
+            {
+              "key": "name",
+              "value": "dil-3"
+            },
+            {
+              "key": "extruder",
+              "value": "1"
+            }
+          ],
+          "parts": [
+            {
+              "attributes": {
+                "id": "5",
+                "subtype": "normal_part"
+              },
+              "metadata": [
+                {
+                  "key": "name",
+                  "value": "dil-3"
+                },
+                {
+                  "key": "matrix",
+                  "value": "1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1"
+                },
+                {
+                  "key": "source_file",
+                  "value": "prepazka-B-pracovni-geometrie.3mf"
+                },
+                {
+                  "key": "source_object_id",
+                  "value": "2"
+                },
+                {
+                  "key": "source_volume_id",
+                  "value": "0"
+                },
+                {
+                  "key": "source_offset_x",
+                  "value": "96.5"
+                },
+                {
+                  "key": "source_offset_y",
+                  "value": "10"
+                },
+                {
+                  "key": "source_offset_z",
+                  "value": "3.9998030662536621"
+                }
+              ],
+              "mesh_stats": [
+                {
+                  "edges_fixed": "0",
+                  "degenerate_facets": "0",
+                  "facets_removed": "0",
+                  "facets_reversed": "0",
+                  "backwards_edges": "0"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "all_object_attributes": [
+        {
+          "member": "3D/3dmodel.model",
+          "id": "2",
+          "{http://schemas.microsoft.com/3dmanufacturing/production/2015/06}UUID": "00000001-61cb-4c03-9d28-80fed5dfa1dc",
+          "type": "model"
+        },
+        {
+          "member": "3D/3dmodel.model",
+          "id": "4",
+          "{http://schemas.microsoft.com/3dmanufacturing/production/2015/06}UUID": "00000002-61cb-4c03-9d28-80fed5dfa1dc",
+          "type": "model"
+        },
+        {
+          "member": "3D/3dmodel.model",
+          "id": "6",
+          "{http://schemas.microsoft.com/3dmanufacturing/production/2015/06}UUID": "00000003-61cb-4c03-9d28-80fed5dfa1dc",
+          "type": "model"
+        },
+        {
+          "member": "3D/Objects/dil-1_1.model",
+          "id": "1",
+          "{http://schemas.microsoft.com/3dmanufacturing/production/2015/06}UUID": "00010000-81cb-4c03-9d28-80fed5dfa1dc",
+          "type": "model"
+        },
+        {
+          "member": "3D/Objects/dil-3_3.model",
+          "id": "5",
+          "{http://schemas.microsoft.com/3dmanufacturing/production/2015/06}UUID": "00030000-81cb-4c03-9d28-80fed5dfa1dc",
+          "type": "model"
+        },
+        {
+          "member": "3D/Objects/dil-2_2.model",
+          "id": "3",
+          "{http://schemas.microsoft.com/3dmanufacturing/production/2015/06}UUID": "00020000-81cb-4c03-9d28-80fed5dfa1dc",
+          "type": "model"
+        }
+      ]
+    },
+    {
+      "file": "revize-02-8mm/rozlozeni/TEST-EXPERIMENT-spoj-Alzament-TPU95A.3mf",
+      "sha256": "1c04a2b9552a54f4700226fa9cf96b08383968b373eedde3a96c2785f18a7ca7",
+      "zip_crc_error": null,
+      "model_units": {
+        "3D/3dmodel.model": "millimeter",
+        "3D/Objects/spoj-1_1.model": "millimeter",
+        "3D/Objects/spoj-2_2.model": "millimeter"
+      },
+      "root_model": "3D/3dmodel.model",
+      "embedded_gcode_members": [
+        "Metadata/plate_1.gcode"
+      ],
+      "has_project_settings": true,
+      "raw_meshes": [
+        {
+          "member": "3D/Objects/spoj-1_1.model",
+          "objectid": "1",
+          "attributes": {
+            "id": "1",
+            "{http://schemas.microsoft.com/3dmanufacturing/production/2015/06}UUID": "00010000-81cb-4c03-9d28-80fed5dfa1dc",
+            "type": "model"
+          },
+          "unit": "millimeter",
+          "geometry": {
+            "min_mm": [
+              -15.0,
+              -10.0,
+              -3.99980307
+            ],
+            "max_mm": [
+              15.0,
+              10.0,
+              3.99980307
+            ],
+            "size_mm": [
+              30.0,
+              20.0,
+              7.99960614
+            ],
+            "input_vertices": 140,
+            "welded_vertices": 140,
+            "triangles": 276,
+            "signed_volume_mm3": 2089.4291270209396,
+            "absolute_volume_mm3": 2089.4291270209396,
+            "connected_vertex_components": 1,
+            "boundary_edges": 0,
+            "nonmanifold_edges": 0,
+            "inconsistent_oriented_edges": 0,
+            "degenerate_triangles": 0,
+            "minimum_z_planar_area_mm2": 468.0,
+            "translation_normalized_triangle_sha256_quantized_1e-5_mm": "e9dafd66c1ba521194f6c55c074e3efd9d5b2eb2fa03cc81c6836feff3a2ad25"
+          }
+        },
+        {
+          "member": "3D/Objects/spoj-2_2.model",
+          "objectid": "3",
+          "attributes": {
+            "id": "3",
+            "{http://schemas.microsoft.com/3dmanufacturing/production/2015/06}UUID": "00020000-81cb-4c03-9d28-80fed5dfa1dc",
+            "type": "model"
+          },
+          "unit": "millimeter",
+          "geometry": {
+            "min_mm": [
+              -15.0,
+              -10.0,
+              -3.99980307
+            ],
+            "max_mm": [
+              15.0,
+              10.0,
+              3.99980307
+            ],
+            "size_mm": [
+              30.0,
+              20.0,
+              7.99960614
+            ],
+            "input_vertices": 140,
+            "welded_vertices": 140,
+            "triangles": 276,
+            "signed_volume_mm3": 2552.0203876832375,
+            "absolute_volume_mm3": 2552.0203876832375,
+            "connected_vertex_components": 1,
+            "boundary_edges": 0,
+            "nonmanifold_edges": 0,
+            "inconsistent_oriented_edges": 0,
+            "degenerate_triangles": 0,
+            "minimum_z_planar_area_mm2": 468.0,
+            "translation_normalized_triangle_sha256_quantized_1e-5_mm": "aae975f7ba15d52585019906f5f44756d75b69703edba6302e697af9e92d4442"
+          }
+        }
+      ],
+      "build_items": [
+        {
+          "attributes": {
+            "objectid": "2",
+            "{http://schemas.microsoft.com/3dmanufacturing/production/2015/06}UUID": "00000002-b1ec-4553-aec9-835e5b724bb4",
+            "transform": "1 0 0 0 1 0 0 0 1 105 130 3.99980307",
+            "printable": "1"
+          },
+          "root_object_attributes": {
+            "id": "2",
+            "{http://schemas.microsoft.com/3dmanufacturing/production/2015/06}UUID": "00000001-61cb-4c03-9d28-80fed5dfa1dc",
+            "type": "model"
+          },
+          "printable_effective": true,
+          "resolved_meshes": [
+            {
+              "member": "3D/Objects/spoj-1_1.model",
+              "objectid": "1",
+              "attributes": {
+                "id": "1",
+                "{http://schemas.microsoft.com/3dmanufacturing/production/2015/06}UUID": "00010000-81cb-4c03-9d28-80fed5dfa1dc",
+                "type": "model"
+              },
+              "transform_application_order": [
+                {
+                  "values": [
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "linear_determinant": 1.0,
+                  "axis_scale_lengths": [
+                    1.0,
+                    1.0,
+                    1.0
+                  ],
+                  "linear_identity": true,
+                  "translation": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "kind": "component",
+                  "attributes": {
+                    "{http://schemas.microsoft.com/3dmanufacturing/production/2015/06}path": "/3D/Objects/spoj-1_1.model",
+                    "objectid": "1",
+                    "{http://schemas.microsoft.com/3dmanufacturing/production/2015/06}UUID": "00010000-b206-40ff-9872-83e8017abed1",
+                    "transform": "1 0 0 0 1 0 0 0 1 0 0 0"
+                  }
+                },
+                {
+                  "values": [
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0,
+                    105.0,
+                    130.0,
+                    3.99980307
+                  ],
+                  "linear_determinant": 1.0,
+                  "axis_scale_lengths": [
+                    1.0,
+                    1.0,
+                    1.0
+                  ],
+                  "linear_identity": true,
+                  "translation": [
+                    105.0,
+                    130.0,
+                    3.99980307
+                  ],
+                  "kind": "build",
+                  "attributes": {
+                    "objectid": "2",
+                    "{http://schemas.microsoft.com/3dmanufacturing/production/2015/06}UUID": "00000002-b1ec-4553-aec9-835e5b724bb4",
+                    "transform": "1 0 0 0 1 0 0 0 1 105 130 3.99980307",
+                    "printable": "1"
+                  }
+                }
+              ],
+              "geometry": {
+                "min_mm": [
+                  90.0,
+                  120.0,
+                  0.0
+                ],
+                "max_mm": [
+                  120.0,
+                  140.0,
+                  7.99960614
+                ],
+                "size_mm": [
+                  30.0,
+                  20.0,
+                  7.99960614
+                ],
+                "input_vertices": 140,
+                "welded_vertices": 140,
+                "triangles": 276,
+                "signed_volume_mm3": 2089.4291270208914,
+                "absolute_volume_mm3": 2089.4291270208914,
+                "connected_vertex_components": 1,
+                "boundary_edges": 0,
+                "nonmanifold_edges": 0,
+                "inconsistent_oriented_edges": 0,
+                "degenerate_triangles": 0,
+                "minimum_z_planar_area_mm2": 468.0,
+                "translation_normalized_triangle_sha256_quantized_1e-5_mm": "e9dafd66c1ba521194f6c55c074e3efd9d5b2eb2fa03cc81c6836feff3a2ad25"
+              },
+              "matching_stl_after_translation_1e-5_mm": [
+                "revize-02-8mm/vzorek/spoj-1.stl"
+              ]
+            }
+          ]
+        },
+        {
+          "attributes": {
+            "objectid": "4",
+            "{http://schemas.microsoft.com/3dmanufacturing/production/2015/06}UUID": "00000004-b1ec-4553-aec9-835e5b724bb4",
+            "transform": "1 0 0 0 1 0 0 0 1 155 130 3.99980307",
+            "printable": "1"
+          },
+          "root_object_attributes": {
+            "id": "4",
+            "{http://schemas.microsoft.com/3dmanufacturing/production/2015/06}UUID": "00000002-61cb-4c03-9d28-80fed5dfa1dc",
+            "type": "model"
+          },
+          "printable_effective": true,
+          "resolved_meshes": [
+            {
+              "member": "3D/Objects/spoj-2_2.model",
+              "objectid": "3",
+              "attributes": {
+                "id": "3",
+                "{http://schemas.microsoft.com/3dmanufacturing/production/2015/06}UUID": "00020000-81cb-4c03-9d28-80fed5dfa1dc",
+                "type": "model"
+              },
+              "transform_application_order": [
+                {
+                  "values": [
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "linear_determinant": 1.0,
+                  "axis_scale_lengths": [
+                    1.0,
+                    1.0,
+                    1.0
+                  ],
+                  "linear_identity": true,
+                  "translation": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "kind": "component",
+                  "attributes": {
+                    "{http://schemas.microsoft.com/3dmanufacturing/production/2015/06}path": "/3D/Objects/spoj-2_2.model",
+                    "objectid": "3",
+                    "{http://schemas.microsoft.com/3dmanufacturing/production/2015/06}UUID": "00020000-b206-40ff-9872-83e8017abed1",
+                    "transform": "1 0 0 0 1 0 0 0 1 0 0 0"
+                  }
+                },
+                {
+                  "values": [
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0,
+                    155.0,
+                    130.0,
+                    3.99980307
+                  ],
+                  "linear_determinant": 1.0,
+                  "axis_scale_lengths": [
+                    1.0,
+                    1.0,
+                    1.0
+                  ],
+                  "linear_identity": true,
+                  "translation": [
+                    155.0,
+                    130.0,
+                    3.99980307
+                  ],
+                  "kind": "build",
+                  "attributes": {
+                    "objectid": "4",
+                    "{http://schemas.microsoft.com/3dmanufacturing/production/2015/06}UUID": "00000004-b1ec-4553-aec9-835e5b724bb4",
+                    "transform": "1 0 0 0 1 0 0 0 1 155 130 3.99980307",
+                    "printable": "1"
+                  }
+                }
+              ],
+              "geometry": {
+                "min_mm": [
+                  140.0,
+                  120.0,
+                  0.0
+                ],
+                "max_mm": [
+                  170.0,
+                  140.0,
+                  7.99960614
+                ],
+                "size_mm": [
+                  30.0,
+                  20.0,
+                  7.99960614
+                ],
+                "input_vertices": 140,
+                "welded_vertices": 140,
+                "triangles": 276,
+                "signed_volume_mm3": 2552.0203876832516,
+                "absolute_volume_mm3": 2552.0203876832516,
+                "connected_vertex_components": 1,
+                "boundary_edges": 0,
+                "nonmanifold_edges": 0,
+                "inconsistent_oriented_edges": 0,
+                "degenerate_triangles": 0,
+                "minimum_z_planar_area_mm2": 468.0,
+                "translation_normalized_triangle_sha256_quantized_1e-5_mm": "aae975f7ba15d52585019906f5f44756d75b69703edba6302e697af9e92d4442"
+              },
+              "matching_stl_after_translation_1e-5_mm": [
+                "revize-02-8mm/vzorek/spoj-2.stl"
+              ]
+            }
+          ]
+        }
+      ],
+      "model_settings": [
+        {
+          "attributes": {
+            "id": "2"
+          },
+          "metadata": [
+            {
+              "key": "name",
+              "value": "spoj-1"
+            },
+            {
+              "key": "extruder",
+              "value": "1"
+            }
+          ],
+          "parts": [
+            {
+              "attributes": {
+                "id": "1",
+                "subtype": "normal_part"
+              },
+              "metadata": [
+                {
+                  "key": "name",
+                  "value": "spoj-1"
+                },
+                {
+                  "key": "matrix",
+                  "value": "1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1"
+                },
+                {
+                  "key": "source_file",
+                  "value": "TEST-spoj-pracovni-geometrie.3mf"
+                },
+                {
+                  "key": "source_object_id",
+                  "value": "0"
+                },
+                {
+                  "key": "source_volume_id",
+                  "value": "0"
+                },
+                {
+                  "key": "source_offset_x",
+                  "value": "15"
+                },
+                {
+                  "key": "source_offset_y",
+                  "value": "10"
+                },
+                {
+                  "key": "source_offset_z",
+                  "value": "3.9998030662536621"
+                }
+              ],
+              "mesh_stats": [
+                {
+                  "edges_fixed": "0",
+                  "degenerate_facets": "0",
+                  "facets_removed": "0",
+                  "facets_reversed": "0",
+                  "backwards_edges": "0"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "attributes": {
+            "id": "4"
+          },
+          "metadata": [
+            {
+              "key": "name",
+              "value": "spoj-2"
+            },
+            {
+              "key": "extruder",
+              "value": "1"
+            }
+          ],
+          "parts": [
+            {
+              "attributes": {
+                "id": "3",
+                "subtype": "normal_part"
+              },
+              "metadata": [
+                {
+                  "key": "name",
+                  "value": "spoj-2"
+                },
+                {
+                  "key": "matrix",
+                  "value": "1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1"
+                },
+                {
+                  "key": "source_file",
+                  "value": "TEST-spoj-pracovni-geometrie.3mf"
+                },
+                {
+                  "key": "source_object_id",
+                  "value": "1"
+                },
+                {
+                  "key": "source_volume_id",
+                  "value": "0"
+                },
+                {
+                  "key": "source_offset_x",
+                  "value": "15"
+                },
+                {
+                  "key": "source_offset_y",
+                  "value": "10"
+                },
+                {
+                  "key": "source_offset_z",
+                  "value": "3.9998030662536621"
+                }
+              ],
+              "mesh_stats": [
+                {
+                  "edges_fixed": "0",
+                  "degenerate_facets": "0",
+                  "facets_removed": "0",
+                  "facets_reversed": "0",
+                  "backwards_edges": "0"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "all_object_attributes": [
+        {
+          "member": "3D/3dmodel.model",
+          "id": "2",
+          "{http://schemas.microsoft.com/3dmanufacturing/production/2015/06}UUID": "00000001-61cb-4c03-9d28-80fed5dfa1dc",
+          "type": "model"
+        },
+        {
+          "member": "3D/3dmodel.model",
+          "id": "4",
+          "{http://schemas.microsoft.com/3dmanufacturing/production/2015/06}UUID": "00000002-61cb-4c03-9d28-80fed5dfa1dc",
+          "type": "model"
+        },
+        {
+          "member": "3D/Objects/spoj-1_1.model",
+          "id": "1",
+          "{http://schemas.microsoft.com/3dmanufacturing/production/2015/06}UUID": "00010000-81cb-4c03-9d28-80fed5dfa1dc",
+          "type": "model"
+        },
+        {
+          "member": "3D/Objects/spoj-2_2.model",
+          "id": "3",
+          "{http://schemas.microsoft.com/3dmanufacturing/production/2015/06}UUID": "00020000-81cb-4c03-9d28-80fed5dfa1dc",
+          "type": "model"
+        }
+      ]
+    },
+    {
+      "file": "revize-02-8mm/rozlozeni/TEST-spoj-pracovni-geometrie.3mf",
+      "sha256": "a7356aa463d8301c9cb9d777e4251779d6089941dbde13c9b848f9b5c5866a9e",
+      "zip_crc_error": null,
+      "model_units": {
+        "3D/3dmodel.model": "millimeter"
+      },
+      "root_model": "3D/3dmodel.model",
+      "embedded_gcode_members": [],
+      "has_project_settings": false,
+      "raw_meshes": [
+        {
+          "member": "3D/3dmodel.model",
+          "objectid": "1",
+          "attributes": {
+            "id": "1",
+            "type": "model",
+            "name": "spoj-1"
+          },
+          "unit": "millimeter",
+          "geometry": {
+            "min_mm": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "max_mm": [
+              30.0,
+              20.0,
+              7.99960613251
+            ],
+            "size_mm": [
+              30.0,
+              20.0,
+              7.99960613251
+            ],
+            "input_vertices": 140,
+            "welded_vertices": 140,
+            "triangles": 276,
+            "signed_volume_mm3": 2089.4290967067336,
+            "absolute_volume_mm3": 2089.4290967067336,
+            "connected_vertex_components": 1,
+            "boundary_edges": 0,
+            "nonmanifold_edges": 0,
+            "inconsistent_oriented_edges": 0,
+            "degenerate_triangles": 0,
+            "minimum_z_planar_area_mm2": 468.0,
+            "translation_normalized_triangle_sha256_quantized_1e-5_mm": "e9dafd66c1ba521194f6c55c074e3efd9d5b2eb2fa03cc81c6836feff3a2ad25"
+          }
+        },
+        {
+          "member": "3D/3dmodel.model",
+          "objectid": "2",
+          "attributes": {
+            "id": "2",
+            "type": "model",
+            "name": "spoj-2"
+          },
+          "unit": "millimeter",
+          "geometry": {
+            "min_mm": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "max_mm": [
+              30.0,
+              20.0,
+              7.99960613251
+            ],
+            "size_mm": [
+              30.0,
+              20.0,
+              7.99960613251
+            ],
+            "input_vertices": 140,
+            "welded_vertices": 140,
+            "triangles": 276,
+            "signed_volume_mm3": 2552.0203642922806,
+            "absolute_volume_mm3": 2552.0203642922806,
+            "connected_vertex_components": 1,
+            "boundary_edges": 0,
+            "nonmanifold_edges": 0,
+            "inconsistent_oriented_edges": 0,
+            "degenerate_triangles": 0,
+            "minimum_z_planar_area_mm2": 468.0,
+            "translation_normalized_triangle_sha256_quantized_1e-5_mm": "aae975f7ba15d52585019906f5f44756d75b69703edba6302e697af9e92d4442"
+          }
+        }
+      ],
+      "build_items": [
+        {
+          "attributes": {
+            "objectid": "1",
+            "transform": "1 0 0 0 1 0 0 0 1 90.0 120.0 0.0"
+          },
+          "root_object_attributes": {
+            "id": "1",
+            "type": "model",
+            "name": "spoj-1"
+          },
+          "printable_effective": true,
+          "resolved_meshes": [
+            {
+              "member": "3D/3dmodel.model",
+              "objectid": "1",
+              "attributes": {
+                "id": "1",
+                "type": "model",
+                "name": "spoj-1"
+              },
+              "transform_application_order": [
+                {
+                  "values": [
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0,
+                    90.0,
+                    120.0,
+                    0.0
+                  ],
+                  "linear_determinant": 1.0,
+                  "axis_scale_lengths": [
+                    1.0,
+                    1.0,
+                    1.0
+                  ],
+                  "linear_identity": true,
+                  "translation": [
+                    90.0,
+                    120.0,
+                    0.0
+                  ],
+                  "kind": "build",
+                  "attributes": {
+                    "objectid": "1",
+                    "transform": "1 0 0 0 1 0 0 0 1 90.0 120.0 0.0"
+                  }
+                }
+              ],
+              "geometry": {
+                "min_mm": [
+                  90.0,
+                  120.0,
+                  0.0
+                ],
+                "max_mm": [
+                  120.0,
+                  140.0,
+                  7.99960613251
+                ],
+                "size_mm": [
+                  30.0,
+                  20.0,
+                  7.99960613251
+                ],
+                "input_vertices": 140,
+                "welded_vertices": 140,
+                "triangles": 276,
+                "signed_volume_mm3": 2089.429096706743,
+                "absolute_volume_mm3": 2089.429096706743,
+                "connected_vertex_components": 1,
+                "boundary_edges": 0,
+                "nonmanifold_edges": 0,
+                "inconsistent_oriented_edges": 0,
+                "degenerate_triangles": 0,
+                "minimum_z_planar_area_mm2": 468.0,
+                "translation_normalized_triangle_sha256_quantized_1e-5_mm": "e9dafd66c1ba521194f6c55c074e3efd9d5b2eb2fa03cc81c6836feff3a2ad25"
+              },
+              "matching_stl_after_translation_1e-5_mm": [
+                "revize-02-8mm/vzorek/spoj-1.stl"
+              ]
+            }
+          ]
+        },
+        {
+          "attributes": {
+            "objectid": "2",
+            "transform": "1 0 0 0 1 0 0 0 1 140.0 120.0 0.0"
+          },
+          "root_object_attributes": {
+            "id": "2",
+            "type": "model",
+            "name": "spoj-2"
+          },
+          "printable_effective": true,
+          "resolved_meshes": [
+            {
+              "member": "3D/3dmodel.model",
+              "objectid": "2",
+              "attributes": {
+                "id": "2",
+                "type": "model",
+                "name": "spoj-2"
+              },
+              "transform_application_order": [
+                {
+                  "values": [
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0,
+                    140.0,
+                    120.0,
+                    0.0
+                  ],
+                  "linear_determinant": 1.0,
+                  "axis_scale_lengths": [
+                    1.0,
+                    1.0,
+                    1.0
+                  ],
+                  "linear_identity": true,
+                  "translation": [
+                    140.0,
+                    120.0,
+                    0.0
+                  ],
+                  "kind": "build",
+                  "attributes": {
+                    "objectid": "2",
+                    "transform": "1 0 0 0 1 0 0 0 1 140.0 120.0 0.0"
+                  }
+                }
+              ],
+              "geometry": {
+                "min_mm": [
+                  140.0,
+                  120.0,
+                  0.0
+                ],
+                "max_mm": [
+                  170.0,
+                  140.0,
+                  7.99960613251
+                ],
+                "size_mm": [
+                  30.0,
+                  20.0,
+                  7.99960613251
+                ],
+                "input_vertices": 140,
+                "welded_vertices": 140,
+                "triangles": 276,
+                "signed_volume_mm3": 2552.020364292332,
+                "absolute_volume_mm3": 2552.020364292332,
+                "connected_vertex_components": 1,
+                "boundary_edges": 0,
+                "nonmanifold_edges": 0,
+                "inconsistent_oriented_edges": 0,
+                "degenerate_triangles": 0,
+                "minimum_z_planar_area_mm2": 468.0,
+                "translation_normalized_triangle_sha256_quantized_1e-5_mm": "aae975f7ba15d52585019906f5f44756d75b69703edba6302e697af9e92d4442"
+              },
+              "matching_stl_after_translation_1e-5_mm": [
+                "revize-02-8mm/vzorek/spoj-2.stl"
+              ]
+            }
+          ]
+        }
+      ],
+      "model_settings": [],
+      "all_object_attributes": [
+        {
+          "member": "3D/3dmodel.model",
+          "id": "1",
+          "type": "model",
+          "name": "spoj-1"
+        },
+        {
+          "member": "3D/3dmodel.model",
+          "id": "2",
+          "type": "model",
+          "name": "spoj-2"
+        }
+      ]
+    },
+    {
+      "file": "revize-02-8mm/rozlozeni/prepazka-B-pracovni-geometrie.3mf",
+      "sha256": "21a4a1b518ebbcf15b505e291313af359a7dde1943ce39fcc69f29978244ec09",
+      "zip_crc_error": null,
+      "model_units": {
+        "3D/3dmodel.model": "millimeter"
+      },
+      "root_model": "3D/3dmodel.model",
+      "embedded_gcode_members": [],
+      "has_project_settings": false,
+      "raw_meshes": [
+        {
+          "member": "3D/3dmodel.model",
+          "objectid": "1",
+          "attributes": {
+            "id": "1",
+            "type": "model",
+            "name": "dil-1"
+          },
+          "unit": "millimeter",
+          "geometry": {
+            "min_mm": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "max_mm": [
+              193.0,
+              20.0,
+              7.99960613251
+            ],
+            "size_mm": [
+              193.0,
+              20.0,
+              7.99960613251
+            ],
+            "input_vertices": 140,
+            "welded_vertices": 140,
+            "triangles": 276,
+            "signed_volume_mm3": 18275.49363230475,
+            "absolute_volume_mm3": 18275.49363230475,
+            "connected_vertex_components": 1,
+            "boundary_edges": 0,
+            "nonmanifold_edges": 0,
+            "inconsistent_oriented_edges": 0,
+            "degenerate_triangles": 0,
+            "minimum_z_planar_area_mm2": 3728.0,
+            "translation_normalized_triangle_sha256_quantized_1e-5_mm": "80a6059689759478da3e356dc79df44acdde9dcafd0e3166d940d012743ea0f9"
+          }
+        },
+        {
+          "member": "3D/3dmodel.model",
+          "objectid": "2",
+          "attributes": {
+            "id": "2",
+            "type": "model",
+            "name": "dil-2"
+          },
+          "unit": "millimeter",
+          "geometry": {
+            "min_mm": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "max_mm": [
+              200.0,
+              20.0,
+              7.99960613251
+            ],
+            "size_mm": [
+              200.0,
+              20.0,
+              7.99960613251
+            ],
+            "input_vertices": 144,
+            "welded_vertices": 144,
+            "triangles": 284,
+            "signed_volume_mm3": 18543.590897025155,
+            "absolute_volume_mm3": 18543.590897025155,
+            "connected_vertex_components": 1,
+            "boundary_edges": 0,
+            "nonmanifold_edges": 0,
+            "inconsistent_oriented_edges": 0,
+            "degenerate_triangles": 0,
+            "minimum_z_planar_area_mm2": 3736.0,
+            "translation_normalized_triangle_sha256_quantized_1e-5_mm": "cfe8fa1f87fe5f33a1c37ec753417c057601dbf39510dc1a9129890e86b3d21b"
+          }
+        },
+        {
+          "member": "3D/3dmodel.model",
+          "objectid": "3",
+          "attributes": {
+            "id": "3",
+            "type": "model",
+            "name": "dil-3"
+          },
+          "unit": "millimeter",
+          "geometry": {
+            "min_mm": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "max_mm": [
+              193.0,
+              20.0,
+              7.99960613251
+            ],
+            "size_mm": [
+              193.0,
+              20.0,
+              7.99960613251
+            ],
+            "input_vertices": 140,
+            "welded_vertices": 140,
+            "triangles": 276,
+            "signed_volume_mm3": 18738.084913913422,
+            "absolute_volume_mm3": 18738.084913913422,
+            "connected_vertex_components": 1,
+            "boundary_edges": 0,
+            "nonmanifold_edges": 0,
+            "inconsistent_oriented_edges": 0,
+            "degenerate_triangles": 0,
+            "minimum_z_planar_area_mm2": 3728.0,
+            "translation_normalized_triangle_sha256_quantized_1e-5_mm": "b4cf81f00fd7e0db4a66b0dddf9b9d7116e3e5b1a617972a8dfc55372cd0e827"
+          }
+        }
+      ],
+      "build_items": [
+        {
+          "attributes": {
+            "objectid": "1",
+            "transform": "1 0 0 0 1 0 0 0 1 33.5 70.0 0.0"
+          },
+          "root_object_attributes": {
+            "id": "1",
+            "type": "model",
+            "name": "dil-1"
+          },
+          "printable_effective": true,
+          "resolved_meshes": [
+            {
+              "member": "3D/3dmodel.model",
+              "objectid": "1",
+              "attributes": {
+                "id": "1",
+                "type": "model",
+                "name": "dil-1"
+              },
+              "transform_application_order": [
+                {
+                  "values": [
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0,
+                    33.5,
+                    70.0,
+                    0.0
+                  ],
+                  "linear_determinant": 1.0,
+                  "axis_scale_lengths": [
+                    1.0,
+                    1.0,
+                    1.0
+                  ],
+                  "linear_identity": true,
+                  "translation": [
+                    33.5,
+                    70.0,
+                    0.0
+                  ],
+                  "kind": "build",
+                  "attributes": {
+                    "objectid": "1",
+                    "transform": "1 0 0 0 1 0 0 0 1 33.5 70.0 0.0"
+                  }
+                }
+              ],
+              "geometry": {
+                "min_mm": [
+                  33.5,
+                  70.0,
+                  0.0
+                ],
+                "max_mm": [
+                  226.5,
+                  90.0,
+                  7.99960613251
+                ],
+                "size_mm": [
+                  193.0,
+                  20.0,
+                  7.99960613251
+                ],
+                "input_vertices": 140,
+                "welded_vertices": 140,
+                "triangles": 276,
+                "signed_volume_mm3": 18275.4936323048,
+                "absolute_volume_mm3": 18275.4936323048,
+                "connected_vertex_components": 1,
+                "boundary_edges": 0,
+                "nonmanifold_edges": 0,
+                "inconsistent_oriented_edges": 0,
+                "degenerate_triangles": 0,
+                "minimum_z_planar_area_mm2": 3728.0,
+                "translation_normalized_triangle_sha256_quantized_1e-5_mm": "80a6059689759478da3e356dc79df44acdde9dcafd0e3166d940d012743ea0f9"
+              },
+              "matching_stl_after_translation_1e-5_mm": [
+                "revize-02-8mm/stl/dil-1.stl"
+              ]
+            }
+          ]
+        },
+        {
+          "attributes": {
+            "objectid": "2",
+            "transform": "1 0 0 0 1 0 0 0 1 30.0 110.0 0.0"
+          },
+          "root_object_attributes": {
+            "id": "2",
+            "type": "model",
+            "name": "dil-2"
+          },
+          "printable_effective": true,
+          "resolved_meshes": [
+            {
+              "member": "3D/3dmodel.model",
+              "objectid": "2",
+              "attributes": {
+                "id": "2",
+                "type": "model",
+                "name": "dil-2"
+              },
+              "transform_application_order": [
+                {
+                  "values": [
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0,
+                    30.0,
+                    110.0,
+                    0.0
+                  ],
+                  "linear_determinant": 1.0,
+                  "axis_scale_lengths": [
+                    1.0,
+                    1.0,
+                    1.0
+                  ],
+                  "linear_identity": true,
+                  "translation": [
+                    30.0,
+                    110.0,
+                    0.0
+                  ],
+                  "kind": "build",
+                  "attributes": {
+                    "objectid": "2",
+                    "transform": "1 0 0 0 1 0 0 0 1 30.0 110.0 0.0"
+                  }
+                }
+              ],
+              "geometry": {
+                "min_mm": [
+                  30.0,
+                  110.0,
+                  0.0
+                ],
+                "max_mm": [
+                  230.0,
+                  130.0,
+                  7.99960613251
+                ],
+                "size_mm": [
+                  200.0,
+                  20.0,
+                  7.99960613251
+                ],
+                "input_vertices": 144,
+                "welded_vertices": 144,
+                "triangles": 284,
+                "signed_volume_mm3": 18543.5908970251,
+                "absolute_volume_mm3": 18543.5908970251,
+                "connected_vertex_components": 1,
+                "boundary_edges": 0,
+                "nonmanifold_edges": 0,
+                "inconsistent_oriented_edges": 0,
+                "degenerate_triangles": 0,
+                "minimum_z_planar_area_mm2": 3736.0,
+                "translation_normalized_triangle_sha256_quantized_1e-5_mm": "cfe8fa1f87fe5f33a1c37ec753417c057601dbf39510dc1a9129890e86b3d21b"
+              },
+              "matching_stl_after_translation_1e-5_mm": [
+                "revize-02-8mm/stl/dil-2.stl"
+              ]
+            }
+          ]
+        },
+        {
+          "attributes": {
+            "objectid": "3",
+            "transform": "1 0 0 0 1 0 0 0 1 33.5 150.0 0.0"
+          },
+          "root_object_attributes": {
+            "id": "3",
+            "type": "model",
+            "name": "dil-3"
+          },
+          "printable_effective": true,
+          "resolved_meshes": [
+            {
+              "member": "3D/3dmodel.model",
+              "objectid": "3",
+              "attributes": {
+                "id": "3",
+                "type": "model",
+                "name": "dil-3"
+              },
+              "transform_application_order": [
+                {
+                  "values": [
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0,
+                    33.5,
+                    150.0,
+                    0.0
+                  ],
+                  "linear_determinant": 1.0,
+                  "axis_scale_lengths": [
+                    1.0,
+                    1.0,
+                    1.0
+                  ],
+                  "linear_identity": true,
+                  "translation": [
+                    33.5,
+                    150.0,
+                    0.0
+                  ],
+                  "kind": "build",
+                  "attributes": {
+                    "objectid": "3",
+                    "transform": "1 0 0 0 1 0 0 0 1 33.5 150.0 0.0"
+                  }
+                }
+              ],
+              "geometry": {
+                "min_mm": [
+                  33.5,
+                  150.0,
+                  0.0
+                ],
+                "max_mm": [
+                  226.5,
+                  170.0,
+                  7.99960613251
+                ],
+                "size_mm": [
+                  193.0,
+                  20.0,
+                  7.99960613251
+                ],
+                "input_vertices": 140,
+                "welded_vertices": 140,
+                "triangles": 276,
+                "signed_volume_mm3": 18738.084913913422,
+                "absolute_volume_mm3": 18738.084913913422,
+                "connected_vertex_components": 1,
+                "boundary_edges": 0,
+                "nonmanifold_edges": 0,
+                "inconsistent_oriented_edges": 0,
+                "degenerate_triangles": 0,
+                "minimum_z_planar_area_mm2": 3728.0,
+                "translation_normalized_triangle_sha256_quantized_1e-5_mm": "b4cf81f00fd7e0db4a66b0dddf9b9d7116e3e5b1a617972a8dfc55372cd0e827"
+              },
+              "matching_stl_after_translation_1e-5_mm": [
+                "revize-02-8mm/stl/dil-3.stl"
+              ]
+            }
+          ]
+        }
+      ],
+      "model_settings": [],
+      "all_object_attributes": [
+        {
+          "member": "3D/3dmodel.model",
+          "id": "1",
+          "type": "model",
+          "name": "dil-1"
+        },
+        {
+          "member": "3D/3dmodel.model",
+          "id": "2",
+          "type": "model",
+          "name": "dil-2"
+        },
+        {
+          "member": "3D/3dmodel.model",
+          "id": "3",
+          "type": "model",
+          "name": "dil-3"
+        }
+      ]
+    }
+  ],
+  "fcstd": [
+    {
+      "file": "prepazka-B.FCStd",
+      "sha256": "4ce426a74d05f9f109c622bc33c65f307e42c3e90478795ec8a9169b02d39cc7",
+      "zip_crc_error": null,
+      "spreadsheet_aliased_cells": [
+        {
+          "address": "B2",
+          "content": "=570 mm",
+          "backgroundColor": "#d6efddff",
+          "alias": "TotalLength"
+        },
+        {
+          "address": "B3",
+          "content": "=20 mm",
+          "backgroundColor": "#d6efddff",
+          "alias": "Width"
+        },
+        {
+          "address": "B4",
+          "content": "=10 mm",
+          "backgroundColor": "#d6efddff",
+          "alias": "Height"
+        },
+        {
+          "address": "B5",
+          "content": "=12 mm",
+          "backgroundColor": "#ffefc1ff",
+          "alias": "Lap"
+        },
+        {
+          "address": "B6",
+          "content": "=0.5 mm",
+          "backgroundColor": "#ffefc1ff",
+          "alias": "NoseRadius"
+        },
+        {
+          "address": "B7",
+          "content": "=3 mm",
+          "backgroundColor": "#ffefc1ff",
+          "alias": "BackRadius"
+        },
+        {
+          "address": "B11",
+          "content": "=TotalLength / 3",
+          "alias": "Pitch"
+        },
+        {
+          "address": "B12",
+          "content": "=Lap / 2",
+          "alias": "HalfLap"
+        },
+        {
+          "address": "B13",
+          "content": "=Width / 2",
+          "alias": "SplitWidth"
+        },
+        {
+          "address": "B14",
+          "content": "=Pitch + HalfLap",
+          "alias": "EndLength"
+        },
+        {
+          "address": "B15",
+          "content": "=Pitch + Lap",
+          "alias": "MiddleLength"
+        },
+        {
+          "address": "B21",
+          "content": "=Width - BackRadius - NoseRadius",
+          "alias": "Dy"
+        },
+        {
+          "address": "B22",
+          "content": "=Height - BackRadius - NoseRadius",
+          "alias": "Dz"
+        },
+        {
+          "address": "B23",
+          "content": "=sqrt(Dy * Dy + Dz * Dz)",
+          "alias": "D"
+        },
+        {
+          "address": "B24",
+          "content": "=(NoseRadius - BackRadius) / D",
+          "alias": "Alpha"
+        },
+        {
+          "address": "B25",
+          "content": "=sqrt(1 - Alpha * Alpha)",
+          "alias": "Beta"
+        },
+        {
+          "address": "B26",
+          "content": "=Alpha * Dy / D - Beta * Dz / D",
+          "alias": "Ny"
+        },
+        {
+          "address": "B27",
+          "content": "=Alpha * Dz / D + Beta * Dy / D",
+          "alias": "Nz"
+        },
+        {
+          "address": "B28",
+          "content": "=NoseRadius + Ny * NoseRadius",
+          "alias": "Ty0"
+        },
+        {
+          "address": "B29",
+          "content": "=NoseRadius + Nz * NoseRadius",
+          "alias": "Tz0"
+        },
+        {
+          "address": "B30",
+          "content": "=Width - BackRadius + Ny * BackRadius",
+          "alias": "Ty1"
+        },
+        {
+          "address": "B31",
+          "content": "=Height - BackRadius + Nz * BackRadius",
+          "alias": "Tz1"
+        }
+      ],
+      "selected_object_properties": [
+        {
+          "name": "ContinuousProfile",
+          "properties": {
+            "Label": "<Property name=\"Label\" type=\"App::PropertyString\" status=\"134217728\">\n                    <String value=\"ContinuousProfile\" />\n                </Property>\n                "
+          }
+        },
+        {
+          "name": "Part1",
+          "properties": {
+            "Base": "<Property name=\"Base\" type=\"App::PropertyLink\">\n                    <Link value=\"ContinuousProfile\" />\n                </Property>\n                ",
+            "Label": "<Property name=\"Label\" type=\"App::PropertyString\" status=\"134217728\">\n                    <String value=\"Díl 1 — krajní\" />\n                </Property>\n                ",
+            "Tool": "<Property name=\"Tool\" type=\"App::PropertyLink\">\n                    <Link value=\"WithoutTrailingHalf1\" />\n                </Property>\n                "
+          }
+        },
+        {
+          "name": "Part2",
+          "properties": {
+            "Base": "<Property name=\"Base\" type=\"App::PropertyLink\">\n                    <Link value=\"ContinuousProfile\" />\n                </Property>\n                ",
+            "Label": "<Property name=\"Label\" type=\"App::PropertyString\" status=\"134217728\">\n                    <String value=\"Díl 2 — střední\" />\n                </Property>\n                ",
+            "Tool": "<Property name=\"Tool\" type=\"App::PropertyLink\">\n                    <Link value=\"WithoutTrailingHalf2\" />\n                </Property>\n                "
+          }
+        },
+        {
+          "name": "Part3",
+          "properties": {
+            "Base": "<Property name=\"Base\" type=\"App::PropertyLink\">\n                    <Link value=\"ContinuousProfile\" />\n                </Property>\n                ",
+            "Label": "<Property name=\"Label\" type=\"App::PropertyString\" status=\"134217728\">\n                    <String value=\"Díl 3 — krajní\" />\n                </Property>\n                ",
+            "Tool": "<Property name=\"Tool\" type=\"App::PropertyLink\">\n                    <Link value=\"WithoutLeadingHalf3\" />\n                </Property>\n                "
+          }
+        }
+      ],
+      "scope": "Stored XML only; no FreeCAD launch, no recompute, no save, no BREP validity claim."
+    },
+    {
+      "file": "revize-02-8mm/historie/reference-10mm/prepazka-B.FCStd",
+      "sha256": "66fc500b1454529d8a4b5ffc6562080ca3a9975f41fa94a6be01e7f438b20ca3",
+      "zip_crc_error": null,
+      "spreadsheet_aliased_cells": [
+        {
+          "address": "B2",
+          "content": "=570 mm",
+          "backgroundColor": "#d6efddff",
+          "alias": "TotalLength"
+        },
+        {
+          "address": "B3",
+          "content": "=20 mm",
+          "backgroundColor": "#d6efddff",
+          "alias": "Width"
+        },
+        {
+          "address": "B4",
+          "content": "=10 mm",
+          "backgroundColor": "#d6efddff",
+          "alias": "Height"
+        },
+        {
+          "address": "B5",
+          "content": "=12 mm",
+          "backgroundColor": "#ffefc1ff",
+          "alias": "Lap"
+        },
+        {
+          "address": "B6",
+          "content": "=0.5 mm",
+          "backgroundColor": "#ffefc1ff",
+          "alias": "NoseRadius"
+        },
+        {
+          "address": "B7",
+          "content": "=3 mm",
+          "backgroundColor": "#ffefc1ff",
+          "alias": "BackRadius"
+        },
+        {
+          "address": "B11",
+          "content": "=TotalLength / 3",
+          "alias": "Pitch"
+        },
+        {
+          "address": "B12",
+          "content": "=Lap / 2",
+          "alias": "HalfLap"
+        },
+        {
+          "address": "B13",
+          "content": "=Width / 2",
+          "alias": "SplitWidth"
+        },
+        {
+          "address": "B14",
+          "content": "=Pitch + HalfLap",
+          "alias": "EndLength"
+        },
+        {
+          "address": "B15",
+          "content": "=Pitch + Lap",
+          "alias": "MiddleLength"
+        },
+        {
+          "address": "B21",
+          "content": "=Width - BackRadius - NoseRadius",
+          "alias": "Dy"
+        },
+        {
+          "address": "B22",
+          "content": "=Height - BackRadius - NoseRadius",
+          "alias": "Dz"
+        },
+        {
+          "address": "B23",
+          "content": "=sqrt(Dy * Dy + Dz * Dz)",
+          "alias": "D"
+        },
+        {
+          "address": "B24",
+          "content": "=(NoseRadius - BackRadius) / D",
+          "alias": "Alpha"
+        },
+        {
+          "address": "B25",
+          "content": "=sqrt(1 - Alpha * Alpha)",
+          "alias": "Beta"
+        },
+        {
+          "address": "B26",
+          "content": "=Alpha * Dy / D - Beta * Dz / D",
+          "alias": "Ny"
+        },
+        {
+          "address": "B27",
+          "content": "=Alpha * Dz / D + Beta * Dy / D",
+          "alias": "Nz"
+        },
+        {
+          "address": "B28",
+          "content": "=NoseRadius + Ny * NoseRadius",
+          "alias": "Ty0"
+        },
+        {
+          "address": "B29",
+          "content": "=NoseRadius + Nz * NoseRadius",
+          "alias": "Tz0"
+        },
+        {
+          "address": "B30",
+          "content": "=Width - BackRadius + Ny * BackRadius",
+          "alias": "Ty1"
+        },
+        {
+          "address": "B31",
+          "content": "=Height - BackRadius + Nz * BackRadius",
+          "alias": "Tz1"
+        }
+      ],
+      "selected_object_properties": [
+        {
+          "name": "ContinuousProfile",
+          "properties": {
+            "Label": "<Property name=\"Label\" type=\"App::PropertyString\" status=\"134217728\">\n                    <String value=\"ContinuousProfile\" />\n                </Property>\n                "
+          }
+        },
+        {
+          "name": "Part1",
+          "properties": {
+            "Base": "<Property name=\"Base\" type=\"App::PropertyLink\">\n                    <Link value=\"ContinuousProfile\" />\n                </Property>\n                ",
+            "Label": "<Property name=\"Label\" type=\"App::PropertyString\" status=\"134217728\">\n                    <String value=\"Díl 1 — krajní\" />\n                </Property>\n                ",
+            "Tool": "<Property name=\"Tool\" type=\"App::PropertyLink\">\n                    <Link value=\"WithoutTrailingHalf1\" />\n                </Property>\n                "
+          }
+        },
+        {
+          "name": "Part2",
+          "properties": {
+            "Base": "<Property name=\"Base\" type=\"App::PropertyLink\">\n                    <Link value=\"ContinuousProfile\" />\n                </Property>\n                ",
+            "Label": "<Property name=\"Label\" type=\"App::PropertyString\" status=\"134217728\">\n                    <String value=\"Díl 2 — střední\" />\n                </Property>\n                ",
+            "Tool": "<Property name=\"Tool\" type=\"App::PropertyLink\">\n                    <Link value=\"WithoutTrailingHalf2\" />\n                </Property>\n                "
+          }
+        },
+        {
+          "name": "Part3",
+          "properties": {
+            "Base": "<Property name=\"Base\" type=\"App::PropertyLink\">\n                    <Link value=\"ContinuousProfile\" />\n                </Property>\n                ",
+            "Label": "<Property name=\"Label\" type=\"App::PropertyString\" status=\"134217728\">\n                    <String value=\"Díl 3 — krajní\" />\n                </Property>\n                ",
+            "Tool": "<Property name=\"Tool\" type=\"App::PropertyLink\">\n                    <Link value=\"WithoutLeadingHalf3\" />\n                </Property>\n                "
+          }
+        }
+      ],
+      "scope": "Stored XML only; no FreeCAD launch, no recompute, no save, no BREP validity claim."
+    },
+    {
+      "file": "revize-02-8mm/prepazka-B.FCStd",
+      "sha256": "0d8b15e1f7361292773b3dd16a95fe65f48cd7dc3f29279aa583c413c6a83045",
+      "zip_crc_error": null,
+      "spreadsheet_aliased_cells": [
+        {
+          "address": "B2",
+          "content": "=570 mm",
+          "backgroundColor": "#d6efddff",
+          "alias": "TotalLength"
+        },
+        {
+          "address": "B3",
+          "content": "=20 mm",
+          "backgroundColor": "#d6efddff",
+          "alias": "Width"
+        },
+        {
+          "address": "B4",
+          "content": "=8 mm",
+          "backgroundColor": "#d6efddff",
+          "alias": "Height"
+        },
+        {
+          "address": "B5",
+          "content": "=12 mm",
+          "backgroundColor": "#ffefc1ff",
+          "alias": "Lap"
+        },
+        {
+          "address": "B6",
+          "content": "=0.5 mm",
+          "backgroundColor": "#ffefc1ff",
+          "alias": "NoseRadius"
+        },
+        {
+          "address": "B7",
+          "content": "=3 mm",
+          "backgroundColor": "#ffefc1ff",
+          "alias": "BackRadius"
+        },
+        {
+          "address": "B8",
+          "content": "=2 mm",
+          "backgroundColor": "#ffefc1ff",
+          "alias": "Bed"
+        },
+        {
+          "address": "B9",
+          "content": "=2 mm",
+          "backgroundColor": "#ffefc1ff",
+          "alias": "GlueGap"
+        },
+        {
+          "address": "B10",
+          "content": "=2 mm",
+          "backgroundColor": "#ffefc1ff",
+          "alias": "EndSeal"
+        },
+        {
+          "address": "B11",
+          "content": "=TotalLength / 3",
+          "alias": "Pitch"
+        },
+        {
+          "address": "B12",
+          "content": "=Lap / 2",
+          "alias": "HalfLap"
+        },
+        {
+          "address": "B13",
+          "content": "=Width / 2",
+          "alias": "SplitWidth"
+        },
+        {
+          "address": "B14",
+          "content": "=Pitch + HalfLap - GlueGap / 2 - EndSeal",
+          "alias": "EndLength"
+        },
+        {
+          "address": "B15",
+          "content": "=Pitch + Lap - GlueGap",
+          "alias": "MiddleLength"
+        },
+        {
+          "address": "B21",
+          "content": "=Width - BackRadius - NoseRadius",
+          "alias": "Dy"
+        },
+        {
+          "address": "B22",
+          "content": "=Height - BackRadius - NoseRadius",
+          "alias": "Dz"
+        },
+        {
+          "address": "B23",
+          "content": "=sqrt(Dy * Dy + Dz * Dz)",
+          "alias": "D"
+        },
+        {
+          "address": "B24",
+          "content": "=(NoseRadius - BackRadius) / D",
+          "alias": "Alpha"
+        },
+        {
+          "address": "B25",
+          "content": "=sqrt(1 - Alpha * Alpha)",
+          "alias": "Beta"
+        },
+        {
+          "address": "B26",
+          "content": "=Alpha * Dy / D - Beta * Dz / D",
+          "alias": "Ny"
+        },
+        {
+          "address": "B27",
+          "content": "=Alpha * Dz / D + Beta * Dy / D",
+          "alias": "Nz"
+        },
+        {
+          "address": "B28",
+          "content": "=NoseRadius + Ny * NoseRadius",
+          "alias": "Ty0"
+        },
+        {
+          "address": "B29",
+          "content": "=NoseRadius + Nz * NoseRadius",
+          "alias": "Tz0"
+        },
+        {
+          "address": "B30",
+          "content": "=Width - BackRadius + Ny * BackRadius",
+          "alias": "Ty1"
+        },
+        {
+          "address": "B31",
+          "content": "=Height - BackRadius + Nz * BackRadius",
+          "alias": "Tz1"
+        }
+      ],
+      "selected_object_properties": [
+        {
+          "name": "ContinuousProfile",
+          "properties": {
+            "Label": "<Property name=\"Label\" type=\"App::PropertyString\" status=\"134217728\">\n                    <String value=\"ContinuousProfile\" />\n                </Property>\n                "
+          }
+        },
+        {
+          "name": "Part1",
+          "properties": {
+            "Base": "<Property name=\"Base\" type=\"App::PropertyLink\">\n                    <Link value=\"ContinuousProfile\" />\n                </Property>\n                ",
+            "Label": "<Property name=\"Label\" type=\"App::PropertyString\" status=\"134217728\">\n                    <String value=\"Díl 1 — krajní\" />\n                </Property>\n                ",
+            "Tool": "<Property name=\"Tool\" type=\"App::PropertyLink\">\n                    <Link value=\"WithoutTrailingHalf1\" />\n                </Property>\n                "
+          }
+        },
+        {
+          "name": "Part2",
+          "properties": {
+            "Base": "<Property name=\"Base\" type=\"App::PropertyLink\">\n                    <Link value=\"ContinuousProfile\" />\n                </Property>\n                ",
+            "Label": "<Property name=\"Label\" type=\"App::PropertyString\" status=\"134217728\">\n                    <String value=\"Díl 2 — střední\" />\n                </Property>\n                ",
+            "Tool": "<Property name=\"Tool\" type=\"App::PropertyLink\">\n                    <Link value=\"WithoutTrailingHalf2\" />\n                </Property>\n                "
+          }
+        },
+        {
+          "name": "Part3",
+          "properties": {
+            "Base": "<Property name=\"Base\" type=\"App::PropertyLink\">\n                    <Link value=\"ContinuousProfile\" />\n                </Property>\n                ",
+            "Label": "<Property name=\"Label\" type=\"App::PropertyString\" status=\"134217728\">\n                    <String value=\"Díl 3 — krajní\" />\n                </Property>\n                ",
+            "Tool": "<Property name=\"Tool\" type=\"App::PropertyLink\">\n                    <Link value=\"WithoutLeadingHalf3\" />\n                </Property>\n                "
+          }
+        },
+        {
+          "name": "JointAdhesive",
+          "properties": {
+            "Base": "<Property name=\"Base\" type=\"App::PropertyLink\">\n                    <Link value=\"ContinuousProfile\" />\n                </Property>\n                ",
+            "Label": "<Property name=\"Label\" type=\"App::PropertyString\" status=\"134217728\">\n                    <String value=\"Lepidlo — 2 spoje + 2 konce, znázornění\" />\n                </Property>\n                ",
+            "Tool": "<Property name=\"Tool\" type=\"App::PropertyLink\">\n                    <Link value=\"AllTPUBodies\" />\n                </Property>\n                "
+          }
+        },
+        {
+          "name": "AdhesiveBed",
+          "properties": {
+            "Height": "<Property name=\"Height\" type=\"App::PropertyLength\">\n                    <Float value=\"2.0000000000000000\" />\n                </Property>\n                ",
+            "Label": "<Property name=\"Label\" type=\"App::PropertyString\" status=\"134217728\">\n                    <String value=\"Lepicí lože2 mm — znázornění\" />\n                </Property>\n                ",
+            "Length": "<Property name=\"Length\" type=\"App::PropertyLength\">\n                    <Float value=\"570.0000000000000000\" />\n                </Property>\n                ",
+            "Width": "<Property name=\"Width\" type=\"App::PropertyLength\">\n                    <Float value=\"20.0000000000000000\" />\n                </Property>\n            "
+          }
+        }
+      ],
+      "scope": "Stored XML only; no FreeCAD launch, no recompute, no save, no BREP validity claim."
+    }
+  ],
+  "limitations": [
+    "Unknown file and edited/copied project actually printed.",
+    "No printer/toolpath/physical extrusion conclusion from geometry.",
+    "Watertight two-manifold topology and nonzero volume are checked; no exhaustive triangle self-intersection proof.",
+    "Native CAD BREP is not recomputed. Saved spreadsheet parameters are corroboration only.",
+    "Triangle match uses translation-normalized coordinates rounded to 0.00001 mm, not byte identity."
+  ]
+}

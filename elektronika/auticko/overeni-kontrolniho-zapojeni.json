@@ -1,0 +1,102 @@
+{
+  "date": "2026-09-22",
+  "created_utc": "2026-09-22T20:16:59.074171+00:00",
+  "source_sha256": "9f7477c851898e97e7c9fd50ca632104c9214259b415a3fa9996ca6a48d8760c",
+  "firmware_pin_map": {
+    "D5": "L293D 1 enable + 10kOhm pulldown to GND",
+    "D7": "L293D 2 IN1",
+    "D8": "L293D 7 IN2",
+    "D9": "SG90 signal"
+  },
+  "dip16_nets": {
+    "1": "EN_D5",
+    "2": "IN1_D7",
+    "3": "M_A",
+    "4": "GND",
+    "5": "GND",
+    "6": "M_B",
+    "7": "IN2_D8",
+    "8": "MOTOR_PLUS",
+    "9": "GND",
+    "10": "GND",
+    "11": "NC",
+    "12": "GND",
+    "13": "GND",
+    "14": "NC",
+    "15": "GND",
+    "16": "ARDUINO_5V"
+  },
+  "pinout_checked": true,
+  "all_16_unique_pins_present": true,
+  "svg_well_formed": true,
+  "accessible_svg_title_description": true,
+  "generator_reproduces_exact_svg": true,
+  "render": {
+    "tool": "sharp/libvips",
+    "output": "kontrolni-zapojeni.png",
+    "width": 1800,
+    "height": 1840,
+    "visually_reviewed": true,
+    "review_scope": "Pin numbering/orientation, all supply nets, motor between 3/6, separate common ground, 10kOhm branch, unconfirmed break marker, text readability. Root and source-task coordinator reviewed the rendered layout."
+  },
+  "sources": [
+    {
+      "url": "https://www.st.com/resource/en/datasheet/l293d.pdf",
+      "scope": "Official ST reference and existing project pinout, page 2; no SO20 numbering copied."
+    },
+    {
+      "url": "https://www.ti.com/lit/ds/slrs008c/slrs008c.pdf",
+      "scope": "Official TI PDIP pinout page 3 rendered locally and visually inspected; supporting supply decoupling reference page 13."
+    },
+    {
+      "url": "https://towerpro.com.tw/product/sg90-7/",
+      "scope": "Official product page and manufacturer reply give 4.8–6V; 6.4V trial marked above stated range."
+    }
+  ],
+  "limitations": [
+    "Functional wiring reference, not visual/electrical inspection of physical assembly.",
+    "Physical trial details are user voice reports, not agent measurements.",
+    "Final USB and servo positive disconnection unconfirmed.",
+    "Cause of servo symptoms and actual breadboard ground continuity unresolved."
+  ],
+  "hardware_accessed_for_this_documentation": false,
+  "firmware_uploaded_for_this_documentation": false,
+  "motion_commands_sent": false,
+  "physical_acceptance": false,
+  "sync": {
+    "worktree": "/home/novakj/.codex/worktrees/e339/3d-print",
+    "canonical": "/home/novakj/3d-print",
+    "documents_updated": [
+      "README.md",
+      "elektronika/auticko/README.md",
+      "elektronika/auticko/rizeni-v3.md",
+      "elektronika/auticko/zapojeni-l293d.md",
+      "models/jednoduche-auticko/firmware/prvni-motor/README.md",
+      "models/jednoduche-auticko/firmware/prvni-motor/overeni-programu.json"
+    ],
+    "new_files": [
+      "elektronika/auticko/kontrolni-zapojeni.svg",
+      "elektronika/auticko/kontrolni-zapojeni.png",
+      "elektronika/auticko/kontrolni-zapojeni.md",
+      "elektronika/auticko/kontrolni-zapojeni.py",
+      "elektronika/auticko/overeni-kontrolniho-zapojeni.json"
+    ],
+    "preexisting_destination_documents_matched": true,
+    "method": "Only six reviewed document updates and five new documentation artifacts. No whole-checkout copy, commit or push.",
+    "worktree_other_existing_files_unchanged": 1153,
+    "canonical_other_existing_files_unchanged": 1153,
+    "completed_utc": "2026-09-22T20:16:59.251481+00:00"
+  },
+  "sha256": {
+    "README.md": "d1d4ee704f09f4c184a80dd54009495a462c1407463c175cf35a7ce3c505418b",
+    "elektronika/auticko/README.md": "3b168624f1fe45aa69d72ce33d40293f6054a67c533a7696c9c07239b0a70b13",
+    "elektronika/auticko/rizeni-v3.md": "66370341b6a8375b60b2972e568cb556d68faca2fb76bc2e72cb692ba5219dc1",
+    "elektronika/auticko/zapojeni-l293d.md": "e77e9b7591e44d87eeca2dc3c147ed0c5667941903182788896e6a4b116415fc",
+    "models/jednoduche-auticko/firmware/prvni-motor/README.md": "ce7f357f662ff2df8274056b083fecd6d31623bbbb73984af1a1cb0b01276973",
+    "models/jednoduche-auticko/firmware/prvni-motor/overeni-programu.json": "424d03c3e01dbb20b9b7a02fb5aa6770191bba29bd1e319e940febc57d178121",
+    "elektronika/auticko/kontrolni-zapojeni.svg": "6de63a19d5219ac800a2c078fbb9ff007d643e9644621bea39b22b0576553705",
+    "elektronika/auticko/kontrolni-zapojeni.png": "18eb039a5dc8af87b9244995c4505d78dafe312ac51e1e4909c723fc5f230d28",
+    "elektronika/auticko/kontrolni-zapojeni.md": "ad1ff44c71f630c3d3362339e7194117b0f551b0fc103897e529ae1ae9b898c5",
+    "elektronika/auticko/kontrolni-zapojeni.py": "04232bf06f8f60527fe29f7317a3da13c6237ece9136afe8da0b7a763f07bb54"
+  }
+}

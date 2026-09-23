@@ -1,0 +1,20 @@
+{
+  "command": [
+    "/home/novakj/.cache/auticko-arduino-test/ide-cli/resources/app/lib/backend/resources/arduino-cli",
+    "--config-file",
+    "/home/novakj/.cache/auticko-arduino-test/arduino-cli.yaml",
+    "compile",
+    "--fqbn",
+    "arduino:renesas_uno:unor4wifi",
+    "--build-path",
+    "/home/novakj/.codex/worktrees/e339/3d-print/models/jednoduche-auticko/firmware/prvni-motor/.cache/arduino-v3-reverse-v1-build",
+    "--warnings",
+    "all",
+    "/home/novakj/.codex/worktrees/e339/3d-print/models/jednoduche-auticko/firmware/prvni-motor"
+  ],
+  "started_at": "2026-09-22T22:00:45.350917+00:00",
+  "finished_at": "2026-09-22T22:00:51.235772+00:00",
+  "exit_code": 0,
+  "source_sha256": "d24a87631fd32a41685baedd7488c425a75ca6f9e300706349c61e09e79fe930",
+  "hardware_accessed": false
+}

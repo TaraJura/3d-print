@@ -1,0 +1,10 @@
+{
+  "tested_source_sha256": "24c474b2e9af0a3d148c8c8c251f6d65dc8c97107ae309426fc8a9bd181a46b6",
+  "final_source_sha256": "0e56dfc88e022d18fcf4b8d33e511c5f99cc0671d2a23572686be4324a19dbb3",
+  "only_change_after_tests": {
+    "old_comment": "// Startup deliberately commands nominal1500us; first set up without linkage.",
+    "new_comment": "// Startup commands the configured center; first set up without linkage."
+  },
+  "executable_source_unchanged": true,
+  "tests_repeated": false
+}

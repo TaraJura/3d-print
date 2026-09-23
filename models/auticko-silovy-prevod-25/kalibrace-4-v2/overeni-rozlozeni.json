@@ -1,0 +1,53 @@
+{
+  "source_zip_sha256": "4084c3dea334c65aebe281016e6be6b8fb906acb315fcdd785c418d6c8dd1361",
+  "all_passed": true,
+  "plates": [
+    {
+      "plate": 1,
+      "objects": 2,
+      "all_within_6mm_edge": true,
+      "minimum_hull_clearance_mm": 11.049999999999983,
+      "minimum_brim_envelope_clearance_mm": 0.8499999999999837,
+      "minimum_edge_clearance_mm": 77.475,
+      "minimum_brim_to_bed_edge_mm": 72.375,
+      "group_bbox_center_mm": [
+        130.0,
+        130.0
+      ],
+      "pair_checks": 1,
+      "pair_distances": [
+        {
+          "a": "kalibrace-4-v2-z__01.stl",
+          "b": "kalibrace-4-v2-y__01.stl",
+          "clearance_mm": 11.049999999999983
+        }
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "name": "kalibrace-4-v2-z__01.stl",
+      "plate": 1,
+      "source_sha256": "35c1398141e2f7e386350ab155f17bec9fcc11ee67dcd02594cbb5db1592a538",
+      "triangle_count": 3560,
+      "mesh_z_bounds_mm": [
+        0.0,
+        8.600000381469727
+      ],
+      "transform_determinant": 1.0
+    },
+    {
+      "name": "kalibrace-4-v2-y__01.stl",
+      "plate": 1,
+      "source_sha256": "8782bf06c9a2da47bc176fb4791b9f97a60bc4fdfcacc0c78bb05b70a0f171f6",
+      "triangle_count": 3548,
+      "mesh_z_bounds_mm": [
+        0.0,
+        10.800000190734863
+      ],
+      "transform_determinant": 1.0
+    }
+  ],
+  "count": 2,
+  "method": "All original STL vertices, all-height convex XY hulls, pairwise Euclidean distances, no hole nesting; rigid Z rotations and XY translations only. Brim assumption width5mm + objectgap0.1mm. Does not prove support toolpath envelope or sliced layers."
+}

@@ -1,0 +1,130 @@
+# -*- coding: utf-8 -*-
+"""New independent Ø4 calibration v2. Writes only this folder, never old samples.
+Native Part primitives/booleans/expressions; no custom Python proxy or font dependency.
+Change hole values here and regenerate to keep embossed numeric labels synchronized.
+"""
+from pathlib import Path
+import hashlib, json, math, zipfile
+import FreeCAD as App
+import Part, MeshPart
+
+OUT = Path(__file__).resolve().parent
+(OUT / 'stl').mkdir(exist_ok=True)
+D = App.newDocument('Kalibrace4V2')
+D.Label = 'Ø4 kalibrace V2 — 4.4 / 4.6 / 4.8 mm — fyzicky neověřeno'
+P = D.addObject('Spreadsheet::Sheet', 'Parameters')
+VALUES = [('BoreDepth', 8), ('Wall', 2.7), ('Hole44', 4.4), ('Hole46', 4.6), ('Hole48', 4.8), ('MarkHeight', .6), ('Stroke', .65)]
+P.set('A1', 'Parametr'); P.set('B1', 'mm')
+for row, (name, value) in enumerate(VALUES, 2):
+    P.set('A'+str(row), name); P.set('B'+str(row), str(value)+' mm'); P.setAlias('B'+str(row), name)
+P.set('D1', 'Pri zmene prumeru regeneruj makro: cislice musi odpovidat otvorum.')
+P.setColumnWidth('A', 150); P.setColumnWidth('B', 95); P.setColumnWidth('D', 550)
+D.recompute()
+pitch = '(Parameters.Hole48 + 2 * Parameters.Wall)'
+def bind(o, name, value):
+    if isinstance(value, str): o.setExpression(name, value)
+    else: setattr(o, name, value)
+def place(o, x, y, z):
+    for axis, value in zip('xyz', (x,y,z)):
+        o.setExpression('Placement.Base.'+axis, value if isinstance(value,str) else str(value)+' mm')
+def box(name, dims, xyz):
+    o = D.addObject('Part::Box', name)
+    for k,v in zip(('Length','Width','Height'),dims): bind(o,k,v)
+    place(o,*xyz); return o
+def fuse(name, members):
+    o=D.addObject('Part::MultiFuse',name); o.Shapes=members; o.Refine=True; return o
+
+# Robust, font-independent raised strokes: 0.65 mm wide, 0.6 mm above the face.
+SEGMENTS = {'0':'abcedf', '1':'bc', '2':'abged', '3':'abgcd', '4':'fgbc', '5':'afgcd', '6':'afgecd', '7':'abc', '8':'abcdefg', '9':'abfgcd'}
+def glyph(stem, char, x, y, top):
+    strokes=[]
+    def line(suffix, a, b):
+        dx=b[0]-a[0]; dy=b[1]-a[1]; length=math.hypot(dx,dy)
+        # Start offsets compensate half stroke width perpendicular to its axis.
+        xx=x+' + '+str(a[0]+.325*dy/length)+' mm'
+        yy=y+a[1]-.325*dx/length
+        o=box(stem+suffix,(length,'Parameters.Stroke','Parameters.MarkHeight + 0.1 mm'),(xx,yy,top+' - 0.1 mm'))
+        o.Placement.Rotation=App.Rotation(App.Vector(0,0,1),math.degrees(math.atan2(dy,dx)))
+        strokes.append(o)
+    if char.isdigit():
+        lines={'a':((.325,4.675),(2.675,4.675)), 'g':((.325,2.5),(2.675,2.5)), 'd':((.325,.325),(2.675,.325)),
+               'f':((.325,2.5),(.325,4.675)), 'b':((2.675,2.5),(2.675,4.675)), 'e':((.325,.325),(.325,2.5)), 'c':((2.675,.325),(2.675,2.5))}
+        for seg in SEGMENTS[char]: line(seg,*lines[seg])
+    elif char=='.':
+        o=D.addObject('Part::Cylinder',stem+'Dot'); o.Radius=.4
+        o.setExpression('Height','Parameters.MarkHeight + 0.1 mm'); place(o,x+' + 0.4 mm',y+.4,top+' - 0.1 mm'); strokes.append(o)
+    else:
+        lines={'Z':[((.325,4.675),(2.675,4.675)),((2.675,4.675),(.325,.325)),((.325,.325),(2.675,.325))],
+               'Y':[((.325,4.675),(1.5,2.5)),((2.675,4.675),(1.5,2.5)),((1.5,2.5),(1.5,.325))],
+               'V':[((.325,4.675),(1.5,.325)),((1.5,.325),(2.675,4.675))]}[char]
+        for i,(a,b) in enumerate(lines): line(str(i),a,b)
+    return strokes
+
+parts={}; holes_by_part={}; metadata={}
+for axis in ('Z','Y'):
+    horizontal=axis=='Y'; stem='Coupon4V2'+axis
+    width='Parameters.BoreDepth' if horizontal else 16.6
+    top=pitch if horizontal else 'Parameters.BoreDepth'
+    block=box(stem+'Block',(47,width,top),(0,0,0))
+    holes=[]; marks=[]
+    for i,alias in enumerate(('Hole44','Hole46','Hole48')):
+        xc=f'({i} + 0.5) * '+pitch
+        hole=D.addObject('Part::Cylinder',stem+'Hole'+str(i+1))
+        hole.setExpression('Radius','Parameters.'+alias+'/2'); hole.setExpression('Height','Parameters.BoreDepth + 2 mm')
+        place(hole,xc,-1 if horizontal else pitch+'/2',pitch+'/2' if horizontal else -1)
+        if horizontal: hole.Placement.Rotation=App.Rotation(App.Vector(1,0,0),-90)
+        holes.append(hole)
+        label=f'{dict(VALUES)[alias]:.1f}'
+        origin='('+xc+') - 4.0 mm'; offset=0
+        for j,char in enumerate(label):
+            marks.extend(glyph(stem+'Label'+str(i)+str(j),char,origin+' + '+str(offset)+' mm',1.5 if horizontal else 10.8,top))
+            offset+=1.5 if char=='.' else 3.5
+    for i,(char,x) in enumerate(((axis,32),('V',37),('2',41.5))):
+        marks.extend(glyph(stem+'Version'+str(i),char,str(x)+' mm',1.5 if horizontal else 10.8,top))
+    blank=fuse(stem+'MarkedBlank',[block]+marks)
+    final=D.addObject('Part::Cut',stem); final.Base=blank; final.Tool=fuse(stem+'Holes',holes); final.Refine=True
+    key='kalibrace-4-v2-'+axis.lower(); final.Label=key+' — 4.4 / 4.6 / 4.8'
+    parts[key]=final; holes_by_part[key]=holes
+    metadata[key]={'copies':1,'object':final.Name,'stl':'stl/'+key+'.stl','nominal_holes_mm':[4.4,4.6,4.8],
+                   'bore_axis_in_print':axis,'bore_depth_mm':8,'raised_labels':['4.4','4.6','4.8',axis,'V2'],
+                   'numbering':'Each diameter is embossed above its corresponding hole column; axis and V2 at right.'}
+D.recompute()
+group=D.addObject('App::DocumentObjectGroup','PrintParts'); group.addObjects(list(parts.values()))
+display=D.addObject('App::DocumentObjectGroup','Display'); display.Label='Dva vzorky V2 — přehled geometrie'
+links=[]
+for i,part in enumerate(parts.values()):
+    l=D.addObject('App::Link','View'+part.Name); l.setLink(part); l.Placement.Base=App.Vector(0,27*i,0); display.addObject(l); links.append(l)
+D.recompute()
+original={k:o.Shape.Volume for k,o in parts.items()}
+P.set('B2','9 mm'); D.recompute()
+assert all(o.Shape.isValid() and len(o.Shape.Solids)==1 and abs(o.Shape.Volume-original[k])>1 for k,o in parts.items())
+P.set('B2','8 mm'); D.recompute()
+restored=max(abs(o.Shape.Volume-original[k]) for k,o in parts.items()); assert restored<1e-5
+report={'kind':'Nová kalibrace Ø4 V2, větší otvory fyzicky neověřeny','unit':'mm','parts':{},'display_objects':[o.Name for o in links],
+        'generator_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),'reuse_pin':'Original nominal full-round Ø4×24 mm pin; no new pin, no reduced diameter.',
+        'bore_depth_parameter_test':{'trial_mm':9,'restored_mm':8,'restored_max_volume_difference_mm3':restored},
+        'embossed_digits':'Native Part strokes, height5mm, width0.65mm, emboss0.6mm. Regenerate macro after changing hole values to synchronize numerals.',
+        'bore_checks':[]}
+for key,part in parts.items():
+    shape=part.Shape.copy(); assert shape.isValid() and len(shape.Solids)==1 and shape.Volume>0,key
+    bb=shape.BoundBox; assert abs(bb.ZMin)<1e-7
+    mesh=MeshPart.meshFromShape(Shape=shape,LinearDeflection=.015,AngularDeflection=.1,Relative=False); assert mesh.isSolid()
+    mesh.write(str(OUT/metadata[key]['stl']))
+    info=metadata[key].copy(); info.update(valid=True,solid_count=1,closed_mesh=True,facets=mesh.CountFacets,volume_mm3=shape.Volume,bbox_mm=[bb.XLength,bb.YLength,bb.ZLength])
+    report['parts'][key]=info
+    for hole in holes_by_part[key]:
+        axis=hole.Placement.Rotation.multVec(App.Vector(0,0,1)); start=hole.Placement.Base+axis
+        checks=[]
+        for depth in (.05,4,7.95):
+            center=start+axis*depth
+            assert not shape.isInside(center,1e-7,True)
+            assert shape.isInside(center+App.Vector(hole.Radius.Value+.1,0,0),1e-7,True)
+            checks.append(depth)
+        report['bore_checks'].append({'part':key,'diameter_mm':2*hole.Radius.Value,'clear_axis_and_wall_checked_at_depths_mm':checks,'functional_depth_mm':8})
+D.saveAs(str(OUT/'kalibrace-4-v2.FCStd'))
+with zipfile.ZipFile(OUT/'kalibrace-4-v2.zip','w',zipfile.ZIP_DEFLATED) as archive:
+    for key in parts: archive.write(OUT/metadata[key]['stl'],key+'__01.stl')
+    archive.writestr('CTI-ME.txt','DVA NOVE vzorky Ø4 V2, kazdy jednou, mm, 100 %.\nPrumery4.4/4.6/4.8mm; Z=svisle, Y=vodorovne, hloubka8mm.\nPouzij puvodni plne kulaty cep Ø4×24; prumer cepu nemenit.\nNeorientovat automaticky. Fyzicky neoverene nove diry. Navod v README.md.\n')
+report['validation_pass']=True
+(OUT/'kontrola-kalibrace.json').write_text(json.dumps(report,indent=2,ensure_ascii=False)+'\n')
+print('COMPLETE calibration v2: 2 bodies, 6 bores, 8mm depth, raised labels',flush=True)

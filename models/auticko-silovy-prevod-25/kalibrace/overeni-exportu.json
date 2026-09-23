@@ -1,0 +1,154 @@
+{
+  "generator_sha256": "b51f21ace3308521df36066cd451fdcbecf6d8bbb36662fd6ba997fbe1b07622",
+  "files": {
+    "kalibrace.FCStd": {
+      "sha256": "ed3d3e49aec5d742a7f3fc88cba5b7befa245260606c2d856956beaed67fb9f0",
+      "bytes": 103962
+    },
+    "kalibracni-dily.zip": {
+      "sha256": "25655c90515aa507d4b58c6d058bc4b389b98fcac3a669342f82bce16472b675",
+      "bytes": 134238
+    },
+    "nahled.FCMacro": {
+      "sha256": "62668534fcd8878237b622fd785ed24f93337759e45a7f2af789d6dae94a6506",
+      "bytes": 1862
+    },
+    "nahled.png": {
+      "sha256": "6238722cb8f7a0bcf68f88dd8ab143feb9ca5f309ad31572b9cbda8a765b2844",
+      "bytes": 39762
+    },
+    "README.md": {
+      "sha256": "fd00ed021eb48fda9331678ad84152e3934141e68de3115579a828f2f4366bb9",
+      "bytes": 4885
+    },
+    "kontrola-kalibrace.json": {
+      "sha256": "eb6b2cc222afb02f428c6a1a6b322a2d6015fd07df1538dae29194e0903355c1",
+      "bytes": 8977
+    }
+  },
+  "stl": {
+    "otvory-8-svisle": {
+      "sha256": "65399aaa00595db4dcf1b221d60551c5e70df625d531bd31b6258aa6f655d536",
+      "triangles": 2148,
+      "components": 1,
+      "bad_edges": 0,
+      "bad_winding": 0,
+      "degenerate_triangles": 0,
+      "volume_error_fraction": 0.00022758890447410608,
+      "bbox_mm": [
+        74.0,
+        14.0,
+        8.0
+      ],
+      "minimum_z_mm": 0.0
+    },
+    "otvory-8-vodorovne": {
+      "sha256": "a65d59af643c298f2f337ab4520858b17867c8171fec4c82af89380625af5dae",
+      "triangles": 2148,
+      "components": 1,
+      "bad_edges": 0,
+      "bad_winding": 0,
+      "degenerate_triangles": 0,
+      "volume_error_fraction": 0.00022758890447346818,
+      "bbox_mm": [
+        74.0,
+        8.0,
+        14.0
+      ],
+      "minimum_z_mm": 0.0
+    },
+    "otvory-12-svisle": {
+      "sha256": "11337018be3a66e06d9a0651244b3c94990f83b8c40a05934d3992db2f754d76",
+      "triangles": 2148,
+      "components": 1,
+      "bad_edges": 0,
+      "bad_winding": 0,
+      "degenerate_triangles": 0,
+      "volume_error_fraction": 0.0003457763393926091,
+      "bbox_mm": [
+        94.0,
+        18.0,
+        8.0
+      ],
+      "minimum_z_mm": 0.0
+    },
+    "otvory-12-vodorovne": {
+      "sha256": "adbdcf6e5da419c8ec2505e2c2646dd4eed3a3676ce91030f18f0bfa034dcf19",
+      "triangles": 2148,
+      "components": 1,
+      "bad_edges": 0,
+      "bad_winding": 0,
+      "degenerate_triangles": 0,
+      "volume_error_fraction": 0.0003457763393910621,
+      "bbox_mm": [
+        94.0,
+        8.0,
+        18.0
+      ],
+      "minimum_z_mm": 0.0
+    },
+    "otvory-4-svisle": {
+      "sha256": "e962a37de25dba1609c2406f762f131f1a5e9f26801d03e4bb7b673ce5aeb7b5",
+      "triangles": 1300,
+      "components": 1,
+      "bad_edges": 0,
+      "bad_winding": 0,
+      "degenerate_triangles": 0,
+      "volume_error_fraction": 0.00010089417310249291,
+      "bbox_mm": [
+        33.1,
+        9.7,
+        8.0
+      ],
+      "minimum_z_mm": 0.0
+    },
+    "cep-4-kulaty-nalezato": {
+      "sha256": "6970be5a3060c34831bae0e67b150605d41a8cced60fee8121a04e3ad1778427",
+      "triangles": 416,
+      "components": 1,
+      "bad_edges": 0,
+      "bad_winding": 0,
+      "degenerate_triangles": 0,
+      "volume_error_fraction": 0.0005966926226971915,
+      "bbox_mm": [
+        24.0,
+        3.99956,
+        3.9991
+      ],
+      "minimum_z_mm": 0.0
+    },
+    "cep-8-kulaty-nalezato": {
+      "sha256": "4c90dee9f83cb70b7c6ed0640c6312489e00d422078abc718138755a2b0b54b1",
+      "triangles": 416,
+      "components": 1,
+      "bad_edges": 0,
+      "bad_winding": 0,
+      "degenerate_triangles": 0,
+      "volume_error_fraction": 0.0005966926226975684,
+      "bbox_mm": [
+        24.0,
+        7.9991,
+        7.99821
+      ],
+      "minimum_z_mm": 0.0
+    },
+    "cep-12-kulaty-nalezato": {
+      "sha256": "c57b9ec57971d4fc40cafd42038635d81405cad326615573a3adfff6cab73f90",
+      "triangles": 416,
+      "components": 1,
+      "bad_edges": 0,
+      "bad_winding": 0,
+      "degenerate_triangles": 0,
+      "volume_error_fraction": 0.0005966888889368595,
+      "bbox_mm": [
+        24.0,
+        11.998660000000001,
+        11.99731
+      ],
+      "minimum_z_mm": 0.0
+    }
+  },
+  "zip_stl_count": 8,
+  "markdown_links_pass": true,
+  "all_passed": true
+}

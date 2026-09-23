@@ -1,0 +1,11 @@
+{
+  "command": [
+    "python3",
+    "/home/novakj/.codex/worktrees/e339/3d-print/models/jednoduche-auticko/firmware/prvni-motor/tests/run_http_tests.py",
+    "--browser"
+  ],
+  "started_utc": "2026-09-22T21:34:12.006731+00:00",
+  "finished_utc": "2026-09-22T21:34:35.713278+00:00",
+  "exit_code": 0,
+  "hardware_accessed": false
+}

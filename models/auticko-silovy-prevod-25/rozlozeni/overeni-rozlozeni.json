@@ -1,0 +1,4555 @@
+{
+  "evidence_scope": "Historical XY-only layout before upright plate 3; current plate-3 evidence is stojate-cepy-2026-09-20/overeni-geometrie.json and overeni-projektu.json. Original plate 1 may be a user-saved native project; source shapes preserved.",
+  "source_zip_sha256": "3e6ea7b537a1b2cb9197cbcf23623bbfbc9b7354323d0415af6e7eac19d7aa6f",
+  "all_passed": true,
+  "plates": [
+    {
+      "plate": 1,
+      "objects": 26,
+      "all_within_6mm_edge": true,
+      "minimum_hull_clearance_mm": 11.046763319239705,
+      "minimum_brim_envelope_clearance_mm": 0.8467633192397059,
+      "minimum_edge_clearance_mm": 6.0,
+      "minimum_brim_to_bed_edge_mm": 0.9000000000000004,
+      "group_bbox_center_mm": [
+        130.0,
+        130.0
+      ],
+      "pair_checks": 325,
+      "pair_distances": [
+        {
+          "a": "spojovaci-tahlo__01.stl",
+          "b": "kolo-76x12-predni__02.stl",
+          "clearance_mm": 11.050000000000002
+        },
+        {
+          "a": "spojovaci-tahlo__01.stl",
+          "b": "kolo-76x12-predni__01.stl",
+          "clearance_mm": 11.04999999999999
+        },
+        {
+          "a": "spojovaci-tahlo__01.stl",
+          "b": "kolo-76x12-zadni-d__01.stl",
+          "clearance_mm": 11.050000000000011
+        },
+        {
+          "a": "spojovaci-tahlo__01.stl",
+          "b": "mezikolo-b-60_22__01.stl",
+          "clearance_mm": 70.65771110305207
+        },
+        {
+          "a": "spojovaci-tahlo__01.stl",
+          "b": "kolo-76x12-zadni-d__02.stl",
+          "clearance_mm": 86.43537019103334
+        },
+        {
+          "a": "spojovaci-tahlo__01.stl",
+          "b": "mezikolo-a-54_18__01.stl",
+          "clearance_mm": 90.26976730717499
+        },
+        {
+          "a": "spojovaci-tahlo__01.stl",
+          "b": "osa-zadni-12x150_6__01.stl",
+          "clearance_mm": 170.84308672660762
+        },
+        {
+          "a": "spojovaci-tahlo__01.stl",
+          "b": "servo-viko__01.stl",
+          "clearance_mm": 97.06433215188054
+        },
+        {
+          "a": "spojovaci-tahlo__01.stl",
+          "b": "servo-tahlo-r15__01.stl",
+          "clearance_mm": 172.42555938900867
+        },
+        {
+          "a": "spojovaci-tahlo__01.stl",
+          "b": "tehlice-prava__01.stl",
+          "clearance_mm": 143.0084198667165
+        },
+        {
+          "a": "spojovaci-tahlo__01.stl",
+          "b": "svisly-cep-8__02.stl",
+          "clearance_mm": 146.7558349736661
+        },
+        {
+          "a": "spojovaci-tahlo__01.stl",
+          "b": "pevny-cep-8x53_9__01.stl",
+          "clearance_mm": 193.63756314087192
+        },
+        {
+          "a": "spojovaci-tahlo__01.stl",
+          "b": "servo-cep-4x51_2__01.stl",
+          "clearance_mm": 193.92437408648783
+        },
+        {
+          "a": "spojovaci-tahlo__01.stl",
+          "b": "celist-horni__02.stl",
+          "clearance_mm": 139.50054822693656
+        },
+        {
+          "a": "spojovaci-tahlo__01.stl",
+          "b": "motorovy-mustek__01.stl",
+          "clearance_mm": 197.0525702601299
+        },
+        {
+          "a": "spojovaci-tahlo__01.stl",
+          "b": "pricny-klinek-4x27_1__01.stl",
+          "clearance_mm": 204.74796133110607
+        },
+        {
+          "a": "spojovaci-tahlo__01.stl",
+          "b": "pojistka-6_9__04.stl",
+          "clearance_mm": 145.93713641673466
+        },
+        {
+          "a": "spojovaci-tahlo__01.stl",
+          "b": "cep-plosiny-4x19_5__04.stl",
+          "clearance_mm": 197.06198271005073
+        },
+        {
+          "a": "spojovaci-tahlo__01.stl",
+          "b": "motorovy-klinek__02.stl",
+          "clearance_mm": 11.049999999999994
+        },
+        {
+          "a": "spojovaci-tahlo__01.stl",
+          "b": "pojistka-kloubu-4_9__02.stl",
+          "clearance_mm": 92.30596119269771
+        },
+        {
+          "a": "spojovaci-tahlo__01.stl",
+          "b": "motorovy-klinek__01.stl",
+          "clearance_mm": 49.811301527492944
+        },
+        {
+          "a": "spojovaci-tahlo__01.stl",
+          "b": "pojistka-3_1__07.stl",
+          "clearance_mm": 82.16200875665261
+        },
+        {
+          "a": "spojovaci-tahlo__01.stl",
+          "b": "pojistka-3_1__02.stl",
+          "clearance_mm": 73.42691413062718
+        },
+        {
+          "a": "spojovaci-tahlo__01.stl",
+          "b": "pojistka-3_1__01.stl",
+          "clearance_mm": 167.85314870840793
+        },
+        {
+          "a": "spojovaci-tahlo__01.stl",
+          "b": "pojistka-3_1__03.stl",
+          "clearance_mm": 155.48118072872754
+        },
+        {
+          "a": "kolo-76x12-predni__02.stl",
+          "b": "kolo-76x12-predni__01.stl",
+          "clearance_mm": 95.95334412158812
+        },
+        {
+          "a": "kolo-76x12-predni__02.stl",
+          "b": "kolo-76x12-zadni-d__01.stl",
+          "clearance_mm": 16.49979952971378
+        },
+        {
+          "a": "kolo-76x12-predni__02.stl",
+          "b": "mezikolo-b-60_22__01.stl",
+          "clearance_mm": 11.05
+        },
+        {
+          "a": "kolo-76x12-predni__02.stl",
+          "b": "kolo-76x12-zadni-d__02.stl",
+          "clearance_mm": 98.7687361568621
+        },
+        {
+          "a": "kolo-76x12-predni__02.stl",
+          "b": "mezikolo-a-54_18__01.stl",
+          "clearance_mm": 61.211370737869984
+        },
+        {
+          "a": "kolo-76x12-predni__02.stl",
+          "b": "osa-zadni-12x150_6__01.stl",
+          "clearance_mm": 134.84309604105573
+        },
+        {
+          "a": "kolo-76x12-predni__02.stl",
+          "b": "servo-viko__01.stl",
+          "clearance_mm": 162.3829954448638
+        },
+        {
+          "a": "kolo-76x12-predni__02.stl",
+          "b": "servo-tahlo-r15__01.stl",
+          "clearance_mm": 175.19686847728525
+        },
+        {
+          "a": "kolo-76x12-predni__02.stl",
+          "b": "tehlice-prava__01.stl",
+          "clearance_mm": 83.52024896443059
+        },
+        {
+          "a": "kolo-76x12-predni__02.stl",
+          "b": "svisly-cep-8__02.stl",
+          "clearance_mm": 183.66182145583548
+        },
+        {
+          "a": "kolo-76x12-predni__02.stl",
+          "b": "pevny-cep-8x53_9__01.stl",
+          "clearance_mm": 168.45965459397627
+        },
+        {
+          "a": "kolo-76x12-predni__02.stl",
+          "b": "servo-cep-4x51_2__01.stl",
+          "clearance_mm": 159.63044611822764
+        },
+        {
+          "a": "kolo-76x12-predni__02.stl",
+          "b": "celist-horni__02.stl",
+          "clearance_mm": 95.22294943600816
+        },
+        {
+          "a": "kolo-76x12-predni__02.stl",
+          "b": "motorovy-mustek__01.stl",
+          "clearance_mm": 196.86378564005594
+        },
+        {
+          "a": "kolo-76x12-predni__02.stl",
+          "b": "pricny-klinek-4x27_1__01.stl",
+          "clearance_mm": 158.3631132722468
+        },
+        {
+          "a": "kolo-76x12-predni__02.stl",
+          "b": "pojistka-6_9__04.stl",
+          "clearance_mm": 126.19205824394199
+        },
+        {
+          "a": "kolo-76x12-predni__02.stl",
+          "b": "cep-plosiny-4x19_5__04.stl",
+          "clearance_mm": 233.63613069271506
+        },
+        {
+          "a": "kolo-76x12-predni__02.stl",
+          "b": "motorovy-klinek__02.stl",
+          "clearance_mm": 79.74103465816931
+        },
+        {
+          "a": "kolo-76x12-predni__02.stl",
+          "b": "pojistka-kloubu-4_9__02.stl",
+          "clearance_mm": 11.050000000000008
+        },
+        {
+          "a": "kolo-76x12-predni__02.stl",
+          "b": "motorovy-klinek__01.stl",
+          "clearance_mm": 11.050000000000011
+        },
+        {
+          "a": "kolo-76x12-predni__02.stl",
+          "b": "pojistka-3_1__07.stl",
+          "clearance_mm": 11.049487180935978
+        },
+        {
+          "a": "kolo-76x12-predni__02.stl",
+          "b": "pojistka-3_1__02.stl",
+          "clearance_mm": 40.4334707646313
+        },
+        {
+          "a": "kolo-76x12-predni__02.stl",
+          "b": "pojistka-3_1__01.stl",
+          "clearance_mm": 117.83801948322896
+        },
+        {
+          "a": "kolo-76x12-predni__02.stl",
+          "b": "pojistka-3_1__03.stl",
+          "clearance_mm": 118.6548708171715
+        },
+        {
+          "a": "kolo-76x12-predni__01.stl",
+          "b": "kolo-76x12-zadni-d__01.stl",
+          "clearance_mm": 11.049931589957959
+        },
+        {
+          "a": "kolo-76x12-predni__01.stl",
+          "b": "mezikolo-b-60_22__01.stl",
+          "clearance_mm": 111.78393771631724
+        },
+        {
+          "a": "kolo-76x12-predni__01.stl",
+          "b": "kolo-76x12-zadni-d__02.stl",
+          "clearance_mm": 11.05
+        },
+        {
+          "a": "kolo-76x12-predni__01.stl",
+          "b": "mezikolo-a-54_18__01.stl",
+          "clearance_mm": 73.71140074292988
+        },
+        {
+          "a": "kolo-76x12-predni__01.stl",
+          "b": "osa-zadni-12x150_6__01.stl",
+          "clearance_mm": 97.50779889518122
+        },
+        {
+          "a": "kolo-76x12-predni__01.stl",
+          "b": "servo-viko__01.stl",
+          "clearance_mm": 11.050000000000011
+        },
+        {
+          "a": "kolo-76x12-predni__01.stl",
+          "b": "servo-tahlo-r15__01.stl",
+          "clearance_mm": 85.7955015542089
+        },
+        {
+          "a": "kolo-76x12-predni__01.stl",
+          "b": "tehlice-prava__01.stl",
+          "clearance_mm": 158.8582767924755
+        },
+        {
+          "a": "kolo-76x12-predni__01.stl",
+          "b": "svisly-cep-8__02.stl",
+          "clearance_mm": 59.70770919614449
+        },
+        {
+          "a": "kolo-76x12-predni__01.stl",
+          "b": "pevny-cep-8x53_9__01.stl",
+          "clearance_mm": 115.18384477842224
+        },
+        {
+          "a": "kolo-76x12-predni__01.stl",
+          "b": "servo-cep-4x51_2__01.stl",
+          "clearance_mm": 147.27796740144188
+        },
+        {
+          "a": "kolo-76x12-predni__01.stl",
+          "b": "celist-horni__02.stl",
+          "clearance_mm": 140.88813820960453
+        },
+        {
+          "a": "kolo-76x12-predni__01.stl",
+          "b": "motorovy-mustek__01.stl",
+          "clearance_mm": 110.00444448260828
+        },
+        {
+          "a": "kolo-76x12-predni__01.stl",
+          "b": "pricny-klinek-4x27_1__01.stl",
+          "clearance_mm": 191.3198677147816
+        },
+        {
+          "a": "kolo-76x12-predni__01.stl",
+          "b": "pojistka-6_9__04.stl",
+          "clearance_mm": 93.56120048081725
+        },
+        {
+          "a": "kolo-76x12-predni__01.stl",
+          "b": "cep-plosiny-4x19_5__04.stl",
+          "clearance_mm": 113.10959025573018
+        },
+        {
+          "a": "kolo-76x12-predni__01.stl",
+          "b": "motorovy-klinek__02.stl",
+          "clearance_mm": 11.050000000000006
+        },
+        {
+          "a": "kolo-76x12-predni__01.stl",
+          "b": "pojistka-kloubu-4_9__02.stl",
+          "clearance_mm": 163.0745861158605
+        },
+        {
+          "a": "kolo-76x12-predni__01.stl",
+          "b": "motorovy-klinek__01.stl",
+          "clearance_mm": 98.09899578300661
+        },
+        {
+          "a": "kolo-76x12-predni__01.stl",
+          "b": "pojistka-3_1__07.stl",
+          "clearance_mm": 179.45162273215587
+        },
+        {
+          "a": "kolo-76x12-predni__01.stl",
+          "b": "pojistka-3_1__02.stl",
+          "clearance_mm": 94.14446697440123
+        },
+        {
+          "a": "kolo-76x12-predni__01.stl",
+          "b": "pojistka-3_1__01.stl",
+          "clearance_mm": 169.92200771710927
+        },
+        {
+          "a": "kolo-76x12-predni__01.stl",
+          "b": "pojistka-3_1__03.stl",
+          "clearance_mm": 135.34487225980234
+        },
+        {
+          "a": "kolo-76x12-zadni-d__01.stl",
+          "b": "mezikolo-b-60_22__01.stl",
+          "clearance_mm": 26.68681701678985
+        },
+        {
+          "a": "kolo-76x12-zadni-d__01.stl",
+          "b": "kolo-76x12-zadni-d__02.stl",
+          "clearance_mm": 11.049999999986744
+        },
+        {
+          "a": "kolo-76x12-zadni-d__01.stl",
+          "b": "mezikolo-a-54_18__01.stl",
+          "clearance_mm": 11.04999999999999
+        },
+        {
+          "a": "kolo-76x12-zadni-d__01.stl",
+          "b": "osa-zadni-12x150_6__01.stl",
+          "clearance_mm": 83.79496094908598
+        },
+        {
+          "a": "kolo-76x12-zadni-d__01.stl",
+          "b": "servo-viko__01.stl",
+          "clearance_mm": 70.27732170222075
+        },
+        {
+          "a": "kolo-76x12-zadni-d__01.stl",
+          "b": "servo-tahlo-r15__01.stl",
+          "clearance_mm": 94.21560876881186
+        },
+        {
+          "a": "kolo-76x12-zadni-d__01.stl",
+          "b": "tehlice-prava__01.stl",
+          "clearance_mm": 85.35705005241135
+        },
+        {
+          "a": "kolo-76x12-zadni-d__01.stl",
+          "b": "svisly-cep-8__02.stl",
+          "clearance_mm": 92.95715298910753
+        },
+        {
+          "a": "kolo-76x12-zadni-d__01.stl",
+          "b": "pevny-cep-8x53_9__01.stl",
+          "clearance_mm": 107.81431231022582
+        },
+        {
+          "a": "kolo-76x12-zadni-d__01.stl",
+          "b": "servo-cep-4x51_2__01.stl",
+          "clearance_mm": 109.61758586472928
+        },
+        {
+          "a": "kolo-76x12-zadni-d__01.stl",
+          "b": "celist-horni__02.stl",
+          "clearance_mm": 71.44747144304183
+        },
+        {
+          "a": "kolo-76x12-zadni-d__01.stl",
+          "b": "motorovy-mustek__01.stl",
+          "clearance_mm": 117.45011141960917
+        },
+        {
+          "a": "kolo-76x12-zadni-d__01.stl",
+          "b": "pricny-klinek-4x27_1__01.stl",
+          "clearance_mm": 132.92117013089796
+        },
+        {
+          "a": "kolo-76x12-zadni-d__01.stl",
+          "b": "pojistka-6_9__04.stl",
+          "clearance_mm": 58.99163783913492
+        },
+        {
+          "a": "kolo-76x12-zadni-d__01.stl",
+          "b": "cep-plosiny-4x19_5__04.stl",
+          "clearance_mm": 145.39991626169694
+        },
+        {
+          "a": "kolo-76x12-zadni-d__01.stl",
+          "b": "motorovy-klinek__02.stl",
+          "clearance_mm": 13.131896896168174
+        },
+        {
+          "a": "kolo-76x12-zadni-d__01.stl",
+          "b": "pojistka-kloubu-4_9__02.stl",
+          "clearance_mm": 76.48671868097259
+        },
+        {
+          "a": "kolo-76x12-zadni-d__01.stl",
+          "b": "motorovy-klinek__01.stl",
+          "clearance_mm": 11.049999999999983
+        },
+        {
+          "a": "kolo-76x12-zadni-d__01.stl",
+          "b": "pojistka-3_1__07.stl",
+          "clearance_mm": 103.22974312966603
+        },
+        {
+          "a": "kolo-76x12-zadni-d__01.stl",
+          "b": "pojistka-3_1__02.stl",
+          "clearance_mm": 11.049999999999992
+        },
+        {
+          "a": "kolo-76x12-zadni-d__01.stl",
+          "b": "pojistka-3_1__01.stl",
+          "clearance_mm": 101.88152624792112
+        },
+        {
+          "a": "kolo-76x12-zadni-d__01.stl",
+          "b": "pojistka-3_1__03.stl",
+          "clearance_mm": 78.43633132178753
+        },
+        {
+          "a": "mezikolo-b-60_22__01.stl",
+          "b": "kolo-76x12-zadni-d__02.stl",
+          "clearance_mm": 74.19663670721972
+        },
+        {
+          "a": "mezikolo-b-60_22__01.stl",
+          "b": "mezikolo-a-54_18__01.stl",
+          "clearance_mm": 11.050000000000008
+        },
+        {
+          "a": "mezikolo-b-60_22__01.stl",
+          "b": "osa-zadni-12x150_6__01.stl",
+          "clearance_mm": 62.750310593231994
+        },
+        {
+          "a": "mezikolo-b-60_22__01.stl",
+          "b": "servo-viko__01.stl",
+          "clearance_mm": 158.67448661756072
+        },
+        {
+          "a": "mezikolo-b-60_22__01.stl",
+          "b": "servo-tahlo-r15__01.stl",
+          "clearance_mm": 134.42351522163597
+        },
+        {
+          "a": "mezikolo-b-60_22__01.stl",
+          "b": "tehlice-prava__01.stl",
+          "clearance_mm": 11.049999999999972
+        },
+        {
+          "a": "mezikolo-b-60_22__01.stl",
+          "b": "svisly-cep-8__02.stl",
+          "clearance_mm": 160.92389933293703
+        },
+        {
+          "a": "mezikolo-b-60_22__01.stl",
+          "b": "pevny-cep-8x53_9__01.stl",
+          "clearance_mm": 108.89703326341365
+        },
+        {
+          "a": "mezikolo-b-60_22__01.stl",
+          "b": "servo-cep-4x51_2__01.stl",
+          "clearance_mm": 88.40883320730025
+        },
+        {
+          "a": "mezikolo-b-60_22__01.stl",
+          "b": "celist-horni__02.stl",
+          "clearance_mm": 25.30608391580814
+        },
+        {
+          "a": "mezikolo-b-60_22__01.stl",
+          "b": "motorovy-mustek__01.stl",
+          "clearance_mm": 152.74068992190234
+        },
+        {
+          "a": "mezikolo-b-60_22__01.stl",
+          "b": "pricny-klinek-4x27_1__01.stl",
+          "clearance_mm": 85.79939136850854
+        },
+        {
+          "a": "mezikolo-b-60_22__01.stl",
+          "b": "pojistka-6_9__04.stl",
+          "clearance_mm": 77.75048325537922
+        },
+        {
+          "a": "mezikolo-b-60_22__01.stl",
+          "b": "cep-plosiny-4x19_5__04.stl",
+          "clearance_mm": 200.84854682788182
+        },
+        {
+          "a": "mezikolo-b-60_22__01.stl",
+          "b": "motorovy-klinek__02.stl",
+          "clearance_mm": 113.39674144432547
+        },
+        {
+          "a": "mezikolo-b-60_22__01.stl",
+          "b": "pojistka-kloubu-4_9__02.stl",
+          "clearance_mm": 15.231530129898594
+        },
+        {
+          "a": "mezikolo-b-60_22__01.stl",
+          "b": "motorovy-klinek__01.stl",
+          "clearance_mm": 11.422135152229428
+        },
+        {
+          "a": "mezikolo-b-60_22__01.stl",
+          "b": "pojistka-3_1__07.stl",
+          "clearance_mm": 81.60152509414978
+        },
+        {
+          "a": "mezikolo-b-60_22__01.stl",
+          "b": "pojistka-3_1__02.stl",
+          "clearance_mm": 11.04999999999998
+        },
+        {
+          "a": "mezikolo-b-60_22__01.stl",
+          "b": "pojistka-3_1__01.stl",
+          "clearance_mm": 44.82181128278019
+        },
+        {
+          "a": "mezikolo-b-60_22__01.stl",
+          "b": "pojistka-3_1__03.stl",
+          "clearance_mm": 53.546766871052114
+        },
+        {
+          "a": "kolo-76x12-zadni-d__02.stl",
+          "b": "mezikolo-a-54_18__01.stl",
+          "clearance_mm": 12.214757607996413
+        },
+        {
+          "a": "kolo-76x12-zadni-d__02.stl",
+          "b": "osa-zadni-12x150_6__01.stl",
+          "clearance_mm": 11.049357628998788
+        },
+        {
+          "a": "kolo-76x12-zadni-d__02.stl",
+          "b": "servo-viko__01.stl",
+          "clearance_mm": 15.524030595318663
+        },
+        {
+          "a": "kolo-76x12-zadni-d__02.stl",
+          "b": "servo-tahlo-r15__01.stl",
+          "clearance_mm": 11.050000000000002
+        },
+        {
+          "a": "kolo-76x12-zadni-d__02.stl",
+          "b": "tehlice-prava__01.stl",
+          "clearance_mm": 97.37107362597658
+        },
+        {
+          "a": "kolo-76x12-zadni-d__02.stl",
+          "b": "svisly-cep-8__02.stl",
+          "clearance_mm": 11.049999999999997
+        },
+        {
+          "a": "kolo-76x12-zadni-d__02.stl",
+          "b": "pevny-cep-8x53_9__01.stl",
+          "clearance_mm": 31.564545348619035
+        },
+        {
+          "a": "kolo-76x12-zadni-d__02.stl",
+          "b": "servo-cep-4x51_2__01.stl",
+          "clearance_mm": 62.049441129842556
+        },
+        {
+          "a": "kolo-76x12-zadni-d__02.stl",
+          "b": "celist-horni__02.stl",
+          "clearance_mm": 74.0986152883543
+        },
+        {
+          "a": "kolo-76x12-zadni-d__02.stl",
+          "b": "motorovy-mustek__01.stl",
+          "clearance_mm": 34.73172658746683
+        },
+        {
+          "a": "kolo-76x12-zadni-d__02.stl",
+          "b": "pricny-klinek-4x27_1__01.stl",
+          "clearance_mm": 113.17092930804519
+        },
+        {
+          "a": "kolo-76x12-zadni-d__02.stl",
+          "b": "pojistka-6_9__04.stl",
+          "clearance_mm": 11.049999999999995
+        },
+        {
+          "a": "kolo-76x12-zadni-d__02.stl",
+          "b": "cep-plosiny-4x19_5__04.stl",
+          "clearance_mm": 59.01452957129514
+        },
+        {
+          "a": "kolo-76x12-zadni-d__02.stl",
+          "b": "motorovy-klinek__02.stl",
+          "clearance_mm": 69.38537019103335
+        },
+        {
+          "a": "kolo-76x12-zadni-d__02.stl",
+          "b": "pojistka-kloubu-4_9__02.stl",
+          "clearance_mm": 142.99601996033604
+        },
+        {
+          "a": "kolo-76x12-zadni-d__02.stl",
+          "b": "motorovy-klinek__01.stl",
+          "clearance_mm": 81.04241414589795
+        },
+        {
+          "a": "kolo-76x12-zadni-d__02.stl",
+          "b": "pojistka-3_1__07.stl",
+          "clearance_mm": 185.6664526073077
+        },
+        {
+          "a": "kolo-76x12-zadni-d__02.stl",
+          "b": "pojistka-3_1__02.stl",
+          "clearance_mm": 61.555712771687375
+        },
+        {
+          "a": "kolo-76x12-zadni-d__02.stl",
+          "b": "pojistka-3_1__01.stl",
+          "clearance_mm": 100.78705689600584
+        },
+        {
+          "a": "kolo-76x12-zadni-d__02.stl",
+          "b": "pojistka-3_1__03.stl",
+          "clearance_mm": 60.64118890378149
+        },
+        {
+          "a": "mezikolo-a-54_18__01.stl",
+          "b": "osa-zadni-12x150_6__01.stl",
+          "clearance_mm": 24.603203005819637
+        },
+        {
+          "a": "mezikolo-a-54_18__01.stl",
+          "b": "servo-viko__01.stl",
+          "clearance_mm": 103.46696066495029
+        },
+        {
+          "a": "mezikolo-a-54_18__01.stl",
+          "b": "servo-tahlo-r15__01.stl",
+          "clearance_mm": 67.03712418559647
+        },
+        {
+          "a": "mezikolo-a-54_18__01.stl",
+          "b": "tehlice-prava__01.stl",
+          "clearance_mm": 30.41818783455603
+        },
+        {
+          "a": "mezikolo-a-54_18__01.stl",
+          "b": "svisly-cep-8__02.stl",
+          "clearance_mm": 96.94301665061967
+        },
+        {
+          "a": "mezikolo-a-54_18__01.stl",
+          "b": "pevny-cep-8x53_9__01.stl",
+          "clearance_mm": 51.270742695429085
+        },
+        {
+          "a": "mezikolo-a-54_18__01.stl",
+          "b": "servo-cep-4x51_2__01.stl",
+          "clearance_mm": 47.72657111458958
+        },
+        {
+          "a": "mezikolo-a-54_18__01.stl",
+          "b": "celist-horni__02.stl",
+          "clearance_mm": 11.05
+        },
+        {
+          "a": "mezikolo-a-54_18__01.stl",
+          "b": "motorovy-mustek__01.stl",
+          "clearance_mm": 85.77303115596197
+        },
+        {
+          "a": "mezikolo-a-54_18__01.stl",
+          "b": "pricny-klinek-4x27_1__01.stl",
+          "clearance_mm": 66.12847485738182
+        },
+        {
+          "a": "mezikolo-a-54_18__01.stl",
+          "b": "pojistka-6_9__04.stl",
+          "clearance_mm": 11.04999999999999
+        },
+        {
+          "a": "mezikolo-a-54_18__01.stl",
+          "b": "cep-plosiny-4x19_5__04.stl",
+          "clearance_mm": 133.69523024681152
+        },
+        {
+          "a": "mezikolo-a-54_18__01.stl",
+          "b": "motorovy-klinek__02.stl",
+          "clearance_mm": 97.32083619357846
+        },
+        {
+          "a": "mezikolo-a-54_18__01.stl",
+          "b": "pojistka-kloubu-4_9__02.stl",
+          "clearance_mm": 86.26493277118944
+        },
+        {
+          "a": "mezikolo-a-54_18__01.stl",
+          "b": "motorovy-klinek__01.stl",
+          "clearance_mm": 41.793316294571056
+        },
+        {
+          "a": "mezikolo-a-54_18__01.stl",
+          "b": "pojistka-3_1__07.stl",
+          "clearance_mm": 143.46750618653795
+        },
+        {
+          "a": "mezikolo-a-54_18__01.stl",
+          "b": "pojistka-3_1__02.stl",
+          "clearance_mm": 13.998425736864974
+        },
+        {
+          "a": "mezikolo-a-54_18__01.stl",
+          "b": "pojistka-3_1__01.stl",
+          "clearance_mm": 39.89487178872622
+        },
+        {
+          "a": "mezikolo-a-54_18__01.stl",
+          "b": "pojistka-3_1__03.stl",
+          "clearance_mm": 11.049999999999999
+        },
+        {
+          "a": "osa-zadni-12x150_6__01.stl",
+          "b": "servo-viko__01.stl",
+          "clearance_mm": 77.53740625019827
+        },
+        {
+          "a": "osa-zadni-12x150_6__01.stl",
+          "b": "servo-tahlo-r15__01.stl",
+          "clearance_mm": 12.22874530707486
+        },
+        {
+          "a": "osa-zadni-12x150_6__01.stl",
+          "b": "tehlice-prava__01.stl",
+          "clearance_mm": 22.937877148924795
+        },
+        {
+          "a": "osa-zadni-12x150_6__01.stl",
+          "b": "svisly-cep-8__02.stl",
+          "clearance_mm": 60.568587282444355
+        },
+        {
+          "a": "osa-zadni-12x150_6__01.stl",
+          "b": "pevny-cep-8x53_9__01.stl",
+          "clearance_mm": 11.049999999999997
+        },
+        {
+          "a": "osa-zadni-12x150_6__01.stl",
+          "b": "servo-cep-4x51_2__01.stl",
+          "clearance_mm": 11.050000000000011
+        },
+        {
+          "a": "osa-zadni-12x150_6__01.stl",
+          "b": "celist-horni__02.stl",
+          "clearance_mm": 15.122673479446007
+        },
+        {
+          "a": "osa-zadni-12x150_6__01.stl",
+          "b": "motorovy-mustek__01.stl",
+          "clearance_mm": 24.42513443294914
+        },
+        {
+          "a": "osa-zadni-12x150_6__01.stl",
+          "b": "pricny-klinek-4x27_1__01.stl",
+          "clearance_mm": 11.050000000000011
+        },
+        {
+          "a": "osa-zadni-12x150_6__01.stl",
+          "b": "pojistka-6_9__04.stl",
+          "clearance_mm": 12.615953852586784
+        },
+        {
+          "a": "osa-zadni-12x150_6__01.stl",
+          "b": "cep-plosiny-4x19_5__04.stl",
+          "clearance_mm": 79.56252980606635
+        },
+        {
+          "a": "osa-zadni-12x150_6__01.stl",
+          "b": "motorovy-klinek__02.stl",
+          "clearance_mm": 154.27879464913144
+        },
+        {
+          "a": "osa-zadni-12x150_6__01.stl",
+          "b": "pojistka-kloubu-4_9__02.stl",
+          "clearance_mm": 132.93867753476388
+        },
+        {
+          "a": "osa-zadni-12x150_6__01.stl",
+          "b": "motorovy-klinek__01.stl",
+          "clearance_mm": 121.24894416991489
+        },
+        {
+          "a": "osa-zadni-12x150_6__01.stl",
+          "b": "pojistka-3_1__07.stl",
+          "clearance_mm": 204.07204771960886
+        },
+        {
+          "a": "osa-zadni-12x150_6__01.stl",
+          "b": "pojistka-3_1__02.stl",
+          "clearance_mm": 93.43638656425895
+        },
+        {
+          "a": "osa-zadni-12x150_6__01.stl",
+          "b": "pojistka-3_1__01.stl",
+          "clearance_mm": 11.256143425866043
+        },
+        {
+          "a": "osa-zadni-12x150_6__01.stl",
+          "b": "pojistka-3_1__03.stl",
+          "clearance_mm": 11.174506149848071
+        },
+        {
+          "a": "servo-viko__01.stl",
+          "b": "servo-tahlo-r15__01.stl",
+          "clearance_mm": 36.16122647418868
+        },
+        {
+          "a": "servo-viko__01.stl",
+          "b": "tehlice-prava__01.stl",
+          "clearance_mm": 188.70118234516121
+        },
+        {
+          "a": "servo-viko__01.stl",
+          "b": "svisly-cep-8__02.stl",
+          "clearance_mm": 11.049999999999994
+        },
+        {
+          "a": "servo-viko__01.stl",
+          "b": "pevny-cep-8x53_9__01.stl",
+          "clearance_mm": 83.4393618610433
+        },
+        {
+          "a": "servo-viko__01.stl",
+          "b": "servo-cep-4x51_2__01.stl",
+          "clearance_mm": 138.12961739708103
+        },
+        {
+          "a": "servo-viko__01.stl",
+          "b": "celist-horni__02.stl",
+          "clearance_mm": 163.72736818755698
+        },
+        {
+          "a": "servo-viko__01.stl",
+          "b": "motorovy-mustek__01.stl",
+          "clearance_mm": 61.53137303605333
+        },
+        {
+          "a": "servo-viko__01.stl",
+          "b": "pricny-klinek-4x27_1__01.stl",
+          "clearance_mm": 196.4277378397187
+        },
+        {
+          "a": "servo-viko__01.stl",
+          "b": "pojistka-6_9__04.stl",
+          "clearance_mm": 96.27865064841016
+        },
+        {
+          "a": "servo-viko__01.stl",
+          "b": "cep-plosiny-4x19_5__04.stl",
+          "clearance_mm": 60.75704924868106
+        },
+        {
+          "a": "servo-viko__01.stl",
+          "b": "motorovy-klinek__02.stl",
+          "clearance_mm": 92.8820223850792
+        },
+        {
+          "a": "servo-viko__01.stl",
+          "b": "pojistka-kloubu-4_9__02.stl",
+          "clearance_mm": 219.79093559440548
+        },
+        {
+          "a": "servo-viko__01.stl",
+          "b": "motorovy-klinek__01.stl",
+          "clearance_mm": 153.61660726942975
+        },
+        {
+          "a": "servo-viko__01.stl",
+          "b": "pojistka-3_1__07.stl",
+          "clearance_mm": 248.56052275834966
+        },
+        {
+          "a": "servo-viko__01.stl",
+          "b": "pojistka-3_1__02.stl",
+          "clearance_mm": 141.70084547110545
+        },
+        {
+          "a": "servo-viko__01.stl",
+          "b": "pojistka-3_1__01.stl",
+          "clearance_mm": 189.73173280788345
+        },
+        {
+          "a": "servo-viko__01.stl",
+          "b": "pojistka-3_1__03.stl",
+          "clearance_mm": 148.37239372836896
+        },
+        {
+          "a": "servo-tahlo-r15__01.stl",
+          "b": "tehlice-prava__01.stl",
+          "clearance_mm": 137.179519826642
+        },
+        {
+          "a": "servo-tahlo-r15__01.stl",
+          "b": "svisly-cep-8__02.stl",
+          "clearance_mm": 13.072819368756178
+        },
+        {
+          "a": "servo-tahlo-r15__01.stl",
+          "b": "pevny-cep-8x53_9__01.stl",
+          "clearance_mm": 11.046763319239705
+        },
+        {
+          "a": "servo-tahlo-r15__01.stl",
+          "b": "servo-cep-4x51_2__01.stl",
+          "clearance_mm": 69.75712461136835
+        },
+        {
+          "a": "servo-tahlo-r15__01.stl",
+          "b": "celist-horni__02.stl",
+          "clearance_mm": 110.28489168005738
+        },
+        {
+          "a": "servo-tahlo-r15__01.stl",
+          "b": "motorovy-mustek__01.stl",
+          "clearance_mm": 11.049999999999992
+        },
+        {
+          "a": "servo-tahlo-r15__01.stl",
+          "b": "pricny-klinek-4x27_1__01.stl",
+          "clearance_mm": 131.37692913151454
+        },
+        {
+          "a": "servo-tahlo-r15__01.stl",
+          "b": "pojistka-6_9__04.stl",
+          "clearance_mm": 44.60782902261624
+        },
+        {
+          "a": "servo-tahlo-r15__01.stl",
+          "b": "cep-plosiny-4x19_5__04.stl",
+          "clearance_mm": 11.050000000000008
+        },
+        {
+          "a": "servo-tahlo-r15__01.stl",
+          "b": "motorovy-klinek__02.stl",
+          "clearance_mm": 156.30509639216052
+        },
+        {
+          "a": "servo-tahlo-r15__01.stl",
+          "b": "pojistka-kloubu-4_9__02.stl",
+          "clearance_mm": 209.11948518622032
+        },
+        {
+          "a": "servo-tahlo-r15__01.stl",
+          "b": "motorovy-klinek__01.stl",
+          "clearance_mm": 154.83302367887003
+        },
+        {
+          "a": "servo-tahlo-r15__01.stl",
+          "b": "pojistka-3_1__07.stl",
+          "clearance_mm": 260.89298885413757
+        },
+        {
+          "a": "servo-tahlo-r15__01.stl",
+          "b": "pojistka-3_1__02.stl",
+          "clearance_mm": 130.6066448105695
+        },
+        {
+          "a": "servo-tahlo-r15__01.stl",
+          "b": "pojistka-3_1__01.stl",
+          "clearance_mm": 133.39776129267915
+        },
+        {
+          "a": "servo-tahlo-r15__01.stl",
+          "b": "pojistka-3_1__03.stl",
+          "clearance_mm": 92.49494499228054
+        },
+        {
+          "a": "tehlice-prava__01.stl",
+          "b": "svisly-cep-8__02.stl",
+          "clearance_mm": 178.98854172727397
+        },
+        {
+          "a": "tehlice-prava__01.stl",
+          "b": "pevny-cep-8x53_9__01.stl",
+          "clearance_mm": 92.99500383533464
+        },
+        {
+          "a": "tehlice-prava__01.stl",
+          "b": "servo-cep-4x51_2__01.stl",
+          "clearance_mm": 57.01818725349135
+        },
+        {
+          "a": "tehlice-prava__01.stl",
+          "b": "celist-horni__02.stl",
+          "clearance_mm": 11.050000000000004
+        },
+        {
+          "a": "tehlice-prava__01.stl",
+          "b": "motorovy-mustek__01.stl",
+          "clearance_mm": 150.55830896449797
+        },
+        {
+          "a": "tehlice-prava__01.stl",
+          "b": "pricny-klinek-4x27_1__01.stl",
+          "clearance_mm": 47.218140515454614
+        },
+        {
+          "a": "tehlice-prava__01.stl",
+          "b": "pojistka-6_9__04.stl",
+          "clearance_mm": 81.64191948912743
+        },
+        {
+          "a": "tehlice-prava__01.stl",
+          "b": "cep-plosiny-4x19_5__04.stl",
+          "clearance_mm": 205.95827165357733
+        },
+        {
+          "a": "tehlice-prava__01.stl",
+          "b": "motorovy-klinek__02.stl",
+          "clearance_mm": 174.42557163329514
+        },
+        {
+          "a": "tehlice-prava__01.stl",
+          "b": "pojistka-kloubu-4_9__02.stl",
+          "clearance_mm": 77.10079885996021
+        },
+        {
+          "a": "tehlice-prava__01.stl",
+          "b": "motorovy-klinek__01.stl",
+          "clearance_mm": 82.8839001838167
+        },
+        {
+          "a": "tehlice-prava__01.stl",
+          "b": "pojistka-3_1__07.stl",
+          "clearance_mm": 148.23416904480518
+        },
+        {
+          "a": "tehlice-prava__01.stl",
+          "b": "pojistka-3_1__02.stl",
+          "clearance_mm": 69.71223449286823
+        },
+        {
+          "a": "tehlice-prava__01.stl",
+          "b": "pojistka-3_1__01.stl",
+          "clearance_mm": 11.049999999999999
+        },
+        {
+          "a": "tehlice-prava__01.stl",
+          "b": "pojistka-3_1__03.stl",
+          "clearance_mm": 38.20173033844959
+        },
+        {
+          "a": "svisly-cep-8__02.stl",
+          "b": "pevny-cep-8x53_9__01.stl",
+          "clearance_mm": 61.005189964105675
+        },
+        {
+          "a": "svisly-cep-8__02.stl",
+          "b": "servo-cep-4x51_2__01.stl",
+          "clearance_mm": 120.61134758671403
+        },
+        {
+          "a": "svisly-cep-8__02.stl",
+          "b": "celist-horni__02.stl",
+          "clearance_mm": 153.48779782600548
+        },
+        {
+          "a": "svisly-cep-8__02.stl",
+          "b": "motorovy-mustek__01.stl",
+          "clearance_mm": 37.300775485562895
+        },
+        {
+          "a": "svisly-cep-8__02.stl",
+          "b": "pricny-klinek-4x27_1__01.stl",
+          "clearance_mm": 181.17434201412746
+        },
+        {
+          "a": "svisly-cep-8__02.stl",
+          "b": "pojistka-6_9__04.stl",
+          "clearance_mm": 85.14264419211851
+        },
+        {
+          "a": "svisly-cep-8__02.stl",
+          "b": "cep-plosiny-4x19_5__04.stl",
+          "clearance_mm": 39.69885771639056
+        },
+        {
+          "a": "svisly-cep-8__02.stl",
+          "b": "motorovy-klinek__02.stl",
+          "clearance_mm": 134.96586891460245
+        },
+        {
+          "a": "svisly-cep-8__02.stl",
+          "b": "pojistka-kloubu-4_9__02.stl",
+          "clearance_mm": 230.00493190796266
+        },
+        {
+          "a": "svisly-cep-8__02.stl",
+          "b": "motorovy-klinek__01.stl",
+          "clearance_mm": 167.3391984098163
+        },
+        {
+          "a": "svisly-cep-8__02.stl",
+          "b": "pojistka-3_1__07.stl",
+          "clearance_mm": 270.70183092168816
+        },
+        {
+          "a": "svisly-cep-8__02.stl",
+          "b": "pojistka-3_1__02.stl",
+          "clearance_mm": 148.57102100079064
+        },
+        {
+          "a": "svisly-cep-8__02.stl",
+          "b": "pojistka-3_1__01.stl",
+          "clearance_mm": 178.8324466601855
+        },
+        {
+          "a": "svisly-cep-8__02.stl",
+          "b": "pojistka-3_1__03.stl",
+          "clearance_mm": 137.17658364072082
+        },
+        {
+          "a": "pevny-cep-8x53_9__01.stl",
+          "b": "servo-cep-4x51_2__01.stl",
+          "clearance_mm": 11.050000000000011
+        },
+        {
+          "a": "pevny-cep-8x53_9__01.stl",
+          "b": "celist-horni__02.stl",
+          "clearance_mm": 66.35790647934368
+        },
+        {
+          "a": "pevny-cep-8x53_9__01.stl",
+          "b": "motorovy-mustek__01.stl",
+          "clearance_mm": 11.049999999999997
+        },
+        {
+          "a": "pevny-cep-8x53_9__01.stl",
+          "b": "pricny-klinek-4x27_1__01.stl",
+          "clearance_mm": 73.30000076293949
+        },
+        {
+          "a": "pevny-cep-8x53_9__01.stl",
+          "b": "pojistka-6_9__04.stl",
+          "clearance_mm": 36.769864946563935
+        },
+        {
+          "a": "pevny-cep-8x53_9__01.stl",
+          "b": "cep-plosiny-4x19_5__04.stl",
+          "clearance_mm": 69.08415272335307
+        },
+        {
+          "a": "pevny-cep-8x53_9__01.stl",
+          "b": "motorovy-klinek__02.stl",
+          "clearance_mm": 176.62061234623937
+        },
+        {
+          "a": "pevny-cep-8x53_9__01.stl",
+          "b": "pojistka-kloubu-4_9__02.stl",
+          "clearance_mm": 186.50595708461591
+        },
+        {
+          "a": "pevny-cep-8x53_9__01.stl",
+          "b": "motorovy-klinek__01.stl",
+          "clearance_mm": 149.4271826000744
+        },
+        {
+          "a": "pevny-cep-8x53_9__01.stl",
+          "b": "pojistka-3_1__07.stl",
+          "clearance_mm": 249.13162832050253
+        },
+        {
+          "a": "pevny-cep-8x53_9__01.stl",
+          "b": "pojistka-3_1__02.stl",
+          "clearance_mm": 121.60548565970034
+        },
+        {
+          "a": "pevny-cep-8x53_9__01.stl",
+          "b": "pojistka-3_1__01.stl",
+          "clearance_mm": 83.5860637729951
+        },
+        {
+          "a": "pevny-cep-8x53_9__01.stl",
+          "b": "pojistka-3_1__03.stl",
+          "clearance_mm": 49.78441672081031
+        },
+        {
+          "a": "servo-cep-4x51_2__01.stl",
+          "b": "celist-horni__02.stl",
+          "clearance_mm": 39.911826400571286
+        },
+        {
+          "a": "servo-cep-4x51_2__01.stl",
+          "b": "motorovy-mustek__01.stl",
+          "clearance_mm": 76.00000152587889
+        },
+        {
+          "a": "servo-cep-4x51_2__01.stl",
+          "b": "pricny-klinek-4x27_1__01.stl",
+          "clearance_mm": 11.050000000000011
+        },
+        {
+          "a": "servo-cep-4x51_2__01.stl",
+          "b": "pojistka-6_9__04.stl",
+          "clearance_mm": 41.42098432699937
+        },
+        {
+          "a": "servo-cep-4x51_2__01.stl",
+          "b": "cep-plosiny-4x19_5__04.stl",
+          "clearance_mm": 134.03415424923196
+        },
+        {
+          "a": "servo-cep-4x51_2__01.stl",
+          "b": "motorovy-klinek__02.stl",
+          "clearance_mm": 189.59732669870013
+        },
+        {
+          "a": "servo-cep-4x51_2__01.stl",
+          "b": "pojistka-kloubu-4_9__02.stl",
+          "clearance_mm": 162.52051357325587
+        },
+        {
+          "a": "servo-cep-4x51_2__01.stl",
+          "b": "motorovy-klinek__01.stl",
+          "clearance_mm": 144.93279697094863
+        },
+        {
+          "a": "servo-cep-4x51_2__01.stl",
+          "b": "pojistka-3_1__07.stl",
+          "clearance_mm": 232.02691643139883
+        },
+        {
+          "a": "servo-cep-4x51_2__01.stl",
+          "b": "pojistka-3_1__02.stl",
+          "clearance_mm": 117.02803440548169
+        },
+        {
+          "a": "servo-cep-4x51_2__01.stl",
+          "b": "pojistka-3_1__01.stl",
+          "clearance_mm": 38.984123834348374
+        },
+        {
+          "a": "servo-cep-4x51_2__01.stl",
+          "b": "pojistka-3_1__03.stl",
+          "clearance_mm": 35.078407245072405
+        },
+        {
+          "a": "celist-horni__02.stl",
+          "b": "motorovy-mustek__01.stl",
+          "clearance_mm": 123.42000168301782
+        },
+        {
+          "a": "celist-horni__02.stl",
+          "b": "pricny-klinek-4x27_1__01.stl",
+          "clearance_mm": 41.01246019980013
+        },
+        {
+          "a": "celist-horni__02.stl",
+          "b": "pojistka-6_9__04.stl",
+          "clearance_mm": 55.5071456648131
+        },
+        {
+          "a": "celist-horni__02.stl",
+          "b": "cep-plosiny-4x19_5__04.stl",
+          "clearance_mm": 179.01870093411634
+        },
+        {
+          "a": "celist-horni__02.stl",
+          "b": "motorovy-klinek__02.stl",
+          "clearance_mm": 160.05775722619896
+        },
+        {
+          "a": "celist-horni__02.stl",
+          "b": "pojistka-kloubu-4_9__02.stl",
+          "clearance_mm": 101.95001250437646
+        },
+        {
+          "a": "celist-horni__02.stl",
+          "b": "motorovy-klinek__01.stl",
+          "clearance_mm": 82.69472478014988
+        },
+        {
+          "a": "celist-horni__02.stl",
+          "b": "pojistka-3_1__07.stl",
+          "clearance_mm": 169.2123813443961
+        },
+        {
+          "a": "celist-horni__02.stl",
+          "b": "pojistka-3_1__02.stl",
+          "clearance_mm": 59.4365779706677
+        },
+        {
+          "a": "celist-horni__02.stl",
+          "b": "pojistka-3_1__01.stl",
+          "clearance_mm": 11.050000000000004
+        },
+        {
+          "a": "celist-horni__02.stl",
+          "b": "pojistka-3_1__03.stl",
+          "clearance_mm": 11.048945600534758
+        },
+        {
+          "a": "motorovy-mustek__01.stl",
+          "b": "pricny-klinek-4x27_1__01.stl",
+          "clearance_mm": 138.2500022888184
+        },
+        {
+          "a": "motorovy-mustek__01.stl",
+          "b": "pojistka-6_9__04.stl",
+          "clearance_mm": 61.99103839810964
+        },
+        {
+          "a": "motorovy-mustek__01.stl",
+          "b": "cep-plosiny-4x19_5__04.stl",
+          "clearance_mm": 18.03415272335306
+        },
+        {
+          "a": "motorovy-mustek__01.stl",
+          "b": "motorovy-klinek__02.stl",
+          "clearance_mm": 180.00257026012991
+        },
+        {
+          "a": "motorovy-mustek__01.stl",
+          "b": "pojistka-kloubu-4_9__02.stl",
+          "clearance_mm": 228.38654783194684
+        },
+        {
+          "a": "motorovy-mustek__01.stl",
+          "b": "motorovy-klinek__01.stl",
+          "clearance_mm": 176.26280403045433
+        },
+        {
+          "a": "motorovy-mustek__01.stl",
+          "b": "pojistka-3_1__07.stl",
+          "clearance_mm": 282.11910287180945
+        },
+        {
+          "a": "motorovy-mustek__01.stl",
+          "b": "pojistka-3_1__02.stl",
+          "clearance_mm": 151.30634744067322
+        },
+        {
+          "a": "motorovy-mustek__01.stl",
+          "b": "pojistka-3_1__01.stl",
+          "clearance_mm": 144.85579380809608
+        },
+        {
+          "a": "motorovy-mustek__01.stl",
+          "b": "pojistka-3_1__03.stl",
+          "clearance_mm": 105.37307823760634
+        },
+        {
+          "a": "pricny-klinek-4x27_1__01.stl",
+          "b": "pojistka-6_9__04.stl",
+          "clearance_mm": 89.22855364506356
+        },
+        {
+          "a": "pricny-klinek-4x27_1__01.stl",
+          "b": "cep-plosiny-4x19_5__04.stl",
+          "clearance_mm": 196.2841550121714
+        },
+        {
+          "a": "pricny-klinek-4x27_1__01.stl",
+          "b": "motorovy-klinek__02.stl",
+          "clearance_mm": 219.8496135831777
+        },
+        {
+          "a": "pricny-klinek-4x27_1__01.stl",
+          "b": "pojistka-kloubu-4_9__02.stl",
+          "clearance_mm": 157.23149620669824
+        },
+        {
+          "a": "pricny-klinek-4x27_1__01.stl",
+          "b": "motorovy-klinek__01.stl",
+          "clearance_mm": 147.7360099018545
+        },
+        {
+          "a": "pricny-klinek-4x27_1__01.stl",
+          "b": "pojistka-3_1__07.stl",
+          "clearance_mm": 228.13232141892806
+        },
+        {
+          "a": "pricny-klinek-4x27_1__01.stl",
+          "b": "pojistka-3_1__02.stl",
+          "clearance_mm": 124.45129304169211
+        },
+        {
+          "a": "pricny-klinek-4x27_1__01.stl",
+          "b": "pojistka-3_1__01.stl",
+          "clearance_mm": 34.324609753102365
+        },
+        {
+          "a": "pricny-klinek-4x27_1__01.stl",
+          "b": "pojistka-3_1__03.stl",
+          "clearance_mm": 49.35387465934262
+        },
+        {
+          "a": "pojistka-6_9__04.stl",
+          "b": "cep-plosiny-4x19_5__04.stl",
+          "clearance_mm": 112.95688129585076
+        },
+        {
+          "a": "pojistka-6_9__04.stl",
+          "b": "motorovy-klinek__02.stl",
+          "clearance_mm": 135.95841511591965
+        },
+        {
+          "a": "pojistka-6_9__04.stl",
+          "b": "pojistka-kloubu-4_9__02.stl",
+          "clearance_mm": 153.63794462064092
+        },
+        {
+          "a": "pojistka-6_9__04.stl",
+          "b": "motorovy-klinek__01.stl",
+          "clearance_mm": 105.5963291220667
+        },
+        {
+          "a": "pojistka-6_9__04.stl",
+          "b": "pojistka-3_1__07.stl",
+          "clearance_mm": 209.89679392044306
+        },
+        {
+          "a": "pojistka-6_9__04.stl",
+          "b": "pojistka-3_1__02.stl",
+          "clearance_mm": 78.98168444829162
+        },
+        {
+          "a": "pojistka-6_9__04.stl",
+          "b": "pojistka-3_1__01.stl",
+          "clearance_mm": 80.77284207254314
+        },
+        {
+          "a": "pojistka-6_9__04.stl",
+          "b": "pojistka-3_1__03.stl",
+          "clearance_mm": 39.19518305051122
+        },
+        {
+          "a": "cep-plosiny-4x19_5__04.stl",
+          "b": "motorovy-klinek__02.stl",
+          "clearance_mm": 190.29630851198021
+        },
+        {
+          "a": "cep-plosiny-4x19_5__04.stl",
+          "b": "pojistka-kloubu-4_9__02.stl",
+          "clearance_mm": 273.8266274951749
+        },
+        {
+          "a": "cep-plosiny-4x19_5__04.stl",
+          "b": "motorovy-klinek__01.stl",
+          "clearance_mm": 215.0098738207641
+        },
+        {
+          "a": "cep-plosiny-4x19_5__04.stl",
+          "b": "pojistka-3_1__07.stl",
+          "clearance_mm": 320.407373977514
+        },
+        {
+          "a": "cep-plosiny-4x19_5__04.stl",
+          "b": "pojistka-3_1__02.stl",
+          "clearance_mm": 193.24799985127973
+        },
+        {
+          "a": "cep-plosiny-4x19_5__04.stl",
+          "b": "pojistka-3_1__01.stl",
+          "clearance_mm": 201.6808394383907
+        },
+        {
+          "a": "cep-plosiny-4x19_5__04.stl",
+          "b": "pojistka-3_1__03.stl",
+          "clearance_mm": 161.1444041434137
+        },
+        {
+          "a": "motorovy-klinek__02.stl",
+          "b": "pojistka-kloubu-4_9__02.stl",
+          "clearance_mm": 154.0656900109093
+        },
+        {
+          "a": "motorovy-klinek__02.stl",
+          "b": "motorovy-klinek__01.stl",
+          "clearance_mm": 92.80748391270086
+        },
+        {
+          "a": "motorovy-klinek__02.stl",
+          "b": "pojistka-3_1__07.stl",
+          "clearance_mm": 160.08586378610278
+        },
+        {
+          "a": "motorovy-klinek__02.stl",
+          "b": "pojistka-3_1__02.stl",
+          "clearance_mm": 99.74166850251707
+        },
+        {
+          "a": "motorovy-klinek__02.stl",
+          "b": "pojistka-3_1__01.stl",
+          "clearance_mm": 190.47500885560427
+        },
+        {
+          "a": "motorovy-klinek__02.stl",
+          "b": "pojistka-3_1__03.stl",
+          "clearance_mm": 164.2353354455161
+        },
+        {
+          "a": "pojistka-kloubu-4_9__02.stl",
+          "b": "motorovy-klinek__01.stl",
+          "clearance_mm": 55.29668083900036
+        },
+        {
+          "a": "pojistka-kloubu-4_9__02.stl",
+          "b": "pojistka-3_1__07.stl",
+          "clearance_mm": 61.15962861667863
+        },
+        {
+          "a": "pojistka-kloubu-4_9__02.stl",
+          "b": "pojistka-3_1__02.stl",
+          "clearance_mm": 74.44148071587111
+        },
+        {
+          "a": "pojistka-kloubu-4_9__02.stl",
+          "b": "pojistka-3_1__01.stl",
+          "clearance_mm": 117.08537357375603
+        },
+        {
+          "a": "pojistka-kloubu-4_9__02.stl",
+          "b": "pojistka-3_1__03.stl",
+          "clearance_mm": 131.01438767602542
+        },
+        {
+          "a": "motorovy-klinek__01.stl",
+          "b": "pojistka-3_1__07.stl",
+          "clearance_mm": 95.29659828935655
+        },
+        {
+          "a": "motorovy-klinek__01.stl",
+          "b": "pojistka-3_1__02.stl",
+          "clearance_mm": 20.96869638666982
+        },
+        {
+          "a": "motorovy-klinek__01.stl",
+          "b": "pojistka-3_1__01.stl",
+          "clearance_mm": 109.1612884998467
+        },
+        {
+          "a": "motorovy-klinek__01.stl",
+          "b": "pojistka-3_1__03.stl",
+          "clearance_mm": 103.30526392109832
+        },
+        {
+          "a": "pojistka-3_1__07.stl",
+          "b": "pojistka-3_1__02.stl",
+          "clearance_mm": 124.0707549460006
+        },
+        {
+          "a": "pojistka-3_1__07.stl",
+          "b": "pojistka-3_1__01.stl",
+          "clearance_mm": 187.23329464900928
+        },
+        {
+          "a": "pojistka-3_1__07.stl",
+          "b": "pojistka-3_1__03.stl",
+          "clearance_mm": 196.17280914644687
+        },
+        {
+          "a": "pojistka-3_1__02.stl",
+          "b": "pojistka-3_1__01.stl",
+          "clearance_mm": 88.79988617972884
+        },
+        {
+          "a": "pojistka-3_1__02.stl",
+          "b": "pojistka-3_1__03.stl",
+          "clearance_mm": 75.80607612239601
+        },
+        {
+          "a": "pojistka-3_1__01.stl",
+          "b": "pojistka-3_1__03.stl",
+          "clearance_mm": 34.65682306425208
+        }
+      ]
+    },
+    {
+      "plate": 2,
+      "objects": 27,
+      "all_within_6mm_edge": true,
+      "minimum_hull_clearance_mm": 11.046647647236163,
+      "minimum_brim_envelope_clearance_mm": 0.8466476472361641,
+      "minimum_edge_clearance_mm": 5.999999999999995,
+      "minimum_brim_to_bed_edge_mm": 0.899999999999995,
+      "group_bbox_center_mm": [
+        130.0,
+        130.0
+      ],
+      "pair_checks": 351,
+      "pair_distances": [
+        {
+          "a": "ram-25__01.stl",
+          "b": "vystupni-kolo-55__01.stl",
+          "clearance_mm": 11.05
+        },
+        {
+          "a": "ram-25__01.stl",
+          "b": "objimka-packy-spodek__01.stl",
+          "clearance_mm": 11.049999999999997
+        },
+        {
+          "a": "ram-25__01.stl",
+          "b": "tehlice-leva__01.stl",
+          "clearance_mm": 11.049999999999994
+        },
+        {
+          "a": "ram-25__01.stl",
+          "b": "objimka-packy-viko__01.stl",
+          "clearance_mm": 11.049999999999992
+        },
+        {
+          "a": "ram-25__01.stl",
+          "b": "celist-horni__01.stl",
+          "clearance_mm": 11.050000000000018
+        },
+        {
+          "a": "ram-25__01.stl",
+          "b": "pojistka-osy-10_9__04.stl",
+          "clearance_mm": 14.244141687382237
+        },
+        {
+          "a": "ram-25__01.stl",
+          "b": "pojistka-osy-10_9__01.stl",
+          "clearance_mm": 39.46716184385717
+        },
+        {
+          "a": "ram-25__01.stl",
+          "b": "rozperka-zadni-17_6__02.stl",
+          "clearance_mm": 42.09248729357038
+        },
+        {
+          "a": "ram-25__01.stl",
+          "b": "pastorek-18-otvor-2_2__01.stl",
+          "clearance_mm": 33.381143280147725
+        },
+        {
+          "a": "ram-25__01.stl",
+          "b": "pevny-cep-8x53_9__02.stl",
+          "clearance_mm": 69.02480299381651
+        },
+        {
+          "a": "ram-25__01.stl",
+          "b": "svisly-cep-8__01.stl",
+          "clearance_mm": 50.57760655426228
+        },
+        {
+          "a": "ram-25__01.stl",
+          "b": "pojistka-osy-10_9__03.stl",
+          "clearance_mm": 50.61266026618841
+        },
+        {
+          "a": "ram-25__01.stl",
+          "b": "motorovy-mustek__02.stl",
+          "clearance_mm": 12.829919602457217
+        },
+        {
+          "a": "ram-25__01.stl",
+          "b": "pojistka-osy-10_9__02.stl",
+          "clearance_mm": 68.03978296500543
+        },
+        {
+          "a": "ram-25__01.stl",
+          "b": "servo-cep-4x51_2__02.stl",
+          "clearance_mm": 74.71373868464615
+        },
+        {
+          "a": "ram-25__01.stl",
+          "b": "pojistka-6_9__01.stl",
+          "clearance_mm": 11.049999782784813
+        },
+        {
+          "a": "ram-25__01.stl",
+          "b": "pojistka-6_9__06.stl",
+          "clearance_mm": 76.29106097595447
+        },
+        {
+          "a": "ram-25__01.stl",
+          "b": "pojistka-6_9__07.stl",
+          "clearance_mm": 64.56570692319289
+        },
+        {
+          "a": "ram-25__01.stl",
+          "b": "pojistka-6_9__05.stl",
+          "clearance_mm": 75.82450893884318
+        },
+        {
+          "a": "ram-25__01.stl",
+          "b": "podlozka-packy-1_8__01.stl",
+          "clearance_mm": 92.16380834632191
+        },
+        {
+          "a": "ram-25__01.stl",
+          "b": "spolecny-cep-mustku-4x30_5__01.stl",
+          "clearance_mm": 94.57214982816468
+        },
+        {
+          "a": "ram-25__01.stl",
+          "b": "cep-tahla-kratky__01.stl",
+          "clearance_mm": 76.49118270773164
+        },
+        {
+          "a": "ram-25__01.stl",
+          "b": "pojistka-3_1__06.stl",
+          "clearance_mm": 50.8815002380885
+        },
+        {
+          "a": "ram-25__01.stl",
+          "b": "pojistka-3_1__05.stl",
+          "clearance_mm": 53.356819980571615
+        },
+        {
+          "a": "ram-25__01.stl",
+          "b": "pojistka-3_1__10.stl",
+          "clearance_mm": 92.38284277881304
+        },
+        {
+          "a": "ram-25__01.stl",
+          "b": "pojistka-3_1__09.stl",
+          "clearance_mm": 92.27994824089959
+        },
+        {
+          "a": "vystupni-kolo-55__01.stl",
+          "b": "objimka-packy-spodek__01.stl",
+          "clearance_mm": 158.61080158409678
+        },
+        {
+          "a": "vystupni-kolo-55__01.stl",
+          "b": "tehlice-leva__01.stl",
+          "clearance_mm": 11.049289893623513
+        },
+        {
+          "a": "vystupni-kolo-55__01.stl",
+          "b": "objimka-packy-viko__01.stl",
+          "clearance_mm": 52.887214202294814
+        },
+        {
+          "a": "vystupni-kolo-55__01.stl",
+          "b": "celist-horni__01.stl",
+          "clearance_mm": 96.02576022285491
+        },
+        {
+          "a": "vystupni-kolo-55__01.stl",
+          "b": "pojistka-osy-10_9__04.stl",
+          "clearance_mm": 130.93244117939292
+        },
+        {
+          "a": "vystupni-kolo-55__01.stl",
+          "b": "pojistka-osy-10_9__01.stl",
+          "clearance_mm": 155.37052432920356
+        },
+        {
+          "a": "vystupni-kolo-55__01.stl",
+          "b": "rozperka-zadni-17_6__02.stl",
+          "clearance_mm": 36.915249965767515
+        },
+        {
+          "a": "vystupni-kolo-55__01.stl",
+          "b": "pastorek-18-otvor-2_2__01.stl",
+          "clearance_mm": 108.60810954498751
+        },
+        {
+          "a": "vystupni-kolo-55__01.stl",
+          "b": "pevny-cep-8x53_9__02.stl",
+          "clearance_mm": 11.049999999999988
+        },
+        {
+          "a": "vystupni-kolo-55__01.stl",
+          "b": "svisly-cep-8__01.stl",
+          "clearance_mm": 65.75502856089855
+        },
+        {
+          "a": "vystupni-kolo-55__01.stl",
+          "b": "pojistka-osy-10_9__03.stl",
+          "clearance_mm": 137.21788749813635
+        },
+        {
+          "a": "vystupni-kolo-55__01.stl",
+          "b": "motorovy-mustek__02.stl",
+          "clearance_mm": 145.00063279279595
+        },
+        {
+          "a": "vystupni-kolo-55__01.stl",
+          "b": "pojistka-osy-10_9__02.stl",
+          "clearance_mm": 176.87738637009943
+        },
+        {
+          "a": "vystupni-kolo-55__01.stl",
+          "b": "servo-cep-4x51_2__02.stl",
+          "clearance_mm": 57.981357082408614
+        },
+        {
+          "a": "vystupni-kolo-55__01.stl",
+          "b": "pojistka-6_9__01.stl",
+          "clearance_mm": 237.9142710413391
+        },
+        {
+          "a": "vystupni-kolo-55__01.stl",
+          "b": "pojistka-6_9__06.stl",
+          "clearance_mm": 11.049999999999986
+        },
+        {
+          "a": "vystupni-kolo-55__01.stl",
+          "b": "pojistka-6_9__07.stl",
+          "clearance_mm": 113.55704508989938
+        },
+        {
+          "a": "vystupni-kolo-55__01.stl",
+          "b": "pojistka-6_9__05.stl",
+          "clearance_mm": 162.59661457267228
+        },
+        {
+          "a": "vystupni-kolo-55__01.stl",
+          "b": "podlozka-packy-1_8__01.stl",
+          "clearance_mm": 23.751756435357915
+        },
+        {
+          "a": "vystupni-kolo-55__01.stl",
+          "b": "spolecny-cep-mustku-4x30_5__01.stl",
+          "clearance_mm": 30.723017288371587
+        },
+        {
+          "a": "vystupni-kolo-55__01.stl",
+          "b": "cep-tahla-kratky__01.stl",
+          "clearance_mm": 137.5248194095622
+        },
+        {
+          "a": "vystupni-kolo-55__01.stl",
+          "b": "pojistka-3_1__06.stl",
+          "clearance_mm": 183.14484410048
+        },
+        {
+          "a": "vystupni-kolo-55__01.stl",
+          "b": "pojistka-3_1__05.stl",
+          "clearance_mm": 11.049999999999988
+        },
+        {
+          "a": "vystupni-kolo-55__01.stl",
+          "b": "pojistka-3_1__10.stl",
+          "clearance_mm": 52.34460132709482
+        },
+        {
+          "a": "vystupni-kolo-55__01.stl",
+          "b": "pojistka-3_1__09.stl",
+          "clearance_mm": 186.64476025191823
+        },
+        {
+          "a": "objimka-packy-spodek__01.stl",
+          "b": "tehlice-leva__01.stl",
+          "clearance_mm": 116.77197387753918
+        },
+        {
+          "a": "objimka-packy-spodek__01.stl",
+          "b": "objimka-packy-viko__01.stl",
+          "clearance_mm": 73.72197387753918
+        },
+        {
+          "a": "objimka-packy-spodek__01.stl",
+          "b": "celist-horni__01.stl",
+          "clearance_mm": 38.17277598166771
+        },
+        {
+          "a": "objimka-packy-spodek__01.stl",
+          "b": "pojistka-osy-10_9__04.stl",
+          "clearance_mm": 11.050000000000011
+        },
+        {
+          "a": "objimka-packy-spodek__01.stl",
+          "b": "pojistka-osy-10_9__01.stl",
+          "clearance_mm": 11.050000000000011
+        },
+        {
+          "a": "objimka-packy-spodek__01.stl",
+          "b": "rozperka-zadni-17_6__02.stl",
+          "clearance_mm": 108.41325589407396
+        },
+        {
+          "a": "objimka-packy-spodek__01.stl",
+          "b": "pastorek-18-otvor-2_2__01.stl",
+          "clearance_mm": 37.28824032342252
+        },
+        {
+          "a": "objimka-packy-spodek__01.stl",
+          "b": "pevny-cep-8x53_9__02.stl",
+          "clearance_mm": 132.11294951014807
+        },
+        {
+          "a": "objimka-packy-spodek__01.stl",
+          "b": "svisly-cep-8__01.stl",
+          "clearance_mm": 67.81159504914815
+        },
+        {
+          "a": "objimka-packy-spodek__01.stl",
+          "b": "pojistka-osy-10_9__03.stl",
+          "clearance_mm": 33.93348409417688
+        },
+        {
+          "a": "objimka-packy-spodek__01.stl",
+          "b": "motorovy-mustek__02.stl",
+          "clearance_mm": 233.5387394118191
+        },
+        {
+          "a": "objimka-packy-spodek__01.stl",
+          "b": "pojistka-osy-10_9__02.stl",
+          "clearance_mm": 33.6258340796922
+        },
+        {
+          "a": "objimka-packy-spodek__01.stl",
+          "b": "servo-cep-4x51_2__02.stl",
+          "clearance_mm": 82.19645294932822
+        },
+        {
+          "a": "objimka-packy-spodek__01.stl",
+          "b": "pojistka-6_9__01.stl",
+          "clearance_mm": 147.2168203492047
+        },
+        {
+          "a": "objimka-packy-spodek__01.stl",
+          "b": "pojistka-6_9__06.stl",
+          "clearance_mm": 206.9298004064471
+        },
+        {
+          "a": "objimka-packy-spodek__01.stl",
+          "b": "pojistka-6_9__07.stl",
+          "clearance_mm": 61.767811813710665
+        },
+        {
+          "a": "objimka-packy-spodek__01.stl",
+          "b": "pojistka-6_9__05.stl",
+          "clearance_mm": 51.966132382466526
+        },
+        {
+          "a": "objimka-packy-spodek__01.stl",
+          "b": "podlozka-packy-1_8__01.stl",
+          "clearance_mm": 196.30535642391328
+        },
+        {
+          "a": "objimka-packy-spodek__01.stl",
+          "b": "spolecny-cep-mustku-4x30_5__01.stl",
+          "clearance_mm": 158.277208308167
+        },
+        {
+          "a": "objimka-packy-spodek__01.stl",
+          "b": "cep-tahla-kratky__01.stl",
+          "clearance_mm": 61.87228357666927
+        },
+        {
+          "a": "objimka-packy-spodek__01.stl",
+          "b": "pojistka-3_1__06.stl",
+          "clearance_mm": 11.050000000000011
+        },
+        {
+          "a": "objimka-packy-spodek__01.stl",
+          "b": "pojistka-3_1__05.stl",
+          "clearance_mm": 148.2030302501849
+        },
+        {
+          "a": "objimka-packy-spodek__01.stl",
+          "b": "pojistka-3_1__10.stl",
+          "clearance_mm": 142.7986348944477
+        },
+        {
+          "a": "objimka-packy-spodek__01.stl",
+          "b": "pojistka-3_1__09.stl",
+          "clearance_mm": 61.320275684306466
+        },
+        {
+          "a": "tehlice-leva__01.stl",
+          "b": "objimka-packy-viko__01.stl",
+          "clearance_mm": 11.049999999999983
+        },
+        {
+          "a": "tehlice-leva__01.stl",
+          "b": "celist-horni__01.stl",
+          "clearance_mm": 54.22543587568478
+        },
+        {
+          "a": "tehlice-leva__01.stl",
+          "b": "pojistka-osy-10_9__04.stl",
+          "clearance_mm": 89.65669349819241
+        },
+        {
+          "a": "tehlice-leva__01.stl",
+          "b": "pojistka-osy-10_9__01.stl",
+          "clearance_mm": 115.64967877039504
+        },
+        {
+          "a": "tehlice-leva__01.stl",
+          "b": "rozperka-zadni-17_6__02.stl",
+          "clearance_mm": 11.04999999999999
+        },
+        {
+          "a": "tehlice-leva__01.stl",
+          "b": "pastorek-18-otvor-2_2__01.stl",
+          "clearance_mm": 70.85424754043818
+        },
+        {
+          "a": "tehlice-leva__01.stl",
+          "b": "pevny-cep-8x53_9__02.stl",
+          "clearance_mm": 27.03809214520851
+        },
+        {
+          "a": "tehlice-leva__01.stl",
+          "b": "svisly-cep-8__01.stl",
+          "clearance_mm": 39.28265454423882
+        },
+        {
+          "a": "tehlice-leva__01.stl",
+          "b": "pojistka-osy-10_9__03.stl",
+          "clearance_mm": 101.53458305757594
+        },
+        {
+          "a": "tehlice-leva__01.stl",
+          "b": "motorovy-mustek__02.stl",
+          "clearance_mm": 155.4398420576873
+        },
+        {
+          "a": "tehlice-leva__01.stl",
+          "b": "pojistka-osy-10_9__02.stl",
+          "clearance_mm": 139.59425936387817
+        },
+        {
+          "a": "tehlice-leva__01.stl",
+          "b": "servo-cep-4x51_2__02.stl",
+          "clearance_mm": 42.374850530683176
+        },
+        {
+          "a": "tehlice-leva__01.stl",
+          "b": "pojistka-6_9__01.stl",
+          "clearance_mm": 201.5903888380448
+        },
+        {
+          "a": "tehlice-leva__01.stl",
+          "b": "pojistka-6_9__06.stl",
+          "clearance_mm": 68.05261032091815
+        },
+        {
+          "a": "tehlice-leva__01.stl",
+          "b": "pojistka-6_9__07.stl",
+          "clearance_mm": 83.82432006328489
+        },
+        {
+          "a": "tehlice-leva__01.stl",
+          "b": "pojistka-6_9__05.stl",
+          "clearance_mm": 129.2434983348341
+        },
+        {
+          "a": "tehlice-leva__01.stl",
+          "b": "podlozka-packy-1_8__01.stl",
+          "clearance_mm": 64.87505495143981
+        },
+        {
+          "a": "tehlice-leva__01.stl",
+          "b": "spolecny-cep-mustku-4x30_5__01.stl",
+          "clearance_mm": 50.39448432588158
+        },
+        {
+          "a": "tehlice-leva__01.stl",
+          "b": "cep-tahla-kratky__01.stl",
+          "clearance_mm": 107.40497479789849
+        },
+        {
+          "a": "tehlice-leva__01.stl",
+          "b": "pojistka-3_1__06.stl",
+          "clearance_mm": 142.52272559488878
+        },
+        {
+          "a": "tehlice-leva__01.stl",
+          "b": "pojistka-3_1__05.stl",
+          "clearance_mm": 11.046685633531036
+        },
+        {
+          "a": "tehlice-leva__01.stl",
+          "b": "pojistka-3_1__10.stl",
+          "clearance_mm": 49.855005249708334
+        },
+        {
+          "a": "tehlice-leva__01.stl",
+          "b": "pojistka-3_1__09.stl",
+          "clearance_mm": 152.873497719044
+        },
+        {
+          "a": "objimka-packy-viko__01.stl",
+          "b": "celist-horni__01.stl",
+          "clearance_mm": 11.050000000000011
+        },
+        {
+          "a": "objimka-packy-viko__01.stl",
+          "b": "pojistka-osy-10_9__04.stl",
+          "clearance_mm": 46.02753227292493
+        },
+        {
+          "a": "objimka-packy-viko__01.stl",
+          "b": "pojistka-osy-10_9__01.stl",
+          "clearance_mm": 71.2282751923851
+        },
+        {
+          "a": "objimka-packy-viko__01.stl",
+          "b": "rozperka-zadni-17_6__02.stl",
+          "clearance_mm": 11.048428244813186
+        },
+        {
+          "a": "objimka-packy-viko__01.stl",
+          "b": "pastorek-18-otvor-2_2__01.stl",
+          "clearance_mm": 27.346774125212114
+        },
+        {
+          "a": "objimka-packy-viko__01.stl",
+          "b": "pevny-cep-8x53_9__02.stl",
+          "clearance_mm": 40.06659590099642
+        },
+        {
+          "a": "objimka-packy-viko__01.stl",
+          "b": "svisly-cep-8__01.stl",
+          "clearance_mm": 24.343445097064112
+        },
+        {
+          "a": "objimka-packy-viko__01.stl",
+          "b": "pojistka-osy-10_9__03.stl",
+          "clearance_mm": 58.4224979766527
+        },
+        {
+          "a": "objimka-packy-viko__01.stl",
+          "b": "motorovy-mustek__02.stl",
+          "clearance_mm": 173.98223360614486
+        },
+        {
+          "a": "objimka-packy-viko__01.stl",
+          "b": "pojistka-osy-10_9__02.stl",
+          "clearance_mm": 95.43209354622499
+        },
+        {
+          "a": "objimka-packy-viko__01.stl",
+          "b": "servo-cep-4x51_2__02.stl",
+          "clearance_mm": 46.0300848111075
+        },
+        {
+          "a": "objimka-packy-viko__01.stl",
+          "b": "pojistka-6_9__01.stl",
+          "clearance_mm": 180.06249755644322
+        },
+        {
+          "a": "objimka-packy-viko__01.stl",
+          "b": "pojistka-6_9__06.stl",
+          "clearance_mm": 103.85148427388279
+        },
+        {
+          "a": "objimka-packy-viko__01.stl",
+          "b": "pojistka-6_9__07.stl",
+          "clearance_mm": 46.95344192883906
+        },
+        {
+          "a": "objimka-packy-viko__01.stl",
+          "b": "pojistka-6_9__05.stl",
+          "clearance_mm": 86.97073099242192
+        },
+        {
+          "a": "objimka-packy-viko__01.stl",
+          "b": "podlozka-packy-1_8__01.stl",
+          "clearance_mm": 97.7902899072919
+        },
+        {
+          "a": "objimka-packy-viko__01.stl",
+          "b": "spolecny-cep-mustku-4x30_5__01.stl",
+          "clearance_mm": 70.24100563578368
+        },
+        {
+          "a": "objimka-packy-viko__01.stl",
+          "b": "cep-tahla-kratky__01.stl",
+          "clearance_mm": 68.5636304767516
+        },
+        {
+          "a": "objimka-packy-viko__01.stl",
+          "b": "pojistka-3_1__06.stl",
+          "clearance_mm": 98.39017410419062
+        },
+        {
+          "a": "objimka-packy-viko__01.stl",
+          "b": "pojistka-3_1__05.stl",
+          "clearance_mm": 44.7151063374608
+        },
+        {
+          "a": "objimka-packy-viko__01.stl",
+          "b": "pojistka-3_1__10.stl",
+          "clearance_mm": 62.38671634523143
+        },
+        {
+          "a": "objimka-packy-viko__01.stl",
+          "b": "pojistka-3_1__09.stl",
+          "clearance_mm": 110.05038190369692
+        },
+        {
+          "a": "celist-horni__01.stl",
+          "b": "pojistka-osy-10_9__04.stl",
+          "clearance_mm": 11.048314964922916
+        },
+        {
+          "a": "celist-horni__01.stl",
+          "b": "pojistka-osy-10_9__01.stl",
+          "clearance_mm": 39.177111563325276
+        },
+        {
+          "a": "celist-horni__01.stl",
+          "b": "rozperka-zadni-17_6__02.stl",
+          "clearance_mm": 48.676248275101166
+        },
+        {
+          "a": "celist-horni__01.stl",
+          "b": "pastorek-18-otvor-2_2__01.stl",
+          "clearance_mm": 11.049999999999997
+        },
+        {
+          "a": "celist-horni__01.stl",
+          "b": "pevny-cep-8x53_9__02.stl",
+          "clearance_mm": 75.01764884324334
+        },
+        {
+          "a": "celist-horni__01.stl",
+          "b": "svisly-cep-8__01.stl",
+          "clearance_mm": 23.73866053790789
+        },
+        {
+          "a": "celist-horni__01.stl",
+          "b": "pojistka-osy-10_9__03.stl",
+          "clearance_mm": 37.17534443267194
+        },
+        {
+          "a": "celist-horni__01.stl",
+          "b": "motorovy-mustek__02.stl",
+          "clearance_mm": 200.5571058981959
+        },
+        {
+          "a": "celist-horni__01.stl",
+          "b": "pojistka-osy-10_9__02.stl",
+          "clearance_mm": 66.64848582584698
+        },
+        {
+          "a": "celist-horni__01.stl",
+          "b": "servo-cep-4x51_2__02.stl",
+          "clearance_mm": 47.73696799601286
+        },
+        {
+          "a": "celist-horni__01.stl",
+          "b": "pojistka-6_9__01.stl",
+          "clearance_mm": 171.5286703698821
+        },
+        {
+          "a": "celist-horni__01.stl",
+          "b": "pojistka-6_9__06.stl",
+          "clearance_mm": 146.63724053109812
+        },
+        {
+          "a": "celist-horni__01.stl",
+          "b": "pojistka-6_9__07.stl",
+          "clearance_mm": 39.46158823992388
+        },
+        {
+          "a": "celist-horni__01.stl",
+          "b": "pojistka-6_9__05.stl",
+          "clearance_mm": 65.71604109672397
+        },
+        {
+          "a": "celist-horni__01.stl",
+          "b": "podlozka-packy-1_8__01.stl",
+          "clearance_mm": 138.31414102127593
+        },
+        {
+          "a": "celist-horni__01.stl",
+          "b": "spolecny-cep-mustku-4x30_5__01.stl",
+          "clearance_mm": 103.98483310306709
+        },
+        {
+          "a": "celist-horni__01.stl",
+          "b": "cep-tahla-kratky__01.stl",
+          "clearance_mm": 57.16994184936443
+        },
+        {
+          "a": "celist-horni__01.stl",
+          "b": "pojistka-3_1__06.stl",
+          "clearance_mm": 64.20409888977377
+        },
+        {
+          "a": "celist-horni__01.stl",
+          "b": "pojistka-3_1__05.stl",
+          "clearance_mm": 87.39082676387484
+        },
+        {
+          "a": "celist-horni__01.stl",
+          "b": "pojistka-3_1__10.stl",
+          "clearance_mm": 91.00650788674541
+        },
+        {
+          "a": "celist-horni__01.stl",
+          "b": "pojistka-3_1__09.stl",
+          "clearance_mm": 86.04680157999734
+        },
+        {
+          "a": "pojistka-osy-10_9__04.stl",
+          "b": "pojistka-osy-10_9__01.stl",
+          "clearance_mm": 11.05
+        },
+        {
+          "a": "pojistka-osy-10_9__04.stl",
+          "b": "rozperka-zadni-17_6__02.stl",
+          "clearance_mm": 80.50801851336844
+        },
+        {
+          "a": "pojistka-osy-10_9__04.stl",
+          "b": "pastorek-18-otvor-2_2__01.stl",
+          "clearance_mm": 11.04963105657659
+        },
+        {
+          "a": "pojistka-osy-10_9__04.stl",
+          "b": "pevny-cep-8x53_9__02.stl",
+          "clearance_mm": 104.3998540472454
+        },
+        {
+          "a": "pojistka-osy-10_9__04.stl",
+          "b": "svisly-cep-8__01.stl",
+          "clearance_mm": 40.74929060541286
+        },
+        {
+          "a": "pojistka-osy-10_9__04.stl",
+          "b": "pojistka-osy-10_9__03.stl",
+          "clearance_mm": 18.663110247846017
+        },
+        {
+          "a": "pojistka-osy-10_9__04.stl",
+          "b": "motorovy-mustek__02.stl",
+          "clearance_mm": 227.33262715897084
+        },
+        {
+          "a": "pojistka-osy-10_9__04.stl",
+          "b": "pojistka-osy-10_9__02.stl",
+          "clearance_mm": 39.61421114087342
+        },
+        {
+          "a": "pojistka-osy-10_9__04.stl",
+          "b": "servo-cep-4x51_2__02.stl",
+          "clearance_mm": 57.41776183550214
+        },
+        {
+          "a": "pojistka-osy-10_9__04.stl",
+          "b": "pojistka-6_9__01.stl",
+          "clearance_mm": 166.00236270499406
+        },
+        {
+          "a": "pojistka-osy-10_9__04.stl",
+          "b": "pojistka-6_9__06.stl",
+          "clearance_mm": 179.03315861582738
+        },
+        {
+          "a": "pojistka-osy-10_9__04.stl",
+          "b": "pojistka-6_9__07.stl",
+          "clearance_mm": 39.070449861256606
+        },
+        {
+          "a": "pojistka-osy-10_9__04.stl",
+          "b": "pojistka-6_9__05.stl",
+          "clearance_mm": 43.72123799969916
+        },
+        {
+          "a": "pojistka-osy-10_9__04.stl",
+          "b": "podlozka-packy-1_8__01.stl",
+          "clearance_mm": 168.5962488879182
+        },
+        {
+          "a": "pojistka-osy-10_9__04.stl",
+          "b": "spolecny-cep-mustku-4x30_5__01.stl",
+          "clearance_mm": 130.98624908967957
+        },
+        {
+          "a": "pojistka-osy-10_9__04.stl",
+          "b": "cep-tahla-kratky__01.stl",
+          "clearance_mm": 46.045367608463394
+        },
+        {
+          "a": "pojistka-osy-10_9__04.stl",
+          "b": "pojistka-3_1__06.stl",
+          "clearance_mm": 35.692311587552894
+        },
+        {
+          "a": "pojistka-osy-10_9__04.stl",
+          "b": "pojistka-3_1__05.stl",
+          "clearance_mm": 120.29023917124114
+        },
+        {
+          "a": "pojistka-osy-10_9__04.stl",
+          "b": "pojistka-3_1__10.stl",
+          "clearance_mm": 115.84657844303722
+        },
+        {
+          "a": "pojistka-osy-10_9__04.stl",
+          "b": "pojistka-3_1__09.stl",
+          "clearance_mm": 61.34042726013806
+        },
+        {
+          "a": "pojistka-osy-10_9__01.stl",
+          "b": "rozperka-zadni-17_6__02.stl",
+          "clearance_mm": 102.29854838070324
+        },
+        {
+          "a": "pojistka-osy-10_9__01.stl",
+          "b": "pastorek-18-otvor-2_2__01.stl",
+          "clearance_mm": 27.351367528232114
+        },
+        {
+          "a": "pojistka-osy-10_9__01.stl",
+          "b": "pevny-cep-8x53_9__02.stl",
+          "clearance_mm": 123.57931335981989
+        },
+        {
+          "a": "pojistka-osy-10_9__01.stl",
+          "b": "svisly-cep-8__01.stl",
+          "clearance_mm": 58.3087335479544
+        },
+        {
+          "a": "pojistka-osy-10_9__01.stl",
+          "b": "pojistka-osy-10_9__03.stl",
+          "clearance_mm": 11.049999999999978
+        },
+        {
+          "a": "pojistka-osy-10_9__01.stl",
+          "b": "motorovy-mustek__02.stl",
+          "clearance_mm": 255.81351547197403
+        },
+        {
+          "a": "pojistka-osy-10_9__01.stl",
+          "b": "pojistka-osy-10_9__02.stl",
+          "clearance_mm": 11.050000000000018
+        },
+        {
+          "a": "pojistka-osy-10_9__01.stl",
+          "b": "servo-cep-4x51_2__02.stl",
+          "clearance_mm": 66.79613204267133
+        },
+        {
+          "a": "pojistka-osy-10_9__01.stl",
+          "b": "pojistka-6_9__01.stl",
+          "clearance_mm": 179.15181413791868
+        },
+        {
+          "a": "pojistka-osy-10_9__01.stl",
+          "b": "pojistka-6_9__06.stl",
+          "clearance_mm": 199.72804082699105
+        },
+        {
+          "a": "pojistka-osy-10_9__01.stl",
+          "b": "pojistka-6_9__07.stl",
+          "clearance_mm": 44.020761330345096
+        },
+        {
+          "a": "pojistka-osy-10_9__01.stl",
+          "b": "pojistka-6_9__05.stl",
+          "clearance_mm": 24.271690777852257
+        },
+        {
+          "a": "pojistka-osy-10_9__01.stl",
+          "b": "podlozka-packy-1_8__01.stl",
+          "clearance_mm": 187.10790863312485
+        },
+        {
+          "a": "pojistka-osy-10_9__01.stl",
+          "b": "spolecny-cep-mustku-4x30_5__01.stl",
+          "clearance_mm": 147.28619816531696
+        },
+        {
+          "a": "pojistka-osy-10_9__01.stl",
+          "b": "cep-tahla-kratky__01.stl",
+          "clearance_mm": 36.47442132632056
+        },
+        {
+          "a": "pojistka-osy-10_9__01.stl",
+          "b": "pojistka-3_1__06.stl",
+          "clearance_mm": 11.050000000000004
+        },
+        {
+          "a": "pojistka-osy-10_9__01.stl",
+          "b": "pojistka-3_1__05.stl",
+          "clearance_mm": 142.31802567178462
+        },
+        {
+          "a": "pojistka-osy-10_9__01.stl",
+          "b": "pojistka-3_1__10.stl",
+          "clearance_mm": 130.72245162181116
+        },
+        {
+          "a": "pojistka-osy-10_9__01.stl",
+          "b": "pojistka-3_1__09.stl",
+          "clearance_mm": 35.41329958307031
+        },
+        {
+          "a": "rozperka-zadni-17_6__02.stl",
+          "b": "pastorek-18-otvor-2_2__01.stl",
+          "clearance_mm": 54.828719432216154
+        },
+        {
+          "a": "rozperka-zadni-17_6__02.stl",
+          "b": "pevny-cep-8x53_9__02.stl",
+          "clearance_mm": 11.05
+        },
+        {
+          "a": "rozperka-zadni-17_6__02.stl",
+          "b": "svisly-cep-8__01.stl",
+          "clearance_mm": 11.046647647236163
+        },
+        {
+          "a": "rozperka-zadni-17_6__02.stl",
+          "b": "pojistka-osy-10_9__03.stl",
+          "clearance_mm": 82.47615012291985
+        },
+        {
+          "a": "rozperka-zadni-17_6__02.stl",
+          "b": "motorovy-mustek__02.stl",
+          "clearance_mm": 194.4054281247042
+        },
+        {
+          "a": "rozperka-zadni-17_6__02.stl",
+          "b": "pojistka-osy-10_9__02.stl",
+          "clearance_mm": 122.29588308260628
+        },
+        {
+          "a": "rozperka-zadni-17_6__02.stl",
+          "b": "servo-cep-4x51_2__02.stl",
+          "clearance_mm": 19.285786932591037
+        },
+        {
+          "a": "rozperka-zadni-17_6__02.stl",
+          "b": "pojistka-6_9__01.stl",
+          "clearance_mm": 223.4118280339844
+        },
+        {
+          "a": "rozperka-zadni-17_6__02.stl",
+          "b": "pojistka-6_9__06.stl",
+          "clearance_mm": 80.54883079343527
+        },
+        {
+          "a": "rozperka-zadni-17_6__02.stl",
+          "b": "pojistka-6_9__07.stl",
+          "clearance_mm": 58.8999235577863
+        },
+        {
+          "a": "rozperka-zadni-17_6__02.stl",
+          "b": "pojistka-6_9__05.stl",
+          "clearance_mm": 107.6949197884086
+        },
+        {
+          "a": "rozperka-zadni-17_6__02.stl",
+          "b": "podlozka-packy-1_8__01.stl",
+          "clearance_mm": 71.71586624614042
+        },
+        {
+          "a": "rozperka-zadni-17_6__02.stl",
+          "b": "spolecny-cep-mustku-4x30_5__01.stl",
+          "clearance_mm": 41.33689146535926
+        },
+        {
+          "a": "rozperka-zadni-17_6__02.stl",
+          "b": "cep-tahla-kratky__01.stl",
+          "clearance_mm": 82.93896725330316
+        },
+        {
+          "a": "rozperka-zadni-17_6__02.stl",
+          "b": "pojistka-3_1__06.stl",
+          "clearance_mm": 130.77763701001663
+        },
+        {
+          "a": "rozperka-zadni-17_6__02.stl",
+          "b": "pojistka-3_1__05.stl",
+          "clearance_mm": 22.037665513329003
+        },
+        {
+          "a": "rozperka-zadni-17_6__02.stl",
+          "b": "pojistka-3_1__10.stl",
+          "clearance_mm": 33.51187973287936
+        },
+        {
+          "a": "rozperka-zadni-17_6__02.stl",
+          "b": "pojistka-3_1__09.stl",
+          "clearance_mm": 131.74050740570038
+        },
+        {
+          "a": "pastorek-18-otvor-2_2__01.stl",
+          "b": "pevny-cep-8x53_9__02.stl",
+          "clearance_mm": 76.3695091523446
+        },
+        {
+          "a": "pastorek-18-otvor-2_2__01.stl",
+          "b": "svisly-cep-8__01.stl",
+          "clearance_mm": 11.050000000000022
+        },
+        {
+          "a": "pastorek-18-otvor-2_2__01.stl",
+          "b": "pojistka-osy-10_9__03.stl",
+          "clearance_mm": 11.04747621976423
+        },
+        {
+          "a": "pastorek-18-otvor-2_2__01.stl",
+          "b": "motorovy-mustek__02.stl",
+          "clearance_mm": 227.45284497218472
+        },
+        {
+          "a": "pastorek-18-otvor-2_2__01.stl",
+          "b": "pojistka-osy-10_9__02.stl",
+          "clearance_mm": 48.657363509293376
+        },
+        {
+          "a": "pastorek-18-otvor-2_2__01.stl",
+          "b": "servo-cep-4x51_2__02.stl",
+          "clearance_mm": 26.57092697421759
+        },
+        {
+          "a": "pastorek-18-otvor-2_2__01.stl",
+          "b": "pojistka-6_9__01.stl",
+          "clearance_mm": 190.05816086924563
+        },
+        {
+          "a": "pastorek-18-otvor-2_2__01.stl",
+          "b": "pojistka-6_9__06.stl",
+          "clearance_mm": 152.27442856587786
+        },
+        {
+          "a": "pastorek-18-otvor-2_2__01.stl",
+          "b": "pojistka-6_9__07.stl",
+          "clearance_mm": 11.049979718351018
+        },
+        {
+          "a": "pastorek-18-otvor-2_2__01.stl",
+          "b": "pojistka-6_9__05.stl",
+          "clearance_mm": 39.79716433291555
+        },
+        {
+          "a": "pastorek-18-otvor-2_2__01.stl",
+          "b": "podlozka-packy-1_8__01.stl",
+          "clearance_mm": 140.18832008226485
+        },
+        {
+          "a": "pastorek-18-otvor-2_2__01.stl",
+          "b": "spolecny-cep-mustku-4x30_5__01.stl",
+          "clearance_mm": 101.21062112063439
+        },
+        {
+          "a": "pastorek-18-otvor-2_2__01.stl",
+          "b": "cep-tahla-kratky__01.stl",
+          "clearance_mm": 26.08058958290814
+        },
+        {
+          "a": "pastorek-18-otvor-2_2__01.stl",
+          "b": "pojistka-3_1__06.stl",
+          "clearance_mm": 56.142780414169955
+        },
+        {
+          "a": "pastorek-18-otvor-2_2__01.stl",
+          "b": "pojistka-3_1__05.stl",
+          "clearance_mm": 94.81440845137476
+        },
+        {
+          "a": "pastorek-18-otvor-2_2__01.stl",
+          "b": "pojistka-3_1__10.stl",
+          "clearance_mm": 85.47228818803123
+        },
+        {
+          "a": "pastorek-18-otvor-2_2__01.stl",
+          "b": "pojistka-3_1__09.stl",
+          "clearance_mm": 62.67614787671251
+        },
+        {
+          "a": "pevny-cep-8x53_9__02.stl",
+          "b": "svisly-cep-8__01.stl",
+          "clearance_mm": 29.189014093785488
+        },
+        {
+          "a": "pevny-cep-8x53_9__02.stl",
+          "b": "pojistka-osy-10_9__03.stl",
+          "clearance_mm": 100.85421055342765
+        },
+        {
+          "a": "pevny-cep-8x53_9__02.stl",
+          "b": "motorovy-mustek__02.stl",
+          "clearance_mm": 212.54805317245473
+        },
+        {
+          "a": "pevny-cep-8x53_9__02.stl",
+          "b": "pojistka-osy-10_9__02.stl",
+          "clearance_mm": 140.7194380944817
+        },
+        {
+          "a": "pevny-cep-8x53_9__02.stl",
+          "b": "servo-cep-4x51_2__02.stl",
+          "clearance_mm": 11.049999999999983
+        },
+        {
+          "a": "pevny-cep-8x53_9__02.stl",
+          "b": "pojistka-6_9__01.stl",
+          "clearance_mm": 252.45118870290264
+        },
+        {
+          "a": "pevny-cep-8x53_9__02.stl",
+          "b": "pojistka-6_9__06.stl",
+          "clearance_mm": 22.38430266253306
+        },
+        {
+          "a": "pevny-cep-8x53_9__02.stl",
+          "b": "pojistka-6_9__07.stl",
+          "clearance_mm": 73.23756346218327
+        },
+        {
+          "a": "pevny-cep-8x53_9__02.stl",
+          "b": "pojistka-6_9__05.stl",
+          "clearance_mm": 122.23546153316585
+        },
+        {
+          "a": "pevny-cep-8x53_9__02.stl",
+          "b": "podlozka-packy-1_8__01.stl",
+          "clearance_mm": 11.046970127684212
+        },
+        {
+          "a": "pevny-cep-8x53_9__02.stl",
+          "b": "spolecny-cep-mustku-4x30_5__01.stl",
+          "clearance_mm": 11.05
+        },
+        {
+          "a": "pevny-cep-8x53_9__02.stl",
+          "b": "cep-tahla-kratky__01.stl",
+          "clearance_mm": 95.949420029582
+        },
+        {
+          "a": "pevny-cep-8x53_9__02.stl",
+          "b": "pojistka-3_1__06.stl",
+          "clearance_mm": 152.49455146761534
+        },
+        {
+          "a": "pevny-cep-8x53_9__02.stl",
+          "b": "pojistka-3_1__05.stl",
+          "clearance_mm": 12.721674410879459
+        },
+        {
+          "a": "pevny-cep-8x53_9__02.stl",
+          "b": "pojistka-3_1__10.stl",
+          "clearance_mm": 11.050000000000006
+        },
+        {
+          "a": "pevny-cep-8x53_9__02.stl",
+          "b": "pojistka-3_1__09.stl",
+          "clearance_mm": 145.82779077617138
+        },
+        {
+          "a": "svisly-cep-8__01.stl",
+          "b": "pojistka-osy-10_9__03.stl",
+          "clearance_mm": 36.36519722258159
+        },
+        {
+          "a": "svisly-cep-8__01.stl",
+          "b": "motorovy-mustek__02.stl",
+          "clearance_mm": 217.59784420446965
+        },
+        {
+          "a": "svisly-cep-8__01.stl",
+          "b": "pojistka-osy-10_9__02.stl",
+          "clearance_mm": 76.27073565345802
+        },
+        {
+          "a": "svisly-cep-8__01.stl",
+          "b": "servo-cep-4x51_2__02.stl",
+          "clearance_mm": 11.050000000000011
+        },
+        {
+          "a": "svisly-cep-8__01.stl",
+          "b": "pojistka-6_9__01.stl",
+          "clearance_mm": 211.6208419130205
+        },
+        {
+          "a": "svisly-cep-8__01.stl",
+          "b": "pojistka-6_9__06.stl",
+          "clearance_mm": 105.52377122363178
+        },
+        {
+          "a": "svisly-cep-8__01.stl",
+          "b": "pojistka-6_9__07.stl",
+          "clearance_mm": 11.512726741777445
+        },
+        {
+          "a": "svisly-cep-8__01.stl",
+          "b": "pojistka-6_9__05.stl",
+          "clearance_mm": 60.05298147619989
+        },
+        {
+          "a": "svisly-cep-8__01.stl",
+          "b": "podlozka-packy-1_8__01.stl",
+          "clearance_mm": 92.43450215512455
+        },
+        {
+          "a": "svisly-cep-8__01.stl",
+          "b": "spolecny-cep-mustku-4x30_5__01.stl",
+          "clearance_mm": 53.91841808265582
+        },
+        {
+          "a": "svisly-cep-8__01.stl",
+          "b": "cep-tahla-kratky__01.stl",
+          "clearance_mm": 35.489622692524684
+        },
+        {
+          "a": "svisly-cep-8__01.stl",
+          "b": "pojistka-3_1__06.stl",
+          "clearance_mm": 87.17572612552453
+        },
+        {
+          "a": "svisly-cep-8__01.stl",
+          "b": "pojistka-3_1__05.stl",
+          "clearance_mm": 49.555306819108516
+        },
+        {
+          "a": "svisly-cep-8__01.stl",
+          "b": "pojistka-3_1__10.stl",
+          "clearance_mm": 39.62436229439835
+        },
+        {
+          "a": "svisly-cep-8__01.stl",
+          "b": "pojistka-3_1__09.stl",
+          "clearance_mm": 84.10040428479587
+        },
+        {
+          "a": "pojistka-osy-10_9__03.stl",
+          "b": "motorovy-mustek__02.stl",
+          "clearance_mm": 256.8742474714965
+        },
+        {
+          "a": "pojistka-osy-10_9__03.stl",
+          "b": "pojistka-osy-10_9__02.stl",
+          "clearance_mm": 21.989390780414084
+        },
+        {
+          "a": "pojistka-osy-10_9__03.stl",
+          "b": "servo-cep-4x51_2__02.stl",
+          "clearance_mm": 39.976271818614954
+        },
+        {
+          "a": "pojistka-osy-10_9__03.stl",
+          "b": "pojistka-6_9__01.stl",
+          "clearance_mm": 201.44375721223903
+        },
+        {
+          "a": "pojistka-osy-10_9__03.stl",
+          "b": "pojistka-6_9__06.stl",
+          "clearance_mm": 177.1420022169189
+        },
+        {
+          "a": "pojistka-osy-10_9__03.stl",
+          "b": "pojistka-6_9__07.stl",
+          "clearance_mm": 16.24950965668112
+        },
+        {
+          "a": "pojistka-osy-10_9__03.stl",
+          "b": "pojistka-6_9__05.stl",
+          "clearance_mm": 11.050000000000004
+        },
+        {
+          "a": "pojistka-osy-10_9__03.stl",
+          "b": "podlozka-packy-1_8__01.stl",
+          "clearance_mm": 162.86644817925267
+        },
+        {
+          "a": "pojistka-osy-10_9__03.stl",
+          "b": "spolecny-cep-mustku-4x30_5__01.stl",
+          "clearance_mm": 122.05088143227054
+        },
+        {
+          "a": "pojistka-osy-10_9__03.stl",
+          "b": "cep-tahla-kratky__01.stl",
+          "clearance_mm": 11.050000000000011
+        },
+        {
+          "a": "pojistka-osy-10_9__03.stl",
+          "b": "pojistka-3_1__06.stl",
+          "clearance_mm": 38.560940956281556
+        },
+        {
+          "a": "pojistka-osy-10_9__03.stl",
+          "b": "pojistka-3_1__05.stl",
+          "clearance_mm": 121.83653642706295
+        },
+        {
+          "a": "pojistka-osy-10_9__03.stl",
+          "b": "pojistka-3_1__10.stl",
+          "clearance_mm": 104.83269860160783
+        },
+        {
+          "a": "pojistka-osy-10_9__03.stl",
+          "b": "pojistka-3_1__09.stl",
+          "clearance_mm": 33.62994541293894
+        },
+        {
+          "a": "motorovy-mustek__02.stl",
+          "b": "pojistka-osy-10_9__02.stl",
+          "clearance_mm": 284.79426872216
+        },
+        {
+          "a": "motorovy-mustek__02.stl",
+          "b": "servo-cep-4x51_2__02.stl",
+          "clearance_mm": 230.53697187464454
+        },
+        {
+          "a": "motorovy-mustek__02.stl",
+          "b": "pojistka-6_9__01.stl",
+          "clearance_mm": 192.7721582971856
+        },
+        {
+          "a": "motorovy-mustek__02.stl",
+          "b": "pojistka-6_9__06.stl",
+          "clearance_mm": 207.7761876918407
+        },
+        {
+          "a": "motorovy-mustek__02.stl",
+          "b": "pojistka-6_9__07.stl",
+          "clearance_mm": 251.16823079104051
+        },
+        {
+          "a": "motorovy-mustek__02.stl",
+          "b": "pojistka-6_9__05.stl",
+          "clearance_mm": 285.71134784932144
+        },
+        {
+          "a": "motorovy-mustek__02.stl",
+          "b": "podlozka-packy-1_8__01.stl",
+          "clearance_mm": 225.76826162756333
+        },
+        {
+          "a": "motorovy-mustek__02.stl",
+          "b": "spolecny-cep-mustku-4x30_5__01.stl",
+          "clearance_mm": 232.16814767641335
+        },
+        {
+          "a": "motorovy-mustek__02.stl",
+          "b": "cep-tahla-kratky__01.stl",
+          "clearance_mm": 272.2246828838823
+        },
+        {
+          "a": "motorovy-mustek__02.stl",
+          "b": "pojistka-3_1__06.stl",
+          "clearance_mm": 273.4792990241706
+        },
+        {
+          "a": "motorovy-mustek__02.stl",
+          "b": "pojistka-3_1__05.stl",
+          "clearance_mm": 193.8682777337014
+        },
+        {
+          "a": "motorovy-mustek__02.stl",
+          "b": "pojistka-3_1__10.stl",
+          "clearance_mm": 237.94060688540338
+        },
+        {
+          "a": "motorovy-mustek__02.stl",
+          "b": "pojistka-3_1__09.stl",
+          "clearance_mm": 306.062317007759
+        },
+        {
+          "a": "pojistka-osy-10_9__02.stl",
+          "b": "servo-cep-4x51_2__02.stl",
+          "clearance_mm": 78.86977159610619
+        },
+        {
+          "a": "pojistka-osy-10_9__02.stl",
+          "b": "pojistka-6_9__01.stl",
+          "clearance_mm": 200.84268350753138
+        },
+        {
+          "a": "pojistka-osy-10_9__02.stl",
+          "b": "pojistka-6_9__06.stl",
+          "clearance_mm": 217.0115431072452
+        },
+        {
+          "a": "pojistka-osy-10_9__02.stl",
+          "b": "pojistka-6_9__07.stl",
+          "clearance_mm": 54.82256443192118
+        },
+        {
+          "a": "pojistka-osy-10_9__02.stl",
+          "b": "pojistka-6_9__05.stl",
+          "clearance_mm": 11.050000000000006
+        },
+        {
+          "a": "pojistka-osy-10_9__02.stl",
+          "b": "podlozka-packy-1_8__01.stl",
+          "clearance_mm": 202.30143673032546
+        },
+        {
+          "a": "pojistka-osy-10_9__02.stl",
+          "b": "spolecny-cep-mustku-4x30_5__01.stl",
+          "clearance_mm": 161.152721056605
+        },
+        {
+          "a": "pojistka-osy-10_9__02.stl",
+          "b": "cep-tahla-kratky__01.stl",
+          "clearance_mm": 35.9272478065563
+        },
+        {
+          "a": "pojistka-osy-10_9__02.stl",
+          "b": "pojistka-3_1__06.stl",
+          "clearance_mm": 16.173395580123056
+        },
+        {
+          "a": "pojistka-osy-10_9__02.stl",
+          "b": "pojistka-3_1__05.stl",
+          "clearance_mm": 161.78607587000016
+        },
+        {
+          "a": "pojistka-osy-10_9__02.stl",
+          "b": "pojistka-3_1__10.stl",
+          "clearance_mm": 143.5912026611317
+        },
+        {
+          "a": "pojistka-osy-10_9__02.stl",
+          "b": "pojistka-3_1__09.stl",
+          "clearance_mm": 11.050000000000011
+        },
+        {
+          "a": "servo-cep-4x51_2__02.stl",
+          "b": "pojistka-6_9__01.stl",
+          "clearance_mm": 234.73051872819374
+        },
+        {
+          "a": "servo-cep-4x51_2__02.stl",
+          "b": "pojistka-6_9__06.stl",
+          "clearance_mm": 87.69499749061755
+        },
+        {
+          "a": "servo-cep-4x51_2__02.stl",
+          "b": "pojistka-6_9__07.stl",
+          "clearance_mm": 11.049999999999997
+        },
+        {
+          "a": "servo-cep-4x51_2__02.stl",
+          "b": "pojistka-6_9__05.stl",
+          "clearance_mm": 59.75360117136252
+        },
+        {
+          "a": "servo-cep-4x51_2__02.stl",
+          "b": "podlozka-packy-1_8__01.stl",
+          "clearance_mm": 72.08033662092187
+        },
+        {
+          "a": "servo-cep-4x51_2__02.stl",
+          "b": "spolecny-cep-mustku-4x30_5__01.stl",
+          "clearance_mm": 30.745388490932967
+        },
+        {
+          "a": "servo-cep-4x51_2__02.stl",
+          "b": "cep-tahla-kratky__01.stl",
+          "clearance_mm": 33.45776040623381
+        },
+        {
+          "a": "servo-cep-4x51_2__02.stl",
+          "b": "pojistka-3_1__06.stl",
+          "clearance_mm": 95.56934607435598
+        },
+        {
+          "a": "servo-cep-4x51_2__02.stl",
+          "b": "pojistka-3_1__05.stl",
+          "clearance_mm": 40.14308148465469
+        },
+        {
+          "a": "servo-cep-4x51_2__02.stl",
+          "b": "pojistka-3_1__10.stl",
+          "clearance_mm": 13.876440337349191
+        },
+        {
+          "a": "servo-cep-4x51_2__02.stl",
+          "b": "pojistka-3_1__09.stl",
+          "clearance_mm": 83.33242343575725
+        },
+        {
+          "a": "pojistka-6_9__01.stl",
+          "b": "pojistka-6_9__06.stl",
+          "clearance_mm": 303.5209269669885
+        },
+        {
+          "a": "pojistka-6_9__01.stl",
+          "b": "pojistka-6_9__07.stl",
+          "clearance_mm": 221.04169655111397
+        },
+        {
+          "a": "pojistka-6_9__01.stl",
+          "b": "pojistka-6_9__05.stl",
+          "clearance_mm": 220.18137261508534
+        },
+        {
+          "a": "pojistka-6_9__01.stl",
+          "b": "podlozka-packy-1_8__01.stl",
+          "clearance_mm": 305.1571172204562
+        },
+        {
+          "a": "pojistka-6_9__01.stl",
+          "b": "spolecny-cep-mustku-4x30_5__01.stl",
+          "clearance_mm": 282.72277326003405
+        },
+        {
+          "a": "pojistka-6_9__01.stl",
+          "b": "cep-tahla-kratky__01.stl",
+          "clearance_mm": 229.90304737846026
+        },
+        {
+          "a": "pojistka-6_9__01.stl",
+          "b": "pojistka-3_1__06.stl",
+          "clearance_mm": 178.29009405400978
+        },
+        {
+          "a": "pojistka-6_9__01.stl",
+          "b": "pojistka-3_1__05.stl",
+          "clearance_mm": 251.56001490563466
+        },
+        {
+          "a": "pojistka-6_9__01.stl",
+          "b": "pojistka-3_1__10.stl",
+          "clearance_mm": 273.5898831652892
+        },
+        {
+          "a": "pojistka-6_9__01.stl",
+          "b": "pojistka-3_1__09.stl",
+          "clearance_mm": 228.53709741783408
+        },
+        {
+          "a": "pojistka-6_9__06.stl",
+          "b": "pojistka-6_9__07.stl",
+          "clearance_mm": 149.75795544877087
+        },
+        {
+          "a": "pojistka-6_9__06.stl",
+          "b": "pojistka-6_9__05.stl",
+          "clearance_mm": 198.93883121579856
+        },
+        {
+          "a": "pojistka-6_9__06.stl",
+          "b": "podlozka-packy-1_8__01.stl",
+          "clearance_mm": 11.049999999999997
+        },
+        {
+          "a": "pojistka-6_9__06.stl",
+          "b": "spolecny-cep-mustku-4x30_5__01.stl",
+          "clearance_mm": 30.871028857249556
+        },
+        {
+          "a": "pojistka-6_9__06.stl",
+          "b": "cep-tahla-kratky__01.stl",
+          "clearance_mm": 172.66677773706016
+        },
+        {
+          "a": "pojistka-6_9__06.stl",
+          "b": "pojistka-3_1__06.stl",
+          "clearance_mm": 228.5372229572703
+        },
+        {
+          "a": "pojistka-6_9__06.stl",
+          "b": "pojistka-3_1__05.stl",
+          "clearance_mm": 52.27132603404975
+        },
+        {
+          "a": "pojistka-6_9__06.stl",
+          "b": "pojistka-3_1__10.stl",
+          "clearance_mm": 71.2008785606325
+        },
+        {
+          "a": "pojistka-6_9__06.stl",
+          "b": "pojistka-3_1__09.stl",
+          "clearance_mm": 222.55838974030826
+        },
+        {
+          "a": "pojistka-6_9__07.stl",
+          "b": "pojistka-6_9__05.stl",
+          "clearance_mm": 36.49084202367824
+        },
+        {
+          "a": "pojistka-6_9__07.stl",
+          "b": "podlozka-packy-1_8__01.stl",
+          "clearance_mm": 134.51636921912865
+        },
+        {
+          "a": "pojistka-6_9__07.stl",
+          "b": "spolecny-cep-mustku-4x30_5__01.stl",
+          "clearance_mm": 93.33571674277206
+        },
+        {
+          "a": "pojistka-6_9__07.stl",
+          "b": "cep-tahla-kratky__01.stl",
+          "clearance_mm": 11.049999999999983
+        },
+        {
+          "a": "pojistka-6_9__07.stl",
+          "b": "pojistka-3_1__06.stl",
+          "clearance_mm": 72.44221967604567
+        },
+        {
+          "a": "pojistka-6_9__07.stl",
+          "b": "pojistka-3_1__05.stl",
+          "clearance_mm": 96.67288969433862
+        },
+        {
+          "a": "pojistka-6_9__07.stl",
+          "b": "pojistka-3_1__10.stl",
+          "clearance_mm": 75.86261643417642
+        },
+        {
+          "a": "pojistka-6_9__07.stl",
+          "b": "pojistka-3_1__09.stl",
+          "clearance_mm": 60.442006154257086
+        },
+        {
+          "a": "pojistka-6_9__05.stl",
+          "b": "podlozka-packy-1_8__01.stl",
+          "clearance_mm": 182.93189367616552
+        },
+        {
+          "a": "pojistka-6_9__05.stl",
+          "b": "spolecny-cep-mustku-4x30_5__01.stl",
+          "clearance_mm": 141.4052557278969
+        },
+        {
+          "a": "pojistka-6_9__05.stl",
+          "b": "cep-tahla-kratky__01.stl",
+          "clearance_mm": 14.067796499199074
+        },
+        {
+          "a": "pojistka-6_9__05.stl",
+          "b": "pojistka-3_1__06.stl",
+          "clearance_mm": 41.16632944293301
+        },
+        {
+          "a": "pojistka-6_9__05.stl",
+          "b": "pojistka-3_1__05.stl",
+          "clearance_mm": 146.05858238127342
+        },
+        {
+          "a": "pojistka-6_9__05.stl",
+          "b": "pojistka-3_1__10.stl",
+          "clearance_mm": 123.4469422830409
+        },
+        {
+          "a": "pojistka-6_9__05.stl",
+          "b": "pojistka-3_1__09.stl",
+          "clearance_mm": 11.05000000000002
+        },
+        {
+          "a": "podlozka-packy-1_8__01.stl",
+          "b": "spolecny-cep-mustku-4x30_5__01.stl",
+          "clearance_mm": 11.050000000000011
+        },
+        {
+          "a": "podlozka-packy-1_8__01.stl",
+          "b": "cep-tahla-kratky__01.stl",
+          "clearance_mm": 156.67101911960833
+        },
+        {
+          "a": "podlozka-packy-1_8__01.stl",
+          "b": "pojistka-3_1__06.stl",
+          "clearance_mm": 216.12046307903069
+        },
+        {
+          "a": "podlozka-packy-1_8__01.stl",
+          "b": "pojistka-3_1__05.stl",
+          "clearance_mm": 47.15647519617889
+        },
+        {
+          "a": "podlozka-packy-1_8__01.stl",
+          "b": "pojistka-3_1__10.stl",
+          "clearance_mm": 52.8421841888467
+        },
+        {
+          "a": "podlozka-packy-1_8__01.stl",
+          "b": "pojistka-3_1__09.stl",
+          "clearance_mm": 206.16421118583105
+        },
+        {
+          "a": "spolecny-cep-mustku-4x30_5__01.stl",
+          "b": "cep-tahla-kratky__01.stl",
+          "clearance_mm": 115.12760254633609
+        },
+        {
+          "a": "spolecny-cep-mustku-4x30_5__01.stl",
+          "b": "pojistka-3_1__06.stl",
+          "clearance_mm": 176.33092888399935
+        },
+        {
+          "a": "spolecny-cep-mustku-4x30_5__01.stl",
+          "b": "pojistka-3_1__05.stl",
+          "clearance_mm": 34.79466082530332
+        },
+        {
+          "a": "spolecny-cep-mustku-4x30_5__01.stl",
+          "b": "pojistka-3_1__10.stl",
+          "clearance_mm": 11.050000000000011
+        },
+        {
+          "a": "spolecny-cep-mustku-4x30_5__01.stl",
+          "b": "pojistka-3_1__09.stl",
+          "clearance_mm": 164.5267113997681
+        },
+        {
+          "a": "cep-tahla-kratky__01.stl",
+          "b": "pojistka-3_1__06.stl",
+          "clearance_mm": 60.8855294418742
+        },
+        {
+          "a": "cep-tahla-kratky__01.stl",
+          "b": "pojistka-3_1__05.stl",
+          "clearance_mm": 120.49044320919201
+        },
+        {
+          "a": "cep-tahla-kratky__01.stl",
+          "b": "pojistka-3_1__10.stl",
+          "clearance_mm": 97.07846643900263
+        },
+        {
+          "a": "cep-tahla-kratky__01.stl",
+          "b": "pojistka-3_1__09.stl",
+          "clearance_mm": 37.199109044166846
+        },
+        {
+          "a": "pojistka-3_1__06.stl",
+          "b": "pojistka-3_1__05.stl",
+          "clearance_mm": 170.81477517432012
+        },
+        {
+          "a": "pojistka-3_1__06.stl",
+          "b": "pojistka-3_1__10.stl",
+          "clearance_mm": 159.7274231409012
+        },
+        {
+          "a": "pojistka-3_1__06.stl",
+          "b": "pojistka-3_1__09.stl",
+          "clearance_mm": 43.714186500841244
+        },
+        {
+          "a": "pojistka-3_1__05.stl",
+          "b": "pojistka-3_1__10.stl",
+          "clearance_mm": 38.56883683707176
+        },
+        {
+          "a": "pojistka-3_1__05.stl",
+          "b": "pojistka-3_1__09.stl",
+          "clearance_mm": 170.07399462526033
+        },
+        {
+          "a": "pojistka-3_1__10.stl",
+          "b": "pojistka-3_1__09.stl",
+          "clearance_mm": 146.47904331176645
+        }
+      ]
+    },
+    {
+      "plate": 3,
+      "objects": 13,
+      "all_within_6mm_edge": true,
+      "minimum_hull_clearance_mm": 11.02063241744006,
+      "minimum_brim_envelope_clearance_mm": 0.820632417440061,
+      "minimum_edge_clearance_mm": 6.0,
+      "minimum_brim_to_bed_edge_mm": 0.9000000000000004,
+      "group_bbox_center_mm": [
+        130.0,
+        130.0
+      ],
+      "pair_checks": 78,
+      "pair_distances": [
+        {
+          "a": "plosina-170x60__01.stl",
+          "b": "rozperka-zadni-17_6__01.stl",
+          "clearance_mm": 11.050000000000011
+        },
+        {
+          "a": "plosina-170x60__01.stl",
+          "b": "cep-plosiny-4x19_5__01.stl",
+          "clearance_mm": 38.0
+        },
+        {
+          "a": "plosina-170x60__01.stl",
+          "b": "spolecny-cep-mustku-4x30_5__02.stl",
+          "clearance_mm": 11.050000000000011
+        },
+        {
+          "a": "plosina-170x60__01.stl",
+          "b": "pojistka-6_9__03.stl",
+          "clearance_mm": 33.00001557325959
+        },
+        {
+          "a": "plosina-170x60__01.stl",
+          "b": "cep-tahla-dlouhy__01.stl",
+          "clearance_mm": 13.05811522077272
+        },
+        {
+          "a": "plosina-170x60__01.stl",
+          "b": "cep-plosiny-4x19_5__03.stl",
+          "clearance_mm": 26.5
+        },
+        {
+          "a": "plosina-170x60__01.stl",
+          "b": "cep-plosiny-4x19_5__02.stl",
+          "clearance_mm": 11.049999999999992
+        },
+        {
+          "a": "plosina-170x60__01.stl",
+          "b": "objimka-cep-4x25_5__01.stl",
+          "clearance_mm": 11.049999999999983
+        },
+        {
+          "a": "plosina-170x60__01.stl",
+          "b": "pojistka-6_9__02.stl",
+          "clearance_mm": 11.049999999999983
+        },
+        {
+          "a": "plosina-170x60__01.stl",
+          "b": "pojistka-kloubu-4_9__01.stl",
+          "clearance_mm": 11.049999999999983
+        },
+        {
+          "a": "plosina-170x60__01.stl",
+          "b": "pojistka-3_1__08.stl",
+          "clearance_mm": 11.049999999999983
+        },
+        {
+          "a": "plosina-170x60__01.stl",
+          "b": "pojistka-3_1__04.stl",
+          "clearance_mm": 11.049999999999983
+        },
+        {
+          "a": "rozperka-zadni-17_6__01.stl",
+          "b": "cep-plosiny-4x19_5__01.stl",
+          "clearance_mm": 11.050000000000011
+        },
+        {
+          "a": "rozperka-zadni-17_6__01.stl",
+          "b": "spolecny-cep-mustku-4x30_5__02.stl",
+          "clearance_mm": 22.244977362494613
+        },
+        {
+          "a": "rozperka-zadni-17_6__01.stl",
+          "b": "pojistka-6_9__03.stl",
+          "clearance_mm": 42.431951451307704
+        },
+        {
+          "a": "rozperka-zadni-17_6__01.stl",
+          "b": "cep-tahla-dlouhy__01.stl",
+          "clearance_mm": 40.76722904044914
+        },
+        {
+          "a": "rozperka-zadni-17_6__01.stl",
+          "b": "cep-plosiny-4x19_5__03.stl",
+          "clearance_mm": 67.07671514458195
+        },
+        {
+          "a": "rozperka-zadni-17_6__01.stl",
+          "b": "cep-plosiny-4x19_5__02.stl",
+          "clearance_mm": 79.1552142181212
+        },
+        {
+          "a": "rozperka-zadni-17_6__01.stl",
+          "b": "objimka-cep-4x25_5__01.stl",
+          "clearance_mm": 207.82728119051615
+        },
+        {
+          "a": "rozperka-zadni-17_6__01.stl",
+          "b": "pojistka-6_9__02.stl",
+          "clearance_mm": 187.9067318644399
+        },
+        {
+          "a": "rozperka-zadni-17_6__01.stl",
+          "b": "pojistka-kloubu-4_9__01.stl",
+          "clearance_mm": 168.93391974172908
+        },
+        {
+          "a": "rozperka-zadni-17_6__01.stl",
+          "b": "pojistka-3_1__08.stl",
+          "clearance_mm": 153.31537329757154
+        },
+        {
+          "a": "rozperka-zadni-17_6__01.stl",
+          "b": "pojistka-3_1__04.stl",
+          "clearance_mm": 138.8837806774208
+        },
+        {
+          "a": "cep-plosiny-4x19_5__01.stl",
+          "b": "spolecny-cep-mustku-4x30_5__02.stl",
+          "clearance_mm": 11.049999999999995
+        },
+        {
+          "a": "cep-plosiny-4x19_5__01.stl",
+          "b": "pojistka-6_9__03.stl",
+          "clearance_mm": 26.563856097109365
+        },
+        {
+          "a": "cep-plosiny-4x19_5__01.stl",
+          "b": "cep-tahla-dlouhy__01.stl",
+          "clearance_mm": 32.951127982538615
+        },
+        {
+          "a": "cep-plosiny-4x19_5__01.stl",
+          "b": "cep-plosiny-4x19_5__03.stl",
+          "clearance_mm": 52.32994481110062
+        },
+        {
+          "a": "cep-plosiny-4x19_5__01.stl",
+          "b": "cep-plosiny-4x19_5__02.stl",
+          "clearance_mm": 69.2286231229318
+        },
+        {
+          "a": "cep-plosiny-4x19_5__01.stl",
+          "b": "objimka-cep-4x25_5__01.stl",
+          "clearance_mm": 225.64806964392073
+        },
+        {
+          "a": "cep-plosiny-4x19_5__01.stl",
+          "b": "pojistka-6_9__02.stl",
+          "clearance_mm": 204.29385385958403
+        },
+        {
+          "a": "cep-plosiny-4x19_5__01.stl",
+          "b": "pojistka-kloubu-4_9__01.stl",
+          "clearance_mm": 184.21157601486237
+        },
+        {
+          "a": "cep-plosiny-4x19_5__01.stl",
+          "b": "pojistka-3_1__08.stl",
+          "clearance_mm": 167.3404780186609
+        },
+        {
+          "a": "cep-plosiny-4x19_5__01.stl",
+          "b": "pojistka-3_1__04.stl",
+          "clearance_mm": 151.25877323890742
+        },
+        {
+          "a": "spolecny-cep-mustku-4x30_5__02.stl",
+          "b": "pojistka-6_9__03.stl",
+          "clearance_mm": 11.050000000000008
+        },
+        {
+          "a": "spolecny-cep-mustku-4x30_5__02.stl",
+          "b": "cep-tahla-dlouhy__01.stl",
+          "clearance_mm": 11.050000000000006
+        },
+        {
+          "a": "spolecny-cep-mustku-4x30_5__02.stl",
+          "b": "cep-plosiny-4x19_5__03.stl",
+          "clearance_mm": 37.08571385452742
+        },
+        {
+          "a": "spolecny-cep-mustku-4x30_5__02.stl",
+          "b": "cep-plosiny-4x19_5__02.stl",
+          "clearance_mm": 49.49674358683339
+        },
+        {
+          "a": "spolecny-cep-mustku-4x30_5__02.stl",
+          "b": "objimka-cep-4x25_5__01.stl",
+          "clearance_mm": 194.8200360253858
+        },
+        {
+          "a": "spolecny-cep-mustku-4x30_5__02.stl",
+          "b": "pojistka-6_9__02.stl",
+          "clearance_mm": 173.06351749541395
+        },
+        {
+          "a": "spolecny-cep-mustku-4x30_5__02.stl",
+          "b": "pojistka-kloubu-4_9__01.stl",
+          "clearance_mm": 152.7591960897457
+        },
+        {
+          "a": "spolecny-cep-mustku-4x30_5__02.stl",
+          "b": "pojistka-3_1__08.stl",
+          "clearance_mm": 135.67322381814802
+        },
+        {
+          "a": "spolecny-cep-mustku-4x30_5__02.stl",
+          "b": "pojistka-3_1__04.stl",
+          "clearance_mm": 119.37423634646728
+        },
+        {
+          "a": "pojistka-6_9__03.stl",
+          "b": "cep-tahla-dlouhy__01.stl",
+          "clearance_mm": 11.050000000000002
+        },
+        {
+          "a": "pojistka-6_9__03.stl",
+          "b": "cep-plosiny-4x19_5__03.stl",
+          "clearance_mm": 13.564934601144135
+        },
+        {
+          "a": "pojistka-6_9__03.stl",
+          "b": "cep-plosiny-4x19_5__02.stl",
+          "clearance_mm": 32.70893574164321
+        },
+        {
+          "a": "pojistka-6_9__03.stl",
+          "b": "objimka-cep-4x25_5__01.stl",
+          "clearance_mm": 212.6449575059037
+        },
+        {
+          "a": "pojistka-6_9__03.stl",
+          "b": "pojistka-6_9__02.stl",
+          "clearance_mm": 189.87385939412593
+        },
+        {
+          "a": "pojistka-6_9__03.stl",
+          "b": "pojistka-kloubu-4_9__01.stl",
+          "clearance_mm": 169.01811632552707
+        },
+        {
+          "a": "pojistka-6_9__03.stl",
+          "b": "pojistka-3_1__08.stl",
+          "clearance_mm": 151.23898220887156
+        },
+        {
+          "a": "pojistka-6_9__03.stl",
+          "b": "pojistka-3_1__04.stl",
+          "clearance_mm": 133.85028426661083
+        },
+        {
+          "a": "cep-tahla-dlouhy__01.stl",
+          "b": "cep-plosiny-4x19_5__03.stl",
+          "clearance_mm": 11.022106605777623
+        },
+        {
+          "a": "cep-tahla-dlouhy__01.stl",
+          "b": "cep-plosiny-4x19_5__02.stl",
+          "clearance_mm": 22.786033375163495
+        },
+        {
+          "a": "cep-tahla-dlouhy__01.stl",
+          "b": "objimka-cep-4x25_5__01.stl",
+          "clearance_mm": 191.35852514001616
+        },
+        {
+          "a": "cep-tahla-dlouhy__01.stl",
+          "b": "pojistka-6_9__02.stl",
+          "clearance_mm": 168.34438552763442
+        },
+        {
+          "a": "cep-tahla-dlouhy__01.stl",
+          "b": "pojistka-kloubu-4_9__01.stl",
+          "clearance_mm": 147.40769876640152
+        },
+        {
+          "a": "cep-tahla-dlouhy__01.stl",
+          "b": "pojistka-3_1__08.stl",
+          "clearance_mm": 129.5396003935177
+        },
+        {
+          "a": "cep-tahla-dlouhy__01.stl",
+          "b": "pojistka-3_1__04.stl",
+          "clearance_mm": 112.0148458416397
+        },
+        {
+          "a": "cep-plosiny-4x19_5__03.stl",
+          "b": "cep-plosiny-4x19_5__02.stl",
+          "clearance_mm": 11.02063241744006
+        },
+        {
+          "a": "cep-plosiny-4x19_5__03.stl",
+          "b": "objimka-cep-4x25_5__01.stl",
+          "clearance_mm": 203.3379959728875
+        },
+        {
+          "a": "cep-plosiny-4x19_5__03.stl",
+          "b": "pojistka-6_9__02.stl",
+          "clearance_mm": 179.73339142879817
+        },
+        {
+          "a": "cep-plosiny-4x19_5__03.stl",
+          "b": "pojistka-kloubu-4_9__01.stl",
+          "clearance_mm": 158.6854520670691
+        },
+        {
+          "a": "cep-plosiny-4x19_5__03.stl",
+          "b": "pojistka-3_1__08.stl",
+          "clearance_mm": 140.64407891003282
+        },
+        {
+          "a": "cep-plosiny-4x19_5__03.stl",
+          "b": "pojistka-3_1__04.stl",
+          "clearance_mm": 122.71320078228173
+        },
+        {
+          "a": "cep-plosiny-4x19_5__02.stl",
+          "b": "objimka-cep-4x25_5__01.stl",
+          "clearance_mm": 176.26981175933477
+        },
+        {
+          "a": "cep-plosiny-4x19_5__02.stl",
+          "b": "pojistka-6_9__02.stl",
+          "clearance_mm": 152.27019485507952
+        },
+        {
+          "a": "cep-plosiny-4x19_5__02.stl",
+          "b": "pojistka-kloubu-4_9__01.stl",
+          "clearance_mm": 131.2871417405954
+        },
+        {
+          "a": "cep-plosiny-4x19_5__02.stl",
+          "b": "pojistka-3_1__08.stl",
+          "clearance_mm": 113.28099001337914
+        },
+        {
+          "a": "cep-plosiny-4x19_5__02.stl",
+          "b": "pojistka-3_1__04.stl",
+          "clearance_mm": 95.23449223678679
+        },
+        {
+          "a": "objimka-cep-4x25_5__01.stl",
+          "b": "pojistka-6_9__02.stl",
+          "clearance_mm": 11.047600960119162
+        },
+        {
+          "a": "objimka-cep-4x25_5__01.stl",
+          "b": "pojistka-kloubu-4_9__01.stl",
+          "clearance_mm": 34.98347701797878
+        },
+        {
+          "a": "objimka-cep-4x25_5__01.stl",
+          "b": "pojistka-3_1__08.stl",
+          "clearance_mm": 55.989685638622156
+        },
+        {
+          "a": "objimka-cep-4x25_5__01.stl",
+          "b": "pojistka-3_1__04.stl",
+          "clearance_mm": 74.03618341521452
+        },
+        {
+          "a": "pojistka-6_9__02.stl",
+          "b": "pojistka-kloubu-4_9__01.stl",
+          "clearance_mm": 11.050000000000013
+        },
+        {
+          "a": "pojistka-6_9__02.stl",
+          "b": "pojistka-3_1__08.stl",
+          "clearance_mm": 32.09650266827774
+        },
+        {
+          "a": "pojistka-6_9__02.stl",
+          "b": "pojistka-3_1__04.stl",
+          "clearance_mm": 50.09230806529713
+        },
+        {
+          "a": "pojistka-kloubu-4_9__01.stl",
+          "b": "pojistka-3_1__08.stl",
+          "clearance_mm": 11.049601895411953
+        },
+        {
+          "a": "pojistka-kloubu-4_9__01.stl",
+          "b": "pojistka-3_1__04.stl",
+          "clearance_mm": 29.068863807343913
+        },
+        {
+          "a": "pojistka-3_1__08.stl",
+          "b": "pojistka-3_1__04.stl",
+          "clearance_mm": 11.050000000000006
+        }
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "name": "spojovaci-tahlo__01.stl",
+      "plate": 1,
+      "source_sha256": "10e9fb72b2d571a950851eab0dcc2d6d28d2d0078c72035b2f7c40ad204603f5",
+      "triangle_count": 1892,
+      "mesh_z_bounds_mm": [
+        0.0,
+        3.0
+      ],
+      "transform_determinant": 1.0
+    },
+    {
+      "name": "kolo-76x12-predni__02.stl",
+      "plate": 1,
+      "source_sha256": "5568c0fa1f7ffd7393a11d45d2609aefdff0d16024d7f8138f2396972ece76fe",
+      "triangle_count": 2496,
+      "mesh_z_bounds_mm": [
+        0.0,
+        12.0
+      ],
+      "transform_determinant": 1.0
+    },
+    {
+      "name": "kolo-76x12-predni__01.stl",
+      "plate": 1,
+      "source_sha256": "5568c0fa1f7ffd7393a11d45d2609aefdff0d16024d7f8138f2396972ece76fe",
+      "triangle_count": 2496,
+      "mesh_z_bounds_mm": [
+        0.0,
+        12.0
+      ],
+      "transform_determinant": 1.0
+    },
+    {
+      "name": "kolo-76x12-zadni-d__01.stl",
+      "plate": 1,
+      "source_sha256": "434869ad956aec81b362c1a0d4f236a6b8528be879c35f706f9892c8f4332d2d",
+      "triangle_count": 2368,
+      "mesh_z_bounds_mm": [
+        0.0,
+        12.0
+      ],
+      "transform_determinant": 1.0
+    },
+    {
+      "name": "mezikolo-b-60_22__01.stl",
+      "plate": 1,
+      "source_sha256": "e9a7172ec7ac3183205fff3d9ac4ff05ffab035afc3ce89490cedd6ed61f9bae",
+      "triangle_count": 31352,
+      "mesh_z_bounds_mm": [
+        0.0,
+        30.0
+      ],
+      "transform_determinant": 1.0
+    },
+    {
+      "name": "kolo-76x12-zadni-d__02.stl",
+      "plate": 1,
+      "source_sha256": "434869ad956aec81b362c1a0d4f236a6b8528be879c35f706f9892c8f4332d2d",
+      "triangle_count": 2368,
+      "mesh_z_bounds_mm": [
+        0.0,
+        12.0
+      ],
+      "transform_determinant": 1.0
+    },
+    {
+      "name": "mezikolo-a-54_18__01.stl",
+      "plate": 1,
+      "source_sha256": "92b682b472098d9d4f269c12f76eb6121963a9d5950780d93ee3108bf602cb26",
+      "triangle_count": 27720,
+      "mesh_z_bounds_mm": [
+        0.0,
+        30.0
+      ],
+      "transform_determinant": 1.0
+    },
+    {
+      "name": "osa-zadni-12x150_6__01.stl",
+      "plate": 1,
+      "source_sha256": "d9c287fe20b5b7c1df883dcb33d3a426dfefb12102ad702be0b134094b475f58",
+      "triangle_count": 4738,
+      "mesh_z_bounds_mm": [
+        1.7763568394002505e-15,
+        12.0
+      ],
+      "transform_determinant": 1.0
+    },
+    {
+      "name": "servo-viko__01.stl",
+      "plate": 1,
+      "source_sha256": "c1c735144b7cb1a0330d0e63ee376f5aa66310aadb6580be783ceab849caf9dc",
+      "triangle_count": 1048,
+      "mesh_z_bounds_mm": [
+        0.0,
+        5.0
+      ],
+      "transform_determinant": 1.0
+    },
+    {
+      "name": "servo-tahlo-r15__01.stl",
+      "plate": 1,
+      "source_sha256": "3774b9d11426ba0328b9d34ae06aebcbf31c1e33b43eb61432b854adab7eb7ff",
+      "triangle_count": 1936,
+      "mesh_z_bounds_mm": [
+        0.0,
+        3.0
+      ],
+      "transform_determinant": 1.0
+    },
+    {
+      "name": "tehlice-prava__01.stl",
+      "plate": 1,
+      "source_sha256": "57965a41b07b256bcf550bc7c603bdeec5c489cdd0616eb062b4951894af2ec7",
+      "triangle_count": 5624,
+      "mesh_z_bounds_mm": [
+        0.0,
+        35.70000076293945
+      ],
+      "transform_determinant": 1.0
+    },
+    {
+      "name": "svisly-cep-8__02.stl",
+      "plate": 1,
+      "source_sha256": "6ce92d30b28a9e7543339b1e0847aef8647ebabba7cdeba89ba701b449810c44",
+      "triangle_count": 2012,
+      "mesh_z_bounds_mm": [
+        0.0,
+        13.0
+      ],
+      "transform_determinant": 1.0
+    },
+    {
+      "name": "pevny-cep-8x53_9__01.stl",
+      "plate": 1,
+      "source_sha256": "dadc7cac8a1ab3539f123e7abdd65fa3d0555b4b37d583de85756956aaa5e795",
+      "triangle_count": 1524,
+      "mesh_z_bounds_mm": [
+        0.0,
+        12.0
+      ],
+      "transform_determinant": 1.0
+    },
+    {
+      "name": "servo-cep-4x51_2__01.stl",
+      "plate": 1,
+      "source_sha256": "113049edfed69399da6e6df4c7381cd91e54f38f8d7933579a1d73f99becffba",
+      "triangle_count": 2012,
+      "mesh_z_bounds_mm": [
+        0.0,
+        8.0
+      ],
+      "transform_determinant": 1.0
+    },
+    {
+      "name": "celist-horni__02.stl",
+      "plate": 1,
+      "source_sha256": "bbdfc0d4ba793f973ad7c13b947867d38b9739c58f13362b41cbaced25f51872",
+      "triangle_count": 972,
+      "mesh_z_bounds_mm": [
+        0.0,
+        7.0
+      ],
+      "transform_determinant": 1.0
+    },
+    {
+      "name": "motorovy-mustek__01.stl",
+      "plate": 1,
+      "source_sha256": "6b3d81a3b4963a98f01334b87b32dbea474997b194dd0811bbcfb7487eac8c5b",
+      "triangle_count": 1252,
+      "mesh_z_bounds_mm": [
+        0.0,
+        18.0
+      ],
+      "transform_determinant": 1.0
+    },
+    {
+      "name": "pricny-klinek-4x27_1__01.stl",
+      "plate": 1,
+      "source_sha256": "39ccbc90327cf3cc0ce7a91f9430515797d55a2b332c9eb09c70b50763f0b020",
+      "triangle_count": 2012,
+      "mesh_z_bounds_mm": [
+        0.0,
+        7.0
+      ],
+      "transform_determinant": 1.0
+    },
+    {
+      "name": "pojistka-6_9__04.stl",
+      "plate": 1,
+      "source_sha256": "7be6176012c834bfba0b745c0048f7139799b85b0654688302d0bba3353007e0",
+      "triangle_count": 772,
+      "mesh_z_bounds_mm": [
+        0.0,
+        1.2999999523162842
+      ],
+      "transform_determinant": 1.0
+    },
+    {
+      "name": "cep-plosiny-4x19_5__04.stl",
+      "plate": 1,
+      "source_sha256": "ca809f5002b17f92be2453f7cbc73e78e0f17619d2a0040cec2acae125e639fc",
+      "triangle_count": 1524,
+      "mesh_z_bounds_mm": [
+        0.0,
+        8.0
+      ],
+      "transform_determinant": 1.0
+    },
+    {
+      "name": "motorovy-klinek__02.stl",
+      "plate": 1,
+      "source_sha256": "b05c7ac17b7d8806d0ed986e239bb29b1f1c55f3d07ca1d605613de8ed9a14f8",
+      "triangle_count": 12,
+      "mesh_z_bounds_mm": [
+        0.0,
+        4.0
+      ],
+      "transform_determinant": 1.0
+    },
+    {
+      "name": "pojistka-kloubu-4_9__02.stl",
+      "plate": 1,
+      "source_sha256": "16f315d7f9a68525af9bfd74d99b27113de4dcb9e2ce6369fecf930b6a8928cd",
+      "triangle_count": 788,
+      "mesh_z_bounds_mm": [
+        0.0,
+        1.2999999523162842
+      ],
+      "transform_determinant": 1.0
+    },
+    {
+      "name": "motorovy-klinek__01.stl",
+      "plate": 1,
+      "source_sha256": "b05c7ac17b7d8806d0ed986e239bb29b1f1c55f3d07ca1d605613de8ed9a14f8",
+      "triangle_count": 12,
+      "mesh_z_bounds_mm": [
+        0.0,
+        4.0
+      ],
+      "transform_determinant": 1.0
+    },
+    {
+      "name": "pojistka-3_1__07.stl",
+      "plate": 1,
+      "source_sha256": "b6b33f593dff03ea8d4ee5eb90d42629c0973c982cd988b141ce50b2897a08c4",
+      "triangle_count": 808,
+      "mesh_z_bounds_mm": [
+        0.0,
+        1.2999999523162842
+      ],
+      "transform_determinant": 1.0
+    },
+    {
+      "name": "pojistka-3_1__02.stl",
+      "plate": 1,
+      "source_sha256": "b6b33f593dff03ea8d4ee5eb90d42629c0973c982cd988b141ce50b2897a08c4",
+      "triangle_count": 808,
+      "mesh_z_bounds_mm": [
+        0.0,
+        1.2999999523162842
+      ],
+      "transform_determinant": 1.0
+    },
+    {
+      "name": "pojistka-3_1__01.stl",
+      "plate": 1,
+      "source_sha256": "b6b33f593dff03ea8d4ee5eb90d42629c0973c982cd988b141ce50b2897a08c4",
+      "triangle_count": 808,
+      "mesh_z_bounds_mm": [
+        0.0,
+        1.2999999523162842
+      ],
+      "transform_determinant": 1.0
+    },
+    {
+      "name": "pojistka-3_1__03.stl",
+      "plate": 1,
+      "source_sha256": "b6b33f593dff03ea8d4ee5eb90d42629c0973c982cd988b141ce50b2897a08c4",
+      "triangle_count": 808,
+      "mesh_z_bounds_mm": [
+        0.0,
+        1.2999999523162842
+      ],
+      "transform_determinant": 1.0
+    },
+    {
+      "name": "ram-25__01.stl",
+      "plate": 2,
+      "source_sha256": "a4affc1bfec28e6fe91daeb82b2c4e7f1721fe98e06291b8ede8fac313e88ed4",
+      "triangle_count": 18788,
+      "mesh_z_bounds_mm": [
+        3.552713678800501e-15,
+        42.0
+      ],
+      "transform_determinant": 1.0
+    },
+    {
+      "name": "vystupni-kolo-55__01.stl",
+      "plate": 2,
+      "source_sha256": "362a0bf7a58bd3e94f05b97b10140cea8adbcf1df410e39c81f9903b902eedaf",
+      "triangle_count": 20396,
+      "mesh_z_bounds_mm": [
+        -1.7763568394002505e-15,
+        22.0
+      ],
+      "transform_determinant": 1.0
+    },
+    {
+      "name": "objimka-packy-spodek__01.stl",
+      "plate": 2,
+      "source_sha256": "be241901c13b19cc68b4620e25466e9933ab77915d62676c96df474d6295836f",
+      "triangle_count": 1530,
+      "mesh_z_bounds_mm": [
+        0.0,
+        8.600000381469727
+      ],
+      "transform_determinant": 1.0
+    },
+    {
+      "name": "tehlice-leva__01.stl",
+      "plate": 2,
+      "source_sha256": "3a1d6842f80eefdb1d92141f7329a75fae7d4c409c88bf4db069e47e2a4df655",
+      "triangle_count": 5624,
+      "mesh_z_bounds_mm": [
+        0.0,
+        35.70000076293945
+      ],
+      "transform_determinant": 1.0
+    },
+    {
+      "name": "objimka-packy-viko__01.stl",
+      "plate": 2,
+      "source_sha256": "c50191d432602244f2ae62f0c347d0a245ec26dee4cd61bbb1dedc2cc9f79bf5",
+      "triangle_count": 2460,
+      "mesh_z_bounds_mm": [
+        1.4210854715202004e-14,
+        13.5
+      ],
+      "transform_determinant": 1.0
+    },
+    {
+      "name": "celist-horni__01.stl",
+      "plate": 2,
+      "source_sha256": "bbdfc0d4ba793f973ad7c13b947867d38b9739c58f13362b41cbaced25f51872",
+      "triangle_count": 972,
+      "mesh_z_bounds_mm": [
+        0.0,
+        7.0
+      ],
+      "transform_determinant": 1.0
+    },
+    {
+      "name": "pojistka-osy-10_9__04.stl",
+      "plate": 2,
+      "source_sha256": "8fcc87ded5822951c16b6e075e3ca719e7c240d0e64890de46f22b4bd372ea29",
+      "triangle_count": 756,
+      "mesh_z_bounds_mm": [
+        0.0,
+        1.2999999523162842
+      ],
+      "transform_determinant": 1.0
+    },
+    {
+      "name": "pojistka-osy-10_9__01.stl",
+      "plate": 2,
+      "source_sha256": "8fcc87ded5822951c16b6e075e3ca719e7c240d0e64890de46f22b4bd372ea29",
+      "triangle_count": 756,
+      "mesh_z_bounds_mm": [
+        0.0,
+        1.2999999523162842
+      ],
+      "transform_determinant": 1.0
+    },
+    {
+      "name": "rozperka-zadni-17_6__02.stl",
+      "plate": 2,
+      "source_sha256": "3b772e4da5cf86901cec92e33da4d372c0bc2cd57376ec4930bfa20d72d2d205",
+      "triangle_count": 1008,
+      "mesh_z_bounds_mm": [
+        0.0,
+        17.600000381469727
+      ],
+      "transform_determinant": 1.0
+    },
+    {
+      "name": "pastorek-18-otvor-2_2__01.stl",
+      "plate": 2,
+      "source_sha256": "2233c44357635fbeb14e6831d92572bb7da8ed279732ba0a64e24bd971268eb0",
+      "triangle_count": 7992,
+      "mesh_z_bounds_mm": [
+        0.0,
+        5.0
+      ],
+      "transform_determinant": 1.0
+    },
+    {
+      "name": "pevny-cep-8x53_9__02.stl",
+      "plate": 2,
+      "source_sha256": "dadc7cac8a1ab3539f123e7abdd65fa3d0555b4b37d583de85756956aaa5e795",
+      "triangle_count": 1524,
+      "mesh_z_bounds_mm": [
+        0.0,
+        12.0
+      ],
+      "transform_determinant": 1.0
+    },
+    {
+      "name": "svisly-cep-8__01.stl",
+      "plate": 2,
+      "source_sha256": "6ce92d30b28a9e7543339b1e0847aef8647ebabba7cdeba89ba701b449810c44",
+      "triangle_count": 2012,
+      "mesh_z_bounds_mm": [
+        0.0,
+        13.0
+      ],
+      "transform_determinant": 1.0
+    },
+    {
+      "name": "pojistka-osy-10_9__03.stl",
+      "plate": 2,
+      "source_sha256": "8fcc87ded5822951c16b6e075e3ca719e7c240d0e64890de46f22b4bd372ea29",
+      "triangle_count": 756,
+      "mesh_z_bounds_mm": [
+        0.0,
+        1.2999999523162842
+      ],
+      "transform_determinant": 1.0
+    },
+    {
+      "name": "motorovy-mustek__02.stl",
+      "plate": 2,
+      "source_sha256": "6b3d81a3b4963a98f01334b87b32dbea474997b194dd0811bbcfb7487eac8c5b",
+      "triangle_count": 1252,
+      "mesh_z_bounds_mm": [
+        0.0,
+        18.0
+      ],
+      "transform_determinant": 1.0
+    },
+    {
+      "name": "pojistka-osy-10_9__02.stl",
+      "plate": 2,
+      "source_sha256": "8fcc87ded5822951c16b6e075e3ca719e7c240d0e64890de46f22b4bd372ea29",
+      "triangle_count": 756,
+      "mesh_z_bounds_mm": [
+        0.0,
+        1.2999999523162842
+      ],
+      "transform_determinant": 1.0
+    },
+    {
+      "name": "servo-cep-4x51_2__02.stl",
+      "plate": 2,
+      "source_sha256": "113049edfed69399da6e6df4c7381cd91e54f38f8d7933579a1d73f99becffba",
+      "triangle_count": 2012,
+      "mesh_z_bounds_mm": [
+        0.0,
+        8.0
+      ],
+      "transform_determinant": 1.0
+    },
+    {
+      "name": "pojistka-6_9__01.stl",
+      "plate": 2,
+      "source_sha256": "7be6176012c834bfba0b745c0048f7139799b85b0654688302d0bba3353007e0",
+      "triangle_count": 772,
+      "mesh_z_bounds_mm": [
+        0.0,
+        1.2999999523162842
+      ],
+      "transform_determinant": 1.0
+    },
+    {
+      "name": "pojistka-6_9__06.stl",
+      "plate": 2,
+      "source_sha256": "7be6176012c834bfba0b745c0048f7139799b85b0654688302d0bba3353007e0",
+      "triangle_count": 772,
+      "mesh_z_bounds_mm": [
+        0.0,
+        1.2999999523162842
+      ],
+      "transform_determinant": 1.0
+    },
+    {
+      "name": "pojistka-6_9__07.stl",
+      "plate": 2,
+      "source_sha256": "7be6176012c834bfba0b745c0048f7139799b85b0654688302d0bba3353007e0",
+      "triangle_count": 772,
+      "mesh_z_bounds_mm": [
+        0.0,
+        1.2999999523162842
+      ],
+      "transform_determinant": 1.0
+    },
+    {
+      "name": "pojistka-6_9__05.stl",
+      "plate": 2,
+      "source_sha256": "7be6176012c834bfba0b745c0048f7139799b85b0654688302d0bba3353007e0",
+      "triangle_count": 772,
+      "mesh_z_bounds_mm": [
+        0.0,
+        1.2999999523162842
+      ],
+      "transform_determinant": 1.0
+    },
+    {
+      "name": "podlozka-packy-1_8__01.stl",
+      "plate": 2,
+      "source_sha256": "aeb339e15530e621e9b971f623145d6be8d3bf3efe1257eefd44743d12ac3345",
+      "triangle_count": 1008,
+      "mesh_z_bounds_mm": [
+        0.0,
+        1.7999999523162842
+      ],
+      "transform_determinant": 1.0
+    },
+    {
+      "name": "spolecny-cep-mustku-4x30_5__01.stl",
+      "plate": 2,
+      "source_sha256": "163175e6a521505acfa6a9a0793011728c6362d44e775abb203fb3357bcccd34",
+      "triangle_count": 2012,
+      "mesh_z_bounds_mm": [
+        0.0,
+        8.0
+      ],
+      "transform_determinant": 1.0
+    },
+    {
+      "name": "cep-tahla-kratky__01.stl",
+      "plate": 2,
+      "source_sha256": "48fdf64462d8451bcf8dc93d661ccfafb24d372e493809f26744f9b55dd054d4",
+      "triangle_count": 2012,
+      "mesh_z_bounds_mm": [
+        0.0,
+        10.0
+      ],
+      "transform_determinant": 1.0
+    },
+    {
+      "name": "pojistka-3_1__06.stl",
+      "plate": 2,
+      "source_sha256": "b6b33f593dff03ea8d4ee5eb90d42629c0973c982cd988b141ce50b2897a08c4",
+      "triangle_count": 808,
+      "mesh_z_bounds_mm": [
+        0.0,
+        1.2999999523162842
+      ],
+      "transform_determinant": 1.0
+    },
+    {
+      "name": "pojistka-3_1__05.stl",
+      "plate": 2,
+      "source_sha256": "b6b33f593dff03ea8d4ee5eb90d42629c0973c982cd988b141ce50b2897a08c4",
+      "triangle_count": 808,
+      "mesh_z_bounds_mm": [
+        0.0,
+        1.2999999523162842
+      ],
+      "transform_determinant": 1.0
+    },
+    {
+      "name": "pojistka-3_1__10.stl",
+      "plate": 2,
+      "source_sha256": "b6b33f593dff03ea8d4ee5eb90d42629c0973c982cd988b141ce50b2897a08c4",
+      "triangle_count": 808,
+      "mesh_z_bounds_mm": [
+        0.0,
+        1.2999999523162842
+      ],
+      "transform_determinant": 1.0
+    },
+    {
+      "name": "pojistka-3_1__09.stl",
+      "plate": 2,
+      "source_sha256": "b6b33f593dff03ea8d4ee5eb90d42629c0973c982cd988b141ce50b2897a08c4",
+      "triangle_count": 808,
+      "mesh_z_bounds_mm": [
+        0.0,
+        1.2999999523162842
+      ],
+      "transform_determinant": 1.0
+    },
+    {
+      "name": "plosina-170x60__01.stl",
+      "plate": 3,
+      "source_sha256": "45d8828d928ab3e710758b9855a7f4e9e1522ca0efa34d2d4be95f6e8efaca08",
+      "triangle_count": 6932,
+      "mesh_z_bounds_mm": [
+        0.0,
+        72.0
+      ],
+      "transform_determinant": 1.0
+    },
+    {
+      "name": "rozperka-zadni-17_6__01.stl",
+      "plate": 3,
+      "source_sha256": "3b772e4da5cf86901cec92e33da4d372c0bc2cd57376ec4930bfa20d72d2d205",
+      "triangle_count": 1008,
+      "mesh_z_bounds_mm": [
+        0.0,
+        17.600000381469727
+      ],
+      "transform_determinant": 1.0
+    },
+    {
+      "name": "cep-plosiny-4x19_5__01.stl",
+      "plate": 3,
+      "source_sha256": "ca809f5002b17f92be2453f7cbc73e78e0f17619d2a0040cec2acae125e639fc",
+      "triangle_count": 1524,
+      "mesh_z_bounds_mm": [
+        0.0,
+        8.0
+      ],
+      "transform_determinant": 1.0
+    },
+    {
+      "name": "spolecny-cep-mustku-4x30_5__02.stl",
+      "plate": 3,
+      "source_sha256": "163175e6a521505acfa6a9a0793011728c6362d44e775abb203fb3357bcccd34",
+      "triangle_count": 2012,
+      "mesh_z_bounds_mm": [
+        0.0,
+        8.0
+      ],
+      "transform_determinant": 1.0
+    },
+    {
+      "name": "pojistka-6_9__03.stl",
+      "plate": 3,
+      "source_sha256": "7be6176012c834bfba0b745c0048f7139799b85b0654688302d0bba3353007e0",
+      "triangle_count": 772,
+      "mesh_z_bounds_mm": [
+        0.0,
+        1.2999999523162842
+      ],
+      "transform_determinant": 1.0
+    },
+    {
+      "name": "cep-tahla-dlouhy__01.stl",
+      "plate": 3,
+      "source_sha256": "22f9d6b375883daaa08772d6c17d3ff2c9c0197f84218d6dd81c82a8f6b8e503",
+      "triangle_count": 2012,
+      "mesh_z_bounds_mm": [
+        0.0,
+        10.0
+      ],
+      "transform_determinant": 1.0
+    },
+    {
+      "name": "cep-plosiny-4x19_5__03.stl",
+      "plate": 3,
+      "source_sha256": "ca809f5002b17f92be2453f7cbc73e78e0f17619d2a0040cec2acae125e639fc",
+      "triangle_count": 1524,
+      "mesh_z_bounds_mm": [
+        0.0,
+        8.0
+      ],
+      "transform_determinant": 1.0
+    },
+    {
+      "name": "cep-plosiny-4x19_5__02.stl",
+      "plate": 3,
+      "source_sha256": "ca809f5002b17f92be2453f7cbc73e78e0f17619d2a0040cec2acae125e639fc",
+      "triangle_count": 1524,
+      "mesh_z_bounds_mm": [
+        0.0,
+        8.0
+      ],
+      "transform_determinant": 1.0
+    },
+    {
+      "name": "objimka-cep-4x25_5__01.stl",
+      "plate": 3,
+      "source_sha256": "1a77990df981081e08aafe455b3f1d3777a7ba97abb2b9c89f1080c162737afa",
+      "triangle_count": 2012,
+      "mesh_z_bounds_mm": [
+        0.0,
+        7.0
+      ],
+      "transform_determinant": 1.0
+    },
+    {
+      "name": "pojistka-6_9__02.stl",
+      "plate": 3,
+      "source_sha256": "7be6176012c834bfba0b745c0048f7139799b85b0654688302d0bba3353007e0",
+      "triangle_count": 772,
+      "mesh_z_bounds_mm": [
+        0.0,
+        1.2999999523162842
+      ],
+      "transform_determinant": 1.0
+    },
+    {
+      "name": "pojistka-kloubu-4_9__01.stl",
+      "plate": 3,
+      "source_sha256": "16f315d7f9a68525af9bfd74d99b27113de4dcb9e2ce6369fecf930b6a8928cd",
+      "triangle_count": 788,
+      "mesh_z_bounds_mm": [
+        0.0,
+        1.2999999523162842
+      ],
+      "transform_determinant": 1.0
+    },
+    {
+      "name": "pojistka-3_1__08.stl",
+      "plate": 3,
+      "source_sha256": "b6b33f593dff03ea8d4ee5eb90d42629c0973c982cd988b141ce50b2897a08c4",
+      "triangle_count": 808,
+      "mesh_z_bounds_mm": [
+        0.0,
+        1.2999999523162842
+      ],
+      "transform_determinant": 1.0
+    },
+    {
+      "name": "pojistka-3_1__04.stl",
+      "plate": 3,
+      "source_sha256": "b6b33f593dff03ea8d4ee5eb90d42629c0973c982cd988b141ce50b2897a08c4",
+      "triangle_count": 808,
+      "mesh_z_bounds_mm": [
+        0.0,
+        1.2999999523162842
+      ],
+      "transform_determinant": 1.0
+    }
+  ],
+  "count": 66,
+  "method": "All original STL vertices, all-height convex XY hulls, pairwise Euclidean distances, no hole nesting; rigid Z rotations and XY translations only. Brim assumption width5mm + objectgap0.1mm. Does not prove support toolpath envelope or sliced layers."
+}

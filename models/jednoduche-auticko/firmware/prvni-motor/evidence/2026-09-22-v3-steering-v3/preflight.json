@@ -1,0 +1,21 @@
+{
+  "time_utc": "2026-09-22T21:36:02.838269+00:00",
+  "physical_state": {
+    "origin": "Explicit current user confirmation relayed by task 01a0caa4-9807-78f0-9152-893a808ca99a",
+    "reported_words": "Červenej vodič serva odpojen. Ano, potvrzuji, můžeš to nahrát.",
+    "question_included_motor_unpowered_and_uno_usb": true,
+    "servo_red_positive_disconnected": true,
+    "motor_unpowered": true,
+    "uno_connected_usb": true,
+    "linkage_may_remain_attached": true,
+    "agent_measured": false
+  },
+  "board_identity_verified": true,
+  "serial_owners": "",
+  "source_sha256": "0e56dfc88e022d18fcf4b8d33e511c5f99cc0671d2a23572686be4324a19dbb3",
+  "binary_sha256": "de8a2cec4fdbcb5964f5de09e3f6ffff767a263dd92e09b27f684d8a51e52dc0",
+  "bin_bytes": 84948,
+  "regression_exit": 0,
+  "compile_exit": 0,
+  "independent_review": "Only build ID and center+25us; direction/offset/timing correct. Existing pulse assertions only, timeouts unchanged. Stale startup comment corrected after tests, executable code unchanged."
+}

@@ -1,73 +1,58 @@
-# Regrese ovládání při držení — v2
+# Regrese motoru a řízení SG90 — v3-reverse-v1
 
-Z kořene repozitáře:
+**Úplná regrese `v3-reverse-v1` prošla: 120 parserových + 120 HTTP případů, 42 hostových scénářů, 21 blokujících zkoušek, 46 JS scénářů a 23 skutečných Chromium HTTP scénářů.** Překlad UNO R4 prošel: 86 708 B flash / 9 868 B RAM. [Evidence a přesný hash](../evidence/2026-09-22-v3-reverse-v1/README.md). Stejný zdroj `d24a87631fd32a41685baedd7488c425a75ca6f9e300706349c61e09e79fe930` byl následně [nahrán jako v3-reverse-v1](../evidence/2026-09-23-v3-reverse-v1-upload/README.md): 86 716 B / 22 stran / exit 0, tři pasivní klidové výpisy. Čítače zařízení byly stabilní HTTP=29 / closed=29 s neurčeným původem dřívějších požadavků; agent odeslal 0 sériových dat, 0 HTTP a 0 pohybových povelů. **Fyzická zkouška nové verze ani měření PWM neproběhly.** Historická steering-v4 a její uživatelem přijatá neutrální poloha kol mají samostatnou [evidenci](../evidence/2026-09-22-v3-steering-v4/README.md), která není fyzickou akceptací couvání. Níže je popis testované logiky, nikoli tvrzení o skutečném hardwaru.
+
+Z kořene projektu spusť:
 
 ```bash
 python3 models/jednoduche-auticko/firmware/prvni-motor/tests/run_http_tests.py
 ```
 
-Potřebuje Python 3, g++ a Node.js. Jeden příkaz přeloží **skutečný aktuální sketch** proti hostovým náhradám Arduino/WiFiS3/FspTimer/PwmOut a potom spustí **skutečný JavaScript vyjmutý z jeho HTML**. C++ binárka vzniká v dočasné složce. Tyto dvě sady neotevírají USB port ani síť, nenahrávají firmware a neroztáčejí skutečný motor. Volba `--source /absolutni/cesta/sketch.ino` umožňuje kontrolu jiné kopie stejného protokolu; původní pulzní `/test` se již musí odmítat.
+Python 3, g++ a Node.js přeloží skutečný aktuální sketch proti hostovým náhradám Arduino/WiFiS3/FspTimer/PwmOut a vykonají jeho skutečný vložený JavaScript. Dočasné binárky vznikají v ignorované `.cache/` vedle firmwaru. Tyto testy neotevírají USB ani sériová zařízení, nenahrávají firmware a neovládají hardware. Volba `--source /absolutni/cesta/sketch.ino` vybírá jiný kompatibilní zdroj. Přesná původní v2 má vlastní nezměněné testy v [archivu](../../archiv-hold-to-run-v2/).
 
-## HTTP a řízení motoru
+## Hostový firmware
 
-**90 případů parseru a stejných 90 případů přes skutečný `loop()`** zachovává původních 53 tříd HTTP regresí a přidává nový protokol. Kontroluje mobilní Chrome/Safari hlavičky, fragmentaci, CRLF, syntaxi a zdvojené hlavičky, Host a Origin, nulové tělo, mezní délky **1024 znaků na řádek / 8192 bajtů celkem / 3000 ms příjem**, správný session token, kanonické kladné číslo stisku bez přetečení a formát výzvy. Samotný GET, SESSION, ARM, STOP ani nepřipravený HOLD motor nezapne. `/session` přijímá pouze POST s předepsanými hlavičkami.
+- **Parser a úplný HTTP loop:** původní motorové požadavky, mobilní hlavičky, délkové a časové meze, nonce, tokeny, čísla stisku a nový společný motorový/řídicí úmysl. Částečné, duplicitní či neplatné `X-Control-Motor` / `X-Control-Steer` se odmítají; nikdy nepřejdou na výchozí motorový povel.
+- **Stavové scénáře:** ARM bez pohybu, motorová v2 kompatibilita, jednorázové výzvy, STOP před ARM/HOLD, staré a duplicitní pakety, vypršení, obnova relace, síťové chyby, přetečení času a čítačů, chyby RNG, PWM a bezpečnostního časovače. Steer-only HOLD nezapne motor; změna úmyslu může ponechat řízení a vypnout motor nebo zachovat motor a centrovat řízení.
+- **7 původních + 7 společných + 7 reverzních blokujících zkoušek:** status, connected, available, read, write, stop a Serial zablokované na 1000 ms. Simulovaný IRQ vypne motor a vydá 1575µs neutrál i bez hlavní smyčky. Mez je 505 ms od posledního přijatého HOLD kvůli fázi 5ms taktu, naměřeno v simulaci 500 ms. Zvlášť se kontroluje neúplné HTTP čekající do timeoutu.
+- D5 zůstává na 490 Hz a 128/255 v obou směrech; vpřed D7 HIGH / D8 LOW, vzad D7 LOW / D8 HIGH, vypnuto EN=0 a oba vstupy LOW. Servo D9 má 50 Hz a povely 1275 / 1575 / 1875 µs. Chyba servového PWM vypne motor, zablokuje další povely a přepne signál serva na LOW; test tento stav nevydává za dosažený fyzický střed.
 
-**28 navazujících skupin scénářů** kontroluje:
+Rozšíření couvání kontroluje přesné motorové hodnoty `-1`, `0`, `1`, odmítnutí nekanonických či neúplných hlaviček a zachování legacy motor vpřed / servo střed pouze při vynechání obou záměrů. Kontroluje opačné IN1/IN2, skutečné OFF před změnou směru a nejméně 250 ms od něj. Předčasný opačný HOLD musí vrátit `HOLD_REARM` bez nonce, ukončit sekvenci a ponechat výstupy vypnuté. Ani čas, starý HOLD/retry nebo ARM se stejným číslem stisku nesmějí běh obnovit. Časové měření v mocku neprokazuje mechanické zastavení motoru.
 
-- ARM bez pohybu, první HOLD s čerstvou výzvou, opakované potvrzování držení a STOP.
-- STOP, který předběhne ARM nebo HOLD, opakované a opožděné požadavky, obnovu stránky a nový skutečný stisk. Starší STOP/ARM/HOLD novější jízdu nepřeruší ani neprodlouží.
-- Vypršení ARM i běžícího motoru, HOLD po vypršení a přetečení `millis()`. ARM zůstává bez pohybu nejvýše 3000 ms; první i další výzva pro HOLD přesto platí méně než 500 ms.
-- Opravu dvojí závislosti na síťové latenci: platný HOLD dostane celých 500 ms od přijetí. Dvacet cyklů při každém z intervalů 200/250/300/400 ms udrží chod; původní v1 při 250 ms a více předčasně vypínala.
-- Ztracený STOP a jeden opožděný HOLD: i tento případ skončí nejpozději do 1000 ms od simulovaného puštění. Duplicitní paket dobu neprodlužuje.
-- Obnovu session po novém stisku, opakování po ztracené odpovědi, odmítnutí starší session, vyčištění obnovovacího záznamu novou stránkou a obnovu po startu desky. Opakovaný požadavek předchozí session vrací již vytvořený token, aniž by zastavoval nový běh.
-- Přechodné stavy Wi-Fi 255/0/77 a návrat provozu s novou session, nejvýše jeden pokus za sekundu, odmítnutí starého požadavku z fronty; také chybějící modul, neúspěšný start AP nebo serveru.
-- Start s vypnutými výstupy, selhání generátoru tokenů a session, vyčerpání čítačů, selhání každé fáze inicializace PWM/časovače a chybu aktualizace PWM včetně nouzového vypnutí GPIO.
+Časovač v mocku běží i uvnitř blokujícího I/O. Jakékoliv sériové, síťové nebo náhodné I/O uvnitř ISR je chyba. Nová rozšíření zachovávají motorovou v2 regresi při intervalech 200–400 ms i konzervativní hranici až 1000 ms při ztraceném STOP a posledním opožděném HOLD. Toto jsou modelové testy, nikoli měření skutečného telefonu, MCU, serva nebo mechanického doběhu.
 
-Mock času vykonává přerušení každých 5 ms **i uvnitř simulovaného blokujícího volání**. Sedm dalších scénářů zdrží `WiFi.status`, `connected`, `available`, `read`, odpověď `write`, `stop` a Serial o 1000 ms; kontroluje se vypnutí bez spolupráce hlavní smyčky. Samostatný případ nechá nedokončené HTTP čekat do timeoutu. V testovaných časových fázích proběhne IRQ STOP za **500 ms** od posledního přijetí HOLD; assertion dovoluje nejvýše 505 ms kvůli fázi hostového taktu. To je simulované časování, nikoli měření MCU. Jakékoliv síťové, sériové nebo náhodné I/O přímo v ISR test odmítne. Hlavní smyčka komunikuje i za chodu motoru, proto na ní vypnutí nezávisí.
+## Skutečný vložený JavaScript
 
-Odpovědi se kontrolují včetně `Content-Length`; všechny krátké odpovědi na POST používají **jediné `write()` a žádné `print()`**, aby nevytvářely řadu AT přenosů. Výstupy EN/D7/D8/LED jsou sledované. Mobilní hlavičky jsou realistické testovací vzory, nikoli záznam konkrétního telefonu.
+Scénáře v Node.js s deterministickou náhradou DOM, fetch, abortu a časovačů zachovávají původní ovládání a kontrolují:
 
-## Ovládání v náhradě prohlížeče
-
-**21 scénářů v Node.js** vykonává aktuální inline JavaScript v deterministických náhradách DOM událostí, `fetch`, abortu a časovačů:
-
-- Držení myší a dotykem, řetězec nových výzev po **20 ms od odpovědi**, puštění, nový stisk a ignorování cizího pointeru.
-- `pointercancel`, ztráta zachycení pointeru, `blur`, `pagehide`, offline a skrytí stránky.
-- Opožděná odpověď ARM/HOLD po puštění, i když transport ignoruje abort: žádný nový HOLD ani falešný stav „jede“.
-- Síťová nebo HTTP chyba, chybná výzva a timeout: STOP bez automatického opakování jízdy. Stále držený pointer nový pokus nespustí; je nutné pustit a nově stisknout.
-- Neúspěšný STOP nezablokuje tlačítko navždy. Nový stisk nejprve obnoví session, potom teprve ARM/HOLD. Puštění při čekání na session nesmí spustit ARM.
-- Mezerník/Enter a potlačení opakovaných `keydown`; samotné načtení stránky, `click`, pravé tlačítko či sekundární pointer jízdu nespouští.
-
-Samostatné spuštění JavaScriptu:
+- Řízení bez motoru; dva dotyky v obou pořadích, včetně sekundárního dotyku na motoru, také při couvání.
+- Couvání myší, dotykem, ArrowDown a Space/Enter; signed záměr a oddělené indikátory běhu vpřed/vzad. Řízení se při couvání neobrací.
+- Evidence všech fyzických kontaktů, včetně odmítnutých během západky či STOP a druhého dotyku stejného tlačítka; žádné předání řízení zbývajícímu dotyku.
+- Konflikt vpřed/vzad, STOP a povinné puštění všech kontaktů/kláves včetně nových kontaktů během čekání na STOP, kontaktů odmítnutých za povinného puštění a druhého dotyku stejného tlačítka. Po `HOLD_REARM` nesmí opakovaný HOLD, klávesa, puštění ani čas vyvolat nový běh; potřeba nového skutečného stisku.
+- Nezávislé puštění motoru či směru, protichůdné směry, explicitní Rovně a kombinace šipek na klávesnici.
+- Jeden rozpracovaný ARM/HOLD a jednorázové nonce; změna úmyslu čeká na odpověď předchozího HOLD.
+- Puštění nebo chyba během čekání, ignorovaný abort transportem, opožděné odpovědi, blur, skrytí stránky, offline a pointercancel. Staré odpovědi neobnoví UI ani pohyb; nový běh vyžaduje nový skutečný stisk.
 
 ```bash
 node models/jednoduche-auticko/firmware/prvni-motor/tests/browser_tests.js
 ```
 
-## Skutečný Chromium a HTTP
-
-Doplňková integrační sada vyžaduje Playwright a lokální Chromium:
+## Skutečný Chromium přes lokální HTTP
 
 ```bash
 python3 models/jednoduche-auticko/firmware/prvni-motor/tests/run_http_tests.py --browser
 ```
 
-Případně samostatně:
+Vyžaduje Playwright a Chromium; lze nastavit `PLAYWRIGHT_MODULE` a `PLAYWRIGHT_CHROMIUM_EXECUTABLE`. Testovací HTTP server naslouchá pouze na `127.0.0.1` a předává požadavky skutečnému C++ sketchi v trvalém hostovém procesu. IP/Origin se v tomto bridge přepíší na očekávané hlavičky Arduina; žádné skutečné Arduino se nekontaktuje.
+
+Sada zachovává původních devět síťových regresí (200/300/400ms odezvy, jitter, ztracené odpovědi a staré pakety), skutečné dotykové události dvěma prsty v obou pořadích, nezávislé puštění, kombinaci šipek, Rovně, ztrátu focusu, společný timeout a mobilní rozvržení. Rozšíření ověřuje couvání přes `motorDirection` a skutečné mockované IN1/IN2, obě pořadí dotyků s nezměněným natočením kol, konflikty a nové skutečné stisky. Po 250 ms opakuje původní odmítnutý HOLD i ARM a vyžaduje stále motor OFF; zkouší i puštění před opožděnou odpovědí REARM se ztraceným STOP. Native pointerdown na disabled tlačítku během 1000ms čekání na STOP je skutečně vyvolaný přes CDP a ověřený; další kontakt se neztratí ani po puštění původních prstů. Samotné PWM 128 nestačí jako důkaz směru. Skutečné CDP dotyky kontrolují také doručení pointerdown na disabled tlačítku během čekání na STOP a uchování všech těchto kontaktů až do jejich puštění. Snímek mobilního UI 390 × 844 je uložen přímo do [elektroniky](../../../../../elektronika/auticko/nahled-ovladani-v3.png). Volitelný `TEST_MATCH` slouží jen k diagnostice jedné skupiny; filtrovaný běh nenahrazuje úplnou regresi.
+
+## Offline náhled
 
 ```bash
-node models/jednoduche-auticko/firmware/prvni-motor/tests/browser_http_tests.js
+python3 models/jednoduche-auticko/firmware/prvni-motor/tests/export_preview.py
 ```
 
-Pokud Playwright není ve standardní cestě Node, nastavit `NODE_PATH` na adresář dostupných balíčků nebo `PLAYWRIGHT_MODULE` na modul. Volitelné `PLAYWRIGHT_CHROMIUM_EXECUTABLE` určuje již instalovanou binárku Chromium; test nic automaticky neinstaluje.
+[Náhled](../../../../../elektronika/auticko/nahled-ovladani-v3.html) zachovává vložené UI a doplňuje viditelné označení simulace, náhradu fetch a CSP `connect-src 'none'`. Nemůže ovládat hardware ani posílat síťové požadavky. Obsahuje hash zdrojového sketche.
 
-**9 scénářů** používá headless Chromium, skutečný DOM, myš/dotyk, `fetch`, HTTP a skutečný JavaScript stránky. Místní server je vázaný pouze na `127.0.0.1`; posílá požadavky do dlouho žijícího C++ procesu se skutečným `.ino`. Zachovává hlavičky prohlížeče, ale překládá místní Host/Origin na adresu očekávanou firmwarem. Timer běží v hostové náhradě i během prodlev HTTP. Nikdy se nespojuje s Arduinem, telefonem ani skutečnou sítí autíčka.
-
-Kontroluje držení přes dvě sekundy při simulovaných round-trip prodlevách **200/300/400 ms**, proměnlivé prodlevy a dotyk, puštění během ARM odpovědi, ztracený STOP, ztrátu HOLD, obnovu až po novém stisku, ztracenou odpověď na obnovu session a opožděné příkazy starší jízdy. Krátké odpovědi a nové časování tak procházejí celým řetězcem prohlížeč → HTTP → parser → skutečná logika řízení.
-
-## Meze ověření
-
-Testy dokazují logiku skutečného zdroje za modelovaných událostí. Ani Chromium sada **neověřuje skutečnou latenci WiFiS3, běh IRQ na RA4M1, konkrétní telefon, napětí, zapojení ani doběh motoru**. Překlad pro UNO R4 WiFi a potvrzený upload jsou další oddělené kroky; držení/puštění a ztrátu spojení na sestaveném autíčku musí potvrdit fyzická zkouška. Odstranění fyzické příčiny dřívějších chyb modemu nebo slabého rozběhu z těchto regresí neplyne.
-
-## Uložený běh finálního zdroje
-
-Pro verzi v2 z 19. 9. 2026 jsou uloženy [hostové a JavaScriptové výsledky](../evidence/2026-09-19-hold-to-run-v2/host-tests.txt) a [Chromium HTTP výsledky](../evidence/2026-09-19-hold-to-run-v2/browser-http.txt). Oba soubory uvádějí SHA-256 testovaného sketchu a exit status. Nejsou důkazem nahrání na desku ani fyzické zkoušky motoru.
+Historické úplné výsledky steering-v3 jsou v [evidence/2026-09-22-v3-steering-v3](../evidence/2026-09-22-v3-steering-v3/). Při následujícím trimu v4 se upravila jen očekávání pulzů bez opakování celé sady; aktuální couvání už přidává nové regresní scénáře. Nový výsledek je samostatně doložený pro přesný zdroj v odkazu výše. Původní v1 má zachované [testy a manifest](../../archiv-v3-steering-v1/archiv-manifest.json). Překlad ani hostové/browserové testy neznamenají upload nebo fyzickou zkoušku nové verze.

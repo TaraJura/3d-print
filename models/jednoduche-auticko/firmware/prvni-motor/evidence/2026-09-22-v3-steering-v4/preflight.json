@@ -1,0 +1,23 @@
+{
+  "time_utc": "2026-09-22T21:41:41.178211+00:00",
+  "physical_state": {
+    "origin": "Explicit new user confirmation relayed by task 01a0caa4-9807-78f0-9152-893a808ca99a after latest physical trial",
+    "reported_words": "Ano",
+    "question": "Před dalším nahráním zase odpoj červený napájecí vodič serva; Arduino nech na USB a motor bez napájení. Je červený vodič už odpojený?",
+    "servo_red_positive_disconnected": true,
+    "motor_unpowered": true,
+    "uno_connected_usb": true,
+    "linkage_may_remain_attached": true,
+    "agent_measured": false
+  },
+  "board_identity_verified": true,
+  "port": "/dev/ttyACM0",
+  "usb_serial": "3CDC75F1A2D4",
+  "serial_owners": "",
+  "source_sha256": "0ee42b5512b97240a9d466e833e46a4360a3d4b5a7d112ae647146946781126e",
+  "binary_sha256": "cf654176b45a0880b17133fe6d0b54f44d77e2e4ddcf530dcc0910d7eb841bae",
+  "bin_bytes": 84948,
+  "compile_exit": 0,
+  "independent_review_passed": true,
+  "full_regression_rerun": false
+}

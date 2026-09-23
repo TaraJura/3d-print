@@ -1,0 +1,172 @@
+{
+  "wheel_objects_verified": [],
+  "status": "pass",
+  "source_zip_sha256": "25655c90515aa507d4b58c6d058bc4b389b98fcac3a669342f82bce16472b675",
+  "objects": 8,
+  "unit": "millimeter",
+  "scale": 1,
+  "rotation_only_about_z": true,
+  "preserved_source_facets": true,
+  "minimum_required_object_gap_mm": 11,
+  "minimum_required_edge_clearance_mm": 6,
+  "configuration_embedded": false,
+  "plate_count": 1,
+  "plates": [
+    {
+      "file": "kalibrace-podlozka-01.3mf",
+      "sha256": "17483261f837416cf2e3dea877f82004a58f6209208fc65509aa5c2c6f16a1ab",
+      "count": 8,
+      "minimum_convex_hull_gap_mm": 11.016420041107342,
+      "center_mm": [
+        130.0,
+        130.0
+      ],
+      "objects": [
+        {
+          "name": "otvory-12-svisle__01",
+          "facets": 2148,
+          "max_facet_error_mm": 4.999662905902369e-10,
+          "edge_clearance_mm": 6.875672151,
+          "bounds_mm": [
+            [
+              6.875672151,
+              105.950223836,
+              0.0
+            ],
+            [
+              100.875672151,
+              123.950223836,
+              8.0
+            ]
+          ]
+        },
+        {
+          "name": "otvory-8-svisle__01",
+          "facets": 2148,
+          "max_facet_error_mm": 4.983320422979887e-10,
+          "edge_clearance_mm": 74.07432784900001,
+          "bounds_mm": [
+            [
+              111.925672151,
+              105.950223836,
+              0.0
+            ],
+            [
+              185.925672151,
+              119.950223836,
+              8.0
+            ]
+          ]
+        },
+        {
+          "name": "otvory-12-vodorovne__01",
+          "facets": 2148,
+          "max_facet_error_mm": 4.979248124925562e-10,
+          "edge_clearance_mm": 58.14968167000001,
+          "bounds_mm": [
+            [
+              107.85031833,
+              131.000223836,
+              0.0
+            ],
+            [
+              201.85031833,
+              139.000223836,
+              18.0
+            ]
+          ]
+        },
+        {
+          "name": "otvory-8-vodorovne__01",
+          "facets": 2148,
+          "max_facet_error_mm": 4.983320422979887e-10,
+          "edge_clearance_mm": 6.875672151,
+          "bounds_mm": [
+            [
+              6.875672151,
+              135.000223836,
+              0.0
+            ],
+            [
+              80.875672151,
+              143.000223836,
+              14.0
+            ]
+          ]
+        },
+        {
+          "name": "otvory-4-svisle__01",
+          "facets": 1300,
+          "max_facet_error_mm": 4.997957603336545e-10,
+          "edge_clearance_mm": 29.924329375000017,
+          "bounds_mm": [
+            [
+              196.975672151,
+              105.950223836,
+              0.0
+            ],
+            [
+              230.075670625,
+              115.650223645,
+              8.0
+            ]
+          ]
+        },
+        {
+          "name": "cep-12-kulaty-nalezato__01",
+          "facets": 416,
+          "max_facet_error_mm": 4.998255143107144e-10,
+          "edge_clearance_mm": 6.875672151000003,
+          "bounds_mm": [
+            [
+              241.125670625,
+              105.950223836,
+              0.0
+            ],
+            [
+              253.124327849,
+              129.950223836,
+              11.997314453
+            ]
+          ]
+        },
+        {
+          "name": "cep-8-kulaty-nalezato__01",
+          "facets": 416,
+          "max_facet_error_mm": 4.960938326803443e-10,
+          "edge_clearance_mm": 23.185301315000004,
+          "bounds_mm": [
+            [
+              212.814698685,
+              140.088124578,
+              0.0
+            ],
+            [
+              236.814698685,
+              148.087229236,
+              7.998209953
+            ]
+          ]
+        },
+        {
+          "name": "cep-4-kulaty-nalezato__01",
+          "facets": 416,
+          "max_facet_error_mm": 4.993898627958515e-10,
+          "edge_clearance_mm": 89.34131825100002,
+          "bounds_mm": [
+            [
+              89.341318251,
+              150.050223836,
+              0.0
+            ],
+            [
+              113.341318251,
+              154.049776164,
+              3.999104977
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}

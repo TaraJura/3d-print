@@ -17,7 +17,9 @@ void resetRuntime(bool boot=true) {
   timerBeginSucceeds=timerIrqSucceeds=timerOpenSucceeds=timerStartSucceeds=true;
   timerActive=false;timerAvailable=1;timerCallback=nullptr;timerLastMs=0;
   pwmBeginSucceeds=true;pwmPulseSucceeds=true;pwmFrequency=0;
-  pwmReady=false;safetyReady=false;driveState=IDLE;leaseTicks=0;watchdogStops=0;armExpiries=0;runExpiries=0;stopReason=0;diagnosticRequestLogAt=0;challengeIssuedAt=0;holdChallenge[0]='\0';
+  servoFrequency=0;servoPulseUs=0;servoWrites.clear();pwmBeginFailPin=pwmPulseFailPin=-1;
+  pwmReady=false;servoReady=false;safetyReady=false;steeringPulseUs=STEER_CENTER_US;requestMotor=1;requestSteer=0;motorDirection=lastMotorDirection=0;motorStoppedAt=0;reversalRejected=false;
+  driveState=IDLE;leaseTicks=0;watchdogStops=0;armExpiries=0;runExpiries=0;stopReason=0;diagnosticRequestLogAt=0;challengeIssuedAt=0;holdChallenge[0]='\0';
   WiFi=MockWiFi();Serial=MockSerial();server=WiFiServer(80);
   ready=false;apConfigured=false;networkAttempted=false;networkCheckedAt=0;
   tokenSequence=0;motorToken[0]='\0';previousSessionToken[0]='\0';requestToken[0]='\0';lastPress=0;requestPress=0;requestChallenge[0]='\0';
@@ -37,6 +39,10 @@ std::string request(const std::string &path,const std::string &token,uint32_t pr
   return s+"\r\n";
 }
 std::string sessionRequest(const std::string &token){return "POST /session HTTP/1.1\r\nHost: 192.168.4.1\r\nContent-Length: 0\r\nX-Motor-Control: 1\r\nX-Motor-Token: "+token+"\r\n\r\n";}
+std::string withIntents(std::string text,const std::string &fields){text.insert(text.size()-2,fields);return text;}
+std::string controlRequest(const std::string &token,uint32_t press,const std::string &challenge,int8_t motor,const std::string &steer){
+  return withIntents(request("hold",token,press,challenge),std::string("X-Control-Motor: ")+std::to_string(motor)+"\r\nX-Control-Steer: "+steer+"\r\n");
+}
 std::string responseBody(const WiFiClient &c){
   const auto &s=c.state->output;const auto split=s.find("\r\n\r\n");assert(split!=std::string::npos);
   const auto length=s.find("Content-Length: ");assert(length!=std::string::npos);
@@ -116,6 +122,16 @@ void parserTests(){
     std::string missing=sessionRequest(TEST_TOKEN);const auto at=missing.find(header);missing.erase(at,std::string(header).size());add(missing,INVALID);
     std::string duplicate=sessionRequest(TEST_TOKEN);duplicate.insert(duplicate.size()-2,header);add(duplicate,INVALID);
   }
+  for(int8_t motor:{-1,0,1})for(const auto &steer:{"left","center","right"})add(controlRequest(TEST_TOKEN,1,TEST_CHALLENGE,motor,steer),HOLD,0,"explicit motor/steering intents");
+  for(const auto &field:{"X-Control-Motor: 0\r\n","X-Control-Steer: left\r\n",
+      "X-Control-Motor: 2\r\nX-Control-Steer: left\r\n","X-Control-Motor: 01\r\nX-Control-Steer: center\r\n",
+      "X-Control-Motor: true\r\nX-Control-Steer: right\r\n","X-Control-Motor: 0\r\nX-Control-Steer: LEFT\r\n",
+      "X-Control-Motor: 0\r\nX-Control-Steer: -1\r\n","X-Control-Motor: 0\r\nX-Control-Steer: 0\r\n",
+      "X-Control-Motor: 0\r\nX-Control-Steer: left\r\nX-Control-Steer: right\r\n",
+      "X-Control-Motor: 0\r\nX-Control-Steer: left\r\nX-Control-Motor: 1\r\n"})
+    add(withIntents(request("hold",TEST_TOKEN,1,TEST_CHALLENGE),field),INVALID,0,"partial/invalid intents cannot default motor ON");
+  for(const auto &value:{"-0","+1","-2","00","1.0","-01","1,-1",""})add(withIntents(request("hold",TEST_TOKEN,1,TEST_CHALLENGE),std::string("X-Control-Motor: ")+value+"\r\nX-Control-Steer: center\r\n"),INVALID,0,"canonical signed motor only");
+  for(const auto &path:{"arm","stop","session"})add(withIntents(request(path,TEST_TOKEN,1),"X-Control-Motor: 0\r\nX-Control-Steer: left\r\n"),INVALID,0,"intents only on HOLD");
   unsigned n=0;
   for(const auto &c:cases){
     resetRuntime();snprintf(motorToken,sizeof(motorToken),"%s",TEST_TOKEN);const auto oldWrites=writes.size();const auto start=clockMs;
@@ -285,7 +301,170 @@ void failureTests(){
   delay(510);assert(!enabled&&!safetyReady&&pins[7]==LOW&&pins[8]==LOW);
   passed("PWM update failure and failed PWM OFF use GPIO fallback, disallow further motion");
 }
+
+std::string controlHold(const std::string &token,uint32_t press,const std::string &nonce,int8_t motor,const std::string &steer){
+  const auto body=responseBody(serve(controlRequest(token,press,nonce,motor,steer)));
+  assert(body.rfind("HOLD_OK:",0)==0);assert(enabled==(motor?128:0));
+  assert(motorDirection==motor&&pins[7]==(motor>0?HIGH:LOW)&&pins[8]==(motor<0?HIGH:LOW)&&pins[13]==(motor?HIGH:LOW));
+  assert(servoPulseUs==(steer=="left"?1275:steer=="right"?1875:1575));
+  return body.substr(8);
+}
+void steeringTests(){
+  resetRuntime();assert(servoReady&&safetyReady&&pwmFrequency==490&&servoFrequency==50&&servoPulseUs==1575);
+  assert(!servoWrites.empty());for(const auto &w:servoWrites)assert(w.pulse==1575);
+  const auto token=loadPage();auto nonce=arm(token,1);assert(servoPulseUs==1575&&enableWrites()==0);
+  for(const auto &direction:{"left","right","center"})nonce=controlHold(token,1,nonce,false,direction);
+  assert(enableWrites()==0);stop(token,1);assert(servoPulseUs==1575);
+  passed("startup uses only trimmed1575us; servo-only ARM/HOLD/session never powers motor; PWM490/50 retained");
+
+  resetRuntime();const auto mixed=loadPage();auto n=controlHold(mixed,1,arm(mixed,1),true,"left");
+  const auto stale=n;n=controlHold(mixed,1,n,false,"left");assert(!enabled);
+  serve(controlRequest(mixed,1,stale,true,"right"),false);assert(!enabled&&servoPulseUs==1275);
+  n=controlHold(mixed,1,n,true,"right");n=controlHold(mixed,1,n,true,"center");
+  stop(mixed,1);assert(servoPulseUs==1575);serve(controlRequest(mixed,1,n,true,"right"),false);assert(!enabled&&servoPulseUs==1575);
+  passed("single-flight intent updates independently release motor/steering; duplicate and after-STOP intents cannot restore either");
+
+  resetRuntime();const auto exp=loadPage();n=controlHold(exp,1,arm(exp,1),true,"right");const auto at=clockMs;
+  delay(510);assert(!enabled&&servoPulseUs==1575&&driveState==IDLE);
+  bool irqCenter=false;for(const auto &w:servoWrites)if(w.irq&&w.pulse==1575&&uint32_t(w.time-at)<=505)irqCenter=true;
+  assert(irqCenter);serve(controlRequest(exp,1,n,false,"left"),false);assert(servoPulseUs==1575&&!enabled);
+  passed("shared500ms IRQ expiry stops motor and centers steering; late steering cannot resurrect expired lease");
+
+  resetRuntime();const auto before=loadPage();n=controlHold(before,1,arm(before,1),false,"left");
+  const auto after=loadPage();assert(before!=after&&servoPulseUs==1575);serve(controlRequest(before,1,n,true,"right"),false);
+  n=controlHold(after,1,arm(after,1),false,"right");serve(sessionRequest(after));assert(servoPulseUs==1575&&!enabled);
+  passed("page/session invalidation also centers servo and fences old control packets");
+
+  resetRuntime();const auto net=loadPage();controlHold(net,1,arm(net,1),true,"left");WiFi.state=77;networkCheckedAt=clockMs-100;loop();
+  assert(!enabled&&servoPulseUs==1575&&!ready);passed("WiFi invalidation clears both actuator intentions");
+
+  for(int fault:{0,1}){resetRuntime(false);if(fault==0)pwmBeginFailPin=9;else pwmPulseFailPin=9;setup();
+    assert(!servoReady&&!safetyReady&&!enabled&&pins[9]==LOW);const auto failed=loadPage();serve(request("arm",failed,1),false);assert(enableWrites()==0);}
+  resetRuntime();const auto fail=loadPage();n=controlHold(fail,1,arm(fail,1),true,"right");pwmPulseFailPin=9;
+  serve(controlRequest(fail,1,n,true,"left"),false);assert(!enabled&&!servoReady&&!safetyReady&&pins[9]==LOW);
+  resetRuntime();const auto failOff=loadPage();controlHold(failOff,1,arm(failOff,1),true,"left");pwmPulseFailPin=9;delay(510);
+  assert(!enabled&&!servoReady&&!safetyReady&&pins[9]==LOW);
+  passed("servo initialization/update/neutral failure disables both control paths and falls back to LOW, never claims centering");
+
+  for(const auto &operation:{"status","connected","available","read","write","stop","serial"}){
+    resetRuntime();const auto t=loadPage();const auto c=controlHold(t,1,arm(t,1),true,"left");const auto start=clockMs;
+    const std::string op=operation;
+    if(op=="status"){networkCheckedAt=clockMs-100;WiFi.statusDelays={1000};WiFi.statusDelayAt=0;}
+    if(op=="connected")blocked.connected=1000;
+    if(op=="available")blocked.available=1000;
+    if(op=="read")blocked.read=1000;
+    if(op=="write")blocked.write=1000;
+    if(op=="stop")blocked.stop=1000;
+    if(op=="serial")blocked.serial=1000;
+    WiFiClient queued(controlRequest(t,1,c,true,"right"));server.pending=queued;loop();
+    assert(!enabled&&servoPulseUs==1575&&ioInInterrupt==0);
+    bool centered=false;for(const auto &w:servoWrites)if(w.irq&&w.pulse==1575&&uint32_t(w.time-start)<=505)centered=true;
+    assert(centered);std::cout<<"PASS steering IRQ under blocking "<<operation<<"\n";
+  }
+}
+void reverseTests(){
+  for(int8_t direction:{-1,1}){
+    resetRuntime();const auto t=loadPage();auto n=arm(t,1);
+    for(const auto &steer:{"left","right","center"})n=controlHold(t,1,n,direction,steer);
+    n=controlHold(t,1,n,0,"right");assert(!enabled&&servoPulseUs==1875);
+    n=controlHold(t,1,n,direction,"right");stop(t,1);assert(servoPulseUs==1575);
+  }
+  passed("both polarities at PWM128 support unchanged left/right/center and independent motor release");
+
+  for(int8_t direction:{-1,1}){
+    resetRuntime();const auto t=loadPage();auto n=controlHold(t,1,arm(t,1),direction,"left");
+    const auto marker=writes.size();const auto at=clockMs;
+    const auto rejected=controlRequest(t,1,n,-direction,"right");
+    assert(responseBody(serve(rejected))=="HOLD_REARM");
+    assert(!enabled&&pins[7]==LOW&&pins[8]==LOW&&driveState==IDLE&&holdChallenge[0]=='\0'&&leaseTicks==0&&servoPulseUs==1575);
+    assert(stopReason==7&&motorStoppedAt==at&&lastMotorDirection==direction);
+    // Real EN=0 write must precede either direction-pin write, no energized reversal.
+    bool bridgeSeen=false;
+    for(size_t i=marker;i<writes.size();++i)if(writes[i].pin==5||writes[i].pin==7||writes[i].pin==8){
+      if(!bridgeSeen){assert(writes[i].pin==5&&writes[i].value==0);bridgeSeen=true;}
+      assert(writes[i].value==0);
+    }
+    assert(bridgeSeen);
+    const auto starts=enableWrites();delay(249);assert(!enabled&&reversePauseRemaining()==1);
+    serve(rejected,false);serve(request("arm",t,1),false);assert(!enabled);
+    delay(2);loop();assert(!enabled&&reversePauseRemaining()==0&&enableWrites()==starts);
+    serve(rejected,false);serve(controlRequest(t,1,n,direction,"center"),false);assert(!enabled);
+    controlHold(t,2,arm(t,2),-direction,"left");stop(t,2);
+  }
+  passed("reversal first drops EN then both inputs; REARM cancels nonce/press; time/retry cannot restart either polarity");
+
+  resetRuntime();auto t=loadPage();auto n=controlHold(t,1,arm(t,1),1,"left");
+  n=controlHold(t,1,n,0,"left");const auto offAt=motorStoppedAt;
+  delay(100);n=controlHold(t,1,n,0,"right");assert(motorStoppedAt==offAt&&reversePauseRemaining()==150);
+  delay(149);assert(responseBody(serve(controlRequest(t,1,n,-1,"right")))=="HOLD_REARM");
+  assert(motorStoppedAt==offAt&&!enabled);delay(1);
+  controlHold(t,2,arm(t,2),-1,"center");
+  passed("250ms is measured from continuous actual OFF; neutral updates do not restart pause; exact boundary accepts new press");
+
+  for(const auto &reset:{"stop","arm","session","page"}){
+    resetRuntime();auto token=loadPage();controlHold(token,1,arm(token,1),-1,"left");
+    uint32_t press=2;const std::string action=reset;
+    if(action=="stop")stop(token,1);
+    if(action=="session"){token=responseBody(serve(sessionRequest(token))).substr(11);press=1;}
+    if(action=="page"){token=loadPage();press=1;}
+    const auto next=arm(token,press);const auto stoppedAt=motorStoppedAt;
+    assert(responseBody(serve(controlRequest(token,press,next,1,"center")))=="HOLD_REARM");
+    assert(!enabled&&holdChallenge[0]=='\0');delay(100);stop(token,press);
+    assert(motorStoppedAt==stoppedAt);delay(150);
+    serve(controlRequest(token,press,next,1,"center"),false);serve(request("arm",token,press),false);
+    controlHold(token,press+1,arm(token,press+1),1,"center");
+  }
+  passed("STOP/ARM/session/page do not bypass opposite-direction OFF interval or revive rejected sequence");
+
+  resetRuntime();t=loadPage();n=controlHold(t,1,arm(t,1),-1,"right");
+  const auto ticks=leaseTicks;const auto issued=challengeIssuedAt;
+  assert(!applyHold(1,n.c_str(),2,0)&&!applyHold(1,n.c_str(),-2,0)&&!applyHold(1,n.c_str(),-1,2));
+  assert(enabled==128&&leaseTicks==ticks&&challengeIssuedAt==issued&&n==holdChallenge);
+  for(const auto &value:{"-0","+1","-2","-01","1,-1"})
+    serve(withIntents(request("hold",t,1,n),std::string("X-Control-Motor: ")+value+"\r\nX-Control-Steer: left\r\n"),false);
+  serve(controlRequest(t,1,TEST_CHALLENGE,1,"center"),false);assert(enabled&&motorDirection==-1&&leaseTicks==ticks);
+  delay(510);assert(!enabled&&motorDirection==0&&servoPulseUs==1575);
+  serve(controlRequest(t,1,n,-1,"right"),false);serve(request("arm",t,1),false);
+  passed("invalid signed intents and stale nonce cannot mutate/renew reverse; watchdog expiry latches whole sequence OFF");
+
+  resetRuntime();clockMs=UINT32_MAX-100;timerLastMs=clockMs;t=loadPage();
+  n=controlHold(t,1,arm(t,1),1,"center");stop(t,1);delay(249);
+  assert(reversePauseRemaining()==1);const auto tooEarly=arm(t,2);
+  assert(responseBody(serve(controlRequest(t,2,tooEarly,-1,"center")))=="HOLD_REARM");delay(1);
+  controlHold(t,3,arm(t,3),-1,"center");
+  passed("reversal OFF interval survives uint32 millis wraparound");
+
+  resetRuntime();t=loadPage();n=controlHold(t,1,arm(t,1),-1,"left");
+  const auto released=clockMs;const auto marker=writes.size();delay(499);controlHold(t,1,n,-1,"left");
+  delay(510);assert(!enabled&&servoPulseUs==1575&&uint32_t(firstOffAfter(marker)-released)<=1000);
+  passed("lost STOP and last delayed reverse HOLD still expire within 1000ms of release");
+
+  for(bool failOff:{false,true}){
+    resetRuntime();t=loadPage();n=arm(t,1);
+    if(failOff)n=controlHold(t,1,n,-1,"right");
+    pwmPulseFailPin=5;
+    if(failOff)delay(510);else serve(controlRequest(t,1,n,-1,"right"),false);
+    assert(!enabled&&!safetyReady&&pins[7]==LOW&&pins[8]==LOW&&servoPulseUs==1575);
+  }
+  passed("reverse PWM start/OFF failure leaves both bridge inputs LOW and disables future motion");
+
+  for(const auto &operation:{"status","connected","available","read","write","stop","serial"}){
+    resetRuntime();t=loadPage();n=controlHold(t,1,arm(t,1),-1,"right");const auto at=clockMs;const auto mark=writes.size();
+    const std::string op=operation;
+    if(op=="status"){networkCheckedAt=clockMs-100;WiFi.statusDelays={1000};WiFi.statusDelayAt=0;}
+    if(op=="connected")blocked.connected=1000;
+    if(op=="available")blocked.available=1000;
+    if(op=="read")blocked.read=1000;
+    if(op=="write")blocked.write=1000;
+    if(op=="stop")blocked.stop=1000;
+    if(op=="serial")blocked.serial=1000;
+    WiFiClient pending(controlRequest(t,1,n,-1,"left"));server.pending=pending;loop();
+    assert(!enabled&&pins[7]==LOW&&pins[8]==LOW&&servoPulseUs==1575&&ioInInterrupt==0);
+    assert(uint32_t(firstOffAfter(mark)-at)<=505);serve(controlRequest(t,1,n,-1,"left"),false);
+    std::cout<<"PASS reverse IRQ under blocking "<<operation<<"\n";
+  }
+}
 #ifndef HOST_DRIVER
-int main(){parserTests();protocolTests();sessionTests();blockingTests();recoveryTests();failureTests();std::cout<<"PASS all host checks ("<<scenarios<<" named protocol/recovery/failure scenarios); no hardware accessed\n";}
+int main(){parserTests();protocolTests();sessionTests();blockingTests();recoveryTests();failureTests();steeringTests();reverseTests();std::cout<<"PASS all host checks ("<<scenarios<<" named protocol/recovery/failure scenarios); no hardware accessed\n";}
 
 #endif

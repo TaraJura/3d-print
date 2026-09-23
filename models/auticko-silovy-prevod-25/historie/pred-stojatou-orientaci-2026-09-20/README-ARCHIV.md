@@ -1,0 +1,1 @@
+Historický stav před vztyčením původní podložky 03 a zadní osy opravné sady. Není aktuální předání. Zachovává původní geometrii rozložení a její tehdejší důkazy; nepoužívat k nové regeneraci bez nové orientační politiky.

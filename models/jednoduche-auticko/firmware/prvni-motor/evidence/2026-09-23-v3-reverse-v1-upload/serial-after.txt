@@ -1,0 +1,15 @@
+DIAG build=v3-reverse-v1 safety=1 drive=0 ENread=0 IN1=0 IN2=0 watchdog=0
+DIAG steeringReady=1 steeringUs=1575 neutralUs=1575 rangeUs=300
+DIAG armExpired=0 runExpired=0 stopReason=1 leaseMs=0 challengeAgeMs=1708
+DIAG 41924 boot=server-started fw=0.4.1 ip=192.168.4.1
+DIAG ready=1 server=1 APstart=7 statusLast=8 ageMs=25 HTTP=29 closed=29
+DIAG build=v3-reverse-v1 safety=1 drive=0 ENread=0 IN1=0 IN2=0 watchdog=0
+DIAG steeringReady=1 steeringUs=1575 neutralUs=1575 rangeUs=300
+DIAG armExpired=0 runExpired=0 stopReason=1 leaseMs=0 challengeAgeMs=6712
+DIAG 46928 boot=server-started fw=0.4.1 ip=192.168.4.1
+DIAG ready=1 server=1 APstart=7 statusLast=8 ageMs=24 HTTP=29 closed=29
+DIAG build=v3-reverse-v1 safety=1 drive=0 ENread=0 IN1=0 IN2=0 watchdog=0
+DIAG steeringReady=1 steeringUs=1575 neutralUs=1575 rangeUs=300
+DIAG armExpired=0 runExpired=0 stopReason=1 leaseMs=0 challengeAgeMs=11715
+DIAG 51931 boot=server-started fw=0.4.1 ip=192.168.4.1
+DIAG ready=1 server=1 APstart=7 statusLast=8 ageMs=30 HTTP=29 closed=29

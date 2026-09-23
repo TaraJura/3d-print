@@ -1,0 +1,43 @@
+from pathlib import Path
+import json,hashlib
+import FreeCAD as App,Part
+ROOT=Path(__file__).resolve().parent
+input_hash=hashlib.sha256((ROOT/'auticko-silovy-prevod-25.FCStd').read_bytes()).hexdigest()
+D=App.openDocument(str(ROOT/'auticko-silovy-prevod-25.FCStd'));S=D.Steering
+R=json.loads((ROOT/'kontrola-modelu.json').read_text())
+assert R['source_hashes']=={n:hashlib.sha256((ROOT/n).read_bytes()).hexdigest() for n in R['source_hashes']},'Source/export mismatch'
+objects=[D.getObject(i['name']) for i in R['assembly_instances']]+[D.getObject(n) for n in R['references']]
+def world(o):
+    sh=o.Shape.copy()
+    if o.Name.startswith(('AssemblySteeringWheel','AssemblyWheelClip')):sh.Placement=D.getObject('WheelCarrier'+o.Name[-1]).Placement.multiply(sh.Placement)
+    if o.Name.startswith('AssemblyHornLock'):sh.Placement=D.HornLockCarrier.Placement.multiply(sh.Placement)
+    return sh
+def overlap(a,b):
+    x,y=a.BoundBox,b.BoundBox
+    if x.XMax<y.XMin or y.XMax<x.XMin or x.YMax<y.YMin or y.YMax<x.YMin or x.ZMax<y.ZMin or y.ZMax<x.ZMin:return 0
+    return a.common(b).Volume
+checks=[]
+for angle in (-27,-25,0,25,27):
+    S.set('B9',f'={angle} deg');D.recompute()
+    for side,tag in [(-1,'L'),(1,'R')]:
+        for offset in (-.2,.5):
+            y=side*(9+offset)
+            w=Part.makeCylinder(38,12,App.Vector(-3.7,y,0),App.Vector(0,side,0))
+            w=w.cut(Part.makeCylinder(4.3,14,App.Vector(-3.7,y-side,0),App.Vector(0,side,0)))
+            w.Placement=D.getObject('WheelCarrier'+tag).Placement.multiply(w.Placement)
+            for o in objects:
+                if o.Name in ('AssemblySteeringWheel'+tag,'AssemblyWheelClip'+tag):continue
+                v=overlap(w,world(o));assert v<1e-6,(angle,tag,offset,o.Name,v)
+                checks.append({'angle':angle,'side':tag,'offset_outwards_mm':offset,'other':o.Name,'overlap_mm3':v})
+S.set('B9','=0 deg');D.recompute()
+# Zadní obálka je konzervativní plný válec mimo vlastní hřídel; všechna kola mohou rotovat.
+rear=[]
+for side in (-1,1):
+    for shift in (-.4,.7):
+        inner=side*(60+shift)
+        w=Part.makeCylinder(38,12,App.Vector(35,inner,28),App.Vector(0,side,0))
+        for o in (D.SteeringFrame,D.Deck,D.MotorReference,D.AssemblyA,D.AssemblyB,D.AssemblyOutput):
+            v=overlap(w,o.Shape);assert v<1e-6,(side,shift,o.Name,v)
+            rear.append({'side':side,'shift_outwards_mm':shift,'other':o.Name,'overlap_mm3':v})
+out={'passed':True,'input_fcstd_sha256':input_hash,'source_hashes':R['source_hashes'],'front_cases':checks,'rear_cases':rear,'limits':'Axiální posuv kol je testován samostatně od nominálního rejdu. Nezahrnuje radiální viklání/ohyb os, deformaci klipů ani odchylky tisku. Vlastní klip se posouvá v drážce spolu s vnějším dorazem, proto je v krajním axiálním testu vynechán; jeho nominální stoh byl ověřen plnou sestavou.'}
+(ROOT/'kontrola-vuli.json').write_text(json.dumps(out,ensure_ascii=False,indent=2)+'\n');print('AXIAL_WHEEL_CHECKS_COMPLETE',len(checks),len(rear),flush=True)

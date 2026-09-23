@@ -1,0 +1,208 @@
+{
+  "source_path": "/tmp/ACGcode3mf/9527/0920-0125-spojovaci-tahlo__01_plate(01)_PLA_0.12_10h51m38s.gcode.3mf",
+  "archive_sha256": "0bd0eca057973d2721c056f8559aeb793dc204aeb4905975d72d2c08e57039e4",
+  "gcode_sha256": "cf847251305a0deecae9c683c5fcaaf2f262bc41437e22c8c8f9f1dbacad3679",
+  "physical_job_link_confirmed": false,
+  "mesh_present": false,
+  "settings": {
+    "printer_model": "Anycubic Kobra X",
+    "printer_settings_id": "Anycubic Kobra X 0.4 nozzle",
+    "print_settings_id": "0.12mm High Quality @Anycubic Kobra X 0.4 nozzle",
+    "filament_settings_id": [
+      "Anycubic PLA @Anycubic Kobra X 0.4 nozzle"
+    ],
+    "filament_type": [
+      "PLA"
+    ],
+    "nozzle_diameter": [
+      "0.4"
+    ],
+    "layer_height": "0.12",
+    "initial_layer_print_height": "0.2",
+    "enable_support": "0",
+    "support_type": "tree(auto)",
+    "support_style": "default",
+    "support_on_build_plate_only": "1",
+    "support_remove_small_overhang": "1",
+    "support_threshold_angle": "20",
+    "support_threshold_overlap": "50%",
+    "support_top_z_distance": "0.12",
+    "support_bottom_z_distance": "0.12",
+    "support_object_xy_distance": "0.35",
+    "support_interface_top_layers": "2",
+    "brim_type": "auto_brim",
+    "brim_width": "5",
+    "brim_object_gap": "0.15",
+    "initial_layer_speed": "50",
+    "inner_wall_speed": "150",
+    "outer_wall_speed": "60",
+    "travel_speed": "350",
+    "default_acceleration": "5000",
+    "initial_layer_acceleration": "500",
+    "wall_loops": "2",
+    "sparse_infill_density": "15%",
+    "sparse_infill_pattern": "3dhoneycomb",
+    "top_surface_pattern": "monotonicline",
+    "print_sequence": "by layer",
+    "nozzle_temperature": [
+      "205"
+    ],
+    "nozzle_temperature_initial_layer": [
+      "220"
+    ],
+    "hot_plate_temp": [
+      "60"
+    ],
+    "hot_plate_temp_initial_layer": [
+      "60"
+    ],
+    "curr_bed_type": "High Temp Plate",
+    "filament_flow_ratio": [
+      "0.96"
+    ],
+    "filament_max_volumetric_speed": [
+      "13"
+    ],
+    "xy_hole_compensation": "0",
+    "xy_contour_compensation": "0",
+    "elefant_foot_compensation": "0.1"
+  },
+  "slice_metadata": {
+    "prediction": "39098",
+    "weight": "126.62",
+    "support_used": "false"
+  },
+  "objects": [
+    {
+      "identify_id": "349",
+      "name": "spojovaci-tahlo__01",
+      "skipped": "false"
+    },
+    {
+      "identify_id": "371",
+      "name": "kolo-76x12-predni__02",
+      "skipped": "false"
+    },
+    {
+      "identify_id": "393",
+      "name": "kolo-76x12-predni__01",
+      "skipped": "false"
+    },
+    {
+      "identify_id": "415",
+      "name": "kolo-76x12-zadni-d__01",
+      "skipped": "false"
+    },
+    {
+      "identify_id": "437",
+      "name": "mezikolo-b-60_22__01",
+      "skipped": "false"
+    },
+    {
+      "identify_id": "459",
+      "name": "kolo-76x12-zadni-d__02",
+      "skipped": "false"
+    },
+    {
+      "identify_id": "481",
+      "name": "mezikolo-a-54_18__01",
+      "skipped": "false"
+    },
+    {
+      "identify_id": "503",
+      "name": "osa-zadni-12x150_6__01",
+      "skipped": "false"
+    },
+    {
+      "identify_id": "525",
+      "name": "servo-viko__01",
+      "skipped": "false"
+    },
+    {
+      "identify_id": "547",
+      "name": "servo-tahlo-r15__01",
+      "skipped": "false"
+    },
+    {
+      "identify_id": "569",
+      "name": "tehlice-prava__01",
+      "skipped": "false"
+    },
+    {
+      "identify_id": "591",
+      "name": "svisly-cep-8__02",
+      "skipped": "false"
+    },
+    {
+      "identify_id": "613",
+      "name": "pevny-cep-8x53_9__01",
+      "skipped": "false"
+    },
+    {
+      "identify_id": "635",
+      "name": "servo-cep-4x51_2__01",
+      "skipped": "false"
+    },
+    {
+      "identify_id": "657",
+      "name": "celist-horni__02",
+      "skipped": "false"
+    },
+    {
+      "identify_id": "679",
+      "name": "motorovy-mustek__01",
+      "skipped": "false"
+    },
+    {
+      "identify_id": "701",
+      "name": "pricny-klinek-4x27_1__01",
+      "skipped": "false"
+    },
+    {
+      "identify_id": "723",
+      "name": "pojistka-6_9__04",
+      "skipped": "false"
+    },
+    {
+      "identify_id": "745",
+      "name": "cep-plosiny-4x19_5__04",
+      "skipped": "false"
+    },
+    {
+      "identify_id": "767",
+      "name": "motorovy-klinek__02",
+      "skipped": "false"
+    },
+    {
+      "identify_id": "789",
+      "name": "pojistka-kloubu-4_9__02",
+      "skipped": "false"
+    },
+    {
+      "identify_id": "811",
+      "name": "motorovy-klinek__01",
+      "skipped": "false"
+    },
+    {
+      "identify_id": "833",
+      "name": "pojistka-3_1__07",
+      "skipped": "false"
+    },
+    {
+      "identify_id": "855",
+      "name": "pojistka-3_1__02",
+      "skipped": "false"
+    },
+    {
+      "identify_id": "877",
+      "name": "pojistka-3_1__01",
+      "skipped": "false"
+    },
+    {
+      "identify_id": "899",
+      "name": "pojistka-3_1__03",
+      "skipped": "false"
+    }
+  ],
+  "note": "26 names/order match original plate 1; source mesh hashes and actual print job identity are unproven. Only allowlisted config and two previews retained."
+}

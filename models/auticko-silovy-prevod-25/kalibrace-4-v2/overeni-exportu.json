@@ -1,0 +1,64 @@
+{
+  "generator_sha256": "7b82b477615b2138abdf203cd21ab62aa8a6541973f1c48efe814f05ac0e9d4f",
+  "files": {
+    "kalibrace-4-v2.FCStd": {
+      "sha256": "4a4e0d3b3309eb8f5dd5bcfd6e98368cffa1609879aa4a4a5ff17abf3ba299a6",
+      "bytes": 273633
+    },
+    "kalibrace-4-v2.zip": {
+      "sha256": "4084c3dea334c65aebe281016e6be6b8fb906acb315fcdd785c418d6c8dd1361",
+      "bytes": 73037
+    },
+    "nahled.FCMacro": {
+      "sha256": "1b7eb9bf52072c81ff65cd9a5620d4c4c2b8dabb05f18d6460902df3562f1c44",
+      "bytes": 2460
+    },
+    "nahled.png": {
+      "sha256": "a49c18e9b760c06c442fff1812a137007dcb1f69cfdde7475f8fec21ef675417",
+      "bytes": 36490
+    },
+    "README.md": {
+      "sha256": "8725a6bbe31a9f257773a8301a3ed41180a6e921999f0e4c1aa60992196b7f80",
+      "bytes": 6569
+    },
+    "kontrola-kalibrace.json": {
+      "sha256": "3601823724911a83f207bf6ece019f6664674c5fdaa2a71f1c472cd77d99c9c3",
+      "bytes": 3426
+    }
+  },
+  "stl": {
+    "kalibrace-4-v2-z": {
+      "sha256": "35c1398141e2f7e386350ab155f17bec9fcc11ee67dcd02594cbb5db1592a538",
+      "triangles": 3560,
+      "components": 1,
+      "bad_edges": 0,
+      "bad_winding": 0,
+      "degenerate_triangles": 0,
+      "volume_error_fraction": 2.8120793043828e-05,
+      "bbox_mm": [
+        47.0,
+        16.6,
+        8.6
+      ],
+      "minimum_z_mm": 0.0
+    },
+    "kalibrace-4-v2-y": {
+      "sha256": "8782bf06c9a2da47bc176fb4791b9f97a60bc4fdfcacc0c78bb05b70a0f171f6",
+      "triangles": 3548,
+      "components": 1,
+      "bad_edges": 0,
+      "bad_winding": 0,
+      "degenerate_triangles": 0,
+      "volume_error_fraction": 4.7566583871168846e-05,
+      "bbox_mm": [
+        47.0,
+        8.0,
+        10.8
+      ],
+      "minimum_z_mm": 0.0
+    }
+  },
+  "zip_stl_count": 2,
+  "markdown_links_pass": true,
+  "all_passed": true
+}
