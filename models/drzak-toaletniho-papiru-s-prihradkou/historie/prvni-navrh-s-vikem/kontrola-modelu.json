@@ -1,0 +1,152 @@
+{
+  "status": "geometrie CAD; fyzický tisk a montáž neověřeny",
+  "source_sha256": "c659a9ae23314f36bdbc7450675ca46ca55e5f5c2d62a22861f286e997403f2f",
+  "parameters_mm": {
+    "BodyWidth": 190,
+    "BodyDepth": 120,
+    "BodyHeight": 58,
+    "OuterRadius": 14,
+    "Wall": 4,
+    "BackWall": 5,
+    "Floor": 5,
+    "LidThickness": 4,
+    "LidLipHeight": 5,
+    "LidLipWall": 2.5,
+    "LidClearance": 0.5,
+    "FingerNotchRadius": 12,
+    "BracketThickness": 12,
+    "BracketLength": 88,
+    "BracketHeight": 91,
+    "BracketInsetX": 25,
+    "BracketOffsetY": 20,
+    "BracketScrewDia": 4.6,
+    "WallScrewDia": 5.5,
+    "AxleRadius": 6,
+    "AxleLength": 148,
+    "AxleHeadRadius": 10,
+    "AxleHeadLength": 4,
+    "CapOuterRadius": 10,
+    "CapSocketRadius": 6.05,
+    "CapHeight": 8
+  },
+  "pieces": {
+    "Body": 1,
+    "Lid": 1,
+    "Bracket": 2,
+    "Axle": 1,
+    "Cap": 1
+  },
+  "parts": {
+    "Body": {
+      "solid_count": 1,
+      "cad_valid": true,
+      "cad_dimensions_mm": [
+        190.0,
+        120.0,
+        58.000000000000014
+      ],
+      "print_dimensions_mm": [
+        190.0,
+        120.0,
+        58.000000000000014
+      ],
+      "volume_mm3": 257536.49569621935,
+      "stl_facets": 2584,
+      "stl_closed": true,
+      "stl": "stl/body.stl"
+    },
+    "Lid": {
+      "solid_count": 1,
+      "cad_valid": true,
+      "cad_dimensions_mm": [
+        190.0,
+        120.0,
+        9.000000000000002
+      ],
+      "print_dimensions_mm": [
+        190.0,
+        120.0,
+        9.000000000000002
+      ],
+      "volume_mm3": 96082.70988938183,
+      "stl_facets": 796,
+      "stl_closed": true,
+      "stl": "stl/lid.stl"
+    },
+    "Bracket": {
+      "solid_count": 1,
+      "cad_valid": true,
+      "cad_dimensions_mm": [
+        12.0,
+        88.0,
+        91.0
+      ],
+      "print_dimensions_mm": [
+        91.0,
+        88.0,
+        12.00000000000001
+      ],
+      "volume_mm3": 37329.14339670024,
+      "stl_facets": 732,
+      "stl_closed": true,
+      "stl": "stl/bracket.stl"
+    },
+    "Axle": {
+      "solid_count": 1,
+      "cad_valid": true,
+      "cad_dimensions_mm": [
+        152.0,
+        20.0,
+        14.500000000000032
+      ],
+      "print_dimensions_mm": [
+        152.0,
+        19.995068947246693,
+        14.49313854093269
+      ],
+      "volume_mm3": 16506.55295196238,
+      "stl_facets": 484,
+      "stl_closed": true,
+      "stl": "stl/axle.stl"
+    },
+    "Cap": {
+      "solid_count": 1,
+      "cad_valid": true,
+      "cad_dimensions_mm": [
+        19.921567416492216,
+        20.0,
+        8.0
+      ],
+      "print_dimensions_mm": [
+        19.914634934989593,
+        19.990740453128453,
+        8.0
+      ],
+      "volume_mm3": 1713.9554532945926,
+      "stl_facets": 652,
+      "stl_closed": true,
+      "stl": "stl/cap.stl"
+    }
+  },
+  "gui_validation": {
+    "saved_reopened": true,
+    "visible_objects": [
+      "AssemblyBody",
+      "AssemblyLid",
+      "AssemblyBracketLeft",
+      "AssemblyBracketRight",
+      "AssemblyAxle",
+      "AssemblyCap"
+    ],
+    "body_width_parameter_test_mm": [
+      190,
+      194,
+      190
+    ],
+    "images": [
+      "nahled-sestava.png",
+      "nahled-s-roli.png"
+    ],
+    "reference_roll_is_temporary_only": true
+  }
+}

@@ -1,0 +1,234 @@
+{
+  "status": "CAD prototyp; fyzicky motor, dosed, chod, tuhost a jizda neovereny",
+  "units": "mm",
+  "parameters_mm": {
+    "DeckLength": 180,
+    "DeckWidth": 70,
+    "DeckBottom": 54,
+    "DeckThickness": 4,
+    "RoofCentreX": 70,
+    "RearX": 25,
+    "FrontX": 115,
+    "BearingY": 18,
+    "BearingTop": 24,
+    "SocketDepth": 2,
+    "SocketX": 12.6,
+    "SocketY": 8.6,
+    "PostX": 16.6,
+    "PostY": 11,
+    "AxleZ": 18,
+    "AxleReliefRadius": 5.5,
+    "RibWidth": 4,
+    "RibHeight": 4,
+    "StrapLength": 12,
+    "StrapWidth": 2.6,
+    "StrapY": 32.5,
+    "MotorShaftX": 70,
+    "MotorShaftY": 0,
+    "MotorBodyOffsetX": 8,
+    "MotorBodyDiameter": 28,
+    "MotorBodyHeight": 19,
+    "MotorHolePitch": 35,
+    "MotorHoleDiameter": 3.3,
+    "MotorShaftDiameter": 5,
+    "MotorFlatWidth": 3,
+    "ShaftFit": 0.2,
+    "ShaftPassage": 7.4,
+    "MotorHeadDiameter": 7,
+    "MotorHeadDepth": 2,
+    "RotorDiameter": 50,
+    "RotorThickness": 4,
+    "RotorBodyGap": 0.5,
+    "SlideRingOuter": 46,
+    "SlideRingInner": 42,
+    "SlideRingHeight": 0.5,
+    "ShoulderZ": 79,
+    "ElbowX": 114,
+    "WristX": 152,
+    "ForkRadius": 13,
+    "EyeRadius": 12.5,
+    "ForkInnerGap": 10.8,
+    "ForkWall": 4,
+    "ArmThickness": 10,
+    "ArmHeight": 12,
+    "HingeBore": 4.3,
+    "IndexRadius": 8,
+    "PinShaft": 4.0,
+    "PinLength": 21,
+    "PinHead": 7.5,
+    "PinGroove": 3.2,
+    "PinGrooveWidth": 1.4
+  },
+  "source_replacement_roof": "../jednoduche-auticko/strecha.FCMacro",
+  "sources_for_motor_nominal": [
+    "https://www.laskakit.cz/krokovy-motor-28byj-48/",
+    "https://www.waveshare.com/product/5v-step-motor.htm"
+  ],
+  "parts": {
+    "vymenna_plosina": {
+      "file": "stl/vymenna_plosina.stl",
+      "copies": 1,
+      "cad_valid": true,
+      "cad_solids": 1,
+      "cad_volume_mm3": 72784.61828931532,
+      "stl_closed": true,
+      "stl_components": 1,
+      "stl_facets": 3260,
+      "stl_bbox_mm": [
+        180.0,
+        70.0,
+        36.00000000000001
+      ],
+      "stl_min_z_mm": -7.105427357601002e-15
+    },
+    "otocna_zakladna": {
+      "file": "stl/otocna_zakladna.stl",
+      "copies": 1,
+      "cad_valid": true,
+      "cad_solids": 1,
+      "cad_volume_mm3": 12775.568087779562,
+      "stl_closed": true,
+      "stl_components": 1,
+      "stl_facets": 5448,
+      "stl_bbox_mm": [
+        49.98881080746651,
+        49.9944063720759,
+        33.99672317504883
+      ],
+      "stl_min_z_mm": 0.0
+    },
+    "nadlokti": {
+      "file": "stl/nadlokti.stl",
+      "copies": 1,
+      "cad_valid": true,
+      "cad_solids": 1,
+      "cad_volume_mm3": 11086.216941065015,
+      "stl_closed": true,
+      "stl_components": 1,
+      "stl_facets": 5044,
+      "stl_bbox_mm": [
+        69.49449718976393,
+        25.990993471816182,
+        18.799999237060547
+      ],
+      "stl_min_z_mm": -1.7763568394002505e-15
+    },
+    "predlokti_s_rukou": {
+      "file": "stl/predlokti_s_rukou.stl",
+      "copies": 1,
+      "cad_valid": true,
+      "cad_solids": 1,
+      "cad_volume_mm3": 10298.073926293664,
+      "stl_closed": true,
+      "stl_components": 1,
+      "stl_facets": 1276,
+      "stl_bbox_mm": [
+        77.49449718976393,
+        24.99995461923936,
+        20.0
+      ],
+      "stl_min_z_mm": 0.0
+    },
+    "cep_kloubu": {
+      "file": "stl/cep_kloubu.stl",
+      "copies": 4,
+      "cad_valid": true,
+      "cad_solids": 1,
+      "cad_volume_mm3": 371.0503667228369,
+      "stl_closed": true,
+      "stl_components": 1,
+      "stl_facets": 1676,
+      "stl_bbox_mm": [
+        7.498321621096693,
+        7.499160765088163,
+        25.0
+      ],
+      "stl_min_z_mm": 0.0
+    },
+    "pojistka_cepu": {
+      "file": "stl/pojistka_cepu.stl",
+      "copies": 4,
+      "cad_valid": true,
+      "cad_solids": 1,
+      "cad_volume_mm3": 82.61732908999109,
+      "stl_closed": true,
+      "stl_components": 1,
+      "stl_facets": 660,
+      "stl_bbox_mm": [
+        9.767467038007453,
+        9.99929244845407,
+        1.399999976158142
+      ],
+      "stl_min_z_mm": 0.0
+    },
+    "merka_motoru": {
+      "file": "stl/merka_motoru.stl",
+      "copies": 1,
+      "cad_valid": true,
+      "cad_solids": 1,
+      "cad_volume_mm3": 1966.3076199947945,
+      "stl_closed": true,
+      "stl_components": 1,
+      "stl_facets": 1056,
+      "stl_bbox_mm": [
+        14.0,
+        50.0,
+        3.0
+      ],
+      "stl_min_z_mm": 0.0
+    }
+  },
+  "nominal_motor_reference": {
+    "diameter_mm": 28,
+    "mount_pitch_mm": 35,
+    "shaft_diameter_mm": 5,
+    "flat_width_mm": 3,
+    "not_measured_on_users_motor": true
+  },
+  "physical_checks_needed": [
+    "Otestovat merku na skutecnem motoru: roztec usi, tvar a vule hridelky.",
+    "Overit skutecnou polohu tela motoru, kabel a prostor pod plosinou.",
+    "Overit drážky a bezpecnou trasu pasku k ramu mimo kola/ozubeni.",
+    "Overit srouby M3 a ploche hlavy; dostupnost nepotvrzena.",
+    "Overit soubezne nasazeni ctyr kapes, 4 cepu a 4 C-pojistek.",
+    "Overit kluznou plochu, moment, stabilitu a chovani pri jizde."
+  ],
+  "assembly_adjacent_intersections_mm3": [
+    {
+      "a": "PrintDeck",
+      "b": "PrintRotor",
+      "volume": 0.0
+    },
+    {
+      "a": "PrintRotor",
+      "b": "PrintUpperArm",
+      "volume": 0.0
+    },
+    {
+      "a": "PrintUpperArm",
+      "b": "PrintForearm",
+      "volume": 0.0
+    }
+  ],
+  "rotor_slide_ring_bottom_z_mm": 58,
+  "deck_top_z_mm": 58,
+  "motor_body_nominal_bottom_z_mm": 35,
+  "roof_socket_centres_mm": [
+    [
+      25,
+      -18
+    ],
+    [
+      25,
+      18
+    ],
+    [
+      115,
+      -18
+    ],
+    [
+      115,
+      18
+    ]
+  ]
+}

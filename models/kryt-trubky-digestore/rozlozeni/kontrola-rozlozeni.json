@@ -1,0 +1,36 @@
+{
+  "status": "geometry-only; no profile or G-code",
+  "printer": "Anycubic Kobra X 0.4 nozzle",
+  "bed_mm": [
+    260,
+    260
+  ],
+  "physical_pieces": 1,
+  "plates": 1,
+  "plate": {
+    "number": 1,
+    "file": "kryt-podlozka-01-geometrie.3mf",
+    "sha256": "ff34c6c5d4bdb284856eded855ebae8be606e3615ce61faeeb5518c39f11bd7e",
+    "copies": 1,
+    "stl_sha256": "40b10c0aeb8bd50398a6351c4b8517198c38d114211a78d17090cd7fb508a065",
+    "translation_mm": [
+      55.0,
+      92.5,
+      0.0
+    ],
+    "placed_min_mm": [
+      55.0,
+      92.5,
+      0.0
+    ],
+    "placed_max_mm": [
+      205.0,
+      167.5,
+      98.0
+    ],
+    "mesh_vertices": 200,
+    "mesh_triangles": 396,
+    "edge_margin_mm": 55.0,
+    "preview": "podlozka-01.png"
+  }
+}

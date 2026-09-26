@@ -1,0 +1,728 @@
+{
+  "status": "EXPERIMENTAL local slice; physical settings and function unverified",
+  "project": "TEST-EXPERIMENT-575-snap-Alzament-TPU95A.3mf",
+  "project_sha256": "80ec953841edfee80607102e05f046f4407c2f363a36849f6ee1312985f0b4c2",
+  "gcode_sha256": "cc253980b11c892c39cc7c9712b95dcd91f8fec2c9381603fb38e97cfab18847",
+  "embedded_gcode_matches_external_exactly": true,
+  "objects": 2,
+  "separate_joint_test": true,
+  "mesh_repairs": [
+    {
+      "edges_fixed": 0,
+      "degenerate_facets": 0,
+      "facets_removed": 0,
+      "facets_reversed": 0,
+      "backwards_edges": 0
+    },
+    {
+      "edges_fixed": 0,
+      "degenerate_facets": 0,
+      "facets_removed": 0,
+      "facets_reversed": 0,
+      "backwards_edges": 0
+    }
+  ],
+  "all_project_faces_match_stl_with_vertex_deviation_at_most_0_00001mm": true,
+  "maximum_project_vertex_deviation_mm_per_part": [
+    4.447707402739662e-07,
+    9.061412231966334e-07
+  ],
+  "source_profile_provenance": "Installed system profiles; slicer run uses an isolated temporary datadir, no user/cloud profile",
+  "exported_project_credential_fields_empty": true,
+  "exported_project_contains_no_home_path": true,
+  "no_runtime_or_private_cloud_logs_in_artifacts": true,
+  "machine": "Anycubic Kobra X 0.4 nozzle",
+  "bed_type": "Textured PEI Plate",
+  "slicer_return_code": 0,
+  "slicer_project_warnings": [
+    {
+      "msg": "bed_temperature_too_high_than_filament",
+      "level": "1",
+      "error_code": "1000C001"
+    }
+  ],
+  "layers": 40,
+  "layer_heights_mm": [
+    0.2,
+    0.4,
+    0.6,
+    0.8,
+    1.0,
+    1.2,
+    1.4,
+    1.6,
+    1.8,
+    2.0,
+    2.2,
+    2.4,
+    2.6,
+    2.8,
+    3.0,
+    3.2,
+    3.4,
+    3.6,
+    3.8,
+    4.0,
+    4.2,
+    4.4,
+    4.6,
+    4.8,
+    5.0,
+    5.2,
+    5.4,
+    5.6,
+    5.8,
+    6.0,
+    6.2,
+    6.4,
+    6.6,
+    6.8,
+    7.0,
+    7.2,
+    7.4,
+    7.6,
+    7.8,
+    8.0
+  ],
+  "actual_positive_e_z_mm_by_layer": {
+    "1": [
+      0.2
+    ],
+    "2": [
+      0.4
+    ],
+    "3": [
+      0.6
+    ],
+    "4": [
+      0.8
+    ],
+    "5": [
+      1.0
+    ],
+    "6": [
+      1.2
+    ],
+    "7": [
+      1.4
+    ],
+    "8": [
+      1.6
+    ],
+    "9": [
+      1.8
+    ],
+    "10": [
+      2.0
+    ],
+    "11": [
+      2.2
+    ],
+    "12": [
+      2.4
+    ],
+    "13": [
+      2.6
+    ],
+    "14": [
+      2.8
+    ],
+    "15": [
+      3.0
+    ],
+    "16": [
+      3.2
+    ],
+    "17": [
+      3.4
+    ],
+    "18": [
+      3.6
+    ],
+    "19": [
+      3.8
+    ],
+    "20": [
+      4.0
+    ],
+    "21": [
+      4.2
+    ],
+    "22": [
+      4.4
+    ],
+    "23": [
+      4.6
+    ],
+    "24": [
+      4.8
+    ],
+    "25": [
+      5.0
+    ],
+    "26": [
+      5.2
+    ],
+    "27": [
+      5.4
+    ],
+    "28": [
+      5.6
+    ],
+    "29": [
+      5.8
+    ],
+    "30": [
+      6.0
+    ],
+    "31": [
+      6.2
+    ],
+    "32": [
+      6.4
+    ],
+    "33": [
+      6.6
+    ],
+    "34": [
+      6.8
+    ],
+    "35": [
+      7.0
+    ],
+    "36": [
+      7.2
+    ],
+    "37": [
+      7.4
+    ],
+    "38": [
+      7.6
+    ],
+    "39": [
+      7.8
+    ],
+    "40": [
+      8.0
+    ]
+  },
+  "maximum_commanded_z_including_nonextruding_hops_mm": 8.4,
+  "extrusion_e_modes": [
+    "relative M83"
+  ],
+  "coordinate_mode_and_reset_command_counts": {
+    "G90": 1,
+    "G91": 0,
+    "M82": 0,
+    "M83": 1,
+    "G92": 0
+  },
+  "every_printing_layer_contains_all_plate_objects": true,
+  "max_extrusion_move_speed_mm_s": 40.0,
+  "first_layer_max_extrusion_move_speed_mm_s": 20.0,
+  "max_calculated_volumetric_flow_mm3_s": 3.2282270231092838,
+  "maximum_flow_segment": {
+    "line": 27942,
+    "code": "G1 X98.567 Y136.697 E.00279",
+    "distance_mm": 0.0695701085236905,
+    "e_delta_mm": 0.00279,
+    "speed_mm_s": 33.46698333333333,
+    "role": "Internal solid infill"
+  },
+  "max_calculated_flow_for_segments_at_least_0_1mm_mm3_s": 3.217535775052228,
+  "max_flow_lower_bound_after_serialization_rounding_mm3_s": 3.199824587355146,
+  "volumetric_rounding_explanation": "Very short segments have large relative errors from XY0.001mm and E0.00001mm serialization; raw maximum is retained above. Long-segment cap checked at3.23, lower bound accounting for endpoint/E quantization at3.201.",
+  "extrusion_bounds_including_half_line_width_mm": [
+    [
+      75.308,
+      115.308,
+      0.2
+    ],
+    [
+      184.692,
+      144.692,
+      8.0
+    ]
+  ],
+  "object_bounds_including_brim_and_half_line_width_mm": {
+    "spoj-2_id_1_copy_0": [
+      [
+        135.308,
+        115.308
+      ],
+      [
+        184.692,
+        144.692
+      ]
+    ],
+    "spoj-1_id_0_copy_0": [
+      [
+        75.308,
+        115.308
+      ],
+      [
+        124.692,
+        144.692
+      ]
+    ]
+  },
+  "all_extrusion_inside_plate_xy": true,
+  "support_extrusion_present": false,
+  "brim_extrusion_present": true,
+  "snap_geometry_and_paths_audit": {
+    "report": "kontrola-zacvaknuti.json",
+    "parts_checked": 2,
+    "all40_cross_sections_have_no_new_unsupported_components": true,
+    "overhang_limit_mm_per_layer": 0.11,
+    "male_prongs_and_female_adjacent_walls_have_paths_every_relevant_layer": true
+  },
+  "extrusion_move_roles": {
+    "Brim": {
+      "segments": 1955,
+      "maximum_speed_mm_s": 20.0
+    },
+    "Outer wall": {
+      "segments": 2664,
+      "maximum_speed_mm_s": 30.0
+    },
+    "Inner wall": {
+      "segments": 5383,
+      "maximum_speed_mm_s": 39.30435
+    },
+    "Gap infill": {
+      "segments": 1444,
+      "maximum_speed_mm_s": 30.0
+    },
+    "Bottom surface": {
+      "segments": 267,
+      "maximum_speed_mm_s": 20.0
+    },
+    "Internal solid infill": {
+      "segments": 8291,
+      "maximum_speed_mm_s": 40.0
+    },
+    "Top surface": {
+      "segments": 101,
+      "maximum_speed_mm_s": 30.0
+    }
+  },
+  "temperature_commands": [
+    {
+      "line": 39,
+      "command": "G9111 bedTemp=60 extruderTemp=225"
+    },
+    {
+      "line": 2953,
+      "command": "M140 S60"
+    },
+    {
+      "line": 29776,
+      "command": "M140 S0"
+    },
+    {
+      "line": 29777,
+      "command": "M104 S0"
+    }
+  ],
+  "fan_commands": [
+    "M106 S0",
+    "M106 S255",
+    "M107"
+  ],
+  "retraction_lengths_mm": [
+    0.0108,
+    0.01085,
+    0.01301,
+    0.02636,
+    0.02886,
+    0.03448,
+    0.04221,
+    0.0425,
+    0.04751,
+    0.05191,
+    0.05257,
+    0.05321,
+    0.05356,
+    0.05437,
+    0.05749,
+    0.05835,
+    0.05893,
+    0.0596,
+    0.06321,
+    0.06323,
+    0.06361,
+    0.06419,
+    0.06433,
+    0.06445,
+    0.06524,
+    0.06578,
+    0.06631,
+    0.06693,
+    0.06717,
+    0.0679,
+    0.06997,
+    0.07035,
+    0.07342,
+    0.07658,
+    0.07662,
+    0.0767,
+    0.07677,
+    0.07718,
+    0.07728,
+    0.0776,
+    0.07785,
+    0.08093,
+    0.08122,
+    0.08181,
+    0.08668,
+    0.0871,
+    0.09081,
+    0.09099,
+    0.09124,
+    0.09125,
+    0.09127,
+    0.09131,
+    0.09288,
+    0.09289,
+    0.09496,
+    0.0966,
+    0.09892,
+    0.10278,
+    0.10382,
+    0.10475,
+    0.10526,
+    0.10655,
+    0.10676,
+    0.10726,
+    0.11186,
+    0.11384,
+    0.11396,
+    0.11491,
+    0.11711,
+    0.11784,
+    0.11797,
+    0.11809,
+    0.11849,
+    0.11918,
+    0.11932,
+    0.11939,
+    0.11941,
+    0.11952,
+    0.11973,
+    0.12026,
+    0.12064,
+    0.12241,
+    0.12539,
+    0.12549,
+    0.12553,
+    0.12585,
+    0.12756,
+    0.12761,
+    0.12849,
+    0.12956,
+    0.12984,
+    0.13008,
+    0.13041,
+    0.13236,
+    0.13297,
+    0.13363,
+    0.1353,
+    0.1357,
+    0.13609,
+    0.13749,
+    0.13799,
+    0.13873,
+    0.14141,
+    0.14287,
+    0.14609,
+    0.14712,
+    0.14738,
+    0.14913,
+    0.14943,
+    0.15021,
+    0.15192,
+    0.15334,
+    0.15397,
+    0.15519,
+    0.1572,
+    0.15792,
+    0.15793,
+    0.15866,
+    0.16128,
+    0.16137,
+    0.16145,
+    0.16202,
+    0.16203,
+    0.16405,
+    0.16656,
+    0.16723,
+    0.16725,
+    0.16888,
+    0.17385,
+    0.17483,
+    0.17751,
+    0.17894,
+    0.17959,
+    0.18407,
+    0.18537,
+    0.18557,
+    0.18741,
+    0.18882,
+    0.18935,
+    0.19,
+    0.19001,
+    0.1936,
+    0.1943,
+    0.19454,
+    0.19488,
+    0.19617,
+    0.20007,
+    0.20028,
+    0.20029,
+    0.20731,
+    0.20966,
+    0.2114,
+    0.21339,
+    0.21343,
+    0.21344,
+    0.21346,
+    0.21347,
+    0.21348,
+    0.21353,
+    0.21373,
+    0.21383,
+    0.21387,
+    0.21391,
+    0.21396,
+    0.21407,
+    0.2144,
+    0.21451,
+    0.21466,
+    0.21475,
+    0.21483,
+    0.21488,
+    0.21508,
+    0.21533,
+    0.21541,
+    0.21543,
+    0.21549,
+    0.21567,
+    0.21579,
+    0.21588,
+    0.21596,
+    0.21597,
+    0.2162,
+    0.21629,
+    0.21641,
+    0.21652,
+    0.21661,
+    0.21668,
+    0.2167,
+    0.21692,
+    0.21781,
+    0.2192,
+    0.21946,
+    0.21951,
+    0.22518,
+    0.22527,
+    0.22635,
+    0.22733,
+    0.22804,
+    0.22928,
+    0.2356,
+    0.23749,
+    0.23851,
+    0.24024,
+    0.24089,
+    0.24103,
+    0.24118,
+    0.24147,
+    0.24186,
+    0.24218,
+    0.24223,
+    0.24249,
+    0.24283,
+    0.24322,
+    0.24328,
+    0.24349,
+    0.24376,
+    0.24415,
+    0.24445,
+    0.24469,
+    0.24484,
+    0.24491,
+    0.24524,
+    0.24594,
+    0.24601,
+    0.24659,
+    0.2468,
+    0.2473,
+    0.24768,
+    0.24769,
+    0.24776,
+    0.24778,
+    0.24779,
+    0.24788,
+    0.24811,
+    0.24912,
+    0.24914,
+    0.24944,
+    0.2495,
+    0.24961,
+    0.24975,
+    0.24989,
+    0.25016,
+    0.25097,
+    0.251,
+    0.25103,
+    0.25104,
+    0.25105,
+    0.25108,
+    0.25115,
+    0.25116,
+    0.25775,
+    0.25833,
+    0.26019,
+    0.26173,
+    0.26635,
+    0.2667,
+    0.26948,
+    0.27482,
+    0.27497,
+    0.2768,
+    0.28455,
+    0.2953,
+    0.30135,
+    0.30202,
+    0.30636,
+    0.30679,
+    0.30691,
+    0.30808,
+    0.31175,
+    0.31687,
+    0.31698,
+    0.31713,
+    0.32113,
+    0.32751,
+    0.33541,
+    0.33548,
+    0.33549,
+    0.3355,
+    0.33552,
+    0.33556,
+    0.33559,
+    0.3361,
+    0.33611,
+    0.33628,
+    0.33638,
+    0.33648,
+    0.33654,
+    0.3366,
+    0.33679,
+    0.33749,
+    0.33771,
+    0.33804,
+    0.33837,
+    0.33852,
+    0.33891,
+    0.33898,
+    0.33943,
+    0.33968,
+    0.33973,
+    0.33982,
+    0.34018,
+    0.34045,
+    0.34064,
+    0.34076,
+    0.34082,
+    0.34111,
+    0.34131,
+    0.34148,
+    0.34153,
+    0.34173,
+    0.342,
+    0.34211,
+    0.34221,
+    0.3423,
+    0.34241,
+    0.34283,
+    0.3447,
+    0.353,
+    0.36306,
+    0.37591,
+    0.37714,
+    0.38654,
+    0.38733,
+    0.393,
+    0.40685,
+    0.40697,
+    0.407,
+    0.40973,
+    0.41267,
+    0.41291,
+    0.42409,
+    0.46036,
+    0.47544,
+    0.47554,
+    0.49865,
+    0.5047,
+    0.51856,
+    0.53365,
+    0.53658,
+    0.55717,
+    0.56149,
+    0.58534,
+    0.58647,
+    0.60414,
+    0.61065,
+    0.62815,
+    0.63344,
+    0.64979,
+    0.65087,
+    0.65391,
+    0.66391,
+    0.6643,
+    0.6647,
+    0.66635,
+    0.66703,
+    0.67239,
+    0.68048,
+    0.68068,
+    0.69618,
+    0.70108,
+    0.70711,
+    0.70712,
+    0.70869,
+    0.70873,
+    0.70875,
+    0.70876,
+    0.70901,
+    0.71907,
+    0.72965,
+    0.74107,
+    0.74644,
+    0.74743,
+    0.8
+  ],
+  "extruding_path_length_mm": 77694.01709478658,
+  "positive_filament_on_moving_extrusions_mm": 2530.0967400000077,
+  "material_density_g_cm3": {
+    "value": [
+      "1.24"
+    ],
+    "evidence": "inherited Anycubic default; unverified for Alzament"
+  },
+  "estimates": [
+    "; filament used [mm] = 2530.10",
+    "; filament used [cm3] = 6.09",
+    "; filament used [g] = 7.55",
+    "; estimated printing time (normal mode) = 43m 5s"
+  ],
+  "limitations": [
+    "Bed60C is a provisional choice: TDS60-80C conflicts with Gray product30-50C.",
+    "Slicer emits bed_temperature_too_high_than_filament; this warning has not been suppressed.",
+    "CLI also logs calc_exclude_triangles:Unable to create exclude triangles for the empty bed exclusion list; actual path bounds checked independently.",
+    "Layer PNG is rendered from actual G-code XY segments, not a slicer GUI screenshot.",
+    "No physical spool loading, print, adhesion, flexible-joint fit, water or seal test has been performed."
+  ]
+}

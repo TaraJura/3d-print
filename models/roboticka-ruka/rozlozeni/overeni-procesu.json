@@ -1,0 +1,83 @@
+{
+  "status": "sliced",
+  "machine": "Anycubic Kobra X 0.4 nozzle",
+  "process_base": "0.16mm Standard @Anycubic Kobra X 0.4 nozzle",
+  "filament_base": "Anycubic PLA @Anycubic Kobra X 0.4 nozzle",
+  "filament_base_sha256": "7e410a42d924f7426f7535d32ca87c43c514e98e3464ab2cc524446167133483",
+  "filament_project": "PROTOTYP Alzament PLA Basic Kobra X 0.4 - podlozka 50C - nekalibrovano",
+  "filament_project_overrides": {
+    "hot_plate_temp": [
+      "50"
+    ],
+    "hot_plate_temp_initial_layer": [
+      "50"
+    ],
+    "textured_plate_temp": [
+      "50"
+    ],
+    "textured_plate_temp_initial_layer": [
+      "50"
+    ]
+  },
+  "filament_status": "Pokusný odvozený profil: podložka explicitně 50 °C v první i dalších vrstvách, ostatní hodnoty vycházejí ze systémového Anycubic PLA pro Kobra X. Fyzická cívka a kalibrace nebyly ověřeny.",
+  "process_overrides": {
+    "layer_height": "0.16",
+    "brim_type": "outer_only",
+    "brim_width": "5",
+    "enable_support": "0",
+    "initial_layer_print_height": "0.20",
+    "inner_wall_speed": "90",
+    "outer_wall_speed": "60",
+    "sparse_infill_density": "20%",
+    "wall_loops": "4"
+  },
+  "plates": [
+    {
+      "plate": "podlozka-merka-01",
+      "project": "podlozka-merka-01-nastaveny-projekt.3mf",
+      "sha256": "db300b192c9d6a9d096586300f685c1d0f31ed2ee0e7a81c8a149f6cc9106ead",
+      "source_geometry_sha256": "b08b4b99bb41fcfe4054662d8836b9ce55da738f75677f7b2ec120b2768d6177",
+      "objects": 1,
+      "object_support": {
+        "merka_motoru_01": false
+      },
+      "slicer_exit_codes": [
+        0,
+        0
+      ],
+      "cache_slice_3mf": "/home/novakj/3d-print/.cache/roboticka-ruka-prvni-prototyp/podlozka-merka-01/slice/sliced.3mf",
+      "cache_gcode": "/home/novakj/3d-print/.cache/roboticka-ruka-prvni-prototyp/podlozka-merka-01/slice/plate_1.gcode",
+      "gcode_size_bytes": 413236,
+      "warnings_log": "/home/novakj/3d-print/.cache/roboticka-ruka-prvni-prototyp/podlozka-merka-01/slice.log"
+    },
+    {
+      "plate": "podlozka-sestava-01",
+      "project": "podlozka-sestava-01-nastaveny-projekt.3mf",
+      "sha256": "158640e4010f9ca9e462ada3e04c7f910ef6b82efb8f548af5f0c631e388ae61",
+      "source_geometry_sha256": "f7f4d850bf55830901ebb30710ba52378443e1f810a208af2acd085822245286",
+      "objects": 12,
+      "object_support": {
+        "pojistka_cepu_02": false,
+        "pojistka_cepu_03": false,
+        "pojistka_cepu_04": false,
+        "cep_kloubu_01": false,
+        "cep_kloubu_03": false,
+        "cep_kloubu_04": false,
+        "vymenna_plosina_01": false,
+        "otocna_zakladna_01": true,
+        "predlokti_s_rukou_01": false,
+        "nadlokti_01": false,
+        "pojistka_cepu_01": false,
+        "cep_kloubu_02": false
+      },
+      "slicer_exit_codes": [
+        0,
+        0
+      ],
+      "cache_slice_3mf": "/home/novakj/3d-print/.cache/roboticka-ruka-prvni-prototyp/podlozka-sestava-01/slice/sliced.3mf",
+      "cache_gcode": "/home/novakj/3d-print/.cache/roboticka-ruka-prvni-prototyp/podlozka-sestava-01/slice/plate_1.gcode",
+      "gcode_size_bytes": 12998932,
+      "warnings_log": "/home/novakj/3d-print/.cache/roboticka-ruka-prvni-prototyp/podlozka-sestava-01/slice.log"
+    }
+  ]
+}

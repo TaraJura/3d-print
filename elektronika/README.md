@@ -10,6 +10,7 @@ Osobní elektronické projekty, zapojení a zkušenosti Jiřího Nováka. Tato s
 
 - **[Sklad elektroniky a vybavení](vybaveni.md)** — kanonický inventář potvrzených součástek a pomůcek, včetně převzaté sady kondenzátorů.
 - **[Autíčko](auticko/README.md)** — aktuální stav elektroniky, zapojení, historie zkoušek a návaznost na firmware.
+- **[Robotická ruka na autíčku](roboticka-ruka/README.md)** — návrh samostatného otáčení základny krokovým motorem; elektrické zapojení a pohyb zatím neověřené.
 - [Mechanické modely](../models/README.md), [deník tisků](../docs/denik-tisku.md) a [pravidla projektu](../AGENTS.md).
 
 Inventář říká, co je potvrzeně k dispozici. Záznam konkrétní zkoušky říká, co se skutečně použilo. Nákup, sestavení, upload a úspěšný fyzický test jsou odlišné stavy; neznámé množství, specifikace ani použití nedoplňovat odhadem.

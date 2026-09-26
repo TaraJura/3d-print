@@ -1,0 +1,332 @@
+# -*- coding: utf-8 -*-
+"""Římská velitelská přilba: pouze výtvarná CAD vizualizace.
+
+Výstupy v této složce: velitelska-prilba.FCStd, perspektiva-cad.png,
+zepredu-cad.png. Opakované spuštění je přepíše. Všechna geometrie se skládá
+z otevřených ploch a hran; žádný objekt není plným tělesem. Číselné souřadnice
+jsou ilustrativní a neslouží k určení rozměrů ani vůlí pro dítě.
+"""
+
+from pathlib import Path
+import math
+import re
+
+import FreeCAD as App
+import FreeCADGui as Gui
+import Part
+from PySide import QtCore
+
+
+OUT = Path(__file__).resolve().parent
+DOC_PATH = OUT / "velitelska-prilba.FCStd"
+R = 80.0  # Pouze ilustrativní měřítko.
+WIDEN = 1.10
+
+BRONZE = (0.49, 0.31, 0.17)
+CHEEK = (0.37, 0.23, 0.13)
+GOLD = (0.83, 0.57, 0.22)
+BRIGHT_GOLD = (0.97, 0.74, 0.31)
+CRIMSON = (0.66, 0.035, 0.055)
+HIGHLIGHT_RED = (0.92, 0.12, 0.10)
+DARK_RED = (0.37, 0.02, 0.035)
+
+
+def v(x, y, z):
+    return App.Vector(float(x), float(y), float(z))
+
+
+def triangle(a, b, c):
+    wire = Part.makePolygon([a, b, c, a])
+    return Part.Face(wire)
+
+
+def front(y, z, lift=0):
+    """Bod na vnějším předním povrchu ilustrativní kupole."""
+    raw_y = y / WIDEN
+    return v(math.sqrt(max(0.0, R * R - raw_y * raw_y - z * z)) + lift, y, z)
+
+
+def line(points):
+    return Part.makePolygon(points)
+
+
+def compound(items):
+    return Part.makeCompound(items)
+
+
+doc = App.newDocument("VelitelskaPrilbaV2")
+doc.Label = "Římská velitelská přilba — pouze vizuální koncept"
+
+
+def add(name, label, shape, color, mode="Shaded", line_color=None, width=1.5):
+    if len(shape.Solids):
+        raise RuntimeError("Vizuální koncept nesmí obsahovat plné těleso: " + name)
+    obj = doc.addObject("Part::Feature", name)
+    obj.Label = label
+    obj.Shape = shape
+    obj.ViewObject.ShapeColor = color
+    obj.ViewObject.LineColor = line_color or color
+    obj.ViewObject.LineWidth = width
+    obj.ViewObject.DisplayMode = mode
+    return obj
+
+
+# Polokulová tmavě bronzová plocha bez tloušťky a bez vnitřní geometrie.
+ball = Part.makeSphere(R)
+lower_half = Part.makeBox(260, 260, 130, v(-130, -130, -130))
+upper = ball.cut(lower_half)
+spherical_faces = [f for f in upper.Faces if isinstance(f.Surface, Part.Sphere)]
+if len(spherical_faces) != 1:
+    raise RuntimeError("Kupole má neočekávaný počet vnějších ploch")
+mat = App.Matrix()
+mat.A22 = WIDEN
+dome = spherical_faces[0].transformGeometry(mat)
+add("Dome", "Tmavá bronzová kupole — otevřená plocha", dome, BRONZE)
+
+# Zadní široký štít. Dvě řady bodů tvoří samostatnou otevřenou plochu.
+neck_faces = []
+neck_rim = []
+for i in range(16):
+    y0 = -65 + i * 130 / 16
+    y1 = -65 + (i + 1) * 130 / 16
+    def neck_top(y):
+        return v(-math.sqrt(R * R - (y / WIDEN) ** 2), y, 1)
+    def neck_bottom(y):
+        top = neck_top(y)
+        return v(top.x - 16, y * 1.11, -21)
+    a, b = neck_top(y0), neck_top(y1)
+    c, d = neck_bottom(y1), neck_bottom(y0)
+    neck_faces.extend((triangle(a, b, c), triangle(a, c, d)))
+    neck_rim.append(d)
+neck_rim.append(neck_bottom(65))
+add("NeckGuard", "Rozšířený zadní štít — otevřená plocha", compound(neck_faces), CHEEK)
+add("NeckGuardTrim", "Zlatá linka zadního štítu", line(neck_rim), GOLD, "Flat Lines", GOLD, 3.5)
+
+# Nadočnicový zlatý pás kopíruje přední část ilustrativní kupole.
+brow_faces = []
+for i in range(28):
+    y0 = -70 + i * 140 / 28
+    y1 = -70 + (i + 1) * 140 / 28
+    a, b = front(y0, 2, 2.0), front(y1, 2, 2.0)
+    c, d = front(y1, 19, 2.0), front(y0, 19, 2.0)
+    brow_faces.extend((triangle(a, b, c), triangle(a, c, d)))
+add("BrowBand", "Zdobený zlatý nadočnicový pás", compound(brow_faces), GOLD)
+add("BrowUpperEdge", "Horní zlatá linka", line([front(-70 + i * 2.5, 19, 2.5) for i in range(57)]), BRIGHT_GOLD, "Flat Lines", BRIGHT_GOLD, 3)
+add("BrowLowerEdge", "Dolní zlatá linka", line([front(-70 + i * 2.5, 2, 2.5) for i in range(57)]), BRIGHT_GOLD, "Flat Lines", BRIGHT_GOLD, 3)
+
+# Nýty v pravidelném rytmu na čelním pásu.
+rivets = []
+for y in (-58, -40, -22, 0, 22, 40, 58):
+    center = front(y, 10, 4.0)
+    circle = Part.makeCircle(2.6, center, v(1, 0, 0))
+    rivets.append(Part.Face(Part.Wire([circle])))
+add("Rivets", "Zlaté čelní nýty", compound(rivets), BRIGHT_GOLD)
+
+# Zlacená vavřínová ratolest po obou stranách nad pásem.
+laurel_leaves = []
+laurel_branches = []
+for sign in (-1, 1):
+    branch = []
+    for i in range(19):
+        a = 11 + i * 2.6
+        branch.append(front(sign * a, 25 + 0.32 * a, 3.1))
+    laurel_branches.append(line(branch))
+    for a in (14, 23, 32, 41, 50):
+        z = 25 + 0.32 * a
+        root = front(sign * a, z, 4)
+        tip_hi = front(sign * (a + 9), z + 10, 4)
+        mid_hi = front(sign * (a + 2), z + 9, 4)
+        tip_lo = front(sign * (a + 9), z - 6, 4)
+        mid_lo = front(sign * (a + 2), z - 5, 4)
+        laurel_leaves.append(triangle(root, tip_hi, mid_hi))
+        laurel_leaves.append(triangle(root, tip_lo, mid_lo))
+add("LaurelLeaves", "Zlaté vavřínové listy", compound(laurel_leaves), BRIGHT_GOLD)
+add("LaurelBranches", "Stonky vavřínu", compound(laurel_branches), BRIGHT_GOLD, "Flat Lines", BRIGHT_GOLD, 2.7)
+
+# Stylizovaný orel je reliéfní grafický motiv z otevřených trojúhelníků.
+eagle_faces = []
+eagle_faces.extend((
+    triangle(front(0, 27, 5), front(-5, 43, 5), front(0, 58, 5)),
+    triangle(front(0, 27, 5), front(0, 58, 5), front(5, 43, 5)),
+))
+for sign in (-1, 1):
+    eagle_faces.extend((
+        triangle(front(sign * 4, 49, 5), front(sign * 26, 63, 5), front(sign * 18, 50, 5)),
+        triangle(front(sign * 18, 50, 5), front(sign * 26, 63, 5), front(sign * 42, 61, 5)),
+        triangle(front(sign * 18, 50, 5), front(sign * 42, 61, 5), front(sign * 34, 47, 5)),
+        triangle(front(sign * 5, 42, 5), front(sign * 17, 39, 5), front(sign * 30, 34, 5)),
+    ))
+add("Eagle", "Stylizovaný zlatý orel", compound(eagle_faces), BRIGHT_GOLD)
+
+# Dvě bronzové lícnice se zlatým obrysem. Nejde o anatomické díly.
+for sign, suffix in ((-1, "Left"), (1, "Right")):
+    points = [
+        v(-28, sign * 76, 0),
+        v(21, sign * 78, 0),
+        v(42, sign * 68, -8),
+        v(51, sign * 62, -23),
+        v(48, sign * 60, -35),
+        v(39, sign * 61, -50),
+        v(28, sign * 64, -59),
+        v(17, sign * 69, -63),
+        v(7, sign * 75, -59),
+        v(-4, sign * 79, -50),
+        v(-20, sign * 83, -30),
+        v(-28, sign * 82, -15),
+    ]
+    plate = Part.makeFilledFace(Part.makePolygon(points + [points[0]]))
+    add("Cheek" + suffix, "Bronzová lícnice " + suffix, plate, CHEEK)
+    add("CheekEdge" + suffix, "Zlatá obruba lícnice " + suffix,
+        line(points + [points[0]]), BRIGHT_GOLD, "Flat Lines", BRIGHT_GOLD, 3.8)
+    # Povrchový znak na lícnici ze tří otevřených ploch.
+    sy = sign * 73
+    leaf = [
+        triangle(v(10, sy, -25), v(28, sy, -36), v(17, sy, -34)),
+        triangle(v(17, sy, -34), v(35, sy, -48), v(19, sy, -43)),
+        triangle(v(19, sy, -43), v(27, sy, -53), v(16, sy, -51)),
+    ]
+    add("CheekLaurel" + suffix, "Vavřín na lícnici " + suffix, compound(leaf), GOLD)
+    # Tvarovaný kloubový medailon z plochých disků bez tloušťky.
+    mcenter = v(6, sign * 85, -9)
+    normal = v(0, sign, 0)
+    outer = Part.Face(Part.Wire([Part.makeCircle(9, mcenter, normal)]))
+    inner = Part.Face(Part.Wire([Part.makeCircle(5.5, v(6, sign * 85.5, -9), normal)]))
+    add("Medallion" + suffix, "Zlatý boční medailon " + suffix, outer, GOLD)
+    add("MedallionCore" + suffix, "Bronzový střed medailonu " + suffix, inner, BRONZE)
+
+# Zlatý rám hřebene leží po délce kupole.
+def crown_z(x):
+    return math.sqrt(max(0, R * R - x * x))
+
+rail_x = [-68 + i * 4 for i in range(35)]
+for sign, suffix in ((-1, "Near"), (1, "Far")):
+    y = sign * 10
+    lower = [v(x, y, crown_z(x) + 1.5) for x in rail_x]
+    upper_rail = [v(x, y, crown_z(x) + 10) for x in rail_x]
+    rail_face = Part.Face(Part.makePolygon(lower + list(reversed(upper_rail)) + [lower[0]]))
+    add("CrestRail" + suffix, "Zlatý rám chocholu " + suffix, rail_face, GOLD)
+    add("CrestRailEdge" + suffix, "Linka rámu chocholu " + suffix,
+        line(upper_rail), BRIGHT_GOLD, "Flat Lines", BRIGHT_GOLD, 3)
+
+# Rudý vysoký chochol v průčelním i bočním pohledu. Dvě rovnoběžné otevřené
+# plochy a horní otevřený pás mají nulový objem.
+CONTROL = [
+    (-118, 9, 16), (-103, 15, 43), (-88, 24, 72), (-70, 42, 101),
+    (-51, 65, 126), (-30, 77, 143), (-10, 81, 150), (10, 81, 150),
+    (30, 77, 143), (51, 65, 126), (68, 44, 103), (76, 28, 78),
+]
+
+def interpolate(x, index):
+    for a, b in zip(CONTROL, CONTROL[1:]):
+        if a[0] <= x <= b[0]:
+            t = (x - a[0]) / (b[0] - a[0])
+            return a[index] * (1 - t) + b[index] * t
+    return CONTROL[0][index] if x < CONTROL[0][0] else CONTROL[-1][index]
+
+xs = [-118 + i * 194 / 54 for i in range(55)]
+lo = [(x, interpolate(x, 1)) for x in xs]
+hi = [(x, interpolate(x, 2)) for x in xs]
+for sign, suffix in ((-1, "Near"), (1, "Far")):
+    side_faces = []
+    for i in range(len(xs) - 1):
+        a = v(lo[i][0], sign * 7.2, lo[i][1])
+        b = v(lo[i + 1][0], sign * 7.2, lo[i + 1][1])
+        c = v(xs[i + 1], sign * 25, lo[i + 1][1] + .58 * (hi[i + 1][1] - lo[i + 1][1]))
+        d = v(xs[i], sign * 25, lo[i][1] + .58 * (hi[i][1] - lo[i][1]))
+        e = v(hi[i + 1][0], sign * 3, hi[i + 1][1])
+        f = v(hi[i][0], sign * 3, hi[i][1])
+        side_faces.extend((triangle(a, b, c), triangle(a, c, d),
+                           triangle(d, c, e), triangle(d, e, f)))
+    add("Plume" + suffix, "Temně rudá rozevřená plocha chocholu " + suffix,
+        compound(side_faces), CRIMSON)
+
+top_faces = []
+for i in range(len(xs) - 1):
+    a = v(hi[i][0], -3, hi[i][1])
+    b = v(hi[i + 1][0], -3, hi[i + 1][1])
+    c = v(hi[i + 1][0], 3, hi[i + 1][1])
+    d = v(hi[i][0], 3, hi[i][1])
+    top_faces.extend((triangle(a, b, c), triangle(a, c, d)))
+add("PlumeTop", "Rudý vrchol chocholu — otevřená plocha", compound(top_faces), HIGHLIGHT_RED)
+
+feathers_bright = []
+feathers_dark = []
+def plume_width(x, z):
+    bottom = interpolate(x, 1)
+    top = interpolate(x, 2)
+    fraction = max(0.0, min(1.0, (z - bottom) / (top - bottom)))
+    if fraction <= .58:
+        return 7.2 + (25 - 7.2) * fraction / .58
+    return 25 + (3 - 25) * (fraction - .58) / .42
+
+for i in range(25):
+    x = -98 + i * 6.5
+    bottom = interpolate(x, 1)
+    start_z = bottom + 4
+    end_z = interpolate(x - 10, 2) - 7
+    start_y = -plume_width(x, start_z) - .4
+    end_y = -plume_width(x - 10, end_z) - .4
+    start = v(x + 6, start_y, start_z)
+    end = v(x - 10, end_y, end_z)
+    (feathers_bright if i % 3 == 0 else feathers_dark).append(Part.makeLine(start, end))
+add("FeatherHighlights", "Jasně rudé tahy chocholu", compound(feathers_bright), HIGHLIGHT_RED,
+    "Flat Lines", HIGHLIGHT_RED, 2.5)
+add("FeatherShadows", "Tmavé tahy chocholu", compound(feathers_dark), DARK_RED,
+    "Flat Lines", DARK_RED, 1.3)
+
+doc.recompute()
+objects = [o for o in doc.Objects if hasattr(o, "Shape")]
+solid_count = sum(len(o.Shape.Solids) for o in objects)
+invalid = [o.Name for o in objects if not o.Shape.isValid()]
+if solid_count or invalid:
+    raise RuntimeError("Neplatná či plná geometrie: solids=%s invalid=%s" % (solid_count, invalid))
+doc.saveAs(str(DOC_PATH))
+
+view = Gui.activeDocument().activeView()
+view.setCameraType("Orthographic")
+
+
+def camera(eye):
+    eye = v(*eye)
+    up = v(0, 0, 1)
+    view.setCameraOrientation(App.Rotation(up.cross(eye), up, eye, "ZXY").Q)
+    view.fitAll()
+    view_data = view.getCamera()
+    height = re.search(r"(?m)^  height ([0-9.eE+-]+)$", view_data)
+    if height:
+        original = float(height.group(1))
+        view.setCamera(view_data[:height.start(1)] + str(original * 0.79) + view_data[height.end(1):])
+    view.redraw()
+    Gui.updateGui()
+
+
+def start():
+    camera((1.0, -1.0, 0.53))
+    QtCore.QTimer.singleShot(1100, save_perspective)
+
+
+def save_perspective():
+    view.saveImage(str(OUT / "perspektiva-cad.png"), 1600, 1150, "#202633")
+    doc.NeckGuard.ViewObject.Visibility = False
+    doc.NeckGuardTrim.ViewObject.Visibility = False
+    camera((1.0, 0.0, 0.05))
+    QtCore.QTimer.singleShot(1100, save_front)
+
+
+def save_front():
+    view.saveImage(str(OUT / "zepredu-cad.png"), 1350, 1150, "#202633")
+    doc.NeckGuard.ViewObject.Visibility = True
+    doc.NeckGuardTrim.ViewObject.Visibility = True
+    camera((1.0, -1.0, 0.53))
+    QtCore.QTimer.singleShot(300, finish)
+
+
+def finish():
+    doc.recompute()
+    doc.save()
+    print("ROMAN_VISUAL_ONLY", len(objects), solid_count, len(invalid), flush=True)
+    App.closeDocument(doc.Name)
+    Gui.getMainWindow().close()
+
+
+QtCore.QTimer.singleShot(900, start)

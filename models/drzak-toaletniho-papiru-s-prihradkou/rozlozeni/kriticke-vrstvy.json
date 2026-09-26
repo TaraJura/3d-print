@@ -1,0 +1,100 @@
+{
+  "source": {
+    "1": {
+      "project_sha256": "eab28bab907b39104f0d96b3f3d98109f6bdb69d16c13062cadb427cfdd02650",
+      "gcode_sha256": "eafee308be92ddc1aad044c85d78ee6a5530824c9fba7062a319b6191ae9eb34"
+    },
+    "2": {
+      "project_sha256": "69fb2b07daf33274db70a86f7cace67b7909aa5926c9adbcdc32417b35b8c3eb",
+      "gcode_sha256": "afd304d781096341100a99dda727547b9f86ad5991aea05c5aa30c8bbc938956"
+    }
+  },
+  "cases": [
+    {
+      "plate": 1,
+      "object": "01_Schránka",
+      "previous_z_mm": 4.0,
+      "bridge_z_mm": 4.2,
+      "roles_by_z": {
+        "4.0": {
+          "Inner wall": 294,
+          "Outer wall": 100,
+          "Sparse infill": 9303,
+          "Internal solid infill": 326
+        },
+        "4.2": {
+          "Inner wall": 287,
+          "Outer wall": 98,
+          "Sparse infill": 1151,
+          "Internal Bridge": 1127
+        }
+      },
+      "max_internal_bridge_segment_mm": 92.62687612135043
+    },
+    {
+      "plate": 1,
+      "object": "01_Schránka",
+      "previous_z_mm": 119.0,
+      "bridge_z_mm": 119.2,
+      "roles_by_z": {
+        "119.0": {
+          "Inner wall": 27,
+          "Outer wall": 8,
+          "Internal solid infill": 40,
+          "Sparse infill": 1018
+        },
+        "119.2": {
+          "Inner wall": 27,
+          "Outer wall": 8,
+          "Internal Bridge": 788,
+          "Internal solid infill": 110
+        }
+      },
+      "max_internal_bridge_segment_mm": 6.456435084471925
+    },
+    {
+      "plate": 2,
+      "object": "04_Zásuvka",
+      "previous_z_mm": 3.0,
+      "bridge_z_mm": 3.2,
+      "roles_by_z": {
+        "3.0": {
+          "Inner wall": 333,
+          "Outer wall": 115,
+          "Sparse infill": 15553,
+          "Internal solid infill": 242
+        },
+        "3.2": {
+          "Inner wall": 333,
+          "Outer wall": 115,
+          "Sparse infill": 207,
+          "Internal Bridge": 1005
+        }
+      },
+      "max_internal_bridge_segment_mm": 113.95785484994003
+    },
+    {
+      "plate": 2,
+      "object": "04_Zásuvka",
+      "previous_z_mm": 42.0,
+      "bridge_z_mm": 42.2,
+      "roles_by_z": {
+        "42.0": {
+          "Inner wall": 387,
+          "Outer wall": 133,
+          "Sparse infill": 825,
+          "Internal solid infill": 17
+        },
+        "42.2": {
+          "Inner wall": 387,
+          "Outer wall": 133,
+          "Internal Bridge": 77,
+          "Internal solid infill": 114
+        }
+      },
+      "max_internal_bridge_segment_mm": 35.33698662874354
+    }
+  ],
+  "preview": "kriticke-vrstvy.png",
+  "interpretation": "Previous sparse infill and next-layer internal-bridge paths shown. Visual check is required; internal bridge length is not free unsupported span."
+}

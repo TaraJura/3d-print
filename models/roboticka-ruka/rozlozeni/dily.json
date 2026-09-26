@@ -1,0 +1,62 @@
+{
+  "units": "mm",
+  "scale": 1,
+  "parts": [
+    {
+      "stl": "merka_motoru.stl",
+      "count": 1,
+      "group": "merka",
+      "purpose": "samostatny zkusebni tisk roztece a hridele; nepatri do sestavy",
+      "support": false,
+      "rotation_matrix": [[1, 0, 0], [0, 1, 0], [0, 0, 1]]
+    },
+    {
+      "stl": "vymenna_plosina.stl",
+      "count": 1,
+      "group": "sestava",
+      "purpose": "vymenna horni plosina auta",
+      "support": false,
+      "rotation_matrix": [[1, 0, 0], [0, 1, 0], [0, 0, 1]]
+    },
+    {
+      "stl": "otocna_zakladna.stl",
+      "count": 1,
+      "group": "sestava",
+      "purpose": "motoricky otacena zakladna s kluznou oporou",
+      "support": true,
+      "rotation_matrix": [[1, 0, 0], [0, 1, 0], [0, 0, 1]]
+    },
+    {
+      "stl": "nadlokti.stl",
+      "count": 1,
+      "group": "sestava",
+      "purpose": "rucne polohovane rameno",
+      "support": false,
+      "rotation_matrix": [[1, 0, 0], [0, 1, 0], [0, 0, 1]]
+    },
+    {
+      "stl": "predlokti_s_rukou.stl",
+      "count": 1,
+      "group": "sestava",
+      "purpose": "rucne polohovane predlokti s otevrenou rukou",
+      "support": false,
+      "rotation_matrix": [[1, 0, 0], [0, 1, 0], [0, 0, 1]]
+    },
+    {
+      "stl": "cep_kloubu.stl",
+      "count": 4,
+      "group": "sestava",
+      "purpose": "osove a aretacni cepy ramene a lokte; ctyri fyzicke kopie",
+      "support": false,
+      "rotation_matrix": [[1, 0, 0], [0, 1, 0], [0, 0, 1]]
+    },
+    {
+      "stl": "pojistka_cepu.stl",
+      "count": 4,
+      "group": "sestava",
+      "purpose": "snimatelne C-pojistky pro ctyri cepy",
+      "support": false,
+      "rotation_matrix": [[1, 0, 0], [0, 1, 0], [0, 0, 1]]
+    }
+  ]
+}

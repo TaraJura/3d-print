@@ -1,0 +1,100 @@
+{
+  "status": "locally sliced; print, fit and material suitability unverified",
+  "material_condition": "PLA only a draft profile; measure temperature near operating duct first",
+  "machine_profile_sha256": "baf80d3287e1e863fba29cdfd240b9b5ebc28bd87e1b4d03fc79e53f0009570a",
+  "process_profile_sha256": "708959dd6d47c79ae2493c91a6013965e3b178f2876b60ec03396883f13af025",
+  "filament_profile_sha256": "0f1b54fafb0da36224ae66a275924b4bfdc427486ea1ff00631c5c9b78caaf22",
+  "configured": {
+    "path": "/tmp/kryt-digestore-next-o52vzzqs/configured.3mf",
+    "sha256": "7002fac654fa1f3a8956e5bd7507e7755052b9281e3b6db0f42c74cabfe4db04",
+    "copies": 1,
+    "has_gcode": false,
+    "profile": {
+      "printer_model": "Anycubic Kobra X",
+      "printer_settings_id": "Anycubic Kobra X 0.4 nozzle",
+      "print_settings_id": "Kryt digestoře 0.20 mm PLA koncept Kobra X",
+      "filament_settings_id": [
+        "Alzament PLA Basic návrh @Anycubic Kobra X 0.4 nozzle"
+      ],
+      "filament_type": [
+        "PLA"
+      ],
+      "nozzle_diameter": [
+        "0.4"
+      ],
+      "layer_height": "0.2",
+      "brim_type": "outer_only",
+      "brim_width": "5",
+      "enable_support": "0",
+      "wall_loops": "4",
+      "sparse_infill_density": "25%",
+      "outer_wall_speed": "50",
+      "inner_wall_speed": "75",
+      "initial_layer_speed": "25",
+      "nozzle_temperature": [
+        "205"
+      ],
+      "nozzle_temperature_initial_layer": [
+        "215"
+      ],
+      "hot_plate_temp": [
+        "50"
+      ]
+    }
+  },
+  "delivered": {
+    "path": "/home/novakj/3d-print/models/kryt-trubky-digestore/rozlozeni/kryt-podlozka-01-nastaveny-projekt.3mf",
+    "sha256": "ffee5ab14595c2d7d500fd7bf060a94b8da04d769a64df2bf931f4cebe5eeec6",
+    "copies": 1,
+    "has_gcode": true,
+    "profile": {
+      "printer_model": "Anycubic Kobra X",
+      "printer_settings_id": "Anycubic Kobra X 0.4 nozzle",
+      "print_settings_id": "Kryt digestoře 0.20 mm PLA koncept Kobra X",
+      "filament_settings_id": [
+        "Alzament PLA Basic návrh @Anycubic Kobra X 0.4 nozzle"
+      ],
+      "filament_type": [
+        "PLA"
+      ],
+      "nozzle_diameter": [
+        "0.4"
+      ],
+      "layer_height": "0.2",
+      "brim_type": "outer_only",
+      "brim_width": "5",
+      "enable_support": "0",
+      "wall_loops": "4",
+      "sparse_infill_density": "25%",
+      "outer_wall_speed": "50",
+      "inner_wall_speed": "75",
+      "initial_layer_speed": "25",
+      "nozzle_temperature": [
+        "205"
+      ],
+      "nozzle_temperature_initial_layer": [
+        "215"
+      ],
+      "hot_plate_temp": [
+        "50"
+      ]
+    },
+    "gcode_bytes": 7294903,
+    "gcode_lines": 285707,
+    "gcode_sha256": "f1111a5a6d932856d9d9c4424969fa3f373cc97d0b2902e5dfc0c8aefe1041ff",
+    "slice_metadata": {
+      "prediction": "13965",
+      "weight": "80.18",
+      "outside": "false",
+      "support_used": "false"
+    },
+    "warnings": [
+      {
+        "msg": "not_support_traditional_timelapse",
+        "level": "1",
+        "error_code": "1000C003"
+      }
+    ]
+  },
+  "slice_log_tail": "[2026-09-26 09:56:40.702065] [0x000075d9ae6f9900] [trace]   Initializing StaticPrintConfigs\n[2026-09-26 09:56:40.716597] [0x000075d9ae6f9900] [error]   calc_exclude_triangles:Unable to create exclude triangles\n\n[2026-09-26 09:56:40.716766] [0x000075d9ae6f9900] [error]   calc_exclude_triangles:Unable to create exclude triangles\n\n"
+}

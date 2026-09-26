@@ -1,0 +1,52 @@
+{
+  "checked_utc": "2026-09-23T18:19:42.087638+00:00",
+  "original_cad_report_sha256_at_layout_generation": [
+    "9a3d19d81fd6e7079b044967349bc705039f65c9d6f62f40356753067a4e9c6f"
+  ],
+  "final_cad_report_sha256_after_gui_validation": "17fbffa5ea2cb13349d3fa9c0a771874ad82618757372057d5a9dab1427a64b7",
+  "final_cad_validation_pass": true,
+  "gui_validation_present": true,
+  "reason_for_report_hash_change": "Parent CAD writer explicitly confirmed only gui_validation appended after native GUI reopen and visibility/camera save; no STL regeneration. Independently verified all5 frozen STL hashes unchanged. Original generation hash preserved; no reslice.",
+  "stl": [
+    {
+      "stl": "stl/dil-1.stl",
+      "sha256": "3e61a733b27634b6edfa32948442fa8f43c5d01df4b028e79a6865c3ea6ef31d",
+      "unchanged_since_layout_generation": true
+    },
+    {
+      "stl": "stl/dil-2.stl",
+      "sha256": "234609e928b67293bf2ab563707270e0eb9e630d0baa631112eba4eff22916fa",
+      "unchanged_since_layout_generation": true
+    },
+    {
+      "stl": "stl/dil-3.stl",
+      "sha256": "650a141073b9dc5d93b39e1b64e75862febafd1fb9397aa227e93f1ba6951546",
+      "unchanged_since_layout_generation": true
+    },
+    {
+      "stl": "vzorek/spoj-1.stl",
+      "sha256": "7edfb67aee4fcdbf69b42bba08876959d0c05f8c575264c01a5fb962241b09e9",
+      "unchanged_since_layout_generation": true
+    },
+    {
+      "stl": "vzorek/spoj-2.stl",
+      "sha256": "22806b67c7fccffce9c41418e648cd9628edd46f404840ce5802254c9e068da1",
+      "unchanged_since_layout_generation": true
+    }
+  ],
+  "projects": [
+    {
+      "project": "EXPERIMENT-prepazka-575-snap-Alzament-TPU95A.3mf",
+      "project_sha256": "157bc21ba273660f5ca4431dcf6a910bfff5ea009cc3307cfacaad21c48ebf65",
+      "external_gcode_sha256": "109c8a038091e2f136e566c800be0517a799198cb0d173c8a2b8223627197bfb",
+      "unchanged_after_toolpath_and_native_import_audits": true
+    },
+    {
+      "project": "TEST-EXPERIMENT-575-snap-Alzament-TPU95A.3mf",
+      "project_sha256": "80ec953841edfee80607102e05f046f4407c2f363a36849f6ee1312985f0b4c2",
+      "external_gcode_sha256": "cc253980b11c892c39cc7c9712b95dcd91f8fec2c9381603fb38e97cfab18847",
+      "unchanged_after_toolpath_and_native_import_audits": true
+    }
+  ],
+  "no_printer_operation_or_external_transfer": true
+}

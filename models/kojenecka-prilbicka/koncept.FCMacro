@@ -1,0 +1,99 @@
+# -*- coding: utf-8 -*-
+"""Vytvori pouze CAD vizualizaci. Otevrena plocha nema objem ani tiskovy export.
+
+Pozor: soubor pri opakovani prepise koncept.FCStd a oba nahledove PNG v teto slozce.
+Jednotky zde popisuji jen relativni tvar ilustrace, nikoliv rozmery pro dite.
+"""
+
+from pathlib import Path
+
+import FreeCAD as App
+import FreeCADGui as Gui
+import Part
+from PySide import QtCore
+
+
+OUT = Path(__file__).resolve().parent
+DOC_PATH = OUT / "koncept.FCStd"
+
+# Ilustracni proporce. Zadane rozmery hlavy se zamerne nepouzivaji k fitu.
+ILLUSTRATION_RADIUS = 80.0
+SIDE_EXPANSION = 1.13
+
+doc = App.newDocument("VizualniKonceptPrilbicky")
+doc.Label = "Přilbička — pouze vizuální koncept"
+
+sphere = Part.makeSphere(ILLUSTRATION_RADIUS)
+below_open_rim = Part.makeBox(240, 240, 80, App.Vector(-120, -120, -105))
+face_opening = Part.makeSphere(75, App.Vector(75, 0, -20))
+ear_notches = Part.makeCylinder(16, 220, App.Vector(-8, -110, -23), App.Vector(0, 1, 0))
+
+trimmed = sphere.cut(below_open_rim.fuse(face_opening).fuse(ear_notches))
+outer_faces = [
+    face for face in trimmed.Faces
+    if isinstance(face.Surface, Part.Sphere)
+    and abs(face.Surface.Radius - ILLUSTRATION_RADIUS) < 0.001
+]
+if not outer_faces:
+    raise RuntimeError("Nevznikla žádná vnější plocha náhledu")
+surface = Part.makeCompound(outer_faces)
+
+# Jemne rozsirene bocni proporce jsou jen vytvarny motiv, nikoli vule pro spanky.
+transform = App.Matrix()
+transform.A22 = SIDE_EXPANSION
+surface = surface.transformGeometry(transform)
+if len(surface.Solids) != 0:
+    raise RuntimeError("Náhled nesmí tvořit tisknutelné plné těleso")
+
+visual = doc.addObject("Part::Feature", "VisualConceptOnly")
+visual.Label = "POUZE VIZUALIZACE — bez tiskového tělesa"
+visual.Shape = surface
+visual.addProperty("App::PropertyString", "Ucel", "Poznamka")
+visual.Ucel = "Výtvarný koncept, nevhodný k nasazení dítěti či výrobě"
+visual.ViewObject.ShapeColor = (0.19, 0.61, 0.65)
+visual.ViewObject.LineColor = (0.08, 0.27, 0.31)
+visual.ViewObject.LineWidth = 1.5
+visual.ViewObject.DisplayMode = "Flat Lines"
+
+doc.recompute()
+doc.saveAs(str(DOC_PATH))
+
+view = Gui.activeDocument().activeView()
+view.setCameraType("Orthographic")
+
+
+def camera(eye):
+    eye = App.Vector(*eye)
+    up = App.Vector(0, 0, 1)
+    view.setCameraOrientation(App.Rotation(up.cross(eye), up, eye, "ZXY").Q)
+    view.fitAll()
+    view.redraw()
+    Gui.updateGui()
+
+
+def render_three_quarter():
+    camera((1.0, -0.8, 0.55))
+    QtCore.QTimer.singleShot(1000, save_three_quarter)
+
+
+def save_three_quarter():
+    view.saveImage(str(OUT / "koncept-perspektiva.png"), 1500, 1100, "White")
+    camera((1.0, 0.0, 0.18))
+    QtCore.QTimer.singleShot(1000, save_front)
+
+
+def save_front():
+    view.saveImage(str(OUT / "koncept-zepredu.png"), 1200, 1100, "White")
+    camera((1.0, -0.8, 0.55))
+    QtCore.QTimer.singleShot(400, finish)
+
+
+def finish():
+    doc.recompute()
+    doc.save()
+    print("INFANT_HELMET_VISUAL_ONLY", len(surface.Faces), len(surface.Solids), flush=True)
+    App.closeDocument(doc.Name)
+    Gui.getMainWindow().close()
+
+
+QtCore.QTimer.singleShot(900, render_three_quarter)

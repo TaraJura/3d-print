@@ -1,0 +1,115 @@
+# -*- coding: utf-8 -*-
+"""Nativní náhled FreeCAD a uložení viditelnosti sestavy po headless stavbě."""
+from pathlib import Path
+import json
+import FreeCAD as App
+import FreeCADGui as Gui
+import Part
+from PySide import QtCore
+
+OUT = Path(__file__).resolve().parent
+doc = App.openDocument(str(OUT / "drzak.FCStd"))
+doc.recompute()
+view = Gui.activeDocument().activeView()
+names = ("AssemblyBody", "AssemblyDrawer", "AssemblyBracketLeft",
+         "AssemblyBracketRight", "AssemblyAxle", "AssemblyCap")
+links = [doc.getObject(n) for n in names]
+assert all(links)
+
+def visible_assembly():
+    for obj in doc.Objects:
+        if hasattr(obj, "ViewObject"):
+            obj.ViewObject.Visibility = obj.Name in names
+    for obj in links:
+        obj.ViewObject.LineColor = (0.10, 0.11, 0.13)
+        obj.ViewObject.LineWidth = 1.2
+    for name in ("Body", "Bracket"):
+        doc.getObject(name).ViewObject.ShapeColor = (0.23, 0.26, 0.30)
+    doc.Drawer.ViewObject.ShapeColor = (0.31, 0.34, 0.38)
+    for name in ("Axle", "Cap"):
+        doc.getObject(name).ViewObject.ShapeColor = (0.48, 0.51, 0.54)
+
+def camera(eye=(1, 1.4, 0.85)):
+    eye = App.Vector(*eye)
+    up = App.Vector(0, 0, 1)
+    view.setCameraType("Orthographic")
+    view.setCameraOrientation(App.Rotation(up.cross(eye), up, eye, "ZXY").Q)
+    view.fitAll()
+    view.redraw()
+    Gui.updateGui()
+
+def start():
+    Gui.getMainWindow().resize(1600, 1100)
+    visible_assembly()
+    camera()
+    QtCore.QTimer.singleShot(1100, save_assembly)
+
+def save_assembly():
+    view.saveImage(str(OUT / "nahled-sestava.png"), 1600, 1100, "White")
+    doc.AssemblyDrawer.setExpression("Placement.Base.y", "Parameters.BackWall + 56 mm")
+    doc.recompute()
+    camera()
+    QtCore.QTimer.singleShot(900, save_open)
+
+def save_open():
+    view.saveImage(str(OUT / "nahled-zasuvka-vysunuta.png"), 1600, 1100, "White")
+    doc.AssemblyDrawer.setExpression("Placement.Base.y", "Parameters.BackWall + 1 mm")
+    doc.recompute()
+    # Pouze dočasná geometrická ilustrace běžné role Ø110 × 110, ne tiskový díl.
+    roll_outer = Part.makeCylinder(55, 110, App.Vector(40, 81, -73), App.Vector(1, 0, 0))
+    roll_core = Part.makeCylinder(20, 112, App.Vector(39, 81, -73), App.Vector(1, 0, 0))
+    roll = doc.addObject("Part::Feature", "PreviewRoll")
+    roll.Label = "Jen náhled – předpokládaná role Ø110 × 110"
+    roll.Shape = roll_outer.cut(roll_core)
+    roll.ViewObject.ShapeColor = (0.95, 0.95, 0.93)
+    roll.ViewObject.LineColor = (0.7, 0.7, 0.7)
+    roll.ViewObject.Transparency = 12
+    doc.recompute()
+    camera()
+    QtCore.QTimer.singleShot(900, save_roll)
+
+def save_roll():
+    view.saveImage(str(OUT / "nahled-s-roli.png"), 1600, 1100, "White")
+    doc.removeObject("PreviewRoll")
+    doc.recompute()
+    visible_assembly()
+    camera()
+    doc.save()
+    file = doc.FileName
+    App.closeDocument(doc.Name)
+    opened = App.openDocument(file)
+    opened.recompute()
+    shown = [o.Name for o in opened.Objects if hasattr(o, "Shape") and o.ViewObject.Visibility]
+    assert set(shown) == set(names), shown
+    assert all(o.Shape.isValid() for o in opened.Objects if o.Name in names)
+    opened.Parameters.set("B2", "194 mm")
+    opened.recompute()
+    assert abs(opened.Body.Shape.BoundBox.XLength - 194) < 1e-6
+    assert abs(opened.Drawer.Shape.BoundBox.XLength - 159.6) < 1e-6
+    opened.Parameters.set("B2", "190 mm")
+    opened.recompute()
+    assert abs(opened.Body.Shape.BoundBox.XLength - 190) < 1e-6
+    assert abs(opened.Drawer.Shape.BoundBox.XLength - 155.6) < 1e-6
+    # B10 je alias SlideClearance; při jeho změně musí dojít k přepočtu šuplíku.
+    opened.Parameters.set("B10", "1.6 mm")
+    opened.recompute()
+    assert abs(opened.Drawer.Shape.BoundBox.XLength - 154.8) < 1e-6
+    opened.Parameters.set("B10", "1.2 mm")
+    opened.recompute()
+    assert abs(opened.Drawer.Shape.BoundBox.XLength - 155.6) < 1e-6
+    opened.save()
+    App.closeDocument(opened.Name)
+    report = json.loads((OUT / "kontrola-modelu.json").read_text())
+    report["gui_validation"] = {
+        "saved_reopened": True,
+        "visible_objects": shown,
+        "body_width_parameter_test_mm": [190, 194, 190],
+        "slide_clearance_parameter_test_mm": [1.2, 1.6, 1.2],
+        "images": ["nahled-sestava.png", "nahled-zasuvka-vysunuta.png", "nahled-s-roli.png"],
+        "reference_roll_is_temporary_only": True,
+    }
+    (OUT / "kontrola-modelu.json").write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n")
+    print("HOLDER_GUI_OK", flush=True)
+    Gui.getMainWindow().close()
+
+QtCore.QTimer.singleShot(900, start)

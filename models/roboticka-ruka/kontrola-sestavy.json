@@ -1,0 +1,317 @@
+{
+  "car_file_sha256": "eae583d24550c7be5645239748c07a834285db7de2b0a43ccb0596c271b3cacd",
+  "roof_file_sha256": "40c1908db64c557c5c96ef5d57b1ab950b6a8edb01a20c1590f130cf56a52d48",
+  "arm_file_sha256": "fe077b9cba66e5ddbc9ff51480fc0369c0e8f58e1caaf637c2f19ff8f002e2e1",
+  "all_source_files_unchanged": true,
+  "units": "mm",
+  "motor_reference_is_nominal_only": true,
+  "original_roof_volume_mm3": 74680.80188704943,
+  "replacement_roof_volume_mm3": 72784.61828931532,
+  "new_material_outside_original_roof_mm3": 0.0,
+  "removed_material_from_original_roof_mm3": 1896.1835977340709,
+  "old_roof_to_car": [
+    {
+      "object": "AssemblyFrame",
+      "intersection_mm3": 0.0,
+      "distance_mm": 0.0
+    },
+    {
+      "object": "AssemblyRearLeft",
+      "intersection_mm3": 0.0,
+      "distance_mm": 0.9999999999999929
+    },
+    {
+      "object": "AssemblyRearRight",
+      "intersection_mm3": 0.0,
+      "distance_mm": 5.9999999999999964
+    },
+    {
+      "object": "AssemblyFrontLeft",
+      "intersection_mm3": 0.0,
+      "distance_mm": 5.999999999999993
+    },
+    {
+      "object": "AssemblyFrontRight",
+      "intersection_mm3": 0.0,
+      "distance_mm": 5.9999999999999964
+    },
+    {
+      "object": "AssemblyRearAxle",
+      "intersection_mm3": 0.0,
+      "distance_mm": 2.4999999999999742
+    },
+    {
+      "object": "AssemblyFrontAxle",
+      "intersection_mm3": 0.0,
+      "distance_mm": 2.500000000000004
+    },
+    {
+      "object": "AssemblyRearShortSpacer",
+      "intersection_mm3": 0.0,
+      "distance_mm": 0.4999999999999712
+    },
+    {
+      "object": "AssemblyRearLongSpacer",
+      "intersection_mm3": 0.0,
+      "distance_mm": 0.4999999999999912
+    },
+    {
+      "object": "AssemblyFrontLeftSpacer",
+      "intersection_mm3": 0.0,
+      "distance_mm": 0.4999999999999932
+    },
+    {
+      "object": "AssemblyFrontRightSpacer",
+      "intersection_mm3": 0.0,
+      "distance_mm": 0.499999999999993
+    },
+    {
+      "object": "AssemblyRearClip",
+      "intersection_mm3": 0.0,
+      "distance_mm": 14.608559134972896
+    },
+    {
+      "object": "AssemblyFrontClip",
+      "intersection_mm3": 0.0,
+      "distance_mm": 14.608559134972898
+    },
+    {
+      "object": "AssemblyPinion",
+      "intersection_mm3": 0.0,
+      "distance_mm": 15.626328572854042
+    },
+    {
+      "object": "MotorReference",
+      "intersection_mm3": 0.0,
+      "distance_mm": 13.37701768383659
+    }
+  ],
+  "new_roof_to_car": [
+    {
+      "object": "AssemblyFrame",
+      "intersection_mm3": 0.0,
+      "distance_mm": 0.0
+    },
+    {
+      "object": "AssemblyRearLeft",
+      "intersection_mm3": 0.0,
+      "distance_mm": 0.9999999999999929
+    },
+    {
+      "object": "AssemblyRearRight",
+      "intersection_mm3": 0.0,
+      "distance_mm": 5.9999999999999964
+    },
+    {
+      "object": "AssemblyFrontLeft",
+      "intersection_mm3": 0.0,
+      "distance_mm": 5.999999999999993
+    },
+    {
+      "object": "AssemblyFrontRight",
+      "intersection_mm3": 0.0,
+      "distance_mm": 5.9999999999999964
+    },
+    {
+      "object": "AssemblyRearAxle",
+      "intersection_mm3": 0.0,
+      "distance_mm": 2.500000000000003
+    },
+    {
+      "object": "AssemblyFrontAxle",
+      "intersection_mm3": 0.0,
+      "distance_mm": 2.500000000000004
+    },
+    {
+      "object": "AssemblyRearShortSpacer",
+      "intersection_mm3": 0.0,
+      "distance_mm": 0.49999999999999745
+    },
+    {
+      "object": "AssemblyRearLongSpacer",
+      "intersection_mm3": 0.0,
+      "distance_mm": 0.4999999999999994
+    },
+    {
+      "object": "AssemblyFrontLeftSpacer",
+      "intersection_mm3": 0.0,
+      "distance_mm": 0.4999999999999932
+    },
+    {
+      "object": "AssemblyFrontRightSpacer",
+      "intersection_mm3": 0.0,
+      "distance_mm": 0.49999999999999634
+    },
+    {
+      "object": "AssemblyRearClip",
+      "intersection_mm3": 0.0,
+      "distance_mm": 14.608559134972896
+    },
+    {
+      "object": "AssemblyFrontClip",
+      "intersection_mm3": 0.0,
+      "distance_mm": 14.608559134972898
+    },
+    {
+      "object": "AssemblyPinion",
+      "intersection_mm3": 0.0,
+      "distance_mm": 15.626328572854042
+    },
+    {
+      "object": "MotorReference",
+      "intersection_mm3": 0.0,
+      "distance_mm": 13.37701768383659
+    }
+  ],
+  "nominal_motor_to_car": [
+    {
+      "object": "AssemblyFrame",
+      "intersection_mm3": 0.0,
+      "distance_mm": 17.0
+    },
+    {
+      "object": "AssemblyRearLeft",
+      "intersection_mm3": 0.0,
+      "distance_mm": 15.503375963541865
+    },
+    {
+      "object": "AssemblyRearRight",
+      "intersection_mm3": 0.0,
+      "distance_mm": 17.55999340084644
+    },
+    {
+      "object": "AssemblyFrontLeft",
+      "intersection_mm3": 0.0,
+      "distance_mm": 25.442813406969368
+    },
+    {
+      "object": "AssemblyFrontRight",
+      "intersection_mm3": 0.0,
+      "distance_mm": 25.44281340696937
+    },
+    {
+      "object": "AssemblyRearAxle",
+      "intersection_mm3": 0.0,
+      "distance_mm": 25.670482830772922
+    },
+    {
+      "object": "AssemblyFrontAxle",
+      "intersection_mm3": 0.0,
+      "distance_mm": 39.5440947723653
+    },
+    {
+      "object": "AssemblyRearShortSpacer",
+      "intersection_mm3": 0.0,
+      "distance_mm": 29.371002244994795
+    },
+    {
+      "object": "AssemblyRearLongSpacer",
+      "intersection_mm3": 0.0,
+      "distance_mm": 29.321940196144517
+    },
+    {
+      "object": "AssemblyFrontLeftSpacer",
+      "intersection_mm3": 0.0,
+      "distance_mm": 42.031585924429685
+    },
+    {
+      "object": "AssemblyFrontRightSpacer",
+      "intersection_mm3": 0.0,
+      "distance_mm": 42.031585924429685
+    },
+    {
+      "object": "AssemblyRearClip",
+      "intersection_mm3": 0.0,
+      "distance_mm": 38.984567655235864
+    },
+    {
+      "object": "AssemblyFrontClip",
+      "intersection_mm3": 0.0,
+      "distance_mm": 49.91591071487452
+    },
+    {
+      "object": "AssemblyPinion",
+      "intersection_mm3": 0.0,
+      "distance_mm": 12.69573232173732
+    },
+    {
+      "object": "MotorReference",
+      "intersection_mm3": 0.0,
+      "distance_mm": 5.75
+    }
+  ],
+  "nominal_motor_to_new_roof_mm3": 0.0,
+  "parametric_checks": [
+    {
+      "parameter": "MotorHolePitch",
+      "nominal_mm": 35,
+      "trial_mm": 36,
+      "deck_hole_y_before_after_mm": [
+        17.5,
+        18.0
+      ],
+      "gauge_hole_y_before_after_mm": [
+        17.5,
+        18.0
+      ],
+      "returned_to_nominal_without_saving": true
+    }
+  ],
+  "manual_angles": [
+    {
+      "shoulder_elevation_deg": -45,
+      "upper_to_rotor_mm3": 777.0611914022688,
+      "upper_to_deck_mm3": 1047.4329831975738,
+      "lower_to_deck_mm3": 750.7614785622313
+    },
+    {
+      "shoulder_elevation_deg": 0,
+      "upper_to_rotor_mm3": 0.0,
+      "upper_to_deck_mm3": 0.0,
+      "lower_to_deck_mm3": 0.0
+    },
+    {
+      "shoulder_elevation_deg": 30,
+      "upper_to_rotor_mm3": 0.0,
+      "upper_to_deck_mm3": 0.0,
+      "lower_to_deck_mm3": 0.0
+    },
+    {
+      "shoulder_elevation_deg": 45,
+      "upper_to_rotor_mm3": 0.0,
+      "upper_to_deck_mm3": 0.0,
+      "lower_to_deck_mm3": 0.0
+    },
+    {
+      "shoulder_elevation_deg": 60,
+      "upper_to_rotor_mm3": 0.0,
+      "upper_to_deck_mm3": 0.0,
+      "lower_to_deck_mm3": 0.0
+    },
+    {
+      "elbow_elevation_deg": -45,
+      "lower_to_upper_mm3": 0.0,
+      "lower_to_deck_mm3": 726.5606203610523
+    },
+    {
+      "elbow_elevation_deg": 0,
+      "lower_to_upper_mm3": 0.0,
+      "lower_to_deck_mm3": 0.0
+    },
+    {
+      "elbow_elevation_deg": 30,
+      "lower_to_upper_mm3": 0.0,
+      "lower_to_deck_mm3": 0.0
+    },
+    {
+      "elbow_elevation_deg": 45,
+      "lower_to_upper_mm3": 0.0,
+      "lower_to_deck_mm3": 0.0
+    },
+    {
+      "elbow_elevation_deg": 60,
+      "lower_to_upper_mm3": 0.0,
+      "lower_to_deck_mm3": 0.0
+    }
+  ]
+}

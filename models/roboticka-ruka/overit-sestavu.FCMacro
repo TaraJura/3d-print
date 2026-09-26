@@ -1,0 +1,119 @@
+# -*- coding: utf-8 -*-
+"""Nezavisla read-only kontrola noveho modelu proti puvodnimu podvozku."""
+from pathlib import Path
+import hashlib
+import json
+import FreeCAD as App
+import Part
+
+OUT = Path(__file__).resolve().parent
+ROOT = OUT.parent/'jednoduche-auticko'
+CAR = ROOT/'auticko.FCStd'
+ROOF = ROOT/'auticko-se-strechou.FCStd'
+ARM = OUT/'roboticka-ruka.FCStd'
+before = {str(p):hashlib.sha256(p.read_bytes()).hexdigest() for p in (CAR,ROOF,ARM)}
+documents = []
+try:
+    car = App.openDocument(str(CAR)); documents.append(car)
+    old = App.openDocument(str(ROOF)); documents.append(old)
+    arm = App.openDocument(str(ARM)); documents.append(arm)
+    deck = arm.getObject('PrintDeck').Shape
+    motor = arm.getObject('MotorBodyReference').Shape
+    rotor = arm.getObject('PrintRotor').Shape
+    upper = arm.getObject('PrintUpperArm').Shape
+    lower = arm.getObject('PrintForearm').Shape
+    original = old.getObject('Shield').Shape
+    if not original.isValid() or not deck.isValid():
+        raise RuntimeError('Neplatna puvodni nebo nova plocha')
+    info = {
+        'car_file_sha256':before[str(CAR)],
+        'roof_file_sha256':before[str(ROOF)],
+        'arm_file_sha256':before[str(ARM)],
+        'all_source_files_unchanged':None,
+        'units':'mm',
+        'motor_reference_is_nominal_only':True,
+        'original_roof_volume_mm3':original.Volume,
+        'replacement_roof_volume_mm3':deck.Volume,
+        'new_material_outside_original_roof_mm3':deck.cut(original).Volume,
+        'removed_material_from_original_roof_mm3':original.cut(deck).Volume,
+        'old_roof_to_car':[],
+        'new_roof_to_car':[],
+        'nominal_motor_to_car':[],
+        'nominal_motor_to_new_roof_mm3':motor.common(deck).Volume,
+        'parametric_checks':[],
+        'manual_angles':[]
+    }
+    names = json.loads((ROOT/'kontrola-modelu.json').read_text())['assembly_object_names']
+    for name in names:
+        c=car.getObject(name).Shape
+        info['old_roof_to_car'].append({'object':name,'intersection_mm3':original.common(c).Volume,
+            'distance_mm':original.distToShape(c)[0]})
+        info['new_roof_to_car'].append({'object':name,'intersection_mm3':deck.common(c).Volume,
+            'distance_mm':deck.distToShape(c)[0]})
+        info['nominal_motor_to_car'].append({'object':name,'intersection_mm3':motor.common(c).Volume,
+            'distance_mm':motor.distToShape(c)[0]})
+    for angle in (-45,0,30,45,60):
+        # Pozitivni elevace je v pravotocive konvenci rotace kolem Y zaporna.
+        u=upper.copy()
+        u.rotate(App.Vector(70,0,79),App.Vector(0,1,0),-angle)
+        b=lower.copy()
+        b.rotate(App.Vector(70,0,79),App.Vector(0,1,0),-angle)
+        info['manual_angles'].append({'shoulder_elevation_deg':angle,
+           'upper_to_rotor_mm3':u.common(rotor).Volume,
+           'upper_to_deck_mm3':u.common(deck).Volume,
+           'lower_to_deck_mm3':b.common(deck).Volume})
+    for angle in (-45,0,30,45,60):
+        b=lower.copy()
+        b.rotate(App.Vector(114,0,79),App.Vector(0,1,0),-angle)
+        info['manual_angles'].append({'elbow_elevation_deg':angle,
+            'lower_to_upper_mm3':b.common(upper).Volume,
+            'lower_to_deck_mm3':b.common(deck).Volume})
+    # Ulozeny FCStd se prepocita po zmene parametru, bez behu zdrojoveho makra.
+    sheet=arm.getObject('Parameters')
+    pitch_cell=None
+    for row in range(2,150):
+        cell='B'+str(row)
+        try:
+            if sheet.getAlias(cell)=='MotorHolePitch':
+                pitch_cell=cell
+                break
+        except Exception:
+            pass
+    if pitch_cell is None:
+        raise RuntimeError('Parametr MotorHolePitch v ulozenem FCStd chybi')
+    hole=arm.getObject('DeckMotorHole3')
+    gauge_hole=arm.getObject('GaugeMountHole3')
+    nominal_hole_y=hole.Placement.Base.y
+    nominal_gauge_y=gauge_hole.Placement.Base.y
+    nominal_roof_volume=arm.getObject('PrintDeck').Shape.Volume
+    sheet.set(pitch_cell,'=36 mm')
+    arm.recompute()
+    trial_hole_y=hole.Placement.Base.y
+    trial_gauge_y=gauge_hole.Placement.Base.y
+    if abs(trial_hole_y-nominal_hole_y-0.5)>1e-6 or abs(trial_gauge_y-nominal_gauge_y-0.5)>1e-6:
+        raise RuntimeError('Zmena roztece se neprenesla do desky a merky')
+    sheet.set(pitch_cell,'=35 mm')
+    arm.recompute()
+    if abs(hole.Placement.Base.y-nominal_hole_y)>1e-6 or abs(gauge_hole.Placement.Base.y-nominal_gauge_y)>1e-6:
+        raise RuntimeError('Roztec se po navratu neobnovila')
+    if abs(arm.getObject('PrintDeck').Shape.Volume-nominal_roof_volume)>1e-6:
+        raise RuntimeError('Objem desky se po navratu parametru neobnovil')
+    info['parametric_checks'].append({
+        'parameter':'MotorHolePitch',
+        'nominal_mm':35,
+        'trial_mm':36,
+        'deck_hole_y_before_after_mm':[nominal_hole_y,trial_hole_y],
+        'gauge_hole_y_before_after_mm':[nominal_gauge_y,trial_gauge_y],
+        'returned_to_nominal_without_saving':True})
+    after = {str(p):hashlib.sha256(p.read_bytes()).hexdigest() for p in (CAR,ROOF,ARM)}
+    info['all_source_files_unchanged'] = before == after
+    (OUT/'kontrola-sestavy.json').write_text(json.dumps(info,ensure_ascii=False,indent=2)+'\n')
+    print('ARM_ASSEMBLY_CHECK '+json.dumps({
+       'new_roof_max_collision_mm3':max(x['intersection_mm3'] for x in info['new_roof_to_car']),
+       'motor_max_collision_mm3':max(x['intersection_mm3'] for x in info['nominal_motor_to_car']),
+       'new_roof_outside_original_mm3':info['new_material_outside_original_roof_mm3'],
+       'source_unchanged':info['all_source_files_unchanged'],
+       'angles':info['manual_angles']},ensure_ascii=False),flush=True)
+finally:
+    for d in reversed(documents):
+        App.closeDocument(d.Name)

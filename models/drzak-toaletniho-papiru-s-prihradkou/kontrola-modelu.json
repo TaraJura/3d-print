@@ -1,0 +1,204 @@
+{
+  "status": "geometrie CAD; fyzický tisk a montáž neověřeny",
+  "source_sha256": "ff54ee8d4cfdaa29dc2007046edae81896efe00f4b5a1514dd5e4f444d55e77b",
+  "parameters_mm": {
+    "BodyWidth": 190,
+    "BodyDepth": 120,
+    "BodyHeight": 58,
+    "OuterRadius": 14,
+    "SideWall": 16,
+    "BackWall": 5,
+    "Floor": 5,
+    "Roof": 6,
+    "SlideClearance": 1.2,
+    "TopClearance": 1.2,
+    "RailHeight": 2,
+    "RailWidth": 5,
+    "RailInset": 19,
+    "RailGap": 0.8,
+    "DrawerDepth": 114,
+    "DrawerWall": 4,
+    "DrawerBottom": 4,
+    "DrawerCorner": 6,
+    "PullWidth": 36,
+    "PullProjection": 7,
+    "BracketThickness": 12,
+    "BracketLength": 88,
+    "BracketHeight": 91,
+    "BracketInsetX": 25,
+    "BracketOffsetY": 20,
+    "BracketScrewDia": 4.6,
+    "WallScrewDia": 5.5,
+    "WallHeadDia": 11,
+    "AxleRadius": 6,
+    "AxleLength": 148,
+    "AxleHeadRadius": 10,
+    "AxleHeadLength": 4,
+    "CapOuterRadius": 10,
+    "CapSocketRadius": 6.05,
+    "CapHeight": 8
+  },
+  "pieces": {
+    "Body": 1,
+    "Drawer": 1,
+    "Bracket": 2,
+    "Axle": 1,
+    "Cap": 1
+  },
+  "parts": {
+    "Body": {
+      "solid_count": 1,
+      "cad_valid": true,
+      "cad_dimensions_mm": [
+        190.0,
+        120.0,
+        58.0
+      ],
+      "print_dimensions_mm": [
+        190.0,
+        58.000000000000014,
+        120.0
+      ],
+      "volume_mm3": 464722.0315697299,
+      "stl_facets": 5116,
+      "stl_closed": true,
+      "stl": "stl/body.stl"
+    },
+    "Drawer": {
+      "solid_count": 1,
+      "cad_valid": true,
+      "cad_dimensions_mm": [
+        155.6,
+        121.0,
+        43.00000000000001
+      ],
+      "print_dimensions_mm": [
+        155.6,
+        121.0,
+        43.00000000000001
+      ],
+      "volume_mm3": 161915.1376180051,
+      "stl_facets": 996,
+      "stl_closed": true,
+      "stl": "stl/drawer.stl"
+    },
+    "Bracket": {
+      "solid_count": 1,
+      "cad_valid": true,
+      "cad_dimensions_mm": [
+        12.0,
+        88.0,
+        91.0
+      ],
+      "print_dimensions_mm": [
+        91.0,
+        88.0,
+        12.00000000000001
+      ],
+      "volume_mm3": 37329.14339670024,
+      "stl_facets": 732,
+      "stl_closed": true,
+      "stl": "stl/bracket.stl"
+    },
+    "Axle": {
+      "solid_count": 1,
+      "cad_valid": true,
+      "cad_dimensions_mm": [
+        152.0,
+        20.0,
+        14.500000000000032
+      ],
+      "print_dimensions_mm": [
+        152.0,
+        19.995068947246693,
+        14.49313854093269
+      ],
+      "volume_mm3": 16506.55295196238,
+      "stl_facets": 484,
+      "stl_closed": true,
+      "stl": "stl/axle.stl"
+    },
+    "Cap": {
+      "solid_count": 1,
+      "cad_valid": true,
+      "cad_dimensions_mm": [
+        19.921567416492216,
+        20.0,
+        8.0
+      ],
+      "print_dimensions_mm": [
+        19.914634934989593,
+        19.990740453128453,
+        8.0
+      ],
+      "volume_mm3": 1713.9554532945926,
+      "stl_facets": 652,
+      "stl_closed": true,
+      "stl": "stl/cap.stl"
+    }
+  },
+  "drawer_nominal_gaps_mm": {
+    "left_side_mm": 1.1999999999999993,
+    "right_side_mm": 1.200000000000017,
+    "roof_mm": 1.2000000000000028,
+    "rail_mm": 0.7999999999999945,
+    "rear_mm": 1.0
+  },
+  "drawer_body_intersection_mm3": 0.0,
+  "slide_travel_checks": [
+    {
+      "travel_mm": 0,
+      "intersection_mm3": 0.0
+    },
+    {
+      "travel_mm": 25,
+      "intersection_mm3": 0.0
+    },
+    {
+      "travel_mm": 50,
+      "intersection_mm3": 0.0
+    },
+    {
+      "travel_mm": 75,
+      "intersection_mm3": 0.0
+    },
+    {
+      "travel_mm": 100,
+      "intersection_mm3": 0.0
+    },
+    {
+      "travel_mm": 114,
+      "intersection_mm3": 0.0
+    }
+  ],
+  "drawer_is_fully_removable": true,
+  "print_body_on_back_wall": true,
+  "rear_chamfer_mm": 1.5,
+  "gui_validation": {
+    "saved_reopened": true,
+    "visible_objects": [
+      "AssemblyBody",
+      "AssemblyDrawer",
+      "AssemblyBracketLeft",
+      "AssemblyBracketRight",
+      "AssemblyAxle",
+      "AssemblyCap"
+    ],
+    "body_width_parameter_test_mm": [
+      190,
+      194,
+      190
+    ],
+    "slide_clearance_parameter_test_mm": [
+      1.2,
+      1.6,
+      1.2
+    ],
+    "images": [
+      "nahled-sestava.png",
+      "nahled-zasuvka-vysunuta.png",
+      "nahled-s-roli.png"
+    ],
+    "reference_roll_is_temporary_only": true
+  }
+}

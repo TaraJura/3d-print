@@ -1,0 +1,291 @@
+{
+  "status": "geometry-only working alternative; not sliced, not print-ready, no physical validation",
+  "model_revision": "revize-03-575-zacvak",
+  "cad_audit_sha256": "9a3d19d81fd6e7079b044967349bc705039f65c9d6f62f40356753067a4e9c6f",
+  "generated_utc": "2026-09-23T18:15:02.340909+00:00",
+  "printer_profile_evidence": {
+    "path": "/home/novakj/.config/AnycubicSlicerNext/system/Anycubic/machine/Anycubic Kobra X 0.4 nozzle.json",
+    "sha256": "baf80d3287e1e863fba29cdfd240b9b5ebc28bd87e1b4d03fc79e53f0009570a",
+    "name": "Anycubic Kobra X 0.4 nozzle",
+    "printable_area_mm": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        260.0,
+        0.0
+      ],
+      [
+        260.0,
+        260.0
+      ],
+      [
+        0.0,
+        260.0
+      ]
+    ],
+    "printable_height_mm": 260.0,
+    "nozzle_mm": 0.4
+  },
+  "output": "TEST-575-snap-pracovni-geometrie.3mf",
+  "output_sha256": "7c6a43fc1b1e010307f9da05635ddc2b41972d685ffdda11329b2161911b8def",
+  "unit": "millimeter",
+  "plates": 1,
+  "physical_parts": 2,
+  "object_instances": 2,
+  "separate_joint_test": true,
+  "contains_process_or_filament": false,
+  "contains_gcode": false,
+  "scale_1_to_1": true,
+  "all_flat_bases_at_z0": true,
+  "plate_contents_bounds_mm": [
+    [
+      79.99999999998634,
+      120.0,
+      0.0
+    ],
+    [
+      180.00000000001364,
+      140.0,
+      8.0
+    ]
+  ],
+  "plate_edge_margins_mm_left_right_front_back": [
+    79.99999999998634,
+    79.99999999998636,
+    120.0,
+    120.0
+  ],
+  "minimum_plate_edge_margin_mm": 79.99999999998634,
+  "pairwise_gaps": [
+    {
+      "objects": [
+        1,
+        2
+      ],
+      "xy_bounding_box_gap_mm": 20.0000000000273
+    }
+  ],
+  "minimum_xy_bounding_box_gap_mm": 20.0000000000273,
+  "parts": [
+    {
+      "bounds_mm": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          40.0,
+          20.0,
+          7.999740123748779
+        ]
+      ],
+      "dimensions_mm": [
+        40.0,
+        20.0,
+        7.999740123748779
+      ],
+      "vertices": 499,
+      "triangles": 994,
+      "edges": 1491,
+      "connected_components": 1,
+      "nonmanifold_or_boundary_edges": 0,
+      "inconsistent_winding_edges": 0,
+      "degenerate_triangles": 0,
+      "duplicate_faces": 0,
+      "euler_characteristic": 2,
+      "closed_manifold": true,
+      "consistently_oriented": true,
+      "signed_volume_mm3": 2606.7449567628255,
+      "planar_base_area_at_z0_mm2": 518.2689030024658,
+      "downward_facets_above_base": [],
+      "downward_surface_area_above_base_mm2": 0,
+      "stl": "vzorek/spoj-1.stl",
+      "stl_sha256": "7edfb67aee4fcdbf69b42bba08876959d0c05f8c575264c01a5fb962241b09e9",
+      "object_id": 1,
+      "nominal_cad_dimensions_mm": [
+        40.00000000002731,
+        20.0,
+        8.000000000000046
+      ],
+      "mesh_dimension_tolerance_mm": 0.001,
+      "mesh_minus_nominal_dimensions_mm": [
+        -2.731326276261825e-11,
+        0.0,
+        -0.0002598762512668884
+      ],
+      "retention_audit_regions": [
+        {
+          "name": "spoj1-zapadka-1",
+          "min_mm": [
+            33.0,
+            8.5,
+            0.2
+          ],
+          "max_mm": [
+            36.0,
+            10.3,
+            3.0
+          ]
+        },
+        {
+          "name": "spoj1-zapadka+1",
+          "min_mm": [
+            33.0,
+            15.700000000000001,
+            0.2
+          ],
+          "max_mm": [
+            36.0,
+            17.5,
+            3.0
+          ]
+        }
+      ],
+      "translation_mm": [
+        79.99999999998634,
+        120.0,
+        0.0
+      ],
+      "rotation_degrees": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "placed_bounds_mm": [
+        [
+          79.99999999998634,
+          120.0,
+          0.0
+        ],
+        [
+          119.99999999998634,
+          140.0,
+          7.999740123748779
+        ]
+      ],
+      "inside_printable_volume": true,
+      "flat_base_on_z0": true
+    },
+    {
+      "bounds_mm": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          40.0,
+          20.0,
+          8.0
+        ]
+      ],
+      "dimensions_mm": [
+        40.0,
+        20.0,
+        8.0
+      ],
+      "vertices": 320,
+      "triangles": 636,
+      "edges": 954,
+      "connected_components": 1,
+      "nonmanifold_or_boundary_edges": 0,
+      "inconsistent_winding_edges": 0,
+      "degenerate_triangles": 0,
+      "duplicate_faces": 0,
+      "euler_characteristic": 2,
+      "closed_manifold": true,
+      "consistently_oriented": true,
+      "signed_volume_mm3": 3200.941858912943,
+      "planar_base_area_at_z0_mm2": 666.4407218372137,
+      "downward_facets_above_base": [],
+      "downward_surface_area_above_base_mm2": 0,
+      "stl": "vzorek/spoj-2.stl",
+      "stl_sha256": "22806b67c7fccffce9c41418e648cd9628edd46f404840ce5802254c9e068da1",
+      "object_id": 2,
+      "nominal_cad_dimensions_mm": [
+        40.0,
+        20.0,
+        8.000000000000052
+      ],
+      "mesh_dimension_tolerance_mm": 0.001,
+      "mesh_minus_nominal_dimensions_mm": [
+        0.0,
+        0.0,
+        -5.1514348342607263e-14
+      ],
+      "retention_audit_regions": [
+        {
+          "name": "spoj1-zapadka-1",
+          "min_mm": [
+            11.0,
+            8.5,
+            0.2
+          ],
+          "max_mm": [
+            14.0,
+            10.3,
+            3.0
+          ]
+        },
+        {
+          "name": "spoj1-zapadka+1",
+          "min_mm": [
+            11.0,
+            15.700000000000001,
+            0.2
+          ],
+          "max_mm": [
+            14.0,
+            17.5,
+            3.0
+          ]
+        }
+      ],
+      "translation_mm": [
+        140.00000000001364,
+        120.0,
+        0.0
+      ],
+      "rotation_degrees": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "placed_bounds_mm": [
+        [
+          140.00000000001364,
+          120.0,
+          0.0
+        ],
+        [
+          180.00000000001364,
+          140.0,
+          8.0
+        ]
+      ],
+      "inside_printable_volume": true,
+      "flat_base_on_z0": true
+    }
+  ],
+  "reopened_zip_xml_meshes_and_transforms_verified": true,
+  "limitations": [
+    "Slicer import and toolpaths have not been checked for this geometry-only file.",
+    "Alzament TPU95A is specified; physical calibration and snap fit remain unverified.",
+    "Mesh closure does not establish watertight physical printing or joint sealing.",
+    "The layout reserves no specific brim or support envelope because no print process is selected.",
+    "No physical fit, adhesion, flexibility or water test has been performed."
+  ]
+}

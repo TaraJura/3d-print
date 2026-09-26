@@ -1,0 +1,1212 @@
+{
+  "status": "NÁVRH KE SCHVÁLENÍ — počítačová kontrola není fyzické ověření TPU snapu",
+  "user_parameters_mm": {
+    "length": 575,
+    "width_maximum": 20,
+    "preferred_installed_height_approx": 10
+  },
+  "body_height_mm": 8,
+  "part_count": 3,
+  "design_parameters_mm": {
+    "TotalLength": 575,
+    "Width": 20,
+    "Height": 8,
+    "Bed": 2,
+    "EndSeal": 2,
+    "NoseRadius": 0.5,
+    "BackRadius": 3,
+    "SnapY": 13,
+    "Neck": 5.6,
+    "Head": 7.2,
+    "Shoulder": 12,
+    "TipLength": 18,
+    "Slot": 2,
+    "RootBack": 4,
+    "Clearance": 0.2,
+    "Taper": 0.6,
+    "TaperHeight": 1.2,
+    "GuideLength": 5,
+    "GuideY": 2,
+    "GuideWidth": 3,
+    "RootRadius": 1
+  },
+  "freecad_version": [
+    "1",
+    "1",
+    "3"
+  ],
+  "material_assumption": "Alzament TPU95A; barva/materiál uživatelových černých kusů neověřeny",
+  "native_features_only": true,
+  "insertion_direction": "female part moves -X toward male; fingers temporarily bend toward SnapY",
+  "joint_adhesive": "none; no adhesive reference inside either mechanical joint",
+  "nominal": {
+    "installed_envelope_mm": [
+      575.0,
+      20.0,
+      10.0
+    ],
+    "tpu_length_including_joints_mm": 571.0,
+    "body_height_mm": 8.0,
+    "end_reserve_each_mm": 2.0,
+    "bed_mm": 2.0,
+    "part_bounds_mm": [
+      [
+        208.33333333336066,
+        20.0,
+        8.000000000000046
+      ],
+      [
+        208.33333333336068,
+        20.0,
+        8.000000000000089
+      ],
+      [
+        190.33333333333331,
+        20.0,
+        8.000000000000128
+      ]
+    ],
+    "part_solid_counts": [
+      1,
+      1,
+      1
+    ],
+    "parts_valid": true,
+    "pair_overlap_mm3": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "bottom_contact_areas_mm2": [
+      3884.935147763743,
+      3751.375870339871,
+      3673.1073892427958
+    ],
+    "sample_bounds_mm": [
+      [
+        40.00000000002731,
+        20.0,
+        8.000000000000046
+      ],
+      [
+        40.0,
+        20.0,
+        8.000000000000052
+      ]
+    ],
+    "joints": [
+      {
+        "joint": 1,
+        "nominal_overlap_mm3": 0.0,
+        "rigid_retention_probes": [
+          {
+            "direction": "pull_apart_x",
+            "translation_mm": [
+              -1,
+              0,
+              0
+            ],
+            "interference_mm3": 6.234522511674253
+          },
+          {
+            "direction": "lift_male_z",
+            "translation_mm": [
+              0,
+              0,
+              1
+            ],
+            "interference_mm3": 3.586183466653016
+          },
+          {
+            "direction": "lift_female_z",
+            "translation_mm": [
+              0,
+              0,
+              -1
+            ],
+            "interference_mm3": 6.611990400343774
+          },
+          {
+            "direction": "side_y",
+            "translation_mm": [
+              0,
+              1,
+              0
+            ],
+            "interference_mm3": 119.0121307689633
+          },
+          {
+            "direction": "side_y_opposite",
+            "translation_mm": [
+              0,
+              -1,
+              0
+            ],
+            "interference_mm3": 75.5841940192013
+          }
+        ]
+      },
+      {
+        "joint": 2,
+        "nominal_overlap_mm3": 0.0,
+        "rigid_retention_probes": [
+          {
+            "direction": "pull_apart_x",
+            "translation_mm": [
+              -1,
+              0,
+              0
+            ],
+            "interference_mm3": 6.234522511674715
+          },
+          {
+            "direction": "lift_male_z",
+            "translation_mm": [
+              0,
+              0,
+              1
+            ],
+            "interference_mm3": 3.586183466652976
+          },
+          {
+            "direction": "lift_female_z",
+            "translation_mm": [
+              0,
+              0,
+              -1
+            ],
+            "interference_mm3": 6.611990400343769
+          },
+          {
+            "direction": "side_y",
+            "translation_mm": [
+              0,
+              1,
+              0
+            ],
+            "interference_mm3": 119.01213076896315
+          },
+          {
+            "direction": "side_y_opposite",
+            "translation_mm": [
+              0,
+              -1,
+              0
+            ],
+            "interference_mm3": 75.58419401920229
+          }
+        ]
+      }
+    ],
+    "design_lateral_clearance_mm": 0.2,
+    "required_finger_deflection_each_mm": 0.6000000000000003,
+    "remaining_central_slot_at_squeeze_mm": 0.7999999999999994,
+    "minimum_waist_arm_width_mm": 1.1999999999999997,
+    "nominal_geometric_z_play_mm": 0.4,
+    "anti_lift_taper_each_mm": 0.6,
+    "female_overhang_from_vertical_degrees": 26.56505117707799,
+    "all_sketches_fully_constrained": true,
+    "invalid_objects": []
+  },
+  "parameter_tests": [
+    {
+      "changes_mm": {
+        "TotalLength": 600
+      },
+      "result": {
+        "installed_envelope_mm": [
+          600.0,
+          20.0,
+          10.0
+        ],
+        "tpu_length_including_joints_mm": 596.0,
+        "body_height_mm": 8.0,
+        "end_reserve_each_mm": 2.0,
+        "bed_mm": 2.0,
+        "part_bounds_mm": [
+          [
+            216.6666666666939,
+            20.0,
+            8.00000000000005
+          ],
+          [
+            216.66666666669397,
+            20.0,
+            8.000000000000092
+          ],
+          [
+            198.66666666666669,
+            20.0,
+            8.000000000000133
+          ]
+        ],
+        "part_solid_counts": [
+          1,
+          1,
+          1
+        ],
+        "parts_valid": true,
+        "pair_overlap_mm3": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "bottom_contact_areas_mm2": [
+          4051.601814430407,
+          3918.042537006537,
+          3839.7740559094627
+        ],
+        "sample_bounds_mm": [
+          [
+            40.000000000027256,
+            20.0,
+            8.00000000000005
+          ],
+          [
+            40.00000000000003,
+            20.0,
+            8.000000000000053
+          ]
+        ],
+        "joints": [
+          {
+            "joint": 1,
+            "nominal_overlap_mm3": 0.0,
+            "rigid_retention_probes": [
+              {
+                "direction": "pull_apart_x",
+                "translation_mm": [
+                  -1,
+                  0,
+                  0
+                ],
+                "interference_mm3": 6.23452251167514
+              },
+              {
+                "direction": "lift_male_z",
+                "translation_mm": [
+                  0,
+                  0,
+                  1
+                ],
+                "interference_mm3": 3.5861834670057253
+              },
+              {
+                "direction": "lift_female_z",
+                "translation_mm": [
+                  0,
+                  0,
+                  -1
+                ],
+                "interference_mm3": 6.611990400343606
+              },
+              {
+                "direction": "side_y",
+                "translation_mm": [
+                  0,
+                  1,
+                  0
+                ],
+                "interference_mm3": 119.01213076896325
+              },
+              {
+                "direction": "side_y_opposite",
+                "translation_mm": [
+                  0,
+                  -1,
+                  0
+                ],
+                "interference_mm3": 75.58419401920136
+              }
+            ]
+          },
+          {
+            "joint": 2,
+            "nominal_overlap_mm3": 0.0,
+            "rigid_retention_probes": [
+              {
+                "direction": "pull_apart_x",
+                "translation_mm": [
+                  -1,
+                  0,
+                  0
+                ],
+                "interference_mm3": 6.234522511674717
+              },
+              {
+                "direction": "lift_male_z",
+                "translation_mm": [
+                  0,
+                  0,
+                  1
+                ],
+                "interference_mm3": 3.5861834670057076
+              },
+              {
+                "direction": "lift_female_z",
+                "translation_mm": [
+                  0,
+                  0,
+                  -1
+                ],
+                "interference_mm3": 6.611990400343395
+              },
+              {
+                "direction": "side_y",
+                "translation_mm": [
+                  0,
+                  1,
+                  0
+                ],
+                "interference_mm3": 119.01213076896178
+              },
+              {
+                "direction": "side_y_opposite",
+                "translation_mm": [
+                  0,
+                  -1,
+                  0
+                ],
+                "interference_mm3": 75.58419401920193
+              }
+            ]
+          }
+        ],
+        "design_lateral_clearance_mm": 0.2,
+        "required_finger_deflection_each_mm": 0.6000000000000003,
+        "remaining_central_slot_at_squeeze_mm": 0.7999999999999994,
+        "minimum_waist_arm_width_mm": 1.1999999999999997,
+        "nominal_geometric_z_play_mm": 0.4,
+        "anti_lift_taper_each_mm": 0.6,
+        "female_overhang_from_vertical_degrees": 26.56505117707799,
+        "all_sketches_fully_constrained": true,
+        "invalid_objects": []
+      }
+    },
+    {
+      "changes_mm": {
+        "Clearance": 0.25,
+        "Head": 7.1
+      },
+      "result": {
+        "installed_envelope_mm": [
+          575.0,
+          20.0,
+          10.0
+        ],
+        "tpu_length_including_joints_mm": 571.0,
+        "body_height_mm": 8.0,
+        "end_reserve_each_mm": 2.0,
+        "bed_mm": 2.0,
+        "part_bounds_mm": [
+          [
+            208.33333333335665,
+            20.0,
+            8.000000000000046
+          ],
+          [
+            208.33333333335682,
+            20.0,
+            8.000000000000089
+          ],
+          [
+            190.33333333333337,
+            20.0,
+            8.000000000000128
+          ]
+        ],
+        "part_solid_counts": [
+          1,
+          1,
+          1
+        ],
+        "parts_valid": true,
+        "pair_overlap_mm3": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "bottom_contact_areas_mm2": [
+          3884.585147763743,
+          3748.445870339872,
+          3670.527389242796
+        ],
+        "sample_bounds_mm": [
+          [
+            40.000000000023306,
+            20.0,
+            8.000000000000046
+          ],
+          [
+            40.0,
+            20.0,
+            8.000000000000052
+          ]
+        ],
+        "joints": [
+          {
+            "joint": 1,
+            "nominal_overlap_mm3": 0.0,
+            "rigid_retention_probes": [
+              {
+                "direction": "pull_apart_x",
+                "translation_mm": [
+                  -1,
+                  0,
+                  0
+                ],
+                "interference_mm3": 4.871345989235984
+              },
+              {
+                "direction": "lift_male_z",
+                "translation_mm": [
+                  0,
+                  0,
+                  1
+                ],
+                "interference_mm3": 2.7266406253437707
+              },
+              {
+                "direction": "lift_female_z",
+                "translation_mm": [
+                  0,
+                  0,
+                  -1
+                ],
+                "interference_mm3": 4.776171875346435
+              },
+              {
+                "direction": "side_y",
+                "translation_mm": [
+                  0,
+                  1,
+                  0
+                ],
+                "interference_mm3": 111.15557463452787
+              },
+              {
+                "direction": "side_y_opposite",
+                "translation_mm": [
+                  0,
+                  -1,
+                  0
+                ],
+                "interference_mm3": 70.3640424011831
+              }
+            ]
+          },
+          {
+            "joint": 2,
+            "nominal_overlap_mm3": 0.0,
+            "rigid_retention_probes": [
+              {
+                "direction": "pull_apart_x",
+                "translation_mm": [
+                  -1,
+                  0,
+                  0
+                ],
+                "interference_mm3": 4.871345989236001
+              },
+              {
+                "direction": "lift_male_z",
+                "translation_mm": [
+                  0,
+                  0,
+                  1
+                ],
+                "interference_mm3": 2.726640625343298
+              },
+              {
+                "direction": "lift_female_z",
+                "translation_mm": [
+                  0,
+                  0,
+                  -1
+                ],
+                "interference_mm3": 4.776171875347511
+              },
+              {
+                "direction": "side_y",
+                "translation_mm": [
+                  0,
+                  1,
+                  0
+                ],
+                "interference_mm3": 111.15557463452481
+              },
+              {
+                "direction": "side_y_opposite",
+                "translation_mm": [
+                  0,
+                  -1,
+                  0
+                ],
+                "interference_mm3": 70.36404240118259
+              }
+            ]
+          }
+        ],
+        "design_lateral_clearance_mm": 0.25,
+        "required_finger_deflection_each_mm": 0.5,
+        "remaining_central_slot_at_squeeze_mm": 1.0,
+        "minimum_waist_arm_width_mm": 1.1999999999999997,
+        "nominal_geometric_z_play_mm": 0.5,
+        "anti_lift_taper_each_mm": 0.6,
+        "female_overhang_from_vertical_degrees": 26.56505117707799,
+        "all_sketches_fully_constrained": true,
+        "invalid_objects": []
+      }
+    },
+    {
+      "changes_mm": {
+        "TaperHeight": 1.4,
+        "Slot": 2.1
+      },
+      "result": {
+        "installed_envelope_mm": [
+          575.0,
+          20.0,
+          10.0
+        ],
+        "tpu_length_including_joints_mm": 571.0,
+        "body_height_mm": 8.0,
+        "end_reserve_each_mm": 2.0,
+        "bed_mm": 2.0,
+        "part_bounds_mm": [
+          [
+            208.33333333336066,
+            20.0,
+            8.000000000000046
+          ],
+          [
+            208.33333333336068,
+            20.0,
+            8.000000000000089
+          ],
+          [
+            190.33333333333331,
+            20.0,
+            8.000000000000128
+          ]
+        ],
+        "part_solid_counts": [
+          1,
+          1,
+          1
+        ],
+        "parts_valid": true,
+        "pair_overlap_mm3": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "bottom_contact_areas_mm2": [
+          3882.779141140247,
+          3749.2198637163747,
+          3673.1073892427958
+        ],
+        "sample_bounds_mm": [
+          [
+            40.00000000002731,
+            20.0,
+            8.000000000000046
+          ],
+          [
+            40.0,
+            20.0,
+            8.000000000000052
+          ]
+        ],
+        "joints": [
+          {
+            "joint": 1,
+            "nominal_overlap_mm3": 0.0,
+            "rigid_retention_probes": [
+              {
+                "direction": "pull_apart_x",
+                "translation_mm": [
+                  -1,
+                  0,
+                  0
+                ],
+                "interference_mm3": 6.2345225116742515
+              },
+              {
+                "direction": "lift_male_z",
+                "translation_mm": [
+                  0,
+                  0,
+                  1
+                ],
+                "interference_mm3": 4.136556901564931
+              },
+              {
+                "direction": "lift_female_z",
+                "translation_mm": [
+                  0,
+                  0,
+                  -1
+                ],
+                "interference_mm3": 6.1508364190266605
+              },
+              {
+                "direction": "side_y",
+                "translation_mm": [
+                  0,
+                  1,
+                  0
+                ],
+                "interference_mm3": 119.01213076832212
+              },
+              {
+                "direction": "side_y_opposite",
+                "translation_mm": [
+                  0,
+                  -1,
+                  0
+                ],
+                "interference_mm3": 75.58419401855701
+              }
+            ]
+          },
+          {
+            "joint": 2,
+            "nominal_overlap_mm3": 0.0,
+            "rigid_retention_probes": [
+              {
+                "direction": "pull_apart_x",
+                "translation_mm": [
+                  -1,
+                  0,
+                  0
+                ],
+                "interference_mm3": 6.234522511674714
+              },
+              {
+                "direction": "lift_male_z",
+                "translation_mm": [
+                  0,
+                  0,
+                  1
+                ],
+                "interference_mm3": 4.1365569019726305
+              },
+              {
+                "direction": "lift_female_z",
+                "translation_mm": [
+                  0,
+                  0,
+                  -1
+                ],
+                "interference_mm3": 6.150836419445073
+              },
+              {
+                "direction": "side_y",
+                "translation_mm": [
+                  0,
+                  1,
+                  0
+                ],
+                "interference_mm3": 119.01213076832074
+              },
+              {
+                "direction": "side_y_opposite",
+                "translation_mm": [
+                  0,
+                  -1,
+                  0
+                ],
+                "interference_mm3": 75.5841940185563
+              }
+            ]
+          }
+        ],
+        "design_lateral_clearance_mm": 0.2,
+        "required_finger_deflection_each_mm": 0.6000000000000003,
+        "remaining_central_slot_at_squeeze_mm": 0.8999999999999995,
+        "minimum_waist_arm_width_mm": 1.1499999999999997,
+        "nominal_geometric_z_play_mm": 0.4666666666666666,
+        "anti_lift_taper_each_mm": 0.6,
+        "female_overhang_from_vertical_degrees": 23.19859051364819,
+        "all_sketches_fully_constrained": true,
+        "invalid_objects": []
+      }
+    }
+  ],
+  "nominal_after_restore": {
+    "installed_envelope_mm": [
+      575.0,
+      20.0,
+      10.0
+    ],
+    "tpu_length_including_joints_mm": 571.0,
+    "body_height_mm": 8.0,
+    "end_reserve_each_mm": 2.0,
+    "bed_mm": 2.0,
+    "part_bounds_mm": [
+      [
+        208.33333333336066,
+        20.0,
+        8.000000000000046
+      ],
+      [
+        208.33333333336068,
+        20.0,
+        8.000000000000089
+      ],
+      [
+        190.33333333333331,
+        20.0,
+        8.000000000000128
+      ]
+    ],
+    "part_solid_counts": [
+      1,
+      1,
+      1
+    ],
+    "parts_valid": true,
+    "pair_overlap_mm3": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "bottom_contact_areas_mm2": [
+      3884.935147763743,
+      3751.375870339871,
+      3673.1073892427958
+    ],
+    "sample_bounds_mm": [
+      [
+        40.00000000002731,
+        20.0,
+        8.000000000000046
+      ],
+      [
+        40.0,
+        20.0,
+        8.000000000000052
+      ]
+    ],
+    "joints": [
+      {
+        "joint": 1,
+        "nominal_overlap_mm3": 0.0,
+        "rigid_retention_probes": [
+          {
+            "direction": "pull_apart_x",
+            "translation_mm": [
+              -1,
+              0,
+              0
+            ],
+            "interference_mm3": 6.234522511674253
+          },
+          {
+            "direction": "lift_male_z",
+            "translation_mm": [
+              0,
+              0,
+              1
+            ],
+            "interference_mm3": 3.586183466653016
+          },
+          {
+            "direction": "lift_female_z",
+            "translation_mm": [
+              0,
+              0,
+              -1
+            ],
+            "interference_mm3": 6.611990400343774
+          },
+          {
+            "direction": "side_y",
+            "translation_mm": [
+              0,
+              1,
+              0
+            ],
+            "interference_mm3": 119.0121307689633
+          },
+          {
+            "direction": "side_y_opposite",
+            "translation_mm": [
+              0,
+              -1,
+              0
+            ],
+            "interference_mm3": 75.5841940192013
+          }
+        ]
+      },
+      {
+        "joint": 2,
+        "nominal_overlap_mm3": 0.0,
+        "rigid_retention_probes": [
+          {
+            "direction": "pull_apart_x",
+            "translation_mm": [
+              -1,
+              0,
+              0
+            ],
+            "interference_mm3": 6.234522511674715
+          },
+          {
+            "direction": "lift_male_z",
+            "translation_mm": [
+              0,
+              0,
+              1
+            ],
+            "interference_mm3": 3.586183466652976
+          },
+          {
+            "direction": "lift_female_z",
+            "translation_mm": [
+              0,
+              0,
+              -1
+            ],
+            "interference_mm3": 6.611990400343769
+          },
+          {
+            "direction": "side_y",
+            "translation_mm": [
+              0,
+              1,
+              0
+            ],
+            "interference_mm3": 119.01213076896315
+          },
+          {
+            "direction": "side_y_opposite",
+            "translation_mm": [
+              0,
+              -1,
+              0
+            ],
+            "interference_mm3": 75.58419401920229
+          }
+        ]
+      }
+    ],
+    "design_lateral_clearance_mm": 0.2,
+    "required_finger_deflection_each_mm": 0.6000000000000003,
+    "remaining_central_slot_at_squeeze_mm": 0.7999999999999994,
+    "minimum_waist_arm_width_mm": 1.1999999999999997,
+    "nominal_geometric_z_play_mm": 0.4,
+    "anti_lift_taper_each_mm": 0.6,
+    "female_overhang_from_vertical_degrees": 26.56505117707799,
+    "all_sketches_fully_constrained": true,
+    "invalid_objects": []
+  },
+  "stl": [
+    {
+      "file": "stl/dil-1.stl",
+      "closed": true,
+      "facets": 994,
+      "bounds_mm": [
+        208.33333333333337,
+        20.0,
+        7.999740126290558
+      ],
+      "origin_min_mm": [
+        0,
+        0,
+        0
+      ],
+      "assembly_origin_mm": [
+        1.9999999999999993,
+        0.0,
+        2.0
+      ],
+      "retention_audit_regions": [
+        {
+          "name": "spoj1-zapadka-1",
+          "min_mm": [
+            201.33333333333334,
+            8.5,
+            0.2
+          ],
+          "max_mm": [
+            204.33333333333334,
+            10.3,
+            3.0
+          ]
+        },
+        {
+          "name": "spoj1-zapadka+1",
+          "min_mm": [
+            201.33333333333334,
+            15.700000000000001,
+            0.2
+          ],
+          "max_mm": [
+            204.33333333333334,
+            17.5,
+            3.0
+          ]
+        }
+      ]
+    },
+    {
+      "file": "stl/dil-2.stl",
+      "closed": true,
+      "facets": 1302,
+      "bounds_mm": [
+        208.33333333333334,
+        20.0,
+        8.000000000000043
+      ],
+      "origin_min_mm": [
+        0,
+        0,
+        0
+      ],
+      "assembly_origin_mm": [
+        192.33333333333334,
+        0.0,
+        2.0
+      ],
+      "retention_audit_regions": [
+        {
+          "name": "spoj1-zapadka-1",
+          "min_mm": [
+            11.0,
+            8.5,
+            0.2
+          ],
+          "max_mm": [
+            14.0,
+            10.3,
+            3.0
+          ]
+        },
+        {
+          "name": "spoj1-zapadka+1",
+          "min_mm": [
+            11.0,
+            15.700000000000001,
+            0.2
+          ],
+          "max_mm": [
+            14.0,
+            17.5,
+            3.0
+          ]
+        },
+        {
+          "name": "spoj2-zapadka-1",
+          "min_mm": [
+            201.33333333333334,
+            8.5,
+            0.2
+          ],
+          "max_mm": [
+            204.33333333333334,
+            10.3,
+            3.0
+          ]
+        },
+        {
+          "name": "spoj2-zapadka+1",
+          "min_mm": [
+            201.33333333333334,
+            15.700000000000001,
+            0.2
+          ],
+          "max_mm": [
+            204.33333333333334,
+            17.5,
+            3.0
+          ]
+        }
+      ]
+    },
+    {
+      "file": "stl/dil-3.stl",
+      "closed": true,
+      "facets": 636,
+      "bounds_mm": [
+        190.33333333333331,
+        20.0,
+        8.000000000000085
+      ],
+      "origin_min_mm": [
+        0,
+        0,
+        0
+      ],
+      "assembly_origin_mm": [
+        382.6666666666667,
+        0.0,
+        2.0
+      ],
+      "retention_audit_regions": [
+        {
+          "name": "spoj2-zapadka-1",
+          "min_mm": [
+            11.0,
+            8.5,
+            0.2
+          ],
+          "max_mm": [
+            14.0,
+            10.3,
+            3.0
+          ]
+        },
+        {
+          "name": "spoj2-zapadka+1",
+          "min_mm": [
+            11.0,
+            15.700000000000001,
+            0.2
+          ],
+          "max_mm": [
+            14.0,
+            17.5,
+            3.0
+          ]
+        }
+      ]
+    }
+  ],
+  "test_sample_stl": [
+    {
+      "file": "vzorek/spoj-1.stl",
+      "closed": true,
+      "facets": 994,
+      "bounds_mm": [
+        40.00000000000003,
+        20.0,
+        7.999740126290558
+      ],
+      "origin_min_mm": [
+        0,
+        0,
+        0
+      ],
+      "assembly_origin_mm": [
+        170.33333333333334,
+        0.0,
+        2.0
+      ],
+      "retention_audit_regions": [
+        {
+          "name": "spoj1-zapadka-1",
+          "min_mm": [
+            33.0,
+            8.5,
+            0.2
+          ],
+          "max_mm": [
+            36.0,
+            10.3,
+            3.0
+          ]
+        },
+        {
+          "name": "spoj1-zapadka+1",
+          "min_mm": [
+            33.0,
+            15.700000000000001,
+            0.2
+          ],
+          "max_mm": [
+            36.0,
+            17.5,
+            3.0
+          ]
+        }
+      ]
+    },
+    {
+      "file": "vzorek/spoj-2.stl",
+      "closed": true,
+      "facets": 636,
+      "bounds_mm": [
+        40.0,
+        20.0,
+        8.000000000000043
+      ],
+      "origin_min_mm": [
+        0,
+        0,
+        0
+      ],
+      "assembly_origin_mm": [
+        192.33333333333334,
+        0.0,
+        2.0
+      ],
+      "retention_audit_regions": [
+        {
+          "name": "spoj1-zapadka-1",
+          "min_mm": [
+            11.0,
+            8.5,
+            0.2
+          ],
+          "max_mm": [
+            14.0,
+            10.3,
+            3.0
+          ]
+        },
+        {
+          "name": "spoj1-zapadka+1",
+          "min_mm": [
+            11.0,
+            15.700000000000001,
+            0.2
+          ],
+          "max_mm": [
+            14.0,
+            17.5,
+            3.0
+          ]
+        }
+      ]
+    }
+  ],
+  "sample_bounds_mm": [
+    [
+      40.00000000002731,
+      20.0,
+      8.000000000000046
+    ],
+    [
+      40.0,
+      20.0,
+      8.000000000000052
+    ]
+  ],
+  "validation_pass": true,
+  "gui_validation": {
+    "saved_reopened_and_recomputed": true,
+    "native_length_change_mm": [
+      600,
+      575
+    ],
+    "visible_objects": [
+      "Part1",
+      "Part2",
+      "Part3",
+      "AdhesiveBed",
+      "EndSeal1",
+      "EndSeal2"
+    ],
+    "invalid_objects": [],
+    "images": [
+      "sestava-cad.png",
+      "spoj-zajisteny-cad.png",
+      "spoj-rozebrany-cad.png",
+      "profil-spoje-cad.png"
+    ],
+    "preview_notes": "Real CAD. Exploded sample female shifted25mm +X, arrow points -X. Transverse1mm cut at shoulder+0.5mm. Cyan is bed/end seal reference, not printed."
+  }
+}

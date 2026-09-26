@@ -1,0 +1,490 @@
+{
+  "status": "geometry_only_ready",
+  "bed_mm": [
+    260.0,
+    260.0
+  ],
+  "scale": 1,
+  "note": "Každou podložku otevřít samostatně jednou. Měrka není montážní díl.",
+  "plates": [
+    {
+      "group": "merka",
+      "plate": 1,
+      "geometry_3mf": "podlozka-merka-01-geometrie.3mf",
+      "geometry_sha256": "b08b4b99bb41fcfe4054662d8836b9ce55da738f75677f7b2ec120b2768d6177",
+      "preview_png": "podlozka-merka-01.png",
+      "count": 1,
+      "min_model_gap_mm": null,
+      "min_model_edge_mm": 12.0,
+      "items": [
+        {
+          "name": "merka_motoru_01",
+          "stl": "merka_motoru.stl",
+          "stl_sha256": "fdf37c0d6ee25a1bf1797691c89e022d355ff6ddf6856d4cb4c749ffb056a95f",
+          "purpose": "samostatny zkusebni tisk roztece a hridele; nepatri do sestavy",
+          "support": false,
+          "rotation_matrix": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "translation_mm": [
+            12.0,
+            12.0,
+            0.0
+          ],
+          "size": [
+            14.0,
+            50.0,
+            3.0
+          ],
+          "source_volume_mm3": 1966.3744820391203
+        }
+      ]
+    },
+    {
+      "group": "sestava",
+      "plate": 1,
+      "geometry_3mf": "podlozka-sestava-01-geometrie.3mf",
+      "geometry_sha256": "f7f4d850bf55830901ebb30710ba52378443e1f810a208af2acd085822245286",
+      "preview_png": "podlozka-sestava-01.png",
+      "count": 12,
+      "min_model_gap_mm": 16.0,
+      "min_model_edge_mm": 12.0,
+      "items": [
+        {
+          "name": "vymenna_plosina_01",
+          "stl": "vymenna_plosina.stl",
+          "stl_sha256": "dcc9102cd0e211a3e6af40b40c3608b084f57efbf2fa6efbb1cfa48735320ed7",
+          "purpose": "vymenna horni plosina auta",
+          "support": false,
+          "rotation_matrix": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "translation_mm": [
+            12.0,
+            12.0,
+            0.0
+          ],
+          "size": [
+            180.0,
+            70.0,
+            36.00000000000001
+          ],
+          "source_volume_mm3": 72784.9596927041
+        },
+        {
+          "name": "otocna_zakladna_01",
+          "stl": "otocna_zakladna.stl",
+          "stl_sha256": "0f7f9028699863a9cdb246d1377c832e93f85628774ecd48d00391af25e5279a",
+          "purpose": "motoricky otacena zakladna s kluznou oporou",
+          "support": true,
+          "rotation_matrix": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "translation_mm": [
+            12.0,
+            98.0,
+            0.0
+          ],
+          "size": [
+            49.98881080746651,
+            49.9944063720759,
+            33.99672317504883
+          ],
+          "source_volume_mm3": 12768.955943019178
+        },
+        {
+          "name": "predlokti_s_rukou_01",
+          "stl": "predlokti_s_rukou.stl",
+          "stl_sha256": "ef9a3fda058678434e6add9cfe10a58f5624f680ace699bb351712f547e2f64a",
+          "purpose": "rucne polohovane predlokti s otevrenou rukou",
+          "support": false,
+          "rotation_matrix": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "translation_mm": [
+            77.9888108074665,
+            98.0,
+            0.0
+          ],
+          "size": [
+            77.49449718976393,
+            24.99995461923936,
+            20.0
+          ],
+          "source_volume_mm3": 10295.825390714286
+        },
+        {
+          "name": "nadlokti_01",
+          "stl": "nadlokti.stl",
+          "stl_sha256": "0e954fd3846d20bb1934ffea2fbf040d4056a463ebee8dc6faaae7cc89bac809",
+          "purpose": "rucne polohovane rameno",
+          "support": false,
+          "rotation_matrix": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "translation_mm": [
+            171.48330799723044,
+            98.0,
+            0.0
+          ],
+          "size": [
+            69.49449718976393,
+            25.990993471816182,
+            18.799999237060547
+          ],
+          "source_volume_mm3": 11082.121962982208
+        },
+        {
+          "name": "pojistka_cepu_01",
+          "stl": "pojistka_cepu.stl",
+          "stl_sha256": "e741009687e9eeccf2fcf7f868651b9a7492b0526c1fa37230fb8e410611537e",
+          "purpose": "snimatelne C-pojistky pro ctyri cepy",
+          "support": false,
+          "rotation_matrix": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "translation_mm": [
+            12.0,
+            163.9944063720759,
+            0.0
+          ],
+          "size": [
+            9.767467038007453,
+            9.99929244845407,
+            1.399999976158142
+          ],
+          "source_volume_mm3": 82.56326633854377
+        },
+        {
+          "name": "pojistka_cepu_02",
+          "stl": "pojistka_cepu.stl",
+          "stl_sha256": "e741009687e9eeccf2fcf7f868651b9a7492b0526c1fa37230fb8e410611537e",
+          "purpose": "snimatelne C-pojistky pro ctyri cepy",
+          "support": false,
+          "rotation_matrix": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "translation_mm": [
+            37.76746703800745,
+            163.9944063720759,
+            0.0
+          ],
+          "size": [
+            9.767467038007453,
+            9.99929244845407,
+            1.399999976158142
+          ],
+          "source_volume_mm3": 82.56326633854377
+        },
+        {
+          "name": "pojistka_cepu_03",
+          "stl": "pojistka_cepu.stl",
+          "stl_sha256": "e741009687e9eeccf2fcf7f868651b9a7492b0526c1fa37230fb8e410611537e",
+          "purpose": "snimatelne C-pojistky pro ctyri cepy",
+          "support": false,
+          "rotation_matrix": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "translation_mm": [
+            63.534934076014906,
+            163.9944063720759,
+            0.0
+          ],
+          "size": [
+            9.767467038007453,
+            9.99929244845407,
+            1.399999976158142
+          ],
+          "source_volume_mm3": 82.56326633854377
+        },
+        {
+          "name": "pojistka_cepu_04",
+          "stl": "pojistka_cepu.stl",
+          "stl_sha256": "e741009687e9eeccf2fcf7f868651b9a7492b0526c1fa37230fb8e410611537e",
+          "purpose": "snimatelne C-pojistky pro ctyri cepy",
+          "support": false,
+          "rotation_matrix": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "translation_mm": [
+            89.30240111402236,
+            163.9944063720759,
+            0.0
+          ],
+          "size": [
+            9.767467038007453,
+            9.99929244845407,
+            1.399999976158142
+          ],
+          "source_volume_mm3": 82.56326633854377
+        },
+        {
+          "name": "cep_kloubu_01",
+          "stl": "cep_kloubu.stl",
+          "stl_sha256": "47c101c0d3a7a9ffa236ecf1fbb19c023af8318ba9f5459e551c0e5f8af5695b",
+          "purpose": "osove a aretacni cepy ramene a lokte; ctyri fyzicke kopie",
+          "support": false,
+          "rotation_matrix": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "translation_mm": [
+            115.06986815202981,
+            163.9944063720759,
+            0.0
+          ],
+          "size": [
+            7.498321621096693,
+            7.499160765088163,
+            25.0
+          ],
+          "source_volume_mm3": 370.828970344571
+        },
+        {
+          "name": "cep_kloubu_02",
+          "stl": "cep_kloubu.stl",
+          "stl_sha256": "47c101c0d3a7a9ffa236ecf1fbb19c023af8318ba9f5459e551c0e5f8af5695b",
+          "purpose": "osove a aretacni cepy ramene a lokte; ctyri fyzicke kopie",
+          "support": false,
+          "rotation_matrix": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "translation_mm": [
+            138.5681897731265,
+            163.9944063720759,
+            0.0
+          ],
+          "size": [
+            7.498321621096693,
+            7.499160765088163,
+            25.0
+          ],
+          "source_volume_mm3": 370.828970344571
+        },
+        {
+          "name": "cep_kloubu_03",
+          "stl": "cep_kloubu.stl",
+          "stl_sha256": "47c101c0d3a7a9ffa236ecf1fbb19c023af8318ba9f5459e551c0e5f8af5695b",
+          "purpose": "osove a aretacni cepy ramene a lokte; ctyri fyzicke kopie",
+          "support": false,
+          "rotation_matrix": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "translation_mm": [
+            162.0665113942232,
+            163.9944063720759,
+            0.0
+          ],
+          "size": [
+            7.498321621096693,
+            7.499160765088163,
+            25.0
+          ],
+          "source_volume_mm3": 370.828970344571
+        },
+        {
+          "name": "cep_kloubu_04",
+          "stl": "cep_kloubu.stl",
+          "stl_sha256": "47c101c0d3a7a9ffa236ecf1fbb19c023af8318ba9f5459e551c0e5f8af5695b",
+          "purpose": "osove a aretacni cepy ramene a lokte; ctyri fyzicke kopie",
+          "support": false,
+          "rotation_matrix": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "translation_mm": [
+            185.5648330153199,
+            163.9944063720759,
+            0.0
+          ],
+          "size": [
+            7.498321621096693,
+            7.499160765088163,
+            25.0
+          ],
+          "source_volume_mm3": 370.828970344571
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+# -*- coding: utf-8 -*-
+"""Skutecne snimky z FreeCADu a ulozeni viditelnosti finalni sestavy."""
+from pathlib import Path
+import FreeCAD as App
+import FreeCADGui as Gui
+from PySide import QtCore
+
+OUT = Path(__file__).resolve().parent
+doc = App.openDocument(str(OUT/'roboticka-ruka.FCStd'))
+visible = {
+    'PrintDeck': (0.20,0.43,0.56),
+    'PrintRotor': (0.93,0.51,0.16),
+    'PrintUpperArm': (0.95,0.72,0.21),
+    'PrintForearm': (0.72,0.66,0.47),
+    'MotorBodyReference': (0.42,0.46,0.52),
+    'MotorShaftReference': (0.55,0.58,0.63),
+}
+for obj in doc.Objects:
+    if hasattr(obj,'Shape'):
+        obj.ViewObject.Visibility = obj.Name in visible
+for name,color in visible.items():
+    viewobj = doc.getObject(name).ViewObject
+    viewobj.ShapeColor = color
+    viewobj.LineColor = (0.12,0.15,0.18)
+    if name.startswith('Motor'):
+        viewobj.Transparency = 35
+    try:
+        viewobj.DisplayMode = 'Flat Lines'
+    except Exception:
+        pass
+view = Gui.activeDocument().activeView()
+view.setCameraType('Orthographic')
+def set_camera(eye):
+    eye = App.Vector(*eye)
+    up = App.Vector(0,0,1)
+    view.setCameraOrientation(App.Rotation(up.cross(eye),up,eye,'ZXY').Q)
+    view.fitAll()
+    view.redraw()
+    Gui.updateGui()
+def first():
+    set_camera((0.95,-1.2,0.9))
+    QtCore.QTimer.singleShot(1000,save_first)
+def save_first():
+    view.saveImage(str(OUT/'nahled-sestavy.png'),1500,1000,'White')
+    set_camera((0.65,0.9,-0.8))
+    QtCore.QTimer.singleShot(1000,save_second)
+def save_second():
+    view.saveImage(str(OUT/'nahled-spodku.png'),1500,1000,'White')
+    set_camera((0.95,-1.2,0.9))
+    QtCore.QTimer.singleShot(800,finish)
+def finish():
+    doc.recompute()
+    doc.save()
+    print('ARM_RENDER_COMPLETE',flush=True)
+    App.closeDocument(doc.Name)
+    Gui.getMainWindow().close()
+QtCore.QTimer.singleShot(1000,first)

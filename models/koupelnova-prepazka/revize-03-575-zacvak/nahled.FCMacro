@@ -1,0 +1,107 @@
+# -*- coding: utf-8 -*-
+"""Real FreeCAD GUI renders + saved visibility/reopen. Only writes beside this file.
+Cropped shapes, direction arrows and annotations are preview-only and removed.
+"""
+from pathlib import Path
+import json,math
+import FreeCAD as App
+import FreeCADGui as Gui
+import Part
+from PySide import QtCore
+from pivy import coin
+OUT=Path(__file__).resolve().parent
+report=json.loads((OUT/'kontrola-modelu.json').read_text());assert report['validation_pass']
+doc=App.openDocument(str(OUT/'prepazka-575-zacvak.FCStd'));doc.recompute()
+parts=[doc.getObject('Part'+str(i)) for i in (1,2,3)]
+view=Gui.activeDocument().activeView();temp=[]
+COLORS=[(.27,.32,.35),(.67,.73,.76),(.27,.32,.35)];BLUE=(.33,.72,.81)
+def style(o,c):
+ v=o.ViewObject
+ if 'ShapeAppearance' in v.PropertiesList:
+  m=v.ShapeAppearance[0];m.DiffuseColor=c;v.ShapeAppearance=[m]
+ v.ShapeColor=c;v.LineColor=(.10,.14,.18);v.LineWidth=1.2;v.DisplayMode='Flat Lines'
+def hideall():
+ for o in doc.Objects:o.ViewObject.Visibility=False
+
+def clear():
+ for o in temp:doc.removeObject(o.Name)
+ temp.clear();hideall()
+def full():
+ hideall()
+ for o,c in zip(parts,COLORS):style(o,c);o.ViewObject.Visibility=True
+ for o in [doc.AdhesiveBed,doc.EndSeal1,doc.EndSeal2]:style(o,BLUE);o.ViewObject.Transparency=25;o.ViewObject.Visibility=True
+
+def preview(shape,name,color):
+ o=doc.addObject('Part::Feature',name);o.Shape=shape;style(o,color);o.ViewObject.Visibility=True;temp.append(o);return o
+
+def annotation(text,pos,size=18):
+ o=doc.addObject('App::Annotation','PreviewLabel');o.LabelText=[text];o.Position=App.Vector(*pos)
+ o.ViewObject.FontSize=size;o.ViewObject.TextColor=(.08,.13,.17);temp.append(o);return o
+
+def line(a,b,name='PreviewDimension'):
+ o=preview(Part.makeLine(App.Vector(*a),App.Vector(*b)),name,(.1,.2,.3));o.ViewObject.LineWidth=2;return o
+
+def arrow(start,direction,length):
+ v=App.Vector(*direction);v.normalize();s=App.Vector(*start)
+ sh=Part.makeCylinder(.45,length-3,s,v).fuse(Part.makeCone(1.5,0,3,s+v*(length-3),v))
+ return preview(sh,'InsertionArrow',(.10,.44,.66))
+
+def camera(eye,aspect,margin=1.15):
+ eye=App.Vector(*eye);up=App.Vector(0,0,1);view.setCameraType('Orthographic')
+ rotation=App.Rotation(up.cross(eye),up,eye,'ZXY')
+ shapes=[o.Shape for o in doc.Objects if hasattr(o,'Shape') and o.ViewObject.Visibility and not o.Shape.isNull()]
+ bbox=Part.makeCompound(shapes).BoundBox
+ corners=[App.Vector(x,y,z) for x in (bbox.XMin,bbox.XMax) for y in (bbox.YMin,bbox.YMax) for z in (bbox.ZMin,bbox.ZMax)]
+ proj=[rotation.inverted().multVec(p-bbox.Center) for p in corners]
+ dx=max(p.x for p in proj)-min(p.x for p in proj);dy=max(p.y for p in proj)-min(p.y for p in proj)
+ node=view.getCameraNode();node.orientation.setValue(rotation.Q);position=bbox.Center+eye.normalize()*1000
+ node.position.setValue(position.x,position.y,position.z);node.height.setValue(max(dy,dx/aspect)*margin)
+ node.nearDistance.setValue(1);node.farDistance.setValue(3000);view.redraw();Gui.updateGui()
+
+def start():
+ Gui.getMainWindow().resize(1800,550);full()
+ line((0,-17,0),(575,-17,0))
+ for x in [0,575]:line((x,-21,0),(x,-10,0))
+ annotation('575 mm | 3 dily | TPU 8 mm + loze 2 mm',(210,-26,0),18)
+ doc.recompute();camera((.025,-1,1.6),2200/470,1.17);QtCore.QTimer.singleShot(900,save_full)
+def save_full():
+ view.saveImage(str(OUT/'sestava-cad.png'),2200,470,'White');clear();Gui.getMainWindow().resize(1500,1050)
+ J=doc.Parameters.Joint1.Value
+ window=Part.makeBox(68,30,20,App.Vector(J-24,-5,-2))
+ for o,c in zip(parts[:2],COLORS[:2]):preview(o.Shape.common(window),'InstalledJoint',c)
+ preview(doc.AdhesiveBed.Shape.common(window),'BedPreview',BLUE)
+ doc.recompute();camera((-.35,-1.2,2.0),1700/1050,1.12);QtCore.QTimer.singleShot(900,save_locked)
+def save_locked():
+ view.saveImage(str(OUT/'spoj-zajisteny-cad.png'),1700,1050,'White');clear()
+ J=doc.Parameters.Joint1.Value
+ for i,o in enumerate((doc.Sample1,doc.Sample2)):
+  sh=o.Shape.copy()
+  if i:sh.translate(App.Vector(25,0,0))
+  preview(sh,'ExplodedSample'+str(i+1),COLORS[i])
+ arrow((J+42,-7,4),(-1,0,0),22)
+ annotation('NASUNOUT PODELNE',(J+10,-14,3),17)
+ doc.recompute();camera((-.3,-1.2,2.3),1800/1000,1.16);QtCore.QTimer.singleShot(900,save_exploded)
+def save_exploded():
+ view.saveImage(str(OUT/'spoj-rozebrany-cad.png'),1800,1000,'White');clear()
+ J=doc.Parameters.Joint1.Value
+ cut=Part.makeBox(1.0,30,20,App.Vector(J+12.5,-5,-2))
+ for o,c in zip(parts[:2],COLORS[:2]):preview(o.Shape.common(cut),'TransverseSection',c)
+ preview(doc.AdhesiveBed.Shape.common(cut),'BedSection',BLUE)
+ # True transverse CAD section through both retaining teeth and the lower dovetail.
+ doc.recompute();camera((-1,0,0.04),1600/850,1.20);QtCore.QTimer.singleShot(900,save_profile)
+def save_profile():
+ view.saveImage(str(OUT/'profil-spoje-cad.png'),1600,850,'White');clear();full();camera((.025,-1,1.6),2200/470,1.17);doc.recompute();doc.save()
+ f=doc.FileName;App.closeDocument(doc.Name);opened=App.openDocument(f);opened.recompute()
+ visible=[o.Name for o in opened.Objects if hasattr(o,'Shape') and o.ViewObject.Visibility]
+ assert set(visible)=={'Part1','Part2','Part3','AdhesiveBed','EndSeal1','EndSeal2'},visible
+ invalid=[o.Name for o in opened.Objects if 'Invalid' in o.State];assert not invalid,invalid
+ row=opened.Parameters.getCellFromAlias('TotalLength');opened.Parameters.set(row,'600 mm');opened.recompute()
+ assert abs(opened.Part3.Shape.BoundBox.XMax-598)<1e-6
+ opened.Parameters.set(row,'575 mm');opened.recompute();assert abs(opened.Part3.Shape.BoundBox.XMax-573)<1e-6
+ assert all(opened.getObject('Part'+str(i)).Shape.isValid() for i in (1,2,3));opened.save();App.closeDocument(opened.Name)
+ report['gui_validation']={'saved_reopened_and_recomputed':True,'native_length_change_mm':[600,575],'visible_objects':visible,'invalid_objects':invalid,
+ 'images':['sestava-cad.png','spoj-zajisteny-cad.png','spoj-rozebrany-cad.png','profil-spoje-cad.png'],
+ 'preview_notes':'Real CAD. Exploded sample female shifted25mm +X, arrow points -X. Transverse1mm cut at shoulder+0.5mm. Cyan is bed/end seal reference, not printed.'}
+ (OUT/'kontrola-modelu.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
+ print('SNAP575_RENDER_OK',flush=True);Gui.getMainWindow().close()
+QtCore.QTimer.singleShot(900,start)

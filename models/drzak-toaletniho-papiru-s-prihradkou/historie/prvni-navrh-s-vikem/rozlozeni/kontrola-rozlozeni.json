@@ -1,0 +1,170 @@
+{
+  "state": "geometrie 1:1; tiskový proces v samostatném nastaveném projektu",
+  "printer": "Anycubic Kobra X 0.4 nozzle",
+  "bed_mm": [
+    260,
+    260
+  ],
+  "physical_pieces": 6,
+  "types": 5,
+  "plates": [
+    {
+      "plate": 1,
+      "geometry_3mf": "drzak-podlozka-01-geometrie.3mf",
+      "geometry_sha256": "1a3abc19719b63ed3828fea0abc6930c361e07b5d55283be31ea630ac333da6d",
+      "preview": "podlozka-01.png",
+      "copies": 3,
+      "items": [
+        {
+          "global_index": 1,
+          "label": "01 Schránka",
+          "stl": "body.stl",
+          "stl_sha256": "8967bcb978efefd8d2db3aa20800a2578e24eaa3f3f11bde841846f1f41c8577",
+          "translation_mm": [
+            35,
+            15,
+            0
+          ],
+          "placed_min_mm": [
+            35.0,
+            15.0,
+            0.0
+          ],
+          "placed_max_mm": [
+            225.0,
+            135.0,
+            58.0
+          ],
+          "vertices_count": 1282,
+          "triangles_count": 2584
+        },
+        {
+          "global_index": 2,
+          "label": "02 Levé rameno",
+          "stl": "bracket.stl",
+          "stl_sha256": "c58db9dfef6c5e714dcf3dd2eaad30ed2bb539c5aa77a293a7dc0187ccde6d1a",
+          "translation_mm": [
+            29,
+            150,
+            0
+          ],
+          "placed_min_mm": [
+            29.0,
+            150.0,
+            0.0
+          ],
+          "placed_max_mm": [
+            120.0,
+            238.0,
+            12.0
+          ],
+          "vertices_count": 364,
+          "triangles_count": 732
+        },
+        {
+          "global_index": 3,
+          "label": "03 Pravé rameno",
+          "stl": "bracket.stl",
+          "stl_sha256": "c58db9dfef6c5e714dcf3dd2eaad30ed2bb539c5aa77a293a7dc0187ccde6d1a",
+          "translation_mm": [
+            140,
+            150,
+            0
+          ],
+          "placed_min_mm": [
+            140.0,
+            150.0,
+            0.0
+          ],
+          "placed_max_mm": [
+            231.0,
+            238.0,
+            12.0
+          ],
+          "vertices_count": 364,
+          "triangles_count": 732
+        }
+      ],
+      "edge_margin_mm": 15.0
+    },
+    {
+      "plate": 2,
+      "geometry_3mf": "drzak-podlozka-02-geometrie.3mf",
+      "geometry_sha256": "ce9d3add2e61dc95d0568427d68b43bdea594d6bc0ed3a1f26889106046fdc9c",
+      "preview": "podlozka-02.png",
+      "copies": 3,
+      "items": [
+        {
+          "global_index": 4,
+          "label": "04 Víko",
+          "stl": "lid.stl",
+          "stl_sha256": "231e91b95d122ab6696f16912eb4bfb5a2536dad0568138f998388c900d0cfb7",
+          "translation_mm": [
+            35,
+            15,
+            0
+          ],
+          "placed_min_mm": [
+            35.0,
+            15.0,
+            0.0
+          ],
+          "placed_max_mm": [
+            225.0,
+            135.0,
+            9.0
+          ],
+          "vertices_count": 400,
+          "triangles_count": 796
+        },
+        {
+          "global_index": 5,
+          "label": "05 Osa",
+          "stl": "axle.stl",
+          "stl_sha256": "feff878c047d4e0f4a1aec2499938daaafc35507920c5adf8793b8440a74f9e0",
+          "translation_mm": [
+            55,
+            165,
+            0
+          ],
+          "placed_min_mm": [
+            55.0,
+            165.00246552634053,
+            3.2862601528904634e-14
+          ],
+          "placed_max_mm": [
+            207.0,
+            184.99753379821777,
+            14.493138313293457
+          ],
+          "vertices_count": 244,
+          "triangles_count": 484
+        },
+        {
+          "global_index": 6,
+          "label": "06 Zátka",
+          "stl": "cap.stl",
+          "stl_sha256": "8742ac9112d73855e78ace00104f6240ed0e0cf4a9df1612f4655688a29fb5a6",
+          "translation_mm": [
+            112,
+            211,
+            0
+          ],
+          "placed_min_mm": [
+            112.00693248165771,
+            211.00462977355346,
+            0.0
+          ],
+          "placed_max_mm": [
+            131.92156791687012,
+            230.99537086486816,
+            8.0
+          ],
+          "vertices_count": 328,
+          "triangles_count": 652
+        }
+      ],
+      "edge_margin_mm": 15.0
+    }
+  ]
+}

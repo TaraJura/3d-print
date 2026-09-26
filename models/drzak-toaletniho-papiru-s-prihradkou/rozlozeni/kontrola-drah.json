@@ -1,0 +1,241 @@
+{
+  "state": "actual toolpaths checked; no physical print or fit evidence",
+  "total_copies": 6,
+  "plates": [
+    {
+      "plate": 1,
+      "objects": {
+        "02_Levé_rameno": {
+          "roles": {
+            "Brim": 1159,
+            "Outer wall": 1300,
+            "Inner wall": 3057,
+            "Bottom surface": 758,
+            "Internal solid infill": 5029,
+            "Sparse infill": 120370,
+            "Internal Bridge": 945,
+            "Top surface": 524,
+            "Bridge": 90,
+            "Overhang wall": 16
+          },
+          "min_xy": [
+            24.308,
+            145.308
+          ],
+          "max_xy": [
+            124.692,
+            242.692
+          ],
+          "model_max_z": 12.0,
+          "brim_segments": 1159,
+          "bridge_segments": 90,
+          "max_bridge_segment_mm": 5.664999999999992,
+          "internal_bridge_segments": 945,
+          "max_internal_bridge_segment_mm": 33.82356168412782,
+          "first_layer_segments": 1973,
+          "max_width_mm": 0.636382,
+          "nominal_height_mm": 12.0
+        },
+        "03_Pravé_rameno": {
+          "roles": {
+            "Brim": 1161,
+            "Outer wall": 1300,
+            "Inner wall": 3057,
+            "Bottom surface": 758,
+            "Internal solid infill": 5029,
+            "Sparse infill": 120370,
+            "Internal Bridge": 945,
+            "Top surface": 524,
+            "Bridge": 90,
+            "Overhang wall": 16
+          },
+          "min_xy": [
+            135.308,
+            145.308
+          ],
+          "max_xy": [
+            235.692,
+            242.692
+          ],
+          "model_max_z": 12.0,
+          "brim_segments": 1161,
+          "bridge_segments": 90,
+          "max_bridge_segment_mm": 5.664999999999992,
+          "internal_bridge_segments": 945,
+          "max_internal_bridge_segment_mm": 33.82356168412782,
+          "first_layer_segments": 1975,
+          "max_width_mm": 0.636382,
+          "nominal_height_mm": 12.0
+        },
+        "01_Schránka": {
+          "roles": {
+            "Brim": 392,
+            "Outer wall": 14697,
+            "Inner wall": 41101,
+            "Bottom surface": 843,
+            "Gap infill": 519,
+            "Internal solid infill": 8634,
+            "Sparse infill": 1405671,
+            "Internal Bridge": 1915,
+            "Top surface": 1260,
+            "Overhang wall": 60
+          },
+          "min_xy": [
+            30.308,
+            10.308
+          ],
+          "max_xy": [
+            229.692,
+            77.692
+          ],
+          "model_max_z": 120.0,
+          "brim_segments": 392,
+          "bridge_segments": 0,
+          "max_bridge_segment_mm": 0.0,
+          "internal_bridge_segments": 1915,
+          "max_internal_bridge_segment_mm": 92.62687612135043,
+          "first_layer_segments": 1687,
+          "max_width_mm": 0.746667,
+          "nominal_height_mm": 120.0
+        }
+      },
+      "gaps": [
+        {
+          "a": "02_Levé_rameno",
+          "b": "03_Pravé_rameno",
+          "gap_mm": 10.616
+        },
+        {
+          "a": "02_Levé_rameno",
+          "b": "01_Schránka",
+          "gap_mm": 67.616
+        },
+        {
+          "a": "03_Pravé_rameno",
+          "b": "01_Schránka",
+          "gap_mm": 67.616
+        }
+      ],
+      "nearest_path_envelope_gap_mm": 10.616,
+      "minimum_path_edge_mm": 10.308,
+      "first_layer_preview": "drahy-prvni-vrstvy-01.png",
+      "maximum_mesh_bounds_delta_mm": 0.0
+    },
+    {
+      "plate": 2,
+      "objects": {
+        "04_Zásuvka": {
+          "roles": {
+            "Brim": 1107,
+            "Outer wall": 27845,
+            "Inner wall": 80023,
+            "Bottom surface": 818,
+            "Gap infill": 39,
+            "Internal solid infill": 11447,
+            "Sparse infill": 365611,
+            "Internal Bridge": 1082,
+            "Top surface": 1450
+          },
+          "min_xy": [
+            31.708,
+            11.708
+          ],
+          "max_xy": [
+            193.892,
+            140.692
+          ],
+          "model_max_z": 43.0,
+          "brim_segments": 1107,
+          "bridge_segments": 0,
+          "max_bridge_segment_mm": 0.0,
+          "internal_bridge_segments": 1082,
+          "max_internal_bridge_segment_mm": 113.95785484994003,
+          "first_layer_segments": 2255,
+          "max_width_mm": 0.526823,
+          "nominal_height_mm": 43.0
+        },
+        "05_Osa": {
+          "roles": {
+            "Brim": 682,
+            "Outer wall": 710,
+            "Inner wall": 1628,
+            "Gap infill": 3,
+            "Bottom surface": 468,
+            "Internal solid infill": 351,
+            "Sparse infill": 46411,
+            "Top surface": 290
+          },
+          "min_xy": [
+            50.308,
+            161.332
+          ],
+          "max_xy": [
+            211.692,
+            188.668
+          ],
+          "model_max_z": 14.4,
+          "brim_segments": 682,
+          "bridge_segments": 0,
+          "max_bridge_segment_mm": 0.0,
+          "internal_bridge_segments": 0,
+          "max_internal_bridge_segment_mm": 0.0,
+          "first_layer_segments": 1188,
+          "max_width_mm": 0.616552,
+          "nominal_height_mm": 14.493138313293457
+        },
+        "06_Zátka": {
+          "roles": {
+            "Brim": 925,
+            "Outer wall": 5707,
+            "Inner wall": 16171,
+            "Bottom surface": 108,
+            "Gap infill": 55,
+            "Internal solid infill": 1287,
+            "Sparse infill": 3353,
+            "Internal Bridge": 126,
+            "Top surface": 129
+          },
+          "min_xy": [
+            107.315,
+            206.318
+          ],
+          "max_xy": [
+            136.611,
+            235.682
+          ],
+          "model_max_z": 8.0,
+          "brim_segments": 925,
+          "bridge_segments": 0,
+          "max_bridge_segment_mm": 0.0,
+          "internal_bridge_segments": 126,
+          "max_internal_bridge_segment_mm": 15.146356822681827,
+          "first_layer_segments": 1364,
+          "max_width_mm": 0.506762,
+          "nominal_height_mm": 8.0
+        }
+      },
+      "gaps": [
+        {
+          "a": "04_Zásuvka",
+          "b": "05_Osa",
+          "gap_mm": 20.639999999999986
+        },
+        {
+          "a": "04_Zásuvka",
+          "b": "06_Zátka",
+          "gap_mm": 65.626
+        },
+        {
+          "a": "05_Osa",
+          "b": "06_Zátka",
+          "gap_mm": 17.650000000000006
+        }
+      ],
+      "nearest_path_envelope_gap_mm": 17.650000000000006,
+      "minimum_path_edge_mm": 11.708,
+      "first_layer_preview": "drahy-prvni-vrstvy-02.png",
+      "maximum_mesh_bounds_delta_mm": 6.736594855283329e-07
+    }
+  ],
+  "limitations": "Drawer sliding, axle cap friction, roll change clearance, mounting wall and PLA durability require physical fit test."
+}

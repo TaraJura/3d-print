@@ -1,0 +1,21 @@
+{
+  "status": "warning_persists_in_isolated_probe",
+  "source_project_sha256": "158640e4010f9ca9e462ada3e04c7f910ef6b82efb8f548af5f0c631e388ae61",
+  "source_timelapse_type": "0",
+  "probe_timelapse_type": "1",
+  "only_changed_project_setting": {
+    "timelapse_type": [
+      "0",
+      "1"
+    ]
+  },
+  "slicer_exit_code": 0,
+  "warnings_after_probe": [
+    {
+      "msg": "not_support_traditional_timelapse",
+      "level": "1",
+      "error_code": "1000C003"
+    }
+  ],
+  "interpretation": "Changing timelapse_type from 0 to 1 in an otherwise identical Kobra X project did not clear the warning. The delivered project keeps the original time-lapse setting; no printer profile or machine behavior was changed. The probe stays in ignored .cache."
+}

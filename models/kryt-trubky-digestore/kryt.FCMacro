@@ -1,0 +1,115 @@
+# -*- coding: utf-8 -*-
+"""Předběžný půlkruhový kryt trubky digestoře; všechny rozměry jsou v mm.
+
+Spouštět ve FreeCADu z tohoto checkoutu. Přepíše zdejší kryt.FCStd,
+stl/kryt.stl a kontrola-modelu.json. Náhled PNG vytváří zvlášť nahled.FCMacro.
+Hodnoty jsou návrhový koncept, nikoli potvrzené měření skutečného prostoru.
+"""
+from pathlib import Path
+import json
+import FreeCAD as App
+import MeshPart
+
+OUT = Path(__file__).resolve().parent
+(OUT / "stl").mkdir(exist_ok=True)
+PARAMS = [
+    ("CoverWidth", "Vnější šířka přes trubku", 150, "ZADÁNO: 15 cm"),
+    ("CoverHeight", "Vnější výška", 98, "ZADÁNO: 9,8 cm; mezera cca 10 cm"),
+    ("DuctDiameter", "Nominální průměr trubky", 130, "ZADÁNO: přibližně 13 cm"),
+    ("RequestedReach", "Požadovaný dosah dozadu", 70, "ZADÁNO: přibližně 7 cm"),
+    ("WallThickness", "Tloušťka stěny", 3, "NÁVRH: pro první vizualizaci"),
+    ("CoverDepth", "Skutečná hloubka kruhového krytu", 75, "ODVOZENO: poloměr kruhu; +5 mm proti odhadu"),
+]
+
+doc = App.newDocument("KrytTrubkyDigestore")
+doc.Label = "Kryt trubky digestoře – předběžný návrh"
+sheet = doc.addObject("Spreadsheet::Sheet", "Parameters")
+sheet.Label = "Parametry (mm) – předběžný návrh"
+sheet.set("A1", "Parametr")
+sheet.set("B1", "Hodnota")
+sheet.set("C1", "Původ / stav")
+sheet.setStyle("A1:C1", "bold", "add")
+sheet.setBackground("A1:C1", (0.83, 0.88, 0.91))
+for row, (alias, label, value, status) in enumerate(PARAMS, 2):
+    sheet.set(f"A{row}", label)
+    sheet.set(f"B{row}", "=CoverWidth / 2" if alias == "CoverDepth" else f"{value} mm")
+    sheet.setAlias(f"B{row}", alias)
+    sheet.set(f"C{row}", status)
+    sheet.setBackground(f"B{row}", (0.87, 0.95, 0.89) if row <= 5 else (1.0, 0.94, 0.77))
+sheet.set("A9", "Radiální vůle pro soustřednou trubku")
+sheet.set("B9", "=CoverWidth / 2 - WallThickness - DuctDiameter / 2")
+sheet.setAlias("B9", "NominalRadialClearance")
+sheet.set("C9", "Odvozeno z NOMINÁLNÍHO Ø; předpokládá společnou osu")
+sheet.set("A11", "POZOR: vzdálenost středu potrubí od stěny a skutečná mezera nejsou změřené.")
+sheet.mergeCells("A11:C11")
+sheet.setColumnWidth("A", 325)
+sheet.setColumnWidth("B", 145)
+sheet.setColumnWidth("C", 430)
+doc.recompute()
+
+def expr(obj, field, text):
+    obj.setExpression(field, text)
+
+# Souřadnice: X napříč, Y od pohledového čela k otevřené zadní straně,
+# Z svisle. Kruhový střed je (šířka/2, šířka/2); zadní půlkruh se ořízne.
+outer = doc.addObject("Part::Cylinder", "OuterCylinder")
+outer.Label = "Pomocná vnější kruhová plocha"
+expr(outer, "Radius", "Parameters.CoverWidth / 2")
+expr(outer, "Height", "Parameters.CoverHeight")
+expr(outer, "Placement.Base.x", "Parameters.CoverWidth / 2")
+expr(outer, "Placement.Base.y", "Parameters.CoverWidth / 2")
+
+inner = doc.addObject("Part::Cylinder", "InnerCylinder")
+inner.Label = "Pomocná vnitřní dutina"
+expr(inner, "Radius", "Parameters.CoverWidth / 2 - Parameters.WallThickness")
+expr(inner, "Height", "Parameters.CoverHeight + 2 mm")
+expr(inner, "Placement.Base.x", "Parameters.CoverWidth / 2")
+expr(inner, "Placement.Base.y", "Parameters.CoverWidth / 2")
+expr(inner, "Placement.Base.z", "-1 mm")
+
+ring = doc.addObject("Part::Cut", "FullRing")
+ring.Label = "Pomocný mezikroužek"
+ring.Base = outer
+ring.Tool = inner
+
+trim = doc.addObject("Part::Box", "ForwardHalf")
+trim.Label = "Pomocný výřez – otevřená zadní strana"
+expr(trim, "Length", "Parameters.CoverWidth")
+expr(trim, "Width", "Parameters.CoverDepth")
+expr(trim, "Height", "Parameters.CoverHeight + 2 mm")
+expr(trim, "Placement.Base.z", "-1 mm")
+
+cover = doc.addObject("Part::Common", "Cover")
+cover.Label = "Kryt trubky – 1 kus"
+cover.Base = ring
+cover.Tool = trim
+cover.Refine = True
+doc.recompute()
+
+shape = cover.Shape
+assert not shape.isNull() and shape.isValid()
+assert len(shape.Solids) == 1
+bb = shape.BoundBox
+assert abs(bb.XLength - 150) < 0.01
+assert abs(bb.YLength - 75) < 0.01
+assert abs(bb.ZLength - 98) < 0.01
+assert float(sheet.get("B9")) == 7.0
+
+mesh = MeshPart.meshFromShape(Shape=shape, LinearDeflection=0.08,
+                              AngularDeflection=0.20, Relative=False)
+assert mesh.CountFacets > 100
+stl = OUT / "stl" / "kryt.stl"
+mesh.write(str(stl))
+doc.saveAs(str(OUT / "kryt.FCStd"))
+result = {
+    "status": "predbezny_navrh_bez_fyzicke_zkousky",
+    "nominal_user_inputs_mm": {"width": 150, "height": 98, "duct_diameter_approx": 130,
+                               "requested_rear_reach_approx": 70},
+    "design_mm": {"depth": 75, "wall": 3, "nominal_radial_clearance_if_concentric": 7},
+    "shape_valid": bool(shape.isValid()), "solids": len(shape.Solids),
+    "bounds_mm": {"x": bb.XLength, "y": bb.YLength, "z": bb.ZLength},
+    "volume_mm3": shape.Volume, "stl_facets": mesh.CountFacets,
+    "fit_not_verified": True,
+}
+(OUT / "kontrola-modelu.json").write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n")
+print("DUCT_COVER_CAD_OK", result["bounds_mm"], flush=True)

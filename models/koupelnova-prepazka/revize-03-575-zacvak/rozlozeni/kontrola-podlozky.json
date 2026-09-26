@@ -1,0 +1,436 @@
+{
+  "status": "geometry-only working alternative; not sliced, not print-ready, no physical validation",
+  "model_revision": "revize-03-575-zacvak",
+  "cad_audit_sha256": "9a3d19d81fd6e7079b044967349bc705039f65c9d6f62f40356753067a4e9c6f",
+  "generated_utc": "2026-09-23T18:14:57.536063+00:00",
+  "printer_profile_evidence": {
+    "path": "/home/novakj/.config/AnycubicSlicerNext/system/Anycubic/machine/Anycubic Kobra X 0.4 nozzle.json",
+    "sha256": "baf80d3287e1e863fba29cdfd240b9b5ebc28bd87e1b4d03fc79e53f0009570a",
+    "name": "Anycubic Kobra X 0.4 nozzle",
+    "printable_area_mm": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        260.0,
+        0.0
+      ],
+      [
+        260.0,
+        260.0
+      ],
+      [
+        0.0,
+        260.0
+      ]
+    ],
+    "printable_height_mm": 260.0,
+    "nozzle_mm": 0.4
+  },
+  "output": "prepazka-575-snap-pracovni-geometrie.3mf",
+  "output_sha256": "febc9433bfeba2cd4053c15322462f1efbe137fc33676dea9694b3d89fd8e35e",
+  "unit": "millimeter",
+  "plates": 1,
+  "physical_parts": 3,
+  "object_instances": 3,
+  "separate_joint_test": false,
+  "contains_process_or_filament": false,
+  "contains_gcode": false,
+  "scale_1_to_1": true,
+  "all_flat_bases_at_z0": true,
+  "plate_contents_bounds_mm": [
+    [
+      25.833333333319658,
+      80.0,
+      0.0
+    ],
+    [
+      234.16666158038998,
+      180.0,
+      8.0
+    ]
+  ],
+  "plate_edge_margins_mm_left_right_front_back": [
+    25.833333333319658,
+    25.833338419610016,
+    80.0,
+    80.0
+  ],
+  "minimum_plate_edge_margin_mm": 25.833333333319658,
+  "pairwise_gaps": [
+    {
+      "objects": [
+        1,
+        2
+      ],
+      "xy_bounding_box_gap_mm": 20.0
+    },
+    {
+      "objects": [
+        1,
+        3
+      ],
+      "xy_bounding_box_gap_mm": 60.0
+    },
+    {
+      "objects": [
+        2,
+        3
+      ],
+      "xy_bounding_box_gap_mm": 20.0
+    }
+  ],
+  "minimum_xy_bounding_box_gap_mm": 20.0,
+  "parts": [
+    {
+      "bounds_mm": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          208.3333282470703,
+          20.0,
+          7.999740123748779
+        ]
+      ],
+      "dimensions_mm": [
+        208.3333282470703,
+        20.0,
+        7.999740123748779
+      ],
+      "vertices": 499,
+      "triangles": 994,
+      "edges": 1491,
+      "connected_components": 1,
+      "nonmanifold_or_boundary_edges": 0,
+      "inconsistent_winding_edges": 0,
+      "degenerate_triangles": 0,
+      "duplicate_faces": 0,
+      "euler_characteristic": 2,
+      "closed_manifold": true,
+      "consistently_oriented": true,
+      "signed_volume_mm3": 19322.70801334184,
+      "planar_base_area_at_z0_mm2": 3884.9354894122807,
+      "downward_facets_above_base": [],
+      "downward_surface_area_above_base_mm2": 0,
+      "stl": "stl/dil-1.stl",
+      "stl_sha256": "3e61a733b27634b6edfa32948442fa8f43c5d01df4b028e79a6865c3ea6ef31d",
+      "object_id": 1,
+      "nominal_cad_dimensions_mm": [
+        208.33333333336066,
+        20.0,
+        8.000000000000046
+      ],
+      "mesh_dimension_tolerance_mm": 0.001,
+      "mesh_minus_nominal_dimensions_mm": [
+        -5.086290343569999e-06,
+        0.0,
+        -0.0002598762512668884
+      ],
+      "retention_audit_regions": [
+        {
+          "name": "spoj1-zapadka-1",
+          "min_mm": [
+            201.33333333333334,
+            8.5,
+            0.2
+          ],
+          "max_mm": [
+            204.33333333333334,
+            10.3,
+            3.0
+          ]
+        },
+        {
+          "name": "spoj1-zapadka+1",
+          "min_mm": [
+            201.33333333333334,
+            15.700000000000001,
+            0.2
+          ],
+          "max_mm": [
+            204.33333333333334,
+            17.5,
+            3.0
+          ]
+        }
+      ],
+      "translation_mm": [
+        25.833333333319672,
+        80.0,
+        0.0
+      ],
+      "rotation_degrees": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "placed_bounds_mm": [
+        [
+          25.833333333319672,
+          80.0,
+          0.0
+        ],
+        [
+          234.16666158038998,
+          100.0,
+          7.999740123748779
+        ]
+      ],
+      "inside_printable_volume": true,
+      "flat_base_on_z0": true
+    },
+    {
+      "bounds_mm": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          208.3333282470703,
+          20.0,
+          8.0
+        ]
+      ],
+      "dimensions_mm": [
+        208.3333282470703,
+        20.0,
+        8.0
+      ],
+      "vertices": 653,
+      "triangles": 1302,
+      "edges": 1953,
+      "connected_components": 1,
+      "nonmanifold_or_boundary_edges": 0,
+      "inconsistent_winding_edges": 0,
+      "degenerate_triangles": 0,
+      "duplicate_faces": 0,
+      "euler_characteristic": 2,
+      "closed_manifold": true,
+      "consistently_oriented": true,
+      "signed_volume_mm3": 18551.443081188583,
+      "planar_base_area_at_z0_mm2": 3751.376211249493,
+      "downward_facets_above_base": [],
+      "downward_surface_area_above_base_mm2": 0,
+      "stl": "stl/dil-2.stl",
+      "stl_sha256": "234609e928b67293bf2ab563707270e0eb9e630d0baa631112eba4eff22916fa",
+      "object_id": 2,
+      "nominal_cad_dimensions_mm": [
+        208.33333333336068,
+        20.0,
+        8.000000000000089
+      ],
+      "mesh_dimension_tolerance_mm": 0.001,
+      "mesh_minus_nominal_dimensions_mm": [
+        -5.0862903719917085e-06,
+        0.0,
+        -8.881784197001252e-14
+      ],
+      "retention_audit_regions": [
+        {
+          "name": "spoj1-zapadka-1",
+          "min_mm": [
+            11.0,
+            8.5,
+            0.2
+          ],
+          "max_mm": [
+            14.0,
+            10.3,
+            3.0
+          ]
+        },
+        {
+          "name": "spoj1-zapadka+1",
+          "min_mm": [
+            11.0,
+            15.700000000000001,
+            0.2
+          ],
+          "max_mm": [
+            14.0,
+            17.5,
+            3.0
+          ]
+        },
+        {
+          "name": "spoj2-zapadka-1",
+          "min_mm": [
+            201.33333333333334,
+            8.5,
+            0.2
+          ],
+          "max_mm": [
+            204.33333333333334,
+            10.3,
+            3.0
+          ]
+        },
+        {
+          "name": "spoj2-zapadka+1",
+          "min_mm": [
+            201.33333333333334,
+            15.700000000000001,
+            0.2
+          ],
+          "max_mm": [
+            204.33333333333334,
+            17.5,
+            3.0
+          ]
+        }
+      ],
+      "translation_mm": [
+        25.833333333319658,
+        120.0,
+        0.0
+      ],
+      "rotation_degrees": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "placed_bounds_mm": [
+        [
+          25.833333333319658,
+          120.0,
+          0.0
+        ],
+        [
+          234.16666158038998,
+          140.0,
+          8.0
+        ]
+      ],
+      "inside_printable_volume": true,
+      "flat_base_on_z0": true
+    },
+    {
+      "bounds_mm": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          190.3333282470703,
+          20.0,
+          8.0
+        ]
+      ],
+      "dimensions_mm": [
+        190.3333282470703,
+        20.0,
+        8.0
+      ],
+      "vertices": 320,
+      "triangles": 636,
+      "edges": 954,
+      "connected_components": 1,
+      "nonmanifold_or_boundary_edges": 0,
+      "inconsistent_winding_edges": 0,
+      "degenerate_triangles": 0,
+      "duplicate_faces": 0,
+      "euler_characteristic": 2,
+      "closed_manifold": true,
+      "consistently_oriented": true,
+      "signed_volume_mm3": 18129.350389188327,
+      "planar_base_area_at_z0_mm2": 3673.1072867786197,
+      "downward_facets_above_base": [],
+      "downward_surface_area_above_base_mm2": 0,
+      "stl": "stl/dil-3.stl",
+      "stl_sha256": "650a141073b9dc5d93b39e1b64e75862febafd1fb9397aa227e93f1ba6951546",
+      "object_id": 3,
+      "nominal_cad_dimensions_mm": [
+        190.33333333333331,
+        20.0,
+        8.000000000000128
+      ],
+      "mesh_dimension_tolerance_mm": 0.001,
+      "mesh_minus_nominal_dimensions_mm": [
+        -5.086263001885527e-06,
+        0.0,
+        -1.2789769243681803e-13
+      ],
+      "retention_audit_regions": [
+        {
+          "name": "spoj2-zapadka-1",
+          "min_mm": [
+            11.0,
+            8.5,
+            0.2
+          ],
+          "max_mm": [
+            14.0,
+            10.3,
+            3.0
+          ]
+        },
+        {
+          "name": "spoj2-zapadka+1",
+          "min_mm": [
+            11.0,
+            15.700000000000001,
+            0.2
+          ],
+          "max_mm": [
+            14.0,
+            17.5,
+            3.0
+          ]
+        }
+      ],
+      "translation_mm": [
+        34.83333333333334,
+        160.0,
+        0.0
+      ],
+      "rotation_degrees": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "placed_bounds_mm": [
+        [
+          34.83333333333334,
+          160.0,
+          0.0
+        ],
+        [
+          225.16666158040366,
+          180.0,
+          8.0
+        ]
+      ],
+      "inside_printable_volume": true,
+      "flat_base_on_z0": true
+    }
+  ],
+  "reopened_zip_xml_meshes_and_transforms_verified": true,
+  "limitations": [
+    "Slicer import and toolpaths have not been checked for this geometry-only file.",
+    "Alzament TPU95A is specified; physical calibration and snap fit remain unverified.",
+    "Mesh closure does not establish watertight physical printing or joint sealing.",
+    "The layout reserves no specific brim or support envelope because no print process is selected.",
+    "No physical fit, adhesion, flexibility or water test has been performed."
+  ]
+}

@@ -1,8 +1,10 @@
 # Koupelnová přepážka B
 
-**Aktuální varianta je [revize 02 — 8mm TPU + 2mm lože](revize-02-8mm/README.md); soubory přímo v této kořenové složce zůstávají starou 10mm referencí a nejsou aktuálním předáním.**
+**Nový návrh k posouzení: [revize 03 — 575 mm se zacvakávacími spoji](revize-03-575-zacvak/README.md).** Tři díly, 8 mm TPU + 2 mm lože; bez lepidla mezi díly. CAD a tiskové projekty jsou ověřené počítačově, fyzické zacvaknutí a těsnost zatím ne.
 
-**22. 9. večer: Jiří nahlásil neúspěšný fyzický tisk.** [Diagnostika a zachované důkazy](diagnostika/2026-09-22-nepovedeny-tisk/README.md) rozlišují nalezený místní PLA export od připraveného TPU projektu; skutečně spuštěný soubor ještě není potvrzený. Pro ověření nastavení otevřít celý [aktuální testovací projekt](revize-02-8mm/rozlozeni/TEST-EXPERIMENT-spoj-Alzament-TPU95A.3mf), nikoli kopírovat staré díly do jiného procesu. Následující text a soubory této kořenové složky jsou historický popis 10mm reference.
+**Předchozí varianta je [revize 02 — 8mm TPU + 2mm lože](revize-02-8mm/README.md); soubory přímo v této kořenové složce zůstávají starou 10mm referencí a nejsou aktuálním předáním.**
+
+**22. 9. večer: Jiří nahlásil neúspěšný fyzický tisk.** [Diagnostika a zachované důkazy](diagnostika/2026-09-22-nepovedeny-tisk/README.md) rozlišují nalezený místní PLA export od připraveného TPU projektu; skutečně spuštěný soubor ještě není potvrzený. Pro ověření nastavení otevřít celý [tehdejší testovací projekt revize 02](revize-02-8mm/rozlozeni/TEST-EXPERIMENT-spoj-Alzament-TPU95A.3mf), nikoli kopírovat staré díly do jiného procesu. Následující text a soubory této kořenové složky jsou historický popis 10mm reference.
 
 Parametrický mechanický návrh, 22. 9. 2026. Účel: **zabránit vytékání/průtoku vody**. Geometrie prošla kontrolou; fyzická těsnost, spoj, přilnutí a tisk zatím ověřené nejsou.
 

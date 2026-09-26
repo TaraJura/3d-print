@@ -1,0 +1,303 @@
+{
+  "status": "pass_with_recorded_profile_warnings",
+  "copies": {
+    "assembly": 12,
+    "motor_gauge": 1
+  },
+  "max_import_vertex_delta_mm": 1.5943999983392132e-05,
+  "limits": "Lokální řez a geometrie nedokazují fyzickou přilnavost, rozměrový fit, odstranitelnost podpor ani zatížitelnost. Startovací/custom G-code není v kontrole obálek.",
+  "plates": [
+    {
+      "plate": "podlozka-merka-01",
+      "count": 1,
+      "support_used": "false",
+      "predicted_seconds": 555,
+      "predicted_weight_g": 2.07,
+      "effective_textured_bed_temp_c": 50,
+      "gcode_contains_M140_S50": true,
+      "warnings": [],
+      "sliced_3mf_sha256": "64f5d48111ab52a2377cb485725e564f3fa044c76048ad8c1fd520cfbd4463c5",
+      "gcode_sha256": "41368d9f4e9ebbfcd1a356789c7e4bba0030a0b138f167c82b59029a10342917",
+      "max_import_vertex_delta_mm": 1.9099999946092794e-06,
+      "minimum_actual_path_gap_mm": null,
+      "nearest_objects": null,
+      "minimum_actual_path_edge_mm": 7.255413,
+      "object_roles": {
+        "merka_motoru_01": {
+          "roles": {
+            "Brim": 386,
+            "Outer wall": 1900,
+            "Inner wall": 5435,
+            "Gap infill": 52,
+            "Bottom surface": 281,
+            "Internal solid infill": 2903,
+            "Sparse infill": 520,
+            "Internal Bridge": 347,
+            "Top surface": 154
+          },
+          "model_max_z_mm": 2.92,
+          "mesh_max_z_mm": 3.0,
+          "support_bounds_mm": null,
+          "path_envelope_edge_mm": 7.255413
+        }
+      },
+      "setting_changes_after_slice": {
+        "machine_max_junction_deviation": [
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0"
+          ]
+        ]
+      },
+      "toolpath_preview": "podlozka-merka-01-drahy.png",
+      "critical_layers_preview": null
+    },
+    {
+      "plate": "podlozka-sestava-01",
+      "count": 12,
+      "support_used": "true",
+      "predicted_seconds": 19508,
+      "predicted_weight_g": 82.58,
+      "effective_textured_bed_temp_c": 50,
+      "gcode_contains_M140_S50": true,
+      "warnings": [
+        {
+          "msg": "not_support_traditional_timelapse",
+          "level": "1",
+          "error_code": "1000C003"
+        }
+      ],
+      "sliced_3mf_sha256": "19402aa75767f5dbb0c05121ede2759b88a8c731b16e33edd9d14bc0c9d2a29a",
+      "gcode_sha256": "aeb9da761d192e93ed48068cbdd904e37135a2826feab19b0f3288605541af54",
+      "max_import_vertex_delta_mm": 1.5943999983392132e-05,
+      "minimum_actual_path_gap_mm": 6.567736880054146,
+      "nearest_objects": [
+        "cep_kloubu_02",
+        "cep_kloubu_03"
+      ],
+      "minimum_actual_path_edge_mm": 7.2671814999999995,
+      "object_roles": {
+        "vymenna_plosina_01": {
+          "roles": {
+            "Brim": 395,
+            "Outer wall": 8395,
+            "Inner wall": 23142,
+            "Bottom surface": 961,
+            "Gap infill": 456,
+            "Internal solid infill": 13642,
+            "Sparse infill": 16297,
+            "Bridge": 197,
+            "Overhang wall": 256,
+            "Internal Bridge": 1508,
+            "Top surface": 1308
+          },
+          "model_max_z_mm": 36.04,
+          "mesh_max_z_mm": 36.0,
+          "support_bounds_mm": null,
+          "path_envelope_edge_mm": 7.2671814999999995
+        },
+        "otocna_zakladna_01": {
+          "roles": {
+            "Support interface": 2827,
+            "Support": 662,
+            "Brim": 2117,
+            "Outer wall": 8841,
+            "Inner wall": 19999,
+            "Gap infill": 347,
+            "Bridge": 326,
+            "Overhang wall": 581,
+            "Internal solid infill": 5514,
+            "Sparse infill": 3556,
+            "Internal Bridge": 498,
+            "Top surface": 310
+          },
+          "model_max_z_mm": 33.96,
+          "mesh_max_z_mm": 33.99672318,
+          "support_bounds_mm": [
+            [
+              12.193,
+              98.149,
+              0.2
+            ],
+            [
+              61.796,
+              147.828,
+              29.96
+            ]
+          ],
+          "path_envelope_edge_mm": 9.245685
+        },
+        "predlokti_s_rukou_01": {
+          "roles": {
+            "Brim": 385,
+            "Outer wall": 11646,
+            "Inner wall": 34459,
+            "Bottom surface": 28,
+            "Internal solid infill": 3091,
+            "Sparse infill": 7433,
+            "Bridge": 235,
+            "Overhang wall": 756,
+            "Internal Bridge": 537,
+            "Gap infill": 294,
+            "Top surface": 256
+          },
+          "model_max_z_mm": 20.04,
+          "mesh_max_z_mm": 20.0,
+          "support_bounds_mm": null,
+          "path_envelope_edge_mm": 77.94606999999999
+        },
+        "nadlokti_01": {
+          "roles": {
+            "Brim": 1109,
+            "Outer wall": 22796,
+            "Inner wall": 62640,
+            "Gap infill": 3063,
+            "Bottom surface": 149,
+            "Internal solid infill": 5349,
+            "Sparse infill": 6857,
+            "Internal Bridge": 657,
+            "Top surface": 329,
+            "Bridge": 359,
+            "Overhang wall": 1589
+          },
+          "model_max_z_mm": 18.76,
+          "mesh_max_z_mm": 18.79999924,
+          "support_bounds_mm": null,
+          "path_envelope_edge_mm": 14.233408755111668
+        },
+        "pojistka_cepu_01": {
+          "roles": {
+            "Brim": 831,
+            "Outer wall": 699,
+            "Inner wall": 1520,
+            "Gap infill": 44,
+            "Top surface": 33
+          },
+          "model_max_z_mm": 1.32,
+          "mesh_max_z_mm": 1.39999998,
+          "support_bounds_mm": null,
+          "path_envelope_edge_mm": 7.308025235239815
+        },
+        "pojistka_cepu_02": {
+          "roles": {
+            "Brim": 832,
+            "Outer wall": 712,
+            "Inner wall": 1534,
+            "Gap infill": 46,
+            "Top surface": 33
+          },
+          "model_max_z_mm": 1.32,
+          "mesh_max_z_mm": 1.39999998,
+          "support_bounds_mm": null,
+          "path_envelope_edge_mm": 33.07502523523982
+        },
+        "pojistka_cepu_03": {
+          "roles": {
+            "Brim": 828,
+            "Outer wall": 710,
+            "Inner wall": 1524,
+            "Gap infill": 44,
+            "Top surface": 33
+          },
+          "model_max_z_mm": 1.32,
+          "mesh_max_z_mm": 1.39999998,
+          "support_bounds_mm": null,
+          "path_envelope_edge_mm": 58.851
+        },
+        "pojistka_cepu_04": {
+          "roles": {
+            "Brim": 828,
+            "Outer wall": 702,
+            "Inner wall": 1528,
+            "Gap infill": 46,
+            "Top surface": 33
+          },
+          "model_max_z_mm": 1.32,
+          "mesh_max_z_mm": 1.39999998,
+          "support_bounds_mm": null,
+          "path_envelope_edge_mm": 81.320020352971
+        },
+        "cep_kloubu_01": {
+          "roles": {
+            "Brim": 682,
+            "Outer wall": 6477,
+            "Inner wall": 12970,
+            "Bottom surface": 28,
+            "Internal solid infill": 864,
+            "Top surface": 32,
+            "Gap infill": 4
+          },
+          "model_max_z_mm": 25.0,
+          "mesh_max_z_mm": 25.0,
+          "support_bounds_mm": null,
+          "path_envelope_edge_mm": 83.78541909329778
+        },
+        "cep_kloubu_02": {
+          "roles": {
+            "Brim": 684,
+            "Outer wall": 6518,
+            "Inner wall": 13051,
+            "Bottom surface": 28,
+            "Internal solid infill": 860,
+            "Top surface": 32,
+            "Gap infill": 5
+          },
+          "model_max_z_mm": 25.0,
+          "mesh_max_z_mm": 25.0,
+          "support_bounds_mm": null,
+          "path_envelope_edge_mm": 83.78542109329359
+        },
+        "cep_kloubu_03": {
+          "roles": {
+            "Brim": 684,
+            "Outer wall": 6517,
+            "Inner wall": 13051,
+            "Bottom surface": 28,
+            "Internal solid infill": 860,
+            "Top surface": 32,
+            "Gap infill": 5
+          },
+          "model_max_z_mm": 25.0,
+          "mesh_max_z_mm": 25.0,
+          "support_bounds_mm": null,
+          "path_envelope_edge_mm": 83.7854210908695
+        },
+        "cep_kloubu_04": {
+          "roles": {
+            "Brim": 685,
+            "Outer wall": 6518,
+            "Inner wall": 13051,
+            "Bottom surface": 28,
+            "Internal solid infill": 860,
+            "Top surface": 32,
+            "Gap infill": 5
+          },
+          "model_max_z_mm": 25.0,
+          "mesh_max_z_mm": 25.0,
+          "support_bounds_mm": null,
+          "path_envelope_edge_mm": 62.22042077792713
+        }
+      },
+      "setting_changes_after_slice": {
+        "machine_max_junction_deviation": [
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0"
+          ]
+        ]
+      },
+      "toolpath_preview": "podlozka-sestava-01-drahy.png",
+      "critical_layers_preview": "podlozka-sestava-01-kriticke-vrstvy.png"
+    }
+  ]
+}

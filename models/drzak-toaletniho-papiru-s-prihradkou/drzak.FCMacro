@@ -1,0 +1,400 @@
+# -*- coding: utf-8 -*-
+"""Parametrický držák role s čelním výsuvným šuplíkem (mm).
+
+Spuštění přepíše výstupní FCStd, pět STL a kontrolní JSON v této složce.
+Neodesílá nic do sliceru ani do tiskárny. Fotografie nemá měřítko: všechny
+rozměry jsou návrhové. V tabulce Parameters lze měnit hlavní hodnoty bez
+tohoto makra; dokument používá jen standardní objekty, booleany a výrazy.
+"""
+from pathlib import Path
+import hashlib
+import json
+import FreeCAD as App
+import Part
+import MeshPart
+
+OUT = Path(__file__).resolve().parent
+STL = OUT / "stl"
+STL.mkdir(exist_ok=True)
+
+VALUES = [
+    ("BodyWidth", "Šířka schránky", 190, "návrh z fotografie"),
+    ("BodyDepth", "Hloubka schránky", 120, "návrh z fotografie"),
+    ("BodyHeight", "Výška schránky", 58, "návrh z fotografie"),
+    ("OuterRadius", "Zaoblení rohů", 14, "návrh"),
+    ("SideWall", "Boční stěna výsuvu", 16, "návrh; u čela kvůli zaoblení"),
+    ("BackWall", "Zadní stěna", 5, "návrh"),
+    ("Floor", "Dno schránky", 5, "návrh"),
+    ("Roof", "Pevná odkládací deska", 6, "návrh; fyzická nosnost neověřena"),
+    ("SlideClearance", "Boční vůle šuplíku na stranu", 1.2, "velkorysý návrh pro FDM"),
+    ("TopClearance", "Vůle šuplíku pod stropem", 1.2, "návrh pro FDM"),
+    ("RailHeight", "Výška vodicích lišt", 2, "návrh"),
+    ("RailWidth", "Šířka vodicích lišt", 5, "úzká kontaktní plocha"),
+    ("RailInset", "Odsazení vodicí lišty od boku", 19, "návrh; mimo hlavy šroubů"),
+    ("RailGap", "Svislá montážní vůle nad lištou", 0.8, "volný náběh; vlastní tíhou dosedne na lišty"),
+    ("DrawerDepth", "Hloubka těla šuplíku", 114, "návrh; celé vysunutí možné"),
+    ("DrawerWall", "Stěna šuplíku", 4, "návrh"),
+    ("DrawerBottom", "Dno šuplíku", 4, "návrh"),
+    ("DrawerCorner", "Zaoblení šuplíku", 6, "návrh"),
+    ("PullWidth", "Šířka čelního úchopu", 36, "návrh"),
+    ("PullProjection", "Přesah úchopu před čelo", 7, "návrh"),
+    ("BracketThickness", "Tloušťka ramene", 12, "návrh"),
+    ("BracketLength", "Délka ramene", 88, "návrh"),
+    ("BracketHeight", "Výška ramene", 91, "návrh"),
+    ("BracketInsetX", "Odsazení ramen od boku", 25, "návrh"),
+    ("BracketOffsetY", "Odsazení ramen od stěny", 20, "návrh"),
+    ("BracketScrewDia", "Montážní otvor M4", 4.6, "návrh; šrouby ověřit"),
+    ("WallScrewDia", "Otvor pro uchycení ke stěně", 5.5, "návrh; kotvy dle podkladu"),
+    ("WallHeadDia", "Zapuštěná hlava vrutu do stěny", 11, "návrh pro hlavu se zápustí"),
+    ("AxleRadius", "Poloměr osy role", 6, "návrh"),
+    ("AxleLength", "Délka těla osy", 148, "návrh"),
+    ("AxleHeadRadius", "Poloměr hlavy osy", 10, "návrh"),
+    ("AxleHeadLength", "Tloušťka hlavy osy", 4, "návrh"),
+    ("CapOuterRadius", "Poloměr zátky", 10, "návrh"),
+    ("CapSocketRadius", "Poloměr otvoru zátky", 6.05, "návrh; vyzkoušet fit"),
+    ("CapHeight", "Výška zátky", 8, "návrh"),
+]
+
+doc = App.newDocument("DrzakToaletnihoPapiru")
+doc.Label = "Držák toaletního papíru s přihrádkou – tiskový prototyp"
+sheet = doc.addObject("Spreadsheet::Sheet", "Parameters")
+sheet.Label = "Parametry – všechny délky v mm"
+for col, value in zip("ABC", ("Parametr", "Hodnota", "Původ")):
+    sheet.set(col + "1", value)
+sheet.setStyle("A1:C1", "bold", "add")
+sheet.setBackground("A1:C1", (0.83, 0.89, 0.94))
+for row, (alias, label, value, status) in enumerate(VALUES, 2):
+    sheet.set(f"A{row}", label)
+    sheet.set(f"B{row}", f"{value:g} mm")
+    sheet.setAlias(f"B{row}", alias)
+    sheet.set(f"C{row}", status)
+    sheet.setBackground(f"B{row}", (1.0, 0.94, 0.79))
+sheet.setColumnWidth("A", 320)
+sheet.setColumnWidth("B", 125)
+sheet.setColumnWidth("C", 260)
+doc.recompute()
+
+def p(alias):
+    return "Parameters." + alias
+
+def e(obj, prop, value):
+    obj.setExpression(prop, value)
+
+def box(name, label, length, width, height, x="0 mm", y="0 mm", z="0 mm"):
+    obj = doc.addObject("Part::Box", name)
+    obj.Label = label
+    for prop, val in zip(("Length", "Width", "Height"), (length, width, height)):
+        e(obj, prop, val)
+    for prop, val in zip(("x", "y", "z"), (x, y, z)):
+        e(obj, "Placement.Base." + prop, val)
+    return obj
+
+def cylinder(name, label, radius, height, x, y, z, rotation=None):
+    obj = doc.addObject("Part::Cylinder", name)
+    obj.Label = label
+    e(obj, "Radius", radius)
+    e(obj, "Height", height)
+    if rotation is not None:
+        obj.Placement.Rotation = rotation
+    for prop, val in zip(("x", "y", "z"), (x, y, z)):
+        e(obj, "Placement.Base." + prop, val)
+    return obj
+
+def cone(name, label, radius_bottom, radius_top, height, x, y, z, rotation=None):
+    obj = doc.addObject("Part::Cone", name)
+    obj.Label = label
+    e(obj, "Radius1", radius_bottom)
+    e(obj, "Radius2", radius_top)
+    e(obj, "Height", height)
+    if rotation is not None:
+        obj.Placement.Rotation = rotation
+    for prop, val in zip(("x", "y", "z"), (x, y, z)):
+        e(obj, "Placement.Base." + prop, val)
+    return obj
+
+def fuse(name, label, shapes):
+    obj = doc.addObject("Part::MultiFuse", name)
+    obj.Label = label
+    obj.Shapes = shapes
+    obj.Refine = True
+    return obj
+
+def cut(name, label, base, tool):
+    obj = doc.addObject("Part::Cut", name)
+    obj.Label = label
+    obj.Base = base
+    obj.Tool = tool
+    obj.Refine = True
+    return obj
+
+def rounded_prism(prefix, label, w, d, r, h, x, y, z):
+    """Zaoblený obdélníkový hranol ze standardních parametrických těles."""
+    parts = [
+        box(prefix + "CoreA", label + " / střed A", f"{w} - 2*({r})", d, h,
+            f"{x} + {r}", y, z),
+        box(prefix + "CoreB", label + " / střed B", w, f"{d} - 2*({r})", h,
+            x, f"{y} + {r}", z),
+    ]
+    for i, xx in enumerate((f"{x} + {r}", f"{x} + {w} - {r}")):
+        for j, yy in enumerate((f"{y} + {r}", f"{y} + {d} - {r}")):
+            parts.append(cylinder(prefix + f"Round{i}{j}", label + " / roh", r, h, xx, yy, z))
+    return fuse(prefix, label, parts)
+
+def front_rounded_prism(prefix, label, w, d, r, h, x, y, z):
+    """Čelo zaoblené, zadní stěna celou šířkou pro pevný tiskový kontakt."""
+    parts = [
+        box(prefix + "Rear", label + " / rovná zadní opora", w, f"{d} - {r}", h, x, y, z),
+        box(prefix + "Front", label + " / rovné čelo", f"{w} - 2*{r}", r, h,
+            f"{x} + {r}", f"{y} + {d} - {r}", z),
+    ]
+    for n, xx in enumerate((f"{x} + {r}", f"{x} + {w} - {r}"), 1):
+        parts.append(cylinder(prefix + f"FrontRound{n}", label + " / přední roh", r, h,
+                              xx, f"{y} + {d} - {r}", z))
+    return fuse(prefix, label, parts)
+
+W, D, H, R = (p("BodyWidth"), p("BodyDepth"), p("BodyHeight"), p("OuterRadius"))
+side, back, floor, roof = (p("SideWall"), p("BackWall"), p("Floor"), p("Roof"))
+clear = p("SlideClearance")
+inner_w = f"{W} - 2*{side}"
+drawer_w = f"{inner_w} - 2*{clear}"
+drawer_h = f"{H} - {roof} - {p('TopClearance')} - {floor} - {p('RailHeight')} - {p('RailGap')}"
+
+# Pevný strop je plocha pro telefon. Celé tělo se pro tisk otočí zadní stěnou dolů;
+# v tiskové orientaci je čelní otvor nahoře a nad dutinou nevzniká velký most.
+outer = front_rounded_prism("BodyOuter", "Vnější obrys schránky", W, D, R, H,
+                            "0 mm", "0 mm", "0 mm")
+inner = box("BodyCavity", "Prostor čelního výsuvu", inner_w, f"{D} - {back} + 2 mm",
+            f"{H} - {floor} - {roof}", side, back, floor)
+shell = cut("BodyShell", "Schránka s pevným stropem a čelním otvorem", outer, inner)
+wall_holes = []
+wall_countersinks = []
+for n, x in enumerate((f"{W}/2 - 65 mm", f"{W}/2 + 65 mm"), 1):
+    wall_holes.append(cylinder(f"WallHole{n}", f"Otvor do stěny {n}",
+                               f"{p('WallScrewDia')}/2", f"{back} + 2 mm",
+                               x, f"{back} + 1 mm", "34 mm",
+                               App.Rotation(App.Vector(1, 0, 0), 90)))
+    wall_countersinks.append(cone(f"WallHead{n}", f"Zápustná hlava do stěny {n}",
+                                  f"{p('WallHeadDia')}/2", f"{p('WallScrewDia')}/2",
+                                  f"({p('WallHeadDia')} - {p('WallScrewDia')})/2",
+                                  x, back, "34 mm", App.Rotation(App.Vector(1, 0, 0), 90)))
+shell = cut("BodyWallMounted", "Schránka / otvory do stěny", shell,
+            fuse("WallHoles", "Dva otvory a zapuštění pro stěnu", wall_holes + wall_countersinks))
+bracket_xs = (f"{p('BracketInsetX')} + {p('BracketThickness')}/2",
+              f"{W} - {p('BracketInsetX')} - {p('BracketThickness')}/2")
+attach_holes = []
+attach_countersinks = []
+for i, x in enumerate(bracket_xs, 1):
+    for j, y in enumerate((f"{p('BracketOffsetY')} + 30 mm",
+                           f"{p('BracketOffsetY')} + 76 mm"), 1):
+        attach_holes.append(cylinder(f"AttachHole{i}{j}", f"Otvor ramene {i}.{j}",
+                                     f"{p('BracketScrewDia')}/2", f"{floor} + 2 mm",
+                                     x, y, "-1 mm"))
+        attach_countersinks.append(cone(f"AttachHead{i}{j}", f"Zápustná hlava M4 {i}.{j}",
+                                        f"{p('BracketScrewDia')}/2", "4.6 mm", "2.3 mm",
+                                        x, y, f"{floor} - 2.3 mm"))
+shell = cut("BodyFastened", "Schránka / zápustné šrouby ramen", shell,
+            fuse("AttachHoles", "Čtyři otvory a zapuštění pro ramena",
+                 attach_holes + attach_countersinks))
+
+# Dvě nízká úzká vodítka jsou mimo zapuštěné hlavy šroubů. Kulaté čelní konce
+# usnadňují náběh; bez západky lze šuplík vysunout úplně pro čištění a montáž.
+rail_parts = []
+for side_name, x in (("Left", p("RailInset")),
+                     ("Right", f"{W} - {p('RailInset')} - {p('RailWidth')}")):
+    rail_parts.append(box(f"Rail{side_name}Run", f"Lišta {side_name} / úzká plocha",
+                          p("RailWidth"), f"{D} - {back} - 10 mm", p("RailHeight"),
+                          x, back, floor))
+    rail_parts.append(cylinder(f"Rail{side_name}Nose", f"Lišta {side_name} / kulatý náběh",
+                               f"{p('RailWidth')}/2", p("RailHeight"),
+                               f"{x} + {p('RailWidth')}/2", f"{D} - 10 mm", floor))
+body = fuse("Body", "Schránka s pevným stropem a vodítky – tiskový díl",
+            [shell] + rail_parts)
+
+# Jednodílný otevřený šuplík, dnem na podložce; přední úchop vyrůstá už od
+# první vrstvy. Sražení dlouhé spodní hrany vzadu brání zachycení o lišty.
+drawer_outer = rounded_prism("DrawerOuter", "Vnější tvar šuplíku", drawer_w,
+                             p("DrawerDepth"), p("DrawerCorner"), drawer_h,
+                             "0 mm", "0 mm", "0 mm")
+doc.recompute()
+lead_edges = []
+for n, edge in enumerate(drawer_outer.Shape.Edges, 1):
+    bb = edge.BoundBox
+    if abs(bb.YMin) < 1e-6 and abs(bb.YMax) < 1e-6 and abs(bb.ZMin) < 1e-6 and abs(bb.ZMax) < 1e-6 and bb.XLength > 100:
+        lead_edges.append((n, 1.5, 1.5))
+if len(lead_edges) != 1:
+    raise RuntimeError(f"Rear drawer lead-in edge not found: {lead_edges}")
+drawer_bevel = doc.addObject("Part::Chamfer", "DrawerLeadIn")
+drawer_bevel.Label = "Náběhové sražení zadní spodní hrany 1,5 mm"
+drawer_bevel.Base = drawer_outer
+drawer_bevel.Edges = lead_edges
+drawer_inner = rounded_prism("DrawerCavity", "Vnitřek otevřeného šuplíku",
+                             f"{drawer_w} - 2*{p('DrawerWall')}",
+                             f"{p('DrawerDepth')} - 2*{p('DrawerWall')}",
+                             f"{p('DrawerCorner')} - {p('DrawerWall')}",
+                             f"{drawer_h} + 2 mm",
+                             p("DrawerWall"), p("DrawerWall"), p("DrawerBottom"))
+drawer_shell = cut("DrawerShell", "Dutý výsuvný šuplík", drawer_bevel, drawer_inner)
+pull = rounded_prism("DrawerPull", "Integrovaný čelní úchop",
+                     p("PullWidth"), f"{p('PullProjection')} + 4 mm", "2.5 mm", drawer_h,
+                     f"({drawer_w} - {p('PullWidth')})/2", f"{p('DrawerDepth')} - 4 mm", "0 mm")
+drawer = fuse("Drawer", "Čelně výsuvný šuplík – tiskový díl", [drawer_shell, pull])
+
+# Obě ramena jsou fyzicky stejné výtisky. Dolní pás je na plocho ve směru vrstev.
+bt, bl, bh = (p("BracketThickness"), p("BracketLength"), p("BracketHeight"))
+bracket_parts = [
+    box("BracketTop", "Horní montážní pás", bt, bl, "12 mm", "0 mm", "0 mm", f"{bh} - 12 mm"),
+    box("BracketBack", "Zadní stojina", bt, "16 mm", f"{bh} - 12 mm"),
+    box("BracketArm", "Dolní nosné rameno", bt, "76 mm", "12 mm"),
+    box("BracketStopBack", "Zadní zarážka osy", bt, "6 mm", "8 mm", "0 mm", "47 mm", "12 mm"),
+    box("BracketStopFront", "Přední zarážka osy", bt, "7 mm", "8 mm", "0 mm", "69 mm", "12 mm"),
+]
+bracket_raw = fuse("BracketRaw", "Rameno / pevný profil", bracket_parts)
+bracket_holes = [cylinder(f"BracketBolt{j}", f"Montážní otvor M4 / {j}",
+                          f"{p('BracketScrewDia')}/2", "14 mm", f"{bt}/2", f"{yy} mm",
+                          f"{bh} - 13 mm") for j, yy in enumerate((30, 76), 1)]
+bracket = cut("Bracket", "Boční rameno – tisknout 2×", bracket_raw,
+              fuse("BracketHoles", "Otvory v rameni", bracket_holes))
+
+# Osa se zploštěnou tiskovou plochou: žádná podpora pod dlouhým válcem.
+shaft_core = cylinder("AxleCore", "Osa Ø12", p("AxleRadius"), p("AxleLength"),
+                      p("AxleHeadLength"), "0 mm", p("AxleRadius"),
+                      App.Rotation(App.Vector(0, 1, 0), 90))
+shaft_head = cylinder("AxleHead", "Hlava osy", p("AxleHeadRadius"), p("AxleHeadLength"),
+                      "0 mm", "0 mm", p("AxleRadius"),
+                      App.Rotation(App.Vector(0, 1, 0), 90))
+shaft_round = fuse("AxleRound", "Osa s hlavou", [shaft_core, shaft_head])
+shaft_flat_box = box("AxleFlatTool", "Plocha pro tisk", f"{p('AxleLength')} + {p('AxleHeadLength')} + 2 mm",
+                     "22 mm", "17 mm", "-1 mm", "-11 mm", "1.5 mm")
+shaft = doc.addObject("Part::Common", "Axle")
+shaft.Label = "Vyjímatelná osa – výsledný tiskový díl"
+shaft.Base = shaft_round
+shaft.Tool = shaft_flat_box
+shaft.Refine = True
+
+# Prstencová nasazovací zátka, otevřená drážka dovoluje jemný pružný stisk.
+cap_outer = cylinder("CapOuter", "Zátka / obvod", p("CapOuterRadius"), p("CapHeight"),
+                     "10 mm", "10 mm", "0 mm")
+cap_socket = cylinder("CapSocket", "Zátka / otvor", p("CapSocketRadius"),
+                      f"{p('CapHeight')} - 1 mm", "10 mm", "10 mm", "2 mm")
+cap_cup = cut("CapCup", "Zátka / dutina", cap_outer, cap_socket)
+cap_slit = box("CapSlit", "Pružná štěrbina zátky", "12 mm", "2.5 mm",
+               f"{p('CapHeight')} + 2 mm", "10 mm", "8.75 mm", "-1 mm")
+cap = cut("Cap", "Pružná pojistná zátka – výsledný tiskový díl", cap_cup, cap_slit)
+
+finals = [body, drawer, bracket, shaft, cap]
+doc.recompute()
+report = {"status": "geometrie CAD; fyzický tisk a montáž neověřeny",
+          "source_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
+          "parameters_mm": {a: v for a, _, v, _ in VALUES},
+          "pieces": {"Body": 1, "Drawer": 1, "Bracket": 2, "Axle": 1, "Cap": 1},
+          "parts": {}}
+for obj in finals:
+    if not obj.Shape.isValid() or len(obj.Shape.Solids) != 1:
+        raise RuntimeError(f"Invalid {obj.Name}: {obj.State}, solids={len(obj.Shape.Solids)}")
+    bb = obj.Shape.BoundBox
+    # Tělo leží při tisku zadní stěnou na podložce; dutina je otevřená nahoře.
+    # Ramena leží na boku, aby obrys ramen a stojiny vycházel ve směru vrstev.
+    mesh_shape = obj.Shape.copy()
+    if obj == body:
+        mesh_shape.rotate(App.Vector(0, 0, 0), App.Vector(1, 0, 0), 90)
+    if obj == bracket:
+        mesh_shape.rotate(App.Vector(0, 0, 0), App.Vector(0, 1, 0), -90)
+    bbm = mesh_shape.BoundBox
+    mesh_shape.translate(App.Vector(-bbm.XMin, -bbm.YMin, -bbm.ZMin))
+    mesh = MeshPart.meshFromShape(Shape=mesh_shape, LinearDeflection=0.08,
+                                  AngularDeflection=0.15, Relative=False)
+    target = STL / (obj.Name.lower() + ".stl")
+    mesh.write(str(target))
+    if not mesh.isSolid():
+        raise RuntimeError(f"Open STL mesh: {target}")
+    printable = mesh_shape.BoundBox
+    report["parts"][obj.Name] = {
+        "solid_count": len(obj.Shape.Solids), "cad_valid": obj.Shape.isValid(),
+        "cad_dimensions_mm": [bb.XLength, bb.YLength, bb.ZLength],
+        "print_dimensions_mm": [printable.XLength, printable.YLength, printable.ZLength],
+        "volume_mm3": obj.Shape.Volume, "stl_facets": mesh.CountFacets,
+        "stl_closed": mesh.isSolid(), "stl": str(target.relative_to(OUT))}
+
+# Názorná sestava v jednom FCStd. Vazby jsou standardní App::Link a výrazy.
+def link(name, label, source, rotation, xyz):
+    obj = doc.addObject("App::Link", name)
+    obj.Label = label
+    obj.LinkedObject = source
+    obj.Placement.Rotation = rotation
+    for axis, expression in zip("xyz", xyz):
+        e(obj, "Placement.Base." + axis, expression)
+    return obj
+
+assembled = [
+    link("AssemblyBody", "Sestava / schránka", body, App.Rotation(),
+         ("0 mm", "0 mm", "0 mm")),
+    link("AssemblyDrawer", "Sestava / zasunutý šuplík", drawer, App.Rotation(),
+         (f"{side} + {clear}",
+          f"{back} + 1 mm",
+          f"{floor} + {p('RailHeight')} + {p('RailGap')}")),
+    link("AssemblyBracketLeft", "Sestava / levé rameno", bracket, App.Rotation(),
+         (p("BracketInsetX"), p("BracketOffsetY"), f"-{p('BracketHeight')}")),
+    link("AssemblyBracketRight", "Sestava / pravé rameno", bracket, App.Rotation(),
+         (f"{W} - {p('BracketInsetX')} - {p('BracketThickness')}",
+          p("BracketOffsetY"), f"-{p('BracketHeight')}")),
+    link("AssemblyAxle", "Sestava / osa role", shaft, App.Rotation(),
+         (f"{p('BracketInsetX')} - 5 mm",
+          f"{p('BracketOffsetY')} + 61 mm",
+          f"-{p('BracketHeight')} + 18 mm - {p('AxleRadius')}")),
+    link("AssemblyCap", "Sestava / zátka osy", cap,
+         App.Rotation(App.Vector(0, 1, 0), -90),
+         (f"{p('BracketInsetX')} - 5 mm + {p('AxleHeadLength')} + {p('AxleLength')} + 2 mm",
+          f"{p('BracketOffsetY')} + 61 mm - 10 mm",
+          f"-{p('BracketHeight')} + 18 mm - 10 mm")),
+]
+doc.recompute()
+for obj in assembled:
+    if "Invalid" in obj.State or obj.Shape.isNull():
+        raise RuntimeError(f"Invalid assembly link {obj.Name}: {obj.State}")
+
+# Nominální mezery se měří na sestavě, ne pouze podle tabulky hodnot.
+inner_bb = inner.Shape.BoundBox
+drawer_bb = doc.AssemblyDrawer.Shape.BoundBox
+rail_top = max(doc.RailLeftRun.Shape.BoundBox.ZMax, doc.RailRightRun.Shape.BoundBox.ZMax)
+gaps = {
+    "left_side_mm": drawer_bb.XMin - inner_bb.XMin,
+    "right_side_mm": inner_bb.XMax - drawer_bb.XMax,
+    "roof_mm": inner_bb.ZMax - drawer_bb.ZMax,
+    "rail_mm": drawer_bb.ZMin - rail_top,
+    "rear_mm": drawer_bb.YMin - inner_bb.YMin,
+}
+if any(value < 0.39 for value in gaps.values()):
+    raise RuntimeError(f"Too little nominal drawer clearance: {gaps}")
+report["drawer_nominal_gaps_mm"] = gaps
+report["drawer_body_intersection_mm3"] = body.Shape.common(doc.AssemblyDrawer.Shape).Volume
+if report["drawer_body_intersection_mm3"] > 0.001:
+    raise RuntimeError("Drawer intersects fixed shell")
+slide_checks = []
+for travel in (0, 25, 50, 75, 100, 114):
+    moved = doc.AssemblyDrawer.Shape.copy()
+    moved.translate(App.Vector(0, travel, 0))
+    overlap = body.Shape.common(moved).Volume
+    slide_checks.append({"travel_mm": travel, "intersection_mm3": overlap})
+    if overlap > 0.001:
+        raise RuntimeError(f"Drawer collides at travel {travel} mm: {overlap} mm3")
+report["slide_travel_checks"] = slide_checks
+report["drawer_is_fully_removable"] = True
+report["print_body_on_back_wall"] = True
+report["rear_chamfer_mm"] = 1.5
+
+if App.GuiUp:
+    import FreeCADGui as Gui
+    for obj in doc.Objects:
+        if hasattr(obj, "ViewObject"):
+            obj.ViewObject.Visibility = obj in assembled
+    for obj, rgb in zip(finals, ((0.19, 0.21, 0.25), (0.29, 0.31, 0.35),
+                                 (0.19, 0.21, 0.25), (0.35, 0.37, 0.40),
+                                 (0.35, 0.37, 0.40))):
+        obj.ViewObject.ShapeColor = rgb
+        obj.ViewObject.LineColor = (0.08, 0.08, 0.09)
+    Gui.activeDocument().activeView().viewAxonometric()
+    Gui.activeDocument().activeView().fitAll()
+
+doc.saveAs(str(OUT / "drzak.FCStd"))
+(OUT / "kontrola-modelu.json").write_text(json.dumps(report, indent=2, ensure_ascii=False) + "\n")
+print("CAD_EXPORT_OK", json.dumps({k: v["print_dimensions_mm"] for k, v in report["parts"].items()}), flush=True)

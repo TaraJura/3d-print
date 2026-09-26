@@ -1,0 +1,29 @@
+{
+  "status": "toolpaths audited; no physical print",
+  "layers": 490,
+  "max_extrusion_z_mm": 98.0,
+  "roles_segments": {
+    "Brim": 1343,
+    "Outer wall": 49988,
+    "Inner wall": 99052,
+    "Gap infill": 69427,
+    "Top surface": 391
+  },
+  "brim_segments_on_first_layer": 1343,
+  "first_layer_extrusion_bounds_xy_mm": [
+    50.56,
+    88.06,
+    209.44,
+    171.942
+  ],
+  "other_layers_extrusion_bounds_xy_mm": [
+    55.217,
+    92.71,
+    204.783,
+    167.29
+  ],
+  "all_layers_have_extrusion": true,
+  "support_segments": 0,
+  "bridge_segments": 0,
+  "preview": "prvni-vrstva-01.png"
+}

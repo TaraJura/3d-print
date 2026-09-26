@@ -1,0 +1,485 @@
+# -*- coding: utf-8 -*-
+"""Prvni lehky prototyp paže na vymennou plosinu jednoducheho auticka.
+
+Spoustet ve FreeCAD 1.1+; zapisuje jen do teto slozky: FCStd, STL, JSON.
+Parametry jsou v tabulce Parameters a v seznamu VALUES nize. Zmeny
+provedene jen v FCStd je pred dalsi regeneraci nutne prenest i sem.
+Rozmery 28BYJ-48 jsou navrh podle obecneho typu, nikoli mereni Jirkova kusu.
+"""
+from pathlib import Path
+import json
+import math
+import FreeCAD as App
+import Part
+import Mesh
+import MeshPart
+
+OUT = Path(__file__).resolve().parent
+TARGET = OUT / 'roboticka-ruka.FCStd'
+if TARGET.exists() and any(
+    obj.FileName and Path(obj.FileName).resolve() == TARGET
+    for obj in App.listDocuments().values()
+):
+    raise RuntimeError('Cilovy FCStd je otevreny; nechci prepsat rucni zmeny.')
+App.ParamGet('User parameter:BaseApp/Preferences/Document').SetInt('CountBackupFiles', 0)
+(OUT / 'stl').mkdir(exist_ok=True)
+
+# Jednotky jsou mm. Hodnoty strechy byly prevzaty z
+# models/jednoduche-auticko/strecha.FCMacro, ostatni jsou navrh.
+VALUES = [
+    ('DeckLength', 180, 'Delka vymenne plosiny', 'prevzato z existujici strechy'),
+    ('DeckWidth', 70, 'Sirka vymenne plosiny', 'prevzato z existujici strechy'),
+    ('DeckBottom', 54, 'Spodek horni desky', 'prevzato z existujici strechy'),
+    ('DeckThickness', 4, 'Tloustka desky', 'prevzato z existujici strechy'),
+    ('RoofCentreX', 70, 'Stred plosiny v X', 'puvodni podvozek 140 mm'),
+    ('RearX', 25, 'Zadni dosed X', 'puvodni podvozek'),
+    ('FrontX', 115, 'Predni dosed X', 'puvodni podvozek'),
+    ('BearingY', 18, 'Dosadaci body Y', 'puvodni podvozek'),
+    ('BearingTop', 24, 'Vrsek vystupku', 'puvodni podvozek'),
+    ('SocketDepth', 2, 'Hloubka nasazeni', 'prevzato z existujici strechy'),
+    ('SocketX', 12.6, 'Vnitrek kapsy X', 'prevzato z existujici strechy'),
+    ('SocketY', 8.6, 'Vnitrek kapsy Y', 'prevzato z existujici strechy'),
+    ('PostX', 16.6, 'Vnejsi patka X', 'prevzato z existujici strechy'),
+    ('PostY', 11, 'Vnejsi patka Y', 'prevzato z existujici strechy'),
+    ('AxleZ', 18, 'Vyska osy', 'puvodni podvozek'),
+    ('AxleReliefRadius', 5.5, 'Vybrani kolem rozperky', 'prevzato z existujici strechy'),
+    ('RibWidth', 4, 'Sirka podpurneho zebra', 'prevzato z existujici strechy'),
+    ('RibHeight', 4, 'Vyska podpurneho zebra', 'prevzato z existujici strechy'),
+    ('StrapLength', 12, 'Delka krajni drazky', 'prevzato z existujici strechy'),
+    ('StrapWidth', 2.6, 'Sirka krajni drazky', 'prevzato z existujici strechy'),
+    ('StrapY', 32.5, 'Stred krajni drazky', 'prevzato z existujici strechy'),
+    ('MotorShaftX', 70, 'Osa otaceni', 'navrh: stred mezi dosedy'),
+    ('MotorShaftY', 0, 'Osa otaceni Y', 'navrh'),
+    ('MotorBodyOffsetX', 8, 'Odsazeni tela od osy', 'nominalni reference, overit na kusu'),
+    ('MotorBodyDiameter', 28, 'Prumer tela', 'obecny 28BYJ-48; overit'),
+    ('MotorBodyHeight', 19, 'Vyska tela', 'obecny 28BYJ-48; overit'),
+    ('MotorHolePitch', 35, 'Roztec usi', 'obecny 28BYJ-48; overit merku'),
+    ('MotorHoleDiameter', 3.3, 'Otvor v desce pro M3', 'navrh, skutecne srouby nepotvrzeny'),
+    ('MotorShaftDiameter', 5, 'Prumer vystupni hridelky', 'obecny 28BYJ-48; overit'),
+    ('MotorFlatWidth', 3, 'Sirka pres dve plosky', 'obecny 28BYJ-48; overit'),
+    ('ShaftFit', 0.2, 'Vule otvoru na hridel', 'navrh pro zkusebni merku'),
+    ('ShaftPassage', 7.4, 'Volny prostup deskou', 'navrh'),
+    ('MotorHeadDiameter', 7, 'Zapusteni hlavy sroubu', 'navrh pro plochou hlavu M3'),
+    ('MotorHeadDepth', 2, 'Hloubka zapusteni', 'navrh'),
+    ('RotorDiameter', 50, 'Prumer otocneho kotouce', 'navrh'),
+    ('RotorThickness', 4, 'Tloustka otocneho kotouce', 'navrh'),
+    ('RotorBodyGap', 0.5, 'Vule kotouce nad deskou', 'navrh'),
+    ('SlideRingOuter', 46, 'Vnejsi prumer kluzneho kruhu', 'navrh'),
+    ('SlideRingInner', 42, 'Vnitrni prumer kluzneho kruhu', 'navrh'),
+    ('SlideRingHeight', 0.5, 'Vyska kluzneho kruhu', 'navrh'),
+    ('ShoulderZ', 79, 'Vyska rameni osy', 'navrh'),
+    ('ElbowX', 114, 'Osa lokte X v rovne poloze', 'navrh'),
+    ('WristX', 152, 'Zacatek dlane X', 'navrh'),
+    ('ForkRadius', 13, 'Polomer cechli kloubu', 'navrh'),
+    ('EyeRadius', 12.5, 'Polomer oka pohybliveho clenu', 'navrh'),
+    ('ForkInnerGap', 10.8, 'Mezera mezi cechlemi', 'navrh'),
+    ('ForkWall', 4, 'Sirka cechle', 'navrh'),
+    ('ArmThickness', 10, 'Sirka ramene', 'navrh'),
+    ('ArmHeight', 12, 'Vyska profilu ramene', 'navrh'),
+    ('HingeBore', 4.3, 'Otvor kloubu', 'navrh pro tisteny cep'),
+    ('IndexRadius', 8, 'Polomer aretacnich der', 'navrh'),
+    ('PinShaft', 4.0, 'Prumer cepu', 'navrh; vyzkouset fit'),
+    ('PinLength', 21, 'Delka mezi hlavou a drazkou', 'navrh'),
+    ('PinHead', 7.5, 'Prumer hlavy cepu', 'navrh'),
+    ('PinGroove', 3.2, 'Prumer drazky na pojistku', 'navrh'),
+    ('PinGrooveWidth', 1.4, 'Sirka drazky', 'navrh'),
+]
+P = {name: value for name, value, _, _ in VALUES}
+assert abs(P['DeckLength'] - 180) < 1e-9
+D = App.newDocument('RobotickaRuka')
+D.Label = 'Roboticka ruka — prvni tiskovy prototyp'
+S = D.addObject('Spreadsheet::Sheet', 'Parameters')
+S.Label = 'ROBOTICKA RUKA — parametry mm'
+S.set('A1', 'Parametr')
+S.set('B1', 'Hodnota')
+S.set('C1', 'Puvod')
+S.setStyle('A1:C1', 'bold', 'add')
+for row, (alias, value, label, source) in enumerate(VALUES, 2):
+    S.set('A'+str(row), label)
+    S.set('B'+str(row), '=%g mm' % value)
+    S.setAlias('B'+str(row), alias)
+    S.set('C'+str(row), source)
+    S.setBackground('B'+str(row), (0.80, 0.94, 0.84) if 'prevzato' in source or 'puvodni' in source else (1.0, 0.93, 0.76))
+S.setColumnWidth('A', 340)
+S.setColumnWidth('B', 120)
+S.setColumnWidth('C', 410)
+D.recompute()
+
+all_geo = []
+finals = {}
+def q(name):
+    return 'Parameters.' + name
+def V(x):
+    return App.Vector(*x)
+def setval(obj, prop, value):
+    if isinstance(value, str):
+        obj.setExpression(prop, value)
+    elif prop.startswith('Placement.Base.'):
+        obj.setExpression(prop, '%g mm' % value)
+    else:
+        setattr(obj, prop, value)
+def box(name, size, base):
+    o = D.addObject('Part::Box', name)
+    for prop, value in zip(('Length', 'Width', 'Height'), size):
+        setval(o, prop, value)
+    for axis, value in zip('xyz', base):
+        setval(o, 'Placement.Base.'+axis, value)
+    all_geo.append(o)
+    return o
+def cylinder(name, radius, height, base, axis='z'):
+    o = D.addObject('Part::Cylinder', name)
+    setval(o, 'Radius', radius)
+    setval(o, 'Height', height)
+    if axis == 'y':
+        o.Placement.Rotation = App.Rotation(App.Vector(0,0,1), App.Vector(0,1,0))
+    for coord, value in zip('xyz', base):
+        setval(o, 'Placement.Base.'+coord, value)
+    all_geo.append(o)
+    return o
+def fuse(name, pieces):
+    if len(pieces) == 1:
+        return pieces[0]
+    o = D.addObject('Part::MultiFuse', name)
+    o.Shapes = pieces
+    o.Refine = True
+    all_geo.append(o)
+    return o
+def cut(name, base, voids):
+    tool = fuse(name+'Tools', voids)
+    o = D.addObject('Part::Cut', name)
+    o.Base = base
+    o.Tool = tool
+    o.Refine = True
+    all_geo.append(o)
+    return o
+def common(name, a, b):
+    o = D.addObject('Part::Common', name)
+    o.Base = a
+    o.Tool = b
+    o.Refine = True
+    all_geo.append(o)
+    return o
+def final(name, o, label):
+    o.Label = label
+    finals[name] = o
+    return o
+
+# Plosina: stejne dosedaci kapsy jako fyzicky vytistena strecha.
+deck_z = q('DeckBottom')
+deck_top = q('DeckBottom') + ' + ' + q('DeckThickness')
+plate = box('DeckPlate', (q('DeckLength'), q('DeckWidth'), q('DeckThickness')),
+            (q('RoofCentreX')+' - '+q('DeckLength')+'/2',
+             '-'+q('DeckWidth')+'/2', deck_z))
+roof_parts = [plate]
+roof_voids = []
+for tag, xx in (('Rear', q('RearX')), ('Front', q('FrontX'))):
+    for side in (-1, 1):
+        label = tag + ('Minus' if side == -1 else 'Plus')
+        yy = str(side)+' * '+q('BearingY')
+        post = box('DeckPost'+label,
+            (q('PostX'),q('PostY'), q('DeckBottom')+' - ('+q('BearingTop')+' - '+q('SocketDepth')+')'),
+            (xx+' - '+q('PostX')+'/2', yy+' - '+q('PostY')+'/2',
+             q('BearingTop')+' - '+q('SocketDepth')))
+        roof_parts.append(post)
+        roof_voids.append(box('DeckSocket'+label,
+            (q('SocketX'),q('SocketY'),q('SocketDepth')+' + 1 mm'),
+            (xx+' - '+q('SocketX')+'/2',yy+' - '+q('SocketY')+'/2',
+             q('BearingTop')+' - '+q('SocketDepth')+' - 1 mm')))
+        roof_voids.append(cylinder('DeckAxleClearance'+label,
+            q('AxleReliefRadius'),q('PostY')+' + 2 mm',
+            (xx,yy+' - '+q('PostY')+'/2 - 1 mm',q('AxleZ')), 'y'))
+        roof_voids.append(box('DeckStrap'+label,
+            (q('StrapLength'),q('StrapWidth'),q('DeckThickness')+' + 2 mm'),
+            (xx+' - '+q('StrapLength')+'/2',
+             str(side)+' * '+q('StrapY')+' - '+q('StrapWidth')+'/2',
+             q('DeckBottom')+' - 1 mm')))
+# Zebra jsou pod motorem prerusena. Patky na puvodnich dosedech zustavaji.
+for side in (-1, 1):
+    yy = str(side)+' * '+q('BearingY')+' - '+q('RibWidth')+'/2'
+    for tag, start, end in (
+        ('Rear',q('RearX'),q('MotorShaftX')+' - 24 mm'),
+        ('Front',q('MotorShaftX')+' + 24 mm',q('FrontX'))):
+        roof_parts.append(box('DeckRib'+tag+str(side+2),
+            (end+' - ('+start+')',q('RibWidth'),q('RibHeight')),
+            (start,yy,q('DeckBottom')+' - '+q('RibHeight'))))
+roof_voids.append(cylinder('DeckShaftPassage',q('ShaftPassage')+'/2',
+    q('DeckThickness')+' + 2 mm',
+    (q('MotorShaftX'),q('MotorShaftY'),q('DeckBottom')+' - 1 mm')))
+for side in (-1, 1):
+    yy = q('MotorShaftY')+' + '+str(side)+' * '+q('MotorHolePitch')+'/2'
+    roof_voids.append(cylinder('DeckMotorHole'+str(side+2),q('MotorHoleDiameter')+'/2',
+        q('DeckThickness')+' + 2 mm',
+        (q('MotorShaftX'),yy,q('DeckBottom')+' - 1 mm')))
+    roof_voids.append(cylinder('DeckMotorHead'+str(side+2),q('MotorHeadDiameter')+'/2',
+        q('MotorHeadDepth')+' + 1 mm',
+        (q('MotorShaftX'),yy,deck_top+' - '+q('MotorHeadDepth'))))
+deck = final('vymenna_plosina',
+             cut('PrintDeck',fuse('DeckMaterial',roof_parts),roof_voids),
+             '01 | vymenna plosina; 4 puvodni kapsy')
+
+# Otocny talir lezi na kluznem mezikruzi. Hridel ho pouze otaci.
+rotor_base = deck_top+' + '+q('RotorBodyGap')
+rotor_parts = [cylinder('RotorDisk',q('RotorDiameter')+'/2',q('RotorThickness'),
+             (q('MotorShaftX'),q('MotorShaftY'),rotor_base))]
+ring_outer = cylinder('SlideRingOuter',q('SlideRingOuter')+'/2',q('SlideRingHeight'),
+             (q('MotorShaftX'),q('MotorShaftY'),deck_top))
+ring_inner = cylinder('SlideRingInner',q('SlideRingInner')+'/2',q('SlideRingHeight')+' + 2 mm',
+             (q('MotorShaftX'),q('MotorShaftY'),deck_top+' - 1 mm'))
+rotor_parts.append(cut('SlideRing',ring_outer,[ring_inner]))
+rotor_parts.append(cylinder('RotorHub',8,3.5,
+             (q('MotorShaftX'),q('MotorShaftY'),rotor_base+' + '+q('RotorThickness'))))
+# Dve kruhove celisti se stopkou, otvor kloubu prochazi osou Y.
+for side in (-1,1):
+    yy = str(side)+' * ('+q('ForkInnerGap')+'/2)'
+    yy = yy if side == 1 else '-'+q('ForkInnerGap')+'/2 - '+q('ForkWall')
+    rotor_parts.append(box('ShoulderStem'+str(side+2),
+        (16,q('ForkWall'),q('ShoulderZ')+' - ('+rotor_base+' + '+q('RotorThickness')+')'),
+        (q('MotorShaftX')+' - 8 mm',yy,rotor_base+' + '+q('RotorThickness'))))
+    rotor_parts.append(cylinder('ShoulderCheek'+str(side+2),
+        q('ForkRadius'),q('ForkWall'),
+        (q('MotorShaftX'),yy,q('ShoulderZ')),'y'))
+rotor_voids = []
+# Dvoudrazkovy profil hridelky: prunik valce a pasu sirky pres plosky.
+shaft_cyl = cylinder('RotorShaftRound',q('MotorShaftDiameter')+'/2 + '+q('ShaftFit')+'/2',
+    12,(q('MotorShaftX'),q('MotorShaftY'),deck_top+' - 1 mm'))
+shaft_flat = box('RotorShaftFlats',
+    (q('MotorShaftDiameter')+' + 1 mm',q('MotorFlatWidth')+' + '+q('ShaftFit'),12),
+    (q('MotorShaftX')+' - ('+q('MotorShaftDiameter')+' + 1 mm)/2',
+     q('MotorShaftY')+' - ('+q('MotorFlatWidth')+' + '+q('ShaftFit')+')/2',
+     deck_top+' - 1 mm'))
+rotor_voids.append(common('RotorDoubleD',shaft_cyl,shaft_flat))
+rotor_voids.append(cylinder('ShoulderPivotHole',q('HingeBore')+'/2',
+    q('ForkInnerGap')+' + 2 * '+q('ForkWall')+' + 2 mm',
+    (q('MotorShaftX'),
+     '-'+q('ForkInnerGap')+'/2 - '+q('ForkWall')+' - 1 mm',
+     q('ShoulderZ')),'y'))
+for i, angle in enumerate((0,30,60)):
+    dx = P['IndexRadius']*math.cos(math.radians(angle))
+    dz = P['IndexRadius']*math.sin(math.radians(angle))
+    rotor_voids.append(cylinder('ShoulderIndex%02d'%i,q('HingeBore')+'/2',
+        q('ForkInnerGap')+' + 2 * '+q('ForkWall')+' + 2 mm',
+        (q('MotorShaftX')+' + %.8f mm'%dx,
+         '-'+q('ForkInnerGap')+'/2 - '+q('ForkWall')+' - 1 mm',
+         q('ShoulderZ')+' + %.8f mm'%dz),'y'))
+rotor = final('otocna_zakladna',
+              cut('PrintRotor',fuse('RotorMaterial',rotor_parts),rotor_voids),
+              '02 | otocna zakladna; kluzny prstenec a rameno')
+
+# Nadlokti: u ramene jedine oko, u lokte dvojita vidlice.
+arm_mid_y = '-'+q('ArmThickness')+'/2'
+upper_parts = [
+    cylinder('UpperShoulderEye',q('EyeRadius'),q('ArmThickness'),
+        (q('MotorShaftX'),arm_mid_y,q('ShoulderZ')),'y'),
+    box('UpperBeam',(q('ElbowX')+' - '+q('MotorShaftX')+' - 16 mm',
+         q('ArmThickness'),q('ArmHeight')),
+         (q('MotorShaftX')+' + 2 mm',arm_mid_y,
+          q('ShoulderZ')+' - '+q('ArmHeight')+'/2'))
+]
+upper_parts.append(box('UpperForkBridge',
+    (3.5,q('ForkInnerGap')+' + 2 * '+q('ForkWall'),q('ArmHeight')),
+    (q('ElbowX')+' - 17 mm',
+     '-'+q('ForkInnerGap')+'/2 - '+q('ForkWall'),
+     q('ShoulderZ')+' - '+q('ArmHeight')+'/2')))
+for side in (-1,1):
+    yy = q('ForkInnerGap')+'/2' if side == 1 else '-'+q('ForkInnerGap')+'/2 - '+q('ForkWall')
+    upper_parts.append(cylinder('ElbowCheek'+str(side+2),
+        q('ForkRadius'),q('ForkWall'),
+        (q('ElbowX'),yy,q('ShoulderZ')),'y'))
+    upper_parts.append(box('ElbowCheekStem'+str(side+2),
+        (q('ForkRadius')+' + 4 mm',q('ForkWall'),q('ArmHeight')),
+        (q('ElbowX')+' - '+q('ForkRadius')+' - 4 mm',
+         yy,q('ShoulderZ')+' - '+q('ArmHeight')+'/2')))
+upper_voids = [
+    cylinder('UpperShoulderPivot',q('HingeBore')+'/2',q('ArmThickness')+' + 2 mm',
+        (q('MotorShaftX'),arm_mid_y+' - 1 mm',q('ShoulderZ')),'y'),
+    cylinder('UpperShoulderIndex',q('HingeBore')+'/2',q('ArmThickness')+' + 2 mm',
+        (q('MotorShaftX')+' + '+q('IndexRadius'),arm_mid_y+' - 1 mm',q('ShoulderZ')),'y'),
+    cylinder('UpperElbowPivot',q('HingeBore')+'/2',
+        q('ForkInnerGap')+' + 2 * '+q('ForkWall')+' + 2 mm',
+        (q('ElbowX'),'-'+q('ForkInnerGap')+'/2 - '+q('ForkWall')+' - 1 mm',
+         q('ShoulderZ')),'y')
+]
+for i, angle in enumerate((0,30,60)):
+    dx = P['IndexRadius']*math.cos(math.radians(angle))
+    dz = P['IndexRadius']*math.sin(math.radians(angle))
+    upper_voids.append(cylinder('ElbowIndex%02d'%i,q('HingeBore')+'/2',
+        q('ForkInnerGap')+' + 2 * '+q('ForkWall')+' + 2 mm',
+        (q('ElbowX')+' + %.8f mm'%dx,
+         '-'+q('ForkInnerGap')+'/2 - '+q('ForkWall')+' - 1 mm',
+         q('ShoulderZ')+' + %.8f mm'%dz),'y'))
+upper = final('nadlokti',
+              cut('PrintUpperArm',fuse('UpperMaterial',upper_parts),upper_voids),
+              '03 | nadlokti; rucni rameno a loket')
+
+# Predlokti ma zatim pevne otevrenou dvouprstou ruku.
+lower_parts = [
+    cylinder('LowerElbowEye',q('EyeRadius'),q('ArmThickness'),
+        (q('ElbowX'),arm_mid_y,q('ShoulderZ')),'y'),
+    box('LowerBeam',(q('WristX')+' - '+q('ElbowX'),q('ArmThickness'),q('ArmHeight')),
+        (q('ElbowX'),arm_mid_y,q('ShoulderZ')+' - '+q('ArmHeight')+'/2')),
+    box('Palm',(10,20,8),
+        (q('WristX')+' - 3 mm',-10,q('ShoulderZ')+' - 4 mm')),
+    box('FingerMinus',(22,5,6),
+        (q('WristX')+' + 5 mm',-9,q('ShoulderZ')+' - 3 mm')),
+    box('FingerPlus',(22,5,6),
+        (q('WristX')+' + 5 mm',4,q('ShoulderZ')+' - 3 mm'))
+]
+lower_voids = [
+    cylinder('LowerElbowPivot',q('HingeBore')+'/2',q('ArmThickness')+' + 2 mm',
+        (q('ElbowX'),arm_mid_y+' - 1 mm',q('ShoulderZ')),'y'),
+    cylinder('LowerElbowIndex',q('HingeBore')+'/2',q('ArmThickness')+' + 2 mm',
+        (q('ElbowX')+' + '+q('IndexRadius'),arm_mid_y+' - 1 mm',q('ShoulderZ')),'y'),
+]
+lower = final('predlokti_s_rukou',
+              cut('PrintForearm',fuse('LowerMaterial',lower_parts),lower_voids),
+              '04 | predlokti s pevne otevrenou rukou')
+
+# Tisteny cep s hlavou a drazkou pro snimatelnou C-pojistku.
+pin_base = fuse('PinMaterial',[
+    cylinder('PinShank',q('PinShaft')+'/2',q('PinLength'),(0,0,2)),
+    cylinder('PinHeadShape',q('PinHead')+'/2',2,(0,0,0)),
+    cylinder('PinTip',q('PinShaft')+'/2',2,(0,0,q('PinLength')+' + 2 mm'))
+])
+pin_groove_outer = cylinder('PinGrooveOuter',q('PinShaft')+'/2 + 0.1 mm',
+    q('PinGrooveWidth'),(0,0,q('PinLength')+' + 2 mm - '+q('PinGrooveWidth')))
+pin_groove_inner = cylinder('PinGrooveInner',q('PinGroove')+'/2',
+    q('PinGrooveWidth')+' + 2 mm',
+    (0,0,q('PinLength')+' + 1 mm - '+q('PinGrooveWidth')))
+pin_annulus = cut('PinGrooveAnnulus',pin_groove_outer,[pin_groove_inner])
+pin = final('cep_kloubu',cut('PrintJointPin',pin_base,[pin_annulus]),
+            '05 | cep kloubu; 4 kusy')
+
+clip_outer = cylinder('ClipOuter',5,1.4,(0,0,0))
+clip_bore = cylinder('ClipInner',q('PinGroove')+'/2 + 0.1 mm',3,(0,0,-0.8))
+clip_mouth = box('ClipMouth',(6,3.0,3),(0,-1.5,-0.8))
+clip = final('pojistka_cepu',cut('PrintJointClip',clip_outer,[clip_bore,clip_mouth]),
+             '06 | snimatelna C-pojistka; 4 kusy')
+
+# Rychla nominalni merka dosednuti motoru: roztec usi a profil dvou plosek.
+gauge_plate = box('GaugePlate',(14,50,3),(-7,-25,0))
+gauge_voids = [common('GaugeDoubleD',
+    cylinder('GaugeRound',q('MotorShaftDiameter')+'/2 + '+q('ShaftFit')+'/2',
+        5,(0,0,-1)),
+    box('GaugeFlatBox',(q('MotorShaftDiameter')+' + 1 mm',
+        q('MotorFlatWidth')+' + '+q('ShaftFit'),5),
+        ('-('+q('MotorShaftDiameter')+' + 1 mm)/2',
+         '-('+q('MotorFlatWidth')+' + '+q('ShaftFit')+')/2',-1)))]
+for side in (-1,1):
+    gauge_voids.append(cylinder('GaugeMountHole'+str(side+2),2.15,5,
+        (0,str(side)+' * '+q('MotorHolePitch')+'/2',-1)))
+gauge = final('merka_motoru',cut('PrintMotorGauge',gauge_plate,gauge_voids),
+              '07 | merka hridelky a roztece usi')
+
+# Reference motoru nepatri mezi tiskove dily.
+motor_body = cylinder('MotorBodyReference',q('MotorBodyDiameter')+'/2',
+    q('MotorBodyHeight'),
+    (q('MotorShaftX')+' - '+q('MotorBodyOffsetX'),q('MotorShaftY'),
+     q('DeckBottom')+' - '+q('MotorBodyHeight')))
+motor_shaft = cylinder('MotorShaftReference',q('MotorShaftDiameter')+'/2',
+    10,(q('MotorShaftX'),q('MotorShaftY'),q('DeckBottom')))
+
+D.recompute()
+bad = [(o.Name,list(o.State)) for o in D.Objects if 'Invalid' in o.State]
+if bad:
+    raise RuntimeError('Neplatne objekty: '+repr(bad))
+report = {
+    'status': 'CAD prototyp; fyzicky motor, dosed, chod, tuhost a jizda neovereny',
+    'units': 'mm',
+    'parameters_mm': P,
+    'source_replacement_roof': '../jednoduche-auticko/strecha.FCMacro',
+    'sources_for_motor_nominal': [
+      'https://www.laskakit.cz/krokovy-motor-28byj-48/',
+      'https://www.waveshare.com/product/5v-step-motor.htm'
+    ],
+    'parts': {},
+    'nominal_motor_reference': {
+        'diameter_mm': P['MotorBodyDiameter'],
+        'mount_pitch_mm': P['MotorHolePitch'],
+        'shaft_diameter_mm': P['MotorShaftDiameter'],
+        'flat_width_mm': P['MotorFlatWidth'],
+        'not_measured_on_users_motor': True
+    },
+    'physical_checks_needed': [
+        'Otestovat merku na skutecnem motoru: roztec usi, tvar a vule hridelky.',
+        'Overit skutecnou polohu tela motoru, kabel a prostor pod plosinou.',
+        'Overit drážky a bezpecnou trasu pasku k ramu mimo kola/ozubeni.',
+        'Overit srouby M3 a ploche hlavy; dostupnost nepotvrzena.',
+        'Overit soubezne nasazeni ctyr kapes, 4 cepu a 4 C-pojistek.',
+        'Overit kluznou plochu, moment, stabilitu a chovani pri jizde.'
+    ]
+}
+copies = {'vymenna_plosina':1,'otocna_zakladna':1,'nadlokti':1,
+          'predlokti_s_rukou':1,'cep_kloubu':4,'pojistka_cepu':4,'merka_motoru':1}
+for name, obj in finals.items():
+    shape = obj.Shape
+    if not shape.isValid() or len(shape.Solids) != 1 or shape.Volume <= 1e-6:
+        raise RuntimeError('Neplatny tiskovy solid '+name+': '+repr((shape.isValid(),len(shape.Solids),shape.Volume)))
+    piece = shape.copy()
+    if name == 'vymenna_plosina':
+        piece.rotate(App.Vector(0,0,0),App.Vector(1,0,0),180)
+    elif name in ('nadlokti','predlokti_s_rukou'):
+        # Osu tisku zvol tak, aby nejvetsi souvisla bocni plocha lezela na podlozce.
+        piece.rotate(App.Vector(0,0,0),App.Vector(1,0,0),90)
+    bb = piece.BoundBox
+    piece.translate(App.Vector(-bb.XMin,-bb.YMin,-bb.ZMin))
+    mesh = MeshPart.meshFromShape(Shape=piece,LinearDeflection=0.05,
+                                  AngularDeflection=0.12,Relative=False)
+    stl = OUT/'stl'/(name+'.stl')
+    mesh.write(str(stl))
+    loaded = Mesh.Mesh(str(stl))
+    b = loaded.BoundBox
+    if not loaded.isSolid() or loaded.countComponents()!=1 or b.ZMin < -1e-5:
+        raise RuntimeError('Neuzavreny nebo rozpadly STL: '+name)
+    report['parts'][name] = {
+        'file': 'stl/'+name+'.stl',
+        'copies': copies[name],
+        'cad_valid': shape.isValid(),
+        'cad_solids': len(shape.Solids),
+        'cad_volume_mm3': shape.Volume,
+        'stl_closed': loaded.isSolid(),
+        'stl_components': loaded.countComponents(),
+        'stl_facets': loaded.CountFacets,
+        'stl_bbox_mm': [b.XLength,b.YLength,b.ZLength],
+        'stl_min_z_mm': b.ZMin
+    }
+
+# Kolize tištěných dílů v rovné montážní poloze: clony a oko mají vůli;
+# otvory cepů jsou záměrně souosé. Vzdalenosti referencniho motoru jsou
+# jen hrube, protoze telo konkretniho kusu neni zmerene.
+for a,b in ((deck,rotor),(rotor,upper),(upper,lower)):
+    vol = a.Shape.common(b.Shape).Volume
+    report.setdefault('assembly_adjacent_intersections_mm3',[]).append(
+        {'a':a.Name,'b':b.Name,'volume':vol})
+    if vol > 1e-4:
+        raise RuntimeError('Nechtena kolize sestavy %s/%s: %g mm3' %
+                           (a.Name,b.Name,vol))
+report['rotor_slide_ring_bottom_z_mm'] = P['DeckBottom']+P['DeckThickness']
+report['deck_top_z_mm'] = P['DeckBottom']+P['DeckThickness']
+report['motor_body_nominal_bottom_z_mm'] = P['DeckBottom']-P['MotorBodyHeight']
+report['roof_socket_centres_mm'] = [[x,y] for x in (P['RearX'],P['FrontX'])
+                                        for y in (-P['BearingY'],P['BearingY'])]
+
+if App.GuiUp:
+    for o in all_geo:
+        o.ViewObject.Visibility = o in finals.values() or o in (motor_body,motor_shaft)
+    colors = {'vymenna_plosina':(0.28,0.43,0.53),
+              'otocna_zakladna':(0.84,0.48,0.17),
+              'nadlokti':(0.88,0.67,0.20),
+              'predlokti_s_rukou':(0.79,0.67,0.44)}
+    for name, color in colors.items():
+        finals[name].ViewObject.ShapeColor = color
+    for name in ('cep_kloubu','pojistka_cepu','merka_motoru'):
+        finals[name].ViewObject.Visibility = False
+    for o in (motor_body,motor_shaft):
+        o.ViewObject.ShapeColor = (0.52,0.55,0.61)
+        o.ViewObject.Transparency = 70
+    App.Gui.activeDocument().activeView().viewAxonometric()
+    App.Gui.activeDocument().activeView().fitAll()
+
+D.recompute()
+D.saveAs(str(TARGET))
+(OUT/'kontrola-geometrie.json').write_text(
+    json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+print('ARM_CAD_COMPLETE '+json.dumps({'parts':len(finals),'copies':sum(copies.values()),
+    'target':str(TARGET)},ensure_ascii=False),flush=True)
+App.closeDocument(D.Name)

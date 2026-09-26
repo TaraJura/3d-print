@@ -1,0 +1,40 @@
+{
+  "status": "predbezny_navrh_bez_fyzicke_zkousky",
+  "nominal_user_inputs_mm": {
+    "width": 150,
+    "height": 98,
+    "duct_diameter_approx": 130,
+    "requested_rear_reach_approx": 70
+  },
+  "design_mm": {
+    "depth": 75,
+    "wall": 3,
+    "nominal_radial_clearance_if_concentric": 7
+  },
+  "shape_valid": true,
+  "solids": 1,
+  "bounds_mm": {
+    "x": 150.0,
+    "y": 75.00000000000001,
+    "z": 98.0
+  },
+  "volume_mm3": 67886.67565142177,
+  "stl_facets": 396,
+  "fit_not_verified": true,
+  "gui_validation": {
+    "saved_and_reopened": true,
+    "only_visible_geometry": [
+      "Cover"
+    ],
+    "parametric_recompute": [
+      "CoverWidth",
+      "CoverHeight",
+      "CoverDepth",
+      "WallThickness"
+    ],
+    "preview_images": [
+      "nahled-zaobleny-kryt.png",
+      "nahled-shora.png"
+    ]
+  }
+}

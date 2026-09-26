@@ -1,0 +1,2546 @@
+{
+  "method": "Raw STL triangle sections at layer midpoint; actual G0/G1 positive-E moving centerlines only; no toolpath modification",
+  "islands": "First layer starts on bed; every later section component overlaps material in the preceding layer. Multiple supported upper components are allowed.",
+  "overhang": "Upper sections contained within previous section expanded0.11mm; nominal female taper0.1mm per0.2mm layer",
+  "supports": "No detached starting islands or greater-than0.11mm/layer unsupported ledges found; experimental profile keeps support disabled",
+  "parts": [
+    {
+      "stl": "stl/dil-1.stl",
+      "first_layer_components_on_bed": 1,
+      "maximum_section_components": 2,
+      "no_new_unsupported_components": true,
+      "no_upper_layer_extends_beyond_previous_plus_0_11mm": true,
+      "layers": [
+        {
+          "layer": 1,
+          "section_z_mm": 0.1,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 3883.1354811912397,
+          "new_area_outside_previous_layer_mm2": 0.0,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 2,
+          "section_z_mm": 0.30000000000000004,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 3879.535464455175,
+          "new_area_outside_previous_layer_mm2": 1.8245047248765795e-07,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 3,
+          "section_z_mm": 0.5,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 3875.935448203724,
+          "new_area_outside_previous_layer_mm2": 4.435157031167703e-07,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 4,
+          "section_z_mm": 0.7000000000000001,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 3864.372783654164,
+          "new_area_outside_previous_layer_mm2": 7.032466083560586e-07,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 5,
+          "section_z_mm": 0.9,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 3830.6463527963233,
+          "new_area_outside_previous_layer_mm2": 9.634374260900273e-07,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 6,
+          "section_z_mm": 1.0999999999999999,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 3746.4621220168337,
+          "new_area_outside_previous_layer_mm2": 1.2221152567934223e-06,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 7,
+          "section_z_mm": 1.2999999999999998,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 3659.581225892208,
+          "new_area_outside_previous_layer_mm2": 1.5480722359485143e-06,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 8,
+          "section_z_mm": 1.5,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 3576.300336223466,
+          "new_area_outside_previous_layer_mm2": 3.600004973187536,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 9,
+          "section_z_mm": 1.7,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 3493.0194443679316,
+          "new_area_outside_previous_layer_mm2": 3.6000023437706874,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 10,
+          "section_z_mm": 1.9,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 3407.4917057210496,
+          "new_area_outside_previous_layer_mm2": 3.600005501708809,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 11,
+          "section_z_mm": 2.1,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 3321.9284833140573,
+          "new_area_outside_previous_layer_mm2": 3.6000055433603837,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 12,
+          "section_z_mm": 2.3,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 3236.36525878419,
+          "new_area_outside_previous_layer_mm2": 3.600003519560182,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 13,
+          "section_z_mm": 2.5,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 3149.0020382234206,
+          "new_area_outside_previous_layer_mm2": 1.8000065317944203,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 14,
+          "section_z_mm": 2.6999999999999997,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 3059.8388178988157,
+          "new_area_outside_previous_layer_mm2": 3.520307189782644e-06,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 15,
+          "section_z_mm": 2.9,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 2970.675595125384,
+          "new_area_outside_previous_layer_mm2": 3.80554241991925e-06,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 16,
+          "section_z_mm": 3.1,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 2882.453237177334,
+          "new_area_outside_previous_layer_mm2": 4.4735413124453525e-06,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 17,
+          "section_z_mm": 3.3,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 2795.5723515688865,
+          "new_area_outside_previous_layer_mm2": 4.514056092765923e-06,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 18,
+          "section_z_mm": 3.5,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 2708.6914661941887,
+          "new_area_outside_previous_layer_mm2": 4.420844778157189e-06,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 19,
+          "section_z_mm": 3.6999999999999997,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 2621.8105869048577,
+          "new_area_outside_previous_layer_mm2": 5.228091999146223e-06,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 20,
+          "section_z_mm": 3.9,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 2534.929703641749,
+          "new_area_outside_previous_layer_mm2": 5.262002890278467e-06,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 21,
+          "section_z_mm": 4.1000000000000005,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 2448.0488208643164,
+          "new_area_outside_previous_layer_mm2": 5.211948087972164e-06,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 22,
+          "section_z_mm": 4.300000000000001,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 2361.167939366676,
+          "new_area_outside_previous_layer_mm2": 5.996296769802922e-06,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 23,
+          "section_z_mm": 4.5,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 2274.2870639849143,
+          "new_area_outside_previous_layer_mm2": 5.876922233711446e-06,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 24,
+          "section_z_mm": 4.7,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 2187.406189884894,
+          "new_area_outside_previous_layer_mm2": 6.303516749763619e-06,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 25,
+          "section_z_mm": 4.9,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 2100.5248518148023,
+          "new_area_outside_previous_layer_mm2": 6.421440693000188e-06,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 26,
+          "section_z_mm": 5.1000000000000005,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 2012.4923419367137,
+          "new_area_outside_previous_layer_mm2": 6.723947264608871e-06,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 27,
+          "section_z_mm": 5.300000000000001,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 1920.6025789870157,
+          "new_area_outside_previous_layer_mm2": 7.061873854419608e-06,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 28,
+          "section_z_mm": 5.5,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 1820.4195788618256,
+          "new_area_outside_previous_layer_mm2": 7.1986931834902954e-06,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 29,
+          "section_z_mm": 5.7,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 1717.5860288785798,
+          "new_area_outside_previous_layer_mm2": 7.419501359856471e-06,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 30,
+          "section_z_mm": 5.9,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 1611.8820385878219,
+          "new_area_outside_previous_layer_mm2": 7.812045609589245e-06,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 31,
+          "section_z_mm": 6.1000000000000005,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 1504.0515587324276,
+          "new_area_outside_previous_layer_mm2": 7.105202860872692e-06,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 32,
+          "section_z_mm": 6.300000000000001,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 1402.2291240342647,
+          "new_area_outside_previous_layer_mm2": 5.261232650645747e-06,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 33,
+          "section_z_mm": 6.5,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 1297.0742353479982,
+          "new_area_outside_previous_layer_mm2": 4.30005552219066e-06,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 34,
+          "section_z_mm": 6.7,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 1187.9851637112656,
+          "new_area_outside_previous_layer_mm2": 3.0122102694975196e-06,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 35,
+          "section_z_mm": 6.9,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 1074.1952167915754,
+          "new_area_outside_previous_layer_mm2": 1.6243647056838957e-06,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 36,
+          "section_z_mm": 7.1000000000000005,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 947.9091583590048,
+          "new_area_outside_previous_layer_mm2": 3.137599295466184e-07,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 37,
+          "section_z_mm": 7.300000000000001,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 811.7467864443521,
+          "new_area_outside_previous_layer_mm2": 2.1018033481735412e-07,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 38,
+          "section_z_mm": 7.5,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 665.579064226119,
+          "new_area_outside_previous_layer_mm2": 2.9953240364854964e-07,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 39,
+          "section_z_mm": 7.7,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 503.76904940114144,
+          "new_area_outside_previous_layer_mm2": 2.102202011505324e-07,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 40,
+          "section_z_mm": 7.9,
+          "components": 2,
+          "new_unsupported_components": 0,
+          "area_mm2": 293.0328320160108,
+          "new_area_outside_previous_layer_mm2": 4.882748323370096e-08,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        }
+      ],
+      "retention_regions": [
+        {
+          "region": {
+            "name": "spoj1-zapadka-1",
+            "min_mm": [
+              201.33333333333334,
+              8.5,
+              0.2
+            ],
+            "max_mm": [
+              204.33333333333334,
+              10.3,
+              3.0
+            ]
+          },
+          "kind": "male retention prong",
+          "audited_region": "exact box",
+          "all_relevant_layers_have_actual_positive_e_paths": true,
+          "layers": [
+            {
+              "layer": 1,
+              "z_mm": 0.2,
+              "solid_area_inside_exact_region_mm2": 1.6700041359471465,
+              "actual_depositing_centerline_length_in_audited_region_mm": 2.631673630599014,
+              "roles": [
+                "Inner wall",
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 2,
+              "z_mm": 0.4,
+              "solid_area_inside_exact_region_mm2": 1.4200035886656879,
+              "actual_depositing_centerline_length_in_audited_region_mm": 3.777821408311275,
+              "roles": [
+                "Inner wall",
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 3,
+              "z_mm": 0.6,
+              "solid_area_inside_exact_region_mm2": 1.2200028980520745,
+              "actual_depositing_centerline_length_in_audited_region_mm": 2.9445594800664017,
+              "roles": [
+                "Inner wall",
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 4,
+              "z_mm": 0.8,
+              "solid_area_inside_exact_region_mm2": 1.0200023773129516,
+              "actual_depositing_centerline_length_in_audited_region_mm": 2.1425937545088143,
+              "roles": [
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 5,
+              "z_mm": 1.0,
+              "solid_area_inside_exact_region_mm2": 0.8200016731982465,
+              "actual_depositing_centerline_length_in_audited_region_mm": 2.042593754508805,
+              "roles": [
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 6,
+              "z_mm": 1.2,
+              "solid_area_inside_exact_region_mm2": 0.6200009657311285,
+              "actual_depositing_centerline_length_in_audited_region_mm": 1.7992640494386898,
+              "roles": [
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 7,
+              "z_mm": 1.4,
+              "solid_area_inside_exact_region_mm2": 0.6200009980888483,
+              "actual_depositing_centerline_length_in_audited_region_mm": 1.7992640494386898,
+              "roles": [
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 8,
+              "z_mm": 1.6,
+              "solid_area_inside_exact_region_mm2": 0.8200016758649386,
+              "actual_depositing_centerline_length_in_audited_region_mm": 2.042593754508805,
+              "roles": [
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 9,
+              "z_mm": 1.8,
+              "solid_area_inside_exact_region_mm2": 1.0200022010383942,
+              "actual_depositing_centerline_length_in_audited_region_mm": 2.1425937545088143,
+              "roles": [
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 10,
+              "z_mm": 2.0,
+              "solid_area_inside_exact_region_mm2": 1.220002902303547,
+              "actual_depositing_centerline_length_in_audited_region_mm": 2.9445594800664017,
+              "roles": [
+                "Inner wall",
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 11,
+              "z_mm": 2.2,
+              "solid_area_inside_exact_region_mm2": 1.420003422265519,
+              "actual_depositing_centerline_length_in_audited_region_mm": 3.777821408311275,
+              "roles": [
+                "Inner wall",
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 12,
+              "z_mm": 2.4,
+              "solid_area_inside_exact_region_mm2": 1.670003972241209,
+              "actual_depositing_centerline_length_in_audited_region_mm": 4.101572411697581,
+              "roles": [
+                "Inner wall",
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 13,
+              "z_mm": 2.6,
+              "solid_area_inside_exact_region_mm2": 1.820004267845072,
+              "actual_depositing_centerline_length_in_audited_region_mm": 4.201572411697589,
+              "roles": [
+                "Inner wall",
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 14,
+              "z_mm": 2.8,
+              "solid_area_inside_exact_region_mm2": 1.820004264473685,
+              "actual_depositing_centerline_length_in_audited_region_mm": 4.201572411697589,
+              "roles": [
+                "Inner wall",
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 15,
+              "z_mm": 3.0,
+              "solid_area_inside_exact_region_mm2": 1.820004260442988,
+              "actual_depositing_centerline_length_in_audited_region_mm": 4.201572411697589,
+              "roles": [
+                "Inner wall",
+                "Outer wall"
+              ]
+            }
+          ]
+        },
+        {
+          "region": {
+            "name": "spoj1-zapadka+1",
+            "min_mm": [
+              201.33333333333334,
+              15.700000000000001,
+              0.2
+            ],
+            "max_mm": [
+              204.33333333333334,
+              17.5,
+              3.0
+            ]
+          },
+          "kind": "male retention prong",
+          "audited_region": "exact box",
+          "all_relevant_layers_have_actual_positive_e_paths": true,
+          "layers": [
+            {
+              "layer": 1,
+              "z_mm": 0.2,
+              "solid_area_inside_exact_region_mm2": 1.670004068313379,
+              "actual_depositing_centerline_length_in_audited_region_mm": 2.6313598343607305,
+              "roles": [
+                "Inner wall",
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 2,
+              "z_mm": 0.4,
+              "solid_area_inside_exact_region_mm2": 1.4200036041325097,
+              "actual_depositing_centerline_length_in_audited_region_mm": 3.777821408311243,
+              "roles": [
+                "Inner wall",
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 3,
+              "z_mm": 0.6,
+              "solid_area_inside_exact_region_mm2": 1.220002896132053,
+              "actual_depositing_centerline_length_in_audited_region_mm": 2.9445594800663977,
+              "roles": [
+                "Inner wall",
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 4,
+              "z_mm": 0.8,
+              "solid_area_inside_exact_region_mm2": 1.0200023683985708,
+              "actual_depositing_centerline_length_in_audited_region_mm": 2.1425937545088125,
+              "roles": [
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 5,
+              "z_mm": 1.0,
+              "solid_area_inside_exact_region_mm2": 0.8200016614647934,
+              "actual_depositing_centerline_length_in_audited_region_mm": 2.042593754508803,
+              "roles": [
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 6,
+              "z_mm": 1.2,
+              "solid_area_inside_exact_region_mm2": 0.6200009746372386,
+              "actual_depositing_centerline_length_in_audited_region_mm": 1.7992640494386878,
+              "roles": [
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 7,
+              "z_mm": 1.4,
+              "solid_area_inside_exact_region_mm2": 0.6200009618038134,
+              "actual_depositing_centerline_length_in_audited_region_mm": 1.7992640494386878,
+              "roles": [
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 8,
+              "z_mm": 1.6,
+              "solid_area_inside_exact_region_mm2": 0.8200016683981957,
+              "actual_depositing_centerline_length_in_audited_region_mm": 2.042593754508803,
+              "roles": [
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 9,
+              "z_mm": 1.8,
+              "solid_area_inside_exact_region_mm2": 1.0200021882839798,
+              "actual_depositing_centerline_length_in_audited_region_mm": 2.1425937545088125,
+              "roles": [
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 10,
+              "z_mm": 2.0,
+              "solid_area_inside_exact_region_mm2": 1.2200028894119876,
+              "actual_depositing_centerline_length_in_audited_region_mm": 2.9445594800663977,
+              "roles": [
+                "Inner wall",
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 11,
+              "z_mm": 2.2,
+              "solid_area_inside_exact_region_mm2": 1.4200034542658377,
+              "actual_depositing_centerline_length_in_audited_region_mm": 3.777821408311243,
+              "roles": [
+                "Inner wall",
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 12,
+              "z_mm": 2.4,
+              "solid_area_inside_exact_region_mm2": 1.670004005071676,
+              "actual_depositing_centerline_length_in_audited_region_mm": 4.1015724116975765,
+              "roles": [
+                "Inner wall",
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 13,
+              "z_mm": 2.6,
+              "solid_area_inside_exact_region_mm2": 1.820004306508007,
+              "actual_depositing_centerline_length_in_audited_region_mm": 4.201572411697585,
+              "roles": [
+                "Inner wall",
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 14,
+              "z_mm": 2.8,
+              "solid_area_inside_exact_region_mm2": 1.8200042870647788,
+              "actual_depositing_centerline_length_in_audited_region_mm": 4.201572411697585,
+              "roles": [
+                "Inner wall",
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 15,
+              "z_mm": 3.0,
+              "solid_area_inside_exact_region_mm2": 1.8200043356751692,
+              "actual_depositing_centerline_length_in_audited_region_mm": 4.201572411697585,
+              "roles": [
+                "Inner wall",
+                "Outer wall"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "stl": "stl/dil-2.stl",
+      "first_layer_components_on_bed": 1,
+      "maximum_section_components": 2,
+      "no_new_unsupported_components": true,
+      "no_upper_layer_extends_beyond_previous_plus_0_11mm": true,
+      "layers": [
+        {
+          "layer": 1,
+          "section_z_mm": 0.1,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 3751.3962023640656,
+          "new_area_outside_previous_layer_mm2": 0.0,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 2,
+          "section_z_mm": 0.30000000000000004,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 3751.4361874850288,
+          "new_area_outside_previous_layer_mm2": 3.640002039478345,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 3,
+          "section_z_mm": 0.5,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 3751.476172968993,
+          "new_area_outside_previous_layer_mm2": 3.6400021789312587,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 4,
+          "section_z_mm": 0.7000000000000001,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 3743.5535077997793,
+          "new_area_outside_previous_layer_mm2": 3.6400000835931765,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 5,
+          "section_z_mm": 0.9,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 3713.467079025326,
+          "new_area_outside_previous_layer_mm2": 3.6400030468238365,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 6,
+          "section_z_mm": 1.0999999999999999,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 3632.9228481441146,
+          "new_area_outside_previous_layer_mm2": 3.6400011190553645,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 7,
+          "section_z_mm": 1.2999999999999998,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 3546.04195587381,
+          "new_area_outside_previous_layer_mm2": 5.43512993569575e-06,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 8,
+          "section_z_mm": 1.5,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 3459.1210747831688,
+          "new_area_outside_previous_layer_mm2": 3.600004973187536,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 9,
+          "section_z_mm": 1.7,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 3373.2032791557394,
+          "new_area_outside_previous_layer_mm2": 3.6000023437706874,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 10,
+          "section_z_mm": 1.9,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 3286.4091556091907,
+          "new_area_outside_previous_layer_mm2": 3.600005501708809,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 11,
+          "section_z_mm": 2.1,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 3199.5795585054498,
+          "new_area_outside_previous_layer_mm2": 3.6000055433603837,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 12,
+          "section_z_mm": 2.3,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 3112.7499551543356,
+          "new_area_outside_previous_layer_mm2": 3.600003519560182,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 13,
+          "section_z_mm": 2.5,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 3025.940359572019,
+          "new_area_outside_previous_layer_mm2": 1.8000065317944203,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 14,
+          "section_z_mm": 2.6999999999999997,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 2939.150764372003,
+          "new_area_outside_previous_layer_mm2": 3.634357979179e-06,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 15,
+          "section_z_mm": 2.9,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 2852.3611693714847,
+          "new_area_outside_previous_layer_mm2": 3.926270506258629e-06,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 16,
+          "section_z_mm": 3.1,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 2766.5124390999504,
+          "new_area_outside_previous_layer_mm2": 4.595698581981829e-06,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 17,
+          "section_z_mm": 3.3,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 2679.6930563635647,
+          "new_area_outside_previous_layer_mm2": 5.109080201121116e-06,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 18,
+          "section_z_mm": 3.5,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 2592.8121700255483,
+          "new_area_outside_previous_layer_mm2": 4.450787830019712e-06,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 19,
+          "section_z_mm": 3.6999999999999997,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 2505.931285929446,
+          "new_area_outside_previous_layer_mm2": 5.4979461393127535e-06,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 20,
+          "section_z_mm": 3.9,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 2419.0504015659144,
+          "new_area_outside_previous_layer_mm2": 5.323104308044101e-06,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 21,
+          "section_z_mm": 4.1000000000000005,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 2332.169518044093,
+          "new_area_outside_previous_layer_mm2": 5.484919598776605e-06,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 22,
+          "section_z_mm": 4.300000000000001,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 2245.2886353761155,
+          "new_area_outside_previous_layer_mm2": 6.126133606487226e-06,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 23,
+          "section_z_mm": 4.5,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 2158.4077529027477,
+          "new_area_outside_previous_layer_mm2": 5.958420264776051e-06,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 24,
+          "section_z_mm": 4.7,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 2071.5268765683113,
+          "new_area_outside_previous_layer_mm2": 6.437965957413694e-06,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 25,
+          "section_z_mm": 4.9,
+          "components": 2,
+          "new_unsupported_components": 0,
+          "area_mm2": 1984.814866222118,
+          "new_area_outside_previous_layer_mm2": 6.533313516660681e-06,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 26,
+          "section_z_mm": 5.1000000000000005,
+          "components": 2,
+          "new_unsupported_components": 0,
+          "area_mm2": 1898.4258932628616,
+          "new_area_outside_previous_layer_mm2": 6.82620395718369e-06,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 27,
+          "section_z_mm": 5.300000000000001,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 1811.876597287706,
+          "new_area_outside_previous_layer_mm2": 7.133142440200881e-06,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 28,
+          "section_z_mm": 5.5,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 1719.9959527248348,
+          "new_area_outside_previous_layer_mm2": 7.305806557233235e-06,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 29,
+          "section_z_mm": 5.7,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 1625.483460512897,
+          "new_area_outside_previous_layer_mm2": 7.600203644685721e-06,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 30,
+          "section_z_mm": 5.9,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 1528.0892659213223,
+          "new_area_outside_previous_layer_mm2": 7.82970038140433e-06,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 31,
+          "section_z_mm": 6.1000000000000005,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 1428.5630137228434,
+          "new_area_outside_previous_layer_mm2": 7.262998620171045e-06,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 32,
+          "section_z_mm": 6.300000000000001,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 1335.0394768150031,
+          "new_area_outside_previous_layer_mm2": 5.319258103483643e-06,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 33,
+          "section_z_mm": 6.5,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 1238.181609824606,
+          "new_area_outside_previous_layer_mm2": 4.4392964395845835e-06,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 34,
+          "section_z_mm": 6.7,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 1137.3963756693609,
+          "new_area_outside_previous_layer_mm2": 3.0831632300382437e-06,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 35,
+          "section_z_mm": 6.9,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 1031.9285436591717,
+          "new_area_outside_previous_layer_mm2": 1.66082866945714e-06,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 36,
+          "section_z_mm": 7.1000000000000005,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 913.9826301960957,
+          "new_area_outside_previous_layer_mm2": 4.2457751157398317e-07,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 37,
+          "section_z_mm": 7.300000000000001,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 786.0620631613442,
+          "new_area_outside_previous_layer_mm2": 2.4744651713877494e-07,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 38,
+          "section_z_mm": 7.5,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 648.2726126508129,
+          "new_area_outside_previous_layer_mm2": 3.635429087825401e-07,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 39,
+          "section_z_mm": 7.7,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 494.70709011582045,
+          "new_area_outside_previous_layer_mm2": 2.2975867155668722e-07,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 40,
+          "section_z_mm": 7.9,
+          "components": 2,
+          "new_unsupported_components": 0,
+          "area_mm2": 290.8586518252041,
+          "new_area_outside_previous_layer_mm2": 1.314892029917793e-07,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        }
+      ],
+      "retention_regions": [
+        {
+          "region": {
+            "name": "spoj1-zapadka-1",
+            "min_mm": [
+              11.0,
+              8.5,
+              0.2
+            ],
+            "max_mm": [
+              14.0,
+              10.3,
+              3.0
+            ]
+          },
+          "kind": "female void plus adjacent cavity walls",
+          "audited_region": "box expanded2mm intersected with actual STL section; no extrusion required in void",
+          "all_relevant_layers_have_actual_positive_e_paths": true,
+          "layers": [
+            {
+              "layer": 1,
+              "z_mm": 0.2,
+              "solid_area_inside_exact_region_mm2": 2.941199753148893,
+              "actual_depositing_centerline_length_in_audited_region_mm": 47.23619448450542,
+              "roles": [
+                "Bottom surface",
+                "Inner wall",
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 2,
+              "z_mm": 0.4,
+              "solid_area_inside_exact_region_mm2": 3.241200063008049,
+              "actual_depositing_centerline_length_in_audited_region_mm": 58.95403097302088,
+              "roles": [
+                "Inner wall",
+                "Internal solid infill",
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 3,
+              "z_mm": 0.6,
+              "solid_area_inside_exact_region_mm2": 3.5412003468288424,
+              "actual_depositing_centerline_length_in_audited_region_mm": 61.252231292496184,
+              "roles": [
+                "Inner wall",
+                "Internal solid infill",
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 4,
+              "z_mm": 0.8,
+              "solid_area_inside_exact_region_mm2": 3.8012001808662923,
+              "actual_depositing_centerline_length_in_audited_region_mm": 62.94435797199658,
+              "roles": [
+                "Inner wall",
+                "Internal solid infill",
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 5,
+              "z_mm": 1.0,
+              "solid_area_inside_exact_region_mm2": 4.021200375941317,
+              "actual_depositing_centerline_length_in_audited_region_mm": 64.94417923003893,
+              "roles": [
+                "Inner wall",
+                "Internal solid infill",
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 6,
+              "z_mm": 1.2,
+              "solid_area_inside_exact_region_mm2": 4.241200358671983,
+              "actual_depositing_centerline_length_in_audited_region_mm": 66.52159543018928,
+              "roles": [
+                "Inner wall",
+                "Internal solid infill",
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 7,
+              "z_mm": 1.4,
+              "solid_area_inside_exact_region_mm2": 4.241200544005529,
+              "actual_depositing_centerline_length_in_audited_region_mm": 66.79936756511108,
+              "roles": [
+                "Inner wall",
+                "Internal solid infill",
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 8,
+              "z_mm": 1.6,
+              "solid_area_inside_exact_region_mm2": 4.0212003755999834,
+              "actual_depositing_centerline_length_in_audited_region_mm": 64.80167766259409,
+              "roles": [
+                "Inner wall",
+                "Internal solid infill",
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 9,
+              "z_mm": 1.8,
+              "solid_area_inside_exact_region_mm2": 3.8012003863839796,
+              "actual_depositing_centerline_length_in_audited_region_mm": 63.05533790324172,
+              "roles": [
+                "Inner wall",
+                "Internal solid infill",
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 10,
+              "z_mm": 2.0,
+              "solid_area_inside_exact_region_mm2": 3.5412003434057557,
+              "actual_depositing_centerline_length_in_audited_region_mm": 61.27652502261092,
+              "roles": [
+                "Inner wall",
+                "Internal solid infill",
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 11,
+              "z_mm": 2.2,
+              "solid_area_inside_exact_region_mm2": 3.2412000486720447,
+              "actual_depositing_centerline_length_in_audited_region_mm": 59.38793699802774,
+              "roles": [
+                "Inner wall",
+                "Internal solid infill",
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 12,
+              "z_mm": 2.4,
+              "solid_area_inside_exact_region_mm2": 2.9412000439244075,
+              "actual_depositing_centerline_length_in_audited_region_mm": 57.21730351529304,
+              "roles": [
+                "Inner wall",
+                "Internal solid infill",
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 13,
+              "z_mm": 2.6,
+              "solid_area_inside_exact_region_mm2": 2.791199746667475,
+              "actual_depositing_centerline_length_in_audited_region_mm": 56.63090356296296,
+              "roles": [
+                "Inner wall",
+                "Internal solid infill",
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 14,
+              "z_mm": 2.8,
+              "solid_area_inside_exact_region_mm2": 2.7911997456000437,
+              "actual_depositing_centerline_length_in_audited_region_mm": 56.358840758078586,
+              "roles": [
+                "Inner wall",
+                "Internal solid infill",
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 15,
+              "z_mm": 3.0,
+              "solid_area_inside_exact_region_mm2": 2.7911997456000437,
+              "actual_depositing_centerline_length_in_audited_region_mm": 56.605632285256476,
+              "roles": [
+                "Inner wall",
+                "Internal solid infill",
+                "Outer wall"
+              ]
+            }
+          ]
+        },
+        {
+          "region": {
+            "name": "spoj1-zapadka+1",
+            "min_mm": [
+              11.0,
+              15.700000000000001,
+              0.2
+            ],
+            "max_mm": [
+              14.0,
+              17.5,
+              3.0
+            ]
+          },
+          "kind": "female void plus adjacent cavity walls",
+          "audited_region": "box expanded2mm intersected with actual STL section; no extrusion required in void",
+          "all_relevant_layers_have_actual_positive_e_paths": true,
+          "layers": [
+            {
+              "layer": 1,
+              "z_mm": 0.2,
+              "solid_area_inside_exact_region_mm2": 2.9412014517002305,
+              "actual_depositing_centerline_length_in_audited_region_mm": 46.56148163449351,
+              "roles": [
+                "Gap infill",
+                "Inner wall",
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 2,
+              "z_mm": 0.4,
+              "solid_area_inside_exact_region_mm2": 3.241201084842588,
+              "actual_depositing_centerline_length_in_audited_region_mm": 60.199023377895145,
+              "roles": [
+                "Gap infill",
+                "Inner wall",
+                "Internal solid infill",
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 3,
+              "z_mm": 0.6,
+              "solid_area_inside_exact_region_mm2": 3.541200514253725,
+              "actual_depositing_centerline_length_in_audited_region_mm": 60.06149019578554,
+              "roles": [
+                "Gap infill",
+                "Inner wall",
+                "Internal solid infill",
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 4,
+              "z_mm": 0.8,
+              "solid_area_inside_exact_region_mm2": 3.801199892931203,
+              "actual_depositing_centerline_length_in_audited_region_mm": 61.011996133352916,
+              "roles": [
+                "Gap infill",
+                "Inner wall",
+                "Internal solid infill",
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 5,
+              "z_mm": 1.0,
+              "solid_area_inside_exact_region_mm2": 4.021199208016073,
+              "actual_depositing_centerline_length_in_audited_region_mm": 62.27411818158712,
+              "roles": [
+                "Gap infill",
+                "Inner wall",
+                "Internal solid infill",
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 6,
+              "z_mm": 1.2,
+              "solid_area_inside_exact_region_mm2": 4.241198606763046,
+              "actual_depositing_centerline_length_in_audited_region_mm": 63.296075333981044,
+              "roles": [
+                "Gap infill",
+                "Inner wall",
+                "Internal solid infill",
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 7,
+              "z_mm": 1.4,
+              "solid_area_inside_exact_region_mm2": 4.241198878157229,
+              "actual_depositing_centerline_length_in_audited_region_mm": 63.507925069604,
+              "roles": [
+                "Gap infill",
+                "Inner wall",
+                "Internal solid infill",
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 8,
+              "z_mm": 1.6,
+              "solid_area_inside_exact_region_mm2": 4.021199340112101,
+              "actual_depositing_centerline_length_in_audited_region_mm": 61.79980786052677,
+              "roles": [
+                "Gap infill",
+                "Inner wall",
+                "Internal solid infill",
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 9,
+              "z_mm": 1.8,
+              "solid_area_inside_exact_region_mm2": 3.801200021428607,
+              "actual_depositing_centerline_length_in_audited_region_mm": 61.43636751813384,
+              "roles": [
+                "Gap infill",
+                "Inner wall",
+                "Internal solid infill",
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 10,
+              "z_mm": 2.0,
+              "solid_area_inside_exact_region_mm2": 3.5412008408960167,
+              "actual_depositing_centerline_length_in_audited_region_mm": 59.98040861822882,
+              "roles": [
+                "Gap infill",
+                "Inner wall",
+                "Internal solid infill",
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 11,
+              "z_mm": 2.2,
+              "solid_area_inside_exact_region_mm2": 3.2412012234239413,
+              "actual_depositing_centerline_length_in_audited_region_mm": 60.199023377895145,
+              "roles": [
+                "Gap infill",
+                "Inner wall",
+                "Internal solid infill",
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 12,
+              "z_mm": 2.4,
+              "solid_area_inside_exact_region_mm2": 2.9412018302575986,
+              "actual_depositing_centerline_length_in_audited_region_mm": 56.95249466593143,
+              "roles": [
+                "Gap infill",
+                "Inner wall",
+                "Internal solid infill",
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 13,
+              "z_mm": 2.6,
+              "solid_area_inside_exact_region_mm2": 2.7912018798438814,
+              "actual_depositing_centerline_length_in_audited_region_mm": 56.63751945226737,
+              "roles": [
+                "Gap infill",
+                "Inner wall",
+                "Internal solid infill",
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 14,
+              "z_mm": 2.8,
+              "solid_area_inside_exact_region_mm2": 2.7912018576809845,
+              "actual_depositing_centerline_length_in_audited_region_mm": 56.63751945226737,
+              "roles": [
+                "Gap infill",
+                "Inner wall",
+                "Internal solid infill",
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 15,
+              "z_mm": 3.0,
+              "solid_area_inside_exact_region_mm2": 2.7912018736347637,
+              "actual_depositing_centerline_length_in_audited_region_mm": 56.63751945226737,
+              "roles": [
+                "Gap infill",
+                "Inner wall",
+                "Internal solid infill",
+                "Outer wall"
+              ]
+            }
+          ]
+        },
+        {
+          "region": {
+            "name": "spoj2-zapadka-1",
+            "min_mm": [
+              201.33333333333334,
+              8.5,
+              0.2
+            ],
+            "max_mm": [
+              204.33333333333334,
+              10.3,
+              3.0
+            ]
+          },
+          "kind": "male retention prong",
+          "audited_region": "exact box",
+          "all_relevant_layers_have_actual_positive_e_paths": true,
+          "layers": [
+            {
+              "layer": 1,
+              "z_mm": 0.2,
+              "solid_area_inside_exact_region_mm2": 1.6700041359471465,
+              "actual_depositing_centerline_length_in_audited_region_mm": 2.6316736305991006,
+              "roles": [
+                "Inner wall",
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 2,
+              "z_mm": 0.4,
+              "solid_area_inside_exact_region_mm2": 1.4200035886656879,
+              "actual_depositing_centerline_length_in_audited_region_mm": 3.7778214083113903,
+              "roles": [
+                "Inner wall",
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 3,
+              "z_mm": 0.6,
+              "solid_area_inside_exact_region_mm2": 1.2200028980520745,
+              "actual_depositing_centerline_length_in_audited_region_mm": 2.9445594800663137,
+              "roles": [
+                "Inner wall",
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 4,
+              "z_mm": 0.8,
+              "solid_area_inside_exact_region_mm2": 1.0200023773129516,
+              "actual_depositing_centerline_length_in_audited_region_mm": 2.142593754508799,
+              "roles": [
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 5,
+              "z_mm": 1.0,
+              "solid_area_inside_exact_region_mm2": 0.8200016731982465,
+              "actual_depositing_centerline_length_in_audited_region_mm": 2.042593754508805,
+              "roles": [
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 6,
+              "z_mm": 1.2,
+              "solid_area_inside_exact_region_mm2": 0.6200009657311285,
+              "actual_depositing_centerline_length_in_audited_region_mm": 1.7992640494387182,
+              "roles": [
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 7,
+              "z_mm": 1.4,
+              "solid_area_inside_exact_region_mm2": 0.6200009980888483,
+              "actual_depositing_centerline_length_in_audited_region_mm": 1.7992640494387182,
+              "roles": [
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 8,
+              "z_mm": 1.6,
+              "solid_area_inside_exact_region_mm2": 0.8200016758649386,
+              "actual_depositing_centerline_length_in_audited_region_mm": 2.042593754508805,
+              "roles": [
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 9,
+              "z_mm": 1.8,
+              "solid_area_inside_exact_region_mm2": 1.0200022010383942,
+              "actual_depositing_centerline_length_in_audited_region_mm": 2.142593754508799,
+              "roles": [
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 10,
+              "z_mm": 2.0,
+              "solid_area_inside_exact_region_mm2": 1.220002902303547,
+              "actual_depositing_centerline_length_in_audited_region_mm": 2.9445594800663137,
+              "roles": [
+                "Inner wall",
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 11,
+              "z_mm": 2.2,
+              "solid_area_inside_exact_region_mm2": 1.420003422265519,
+              "actual_depositing_centerline_length_in_audited_region_mm": 3.7778214083113903,
+              "roles": [
+                "Inner wall",
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 12,
+              "z_mm": 2.4,
+              "solid_area_inside_exact_region_mm2": 1.670003972241209,
+              "actual_depositing_centerline_length_in_audited_region_mm": 4.101572411697594,
+              "roles": [
+                "Inner wall",
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 13,
+              "z_mm": 2.6,
+              "solid_area_inside_exact_region_mm2": 1.820004267845072,
+              "actual_depositing_centerline_length_in_audited_region_mm": 4.201572411697558,
+              "roles": [
+                "Inner wall",
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 14,
+              "z_mm": 2.8,
+              "solid_area_inside_exact_region_mm2": 1.820004264473685,
+              "actual_depositing_centerline_length_in_audited_region_mm": 4.201572411697558,
+              "roles": [
+                "Inner wall",
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 15,
+              "z_mm": 3.0,
+              "solid_area_inside_exact_region_mm2": 1.820004260442988,
+              "actual_depositing_centerline_length_in_audited_region_mm": 4.201572411697558,
+              "roles": [
+                "Inner wall",
+                "Outer wall"
+              ]
+            }
+          ]
+        },
+        {
+          "region": {
+            "name": "spoj2-zapadka+1",
+            "min_mm": [
+              201.33333333333334,
+              15.700000000000001,
+              0.2
+            ],
+            "max_mm": [
+              204.33333333333334,
+              17.5,
+              3.0
+            ]
+          },
+          "kind": "male retention prong",
+          "audited_region": "exact box",
+          "all_relevant_layers_have_actual_positive_e_paths": true,
+          "layers": [
+            {
+              "layer": 1,
+              "z_mm": 0.2,
+              "solid_area_inside_exact_region_mm2": 1.670004068313379,
+              "actual_depositing_centerline_length_in_audited_region_mm": 2.587482015509406,
+              "roles": [
+                "Inner wall",
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 2,
+              "z_mm": 0.4,
+              "solid_area_inside_exact_region_mm2": 1.4200036041325097,
+              "actual_depositing_centerline_length_in_audited_region_mm": 3.7778214083113584,
+              "roles": [
+                "Inner wall",
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 3,
+              "z_mm": 0.6,
+              "solid_area_inside_exact_region_mm2": 1.220002896132053,
+              "actual_depositing_centerline_length_in_audited_region_mm": 2.9445594800663097,
+              "roles": [
+                "Inner wall",
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 4,
+              "z_mm": 0.8,
+              "solid_area_inside_exact_region_mm2": 1.0200023683985708,
+              "actual_depositing_centerline_length_in_audited_region_mm": 2.1425937545087974,
+              "roles": [
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 5,
+              "z_mm": 1.0,
+              "solid_area_inside_exact_region_mm2": 0.8200016614647934,
+              "actual_depositing_centerline_length_in_audited_region_mm": 2.042593754508803,
+              "roles": [
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 6,
+              "z_mm": 1.2,
+              "solid_area_inside_exact_region_mm2": 0.6200009746372386,
+              "actual_depositing_centerline_length_in_audited_region_mm": 1.7992640494387162,
+              "roles": [
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 7,
+              "z_mm": 1.4,
+              "solid_area_inside_exact_region_mm2": 0.6200009618038134,
+              "actual_depositing_centerline_length_in_audited_region_mm": 1.7992640494387162,
+              "roles": [
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 8,
+              "z_mm": 1.6,
+              "solid_area_inside_exact_region_mm2": 0.8200016683981957,
+              "actual_depositing_centerline_length_in_audited_region_mm": 2.042593754508803,
+              "roles": [
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 9,
+              "z_mm": 1.8,
+              "solid_area_inside_exact_region_mm2": 1.0200021882839798,
+              "actual_depositing_centerline_length_in_audited_region_mm": 2.1425937545087974,
+              "roles": [
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 10,
+              "z_mm": 2.0,
+              "solid_area_inside_exact_region_mm2": 1.2200028894119876,
+              "actual_depositing_centerline_length_in_audited_region_mm": 2.9445594800663097,
+              "roles": [
+                "Inner wall",
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 11,
+              "z_mm": 2.2,
+              "solid_area_inside_exact_region_mm2": 1.4200034542658377,
+              "actual_depositing_centerline_length_in_audited_region_mm": 3.7778214083113584,
+              "roles": [
+                "Inner wall",
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 12,
+              "z_mm": 2.4,
+              "solid_area_inside_exact_region_mm2": 1.670004005071676,
+              "actual_depositing_centerline_length_in_audited_region_mm": 4.101572411697591,
+              "roles": [
+                "Inner wall",
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 13,
+              "z_mm": 2.6,
+              "solid_area_inside_exact_region_mm2": 1.8200043065080065,
+              "actual_depositing_centerline_length_in_audited_region_mm": 4.201572411697556,
+              "roles": [
+                "Inner wall",
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 14,
+              "z_mm": 2.8,
+              "solid_area_inside_exact_region_mm2": 1.820004287064779,
+              "actual_depositing_centerline_length_in_audited_region_mm": 4.201572411697556,
+              "roles": [
+                "Inner wall",
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 15,
+              "z_mm": 3.0,
+              "solid_area_inside_exact_region_mm2": 1.8200043356751692,
+              "actual_depositing_centerline_length_in_audited_region_mm": 4.201572411697556,
+              "roles": [
+                "Inner wall",
+                "Outer wall"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "stl": "stl/dil-3.stl",
+      "first_layer_components_on_bed": 1,
+      "maximum_section_components": 2,
+      "no_new_unsupported_components": true,
+      "no_upper_layer_extends_beyond_previous_plus_0_11mm": true,
+      "layers": [
+        {
+          "layer": 1,
+          "section_z_mm": 0.1,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 3674.927285172826,
+          "new_area_outside_previous_layer_mm2": 0.0,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 2,
+          "section_z_mm": 0.30000000000000004,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 3678.5672870298536,
+          "new_area_outside_previous_layer_mm2": 3.6400018570278707,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 3,
+          "section_z_mm": 0.5,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 3682.2072887652694,
+          "new_area_outside_previous_layer_mm2": 3.6400017354155567,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 4,
+          "section_z_mm": 0.7000000000000001,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 3677.884636260371,
+          "new_area_outside_previous_layer_mm2": 3.639999380346568,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 5,
+          "section_z_mm": 0.9,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 3651.398222356273,
+          "new_area_outside_previous_layer_mm2": 3.6400020833864106,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 6,
+          "section_z_mm": 1.0999999999999999,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 3574.4540031932547,
+          "new_area_outside_previous_layer_mm2": 3.6399998969401084,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 7,
+          "section_z_mm": 1.2999999999999998,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 3487.5731237222203,
+          "new_area_outside_previous_layer_mm2": 3.887057699747238e-06,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 8,
+          "section_z_mm": 1.5,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 3397.0522489698737,
+          "new_area_outside_previous_layer_mm2": 0.0,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 9,
+          "section_z_mm": 1.7,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 3307.5344618707404,
+          "new_area_outside_previous_layer_mm2": 0.0,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 10,
+          "section_z_mm": 1.9,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 3219.3871952089007,
+          "new_area_outside_previous_layer_mm2": 0.0,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 11,
+          "section_z_mm": 2.1,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 3131.239937527946,
+          "new_area_outside_previous_layer_mm2": 0.0,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 12,
+          "section_z_mm": 2.3,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 3043.0926757261923,
+          "new_area_outside_previous_layer_mm2": 0.0,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 13,
+          "section_z_mm": 2.5,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 2956.7654177134386,
+          "new_area_outside_previous_layer_mm2": 0.0,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 14,
+          "section_z_mm": 2.6999999999999997,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 2872.2581628043017,
+          "new_area_outside_previous_layer_mm2": 1.1405078939635546e-07,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 15,
+          "section_z_mm": 2.9,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 2787.7509079255547,
+          "new_area_outside_previous_layer_mm2": 1.2072808633937996e-07,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 16,
+          "section_z_mm": 3.1,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 2703.243652990695,
+          "new_area_outside_previous_layer_mm2": 1.2215726953647644e-07,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 17,
+          "section_z_mm": 3.3,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 2616.4242732148587,
+          "new_area_outside_previous_layer_mm2": 5.950241083551924e-07,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 18,
+          "section_z_mm": 3.5,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 2529.543389627451,
+          "new_area_outside_previous_layer_mm2": 2.9943051862523504e-08,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 19,
+          "section_z_mm": 3.6999999999999997,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 2442.6625068298126,
+          "new_area_outside_previous_layer_mm2": 2.698541401665302e-07,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 20,
+          "section_z_mm": 3.9,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 2355.7816234229113,
+          "new_area_outside_previous_layer_mm2": 6.110141776563361e-08,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 21,
+          "section_z_mm": 4.1000000000000005,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 2268.9007404310078,
+          "new_area_outside_previous_layer_mm2": 2.729715108044409e-07,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 22,
+          "section_z_mm": 4.300000000000001,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 2182.0198569894487,
+          "new_area_outside_previous_layer_mm2": 1.298368366843029e-07,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 23,
+          "section_z_mm": 4.5,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 2095.1389735769917,
+          "new_area_outside_previous_layer_mm2": 8.149803106460504e-08,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 24,
+          "section_z_mm": 4.7,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 2008.2580878351441,
+          "new_area_outside_previous_layer_mm2": 1.3444920765007452e-07,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 25,
+          "section_z_mm": 4.9,
+          "components": 2,
+          "new_unsupported_components": 0,
+          "area_mm2": 1921.5465324960517,
+          "new_area_outside_previous_layer_mm2": 1.1187282366049312e-07,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 26,
+          "section_z_mm": 5.1000000000000005,
+          "components": 2,
+          "new_unsupported_components": 0,
+          "area_mm2": 1835.9314991171777,
+          "new_area_outside_previous_layer_mm2": 1.0225669257481957e-07,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 27,
+          "section_z_mm": 5.300000000000001,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 1751.7941310710896,
+          "new_area_outside_previous_layer_mm2": 7.126858578127262e-08,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 28,
+          "section_z_mm": 5.5,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 1668.1257988512848,
+          "new_area_outside_previous_layer_mm2": 1.0711337374294024e-07,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 29,
+          "section_z_mm": 5.7,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 1581.8424228680478,
+          "new_area_outside_previous_layer_mm2": 1.8070228482924996e-07,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 30,
+          "section_z_mm": 5.9,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 1492.6574069341755,
+          "new_area_outside_previous_layer_mm2": 1.7654771815085192e-08,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 31,
+          "section_z_mm": 6.1000000000000005,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 1400.5952262896542,
+          "new_area_outside_previous_layer_mm2": 1.5779575929835292e-07,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 32,
+          "section_z_mm": 6.300000000000001,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 1305.4030570510906,
+          "new_area_outside_previous_layer_mm2": 5.802545283789655e-08,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 33,
+          "section_z_mm": 6.5,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 1206.7388414409731,
+          "new_area_outside_previous_layer_mm2": 1.392409175442957e-07,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 34,
+          "section_z_mm": 6.7,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 1104.137003980344,
+          "new_area_outside_previous_layer_mm2": 7.095296053999227e-08,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 35,
+          "section_z_mm": 6.9,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 996.952888114455,
+          "new_area_outside_previous_layer_mm2": 3.6463963768741506e-08,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 36,
+          "section_z_mm": 7.1000000000000005,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 884.2669584610201,
+          "new_area_outside_previous_layer_mm2": 1.1081758202736477e-07,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 37,
+          "section_z_mm": 7.300000000000001,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 764.572309803151,
+          "new_area_outside_previous_layer_mm2": 3.726618232142082e-08,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 38,
+          "section_z_mm": 7.5,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 635.0373722625783,
+          "new_area_outside_previous_layer_mm2": 6.401050513399048e-08,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 39,
+          "section_z_mm": 7.7,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 489.60872860907045,
+          "new_area_outside_previous_layer_mm2": 1.9538470406154823e-08,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        },
+        {
+          "layer": 40,
+          "section_z_mm": 7.9,
+          "components": 1,
+          "new_unsupported_components": 0,
+          "area_mm2": 289.94450258546516,
+          "new_area_outside_previous_layer_mm2": 8.266171953500385e-08,
+          "area_beyond_previous_layer_plus_0_11mm_mm2": 0.0
+        }
+      ],
+      "retention_regions": [
+        {
+          "region": {
+            "name": "spoj2-zapadka-1",
+            "min_mm": [
+              11.0,
+              8.5,
+              0.2
+            ],
+            "max_mm": [
+              14.0,
+              10.3,
+              3.0
+            ]
+          },
+          "kind": "female void plus adjacent cavity walls",
+          "audited_region": "box expanded2mm intersected with actual STL section; no extrusion required in void",
+          "all_relevant_layers_have_actual_positive_e_paths": true,
+          "layers": [
+            {
+              "layer": 1,
+              "z_mm": 0.2,
+              "solid_area_inside_exact_region_mm2": 2.941199753148893,
+              "actual_depositing_centerline_length_in_audited_region_mm": 47.23619511831197,
+              "roles": [
+                "Bottom surface",
+                "Inner wall",
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 2,
+              "z_mm": 0.4,
+              "solid_area_inside_exact_region_mm2": 3.241200063008049,
+              "actual_depositing_centerline_length_in_audited_region_mm": 59.240963142178614,
+              "roles": [
+                "Inner wall",
+                "Internal solid infill",
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 3,
+              "z_mm": 0.6,
+              "solid_area_inside_exact_region_mm2": 3.5412003468288424,
+              "actual_depositing_centerline_length_in_audited_region_mm": 61.25223129247749,
+              "roles": [
+                "Inner wall",
+                "Internal solid infill",
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 4,
+              "z_mm": 0.8,
+              "solid_area_inside_exact_region_mm2": 3.8012001808662923,
+              "actual_depositing_centerline_length_in_audited_region_mm": 62.94435797197783,
+              "roles": [
+                "Inner wall",
+                "Internal solid infill",
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 5,
+              "z_mm": 1.0,
+              "solid_area_inside_exact_region_mm2": 4.021200375941317,
+              "actual_depositing_centerline_length_in_audited_region_mm": 64.94417923003972,
+              "roles": [
+                "Inner wall",
+                "Internal solid infill",
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 6,
+              "z_mm": 1.2,
+              "solid_area_inside_exact_region_mm2": 4.241200358671983,
+              "actual_depositing_centerline_length_in_audited_region_mm": 66.52159668952142,
+              "roles": [
+                "Inner wall",
+                "Internal solid infill",
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 7,
+              "z_mm": 1.4,
+              "solid_area_inside_exact_region_mm2": 4.241200544005529,
+              "actual_depositing_centerline_length_in_audited_region_mm": 66.79936882446269,
+              "roles": [
+                "Inner wall",
+                "Internal solid infill",
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 8,
+              "z_mm": 1.6,
+              "solid_area_inside_exact_region_mm2": 4.0212003755999834,
+              "actual_depositing_centerline_length_in_audited_region_mm": 64.80167892192634,
+              "roles": [
+                "Inner wall",
+                "Internal solid infill",
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 9,
+              "z_mm": 1.8,
+              "solid_area_inside_exact_region_mm2": 3.8012003863839796,
+              "actual_depositing_centerline_length_in_audited_region_mm": 63.055339162593114,
+              "roles": [
+                "Inner wall",
+                "Internal solid infill",
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 10,
+              "z_mm": 2.0,
+              "solid_area_inside_exact_region_mm2": 3.5412003434057557,
+              "actual_depositing_centerline_length_in_audited_region_mm": 61.08121017214854,
+              "roles": [
+                "Inner wall",
+                "Internal solid infill",
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 11,
+              "z_mm": 2.2,
+              "solid_area_inside_exact_region_mm2": 3.2412000486720447,
+              "actual_depositing_centerline_length_in_audited_region_mm": 59.38793825737926,
+              "roles": [
+                "Inner wall",
+                "Internal solid infill",
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 12,
+              "z_mm": 2.4,
+              "solid_area_inside_exact_region_mm2": 2.9412000439244075,
+              "actual_depositing_centerline_length_in_audited_region_mm": 57.41711716749444,
+              "roles": [
+                "Inner wall",
+                "Internal solid infill",
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 13,
+              "z_mm": 2.6,
+              "solid_area_inside_exact_region_mm2": 2.791199746667475,
+              "actual_depositing_centerline_length_in_audited_region_mm": 56.630904822314655,
+              "roles": [
+                "Inner wall",
+                "Internal solid infill",
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 14,
+              "z_mm": 2.8,
+              "solid_area_inside_exact_region_mm2": 2.7911997456000437,
+              "actual_depositing_centerline_length_in_audited_region_mm": 56.50594411316148,
+              "roles": [
+                "Inner wall",
+                "Internal solid infill",
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 15,
+              "z_mm": 3.0,
+              "solid_area_inside_exact_region_mm2": 2.7911997456000437,
+              "actual_depositing_centerline_length_in_audited_region_mm": 56.60494046713864,
+              "roles": [
+                "Inner wall",
+                "Internal solid infill",
+                "Outer wall"
+              ]
+            }
+          ]
+        },
+        {
+          "region": {
+            "name": "spoj2-zapadka+1",
+            "min_mm": [
+              11.0,
+              15.700000000000001,
+              0.2
+            ],
+            "max_mm": [
+              14.0,
+              17.5,
+              3.0
+            ]
+          },
+          "kind": "female void plus adjacent cavity walls",
+          "audited_region": "box expanded2mm intersected with actual STL section; no extrusion required in void",
+          "all_relevant_layers_have_actual_positive_e_paths": true,
+          "layers": [
+            {
+              "layer": 1,
+              "z_mm": 0.2,
+              "solid_area_inside_exact_region_mm2": 2.9412014517002305,
+              "actual_depositing_centerline_length_in_audited_region_mm": 46.56148163445298,
+              "roles": [
+                "Gap infill",
+                "Inner wall",
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 2,
+              "z_mm": 0.4,
+              "solid_area_inside_exact_region_mm2": 3.241201084842588,
+              "actual_depositing_centerline_length_in_audited_region_mm": 60.199023377882206,
+              "roles": [
+                "Gap infill",
+                "Inner wall",
+                "Internal solid infill",
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 3,
+              "z_mm": 0.6,
+              "solid_area_inside_exact_region_mm2": 3.541200514253725,
+              "actual_depositing_centerline_length_in_audited_region_mm": 60.06149019577823,
+              "roles": [
+                "Gap infill",
+                "Inner wall",
+                "Internal solid infill",
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 4,
+              "z_mm": 0.8,
+              "solid_area_inside_exact_region_mm2": 3.801199892931203,
+              "actual_depositing_centerline_length_in_audited_region_mm": 61.01199613332642,
+              "roles": [
+                "Gap infill",
+                "Inner wall",
+                "Internal solid infill",
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 5,
+              "z_mm": 1.0,
+              "solid_area_inside_exact_region_mm2": 4.021199208016073,
+              "actual_depositing_centerline_length_in_audited_region_mm": 62.274118181593686,
+              "roles": [
+                "Gap infill",
+                "Inner wall",
+                "Internal solid infill",
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 6,
+              "z_mm": 1.2,
+              "solid_area_inside_exact_region_mm2": 4.241198606763046,
+              "actual_depositing_centerline_length_in_audited_region_mm": 63.29607533396006,
+              "roles": [
+                "Gap infill",
+                "Inner wall",
+                "Internal solid infill",
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 7,
+              "z_mm": 1.4,
+              "solid_area_inside_exact_region_mm2": 4.241198878157229,
+              "actual_depositing_centerline_length_in_audited_region_mm": 63.50792506961055,
+              "roles": [
+                "Gap infill",
+                "Inner wall",
+                "Internal solid infill",
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 8,
+              "z_mm": 1.6,
+              "solid_area_inside_exact_region_mm2": 4.021199340112101,
+              "actual_depositing_centerline_length_in_audited_region_mm": 61.799807860505794,
+              "roles": [
+                "Gap infill",
+                "Inner wall",
+                "Internal solid infill",
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 9,
+              "z_mm": 1.8,
+              "solid_area_inside_exact_region_mm2": 3.801200021428607,
+              "actual_depositing_centerline_length_in_audited_region_mm": 61.43636751811284,
+              "roles": [
+                "Gap infill",
+                "Inner wall",
+                "Internal solid infill",
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 10,
+              "z_mm": 2.0,
+              "solid_area_inside_exact_region_mm2": 3.5412008408960167,
+              "actual_depositing_centerline_length_in_audited_region_mm": 59.980408618202155,
+              "roles": [
+                "Gap infill",
+                "Inner wall",
+                "Internal solid infill",
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 11,
+              "z_mm": 2.2,
+              "solid_area_inside_exact_region_mm2": 3.2412012234239413,
+              "actual_depositing_centerline_length_in_audited_region_mm": 60.199023377882206,
+              "roles": [
+                "Gap infill",
+                "Inner wall",
+                "Internal solid infill",
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 12,
+              "z_mm": 2.4,
+              "solid_area_inside_exact_region_mm2": 2.9412018302575986,
+              "actual_depositing_centerline_length_in_audited_region_mm": 56.95249466591849,
+              "roles": [
+                "Gap infill",
+                "Inner wall",
+                "Internal solid infill",
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 13,
+              "z_mm": 2.6,
+              "solid_area_inside_exact_region_mm2": 2.7912018798438814,
+              "actual_depositing_centerline_length_in_audited_region_mm": 56.63751945225443,
+              "roles": [
+                "Gap infill",
+                "Inner wall",
+                "Internal solid infill",
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 14,
+              "z_mm": 2.8,
+              "solid_area_inside_exact_region_mm2": 2.7912018576809845,
+              "actual_depositing_centerline_length_in_audited_region_mm": 56.63751945225443,
+              "roles": [
+                "Gap infill",
+                "Inner wall",
+                "Internal solid infill",
+                "Outer wall"
+              ]
+            },
+            {
+              "layer": 15,
+              "z_mm": 3.0,
+              "solid_area_inside_exact_region_mm2": 2.7912018736347637,
+              "actual_depositing_centerline_length_in_audited_region_mm": 56.63751945225443,
+              "roles": [
+                "Gap infill",
+                "Inner wall",
+                "Internal solid infill",
+                "Outer wall"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "physical_limit": "No guarantee of TPU snap strength, friction, flex life or printability without a physical sample"
+}

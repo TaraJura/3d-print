@@ -1,0 +1,66 @@
+{
+  "status": "Native CLI whole-project import passed; no GUI screenshot or physical print claim",
+  "source_project": "EXPERIMENT-prepazka-575-snap-Alzament-TPU95A.3mf",
+  "source_sha256_before_and_after": "157bc21ba273660f5ca4431dcf6a910bfff5ea009cc3307cfacaad21c48ebf65",
+  "native_cli_return_code": 0,
+  "no_external_profile_overrides": true,
+  "no_reslice_performed": true,
+  "mesh_count": 3,
+  "all_triangles_and_transforms_preserved": true,
+  "maximum_vertex_deviation_mm_per_part": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "active_native_settings": {
+    "printer_model": "Anycubic Kobra X",
+    "printer_settings_id": "Anycubic Kobra X 0.4 nozzle",
+    "nozzle_diameter": [
+      "0.4"
+    ],
+    "curr_bed_type": "Textured PEI Plate",
+    "filament_settings_id": [
+      "EXPERIMENT 575 snap Alzament TPU95A Gray Kobra X 0.4 225C bed60C"
+    ],
+    "filament_type": [
+      "TPU"
+    ],
+    "filament_colour": [
+      "#9A9A9A"
+    ],
+    "filament_diameter": [
+      "1.75"
+    ],
+    "nozzle_temperature": [
+      "225"
+    ],
+    "nozzle_temperature_initial_layer": [
+      "225"
+    ],
+    "textured_plate_temp": [
+      "60"
+    ],
+    "textured_plate_temp_initial_layer": [
+      "60"
+    ],
+    "filament_max_volumetric_speed": [
+      "3.2"
+    ],
+    "wall_loops": "4",
+    "sparse_infill_density": "100%",
+    "top_shell_layers": "5",
+    "bottom_shell_layers": "5",
+    "initial_layer_speed": "20",
+    "inner_wall_speed": "40",
+    "outer_wall_speed": "30"
+  },
+  "warnings": [
+    "[2026-09-23 20:16:10.045980] [0x00007e81f5e2e900] [warning] cli mode, Current AnycubicSlicerNext Version 2.0.0.5",
+    "[2026-09-23 20:16:10.068574] [0x00007e81f5e2e900] [warning] read_plate_size_from_config, file /usr/share/AnycubicSlicerNext/resources/profiles/Anycubic/machine/Anycubic Kobra X.json missing plate_width or plate_depth key.",
+    "[2026-09-23 20:16:10.069026] [0x00007e81f5e2e900] [warning] run:2998, can not find system preset file: /usr/share/AnycubicSlicerNext/resources/profiles/Anycubic/process/EXPERIMENT prepazka 575 snap TPU95A 0.20mm Kobra X 0.4.json",
+    "[2026-09-23 20:16:10.069039] [0x00007e81f5e2e900] [warning] no filament colors found in projects",
+    "[2026-09-23 20:16:10.069845] [0x00007e81f5e2e900] [error]   calc_exclude_triangles:Unable to create exclude triangles",
+    "[2026-09-23 20:16:10.070020] [0x00007e81f5e2e900] [error]   calc_exclude_triangles:Unable to create exclude triangles"
+  ],
+  "limitation": "TPU calibration, physical spool/feeding, snap fit and bed60C source conflict remain unverified."
+}

@@ -1,0 +1,209 @@
+{
+  "status": "local sliced projects; physical print and fit not tested",
+  "machine_profile": {
+    "path": "/usr/share/AnycubicSlicerNext/resources/profiles/Anycubic/machine/Anycubic Kobra X 0.4 nozzle.json",
+    "sha256": "baf80d3287e1e863fba29cdfd240b9b5ebc28bd87e1b4d03fc79e53f0009570a"
+  },
+  "filament_profile": {
+    "path": "filament-kobra-x-alzament-pla-basic-navrh.json",
+    "sha256": "c91955b40c68529f1412ab9f747b5e66f551299b9f709093419516d2acab915f",
+    "based_on_system_profile_sha256": "7e410a42d924f7426f7535d32ca87c43c514e98e3464ab2cc524446167133483",
+    "note": "Design starting point within Alzament PLA Basic supplier ranges; not physically calibrated"
+  },
+  "custom_process": {
+    "path": "proces-kobra-x-pla-navrh.json",
+    "sha256": "1ee805ad3b8d7173d23c74185f55019febe8049cc755601d51c5948e9947dae2"
+  },
+  "plates": [
+    {
+      "number": 1,
+      "copies": 3,
+      "geometry_sha256": "1a3abc19719b63ed3828fea0abc6930c361e07b5d55283be31ea630ac333da6d",
+      "configured": {
+        "path": "/tmp/drzak-next-rcm7pi8q/plate-01/configured.3mf",
+        "sha256": "f8e7bf3f446b57b315ba405fc1684bf8c84e1b860d2deebafe8be641ca13973d",
+        "copies": 3,
+        "profile": {
+          "printer_model": "Anycubic Kobra X",
+          "printer_settings_id": "Anycubic Kobra X 0.4 nozzle",
+          "print_settings_id": "Drzak s prihradkou 0.20 mm PLA navrh Kobra X",
+          "filament_settings_id": [
+            "Alzament PLA Basic navrh @Anycubic Kobra X 0.4 nozzle"
+          ],
+          "filament_type": [
+            "PLA"
+          ],
+          "nozzle_diameter": [
+            "0.4"
+          ],
+          "layer_height": "0.2",
+          "brim_type": "outer_only",
+          "brim_width": "5",
+          "enable_support": "0",
+          "wall_loops": "4",
+          "sparse_infill_density": "25%",
+          "outer_wall_speed": "70",
+          "inner_wall_speed": "100",
+          "initial_layer_speed": "25",
+          "nozzle_temperature": [
+            "205"
+          ],
+          "nozzle_temperature_initial_layer": [
+            "215"
+          ],
+          "hot_plate_temp": [
+            "50"
+          ]
+        },
+        "has_gcode": false
+      },
+      "delivered": {
+        "path": "/home/novakj/3d-print/models/drzak-toaletniho-papiru-s-prihradkou/rozlozeni/drzak-podlozka-01-nastaveny-projekt.3mf",
+        "sha256": "883172eab57b98265a05fb5fa1095e0bef20ad6fdbe000d86d20168c93c63be9",
+        "copies": 3,
+        "profile": {
+          "printer_model": "Anycubic Kobra X",
+          "printer_settings_id": "Anycubic Kobra X 0.4 nozzle",
+          "print_settings_id": "Drzak s prihradkou 0.20 mm PLA navrh Kobra X",
+          "filament_settings_id": [
+            "Alzament PLA Basic navrh @Anycubic Kobra X 0.4 nozzle"
+          ],
+          "filament_type": [
+            "PLA"
+          ],
+          "nozzle_diameter": [
+            "0.4"
+          ],
+          "layer_height": "0.2",
+          "brim_type": "outer_only",
+          "brim_width": "5",
+          "enable_support": "0",
+          "wall_loops": "4",
+          "sparse_infill_density": "25%",
+          "outer_wall_speed": "70",
+          "inner_wall_speed": "100",
+          "initial_layer_speed": "25",
+          "nozzle_temperature": [
+            "205"
+          ],
+          "nozzle_temperature_initial_layer": [
+            "215"
+          ],
+          "hot_plate_temp": [
+            "50"
+          ]
+        },
+        "has_gcode": true,
+        "gcode_sha256": "c19cc208c5e24e58eb2bcf4fe7d3e7d3f87b359622c2a92d1f20970fc102acd8",
+        "gcode_bytes": 31945698,
+        "gcode_lines": 1169679,
+        "slice_metadata": {
+          "prediction": "42560",
+          "weight": "255.08",
+          "outside": "false",
+          "support_used": "false"
+        },
+        "warnings": [
+          {
+            "msg": "not_support_traditional_timelapse",
+            "level": "1",
+            "error_code": "1000C003"
+          }
+        ]
+      },
+      "slice_log_tail": "[2026-09-24 21:36:34.878966] [0x0000796b7bbbf900] [trace]   Initializing StaticPrintConfigs\n[2026-09-24 21:36:34.898701] [0x0000796b7bbbf900] [error]   calc_exclude_triangles:Unable to create exclude triangles\n\n[2026-09-24 21:36:34.898872] [0x0000796b7bbbf900] [error]   calc_exclude_triangles:Unable to create exclude triangles\n\n"
+    },
+    {
+      "number": 2,
+      "copies": 3,
+      "geometry_sha256": "ce9d3add2e61dc95d0568427d68b43bdea594d6bc0ed3a1f26889106046fdc9c",
+      "configured": {
+        "path": "/tmp/drzak-next-rcm7pi8q/plate-02/configured.3mf",
+        "sha256": "f4ee53dc72e3e2fd70d08e2aedfff16d7be506321d88f51f27045a4872e44ab2",
+        "copies": 3,
+        "profile": {
+          "printer_model": "Anycubic Kobra X",
+          "printer_settings_id": "Anycubic Kobra X 0.4 nozzle",
+          "print_settings_id": "Drzak s prihradkou 0.20 mm PLA navrh Kobra X",
+          "filament_settings_id": [
+            "Alzament PLA Basic navrh @Anycubic Kobra X 0.4 nozzle"
+          ],
+          "filament_type": [
+            "PLA"
+          ],
+          "nozzle_diameter": [
+            "0.4"
+          ],
+          "layer_height": "0.2",
+          "brim_type": "outer_only",
+          "brim_width": "5",
+          "enable_support": "0",
+          "wall_loops": "4",
+          "sparse_infill_density": "25%",
+          "outer_wall_speed": "70",
+          "inner_wall_speed": "100",
+          "initial_layer_speed": "25",
+          "nozzle_temperature": [
+            "205"
+          ],
+          "nozzle_temperature_initial_layer": [
+            "215"
+          ],
+          "hot_plate_temp": [
+            "50"
+          ]
+        },
+        "has_gcode": false
+      },
+      "delivered": {
+        "path": "/home/novakj/3d-print/models/drzak-toaletniho-papiru-s-prihradkou/rozlozeni/drzak-podlozka-02-nastaveny-projekt.3mf",
+        "sha256": "d1d5c72eaa9d93aaf4d0fab4a12f890d08f1072d9c9222e86421d53010bf5c53",
+        "copies": 3,
+        "profile": {
+          "printer_model": "Anycubic Kobra X",
+          "printer_settings_id": "Anycubic Kobra X 0.4 nozzle",
+          "print_settings_id": "Drzak s prihradkou 0.20 mm PLA navrh Kobra X",
+          "filament_settings_id": [
+            "Alzament PLA Basic navrh @Anycubic Kobra X 0.4 nozzle"
+          ],
+          "filament_type": [
+            "PLA"
+          ],
+          "nozzle_diameter": [
+            "0.4"
+          ],
+          "layer_height": "0.2",
+          "brim_type": "outer_only",
+          "brim_width": "5",
+          "enable_support": "0",
+          "wall_loops": "4",
+          "sparse_infill_density": "25%",
+          "outer_wall_speed": "70",
+          "inner_wall_speed": "100",
+          "initial_layer_speed": "25",
+          "nozzle_temperature": [
+            "205"
+          ],
+          "nozzle_temperature_initial_layer": [
+            "215"
+          ],
+          "hot_plate_temp": [
+            "50"
+          ]
+        },
+        "has_gcode": true,
+        "gcode_sha256": "b90993262d9c442972c289d044fbb1347b91d9c471637c906f1cb51ca6b274f4",
+        "gcode_bytes": 10366558,
+        "gcode_lines": 381756,
+        "slice_metadata": {
+          "prediction": "14834",
+          "weight": "80.71",
+          "outside": "false",
+          "support_used": "false"
+        },
+        "warnings": []
+      },
+      "slice_log_tail": "[2026-09-24 21:36:40.131612] [0x00007309c7ec9900] [trace]   Initializing StaticPrintConfigs\n[2026-09-24 21:36:40.151622] [0x00007309c7ec9900] [error]   calc_exclude_triangles:Unable to create exclude triangles\n\n[2026-09-24 21:36:40.151785] [0x00007309c7ec9900] [error]   calc_exclude_triangles:Unable to create exclude triangles\n\n"
+    }
+  ]
+}

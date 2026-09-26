@@ -1,0 +1,102 @@
+# -*- coding: utf-8 -*-
+"""Skutečné CAD náhledy a kontrola uložené parametriky.
+
+Spouští se v GUI FreeCADu po kryt.FCMacro. Přepíše zdejší dva PNG,
+uloží kryt.FCStd se zobrazeným pouze finálním dílem a doplní kontrolní JSON.
+"""
+from pathlib import Path
+import json
+import FreeCAD as App
+import FreeCADGui as Gui
+from PySide import QtCore
+
+OUT = Path(__file__).resolve().parent
+doc = App.openDocument(str(OUT / "kryt.FCStd"))
+doc.recompute()
+view = Gui.activeDocument().activeView()
+
+def set_visible():
+    for obj in doc.Objects:
+        if hasattr(obj, "ViewObject"):
+            obj.ViewObject.Visibility = obj.Name == "Cover"
+    doc.Cover.ViewObject.ShapeColor = (0.86, 0.90, 0.92)
+    doc.Cover.ViewObject.LineColor = (0.23, 0.31, 0.36)
+    doc.Cover.ViewObject.LineWidth = 1.5
+    doc.Cover.ViewObject.DisplayMode = "Flat Lines"
+
+def camera(eye):
+    eye = App.Vector(*eye)
+    up = App.Vector(0, 0, 1)
+    view.setCameraType("Orthographic")
+    view.setCameraOrientation(App.Rotation(up.cross(eye), up, eye, "ZXY").Q)
+    view.fitAll()
+    view.redraw()
+    Gui.updateGui()
+
+def start():
+    Gui.getMainWindow().resize(1400, 1000)
+    set_visible()
+    camera((1.1, -1.2, 0.9))
+    QtCore.QTimer.singleShot(1000, save_iso)
+
+def save_iso():
+    view.saveImage(str(OUT / "nahled-zaobleny-kryt.png"), 1400, 1000, "White")
+    camera((0.05, 0.0, 1.0))
+    QtCore.QTimer.singleShot(900, save_top)
+
+def save_top():
+    view.saveImage(str(OUT / "nahled-shora.png"), 1400, 1000, "White")
+    camera((1.1, -1.2, 0.9))
+    doc.save()
+    path = doc.FileName
+    App.closeDocument(doc.Name)
+    reopened = App.openDocument(path)
+    reopened.recompute()
+    assert reopened.Cover.Shape.isValid()
+    assert len(reopened.Cover.Shape.Solids) == 1
+    visible = [o.Name for o in reopened.Objects
+               if hasattr(o, "Shape") and o.ViewObject.Visibility]
+    assert visible == ["Cover"], visible
+    sheet = reopened.Parameters
+    assert abs(reopened.Cover.Shape.BoundBox.XLength - 150) < 0.01
+    assert abs(reopened.Cover.Shape.BoundBox.YLength - 75) < 0.01
+    assert abs(reopened.Cover.Shape.BoundBox.ZLength - 98) < 0.01
+    # Praktická zkouška přepočtu všech konstrukčních vazeb ze standardních objektů.
+    for cell, changed, axis, expected in (
+        ("B2", "160 mm", "XLength", 160),
+        ("B3", "96 mm", "ZLength", 96),
+        ("B7", "73 mm", "YLength", 73),
+    ):
+        original = sheet.getContents(cell)
+        sheet.set(cell, changed)
+        reopened.recompute()
+        assert reopened.Cover.Shape.isValid()
+        assert abs(getattr(reopened.Cover.Shape.BoundBox, axis) - expected) < 0.01
+        sheet.set(cell, original)
+        reopened.recompute()
+    original = sheet.getContents("B6")
+    base_volume = reopened.Cover.Shape.Volume
+    sheet.set("B6", "4 mm")
+    reopened.recompute()
+    assert reopened.Cover.Shape.isValid()
+    assert reopened.Cover.Shape.Volume > base_volume
+    sheet.set("B6", original)
+    reopened.recompute()
+    assert abs(reopened.Cover.Shape.BoundBox.XLength - 150) < 0.01
+    assert abs(reopened.Cover.Shape.BoundBox.YLength - 75) < 0.01
+    assert abs(reopened.Cover.Shape.BoundBox.ZLength - 98) < 0.01
+    reopened.save()
+    App.closeDocument(reopened.Name)
+    report_path = OUT / "kontrola-modelu.json"
+    report = json.loads(report_path.read_text())
+    report["gui_validation"] = {
+        "saved_and_reopened": True,
+        "only_visible_geometry": visible,
+        "parametric_recompute": ["CoverWidth", "CoverHeight", "CoverDepth", "WallThickness"],
+        "preview_images": ["nahled-zaobleny-kryt.png", "nahled-shora.png"],
+    }
+    report_path.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n")
+    print("DUCT_COVER_PREVIEW_OK", flush=True)
+    Gui.getMainWindow().close()
+
+QtCore.QTimer.singleShot(800, start)
