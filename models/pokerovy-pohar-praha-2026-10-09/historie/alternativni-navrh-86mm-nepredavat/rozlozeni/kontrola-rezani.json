@@ -1,0 +1,267 @@
+{
+  "status": "Lokálně nařezáno; fyzický tisk neověřen",
+  "source_stl_sha256": "147d6d7c2a6fe670b96ac1d5dc825e0f54c2910d79173635f7951dc29f2af439",
+  "geometry_3mf_sha256": "1307cc2b1e3a7790fcde0d0f2a5b06b6d89ae7f0720ceebf639162101b7d2ab6",
+  "source_size_mm": [
+    58.0,
+    58.0,
+    86.0
+  ],
+  "source_triangles": 17930,
+  "translation_mm": [
+    130.0,
+    130.0,
+    -0.0
+  ],
+  "machine_profile_sha256": "baf80d3287e1e863fba29cdfd240b9b5ebc28bd87e1b4d03fc79e53f0009570a",
+  "process_profile_sha256": "41fca0f52a18d5a226083b78fc49468eb92e7d49a8756972f3848ea2f9f93ac8",
+  "filament_profile_sha256": "b16c8280604b348331295ecda3e41cae336b29c5075ed11f4b1703c7025cd47c",
+  "configured": {
+    "sha256": "0e4c82fe0bc98bce55163ec0c9b119488acb484938a3b57007c15e162c0262c5",
+    "physical_pieces": 1,
+    "maximum_vertex_delta_mm": 1.957153322962313e-06,
+    "mesh_repairs": [
+      {
+        "edges_fixed": "0",
+        "degenerate_facets": "0",
+        "facets_removed": "0",
+        "facets_reversed": "0",
+        "backwards_edges": "0"
+      }
+    ],
+    "has_gcode": false,
+    "settings": {
+      "nozzle_temperature_initial_layer": [
+        "225"
+      ],
+      "sparse_infill_density": "8%",
+      "filament_settings_id": [
+        "NAVRH Alzament PLA Silk Gold ALZMNTS07 @Kobra X 0.4"
+      ],
+      "nozzle_temperature": [
+        "220"
+      ],
+      "sparse_infill_pattern": "gyroid",
+      "filament_max_volumetric_speed": [
+        "6"
+      ],
+      "textured_plate_temp": [
+        "50"
+      ],
+      "print_settings_id": "Pokerovy pohar 0.20mm Gold Silk Kobra X",
+      "wall_loops": "2",
+      "outer_wall_speed": "45",
+      "brim_width": "3",
+      "printer_model": "Anycubic Kobra X",
+      "filament_colour": [
+        "#D4AF37"
+      ],
+      "filament_density": [
+        "1.24"
+      ],
+      "layer_height": "0.2",
+      "enable_support": "0",
+      "inner_wall_speed": "80",
+      "nozzle_diameter": [
+        "0.4"
+      ],
+      "enable_prime_tower": "0"
+    }
+  },
+  "delivered": {
+    "sha256": "1f3481c6c8286d8920d36be6457a1aabcf5a71b1b755693fdbe20712293c2498",
+    "physical_pieces": 1,
+    "maximum_vertex_delta_mm": 1.957153322962313e-06,
+    "mesh_repairs": [
+      {
+        "edges_fixed": "0",
+        "degenerate_facets": "0",
+        "facets_removed": "0",
+        "facets_reversed": "0",
+        "backwards_edges": "0"
+      }
+    ],
+    "has_gcode": true,
+    "settings": {
+      "nozzle_temperature_initial_layer": [
+        "225"
+      ],
+      "sparse_infill_density": "8%",
+      "filament_settings_id": [
+        "NAVRH Alzament PLA Silk Gold ALZMNTS07 @Kobra X 0.4"
+      ],
+      "nozzle_temperature": [
+        "220"
+      ],
+      "sparse_infill_pattern": "gyroid",
+      "filament_max_volumetric_speed": [
+        "6"
+      ],
+      "textured_plate_temp": [
+        "50"
+      ],
+      "print_settings_id": "Pokerovy pohar 0.20mm Gold Silk Kobra X",
+      "wall_loops": "2",
+      "outer_wall_speed": "45",
+      "brim_width": "3",
+      "printer_model": "Anycubic Kobra X",
+      "filament_colour": [
+        "#D4AF37"
+      ],
+      "filament_density": [
+        "1.24"
+      ],
+      "layer_height": "0.2",
+      "enable_support": "0",
+      "inner_wall_speed": "80",
+      "nozzle_diameter": [
+        "0.4"
+      ],
+      "enable_prime_tower": "0"
+    },
+    "gcode_sha256": "061d6c44bcdf397133f05c8fcb4ac9936a2fdaa678d139872a1ff30a398de5c2",
+    "gcode_bytes": 5407811,
+    "slice_metadata": {
+      "prediction": "5883",
+      "weight": "25.46",
+      "outside": "false",
+      "support_used": "false"
+    },
+    "warnings": []
+  },
+  "toolpath_audit": {
+    "layer_count": 430,
+    "all_layers_have_extrusion": true,
+    "maximum_extrusion_z_mm": 86.0,
+    "roles_segments": {
+      "Brim": 532,
+      "Inner wall": 40248,
+      "Outer wall": 42004,
+      "Bottom surface": 286,
+      "Gap infill": 195,
+      "Internal solid infill": 34898,
+      "Sparse infill": 41347,
+      "Internal Bridge": 961,
+      "Top surface": 931,
+      "Overhang wall": 224
+    },
+    "extrusion_xy_min_mm": [
+      98.386,
+      101.243
+    ],
+    "extrusion_xy_max_mm": [
+      161.614,
+      158.754
+    ],
+    "minimum_edge_margin_mm": 98.386,
+    "tool_commands": [],
+    "start_temperature_c": {
+      "nozzle": 225,
+      "bed": 50
+    },
+    "supports_generated": false,
+    "purge_tower_generated": false,
+    "layer_previews": {
+      "file": "podlozka-01-vrstvy.png",
+      "selected_layers": [
+        1,
+        20,
+        50,
+        100,
+        150,
+        200,
+        250,
+        300,
+        350,
+        430
+      ]
+    }
+  },
+  "cli_error_messages": [
+    "error]   calc_exclude_triangles:Unable to create exclude triangles"
+  ],
+  "printer_contact": false,
+  "physical_print_verified": false,
+  "material_source": {
+    "url": "https://www.alza.cz/alzament-pla-silk-1-kg-gold-d12869930.htm",
+    "checked_date": "2026-10-09",
+    "product": "Alzament PLA Silk 1 kg Gold ALZMNTS07",
+    "supplier_nozzle_c": [
+      210,
+      230
+    ],
+    "supplier_bed_c": [
+      45,
+      60
+    ],
+    "supplier_speed_mm_s": [
+      40,
+      250
+    ],
+    "profile_status": "Návrhový profil, bez fyzické kalibrace; skutečný slot/cívka neověřeny"
+  },
+  "wall_contact_screen": {
+    "method": "Wall paths sampled every0.2mm on0.25mm grid; previous-layer material search0.5/1mm. Sparse infill and internal bridges excluded from current screen.",
+    "sampled_wall_sites": 553324,
+    "sites_over_0_5_mm": 4,
+    "examples_over_0_5_mm": [
+      [
+        28,
+        140.75,
+        113.5
+      ],
+      [
+        200,
+        114.0,
+        123.5
+      ],
+      [
+        204,
+        117.25,
+        123.5
+      ],
+      [
+        208,
+        139.25,
+        123.5
+      ]
+    ],
+    "sites_over_1_mm": 0,
+    "examples_over_1_mm": [],
+    "limitation": "Local geometric screening, not a physical print guarantee."
+  },
+  "relief_toolpath_preview": {
+    "file": "nahled-reliefu-drahy.png",
+    "projected_segments": {
+      "Nápisy podstavce": 2232,
+      "Dvě esa a symboly": 2275,
+      "Jméno na zadní straně": 877
+    },
+    "note": "Projection of relief front-face extrusions only; not a simulated physical surface."
+  },
+  "visual_toolpath_review": {
+    "reviewed_date": "2026-10-09",
+    "reviewed_images": [
+      "podlozka-01-vrstvy.png",
+      "nahled-reliefu-drahy.png"
+    ],
+    "relief_preserved": [
+      "POKER",
+      "VÍTĚZ",
+      "PRAHA",
+      "9. 10. 2026",
+      "JIŘÍ",
+      "NOVÁK",
+      "A",
+      "♠",
+      "♥"
+    ],
+    "no_supports_decision": "Cup cone expands32.5deg from vertical, cards13deg; relief0.55mm. Wall screen found no sampled wall site over1mm from prior-layer paths.",
+    "physical_readability_verified": false
+  },
+  "independent_visual_toolpath_review": {
+    "reviewer": "audit subagent",
+    "reviewed_date": "2026-10-09",
+    "result": "Mandatory words/date, VÍTĚZ and JIŘÍ/NOVÁK accents, both A and large ♠/♥ preserved and readable in actual toolpath projection. Physical readability unverified."
+  }
+}

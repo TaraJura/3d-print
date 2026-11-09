@@ -1,0 +1,838 @@
+{
+  "revision": "05",
+  "variant": "naležato s podporami",
+  "physical_print_verified": false,
+  "printer_io": false,
+  "orientation": "X dílu je tisková výška, Z dílu leží v rovině podložky, konec s dnem k zadní straně tiskárny. Otočení je v build_nalezato.py a v STL. Položka 3MF je jen posunutá.",
+  "yaw_in_bed_plane_deg": 45,
+  "rigid": {
+    "triangles": 8396,
+    "volume_source_mm3": 174542.6249880022,
+    "volume_rotated_mm3": 174542.65062719333,
+    "max_vertex_deviation_back_in_source_frame_mm": 1.0532727230838645e-05,
+    "rotation_determinant": 1.0000000000000162,
+    "closed_single_component": true,
+    "size_mm": [
+      197.70706176757812,
+      187.52471923828125,
+      78.0
+    ],
+    "source_sha256": "52272f11c1da5100c33756c3c9fe94aa64b06f5f66380c752142e7aab70269b5",
+    "rotated_sha256": "22f89b844e873d48f0f7ce678c2dde0c7b3aa6d60cad226e65c1eb0f1afcffcb"
+  },
+  "placement": {
+    "translation_mm": [
+      31.146469116210938,
+      36.237640380859375,
+      0.0
+    ],
+    "rotated_min_mm": [
+      -23.900208664625648,
+      11.737972668849125,
+      1.0000000116860974e-07
+    ]
+  },
+  "user_reports": [
+    {
+      "recorded": "2026-11-03",
+      "origin": "Hlášení Jiřího předané koordinátorem",
+      "variant": "Ručně otočený tisk naležato bez podpor",
+      "report": "propadal na visícím přechodu",
+      "printed_gcode_sha256": null
+    },
+    {
+      "recorded": "2026-11-03",
+      "origin": "Hlášení Jiřího předané koordinátorem",
+      "variant": "Původní svislá varianta",
+      "report": "na výšku to nevyšlo",
+      "cause": "neznámá",
+      "printed_gcode_sha256": null
+    }
+  ],
+  "project": {
+    "file": "pouzdro-nalezato-kobra-x-pla-projekt.3mf",
+    "sha256": "55d1a52927dc2e6c027d4d3eb88cf2b4acab0b72a6f5b5d197d1377d5ff63f32",
+    "gcode_sha256": "6e3cc660d6f286113685b242bf38c867c7ce29a911e6ffb647b4f09c0d0702bc",
+    "gcode_bytes": 13749021,
+    "build_items": 1,
+    "printable_parts": 1,
+    "normal_part_max_vertex_delta_mm": 3.8645019486693855e-06,
+    "mesh_repairs": 0,
+    "modifiers": [
+      {
+        "name": "blok-dutina-a-nabeh",
+        "subtype": "support_blocker",
+        "triangles": 12,
+        "print_bbox_mm": [
+          [
+            54.410282179999996,
+            37.7225686,
+            13.0
+          ],
+          [
+            215.55990978,
+            198.87219620000002,
+            65.0
+          ]
+        ]
+      },
+      {
+        "name": "blok-otvor-horni",
+        "subtype": "support_blocker",
+        "triangles": 12,
+        "print_bbox_mm": [
+          [
+            32.91423797,
+            47.33921434,
+            67.79999924
+          ],
+          [
+            41.39951323000001,
+            55.824497230000006,
+            74.20000076
+          ]
+        ]
+      },
+      {
+        "name": "blok-otvor-dolni",
+        "subtype": "support_blocker",
+        "triangles": 12,
+        "print_bbox_mm": [
+          [
+            198.37722397,
+            212.80219654,
+            3.7999992399999982
+          ],
+          [
+            206.86250686,
+            221.28747943000002,
+            10.200000760000002
+          ]
+        ]
+      },
+      {
+        "name": "blok-nad-listou-u-konce",
+        "subtype": "support_blocker",
+        "triangles": 12,
+        "print_bbox_mm": [
+          [
+            175.8205166,
+            168.7494507,
+            20.0
+          ],
+          [
+            200.71068,
+            193.63961030000002,
+            37.0
+          ]
+        ]
+      },
+      {
+        "name": "blok-nad-listou-u-usti",
+        "subtype": "support_blocker",
+        "triangles": 12,
+        "print_bbox_mm": [
+          [
+            65.5118561,
+            58.4407978,
+            20.0
+          ],
+          [
+            91.8162307,
+            84.7451686,
+            37.0
+          ]
+        ]
+      },
+      {
+        "name": "vynutit-pod-telem-a-limcem",
+        "subtype": "support_enforcer",
+        "triangles": 12,
+        "print_bbox_mm": [
+          [
+            40.76312641999999,
+            23.0854607,
+            0.00999834000000277
+          ],
+          [
+            231.82336802,
+            214.1457023,
+            15.29999926
+          ]
+        ]
+      },
+      {
+        "name": "vynutit-pod-deskou",
+        "subtype": "support_enforcer",
+        "triangles": 12,
+        "print_bbox_mm": [
+          [
+            47.622056900000004,
+            62.11775206,
+            9.999999039999999
+          ],
+          [
+            190.66975589999998,
+            205.16545106,
+            26.39999866
+          ]
+        ]
+      },
+      {
+        "name": "vynutit-sraz-horniho-ucha",
+        "subtype": "support_enforcer",
+        "triangles": 12,
+        "print_bbox_mm": [
+          [
+            30.297943090000004,
+            44.79363629000001,
+            63.60000134
+          ],
+          [
+            43.23799131,
+            57.73369214,
+            66.00000096
+          ]
+        ]
+      }
+    ],
+    "slice_metadata": {
+      "prediction": "40543",
+      "weight": "186.49",
+      "outside": "false",
+      "support_used": "true"
+    },
+    "warnings": [
+      {
+        "msg": "not_support_traditional_timelapse",
+        "level": "1",
+        "error_code": "1000C003"
+      }
+    ],
+    "support_settings": {
+      "enable_support": "1",
+      "support_type": "normal(auto)",
+      "support_style": "snug",
+      "support_on_build_plate_only": "0",
+      "support_threshold_angle": "30",
+      "support_remove_small_overhang": "0",
+      "support_critical_regions_only": "0",
+      "support_expansion": "0",
+      "support_top_z_distance": "0.2",
+      "support_bottom_z_distance": "0",
+      "support_object_xy_distance": "0.4",
+      "support_object_first_layer_gap": "0.2",
+      "support_interface_top_layers": "2",
+      "support_interface_bottom_layers": "0",
+      "support_base_pattern": "rectilinear",
+      "support_base_pattern_spacing": "2.5",
+      "support_interface_spacing": "0.5",
+      "support_speed": "60",
+      "support_interface_speed": "40",
+      "independent_support_layer_height": "0",
+      "detect_thin_wall": "1",
+      "bridge_no_support": "0",
+      "max_bridge_length": "10",
+      "bridge_angle": "0",
+      "brim_type": "outer_only",
+      "brim_width": "8",
+      "brim_object_gap": "0",
+      "elefant_foot_compensation": "0"
+    }
+  },
+  "cli_error_messages": [
+    "calc_exclude_triangles:Unable to create exclude triangles"
+  ],
+  "role_counts": {
+    "Support": 38785,
+    "Brim": 817,
+    "Outer wall": 33888,
+    "Inner wall": 77628,
+    "Gap infill": 3965,
+    "Internal solid infill": 27520,
+    "Support interface": 22223,
+    "Top surface": 1623,
+    "Sparse infill": 198409,
+    "Bridge": 2185,
+    "Overhang wall": 191,
+    "Internal Bridge": 1903
+  },
+  "support_regions": {
+    "vez-pod-hornim-uchem": {
+      "strokes": 3444,
+      "interface_strokes": 187,
+      "length_mm": 9239,
+      "print_z_mm": [
+        0.2,
+        64.8
+      ],
+      "part_y_mm": [
+        29.1,
+        34.0
+      ],
+      "part_z_mm": [
+        234.7,
+        248.0
+      ]
+    },
+    "pod-zadni-deskou": {
+      "strokes": 9447,
+      "interface_strokes": 2855,
+      "length_mm": 24301,
+      "print_z_mm": [
+        0.2,
+        27.6
+      ],
+      "part_y_mm": [
+        29.3,
+        38.5
+      ],
+      "part_z_mm": [
+        -4.3,
+        234.4
+      ]
+    },
+    "kanal-pod-zebrem": {
+      "strokes": 15195,
+      "interface_strokes": 1221,
+      "length_mm": 230393,
+      "print_z_mm": [
+        0.2,
+        35.8
+      ],
+      "part_y_mm": [
+        19.0,
+        29.3
+      ],
+      "part_z_mm": [
+        -4.8,
+        237.3
+      ]
+    },
+    "pod-limcem": {
+      "strokes": 11383,
+      "interface_strokes": 6000,
+      "length_mm": 27856,
+      "print_z_mm": [
+        0.2,
+        35.8
+      ],
+      "part_y_mm": [
+        -4.7,
+        19.0
+      ],
+      "part_z_mm": [
+        180.0,
+        239.0
+      ]
+    },
+    "pod-telem": {
+      "strokes": 11104,
+      "interface_strokes": 6700,
+      "length_mm": 31554,
+      "print_z_mm": [
+        0.2,
+        35.8
+      ],
+      "part_y_mm": [
+        0.2,
+        19.0
+      ],
+      "part_z_mm": [
+        56.1,
+        180.0
+      ]
+    },
+    "pod-koncovkou": {
+      "strokes": 10435,
+      "interface_strokes": 5260,
+      "length_mm": 25820,
+      "print_z_mm": [
+        0.2,
+        24.8
+      ],
+      "part_y_mm": [
+        -2.5,
+        19.0
+      ],
+      "part_z_mm": [
+        -4.3,
+        56.0
+      ]
+    }
+  },
+  "support_totals": {
+    "strokes_in_cavity_or_lead_in": 0,
+    "strokes_in_mount_holes": 0
+  },
+  "control_without_cavity_blocker": {
+    "strokes_in_cavity_or_lead_in": 26734,
+    "note": "Stejný řez bez blokátoru dutiny, není součástí předání."
+  },
+  "openings": {
+    "strokes_crossing_blade_rect_floor_to_mouth": 0,
+    "layers_checked_floor_to_mouth": 226,
+    "minimum_stroke_edge_distance_to_blade_rect_mm": 0.6996199104834906,
+    "strokes_crossing_cavity_rect": 0,
+    "cavity_layers_checked": 234,
+    "minimum_stroke_edge_distance_to_cavity_rect_mm": -0.0006199993597340303,
+    "strokes_in_cavity_or_lead_in_by_kind": {
+      "model": 0,
+      "support": 0
+    },
+    "closed_end_layers_with_strokes_under_blade": 226,
+    "mount_holes": [
+      {
+        "x_mm": 71.0,
+        "z_mm": 241.0,
+        "layers_checked": 28,
+        "strokes_inside_inscribed_circle": 0,
+        "minimum_stroke_distance_mm": 0.21089972087108322
+      },
+      {
+        "x_mm": 7.0,
+        "z_mm": 7.0,
+        "layers_checked": 28,
+        "strokes_inside_inscribed_circle": 0,
+        "minimum_stroke_distance_mm": 0.1884822045155694
+      }
+    ],
+    "printed_slot": {
+      "first_open_layer_top_mm": 15.8,
+      "last_open_layer_top_mm": 62.6,
+      "floor_mm": 15.6,
+      "ceiling_mm": 62.6,
+      "printed_width_mm": 47.0,
+      "clearance_blade_low_side_mm": 0.9,
+      "clearance_blade_high_side_mm": 1.1
+    },
+    "method": "Tahy z G-code převedené inverzní tuhou transformací do rámce svislého dílu. Vrstva je v rovině X dílu, obdélníky v rovině Y, Z. Odstupy jsou od hrany tahu podle jeho WIDTH."
+  },
+  "bridges": {
+    "main_cavity_bridge_segments": 545,
+    "main_cavity_bridge_layer_tops_mm": [
+      62.8
+    ],
+    "main_cavity_bridge_max_stroke_length_mm": 8.811,
+    "main_cavity_bridge_max_angle_from_short_axis_deg": 0.0065,
+    "main_cavity_bridge_part_z_range_mm": [
+      15.58,
+      221.04
+    ],
+    "main_cavity_nominal_span_mm": 4.4,
+    "connector_stubs_on_side_walls": 394,
+    "connector_stubs_min_distance_from_blade_plane_mm": 2.85,
+    "lead_in_closing_overhang_segments": 72,
+    "lead_in_closing_layer_tops_mm": [
+      62.8,
+      63.0,
+      63.2,
+      63.4,
+      63.6,
+      63.8,
+      64.0,
+      64.2,
+      64.4,
+      64.6,
+      64.8
+    ],
+    "lead_in_max_angle_from_short_axis_deg": 0.0368,
+    "lead_in_max_stroke_length_mm": 6.116,
+    "lead_in_nominal_span_at_mouth_mm": 8.8
+  },
+  "ridge": {
+    "planes": 125,
+    "first_model_layer_top_mm": {
+      "10.2": 125
+    },
+    "support_top_mm_within_0_3_mm_of_axis": {
+      "9.2": 9,
+      "9.8": 86,
+      "None": 30
+    },
+    "support_top_mm_within_0_6_mm_of_axis": {
+      "10.0": 125
+    },
+    "note": "Rozhraní má rozteč 0,5 mm a na 45° plochách schody. Do 0,3 mm je přímo pod stopou, do 0,6 mm zahrnuje i sousední schod."
+  },
+  "ceiling_reach": {
+    "blok-u-konce-strop": {
+      "area_mm2": 291.7,
+      "supported_area_mm2": 291.7,
+      "air_gap_mm_by_area_on_flat_ceilings": {
+        "0.2": 291.7
+      },
+      "first_model_layer_tops_mm": {
+        "25.2": 291.6560086536754
+      },
+      "unsupported_part_y_mm": null
+    },
+    "blok-u-usti-strop": {
+      "area_mm2": 89.6,
+      "supported_area_mm2": 89.6,
+      "air_gap_mm_by_area_on_flat_ceilings": {
+        "0.2": 78.9,
+        "0.4": 10.7
+      },
+      "first_model_layer_tops_mm": {
+        "17.2": 78.9333252679734,
+        "17.4": 10.666665576753163
+      },
+      "unsupported_part_y_mm": null
+    },
+    "horni-ucho": {
+      "area_mm2": 28.8,
+      "supported_area_mm2": 28.8,
+      "air_gap_mm_by_area_on_flat_ceilings": {
+        "0.2": 28.8
+      },
+      "first_model_layer_tops_mm": {
+        "64.2": 28.79999542236328
+      },
+      "unsupported_part_y_mm": null
+    },
+    "hreben-tela": {
+      "area_mm2": 1665.0,
+      "supported_area_mm2": 1625.7,
+      "air_gap_mm_by_area_on_flat_ceilings": {},
+      "first_model_layer_tops_mm": {
+        "10.2": 110.3824293257462,
+        "14.2": 100.41023669762676,
+        "10.8": 100.11785914248428
+      },
+      "unsupported_part_y_mm": [
+        4.2,
+        4.7
+      ]
+    },
+    "koncovka-a-telo-u-konce": {
+      "area_mm2": 795.1,
+      "supported_area_mm2": 781.9,
+      "air_gap_mm_by_area_on_flat_ceilings": {},
+      "first_model_layer_tops_mm": {
+        "9.2": 37.745490041675616,
+        "7.0": 36.33628981185451,
+        "7.4": 35.285707117803874
+      },
+      "unsupported_part_y_mm": [
+        4.1,
+        10.2
+      ]
+    },
+    "kontakt-s-podlozkou": {
+      "area_mm2": 67.2,
+      "supported_area_mm2": 0.0,
+      "air_gap_mm_by_area_on_flat_ceilings": {},
+      "first_model_layer_tops_mm": {
+        "0.2": 67.19998907884766
+      },
+      "unsupported_part_y_mm": [
+        31.6,
+        33.6
+      ]
+    },
+    "limec-a-telo-u-usti": {
+      "area_mm2": 996.7,
+      "supported_area_mm2": 996.7,
+      "air_gap_mm_by_area_on_flat_ceilings": {},
+      "first_model_layer_tops_mm": {
+        "10.4": 54.22606410112348,
+        "6.8": 39.362563085472324,
+        "11.6": 31.193042418371295
+      },
+      "unsupported_part_y_mm": null
+    },
+    "montazni-otvor": {
+      "area_mm2": 18.2,
+      "supported_area_mm2": 0.0,
+      "air_gap_mm_by_area_on_flat_ceilings": {},
+      "first_model_layer_tops_mm": {
+        "10.0": 9.112699508666992,
+        "74.0": 9.1126708984375
+      },
+      "unsupported_part_y_mm": [
+        30.5,
+        33.1
+      ]
+    },
+    "strop-dutiny-a-nabehu": {
+      "area_mm2": 986.9,
+      "supported_area_mm2": 0.0,
+      "air_gap_mm_by_area_on_flat_ceilings": {},
+      "first_model_layer_tops_mm": {
+        "62.8": 828.7704094545322,
+        "62.6": 82.4000017859719,
+        "64.8": 11.427960284059933
+      },
+      "unsupported_part_y_mm": [
+        6.2,
+        13.6
+      ]
+    },
+    "zadni-deska": {
+      "area_mm2": 396.3,
+      "supported_area_mm2": 396.3,
+      "air_gap_mm_by_area_on_flat_ceilings": {
+        "0.0": 26.4,
+        "0.2": 369.9
+      },
+      "first_model_layer_tops_mm": {
+        "26.2": 395.99993705749364,
+        "25.2": 0.27500001076278124
+      },
+      "unsupported_part_y_mm": null
+    },
+    "zebro-strop": {
+      "area_mm2": 2633.4,
+      "supported_area_mm2": 2425.8,
+      "air_gap_mm_by_area_on_flat_ceilings": {
+        "0.2": 2404.1,
+        "0.4": 19.8,
+        "0.6": 2.0
+      },
+      "first_model_layer_tops_mm": {
+        "36.2": 2633.3997716903687
+      },
+      "unsupported_part_y_mm": [
+        14.5,
+        18.8
+      ]
+    }
+  },
+  "removal": {
+    "samples_free_to_bed": 404101,
+    "samples_above_model": 3875,
+    "groups_y_z": {
+      "Y8 Z48": {
+        "samples": 6,
+        "print_z": [
+          12.6,
+          13.0
+        ],
+        "model_below_mm": 10.5
+      },
+      "Y16 Z48": {
+        "samples": 3,
+        "print_z": [
+          13.8,
+          13.8
+        ],
+        "model_below_mm": 11.5
+      },
+      "Y16 Z192": {
+        "samples": 4,
+        "print_z": [
+          13.8,
+          13.8
+        ],
+        "model_below_mm": 11.7
+      },
+      "Y32 Z240": {
+        "samples": 3852,
+        "print_z": [
+          13.8,
+          64.4
+        ],
+        "model_below_mm": 0.0
+      },
+      "Y32 Z252": {
+        "samples": 10,
+        "print_z": [
+          63.4,
+          64.0
+        ],
+        "model_below_mm": 2.3
+      }
+    },
+    "above_model_samples_tested_along_part_y": 41,
+    "above_model_samples_with_free_exit_along_part_y": 41,
+    "share_free_to_bed": 0.9905
+  },
+  "tower": {
+    "print_z_mm": [
+      15.0,
+      62.0
+    ],
+    "footprint_y_mm": [
+      29.99,
+      33.61
+    ],
+    "footprint_z_mm": [
+      235.69,
+      247.81
+    ],
+    "average_strokes_per_layer": 13.0
+  },
+  "first_layer": {
+    "extruded_area_mm2": {
+      "podpora": 9257.9,
+      "brim": 513.3,
+      "model": 75.4
+    },
+    "cad_contact_area_mm2": 67.2,
+    "ends": {
+      "u-konce": {
+        "model_area_mm2": 45.6,
+        "brim_area_mm2": 211.2,
+        "outer_wall_with_touching_brim_share": 0.406,
+        "smallest_wall_to_brim_edge_gap_mm": -0.022
+      },
+      "u-usti": {
+        "model_area_mm2": 29.8,
+        "brim_area_mm2": 302.2,
+        "outer_wall_with_touching_brim_share": 0.822,
+        "smallest_wall_to_brim_edge_gap_mm": -0.022
+      }
+    },
+    "centre_of_mass_part_frame_mm": [
+      39.0,
+      16.42,
+      116.43
+    ],
+    "centre_of_mass_print_mm": [
+      136.47,
+      129.14,
+      39.0
+    ],
+    "com_margin_inside_first_layer_with_supports_mm": 20.42,
+    "com_margin_inside_model_contact_only_mm": -15.13
+  },
+  "islands": {
+    "unsupported": 0,
+    "flagged_on_support": 0,
+    "flagged_on_support_examples": [],
+    "note": "Ostrov, který vidí nejbližší podporu o dvě vrstvy níž, je start modelu nad podporou s nastavenou mezerou 0,2 mm."
+  },
+  "toolpaths": {
+    "physical_parts": 1,
+    "layers": 390,
+    "maximum_extrusion_z_mm": 78.0,
+    "extrusion_min_xy_mm": [
+      26.117,
+      31.488
+    ],
+    "extrusion_max_xy_mm": [
+      228.557,
+      230.843
+    ],
+    "minimum_extrusion_edge_margin_mm": 26.117,
+    "role_ranges": {
+      "Support": {
+        "strokes": 38785,
+        "z_min_mm": 0.2,
+        "z_max_mm": 63.6
+      },
+      "Brim": {
+        "strokes": 817,
+        "z_min_mm": 0.2,
+        "z_max_mm": 0.2
+      },
+      "Outer wall": {
+        "strokes": 33888,
+        "z_min_mm": 0.2,
+        "z_max_mm": 78.0
+      },
+      "Inner wall": {
+        "strokes": 77628,
+        "z_min_mm": 0.2,
+        "z_max_mm": 77.8
+      },
+      "Gap infill": {
+        "strokes": 3965,
+        "z_min_mm": 0.2,
+        "z_max_mm": 77.8
+      },
+      "Internal solid infill": {
+        "strokes": 27520,
+        "z_min_mm": 1.6,
+        "z_max_mm": 76.6
+      },
+      "Support interface": {
+        "strokes": 22223,
+        "z_min_mm": 2.8,
+        "z_max_mm": 64.8
+      },
+      "Top surface": {
+        "strokes": 1623,
+        "z_min_mm": 4.2,
+        "z_max_mm": 78.0
+      },
+      "Sparse infill": {
+        "strokes": 198409,
+        "z_min_mm": 6.6,
+        "z_max_mm": 74.0
+      },
+      "Bridge": {
+        "strokes": 2185,
+        "z_min_mm": 10.0,
+        "z_max_mm": 74.0
+      },
+      "Overhang wall": {
+        "strokes": 191,
+        "z_min_mm": 10.0,
+        "z_max_mm": 74.0
+      },
+      "Internal Bridge": {
+        "strokes": 1903,
+        "z_min_mm": 14.8,
+        "z_max_mm": 62.4
+      }
+    },
+    "support_segments": 61008,
+    "maximum_commanded_volumetric_flow_mm3_s_segments_at_least_0_1mm": 8.052314603563454,
+    "maximum_commanded_extrusion_speed_mm_s": 80.0,
+    "selected_z_mm": [
+      0.2,
+      0.4,
+      0.6,
+      0.8,
+      1.0,
+      2.0,
+      4.0,
+      4.4,
+      6.0,
+      9.8,
+      10.0,
+      14.0,
+      15.0,
+      15.6,
+      15.8,
+      17.2,
+      20.0,
+      25.2,
+      26.2,
+      36.2,
+      39.0,
+      62.4,
+      62.6,
+      64.2,
+      70.0,
+      78.0
+    ]
+  },
+  "estimates": {
+    "filament_g": 186.49,
+    "printing_time": "11h 15m 43s",
+    "support_mass_g": 29.237667005082244
+  },
+  "unchanged": {
+    "stl/pouzdro-zdobene.stl": "52272f11c1da5100c33756c3c9fe94aa64b06f5f66380c752142e7aab70269b5",
+    "pouzdro.FCStd": "60896561b73ba786734fc74abd816cced1274a5c87541a244740688f988c6f35",
+    "rozlozeni/podlozka-01-kobra-x-pla-projekt.3mf": "db2a8a1a438cf909530de85f0b264cc8427ed5da4bbfd6591d66397f0398f401"
+  },
+  "pre_existing_difference_not_resolved": {
+    "file": "rozlozeni/podlozka-01-geometrie.3mf",
+    "sha256_found": "e0d2d8cee2b953a14b9a46313f8a2458d263d79de520823f7e7fabc9f94c043b",
+    "note": "Hash se liší od starého manifestu už před touto úlohou. Soubor nebyl obnoven ani změněn."
+  },
+  "not_verified": [
+    "fyzický tisk",
+    "přilnavost a stabilita",
+    "odstranění podpor a povrch po nich",
+    "kvalita mostů a stropu náběhu",
+    "fit nože",
+    "pevnost při této orientaci vrstev",
+    "otevření projektu v GUI sliceru"
+  ],
+  "detail_preview": "detail-01-01_pouzdro-zdobene-nalezato_01-drahy.png"
+}

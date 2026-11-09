@@ -1,0 +1,17 @@
+{
+  "cad_sha256": "feb0213ae9e798637c7e6d60542992be18bc3b5462e570afe6435c9a675b5bc4",
+  "visible_final_objects": [
+    "Rotor",
+    "Crown",
+    "Token1",
+    "Token2",
+    "Token3",
+    "Token4",
+    "ModeMedallion",
+    "Screw",
+    "Base"
+  ],
+  "physical_parts": 9,
+  "source_and_stl_audited": true,
+  "physical_test_verified": false
+}

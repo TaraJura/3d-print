@@ -1,0 +1,32 @@
+# -*- coding: utf-8 -*-
+"""Ulozi jen viditelnost/barvy/kameru v zahrada.FCStd a skutecne CAD PNG."""
+from pathlib import Path
+import os
+import FreeCAD as App,FreeCADGui as Gui
+from PySide import QtCore
+from pivy import coin
+OUT=Path(__file__).resolve().parent
+App.ParamGet('User parameter:BaseApp/Preferences/Document').SetInt('CountBackupFiles',0)
+doc=App.openDocument(str(OUT/'zahrada.FCStd'));doc.recompute()
+parts=[doc.getObject(n) for n in ['Base','Stone1','Stone2','Stone3','Stone4','Stone5']]
+for o in doc.Objects:
+ if hasattr(o,'ViewObject'):o.ViewObject.Visibility=o in parts
+for o in parts:
+ c=(.93,.89,.80) if o.Name=='Base' else (.74,.40,.31)
+ o.ViewObject.ShapeColor=c;o.ViewObject.LineColor=(.30,.24,.19);o.ViewObject.DisplayMode='Flat Lines';o.ViewObject.LineWidth=.6
+view=Gui.activeDocument().activeView();view.setCameraType('Orthographic');Gui.getMainWindow().resize(1500,1200)
+def camera(eye,target,height):
+ up=App.Vector(0,0,1);e=App.Vector(*eye);rot=App.Rotation(up.cross(e),up,e,'ZXY')
+ n=view.getCameraNode();n.orientation.setValue(rot.Q)
+ pos=App.Vector(*target)+e.normalize()*700;n.position.setValue(pos.x,pos.y,pos.z);n.height.setValue(height);n.nearDistance.setValue(1);n.farDistance.setValue(2000);view.redraw();Gui.updateGui()
+def start():
+ camera((.6,-1.4,2.5),(0,0,20),280);doc.save();QtCore.QTimer.singleShot(1100,save_main)
+def save_main():
+ view.saveImage(str(OUT/'nahled-cad.png'),1500,1200,'White')
+ camera((0,-.001,3),(0,0,20),260);QtCore.QTimer.singleShot(900,save_top)
+def save_top():
+ view.saveImage(str(OUT/'nahled-cad-shora.png'),1400,1400,'White')
+ camera((.6,-1.4,2.5),(0,0,20),280);doc.save()
+ assert [o.Name for o in doc.Objects if hasattr(o,'Shape') and o.ViewObject.Visibility]==[o.Name for o in doc.Objects if o in parts]
+ print('ZAHRADA_RENDER_OK',flush=True);QtCore.QTimer.singleShot(100,lambda:os._exit(0))
+QtCore.QTimer.singleShot(900,start)

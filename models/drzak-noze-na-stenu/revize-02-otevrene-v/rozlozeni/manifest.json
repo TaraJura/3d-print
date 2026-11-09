@@ -1,0 +1,78 @@
+{
+  "source_manifest_sha256": "14fd2deb3cb1dcc3909b0f5e7d6409044f2dedbd59687b54048fa165172cc13d",
+  "machine": "Anycubic Kobra X 0.4 nozzle",
+  "physical_parts": 1,
+  "plates": [
+    {
+      "number": 1,
+      "geometry": "podlozka-01-geometrie.3mf",
+      "geometry_sha256": "21dda7d1411327b105ffe7a7eb79b717f562c6042124c2083c87a84f323bb88c",
+      "preview": "podlozka-01.png",
+      "physical_parts": 1,
+      "parts": [
+        {
+          "id": "drzak-v",
+          "name": "01_drzak-v_01",
+          "file": "../stl/drzak-v.stl",
+          "source_sha256": "31d6c1ee2a026189888e43316bf2662243bf337c7a34b2c320620c8e78d375ac",
+          "translation_mm": [
+            8.0,
+            8.0,
+            -0.0
+          ],
+          "placed_min_mm": [
+            8.0,
+            8.0,
+            0.0
+          ],
+          "placed_max_mm": [
+            238.0,
+            53.24264144897461,
+            54.99626922607422
+          ],
+          "size_mm": [
+            230.0,
+            45.24264144897461,
+            54.99626922607422
+          ],
+          "triangle_count": 1824,
+          "supports": false,
+          "support_note": "Souvislá patka + dvě žebra jsou na podložce; stěny V rostou pod 45°. Vodorovné otvory Ø5,5 mm mají krátký vrcholový most — ověřit dráhy.",
+          "critical_z_mm": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1,
+            2,
+            3,
+            4,
+            6,
+            6.8,
+            8,
+            8.8,
+            10,
+            23,
+            40.2,
+            43,
+            45.8,
+            54.996,
+            55
+          ]
+        }
+      ],
+      "minimum_geometry_edge_margin_mm": 8.0,
+      "minimum_bbox_gap_mm": null,
+      "colour": "#334451",
+      "material_name": "prototyp — barva návrhu",
+      "profile": {
+        "kind": "Basic",
+        "mvs": "8",
+        "nozzle": "205",
+        "initial_nozzle": "215",
+        "bed": "50"
+      },
+      "supports_enabled": false
+    }
+  ]
+}

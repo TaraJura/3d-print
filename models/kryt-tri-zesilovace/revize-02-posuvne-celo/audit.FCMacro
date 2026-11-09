@@ -1,0 +1,158 @@
+# -*- coding: utf-8 -*-
+"""Independent, read-only assembly audit of the saved revision 02 document.
+
+Writes only audit-montaze.json beside this macro. Does not regenerate or save CAD,
+STL, or slicer files. Envelope tests are deliberately conservative and explicitly
+conditional on unmeasured component/PCB heights and clear edge strips.
+"""
+from pathlib import Path
+import hashlib
+import json
+import math
+import FreeCAD as App
+import Part
+
+OUT = Path(__file__).resolve().parent
+CAD = OUT / 'kryt.FCStd'
+assert CAD.is_file(), 'Generate and save kryt.FCStd first'
+cad_hash_before = hashlib.sha256(CAD.read_bytes()).hexdigest()
+macro_hash_before = hashlib.sha256((OUT/'kryt.FCMacro').read_bytes()).hexdigest()
+audit_hash_before = hashlib.sha256(Path(__file__).read_bytes()).hexdigest()
+doc = App.openDocument(str(CAD))
+sheet = doc.getObject('Parameters')
+value = lambda name: float(getattr(sheet, name).Value)
+part_names = ['Body', 'Front', 'Rear', 'TopLock', 'Spacer1', 'Spacer2', 'Spacer3']
+shapes = {name: doc.getObject(name).Shape for name in part_names}
+body, front = shapes['Body'], shapes['Front']
+results = []
+
+
+def box_from_bounds(x0, y0, z0, x1, y1, z1):
+    assert x1 > x0 and y1 > y0 and z1 > z0
+    return Part.makeBox(x1-x0, y1-y0, z1-z0, App.Vector(x0, y0, z0))
+
+
+def envelope(bb, dy=0, dz=0):
+    return box_from_bounds(bb.XMin, bb.YMin, bb.ZMin,
+                           bb.XMax, bb.YMax+dy, bb.ZMax+dz)
+
+
+def clearance_test(label, moving_envelope, obstacles, condition):
+    overlaps = {}
+    for name, shape in obstacles.items():
+        amount = moving_envelope.common(shape).Volume
+        if amount > 1e-5:
+            overlaps[name] = amount
+    item = {'test': label, 'pass_for_tested_geometry': not overlaps,
+            'intersections_mm3': overlaps, 'condition': condition}
+    results.append(item)
+    return item
+
+
+for name, shape in shapes.items():
+    results.append({'test': name+' saved BREP', 'pass_for_tested_geometry':
+                    shape.isValid() and len(shape.Solids)==1,
+                    'valid': shape.isValid(), 'solids': len(shape.Solids)})
+
+# A filled rectangle bounds the complete front, including all its cutouts.
+# Extending its Z span proves continuous translation rather than discrete steps.
+travel_z = value('Height') + 2
+clearance_test('Front insertion from above: full continuous rectangular envelope',
+               envelope(front.BoundBox, dz=travel_z), {'Body': body},
+               'TopLock, rear panel and ALL electronics are absent; reserve at least one front-panel height above the case for assembly.')
+
+travel_y = value('Depth') + 2
+edge_band = 1.2
+for index in range(3):
+    pcb = doc.getObject('PCB%d' % index).Shape
+    bb = pcb.BoundBox
+    clearance_test('PCB%d continuous rear insertion' % index,
+                   envelope(bb, dy=travel_y), {'Body':body, 'Front':front},
+                   'Bare PCB envelope only; existing feet removed; 78x108 mm and assumed PCB thickness from Parameters.')
+    component_envelope = box_from_bounds(
+        bb.XMin+edge_band, bb.YMin, bb.ZMax,
+        bb.XMax-edge_band, bb.YMax+travel_y,
+        bb.ZMax+value('ComponentHeight'))
+    clearance_test('PCB%d continuous full component envelope' % index,
+                   component_envelope, {'Body':body, 'Front':front},
+                   'Conservative full rectangle above PCB. Both long edges must be free of components for at least 1.2 mm; no component may exceed assumed ComponentHeight. Actual edge/component heights unmeasured.')
+    for ref_name in ['Knob%d'%index, 'RCA%d_0'%index, 'RCA%d_1'%index]:
+        ref = doc.getObject(ref_name).Shape
+        clearance_test(ref_name+' continuous rear insertion, bounding box',
+                       envelope(ref.BoundBox, dy=travel_y), {'Body':body, 'Front':front},
+                       'Only the simplified unmeasured connector reference. Final axis height, outline and projection need physical confirmation.')
+
+# Empty corner strips under the PCB are also required by the lower rails.
+# This stress scenario uses 2 mm of solder protrusion, not a claimed measurement.
+under_pcb_test_mm = 2.0
+for index in range(3):
+    bb = doc.getObject('PCB%d' % index).Shape.BoundBox
+    under = box_from_bounds(bb.XMin+edge_band, bb.YMin, bb.ZMin-under_pcb_test_mm,
+                            bb.XMax-edge_band, bb.YMax+travel_y, bb.ZMin)
+    clearance_test('PCB%d underside example: 2 mm protrusion' % index,
+                   under, {'Body':body, 'Front':front},
+                   'Hypothetical 2 mm solder envelope with 1.2 mm bare edge strips. Actual underside protrusion and chamfers are unmeasured.')
+
+# Nut access uses an explicitly assumed M3 hex nut, AF 5.5 mm / thickness 2.4 mm.
+# Bounding prisms are larger than the hexagon, so no intersection proves passage.
+nut_af, nut_thickness = 5.5, 2.4
+nut_radius = nut_af/math.sqrt(3)
+for index in range(4):
+    entry = doc.getObject('RearNutEntry%d'%index).Shape.BoundBox
+    bolt = doc.getObject('RearBolt%d'%index).Placement.Base
+    left = index % 2 == 0
+    center_end = entry.XMax-nut_radius-0.1 if left else entry.XMin+nut_radius+0.1
+    y0 = (entry.YMin+entry.YMax-nut_thickness)/2
+    path = box_from_bounds(min(bolt.x, center_end)-nut_radius, y0, bolt.z-nut_af/2,
+                            max(bolt.x, center_end)+nut_radius, y0+nut_thickness, bolt.z+nut_af/2)
+    clearance_test('Rear nut %d insertion from case interior'%index,
+                   path, {'Body':body},
+                   'Assumed M3 hex AF5.5/thickness2.4; nut slides sideways along X before boards and rear panel are installed. Tool/finger grip not modeled.')
+
+entry = doc.getObject('TopNutEntry').Shape.BoundBox
+bolt = doc.getObject('TopBolt').Placement.Base
+nut_z0 = (entry.ZMin+entry.ZMax-nut_thickness)/2
+top_nut_path = box_from_bounds(bolt.x-nut_af/2, bolt.y-nut_radius, nut_z0,
+                               bolt.x+nut_af/2, entry.YMax+nut_radius+3,
+                               nut_z0+nut_thickness)
+clearance_test('Top nut insertion from rear interior', top_nut_path, {'Body':body},
+               'Assumed M3 hex AF5.5/thickness2.4. Nut loaded before electronics. Hex flats align with entry walls; tool/finger grip not modeled.')
+
+collisions = {}
+for index, name in enumerate(part_names):
+    for other in part_names[index+1:]:
+        v = shapes[name].common(shapes[other]).Volume
+        if v > 1e-5:
+            collisions[name+' / '+other] = v
+results.append({'test':'All printed parts in seated assembly',
+                'pass_for_tested_geometry':not collisions,
+                'intersections_mm3':collisions})
+
+assert hashlib.sha256(CAD.read_bytes()).hexdigest() == cad_hash_before, 'CAD changed during audit; rerun after renderer/save completes'
+assert hashlib.sha256((OUT/'kryt.FCMacro').read_bytes()).hexdigest() == macro_hash_before, 'Source macro changed during audit'
+report = {
+    'status':'Conditional digital assembly audit; no physical fit or cooling validation',
+    'cad_sha256':cad_hash_before,
+    'macro_sha256':macro_hash_before,
+    'auditor_sha256':audit_hash_before,
+    'pcb_mm':[value('PCBWidth'),value('PCBDepth'),value('PCBThickness')],
+    'unmeasured_component_height_mm':value('ComponentHeight'),
+    'required_clear_pcb_edge_strip_mm':edge_band,
+    'hypothetical_under_pcb_projection_mm':under_pcb_test_mm,
+    'assumed_nut_af_mm':nut_af, 'assumed_nut_thickness_mm':nut_thickness,
+    'top_lock_vertical_gap_mm':shapes['TopLock'].BoundBox.ZMin-body.BoundBox.ZMax,
+    'front_insertion_headroom_mm':front.BoundBox.ZLength,
+    'all_tests_pass_for_tested_envelopes':all(r['pass_for_tested_geometry'] for r in results),
+    'tests':results,
+    'not_verified':['Actual populated PCB perimeter and underside',
+                    'Actual connector axes and cable bend radii',
+                    'Cable routing, strain relief and loaded terminal access',
+                    'Wall substrate, anchors, screw lengths and structural strength',
+                    'Thermal performance, printing fit and material suitability'],
+    'assembly_notes':['Front must slide before electronics; removing it later requires withdrawing boards.',
+                      'Wall spacer rings must be installed on wall screws first; do not fix them to the moving keyhole panel. Their small holes cannot pass screw heads.',
+                      'Screwdriver and finger access are not proven by nut solid clearance.']}
+(OUT/'audit-montaze.json').write_text(json.dumps(report, ensure_ascii=False, indent=2)+'\n')
+print('ASSEMBLY_AUDIT', json.dumps({'conditional_pass':report['all_tests_pass_for_tested_envelopes'],
+                                  'failures':[r for r in results if not r['pass_for_tested_geometry']]},ensure_ascii=False), flush=True)
+App.closeDocument(doc.Name)

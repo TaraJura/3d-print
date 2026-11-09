@@ -1,0 +1,609 @@
+{
+  "revision": "03",
+  "status": "Conditional digital two-phase placement audit; no physical fit or cooling validation",
+  "cad_sha256": "65315d084aa5588f1001c7e5689a1b7c1e0abbe426522babc317f8d6558b1fe8",
+  "macro_sha256": "a4f7f7df28cab4fe6541790edefe9fe3fb10b8778e85fc5617d10b3ee07d123c",
+  "auditor_sha256": "e9e97cc7a11fa84ec86e1c29c130e05e2f06b1159eb33fe17838f3b254551f8d",
+  "pcb_mm": [
+    78.0,
+    108.0,
+    1.6
+  ],
+  "unmeasured_component_height_mm": 38.0,
+  "required_clear_pcb_TOP_edge_strip_mm": 0,
+  "required_clear_pcb_UNDERSIDE_support_strip_mm": 1.2,
+  "placement_lift_mm": 0.8,
+  "seat_lip_height_mm": 0.6,
+  "raised_board_above_lips_mm": 0.20000000000000007,
+  "upper_boss_clearances": [
+    {
+      "boss": "RearBoss2",
+      "raised_component_clearance_mm": 0.5999999999999943
+    },
+    {
+      "boss": "RearBoss3",
+      "raised_component_clearance_mm": 0.5999999999999943
+    }
+  ],
+  "minimum_raised_upper_component_to_rear_boss_clearance_mm": 0.5999999999999943,
+  "lip_measurements": [
+    {
+      "object": "SeatSide0L",
+      "height_above_pcb_bottom_mm": 0.6000000000000014,
+      "remaining_below_pcb_top_mm": 0.9999999999999982
+    },
+    {
+      "object": "BoardStop0L",
+      "height_above_pcb_bottom_mm": 0.6000000000000014,
+      "remaining_below_pcb_top_mm": 0.9999999999999982
+    },
+    {
+      "object": "RearPCBStop0L",
+      "height_above_pcb_bottom_mm": 0.5999999999999996,
+      "remaining_below_pcb_top_mm": 1.0
+    },
+    {
+      "object": "SeatSide0R",
+      "height_above_pcb_bottom_mm": 0.6000000000000014,
+      "remaining_below_pcb_top_mm": 0.9999999999999982
+    },
+    {
+      "object": "BoardStop0R",
+      "height_above_pcb_bottom_mm": 0.6000000000000014,
+      "remaining_below_pcb_top_mm": 0.9999999999999982
+    },
+    {
+      "object": "RearPCBStop0R",
+      "height_above_pcb_bottom_mm": 0.5999999999999996,
+      "remaining_below_pcb_top_mm": 1.0
+    },
+    {
+      "object": "SeatSide1L",
+      "height_above_pcb_bottom_mm": 0.6000000000000014,
+      "remaining_below_pcb_top_mm": 1.0
+    },
+    {
+      "object": "BoardStop1L",
+      "height_above_pcb_bottom_mm": 0.6000000000000014,
+      "remaining_below_pcb_top_mm": 1.0
+    },
+    {
+      "object": "RearPCBStop1L",
+      "height_above_pcb_bottom_mm": 0.6000000000000014,
+      "remaining_below_pcb_top_mm": 1.0
+    },
+    {
+      "object": "SeatSide1R",
+      "height_above_pcb_bottom_mm": 0.6000000000000014,
+      "remaining_below_pcb_top_mm": 1.0
+    },
+    {
+      "object": "BoardStop1R",
+      "height_above_pcb_bottom_mm": 0.6000000000000014,
+      "remaining_below_pcb_top_mm": 1.0
+    },
+    {
+      "object": "RearPCBStop1R",
+      "height_above_pcb_bottom_mm": 0.6000000000000014,
+      "remaining_below_pcb_top_mm": 1.0
+    },
+    {
+      "object": "SeatSide2L",
+      "height_above_pcb_bottom_mm": 0.6000000000000085,
+      "remaining_below_pcb_top_mm": 0.9999999999999858
+    },
+    {
+      "object": "BoardStop2L",
+      "height_above_pcb_bottom_mm": 0.6000000000000085,
+      "remaining_below_pcb_top_mm": 0.9999999999999858
+    },
+    {
+      "object": "RearPCBStop2L",
+      "height_above_pcb_bottom_mm": 0.5999999999999943,
+      "remaining_below_pcb_top_mm": 1.0
+    },
+    {
+      "object": "SeatSide2R",
+      "height_above_pcb_bottom_mm": 0.6000000000000085,
+      "remaining_below_pcb_top_mm": 0.9999999999999858
+    },
+    {
+      "object": "BoardStop2R",
+      "height_above_pcb_bottom_mm": 0.6000000000000085,
+      "remaining_below_pcb_top_mm": 0.9999999999999858
+    },
+    {
+      "object": "RearPCBStop2R",
+      "height_above_pcb_bottom_mm": 0.5999999999999943,
+      "remaining_below_pcb_top_mm": 1.0
+    }
+  ],
+  "vertical_clamping_present": false,
+  "hypothetical_under_pcb_projection_mm": 2.0,
+  "assumed_nut_af_mm": 5.5,
+  "assumed_nut_thickness_mm": 2.4,
+  "top_lock_vertical_gap_mm": 0.0,
+  "front_insertion_headroom_mm": 154.8,
+  "all_tests_pass_for_tested_envelopes": true,
+  "tests": [
+    {
+      "test": "Body saved BREP",
+      "pass_for_tested_geometry": true,
+      "valid": true,
+      "solids": 1
+    },
+    {
+      "test": "Front saved BREP",
+      "pass_for_tested_geometry": true,
+      "valid": true,
+      "solids": 1
+    },
+    {
+      "test": "Rear saved BREP",
+      "pass_for_tested_geometry": true,
+      "valid": true,
+      "solids": 1
+    },
+    {
+      "test": "TopLock saved BREP",
+      "pass_for_tested_geometry": true,
+      "valid": true,
+      "solids": 1
+    },
+    {
+      "test": "Spacer1 saved BREP",
+      "pass_for_tested_geometry": true,
+      "valid": true,
+      "solids": 1
+    },
+    {
+      "test": "Spacer2 saved BREP",
+      "pass_for_tested_geometry": true,
+      "valid": true,
+      "solids": 1
+    },
+    {
+      "test": "Spacer3 saved BREP",
+      "pass_for_tested_geometry": true,
+      "valid": true,
+      "solids": 1
+    },
+    {
+      "test": "Front insertion from above: full continuous rectangular envelope",
+      "pass_for_tested_geometry": true,
+      "intersections_mm3": {},
+      "condition": "TopLock, rear panel and ALL electronics are absent; reserve at least one front-panel height above the case for assembly."
+    },
+    {
+      "test": "PCB0 exact bare board / raised rear approach",
+      "pass_for_tested_geometry": true,
+      "intersections_mm3": {},
+      "condition": "78x108 mm PCB; assumed thickness from Parameters; factory feet removed. Rear panel is absent; front is seated. Board is aligned parallel to the supports, without tilt."
+    },
+    {
+      "test": "PCB0 exact bare board / vertical placement",
+      "pass_for_tested_geometry": true,
+      "intersections_mm3": {},
+      "condition": "78x108 mm PCB; assumed thickness from Parameters; factory feet removed. Rear panel is absent; front is seated. Board is aligned parallel to the supports, without tilt."
+    },
+    {
+      "test": "PCB0 FULL-WIDTH upper component envelope / raised rear approach",
+      "pass_for_tested_geometry": true,
+      "intersections_mm3": {},
+      "condition": "FULL 78 mm width, no empty top edge strip; full PCB depth and assumed 38 mm height above PCB top. Components may touch but not overhang the PCB perimeter. Rear panel is absent; front is seated. Board is aligned parallel to the supports, without tilt."
+    },
+    {
+      "test": "PCB0 FULL-WIDTH upper component envelope / vertical placement",
+      "pass_for_tested_geometry": true,
+      "intersections_mm3": {},
+      "condition": "FULL 78 mm width, no empty top edge strip; full PCB depth and assumed 38 mm height above PCB top. Components may touch but not overhang the PCB perimeter. Rear panel is absent; front is seated. Board is aligned parallel to the supports, without tilt."
+    },
+    {
+      "test": "Knob0 conservative connector box / raised rear approach",
+      "pass_for_tested_geometry": true,
+      "intersections_mm3": {},
+      "condition": "Only simplified unmeasured connector reference. Final axes, outline and projection need physical confirmation. Rear panel is absent; front is seated. Board is aligned parallel to the supports, without tilt."
+    },
+    {
+      "test": "Knob0 conservative connector box / vertical placement",
+      "pass_for_tested_geometry": true,
+      "intersections_mm3": {},
+      "condition": "Only simplified unmeasured connector reference. Final axes, outline and projection need physical confirmation. Rear panel is absent; front is seated. Board is aligned parallel to the supports, without tilt."
+    },
+    {
+      "test": "RCA0_0 conservative connector box / raised rear approach",
+      "pass_for_tested_geometry": true,
+      "intersections_mm3": {},
+      "condition": "Only simplified unmeasured connector reference. Final axes, outline and projection need physical confirmation. Rear panel is absent; front is seated. Board is aligned parallel to the supports, without tilt."
+    },
+    {
+      "test": "RCA0_0 conservative connector box / vertical placement",
+      "pass_for_tested_geometry": true,
+      "intersections_mm3": {},
+      "condition": "Only simplified unmeasured connector reference. Final axes, outline and projection need physical confirmation. Rear panel is absent; front is seated. Board is aligned parallel to the supports, without tilt."
+    },
+    {
+      "test": "RCA0_1 conservative connector box / raised rear approach",
+      "pass_for_tested_geometry": true,
+      "intersections_mm3": {},
+      "condition": "Only simplified unmeasured connector reference. Final axes, outline and projection need physical confirmation. Rear panel is absent; front is seated. Board is aligned parallel to the supports, without tilt."
+    },
+    {
+      "test": "RCA0_1 conservative connector box / vertical placement",
+      "pass_for_tested_geometry": true,
+      "intersections_mm3": {},
+      "condition": "Only simplified unmeasured connector reference. Final axes, outline and projection need physical confirmation. Rear panel is absent; front is seated. Board is aligned parallel to the supports, without tilt."
+    },
+    {
+      "test": "PCB0 underside example: 2 mm protrusion / raised rear approach",
+      "pass_for_tested_geometry": true,
+      "intersections_mm3": {},
+      "condition": "Hypothetical 2 mm solder protrusion; ONLY the lower 1.2 mm support strips must be clear of solder. Actual underside protrusion is unmeasured. Rear panel is absent; front is seated. Board is aligned parallel to the supports, without tilt."
+    },
+    {
+      "test": "PCB0 underside example: 2 mm protrusion / vertical placement",
+      "pass_for_tested_geometry": true,
+      "intersections_mm3": {},
+      "condition": "Hypothetical 2 mm solder protrusion; ONLY the lower 1.2 mm support strips must be clear of solder. Actual underside protrusion is unmeasured. Rear panel is absent; front is seated. Board is aligned parallel to the supports, without tilt."
+    },
+    {
+      "test": "PCB0 static board with closed rear panel",
+      "pass_for_tested_geometry": true,
+      "intersections_mm3": {},
+      "condition": "Seated PCB; rear stops constrain longitudinal movement only, not upward lift."
+    },
+    {
+      "test": "PCB0 full-width static upper envelope with closed rear panel",
+      "pass_for_tested_geometry": true,
+      "intersections_mm3": {},
+      "condition": "Full 78x108x38 mm upper envelope; no component overhang assumed."
+    },
+    {
+      "test": "SeatSide0L has no upper clamp",
+      "pass_for_tested_geometry": true,
+      "height_above_pcb_bottom_mm": 0.6000000000000014,
+      "remaining_below_pcb_top_mm": 0.9999999999999982
+    },
+    {
+      "test": "BoardStop0L has no upper clamp",
+      "pass_for_tested_geometry": true,
+      "height_above_pcb_bottom_mm": 0.6000000000000014,
+      "remaining_below_pcb_top_mm": 0.9999999999999982
+    },
+    {
+      "test": "RearPCBStop0L has no upper clamp",
+      "pass_for_tested_geometry": true,
+      "height_above_pcb_bottom_mm": 0.5999999999999996,
+      "remaining_below_pcb_top_mm": 1.0
+    },
+    {
+      "test": "SeatSide0R has no upper clamp",
+      "pass_for_tested_geometry": true,
+      "height_above_pcb_bottom_mm": 0.6000000000000014,
+      "remaining_below_pcb_top_mm": 0.9999999999999982
+    },
+    {
+      "test": "BoardStop0R has no upper clamp",
+      "pass_for_tested_geometry": true,
+      "height_above_pcb_bottom_mm": 0.6000000000000014,
+      "remaining_below_pcb_top_mm": 0.9999999999999982
+    },
+    {
+      "test": "RearPCBStop0R has no upper clamp",
+      "pass_for_tested_geometry": true,
+      "height_above_pcb_bottom_mm": 0.5999999999999996,
+      "remaining_below_pcb_top_mm": 1.0
+    },
+    {
+      "test": "PCB1 exact bare board / raised rear approach",
+      "pass_for_tested_geometry": true,
+      "intersections_mm3": {},
+      "condition": "78x108 mm PCB; assumed thickness from Parameters; factory feet removed. Rear panel is absent; front is seated. Board is aligned parallel to the supports, without tilt."
+    },
+    {
+      "test": "PCB1 exact bare board / vertical placement",
+      "pass_for_tested_geometry": true,
+      "intersections_mm3": {},
+      "condition": "78x108 mm PCB; assumed thickness from Parameters; factory feet removed. Rear panel is absent; front is seated. Board is aligned parallel to the supports, without tilt."
+    },
+    {
+      "test": "PCB1 FULL-WIDTH upper component envelope / raised rear approach",
+      "pass_for_tested_geometry": true,
+      "intersections_mm3": {},
+      "condition": "FULL 78 mm width, no empty top edge strip; full PCB depth and assumed 38 mm height above PCB top. Components may touch but not overhang the PCB perimeter. Rear panel is absent; front is seated. Board is aligned parallel to the supports, without tilt."
+    },
+    {
+      "test": "PCB1 FULL-WIDTH upper component envelope / vertical placement",
+      "pass_for_tested_geometry": true,
+      "intersections_mm3": {},
+      "condition": "FULL 78 mm width, no empty top edge strip; full PCB depth and assumed 38 mm height above PCB top. Components may touch but not overhang the PCB perimeter. Rear panel is absent; front is seated. Board is aligned parallel to the supports, without tilt."
+    },
+    {
+      "test": "Knob1 conservative connector box / raised rear approach",
+      "pass_for_tested_geometry": true,
+      "intersections_mm3": {},
+      "condition": "Only simplified unmeasured connector reference. Final axes, outline and projection need physical confirmation. Rear panel is absent; front is seated. Board is aligned parallel to the supports, without tilt."
+    },
+    {
+      "test": "Knob1 conservative connector box / vertical placement",
+      "pass_for_tested_geometry": true,
+      "intersections_mm3": {},
+      "condition": "Only simplified unmeasured connector reference. Final axes, outline and projection need physical confirmation. Rear panel is absent; front is seated. Board is aligned parallel to the supports, without tilt."
+    },
+    {
+      "test": "RCA1_0 conservative connector box / raised rear approach",
+      "pass_for_tested_geometry": true,
+      "intersections_mm3": {},
+      "condition": "Only simplified unmeasured connector reference. Final axes, outline and projection need physical confirmation. Rear panel is absent; front is seated. Board is aligned parallel to the supports, without tilt."
+    },
+    {
+      "test": "RCA1_0 conservative connector box / vertical placement",
+      "pass_for_tested_geometry": true,
+      "intersections_mm3": {},
+      "condition": "Only simplified unmeasured connector reference. Final axes, outline and projection need physical confirmation. Rear panel is absent; front is seated. Board is aligned parallel to the supports, without tilt."
+    },
+    {
+      "test": "RCA1_1 conservative connector box / raised rear approach",
+      "pass_for_tested_geometry": true,
+      "intersections_mm3": {},
+      "condition": "Only simplified unmeasured connector reference. Final axes, outline and projection need physical confirmation. Rear panel is absent; front is seated. Board is aligned parallel to the supports, without tilt."
+    },
+    {
+      "test": "RCA1_1 conservative connector box / vertical placement",
+      "pass_for_tested_geometry": true,
+      "intersections_mm3": {},
+      "condition": "Only simplified unmeasured connector reference. Final axes, outline and projection need physical confirmation. Rear panel is absent; front is seated. Board is aligned parallel to the supports, without tilt."
+    },
+    {
+      "test": "PCB1 underside example: 2 mm protrusion / raised rear approach",
+      "pass_for_tested_geometry": true,
+      "intersections_mm3": {},
+      "condition": "Hypothetical 2 mm solder protrusion; ONLY the lower 1.2 mm support strips must be clear of solder. Actual underside protrusion is unmeasured. Rear panel is absent; front is seated. Board is aligned parallel to the supports, without tilt."
+    },
+    {
+      "test": "PCB1 underside example: 2 mm protrusion / vertical placement",
+      "pass_for_tested_geometry": true,
+      "intersections_mm3": {},
+      "condition": "Hypothetical 2 mm solder protrusion; ONLY the lower 1.2 mm support strips must be clear of solder. Actual underside protrusion is unmeasured. Rear panel is absent; front is seated. Board is aligned parallel to the supports, without tilt."
+    },
+    {
+      "test": "PCB1 static board with closed rear panel",
+      "pass_for_tested_geometry": true,
+      "intersections_mm3": {},
+      "condition": "Seated PCB; rear stops constrain longitudinal movement only, not upward lift."
+    },
+    {
+      "test": "PCB1 full-width static upper envelope with closed rear panel",
+      "pass_for_tested_geometry": true,
+      "intersections_mm3": {},
+      "condition": "Full 78x108x38 mm upper envelope; no component overhang assumed."
+    },
+    {
+      "test": "SeatSide1L has no upper clamp",
+      "pass_for_tested_geometry": true,
+      "height_above_pcb_bottom_mm": 0.6000000000000014,
+      "remaining_below_pcb_top_mm": 1.0
+    },
+    {
+      "test": "BoardStop1L has no upper clamp",
+      "pass_for_tested_geometry": true,
+      "height_above_pcb_bottom_mm": 0.6000000000000014,
+      "remaining_below_pcb_top_mm": 1.0
+    },
+    {
+      "test": "RearPCBStop1L has no upper clamp",
+      "pass_for_tested_geometry": true,
+      "height_above_pcb_bottom_mm": 0.6000000000000014,
+      "remaining_below_pcb_top_mm": 1.0
+    },
+    {
+      "test": "SeatSide1R has no upper clamp",
+      "pass_for_tested_geometry": true,
+      "height_above_pcb_bottom_mm": 0.6000000000000014,
+      "remaining_below_pcb_top_mm": 1.0
+    },
+    {
+      "test": "BoardStop1R has no upper clamp",
+      "pass_for_tested_geometry": true,
+      "height_above_pcb_bottom_mm": 0.6000000000000014,
+      "remaining_below_pcb_top_mm": 1.0
+    },
+    {
+      "test": "RearPCBStop1R has no upper clamp",
+      "pass_for_tested_geometry": true,
+      "height_above_pcb_bottom_mm": 0.6000000000000014,
+      "remaining_below_pcb_top_mm": 1.0
+    },
+    {
+      "test": "PCB2 exact bare board / raised rear approach",
+      "pass_for_tested_geometry": true,
+      "intersections_mm3": {},
+      "condition": "78x108 mm PCB; assumed thickness from Parameters; factory feet removed. Rear panel is absent; front is seated. Board is aligned parallel to the supports, without tilt."
+    },
+    {
+      "test": "PCB2 exact bare board / vertical placement",
+      "pass_for_tested_geometry": true,
+      "intersections_mm3": {},
+      "condition": "78x108 mm PCB; assumed thickness from Parameters; factory feet removed. Rear panel is absent; front is seated. Board is aligned parallel to the supports, without tilt."
+    },
+    {
+      "test": "PCB2 FULL-WIDTH upper component envelope / raised rear approach",
+      "pass_for_tested_geometry": true,
+      "intersections_mm3": {},
+      "condition": "FULL 78 mm width, no empty top edge strip; full PCB depth and assumed 38 mm height above PCB top. Components may touch but not overhang the PCB perimeter. Rear panel is absent; front is seated. Board is aligned parallel to the supports, without tilt."
+    },
+    {
+      "test": "PCB2 FULL-WIDTH upper component envelope / vertical placement",
+      "pass_for_tested_geometry": true,
+      "intersections_mm3": {},
+      "condition": "FULL 78 mm width, no empty top edge strip; full PCB depth and assumed 38 mm height above PCB top. Components may touch but not overhang the PCB perimeter. Rear panel is absent; front is seated. Board is aligned parallel to the supports, without tilt."
+    },
+    {
+      "test": "Knob2 conservative connector box / raised rear approach",
+      "pass_for_tested_geometry": true,
+      "intersections_mm3": {},
+      "condition": "Only simplified unmeasured connector reference. Final axes, outline and projection need physical confirmation. Rear panel is absent; front is seated. Board is aligned parallel to the supports, without tilt."
+    },
+    {
+      "test": "Knob2 conservative connector box / vertical placement",
+      "pass_for_tested_geometry": true,
+      "intersections_mm3": {},
+      "condition": "Only simplified unmeasured connector reference. Final axes, outline and projection need physical confirmation. Rear panel is absent; front is seated. Board is aligned parallel to the supports, without tilt."
+    },
+    {
+      "test": "RCA2_0 conservative connector box / raised rear approach",
+      "pass_for_tested_geometry": true,
+      "intersections_mm3": {},
+      "condition": "Only simplified unmeasured connector reference. Final axes, outline and projection need physical confirmation. Rear panel is absent; front is seated. Board is aligned parallel to the supports, without tilt."
+    },
+    {
+      "test": "RCA2_0 conservative connector box / vertical placement",
+      "pass_for_tested_geometry": true,
+      "intersections_mm3": {},
+      "condition": "Only simplified unmeasured connector reference. Final axes, outline and projection need physical confirmation. Rear panel is absent; front is seated. Board is aligned parallel to the supports, without tilt."
+    },
+    {
+      "test": "RCA2_1 conservative connector box / raised rear approach",
+      "pass_for_tested_geometry": true,
+      "intersections_mm3": {},
+      "condition": "Only simplified unmeasured connector reference. Final axes, outline and projection need physical confirmation. Rear panel is absent; front is seated. Board is aligned parallel to the supports, without tilt."
+    },
+    {
+      "test": "RCA2_1 conservative connector box / vertical placement",
+      "pass_for_tested_geometry": true,
+      "intersections_mm3": {},
+      "condition": "Only simplified unmeasured connector reference. Final axes, outline and projection need physical confirmation. Rear panel is absent; front is seated. Board is aligned parallel to the supports, without tilt."
+    },
+    {
+      "test": "PCB2 underside example: 2 mm protrusion / raised rear approach",
+      "pass_for_tested_geometry": true,
+      "intersections_mm3": {},
+      "condition": "Hypothetical 2 mm solder protrusion; ONLY the lower 1.2 mm support strips must be clear of solder. Actual underside protrusion is unmeasured. Rear panel is absent; front is seated. Board is aligned parallel to the supports, without tilt."
+    },
+    {
+      "test": "PCB2 underside example: 2 mm protrusion / vertical placement",
+      "pass_for_tested_geometry": true,
+      "intersections_mm3": {},
+      "condition": "Hypothetical 2 mm solder protrusion; ONLY the lower 1.2 mm support strips must be clear of solder. Actual underside protrusion is unmeasured. Rear panel is absent; front is seated. Board is aligned parallel to the supports, without tilt."
+    },
+    {
+      "test": "PCB2 static board with closed rear panel",
+      "pass_for_tested_geometry": true,
+      "intersections_mm3": {},
+      "condition": "Seated PCB; rear stops constrain longitudinal movement only, not upward lift."
+    },
+    {
+      "test": "PCB2 full-width static upper envelope with closed rear panel",
+      "pass_for_tested_geometry": true,
+      "intersections_mm3": {},
+      "condition": "Full 78x108x38 mm upper envelope; no component overhang assumed."
+    },
+    {
+      "test": "SeatSide2L has no upper clamp",
+      "pass_for_tested_geometry": true,
+      "height_above_pcb_bottom_mm": 0.6000000000000085,
+      "remaining_below_pcb_top_mm": 0.9999999999999858
+    },
+    {
+      "test": "BoardStop2L has no upper clamp",
+      "pass_for_tested_geometry": true,
+      "height_above_pcb_bottom_mm": 0.6000000000000085,
+      "remaining_below_pcb_top_mm": 0.9999999999999858
+    },
+    {
+      "test": "RearPCBStop2L has no upper clamp",
+      "pass_for_tested_geometry": true,
+      "height_above_pcb_bottom_mm": 0.5999999999999943,
+      "remaining_below_pcb_top_mm": 1.0
+    },
+    {
+      "test": "SeatSide2R has no upper clamp",
+      "pass_for_tested_geometry": true,
+      "height_above_pcb_bottom_mm": 0.6000000000000085,
+      "remaining_below_pcb_top_mm": 0.9999999999999858
+    },
+    {
+      "test": "BoardStop2R has no upper clamp",
+      "pass_for_tested_geometry": true,
+      "height_above_pcb_bottom_mm": 0.6000000000000085,
+      "remaining_below_pcb_top_mm": 0.9999999999999858
+    },
+    {
+      "test": "RearPCBStop2R has no upper clamp",
+      "pass_for_tested_geometry": true,
+      "height_above_pcb_bottom_mm": 0.5999999999999943,
+      "remaining_below_pcb_top_mm": 1.0
+    },
+    {
+      "test": "RearBoss2 above raised full-width top components",
+      "pass_for_tested_geometry": true,
+      "remaining_vertical_clearance_mm": 0.5999999999999943,
+      "condition": "Only for the assumed 38 mm component height and exact 0.8 mm parallel lift."
+    },
+    {
+      "test": "RearBoss3 above raised full-width top components",
+      "pass_for_tested_geometry": true,
+      "remaining_vertical_clearance_mm": 0.5999999999999943,
+      "condition": "Only for the assumed 38 mm component height and exact 0.8 mm parallel lift."
+    },
+    {
+      "test": "No inherited upper-rail geometry",
+      "pass_for_tested_geometry": true
+    },
+    {
+      "test": "Raised board clears low side and end lips",
+      "pass_for_tested_geometry": true,
+      "clearance_mm": 0.20000000000000007,
+      "condition": "Bare PCB lower plane is 0.2 mm above 0.6 mm lips during the ideal parallel approach."
+    },
+    {
+      "test": "Rear nut 0 insertion from case interior",
+      "pass_for_tested_geometry": true,
+      "intersections_mm3": {},
+      "condition": "Assumed M3 hex AF5.5/thickness2.4; nut slides sideways along X before boards and rear panel are installed. Tool/finger grip not modeled."
+    },
+    {
+      "test": "Rear nut 1 insertion from case interior",
+      "pass_for_tested_geometry": true,
+      "intersections_mm3": {},
+      "condition": "Assumed M3 hex AF5.5/thickness2.4; nut slides sideways along X before boards and rear panel are installed. Tool/finger grip not modeled."
+    },
+    {
+      "test": "Rear nut 2 insertion from case interior",
+      "pass_for_tested_geometry": true,
+      "intersections_mm3": {},
+      "condition": "Assumed M3 hex AF5.5/thickness2.4; nut slides sideways along X before boards and rear panel are installed. Tool/finger grip not modeled."
+    },
+    {
+      "test": "Rear nut 3 insertion from case interior",
+      "pass_for_tested_geometry": true,
+      "intersections_mm3": {},
+      "condition": "Assumed M3 hex AF5.5/thickness2.4; nut slides sideways along X before boards and rear panel are installed. Tool/finger grip not modeled."
+    },
+    {
+      "test": "Top nut insertion from rear interior",
+      "pass_for_tested_geometry": true,
+      "intersections_mm3": {},
+      "condition": "Assumed M3 hex AF5.5/thickness2.4. Nut loaded before electronics. Hex flats align with entry walls; tool/finger grip not modeled."
+    },
+    {
+      "test": "All printed parts in seated assembly",
+      "pass_for_tested_geometry": true,
+      "intersections_mm3": {}
+    }
+  ],
+  "not_verified": [
+    "Actual populated PCB height, perimeter overhang and underside",
+    "Actual connector axes and cable bend radii",
+    "Cable routing, strain relief and loaded terminal access",
+    "Wall substrate, anchors, screw lengths and structural strength",
+    "Thermal performance, printing fit and material suitability"
+  ],
+  "assembly_notes": [
+    "Front must slide before electronics; removing it later requires withdrawing boards.",
+    "Approach from the rear parallel at 0.8 mm lift, then lower onto supports. Top edges need no empty component strip.",
+    "Rear stops are only 0.6 mm high above PCB bottom, below the assumed 1.6 mm PCB top. Gravity and end stops locate boards; upward movement is intentionally not clamped.",
+    "Wall spacer rings must be installed on wall screws first; do not fix them to the moving keyhole panel. Their small holes cannot pass screw heads.",
+    "Screwdriver and finger access are not proven by nut solid clearance."
+  ]
+}

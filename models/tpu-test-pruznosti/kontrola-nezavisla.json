@@ -1,0 +1,541 @@
+{
+  "audit_version": 1,
+  "source_saved_by_audit": false,
+  "physical_print_verified": false,
+  "shore_measurement": false,
+  "artifact_sha256_before": {
+    "test-tpu.FCStd": "0f18c663d016b5537b877f82b117d03a12d7a621f0cd3e1503db0cc173fb3f6b",
+    "krouzek-08.stl": "8dd834acc631cceed5eeb1ce70ee9965f8fc1ec30baf56310c7069583d1c8873",
+    "krouzek-16.stl": "7e51d7b056f889e8b66a147e10cf709a5c6b91901c03f83cddd3e1fc6492ef4b",
+    "pasek-08.stl": "acf157b88ace814bcfa3cd82a53148945170c46374648d96b08ae3e6916923d8",
+    "pasek-16.stl": "ac4caad3db54432f75b7abc143153765bd15f23668d15fa00cb345845e055f68",
+    "pasek-32.stl": "def87b514c4b78563085776e56c29b4adae01c8799d675270048fb8599a2d1c5",
+    "tpu-test-cela-sada.stl": "4c70fefad43f40bbeed7d780c17aa678c11087b14bbddc74b150755417f68a55"
+  },
+  "saved_cad": {
+    "parts": [
+      {
+        "object": "Strip1",
+        "valid": true,
+        "solid_count": 1,
+        "closed": true,
+        "bounds_mm": [
+          0.0,
+          70.0,
+          0.0,
+          14.0,
+          0.0,
+          0.8
+        ],
+        "volume_mm3": 746.7313172837844,
+        "analytic_volume_mm3": 746.7313172837845,
+        "marking_holes": 1,
+        "thickness_mm": 0.8
+      },
+      {
+        "object": "Strip2",
+        "valid": true,
+        "solid_count": 1,
+        "closed": true,
+        "bounds_mm": [
+          0.0,
+          70.0,
+          20.0,
+          34.0,
+          0.0,
+          1.6
+        ],
+        "volume_mm3": 1486.2244050936981,
+        "analytic_volume_mm3": 1486.2244050936981,
+        "marking_holes": 2,
+        "thickness_mm": 1.6
+      },
+      {
+        "object": "Strip3",
+        "valid": true,
+        "solid_count": 1,
+        "closed": true,
+        "bounds_mm": [
+          0.0,
+          70.0,
+          40.0,
+          54.0,
+          0.0,
+          3.2
+        ],
+        "volume_mm3": 2957.9723512396545,
+        "analytic_volume_mm3": 2957.9723512396545,
+        "marking_holes": 3,
+        "thickness_mm": 3.2
+      },
+      {
+        "object": "Ring1",
+        "valid": true,
+        "solid_count": 1,
+        "closed": true,
+        "bounds_mm": [
+          0.0,
+          32.0,
+          62.0,
+          94.0,
+          0.0,
+          12.0
+        ],
+        "volume_mm3": 940.9698316032145,
+        "analytic_volume_mm3": 940.9698316032152,
+        "marking_holes": 0,
+        "thickness_mm": 0.8
+      },
+      {
+        "object": "Ring2",
+        "valid": true,
+        "solid_count": 1,
+        "closed": true,
+        "bounds_mm": [
+          40.0,
+          72.0,
+          62.0,
+          94.0,
+          0.0,
+          12.0
+        ],
+        "volume_mm3": 1833.6848000472892,
+        "analytic_volume_mm3": 1833.68480004729,
+        "marking_holes": 0,
+        "thickness_mm": 1.6
+      }
+    ],
+    "part_count": 5,
+    "distances": [
+      {
+        "objects": [
+          "Strip1",
+          "Strip2"
+        ],
+        "distance_mm": 6.0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "objects": [
+          "Strip1",
+          "Strip3"
+        ],
+        "distance_mm": 26.0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "objects": [
+          "Strip1",
+          "Ring1"
+        ],
+        "distance_mm": 48.0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "objects": [
+          "Strip1",
+          "Ring2"
+        ],
+        "distance_mm": 48.0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "objects": [
+          "Strip2",
+          "Strip3"
+        ],
+        "distance_mm": 6.0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "objects": [
+          "Strip2",
+          "Ring1"
+        ],
+        "distance_mm": 28.0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "objects": [
+          "Strip2",
+          "Ring2"
+        ],
+        "distance_mm": 28.0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "objects": [
+          "Strip3",
+          "Ring1"
+        ],
+        "distance_mm": 8.0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "objects": [
+          "Strip3",
+          "Ring2"
+        ],
+        "distance_mm": 8.0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "objects": [
+          "Ring1",
+          "Ring2"
+        ],
+        "distance_mm": 8.0,
+        "overlap_mm3": 0.0
+      }
+    ],
+    "minimum_gap_mm": 6.0,
+    "object_errors": {}
+  },
+  "parameter_experiment": {
+    "parts": [
+      {
+        "object": "Strip1",
+        "valid": true,
+        "solid_count": 1,
+        "closed": true,
+        "bounds_mm": [
+          0.0,
+          76.0,
+          0.0,
+          15.0,
+          0.0,
+          1.0
+        ],
+        "volume_mm3": 1086.405295179859,
+        "analytic_volume_mm3": 1086.405295179859,
+        "marking_holes": 1,
+        "thickness_mm": 1.0
+      },
+      {
+        "object": "Strip2",
+        "valid": true,
+        "solid_count": 1,
+        "closed": true,
+        "bounds_mm": [
+          0.0,
+          76.0,
+          22.0,
+          37.0,
+          0.0,
+          1.8000000000000007
+        ],
+        "volume_mm3": 1945.9728064715266,
+        "analytic_volume_mm3": 1945.9728064715264,
+        "marking_holes": 2,
+        "thickness_mm": 1.8
+      },
+      {
+        "object": "Strip3",
+        "valid": true,
+        "solid_count": 1,
+        "closed": true,
+        "bounds_mm": [
+          0.0,
+          76.0,
+          44.0,
+          59.0,
+          0.0,
+          3.6000000000000014
+        ],
+        "volume_mm3": 3872.8321632386132,
+        "analytic_volume_mm3": 3872.832163238612,
+        "marking_holes": 3,
+        "thickness_mm": 3.6
+      },
+      {
+        "object": "Ring1",
+        "valid": true,
+        "solid_count": 1,
+        "closed": true,
+        "bounds_mm": [
+          0.0,
+          34.0,
+          70.0,
+          104.0,
+          0.0,
+          14.0
+        ],
+        "volume_mm3": 1451.4158059584852,
+        "analytic_volume_mm3": 1451.4158059584845,
+        "marking_holes": 0,
+        "thickness_mm": 1.0
+      },
+      {
+        "object": "Ring2",
+        "valid": true,
+        "solid_count": 1,
+        "closed": true,
+        "bounds_mm": [
+          42.0,
+          76.0,
+          70.0,
+          104.0,
+          0.0,
+          14.0
+        ],
+        "volume_mm3": 2549.2139428288992,
+        "analytic_volume_mm3": 2549.213942828902,
+        "marking_holes": 0,
+        "thickness_mm": 1.8
+      }
+    ],
+    "part_count": 5,
+    "distances": [
+      {
+        "objects": [
+          "Strip1",
+          "Strip2"
+        ],
+        "distance_mm": 7.0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "objects": [
+          "Strip1",
+          "Strip3"
+        ],
+        "distance_mm": 29.0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "objects": [
+          "Strip1",
+          "Ring1"
+        ],
+        "distance_mm": 55.0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "objects": [
+          "Strip1",
+          "Ring2"
+        ],
+        "distance_mm": 55.0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "objects": [
+          "Strip2",
+          "Strip3"
+        ],
+        "distance_mm": 7.0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "objects": [
+          "Strip2",
+          "Ring1"
+        ],
+        "distance_mm": 33.0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "objects": [
+          "Strip2",
+          "Ring2"
+        ],
+        "distance_mm": 33.0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "objects": [
+          "Strip3",
+          "Ring1"
+        ],
+        "distance_mm": 11.0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "objects": [
+          "Strip3",
+          "Ring2"
+        ],
+        "distance_mm": 11.0,
+        "overlap_mm3": 0.0
+      },
+      {
+        "objects": [
+          "Ring1",
+          "Ring2"
+        ],
+        "distance_mm": 8.0,
+        "overlap_mm3": 0.0
+      }
+    ],
+    "minimum_gap_mm": 7.0,
+    "object_errors": {},
+    "values_mm": {
+      "StripLength": 76,
+      "StripWidth": 15,
+      "Thin": 1.0,
+      "Medium": 1.8,
+      "Thick": 3.6,
+      "RingDiameter": 34,
+      "RingHeight": 14,
+      "HoleDiameter": 2.6,
+      "StripPitch": 22,
+      "RingY": 70,
+      "RingPitch": 42
+    }
+  },
+  "restored_in_memory": {
+    "passed": true,
+    "symmetric_difference_mm3": {
+      "Strip1": 0.0,
+      "Strip2": 0.0,
+      "Strip3": 0.0,
+      "Ring1": 0.0,
+      "Ring2": 0.0
+    }
+  },
+  "stls": [
+    {
+      "file": "stl/pasek-08.stl",
+      "closed": true,
+      "components": 1,
+      "facets": 856,
+      "bounds_mm": [
+        0.0030741444788873196,
+        70.0,
+        0.0,
+        14.0,
+        0.0,
+        0.800000011920929
+      ],
+      "volume_mm3": 746.6618041992188,
+      "volume_error_fraction": -9.308982087239611e-05,
+      "bounds_tolerance_mm": 0.03,
+      "volume_tolerance_fraction": 0.001,
+      "edge_count": 1284,
+      "nonmanifold_or_boundary_edges": 0,
+      "orientation_errors": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "stl/pasek-16.stl",
+      "closed": true,
+      "components": 1,
+      "facets": 1280,
+      "bounds_mm": [
+        0.0030741444788873196,
+        70.0,
+        0.0,
+        14.0,
+        0.0,
+        1.600000023841858
+      ],
+      "volume_mm3": 1486.0921630859375,
+      "volume_error_fraction": -8.897849295664524e-05,
+      "bounds_tolerance_mm": 0.03,
+      "volume_tolerance_fraction": 0.001,
+      "edge_count": 1920,
+      "nonmanifold_or_boundary_edges": 0,
+      "orientation_errors": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "stl/pasek-32.stl",
+      "closed": true,
+      "components": 1,
+      "facets": 1704,
+      "bounds_mm": [
+        0.0030741444788873196,
+        70.0,
+        0.0,
+        14.0,
+        0.0,
+        3.200000047683716
+      ],
+      "volume_mm3": 2957.712890625,
+      "volume_error_fraction": -8.771569975822623e-05,
+      "bounds_tolerance_mm": 0.03,
+      "volume_tolerance_fraction": 0.001,
+      "edge_count": 2556,
+      "nonmanifold_or_boundary_edges": 0,
+      "orientation_errors": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "stl/krouzek-08.stl",
+      "closed": true,
+      "components": 1,
+      "facets": 840,
+      "bounds_mm": [
+        0.00716108363121748,
+        32.0,
+        0.001790371024981141,
+        31.99820899963379,
+        0.0,
+        12.0
+      ],
+      "volume_mm3": 940.432373046875,
+      "volume_error_fraction": -0.0005711751198489342,
+      "bounds_tolerance_mm": 0.03,
+      "volume_tolerance_fraction": 0.001,
+      "edge_count": 1260,
+      "nonmanifold_or_boundary_edges": 0,
+      "orientation_errors": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "stl/krouzek-16.stl",
+      "closed": true,
+      "components": 1,
+      "facets": 840,
+      "bounds_mm": [
+        0.00716108363121748,
+        32.0,
+        0.001790371024981141,
+        31.99820899963379,
+        0.0,
+        12.0
+      ],
+      "volume_mm3": 1832.58984375,
+      "volume_error_fraction": -0.000597134413320023,
+      "bounds_tolerance_mm": 0.03,
+      "volume_tolerance_fraction": 0.001,
+      "edge_count": 1260,
+      "nonmanifold_or_boundary_edges": 0,
+      "orientation_errors": 0,
+      "degenerate_triangles": 0
+    },
+    {
+      "file": "stl/tpu-test-cela-sada.stl",
+      "closed": true,
+      "components": 5,
+      "facets": 5520,
+      "bounds_mm": [
+        0.0030741444788873196,
+        72.0,
+        0.0,
+        93.99820709228516,
+        0.0,
+        12.0
+      ],
+      "volume_mm3": 7963.49462890625,
+      "volume_error_fraction": -0.0002621373022730043,
+      "bounds_tolerance_mm": 0.03,
+      "volume_tolerance_fraction": 0.001,
+      "edge_count": 8280,
+      "nonmanifold_or_boundary_edges": 0,
+      "orientation_errors": 0,
+      "degenerate_triangles": 0
+    }
+  ],
+  "passed": true,
+  "artifact_sha256_after": {
+    "test-tpu.FCStd": "0f18c663d016b5537b877f82b117d03a12d7a621f0cd3e1503db0cc173fb3f6b",
+    "krouzek-08.stl": "8dd834acc631cceed5eeb1ce70ee9965f8fc1ec30baf56310c7069583d1c8873",
+    "krouzek-16.stl": "7e51d7b056f889e8b66a147e10cf709a5c6b91901c03f83cddd3e1fc6492ef4b",
+    "pasek-08.stl": "acf157b88ace814bcfa3cd82a53148945170c46374648d96b08ae3e6916923d8",
+    "pasek-16.stl": "ac4caad3db54432f75b7abc143153765bd15f23668d15fa00cb345845e055f68",
+    "pasek-32.stl": "def87b514c4b78563085776e56c29b4adae01c8799d675270048fb8599a2d1c5",
+    "tpu-test-cela-sada.stl": "4c70fefad43f40bbeed7d780c17aa678c11087b14bbddc74b150755417f68a55"
+  },
+  "artifact_hashes_unchanged": true
+}

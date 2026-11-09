@@ -1,0 +1,184 @@
+# -*- coding: utf-8 -*-
+"""Pokerový pohár Praha 9. 10. 2026 — FreeCAD 1.1.3, mm.
+
+Přepíše jen pohar.FCStd, stl/pohar.stl a kontrola-modelu.json vedle makra.
+Nezasahuje do sliceru ani tiskárny. Regenerace používá návrhové VALUES,
+nikoli ruční změny v jiném otevřeném dokumentu. Náhled obnovuje nahled.FCMacro.
+Standardní Part objekty a výrazy zůstávají editovatelné bez Python proxy;
+obrysy nápisů jsou uložená geometrie (text/velikost změnit v makru).
+"""
+from pathlib import Path
+import json
+import FreeCAD as App
+import Part
+import Mesh
+import MeshPart
+
+OUT = Path(__file__).resolve().parent
+FONT = "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
+NAME = "PokerovyPoharPraha2026"
+App.ParamGet("User parameter:BaseApp/Preferences/Document").SetInt("CountBackupFiles", 0)
+if NAME in App.listDocuments():
+    raise RuntimeError("Před regenerací uložit a zavřít dokument poháru.")
+(OUT / "stl").mkdir(exist_ok=True)
+doc = App.newDocument(NAME)
+doc.Label = "POKER • VÍTĚZ • Praha 9. 10. 2026 • Jiří Novák"
+sheet = doc.addObject("Spreadsheet::Sheet", "Parameters")
+sheet.Label = "Návrhové parametry (mm)"
+VALUES = [
+    ("FootWidth", "Šířka paty", 58), ("FootDepth", "Hloubka paty", 40),
+    ("FootHeight", "Výška paty", 2), ("FootRadius", "Rohy paty", 6),
+    ("BaseWidth", "Šířka podstavce", 50), ("BaseDepth", "Hloubka podstavce", 32),
+    ("BaseHeight", "Výška podstavce nad patou", 20), ("BaseRadius", "Rohy podstavce", 4),
+    ("StemRadius", "Poloměr dříku", 4.8), ("CupZ", "Začátek misky", 50),
+    ("CupHeight", "Výška kužele misky", 33), ("CupBottomRadius", "Spodní poloměr misky", 7),
+    ("CupTopRadius", "Horní poloměr misky", 28), ("RimHeight", "Výška horního lemu", 3),
+    ("RimRadius", "Poloměr horního lemu", 29), ("CupFloor", "Tloušťka dna misky", 2),
+    ("CupInnerBottom", "Spodní vnitřní poloměr", 6), ("CupInnerTop", "Poloměr nástroje nahoře", 27.5),
+    ("Relief", "Převýšení nápisů", 0.55), ("CardWidth", "Šířka karty", 16),
+    ("CardHeight", "Výška karty", 27), ("CardThickness", "Tloušťka karty", 2.6),
+    ("CardRadius", "Rohy karty", 2), ("CardZ", "Výška spodku karet", 21),
+]
+for c, v in (("A1", "Parametr"), ("B1", "Hodnota"), ("C1", "Původ")):
+    sheet.set(c, v)
+sheet.setStyle("A1:C1", "bold", "add")
+for row, (alias, label, val) in enumerate(VALUES, 2):
+    sheet.set("A%d" % row, label)
+    sheet.set("B%d" % row, "%g mm" % val)
+    sheet.setAlias("B%d" % row, alias)
+    sheet.set("C%d" % row, "NÁVRH; digitální kontrola není fyzický tisk")
+sheet.setColumnWidth("A", 260)
+sheet.setColumnWidth("B", 110)
+sheet.setColumnWidth("C", 360)
+doc.recompute()
+def p(n): return "Parameters." + n
+def ex(o, prop, value): o.setExpression(prop, str(value))
+def box(name, dims, pos):
+    o = doc.addObject("Part::Box", name)
+    for key, val in zip(("Length", "Width", "Height"), dims): ex(o, key, val)
+    for key, val in zip("xyz", pos): ex(o, "Placement.Base." + key, val)
+    return o
+def cylinder(name, r, h, pos, direction=(0,0,1)):
+    o = doc.addObject("Part::Cylinder", name)
+    ex(o, "Radius", r); ex(o, "Height", h)
+    o.Placement.Rotation = App.Rotation(App.Vector(0,0,1), App.Vector(*direction))
+    for key, val in zip("xyz", pos): ex(o, "Placement.Base." + key, val)
+    return o
+def cone(name, r1, r2, h, z):
+    o = doc.addObject("Part::Cone", name)
+    for prop,val in (("Radius1",r1),("Radius2",r2),("Height",h),("Placement.Base.z",z)):
+        ex(o, prop, val)
+    return o
+def fuse(name, parts):
+    o = doc.addObject("Part::MultiFuse", name)
+    o.Shapes = parts; o.Refine = True
+    return o
+def round_xy(name, w, d, r, h, z):
+    parts = [box(name+"CoreX", [w+"-2*"+r,d,h], ["-"+w+"/2+"+r,"-"+d+"/2",z]),
+             box(name+"CoreY", [w,d+"-2*"+r,h], ["-"+w+"/2","-"+d+"/2+"+r,z])]
+    for i,sx in enumerate((-1,1)):
+        for j,sy in enumerate((-1,1)):
+            parts.append(cylinder(name+"Corner%d%d"%(i,j),r,h,
+                ["%d*(%s/2-%s)"%(sx,w,r),"%d*(%s/2-%s)"%(sy,d,r),z]))
+    return fuse(name,parts)
+
+foot = round_xy("Foot", p("FootWidth"),p("FootDepth"),p("FootRadius"),p("FootHeight"),"0 mm")
+base = round_xy("Base", p("BaseWidth"),p("BaseDepth"),p("BaseRadius"),p("BaseHeight"),p("FootHeight"))
+stem_foot = cone("StemFoot", "10 mm", p("StemRadius"), "7 mm", p("FootHeight")+"+"+p("BaseHeight")+"-0.3 mm")
+stem = cylinder("Stem",p("StemRadius"),p("CupZ")+"-"+p("BaseHeight")+"-"+p("FootHeight"),["0 mm","0 mm",p("BaseHeight")+"+"+p("FootHeight")])
+stem_top = cone("StemCapital", p("StemRadius"), p("CupBottomRadius")+"+0.2 mm", "7.3 mm",p("CupZ")+"-7 mm")
+cup_outer = cone("CupOutside",p("CupBottomRadius"),p("CupTopRadius"),p("CupHeight"),p("CupZ"))
+rim_outer = cone("RimOutside",p("CupTopRadius"),p("RimRadius"),p("RimHeight"),p("CupZ")+"+"+p("CupHeight"))
+cup_stock = fuse("CupStock",[cup_outer,rim_outer])
+inside = cone("CupCavity",p("CupInnerBottom"),p("CupInnerTop"),p("CupHeight")+"+"+p("RimHeight")+"-"+p("CupFloor")+"+1 mm",p("CupZ")+"+"+p("CupFloor"))
+cup = doc.addObject("Part::Cut","Cup")
+cup.Base = cup_stock; cup.Tool = inside; cup.Refine = True
+
+def text(name, value, height, z, y, center_x=0, back=False):
+    # Embedded outlines: no Draft proxy or external font needed on reopen.
+    faces = []
+    for character in Part.makeWireString(value,FONT,10,0):
+        wires=[]
+        for wire in character:
+            joined=Part.Compound(wire.Edges).connectEdgesToWires()
+            wires.extend(w for w in joined.Wires if w.isClosed())
+        if wires: faces.extend(Part.makeFace(wires,"Part::FaceMakerBullseye").Faces)
+    shape=Part.makeCompound(faces)
+    bb=shape.BoundBox
+    shape.scale(height/bb.YLength)
+    bb=shape.BoundBox
+    shape.translate(App.Vector(-(bb.XMin+bb.XMax)/2,-bb.YMin,0))
+    outlines=doc.addObject("Part::Feature",name+"Outlines")
+    outlines.Label="Uložené obrysy: "+value
+    outlines.Shape=shape
+    o=doc.addObject("Part::Extrusion",name)
+    o.Label=value+" — jednobarevný reliéf"
+    o.Base=outlines; o.Solid=True
+    o.DirMode="Custom";o.Dir=App.Vector(0,0,1)
+    ex(o,"LengthFwd",p("Relief")+"+0.15 mm")
+    o.Placement.Rotation=App.Rotation(App.Vector(1,0,0), -90 if back else 90)
+    if back:
+        # Face the name toward a viewer at Y>0, and keep the text upright.
+        o.Placement.Rotation=App.Rotation(App.Vector(0,0,1),180).multiply(App.Rotation(App.Vector(1,0,0),90))
+    for key,val in zip("xyz",["%g mm"%center_x,y,z]): ex(o,"Placement.Base."+key,val)
+    return o
+
+front_y="-"+p("BaseDepth")+"/2+0.15 mm"
+labels=[text("Poker","POKER",4.6,"16.2 mm",front_y),
+        text("Winner","VÍTĚZ",4.0,"11.0 mm",front_y),
+        text("Prague","PRAHA",2.9,"7.0 mm",front_y),
+        text("Date","9. 10. 2026",2.7,"3.3 mm",front_y),
+        text("Jiri","JIŘÍ",4.0,"13 mm",p("BaseDepth")+"/2-0.15 mm",back=True),
+        text("Novak","NOVÁK",4.0,"7 mm",p("BaseDepth")+"/2-0.15 mm",back=True)]
+
+def card(name,symbol,angle,x):
+    w=p("CardWidth");h=p("CardHeight");r=p("CardRadius");t=p("CardThickness")
+    parts=[box(name+"CoreV",[w+"-2*"+r,t,h],["-"+w+"/2+"+r,"-6 mm","0 mm"]),
+           box(name+"CoreH",[w,t,h+"-2*"+r],["-"+w+"/2","-6 mm",r])]
+    for i,sx in enumerate((-1,1)):
+        for j,z in enumerate((r,h+"-"+r)):
+            parts.append(cylinder(name+"Corner%d%d"%(i,j),r,t,["%d*(%s/2-%s)"%(sx,w,r),"-6 mm",z],(0,1,0)))
+    # Corner index and big suit remain readable as relief in one material.
+    parts.extend([text(name+"Ace","A",4.4,"20.7 mm","-5.85 mm",center_x=-3.5),
+                  text(name+"Suit",symbol,9.3,"7.5 mm","-5.85 mm",center_x=0),
+                  text(name+"MiniSuit",symbol,3.6,"2.4 mm","-5.85 mm",center_x=3.7)])
+    o=fuse(name,parts)
+    o.Placement.Rotation=App.Rotation(App.Vector(0,1,0),angle)
+    ex(o,"Placement.Base.x","%g mm"%x)
+    ex(o,"Placement.Base.z",p("CardZ"))
+    return o
+left=card("SpadeAce","♠",-13,-5.8)
+right=card("HeartAce","♥",13,5.8)
+result=fuse("Pohar",[foot,base,stem_foot,stem,stem_top,cup,left,right]+labels)
+result.Label="TISKNOUT 1× — pokerový pohár, zlatý Silk PLA"
+doc.recompute()
+bad=[(o.Name,str(o.State)) for o in doc.Objects if "Invalid" in o.State]
+assert not bad,bad
+shape=result.Shape
+assert shape.isValid(),"Neplatná geometrie"
+assert len(shape.Solids)==1, "Více solidů: %d"%len(shape.Solids)
+bb=shape.BoundBox
+assert abs(bb.ZMin)<0.001
+assert abs(bb.XLength-58)<0.01
+assert abs(bb.YLength-58)<0.01
+assert abs(bb.ZLength-86)<0.01
+mesh=MeshPart.meshFromShape(Shape=shape,LinearDeflection=0.055,AngularDeflection=0.15,Relative=False)
+assert mesh.isSolid()
+mesh.write(str(OUT/"stl/pohar.stl"))
+reload=Mesh.Mesh(str(OUT/"stl/pohar.stl"))
+assert reload.isSolid() and reload.countComponents()==1
+if App.GuiUp:
+    for o in doc.Objects:
+        if o.ViewObject: o.ViewObject.Visibility=(o==result)
+doc.saveAs(str(OUT/"pohar.FCStd"))
+report={"shape_valid":shape.isValid(),"solids":len(shape.Solids),
+        "bounds_mm":{"x":bb.XLength,"y":bb.YLength,"z":bb.ZLength,"z_min":bb.ZMin},
+        "volume_mm3":shape.Volume,"stl_facets":mesh.CountFacets,
+        "stl_closed_after_reload":reload.isSolid(),"stl_components_after_reload":reload.countComponents(),
+        "design_parameters_mm":{a:v for a,l,v in VALUES},
+        "one_piece":True,"copies":1,"physical_print_verified":False,
+        "front":"Y<0","name_on_back":"JIŘÍ NOVÁK",
+        "texts":["POKER","VÍTĚZ","PRAHA","9. 10. 2026"],
+        "support_design":"self-supporting cone; relief 0.55 mm; verify actual sliced paths"}
+(OUT/"kontrola-modelu.json").write_text(json.dumps(report,ensure_ascii=False,indent=2)+"\n")
+print("POHAR_CAD_OK",json.dumps(report,ensure_ascii=False),flush=True)

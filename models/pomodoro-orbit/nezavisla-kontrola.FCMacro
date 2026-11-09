@@ -1,0 +1,186 @@
+"""Independent read-only audit of the delivered Orbit CAD and STL files.
+
+Uses a temporary FCStd copy in this model directory, removes it on completion,
+and writes only nezavisla-kontrola.json. Never saves the canonical document.
+Run in FreeCAD 1.1.3, not system Python. Physical fit is not established here.
+"""
+from pathlib import Path
+import hashlib
+import json
+import math
+import FreeCAD as App
+import Part
+import Mesh
+
+OUT = Path(__file__).resolve().parent
+FINAL_NAMES = ["Base", "Rotor", "Crown", "Screw", "Token1", "Token2", "Token3", "Token4", "ModeMedallion"]
+
+
+def digest(path):
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def bbox(shape):
+    points, facets = shape.tessellate(0.04)
+    return {axis: [min(getattr(v, axis) for v in points), max(getattr(v, axis) for v in points)]
+            for axis in ["x", "y", "z"]}
+
+
+def copy_moved(shape, z=0, rotation=0, center=None):
+    s = shape.copy()
+    if rotation:
+        s.rotate(center or App.Vector(0, 0, 0), App.Vector(0, 0, 1), rotation)
+    if z:
+        s.translate(App.Vector(0, 0, z))
+    return s
+
+
+def collisions(shape, others):
+    values = {}
+    for name, other in others.items():
+        volume = shape.common(other).Volume
+        if volume > 1e-6:
+            values[name] = volume
+    return values
+
+
+def audit():
+    source = OUT / "orbit.FCStd"
+    snapshot = OUT / ".nezavisla-kontrola-input.FCStd"
+    if snapshot.exists():
+        raise RuntimeError("Refusing to overwrite existing audit snapshot")
+    data = source.read_bytes()
+    snapshot.write_bytes(data)
+    report = {"scope": "Independent digital CAD/STL and assembly-motion audit; no physical print or fit test",
+              "input_cad_sha256": hashlib.sha256(data).hexdigest(),
+              "input_macro_sha256": digest(OUT / "orbit.FCMacro"),
+              "physical_print_verified": False}
+    doc = None
+    try:
+        manifest = json.loads((OUT / "print-manifest.json").read_text())
+        prior = json.loads((OUT / "kontrola-modelu.json").read_text())
+        doc = App.openDocument(str(snapshot))
+        before = {name: doc.getObject(name).Shape.Volume for name in FINAL_NAMES}
+        doc.recompute(None, True, True)
+        parts = {name: doc.getObject(name) for name in FINAL_NAMES}
+        shapes = {name: obj.Shape.copy() for name, obj in parts.items()}
+        report["native_only"] = all("Python" not in obj.TypeId for obj in doc.Objects)
+        report["native_expression_count"] = sum(len(obj.ExpressionEngine) for obj in doc.Objects)
+        report["invalid_document_objects"] = [obj.Name for obj in doc.Objects if "Invalid" in obj.State]
+        report["parts"] = []
+        prior_by_id = {row["id"]: row for row in prior["parts"]}
+        for name, obj in parts.items():
+            record = {"id": name, "type": obj.TypeId, "valid": obj.Shape.isValid(),
+                      "solids": len(obj.Shape.Solids), "closed": obj.Shape.isClosed(),
+                      "volume_mm3": obj.Shape.Volume, "bounds": bbox(obj.Shape),
+                      "recompute_volume_delta": obj.Shape.Volume - before[name],
+                      "reported_volume_delta": obj.Shape.Volume - prior_by_id[name]["volume_mm3"]}
+            assert record["valid"] and record["solids"] == 1 and record["closed"], name
+            assert abs(record["recompute_volume_delta"]) < 1e-5, name
+            assert abs(record["reported_volume_delta"]) < 1e-5, name
+            report["parts"].append(record)
+        report["physical_parts"] = sum(row["count"] for row in manifest["parts"])
+        report["manifest_ids_match"] = [r["id"] for r in manifest["parts"]] == FINAL_NAMES
+        report["macro_hash_matches_report"] = report["input_macro_sha256"] == prior["macro_sha256"]
+        report["stl"] = []
+        for row in manifest["parts"]:
+            path = OUT / row["file"]
+            mesh = Mesh.Mesh(str(path))
+            bb = mesh.BoundBox
+            old = prior_by_id[row["id"]]
+            check = {"id": row["id"], "sha256": digest(path),
+                     "hash_matches_report": digest(path) == old["stl_sha256"],
+                     "facets": mesh.CountFacets, "facets_match_report": mesh.CountFacets == old["stl_facets"],
+                     "closed": mesh.isSolid(), "components": mesh.countComponents(),
+                     "print_z_min": bb.ZMin, "print_bounds_mm": [bb.XLength, bb.YLength, bb.ZLength],
+                     "bbox_matches_report": max(abs(a - b) for a, b in zip(
+                         [bb.XLength, bb.YLength, bb.ZLength], old["print_bbox_mm"])) < 1e-5}
+            assert check["hash_matches_report"] and check["facets_match_report"]
+            assert check["closed"] and check["components"] == 1 and check["bbox_matches_report"]
+            assert abs(check["print_z_min"]) < 1e-5
+            report["stl"].append(check)
+        total_bounds = bbox(Part.makeCompound(list(shapes.values())))
+        report["assembly_bounds_mm"] = total_bounds
+        report["assembly_size_mm"] = [b - a for a, b in total_bounds.values()]
+        report["static_collisions"] = []
+        for i, name in enumerate(FINAL_NAMES):
+            for other in FINAL_NAMES[i + 1:]:
+                overlap = shapes[name].common(shapes[other]).Volume
+                if overlap > 1e-6:
+                    report["static_collisions"].append({"a": name, "b": other, "volume_mm3": overlap})
+        print("ORBIT_AUDIT_CAD_STL_OK", flush=True)
+        report["rotor_sweep"] = []
+        fixed = {n: shapes[n] for n in ["Base", "Crown"]}
+        for angle in range(0, 361, 6):
+            s = copy_moved(shapes["Rotor"], rotation=angle)
+            report["rotor_sweep"].append({"angle_deg": angle, "collisions": collisions(s, fixed)})
+        rb, cb = bbox(shapes["Rotor"]), bbox(shapes["Crown"])
+        report["rotor_axial_gap_mm"] = cb["z"][0] - rb["z"][1]
+        report["rotor_hub_radial_gap_mm"] = shapes["Rotor"].distToShape(doc.getObject("Hub").Shape)[0]
+        print("ORBIT_AUDIT_ROTOR_OK", flush=True)
+        report["screw_unscrew"] = []
+        for angle in [0, 30, 45, 90, 180, 270, 360, 450, 540, 720, 900, 1080, 1260, 1440]:
+            dz = 3.6 * angle / 360.0
+            s = copy_moved(shapes["Screw"], z=dz, rotation=angle)
+            report["screw_unscrew"].append({"angle_deg": angle, "z_shift_mm": dz,
+                                            "collisions": collisions(s, fixed)})
+        report["thread_minimum_distance_mm"] = shapes["Screw"].distToShape(shapes["Base"])[0]
+        print("ORBIT_AUDIT_SCREW_OK", flush=True)
+        report["reversible_parts"] = []
+        for name in ["Token1", "Token2", "Token3", "Token4", "ModeMedallion"]:
+            shape = shapes[name]
+            bounds = bbox(shape)
+            center = App.Vector(*[(a + b) / 2 for a, b in bounds.values()])
+            floor = bounds["z"][0]
+            flipped = shape.copy()
+            flipped.rotate(center, App.Vector(1, 0, 0), 180)
+            flipped_bounds = bbox(flipped)
+            flipped.translate(App.Vector(0, 0, floor - flipped_bounds["z"][0]))
+            surrounding = {n: s for n, s in shapes.items() if n != name}
+            check = {"id": name, "floor_z_mm": floor,
+                     "upright_collisions": collisions(shape, surrounding),
+                     "flipped_collisions": collisions(flipped, surrounding),
+                     "flipped_bounds": bbox(flipped), "vertical_extraction": [], "lifted_flip": []}
+            flip_lift = 15 if name == "ModeMedallion" else 8
+            check["tested_flip_lift_mm"] = flip_lift
+            if name == "ModeMedallion":
+                check["insufficient_lift_note"] = "8 mm lift was rejected: the 12 mm radius medallion hits the screw head during rotation; use the tested 15 mm lift or move it fully clear."
+            for lift in [0, 0.2, 0.5, 1, 2, 4, 8, 15]:
+                check["vertical_extraction"].append({"lift_mm": lift,
+                    "upright_collisions": collisions(copy_moved(shape, z=lift), surrounding),
+                    "flipped_collisions": collisions(copy_moved(flipped, z=lift), surrounding)})
+            for angle in range(0, 181, 30):
+                elevated = copy_moved(shape, z=flip_lift)
+                elevated.rotate(center + App.Vector(0, 0, flip_lift), App.Vector(1, 0, 0), angle)
+                check["lifted_flip"].append({"angle_deg": angle, "lift_mm": flip_lift,
+                                             "collisions": collisions(elevated, surrounding)})
+            # A horizontal section just above the bottom shows whether a broad
+            # annular rim, rather than only a raised glyph, touches the pocket.
+            low_slab = Part.makeBox(200, 200, 0.01, App.Vector(-100, -100, floor + 0.001))
+            check["upright_bottom_section_area_mm2"] = shape.common(low_slab).Volume / 0.01
+            check["flipped_bottom_section_area_mm2"] = flipped.common(low_slab).Volume / 0.01
+            report["reversible_parts"].append(check)
+            print("ORBIT_AUDIT_FLIP_OK " + name, flush=True)
+        report["input_cad_changed_during_audit"] = digest(source) != report["input_cad_sha256"]
+        report["all_passed"] = (report["native_only"] and not report["invalid_document_objects"]
+            and report["physical_parts"] == 9 and report["manifest_ids_match"]
+            and report["macro_hash_matches_report"] and not report["static_collisions"]
+            and all(not item["collisions"] for item in report["rotor_sweep"] + report["screw_unscrew"])
+            and all(not item["upright_collisions"] and not item["flipped_collisions"]
+                    and all(not step["upright_collisions"] and not step["flipped_collisions"] for step in item["vertical_extraction"])
+                    and all(not step["collisions"] for step in item["lifted_flip"])
+                    for item in report["reversible_parts"]))
+        (OUT / "nezavisla-kontrola.json").write_text(json.dumps(report, indent=2, ensure_ascii=False) + "\n")
+        print("ORBIT_INDEPENDENT_AUDIT " + json.dumps({"passed": report["all_passed"],
+              "parts": report["physical_parts"], "assembly_size_mm": report["assembly_size_mm"],
+              "radial_gap_mm": report["rotor_hub_radial_gap_mm"],
+              "axial_gap_mm": report["rotor_axial_gap_mm"],
+              "thread_distance_mm": report["thread_minimum_distance_mm"]}), flush=True)
+        assert report["all_passed"], "Independent audit failed; inspect JSON"
+    finally:
+        if doc:
+            App.closeDocument(doc.Name)
+        snapshot.unlink()
+
+
+audit()

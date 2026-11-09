@@ -1,0 +1,210 @@
+{
+  "revision": "04",
+  "mirror_of_revision": "03",
+  "mirror": {
+    "object": "Holder",
+    "type": "Part::Mirroring",
+    "source": "HolderSource",
+    "plane": "X = Parameters.Length/2",
+    "plane_x_mm": 115.0,
+    "normal": [
+      1.0,
+      0.0,
+      0.0
+    ],
+    "expression": "Parameters.Length / 2",
+    "mapping": "X -> 230 - X, Y and Z unchanged",
+    "print_mapping_of_export": "(X, Zmax-Z, Y) as in V03"
+  },
+  "units": "mm",
+  "parameters_mm": {
+    "KnifeLength": 340,
+    "BladeHeelHeight": 45,
+    "BladeStationHeight": 40,
+    "StationDistance": 100,
+    "HandleLength": 105,
+    "NeckGap": 10,
+    "HandleMaxWidth": 25,
+    "HandleRiseAssumed": 20,
+    "HandleFrontWidthAssumed": 22,
+    "BladeThicknessAssumed": 2,
+    "SpineY": 55,
+    "Length": 230,
+    "ButtOverhang": 30,
+    "BladeMouth": 12,
+    "HandleMouthClearance": 4,
+    "Wall": 3,
+    "RootRadius": 2,
+    "FitSlack": 0.15,
+    "CenterZ": 24,
+    "FootWidth": 4,
+    "FootHeight": 4,
+    "TabWidth": 24,
+    "TabHeight": 60,
+    "TabDepth": 4,
+    "MountInset": 35,
+    "MountY": 48,
+    "MountHole": 5.5,
+    "GussetWidth": 10
+  },
+  "measurement_status": {
+    "KnifeLength": "DŘÍVĚJŠÍ ZADÁNÍ",
+    "BladeHeelHeight": "NOVÉ ZADÁNÍ",
+    "BladeStationHeight": "NOVÉ ZADÁNÍ",
+    "StationDistance": "NOVÉ ZADÁNÍ",
+    "HandleLength": "NOVÉ ZADÁNÍ",
+    "NeckGap": "ZADÁNÍ — význam délkového řetězce je předpoklad",
+    "HandleMaxWidth": "DŘÍVĚJŠÍ ZADÁNÍ",
+    "HandleRiseAssumed": "NEJASNÉ ZADÁNÍ — návrhový výklad dvou cm mínus",
+    "HandleFrontWidthAssumed": "NÁVRH — mírné rozšíření22→25, nebylo změřeno",
+    "BladeThicknessAssumed": "ILUSTRACE — není zadána",
+    "SpineY": "NÁVRH — rovnost hřbetu nebyla potvrzena",
+    "Length": "NÁVRH — jeden díl, zachovánoV02",
+    "ButtOverhang": "NÁVRH — úchop a těžiště neověřeny",
+    "BladeMouth": "NÁVRH — tloušťka čepele neověřena",
+    "HandleMouthClearance": "NÁVRH",
+    "Wall": "NÁVRH",
+    "RootRadius": "NÁVRH",
+    "FitSlack": "NÁVRH — není tisková kalibrace",
+    "CenterZ": "NÁVRH",
+    "FootWidth": "NÁVRH",
+    "FootHeight": "NÁVRH",
+    "TabWidth": "NÁVRH",
+    "TabHeight": "NÁVRH — přístup nástroje nad zvýšeným sedlem",
+    "TabDepth": "NÁVRH",
+    "MountInset": "NÁVRH — zachovánoV02",
+    "MountY": "NÁVRH — přístup nástroje nad zvýšeným sedlem",
+    "MountHole": "NÁVRH — skutečné vruty neznámé",
+    "GussetWidth": "NÁVRH"
+  },
+  "derived_blade_length_assumed_mm": 225.0,
+  "assumed_chain_note": "225 = 340 - 105 - 10 only if these three lengths form the full longitudinal chain",
+  "heel_x_mm": 85.0,
+  "handle_x_mm": 75.0,
+  "station_x_mm": 185.0,
+  "tip_x_mm": 310.0,
+  "butt_x_mm": -30.0,
+  "open_gap_x_mm": [
+    75.0,
+    85.0
+  ],
+  "source_frame_v03": {
+    "heel_x_mm": 145.0,
+    "handle_x_mm": 155.0,
+    "station_x_mm": 45.0,
+    "tip_x_mm": -80.0,
+    "butt_x_mm": 260.0
+  },
+  "blade_taper_mm_per_100mm": 5.0,
+  "known_blade_stations": [
+    {
+      "x": 85.0,
+      "height": 45
+    },
+    {
+      "x": 185.0,
+      "height": 40
+    }
+  ],
+  "blade_stations": [
+    {
+      "x": 230.0,
+      "apex_y": 16.003623682822685,
+      "mouth": 12.0
+    },
+    {
+      "x": 185.0,
+      "apex_y": 13.753623682822687,
+      "mouth": 12.0
+    },
+    {
+      "x": 85.0,
+      "apex_y": 8.753623682822687,
+      "mouth": 12.0
+    }
+  ],
+  "handle_stations": [
+    {
+      "x": 75.0,
+      "apex_y": 25.69917419465329,
+      "mouth": 26.0
+    },
+    {
+      "x": 0.0,
+      "apex_y": 24.9727335937121,
+      "mouth": 28.142857142857142
+    }
+  ],
+  "overall_mm": [
+    230.00000020000004,
+    60.0000001,
+    42.31406935854786
+  ],
+  "overall_method": "optimalBoundingBox",
+  "mount_spacing_mm": 160.0,
+  "part": {
+    "object": "Holder",
+    "valid": true,
+    "solids": 1,
+    "volume_mm3": 49257.09535707347,
+    "stl_closed": true,
+    "stl_components": 1,
+    "facets": 2340,
+    "stl_sha256": "bc2463fe86b7e4fa48ceb8a7b32e9e2c70a7fef2724d6139766703b3d5d4d36d",
+    "bbox_print_mm": [
+      229.99999989999998,
+      42.314067740576164,
+      59.996269126074225
+    ],
+    "bbox_print_note": "Measured on the STL mesh; the round tab tops are tessellated, so Z is slightly below the CAD 60 mm."
+  },
+  "native_fully_constrained_sketches": 22,
+  "rigid_reference": {
+    "bbox_mm": [
+      340.00000010000014,
+      45.000000100000065,
+      25.000000200000002
+    ],
+    "x_range_mm": [
+      -30.00000010000012,
+      310.0
+    ],
+    "bbox_method": "optimalBoundingBox (ordinary NURBS bounding box is conservative)",
+    "initial_collision_mm3": 0.0,
+    "lift_mm": 60,
+    "sample_step_mm": 1,
+    "max_collision_mm3": 0.0,
+    "actual_knife_fit": false
+  },
+  "open_neck_gap_above_foot": true,
+  "parameter_test": {
+    "blade_station_height": 39,
+    "handle_length": 110,
+    "assumed_rise": 18,
+    "length": 240,
+    "mirror_followed_each_change": true,
+    "passed": true,
+    "restored": true
+  },
+  "physical_print_verified": false,
+  "centre_of_gravity_known": false,
+  "tip_protected": false,
+  "gui_validation": {
+    "saved_reopened": true,
+    "visible": [
+      "Holder"
+    ],
+    "illustrations_hidden": true,
+    "images": [
+      "nahled-s-nozem-cad.png",
+      "nahled-prazdny-cad.png",
+      "nahled-profil-cad.png"
+    ],
+    "images_sha256": {
+      "nahled-s-nozem-cad.png": "0126b9eb0d552b9784f0f81b5cafeafb5fc4619e7b9c52f0ecda58cb0bc5ae44",
+      "nahled-prazdny-cad.png": "8db3bfc588ef03da93edad2542febc9413b816fb69e2dc22bc10f1a8f2e84318",
+      "nahled-profil-cad.png": "bd28273faa1db9639c5da79e7a3009f077e1cb8e86c69a23b90e80bb9d42ff1b"
+    },
+    "document_sha256_after_gui_save": "cb9b15fb8e255e919e906f65ebfcdaeaf8bfef613587a7d3cda934b1d23927ff"
+  }
+}

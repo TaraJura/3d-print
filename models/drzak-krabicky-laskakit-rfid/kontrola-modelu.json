@@ -1,0 +1,112 @@
+{
+  "status": "CAD prototyp; fyzický fit, nosnost a tisk neověřené",
+  "user_original_input_mm": {
+    "box_lower_long": 220,
+    "box_lower_short": 150,
+    "box_lower_height_to_seam": 42,
+    "hoop_height": 30
+  },
+  "parameters_mm": {
+    "BoxLong": 220,
+    "BoxShort": 150,
+    "BoxToSeam": 42,
+    "HoopHeight": 30,
+    "ClearanceEach": 1,
+    "SideWall": 8,
+    "EndWall": 6,
+    "MountWidth": 32,
+    "MountThickness": 10,
+    "MountHeight": 80,
+    "HoleDiameter": 5.5,
+    "HoleInboard": 21,
+    "LowerHoleZ": 45,
+    "UpperHoleZ": 70,
+    "GussetReach": 15,
+    "GussetTop": 75,
+    "GussetOverlap": 2,
+    "MountSetback": 15,
+    "Notch1Start": 30,
+    "Notch1End": 70,
+    "Notch2Start": 150,
+    "Notch2End": 190,
+    "NotchDrop": 12
+  },
+  "inner_opening_mm": [
+    222.0,
+    152.0
+  ],
+  "outer_hoop_mm": [
+    238.0,
+    164.0
+  ],
+  "model_envelope_mm": [
+    238.0,
+    189.0,
+    80.0
+  ],
+  "unobstructed_rim_top": true,
+  "hinge_notches": {
+    "edge": "rear",
+    "from_left_box_edge_mm": [
+      [
+        30,
+        70
+      ],
+      [
+        150,
+        190
+      ]
+    ],
+    "drop_from_top_mm": 12.0,
+    "edge_and_drop_unconfirmed": true
+  },
+  "wall_holes": {
+    "count": 4,
+    "diameter_mm": 5.5,
+    "centres_xz_mm": [
+      [
+        21.0,
+        45.0
+      ],
+      [
+        21.0,
+        70.0
+      ],
+      [
+        217.0,
+        45.0
+      ],
+      [
+        217.0,
+        70.0
+      ]
+    ]
+  },
+  "hanging_box_bottom_below_hoop_mm": 12.0,
+  "solid_count": 1,
+  "shape_valid": true,
+  "stl_facets": 1392,
+  "stl_closed": true,
+  "volume_mm3": 232406.5476549133,
+  "gui_validation": {
+    "saved_and_reopened": true,
+    "only_visible_geometry": [
+      "Holder"
+    ],
+    "parametric_recompute": [
+      "BoxLong",
+      "BoxShort",
+      "ClearanceEach",
+      "HoopHeight"
+    ],
+    "preview_images": [
+      "nahled-drzak.png",
+      "nahled-uchyceni.png",
+      "nahled-vyseky-pantu.png",
+      "nahled-schematickeho-osazeni.png",
+      "nahled-osazeni-vika-navrh.png"
+    ],
+    "ghost_box_is_temporary": true,
+    "assumed_3mm_lid_overhang_preview_is_temporary": true
+  }
+}

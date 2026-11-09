@@ -8,6 +8,7 @@ Osobní elektronické projekty, zapojení a zkušenosti Jiřího Nováka. Tato s
 
 ## Index
 
+- **[Tři zesilovače v nástěnném krytu](tri-zesilovace/README.md)** — fotografie tří modulů, návrh mechanického krytu a otevřené otázky kabeláže; bez potvrzeného zapojení.
 - **[Sklad elektroniky a vybavení](vybaveni.md)** — kanonický inventář potvrzených součástek a pomůcek, včetně převzaté sady kondenzátorů.
 - **[Autíčko](auticko/README.md)** — aktuální stav elektroniky, zapojení, historie zkoušek a návaznost na firmware.
 - **[Robotická ruka na autíčku](roboticka-ruka/README.md)** — návrh samostatného otáčení základny krokovým motorem; elektrické zapojení a pohyb zatím neověřené.

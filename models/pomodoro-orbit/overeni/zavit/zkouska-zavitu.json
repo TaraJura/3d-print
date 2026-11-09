@@ -1,0 +1,417 @@
+{
+  "MaleThreadSweep": {
+    "type": "Part::Sweep",
+    "valid": true,
+    "solids": 1,
+    "closed": true,
+    "volume": 311.11407857068957,
+    "bounds": [
+      -9.69929207707954,
+      9.699999999999998,
+      -9.699759092226614,
+      9.699880515045294,
+      2.299999999999999,
+      12.900000000002443
+    ],
+    "tessellated_bounds": [
+      [
+        -9.69929207707954,
+        9.699999999999998
+      ],
+      [
+        -9.699759092226614,
+        9.699880515045294
+      ],
+      [
+        2.299999999999999,
+        12.900000000002443
+      ]
+    ],
+    "status": [
+      "Up-to-date"
+    ]
+  },
+  "MaleThreadCropped": {
+    "type": "Part::Common",
+    "valid": true,
+    "solids": 1,
+    "closed": true,
+    "volume": 309.36982297552856,
+    "bounds": [
+      -9.69929207707954,
+      9.699999999999998,
+      -9.699759092226614,
+      9.699880515045294,
+      2.299999999999999,
+      12.0
+    ],
+    "tessellated_bounds": [
+      [
+        -9.69929207707954,
+        9.699999999999998
+      ],
+      [
+        -9.699759092226614,
+        9.699880515045294
+      ],
+      [
+        2.299999999999999,
+        12.0
+      ]
+    ],
+    "status": [
+      "Up-to-date"
+    ]
+  },
+  "MaleThread": {
+    "type": "Part::Fuse",
+    "valid": true,
+    "solids": 1,
+    "closed": true,
+    "volume": 2336.432128011271,
+    "bounds": [
+      -9.69929207707954,
+      9.699999999999998,
+      -9.699759092226614,
+      9.699880515045294,
+      2.1,
+      12.0
+    ],
+    "tessellated_bounds": [
+      [
+        -9.69929207707954,
+        9.699999999999998
+      ],
+      [
+        -9.699759092226614,
+        9.699880515045294
+      ],
+      [
+        2.1,
+        12.0
+      ]
+    ],
+    "status": [
+      "Up-to-date"
+    ]
+  },
+  "FemaleThreadSweep": {
+    "type": "Part::Sweep",
+    "valid": true,
+    "solids": 1,
+    "closed": true,
+    "volume": 670.6101508734125,
+    "bounds": [
+      -10.124083200351615,
+      10.124264068711936,
+      -10.124108217956431,
+      10.124220963852315,
+      -1.3242640687119265,
+      16.52426406870782
+    ],
+    "tessellated_bounds": [
+      [
+        -10.124083200351615,
+        10.124264068711936
+      ],
+      [
+        -10.124108217956431,
+        10.124220963852315
+      ],
+      [
+        -1.3242640687119265,
+        16.52426406870782
+      ]
+    ],
+    "status": [
+      "Up-to-date"
+    ]
+  },
+  "FemaleThreadCropped": {
+    "type": "Part::Common",
+    "valid": true,
+    "solids": 1,
+    "closed": true,
+    "volume": 461.04665616348257,
+    "bounds": [
+      -10.124207135323015,
+      10.124215528170762,
+      -10.124076879606985,
+      10.12426346547337,
+      2.0999999999999996,
+      12.0
+    ],
+    "tessellated_bounds": [
+      [
+        -10.124207135323015,
+        10.124215528170762
+      ],
+      [
+        -10.124076879606985,
+        10.12426346547337
+      ],
+      [
+        2.0999999999999996,
+        12.0
+      ]
+    ],
+    "status": [
+      "Up-to-date"
+    ]
+  },
+  "FemaleThread": {
+    "type": "Part::Fuse",
+    "valid": true,
+    "solids": 1,
+    "closed": true,
+    "volume": 2659.259124055273,
+    "bounds": [
+      -10.124207135323015,
+      10.124215528170762,
+      -10.124076879606985,
+      10.12426346547337,
+      2.1,
+      12.0
+    ],
+    "tessellated_bounds": [
+      [
+        -10.124207135323015,
+        10.124215528170762
+      ],
+      [
+        -10.124076879606985,
+        10.12426346547337
+      ],
+      [
+        2.1,
+        12.0
+      ]
+    ],
+    "status": [
+      "Up-to-date"
+    ]
+  },
+  "FemaleNut": {
+    "type": "Part::Cut",
+    "valid": true,
+    "solids": 1,
+    "closed": true,
+    "volume": 3436.68746643571,
+    "bounds": [
+      -14.0,
+      14.0,
+      -13.995648548011431,
+      13.995648548011427,
+      2.1,
+      12.0
+    ],
+    "tessellated_bounds": [
+      [
+        -14.0,
+        14.0
+      ],
+      [
+        -13.995648548011431,
+        13.995648548011427
+      ],
+      [
+        2.1,
+        12.0
+      ]
+    ],
+    "status": [
+      "Up-to-date"
+    ]
+  },
+  "collision_volume": 0.0,
+  "minimum_distance_mm": 0.2996511012958012,
+  "native_only": true,
+  "flank_clearance_mm": 0.3,
+  "female_major_crest_radial_clearance_mm": 0.4242640687119285,
+  "pitch_3_8_test": {
+    "male": {
+      "type": "Part::Fuse",
+      "valid": true,
+      "solids": 1,
+      "closed": true,
+      "volume": 2323.5325968329616,
+      "bounds": [
+        -9.699287976157802,
+        9.700000000000003,
+        -9.699747088148508,
+        9.699907578667045,
+        2.1,
+        12.000000000000002
+      ],
+      "tessellated_bounds": [
+        [
+          -9.699287976157802,
+          9.700000000000003
+        ],
+        [
+          -9.699747088148508,
+          9.699907578667045
+        ],
+        [
+          2.1,
+          12.000000000000002
+        ]
+      ],
+      "status": [
+        "Up-to-date"
+      ]
+    },
+    "female": {
+      "type": "Part::Cut",
+      "valid": true,
+      "solids": 1,
+      "closed": true,
+      "volume": 3458.409043895331,
+      "bounds": [
+        -14.0,
+        14.0,
+        -13.995648548011431,
+        13.995648548011427,
+        2.0999999999999983,
+        12.0
+      ],
+      "tessellated_bounds": [
+        [
+          -14.0,
+          14.0
+        ],
+        [
+          -13.995648548011431,
+          13.995648548011427
+        ],
+        [
+          2.0999999999999983,
+          12.0
+        ]
+      ],
+      "status": [
+        "Up-to-date"
+      ]
+    },
+    "helix_pitch": 3.8,
+    "collision_volume": 0.0
+  },
+  "restored_pitch": 3.6,
+  "assembly_screw": {
+    "type": "Part::MultiFuse",
+    "valid": true,
+    "solids": 1,
+    "closed": true,
+    "volume": 6594.622211606015,
+    "bounds": [
+      -15.0,
+      15.0,
+      -14.995337730012247,
+      14.995337730012244,
+      2.1,
+      21.6
+    ],
+    "tessellated_bounds": [
+      [
+        -15.0,
+        15.0
+      ],
+      [
+        -14.995337730012247,
+        14.995337730012244
+      ],
+      [
+        2.1,
+        21.6
+      ]
+    ],
+    "status": [
+      "Up-to-date"
+    ]
+  },
+  "assembly_hub": {
+    "type": "Part::Cut",
+    "valid": true,
+    "solids": 1,
+    "closed": true,
+    "volume": 41748.02674079817,
+    "bounds": [
+      -34.0,
+      34.0,
+      -33.98943218802776,
+      33.98943218802775,
+      0.0,
+      12.3
+    ],
+    "tessellated_bounds": [
+      [
+        -34.0,
+        34.0
+      ],
+      [
+        -33.98943218802776,
+        33.98943218802775
+      ],
+      [
+        0.0,
+        12.3
+      ]
+    ],
+    "status": [
+      "Up-to-date"
+    ]
+  },
+  "assembly_screw_hub_distance": 0.29965110386311844,
+  "assembly_unscrew_test": [
+    {
+      "angle_deg": 0,
+      "z_shift_mm": 0.0,
+      "collision_volume": 0.0
+    },
+    {
+      "angle_deg": 30,
+      "z_shift_mm": 0.3,
+      "collision_volume": 0.0
+    },
+    {
+      "angle_deg": 90,
+      "z_shift_mm": 0.9,
+      "collision_volume": 0.0
+    },
+    {
+      "angle_deg": 180,
+      "z_shift_mm": 1.8,
+      "collision_volume": 0.0
+    },
+    {
+      "angle_deg": 270,
+      "z_shift_mm": 2.7,
+      "collision_volume": 0.0
+    },
+    {
+      "angle_deg": 360,
+      "z_shift_mm": 3.6,
+      "collision_volume": 0.0
+    },
+    {
+      "angle_deg": 540,
+      "z_shift_mm": 5.4,
+      "collision_volume": 0.0
+    },
+    {
+      "angle_deg": 720,
+      "z_shift_mm": 7.2,
+      "collision_volume": 0.0
+    },
+    {
+      "angle_deg": 1080,
+      "z_shift_mm": 10.8,
+      "collision_volume": 0.0
+    },
+    {
+      "angle_deg": 1440,
+      "z_shift_mm": 14.4,
+      "collision_volume": 0.0
+    }
+  ]
+}

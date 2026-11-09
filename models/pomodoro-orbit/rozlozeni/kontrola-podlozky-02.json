@@ -1,0 +1,570 @@
+{
+  "plate": {
+    "number": 2,
+    "geometry": "podlozka-02-geometrie.3mf",
+    "geometry_sha256": "52c3b05fb0b07a81d23a6f0cf386c508c09ddf287824c60b23056ec369b56d75",
+    "preview": "podlozka-02.png",
+    "physical_parts": 6,
+    "parts": [
+      {
+        "id": "Rotor",
+        "name": "Rotor_01",
+        "file": "../stl/rotor.stl",
+        "source_sha256": "f0a9bfc7fecb3e7ad74feaf6cb9e1c93589fb542fc717186117a1636ecfddf60",
+        "translation_mm": [
+          64.0,
+          130.0,
+          1.9073486612342094e-07
+        ],
+        "placed_min_mm": [
+          11.014690399169922,
+          77.01469039916992,
+          0.0
+        ],
+        "placed_max_mm": [
+          116.98530960083008,
+          182.98530960083008,
+          7.000000190734866
+        ],
+        "size_mm": [
+          105.97061920166016,
+          105.97061920166016,
+          7.000000190734866
+        ],
+        "triangle_count": 26820,
+        "supports": false,
+        "support_note": "Rovnou zakladnou dolu. Bez podpor.",
+        "critical_z_mm": [
+          0.2,
+          0.6,
+          1.2,
+          2.8,
+          6.600000190734866
+        ]
+      },
+      {
+        "id": "ModeMedallion",
+        "name": "ModeMedallion_01",
+        "file": "../stl/modemedallion.stl",
+        "source_sha256": "76289e26dc46f85be5f4687383ee14ba1ee0858be38ee277e71afabcea82b483",
+        "translation_mm": [
+          140.98530960083008,
+          89.01096057891846,
+          3.814697322468419e-07
+        ],
+        "placed_min_mm": [
+          128.98530960083008,
+          77.01469039916992,
+          0.0
+        ],
+        "placed_max_mm": [
+          152.98530960083008,
+          101.00723075866699,
+          3.19999995231629
+        ],
+        "size_mm": [
+          24.0,
+          23.99254035949707,
+          3.19999995231629
+        ],
+        "triangle_count": 3258,
+        "supports": false,
+        "support_note": "Cislem nahoru; drobny spodni gravirovany motiv ma kratke mosty; predani obsahuje vsechny kopie.",
+        "critical_z_mm": [
+          0.2,
+          0.6,
+          1.2,
+          2.8,
+          2.79999995231629
+        ]
+      },
+      {
+        "id": "Token1",
+        "name": "Token1_01",
+        "file": "../stl/token1.stl",
+        "source_sha256": "272797c6bdc8037e8445daba5b44baa589ea9a7ec80e4c342281267fb858ec3f",
+        "translation_mm": [
+          170.98530960083008,
+          83.01282548904419,
+          -0.0
+        ],
+        "placed_min_mm": [
+          164.98530960083008,
+          77.01469039916992,
+          0.0
+        ],
+        "placed_max_mm": [
+          176.98530960083008,
+          89.01096057891846,
+          2.950000047683716
+        ],
+        "size_mm": [
+          12.0,
+          11.996270179748535,
+          2.950000047683716
+        ],
+        "triangle_count": 1804,
+        "supports": false,
+        "support_note": "Cislem nahoru; drobny spodni gravirovany motiv ma kratke mosty; predani obsahuje vsechny kopie.",
+        "critical_z_mm": [
+          0.2,
+          0.6,
+          1.2,
+          2.8,
+          2.550000047683716
+        ]
+      },
+      {
+        "id": "Token2",
+        "name": "Token2_01",
+        "file": "../stl/token2.stl",
+        "source_sha256": "a8741eb783c188f27d640fb90d833ff8fe2f9b2cfe1ac4da3f9fc349a08e8bb4",
+        "translation_mm": [
+          194.98530960083008,
+          83.01282548904419,
+          -0.0
+        ],
+        "placed_min_mm": [
+          188.98530960083008,
+          77.01469039916992,
+          0.0
+        ],
+        "placed_max_mm": [
+          200.98530960083008,
+          89.01096057891846,
+          2.950000047683716
+        ],
+        "size_mm": [
+          12.0,
+          11.996270179748535,
+          2.950000047683716
+        ],
+        "triangle_count": 2502,
+        "supports": false,
+        "support_note": "Cislem nahoru; drobny spodni gravirovany motiv ma kratke mosty; predani obsahuje vsechny kopie.",
+        "critical_z_mm": [
+          0.2,
+          0.6,
+          1.2,
+          2.8,
+          2.550000047683716
+        ]
+      },
+      {
+        "id": "Token3",
+        "name": "Token3_01",
+        "file": "../stl/token3.stl",
+        "source_sha256": "9db4adb5ce064447a54737e7f7e832e8237dd9ed0f8bd8751f8f8898644c9b71",
+        "translation_mm": [
+          218.98530960083008,
+          83.01282548904419,
+          -0.0
+        ],
+        "placed_min_mm": [
+          212.98530960083008,
+          77.01469039916992,
+          0.0
+        ],
+        "placed_max_mm": [
+          224.98530960083008,
+          89.01096057891846,
+          2.950000047683716
+        ],
+        "size_mm": [
+          12.0,
+          11.996270179748535,
+          2.950000047683716
+        ],
+        "triangle_count": 3770,
+        "supports": false,
+        "support_note": "Cislem nahoru; drobny spodni gravirovany motiv ma kratke mosty; predani obsahuje vsechny kopie.",
+        "critical_z_mm": [
+          0.2,
+          0.6,
+          1.2,
+          2.8,
+          2.550000047683716
+        ]
+      },
+      {
+        "id": "Token4",
+        "name": "Token4_01",
+        "file": "../stl/token4.stl",
+        "source_sha256": "61b5c341bbf5add2f7c75287f722c04a0f4c7e9cafbe2a05a497ad6b78f24f3f",
+        "translation_mm": [
+          242.98530960083008,
+          83.01282548904419,
+          -0.0
+        ],
+        "placed_min_mm": [
+          236.98530960083008,
+          77.01469039916992,
+          0.0
+        ],
+        "placed_max_mm": [
+          248.98530960083008,
+          89.01096057891846,
+          2.950000047683716
+        ],
+        "size_mm": [
+          12.0,
+          11.996270179748535,
+          2.950000047683716
+        ],
+        "triangle_count": 1816,
+        "supports": false,
+        "support_note": "Cislem nahoru; drobny spodni gravirovany motiv ma kratke mosty; predani obsahuje vsechny kopie.",
+        "critical_z_mm": [
+          0.2,
+          0.6,
+          1.2,
+          2.8,
+          2.550000047683716
+        ]
+      }
+    ],
+    "minimum_geometry_edge_margin_mm": 11.014690399169922,
+    "minimum_bbox_gap_mm": 12.0,
+    "colour": "#D4AF37",
+    "material_name": "zlata",
+    "profile": {
+      "kind": "Silk Gold",
+      "mvs": "5.5",
+      "nozzle": "220",
+      "initial_nozzle": "220",
+      "bed": "50"
+    }
+  },
+  "project": "podlozka-02-kobra-x-pla-projekt.3mf",
+  "configured": {
+    "sha256": "d666f2ae3b4ee2fb941d49f5b70a35dcb804b1a446790c6c4de9bd85806cffe4",
+    "objects": [
+      {
+        "name": "Rotor_01",
+        "preserved_geometry_and_placement": true,
+        "maximum_vertex_delta_mm": 1.7345489222719834e-07
+      },
+      {
+        "name": "ModeMedallion_01",
+        "preserved_geometry_and_placement": true,
+        "maximum_vertex_delta_mm": 4.4393311782187084e-07
+      },
+      {
+        "name": "Token1_01",
+        "preserved_geometry_and_placement": true,
+        "maximum_vertex_delta_mm": 4.0409668145002797e-07
+      },
+      {
+        "name": "Token2_01",
+        "preserved_geometry_and_placement": true,
+        "maximum_vertex_delta_mm": 4.0409668145002797e-07
+      },
+      {
+        "name": "Token3_01",
+        "preserved_geometry_and_placement": true,
+        "maximum_vertex_delta_mm": 4.0416227875539334e-07
+      },
+      {
+        "name": "Token4_01",
+        "preserved_geometry_and_placement": true,
+        "maximum_vertex_delta_mm": 4.0409668145002797e-07
+      }
+    ],
+    "physical_parts": 6,
+    "mesh_repairs": [
+      {
+        "edges_fixed": "0",
+        "degenerate_facets": "0",
+        "facets_removed": "0",
+        "facets_reversed": "0",
+        "backwards_edges": "0"
+      },
+      {
+        "edges_fixed": "0",
+        "degenerate_facets": "0",
+        "facets_removed": "0",
+        "facets_reversed": "0",
+        "backwards_edges": "0"
+      },
+      {
+        "edges_fixed": "0",
+        "degenerate_facets": "0",
+        "facets_removed": "0",
+        "facets_reversed": "0",
+        "backwards_edges": "0"
+      },
+      {
+        "edges_fixed": "0",
+        "degenerate_facets": "0",
+        "facets_removed": "0",
+        "facets_reversed": "0",
+        "backwards_edges": "0"
+      },
+      {
+        "edges_fixed": "0",
+        "degenerate_facets": "0",
+        "facets_removed": "0",
+        "facets_reversed": "0",
+        "backwards_edges": "0"
+      },
+      {
+        "edges_fixed": "0",
+        "degenerate_facets": "0",
+        "facets_removed": "0",
+        "facets_reversed": "0",
+        "backwards_edges": "0"
+      }
+    ],
+    "settings": {
+      "printer_model": "Anycubic Kobra X",
+      "printer_settings_id": "Anycubic Kobra X 0.4 nozzle",
+      "print_settings_id": "Pomodoro Orbit 0.16 mm Silk Gold navrh @Kobra X",
+      "filament_settings_id": [
+        "NAVRH Alzament PLA Silk Gold zlata @Kobra X 0.4"
+      ],
+      "nozzle_diameter": [
+        "0.4"
+      ],
+      "layer_height": "0.16",
+      "wall_loops": "3",
+      "sparse_infill_density": "20%",
+      "sparse_infill_pattern": "gyroid",
+      "enable_support": "0",
+      "support_on_build_plate_only": "0",
+      "brim_type": "outer_only",
+      "brim_width": "3",
+      "nozzle_temperature": [
+        "220"
+      ],
+      "nozzle_temperature_initial_layer": [
+        "220"
+      ],
+      "textured_plate_temp": [
+        "50"
+      ],
+      "outer_wall_speed": "40",
+      "inner_wall_speed": "50",
+      "filament_colour": [
+        "#D4AF37"
+      ],
+      "filament_max_volumetric_speed": [
+        "5.5"
+      ],
+      "enable_prime_tower": "0",
+      "initial_layer_print_height": "0.2",
+      "top_shell_layers": "5",
+      "bottom_shell_layers": "5"
+    },
+    "has_gcode": false
+  },
+  "delivered": {
+    "sha256": "e93255b857ec577d53fda15a73673454f79646f75b83b4b006639397f3f96846",
+    "objects": [
+      {
+        "name": "Rotor_01",
+        "preserved_geometry_and_placement": true,
+        "maximum_vertex_delta_mm": 2.8689940201331865e-07
+      },
+      {
+        "name": "ModeMedallion_01",
+        "preserved_geometry_and_placement": true,
+        "maximum_vertex_delta_mm": 4.4393311782187084e-07
+      },
+      {
+        "name": "Token1_01",
+        "preserved_geometry_and_placement": true,
+        "maximum_vertex_delta_mm": 4.0409668145002797e-07
+      },
+      {
+        "name": "Token2_01",
+        "preserved_geometry_and_placement": true,
+        "maximum_vertex_delta_mm": 4.0409668145002797e-07
+      },
+      {
+        "name": "Token3_01",
+        "preserved_geometry_and_placement": true,
+        "maximum_vertex_delta_mm": 4.0416227875539334e-07
+      },
+      {
+        "name": "Token4_01",
+        "preserved_geometry_and_placement": true,
+        "maximum_vertex_delta_mm": 4.0409668145002797e-07
+      }
+    ],
+    "physical_parts": 6,
+    "mesh_repairs": [
+      {
+        "edges_fixed": "0",
+        "degenerate_facets": "0",
+        "facets_removed": "0",
+        "facets_reversed": "0",
+        "backwards_edges": "0"
+      },
+      {
+        "edges_fixed": "0",
+        "degenerate_facets": "0",
+        "facets_removed": "0",
+        "facets_reversed": "0",
+        "backwards_edges": "0"
+      },
+      {
+        "edges_fixed": "0",
+        "degenerate_facets": "0",
+        "facets_removed": "0",
+        "facets_reversed": "0",
+        "backwards_edges": "0"
+      },
+      {
+        "edges_fixed": "0",
+        "degenerate_facets": "0",
+        "facets_removed": "0",
+        "facets_reversed": "0",
+        "backwards_edges": "0"
+      },
+      {
+        "edges_fixed": "0",
+        "degenerate_facets": "0",
+        "facets_removed": "0",
+        "facets_reversed": "0",
+        "backwards_edges": "0"
+      },
+      {
+        "edges_fixed": "0",
+        "degenerate_facets": "0",
+        "facets_removed": "0",
+        "facets_reversed": "0",
+        "backwards_edges": "0"
+      }
+    ],
+    "settings": {
+      "printer_model": "Anycubic Kobra X",
+      "printer_settings_id": "Anycubic Kobra X 0.4 nozzle",
+      "print_settings_id": "Pomodoro Orbit 0.16 mm Silk Gold navrh @Kobra X",
+      "filament_settings_id": [
+        "NAVRH Alzament PLA Silk Gold zlata @Kobra X 0.4"
+      ],
+      "nozzle_diameter": [
+        "0.4"
+      ],
+      "layer_height": "0.16",
+      "wall_loops": "3",
+      "sparse_infill_density": "20%",
+      "sparse_infill_pattern": "gyroid",
+      "enable_support": "0",
+      "support_on_build_plate_only": "0",
+      "brim_type": "outer_only",
+      "brim_width": "3",
+      "nozzle_temperature": [
+        "220"
+      ],
+      "nozzle_temperature_initial_layer": [
+        "220"
+      ],
+      "textured_plate_temp": [
+        "50"
+      ],
+      "outer_wall_speed": "40",
+      "inner_wall_speed": "50",
+      "filament_colour": [
+        "#D4AF37"
+      ],
+      "filament_max_volumetric_speed": [
+        "5.5"
+      ],
+      "enable_prime_tower": "0",
+      "initial_layer_print_height": "0.2",
+      "top_shell_layers": "5",
+      "bottom_shell_layers": "5"
+    },
+    "has_gcode": true,
+    "gcode_bytes": 8842014,
+    "gcode_sha256": "e8f63378172ec1b3bb61df73ee32bd475ee0d030d11cdbca6b308b9b859fa06f",
+    "slice_metadata": {
+      "prediction": "8409",
+      "weight": "25.57",
+      "outside": "false",
+      "support_used": "false"
+    },
+    "warnings": []
+  },
+  "toolpath_audit": {
+    "physical_parts": 6,
+    "all_objects_on_first_layer": true,
+    "layers": 44,
+    "all_layers_have_extrusion": true,
+    "maximum_extrusion_z_mm": 7.08,
+    "roles_segments": {
+      "Brim": 6136,
+      "Outer wall": 58567,
+      "Inner wall": 97678,
+      "Bottom surface": 1191,
+      "Gap infill": 2492,
+      "Internal solid infill": 25094,
+      "Bridge": 388,
+      "Sparse infill": 103214,
+      "Internal Bridge": 3075,
+      "Top surface": 1608
+    },
+    "support_segments": 0,
+    "brim_generated": true,
+    "deposition_island_test": {
+      "method": "Actual path graph: deposited strokes connect within 0.46 mm nominal width; every component must contact preceding-layer strokes within 0.71 mm (width plus 0.25 mm allowance). Does not certify full overhang support.",
+      "disconnected_new_islands": [],
+      "passed": true,
+      "maximum_components_per_layer": 14
+    },
+    "extrusion_min_xy_mm": [
+      8.897,
+      74.404
+    ],
+    "extrusion_max_xy_mm": [
+      251.591,
+      185.103
+    ],
+    "minimum_extrusion_edge_margin_mm": 8.408999999999992,
+    "maximum_commanded_extrusion_speed_mm_s": 50.0,
+    "maximum_commanded_volumetric_flow_mm3_s_segments_at_least_0_1mm": 5.027000443253973,
+    "maximum_raw_segment_flow_mm3_s": 5.457561069608588,
+    "flow_quantisation_note": "XY coordinates use 0.001 mm and E uses 0.00001 mm precision; raw flow of moves below 0.1 mm is dominated by rounding. Audited flow uses segments at least 0.1 mm.",
+    "preview": "podlozka-02-vrstvy.png",
+    "detail_previews": [
+      "detail-02-Rotor_01-drahy.png",
+      "detail-02-ModeMedallion_01-drahy.png",
+      "detail-02-Token1_01-drahy.png",
+      "detail-02-Token2_01-drahy.png",
+      "detail-02-Token3_01-drahy.png",
+      "detail-02-Token4_01-drahy.png"
+    ],
+    "selected_z_mm": [
+      0.2,
+      0.52,
+      0.68,
+      1.0,
+      1.16,
+      1.96,
+      2.6,
+      2.76,
+      4.04,
+      5.96,
+      6.6,
+      7.08
+    ],
+    "estimated_filament_g": 25.57,
+    "estimated_printing_time": "2h 20m 9s",
+    "first_layer_gcode_temperature_c": {
+      "bed": 50.0,
+      "nozzle": 220.0
+    },
+    "physical_print_verified": false
+  },
+  "machine_profile_sha256": "baf80d3287e1e863fba29cdfd240b9b5ebc28bd87e1b4d03fc79e53f0009570a",
+  "process_sha256": "aee2d80a93069c3babd946a97285aa656ce2c9c8e95012ee4c8582c63133671d",
+  "filament_sha256": "d5a1331b20bd3dff6ad679a4360ffde4157e7d0181ae704afe59993e260efb73",
+  "cli_exit_codes": [
+    0,
+    0
+  ],
+  "cli_error_messages": [
+    "calc_exclude_triangles:Unable to create exclude triangles"
+  ]
+}

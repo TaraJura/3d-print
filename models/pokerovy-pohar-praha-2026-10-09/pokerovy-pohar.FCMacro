@@ -1,0 +1,130 @@
+# -*- coding: utf-8 -*-
+"""Pokerový pohár Praha 9. 10. 2026. Run in actual FreeCAD 1.1.3.
+
+Overwrites only pokerovy-pohar.FCStd, stl/pokerovy-pohar.stl and
+kontrola-modelu.json beside this macro. All dimensions are design choices.
+Native sketches, extrusions, cones and booleans recompute without proxies.
+Text/card outlines are embedded standard Part geometry; edit lettering here.
+"""
+from pathlib import Path
+import json, hashlib, math
+import FreeCAD as App
+import Part, Sketcher, Mesh, MeshPart
+OUT=Path(__file__).resolve().parent
+FONT='/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf'
+NAME='PokerovyPoharPraha'
+if NAME in App.listDocuments():
+    raise RuntimeError('Před regenerací zavřete otevřený dokument a uložte ruční změny.')
+App.ParamGet('User parameter:BaseApp/Preferences/Document').SetInt('CountBackupFiles',0)
+doc=App.newDocument(NAME)
+doc.Label='Pokerový pohár — Praha 9. 10. 2026'
+sheet=doc.addObject('Spreadsheet::Sheet','Parameters')
+sheet.Label='Parametry v mm — návrhové rozměry'
+VALUES=[('BaseW',64),('BaseD',46),('BaseH',4),('Corner',5),('PlinthW',58),('PlinthD',40),('PlinthH',21),('StemStartR',17),('StemR',8),('StemTaperH',15),('StemH',16),('CupZ',52),('CupH',38),('CupBottomR',10),('CupTopR',29),('CupWall',1.6),('CupFloor',2),('CardRelief',0.5),('InkRelief',0.85),('LabelRelief',0.6)]
+sheet.set('A1','Parametr');sheet.set('B1','mm');sheet.set('C1','Původ')
+for row,(alias,value) in enumerate(VALUES,2):
+    sheet.set('A%d'%row,alias);sheet.set('B%d'%row,'%g mm'%value);sheet.setAlias('B%d'%row,alias);sheet.set('C%d'%row,'NÁVRH — zvoleno pro kompaktní tisk')
+sheet.set('A24','Nápisy a obrysy karet se mění v makru; nativní geometrie je uložená v dokumentu.')
+sheet.mergeCells('A24:C24');sheet.setColumnWidth('A',200);sheet.setColumnWidth('B',100);sheet.setColumnWidth('C',350)
+doc.recompute()
+def p(n):return 'Parameters.'+n
+def ex(o,prop,s):o.setExpression(prop,s)
+def cone(name,r1,r2,h,z):
+    o=doc.addObject('Part::Cone',name)
+    for prop,val in [('Radius1',r1),('Radius2',r2),('Height',h),('Placement.Base.z',z)]:ex(o,prop,val)
+    return o
+def cylinder(name,r,h,z):
+    o=doc.addObject('Part::Cylinder',name)
+    for prop,val in [('Radius',r),('Height',h),('Placement.Base.z',z)]:ex(o,prop,val)
+    return o
+def octagon(name,w,d,c,h,z):
+    # Fully constrained connected native sketch; vertex dimensions are expressions.
+    sk=doc.addObject('Sketcher::SketchObject',name+'Outline')
+    W=float(getattr(sheet,w).Value);D=float(getattr(sheet,d).Value);C=float(getattr(sheet,c).Value)
+    coords=[(-W/2+C,-D/2),(W/2-C,-D/2),(W/2,-D/2+C),(W/2,D/2-C),(W/2-C,D/2),(-W/2+C,D/2),(-W/2,D/2-C),(-W/2,-D/2+C)]
+    exprs=[('-'+p(w)+'/2+'+p(c),'-'+p(d)+'/2'),(p(w)+'/2-'+p(c),'-'+p(d)+'/2'),(p(w)+'/2','-'+p(d)+'/2+'+p(c)),(p(w)+'/2',p(d)+'/2-'+p(c)),(p(w)+'/2-'+p(c),p(d)+'/2'),('-'+p(w)+'/2+'+p(c),p(d)+'/2'),('-'+p(w)+'/2',p(d)+'/2-'+p(c)),('-'+p(w)+'/2','-'+p(d)+'/2+'+p(c))]
+    for i,(x,y) in enumerate(coords):
+        nx,ny=coords[(i+1)%8];sk.addGeometry(Part.LineSegment(App.Vector(x,y,0),App.Vector(nx,ny,0)),False)
+    for i in range(8):sk.addConstraint(Sketcher.Constraint('Coincident',i,2,(i+1)%8,1))
+    for i,(x,y) in enumerate(coords):
+        for typ,value,formula in [('DistanceX',x,exprs[i][0]),('DistanceY',y,exprs[i][1])]:
+            n=sk.addConstraint(Sketcher.Constraint(typ,i,1,value));sk.setExpression('Constraints[%d]'%n,formula)
+    ex(sk,'Placement.Base.z',z)
+    o=doc.addObject('Part::Extrusion',name);o.Base=sk;o.DirMode='Normal';o.LengthFwd=1;o.Solid=True;ex(o,'LengthFwd',h)
+    return o
+base=octagon('Foot','BaseW','BaseD','Corner',p('BaseH'),'0 mm')
+plinth=octagon('Plinth','PlinthW','PlinthD','Corner',p('PlinthH'),p('BaseH'))
+taper=cone('StemFoot',p('StemStartR'),p('StemR'),p('StemTaperH'),p('BaseH')+'+'+p('PlinthH'))
+stem=cylinder('Stem',p('StemR'),p('StemH'),p('BaseH')+'+'+p('PlinthH')+'+'+p('StemTaperH')+'-1 mm')
+collar=cone('StemCollar',p('StemR'),'11 mm','4 mm',p('CupZ')+'-2 mm')
+outer=cone('CupOuter',p('CupBottomR'),p('CupTopR'),p('CupH'),p('CupZ'))
+rim=cone('CupRim',p('CupTopR')+'-0.2 mm',p('CupTopR')+'+1 mm','2.4 mm',p('CupZ')+'+'+p('CupH')+'-0.4 mm')
+# Open bowl cavity follows the same self-supporting 1:2 slope. Radial wall1.6mm.
+inside=cone('CupCavity',p('CupBottomR')+'+'+p('CupFloor')+'*('+p('CupTopR')+'-'+p('CupBottomR')+')/'+p('CupH')+'-'+p('CupWall'),p('CupTopR')+'+2 mm*('+p('CupTopR')+'-'+p('CupBottomR')+')/'+p('CupH')+'-'+p('CupWall'),p('CupH')+'+2 mm-'+p('CupFloor'),p('CupZ')+'+'+p('CupFloor'))
+parts=[base,plinth,taper,stem,collar,outer,rim]
+def text_shape(text,size):
+    faces=[]
+    for char in Part.makeWireString(text,FONT,size,0.0):
+        wires=[]
+        for wire in char:wires.extend(w for w in Part.Compound(wire.Edges).connectEdgesToWires().Wires if w.isClosed())
+        if wires:faces.extend(Part.makeFace(wires,'Part::FaceMakerBullseye').Faces)
+    if not faces:raise RuntimeError('Chybí obrysy '+text)
+    return Part.makeCompound(faces)
+def feature(name,shape,label=None):
+    o=doc.addObject('Part::Feature',name);o.Shape=shape;o.Label=label or name;return o
+for idx,(text,size,z) in enumerate([('POKER',8.4,18),('VÍTĚZ',5.0,12.0),('PRAHA',4.6,7.1),('9. 10. 2026',3.8,0.7)]):
+    flat=text_shape(text,size);bb=flat.BoundBox
+    flat.translate(App.Vector(-(bb.XMin+bb.XMax)/2,-bb.YMin,0))
+    glyph=feature('Label%d'%idx,flat,'Nápis '+text+' — uložené obrysy')
+    glyph.Placement.Rotation=App.Rotation(App.Vector(1,0,0),90)
+    ex(glyph,'Placement.Base.y',('-'+p('PlinthD')+'/2+0.2 mm') if idx<3 else ('-'+p('BaseD')+'/2+0.2 mm'))
+    glyph.Placement.Base.z=z
+    raised=doc.addObject('Part::Extrusion','RaisedLabel%d'%idx);raised.Base=glyph;raised.DirMode='Normal';raised.LengthFwd=0.8;raised.Solid=True;ex(raised,'LengthFwd',p('LabelRelief')+'+0.2 mm')
+    parts.append(raised)
+# Two poker cards are projected onto the conical wall. Their relief follows the
+# cup surface: no flat unsupported tabs and no detached decorations.
+relief_cones=[]
+for name,offset in [('CardEnvelope',p('CardRelief')),('InkEnvelope',p('InkRelief'))]:
+    relief_cones.append(cone(name,p('CupBottomR')+'+'+offset,p('CupTopR')+'+'+offset,p('CupH'),p('CupZ')))
+for i,(cx,tilt,rank,suit) in enumerate([(-6.6,9,'A','♠'),(6.6,-9,'K','♥')],1):
+    # Local card plane tracks the bowl's outward slope.
+    rot=App.Rotation(App.Vector(1,0,0),116.565051177).multiply(App.Rotation(App.Vector(0,0,1),tilt))
+    placement=App.Placement(App.Vector(cx,-15,62),rot)
+    outline=Part.makePolygon([App.Vector(-7,0,0),App.Vector(7,0,0),App.Vector(7,24,0),App.Vector(-7,24,0),App.Vector(-7,0,0)])
+    cardface=Part.Face(outline)
+    def projected(name,face,envelope):
+        face=face.copy();face.translate(App.Vector(0,0,-9));solid=Part.makeCompound([f.extrude(App.Vector(0,0,18)) for f in face.Faces]);solid.Placement=placement
+        prism=feature(name+'Prism',solid,name+' — promítací nástroj')
+        common=doc.addObject('Part::Common',name);common.Base=prism;common.Tool=envelope;common.Refine=True;parts.append(common)
+        return common
+    projected('Card%d'%i,cardface,relief_cones[0])
+    for kind,string,size,x,y in [('Rank',rank,6,-4.8,16.8),('Suit',suit,10,-4.5,5.8)]:
+        shape=text_shape(string,size);bb=shape.BoundBox;shape.translate(App.Vector(x-bb.XMin,y-bb.YMin,0))
+        projected('Card%d%s'%(i,kind),shape,relief_cones[1])
+fused=doc.addObject('Part::MultiFuse','TrophyBeforeCavity');fused.Shapes=parts;fused.Refine=True
+final=doc.addObject('Part::Cut','Trophy');final.Base=fused;final.Tool=inside;final.Refine=True
+final.Label='TISKNOUT 1× — zlatý pokerový pohár'
+doc.recompute()
+invalid=[(o.Name,str(o.State)) for o in doc.Objects if 'Invalid' in o.State]
+if invalid:raise RuntimeError(str(invalid))
+assert final.Shape.isValid(), 'Invalid trophy'
+assert len(final.Shape.Solids)==1, 'Not one solid: %s'%len(final.Shape.Solids)
+# Parametric test exercises both footprint and dependent native sketch geometry.
+before=final.Shape.BoundBox.XLength
+sheet.set(sheet.getCellFromAlias('BaseW'),'66 mm');doc.recompute()
+assert abs(final.Shape.BoundBox.XLength-66)<1e-6
+sheet.set(sheet.getCellFromAlias('BaseW'),'64 mm');doc.recompute()
+assert abs(final.Shape.BoundBox.XLength-before)<1e-6
+mesh=MeshPart.meshFromShape(Shape=final.Shape,LinearDeflection=0.045,AngularDeflection=0.10,Relative=False)
+(OUT/'stl').mkdir(exist_ok=True)
+path=OUT/'stl'/'pokerovy-pohar.stl';mesh.write(str(path));loaded=Mesh.Mesh(str(path))
+assert loaded.isSolid() and loaded.countComponents()==1
+bb=final.Shape.optimalBoundingBox()
+report={'units':'mm','physical_parts':1,'parameters_mm':dict(VALUES),'source':'Agent design dimensions; user set one gold colour and print max about 2h','valid':final.Shape.isValid(),'solids':len(final.Shape.Solids),'bbox_mm':[bb.XLength,bb.YLength,bb.ZLength],'volume_mm3':final.Shape.Volume,'stl_closed':loaded.isSolid(),'stl_components':loaded.countComponents(),'stl_facets':loaded.CountFacets,'stl_sha256':hashlib.sha256(path.read_bytes()).hexdigest(),'macro_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),'parametric_test':'BaseW64 ->66 ->64 mm passed; native sketch dependencies recompute','lettering':['POKER','VÍTĚZ','PRAHA','9. 10. 2026'],'cards':['A spades','K hearts'],'bowl_outer_slope_degrees_from_vertical':math.degrees(math.atan(19/38)),'physical_print_verified':False,'slicing_status':'Pending separate slicer check'}
+if App.GuiUp:
+    for o in doc.Objects:
+        if hasattr(o,'ViewObject'):o.ViewObject.Visibility=o==final
+    final.ViewObject.ShapeColor=(0.83,0.58,0.15)
+doc.saveAs(str(OUT/'pokerovy-pohar.FCStd'))
+(OUT/'kontrola-modelu.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
+print('POKER_CAD_OK '+json.dumps(report,ensure_ascii=False),flush=True)

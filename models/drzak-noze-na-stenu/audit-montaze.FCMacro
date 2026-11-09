@@ -1,0 +1,81 @@
+# -*- coding: utf-8 -*-
+"""Independent, read-only audit of the saved native FreeCAD model.
+Only writes audit-montaze.json beside this script. Does not save the document.
+"""
+from pathlib import Path
+import json, hashlib
+import FreeCAD as App
+import Part
+ROOT=Path(__file__).resolve().parent
+doc=App.openDocument(str(ROOT/'drzak.FCStd'))
+names=['BodyLeft','BodyRight','CoverLeft','CoverRight']
+shapes={n:doc.getObject(n).Shape.copy() for n in names}
+base=[shapes['BodyLeft'],shapes['BodyRight']]
+allparts=list(shapes.values())
+checks=[]
+TOL=1e-5
+def check(name,value,detail=None):
+    checks.append({'check':name,'passed':bool(value),'detail':detail})
+def overlap(a, obstacles):
+    return sum(a.common(b).Volume for b in obstacles)
+for n,sh in shapes.items():
+    check('valid_single_solid_'+n,sh.isValid() and len(sh.Solids)==1,{'volume_mm3':sh.Volume,'solids':len(sh.Solids)})
+clear=Part.makeBox(346,49,29,App.Vector(7,18,3))
+check('entire_clear_cavity_346x49x29',overlap(clear,allparts)<TOL,{'intersection_mm3':overlap(clear,allparts)})
+knife=Part.makeBox(340,45,25,App.Vector(10,18,5))
+check('known_knife_rectangular_envelope',overlap(knife,allparts)<TOL)
+# Independent sampling in both directions. Zero penetration is required.
+for n,obstacles in [('CoverLeft',base+[shapes['CoverRight']]),('CoverRight',base)]:
+    maxima=[0.,0.]
+    for step in range(15):
+        sh=shapes[n].copy();sh.translate(App.Vector(0,step*.5,0))
+        maxima[0]=max(maxima[0],overlap(sh,obstacles))
+    for step in range(21):
+        sh=shapes[n].copy();sh.translate(App.Vector(0,7,step*.5))
+        maxima[1]=max(maxima[1],overlap(sh,obstacles))
+    check('lift_7_then_forward_10_'+n,max(maxima)<TOL,{'maximum_overlap_mm3':maxima,'step_mm':.5})
+    sh=shapes[n].copy();sh.translate(App.Vector(0,0,3))
+    check('unlifted_cover_captured_by_heads_'+n,overlap(sh,base)>TOL,{'blocked_overlap_mm3':overlap(sh,base)})
+max_assy=0.
+for distance in range(41):
+    sh=shapes['BodyRight'].copy();sh.translate(App.Vector(distance,0,0))
+    max_assy=max(max_assy,sh.common(shapes['BodyLeft']).Volume)
+check('tray_halves_assemble_along_x',max_assy<TOL,{'maximum_overlap_mm3':max_assy,'travel_mm':40,'step_mm':1})
+for x in [22,158,202,338]:
+    shaft=Part.makeCylinder(2.75,7,App.Vector(x,79,-1))
+    head=Part.makeCylinder(5,3,App.Vector(x,79,3))
+    driver=Part.makeCylinder(5,60,App.Vector(x,79,3))
+    check('mount_through_hole_x%d'%x,overlap(shaft,base)<TOL,{'diameter_mm':5.5})
+    check('provisional_head_clears_cavity_x%d'%x,head.common(clear).Volume<TOL and overlap(head,base)<TOL,{'assumed_head_diameter_mm':10,'assumed_head_height_mm':3})
+    check('straight_driver_access_x%d'%x,overlap(driver,base)<TOL,{'tool_envelope_diameter_mm':10,'covers_removed':True})
+maxknife=0.
+for step in range(19):
+    sh=knife.copy();sh.translate(App.Vector(0,step*.5,0));maxknife=max(maxknife,overlap(sh,base))
+for step in range(51):
+    sh=knife.copy();sh.translate(App.Vector(0,9,step));maxknife=max(maxknife,overlap(sh,base))
+check('knife_lift_9_then_forward_50',maxknife<TOL,{'maximum_overlap_mm3':maxknife})
+# Exact orthogonal projections of the seam, excluding the cavity borders.
+# A ray is blocked if a thin inspection prism intersects positive body volume.
+raychecks=[]
+for x in [177.9,178.15,178.45,180,181.85,182.15,182.45]:
+    for y in [18.2,22,45,66.8]:
+        ray=Part.makeBox(.02,.02,4,App.Vector(x-.01,y-.01,-.5))
+        raychecks.append(('back',x,y,overlap(ray,base)>1e-8))
+    for z in [3.15,3.5,5,15,31.8]:
+        ray=Part.makeBox(.02,5,.02,App.Vector(x-.01,13.5,z-.01))
+        raychecks.append(('floor',x,z,overlap(ray,base)>1e-8))
+        ray=Part.makeBox(.02,5,.02,App.Vector(x-.01,85.5,z-.01))
+        raychecks.append(('roof',x,z,overlap(ray,base)>1e-8))
+    for y in [22.2,26.2,45,66.8]:
+        ray=Part.makeBox(.02,.02,4,App.Vector(x-.01,y-.01,35))
+        raychecks.append(('cover',x,y,overlap(ray,[shapes['CoverLeft'],shapes['CoverRight']])>1e-8))
+failed=[r for r in raychecks if not r[3]]
+check('orthogonal_seam_rays_blocked',not failed,{'samples':len(raychecks),'unblocked_rays':failed,'ray_cross_section_mm':.02})
+report={'document_sha256':hashlib.sha256((ROOT/'drzak.FCStd').read_bytes()).hexdigest(),
+    'checks':checks,'passed':sum(c['passed'] for c in checks),'failed':sum(not c['passed'] for c in checks),
+    'limitations':['Rectangular knife envelope is a design assumption using the maximum handle thickness over its whole length.',
+    'Screw heads and 10mm screwdriver envelope are proposed dimensions; actual screws, wall and anchoring are unknown.',
+    'Discrete movement and orthogonal seam samples are digital checks, not physical fit, retention, load or print validation.']}
+(ROOT/'audit-montaze.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
+App.closeDocument(doc.Name)
+print('AUDIT_MOUNTS_RESULT '+json.dumps(report,ensure_ascii=False),flush=True)

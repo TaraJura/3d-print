@@ -1,0 +1,224 @@
+{
+  "status": "Conditional digital assembly audit; no physical fit or cooling validation",
+  "cad_sha256": "b0fb12d0273ec51bb93d91b938b9dde180d9f8084cabaf9097b16a881d02d1d5",
+  "macro_sha256": "84e80cb12f306c9624721572ec2ee1672750f7df92289db0f4a8974a20a18eca",
+  "auditor_sha256": "11013d56629c437844e64bca397660b4288652db10770ed43037f8ff069817d4",
+  "pcb_mm": [
+    78.0,
+    108.0,
+    1.6
+  ],
+  "unmeasured_component_height_mm": 38.0,
+  "required_clear_pcb_edge_strip_mm": 1.2,
+  "hypothetical_under_pcb_projection_mm": 2.0,
+  "assumed_nut_af_mm": 5.5,
+  "assumed_nut_thickness_mm": 2.4,
+  "top_lock_vertical_gap_mm": 0.0,
+  "front_insertion_headroom_mm": 154.8,
+  "all_tests_pass_for_tested_envelopes": true,
+  "tests": [
+    {
+      "test": "Body saved BREP",
+      "pass_for_tested_geometry": true,
+      "valid": true,
+      "solids": 1
+    },
+    {
+      "test": "Front saved BREP",
+      "pass_for_tested_geometry": true,
+      "valid": true,
+      "solids": 1
+    },
+    {
+      "test": "Rear saved BREP",
+      "pass_for_tested_geometry": true,
+      "valid": true,
+      "solids": 1
+    },
+    {
+      "test": "TopLock saved BREP",
+      "pass_for_tested_geometry": true,
+      "valid": true,
+      "solids": 1
+    },
+    {
+      "test": "Spacer1 saved BREP",
+      "pass_for_tested_geometry": true,
+      "valid": true,
+      "solids": 1
+    },
+    {
+      "test": "Spacer2 saved BREP",
+      "pass_for_tested_geometry": true,
+      "valid": true,
+      "solids": 1
+    },
+    {
+      "test": "Spacer3 saved BREP",
+      "pass_for_tested_geometry": true,
+      "valid": true,
+      "solids": 1
+    },
+    {
+      "test": "Front insertion from above: full continuous rectangular envelope",
+      "pass_for_tested_geometry": true,
+      "intersections_mm3": {},
+      "condition": "TopLock, rear panel and ALL electronics are absent; reserve at least one front-panel height above the case for assembly."
+    },
+    {
+      "test": "PCB0 continuous rear insertion",
+      "pass_for_tested_geometry": true,
+      "intersections_mm3": {},
+      "condition": "Bare PCB envelope only; existing feet removed; 78x108 mm and assumed PCB thickness from Parameters."
+    },
+    {
+      "test": "PCB0 continuous full component envelope",
+      "pass_for_tested_geometry": true,
+      "intersections_mm3": {},
+      "condition": "Conservative full rectangle above PCB. Both long edges must be free of components for at least 1.2 mm; no component may exceed assumed ComponentHeight. Actual edge/component heights unmeasured."
+    },
+    {
+      "test": "Knob0 continuous rear insertion, bounding box",
+      "pass_for_tested_geometry": true,
+      "intersections_mm3": {},
+      "condition": "Only the simplified unmeasured connector reference. Final axis height, outline and projection need physical confirmation."
+    },
+    {
+      "test": "RCA0_0 continuous rear insertion, bounding box",
+      "pass_for_tested_geometry": true,
+      "intersections_mm3": {},
+      "condition": "Only the simplified unmeasured connector reference. Final axis height, outline and projection need physical confirmation."
+    },
+    {
+      "test": "RCA0_1 continuous rear insertion, bounding box",
+      "pass_for_tested_geometry": true,
+      "intersections_mm3": {},
+      "condition": "Only the simplified unmeasured connector reference. Final axis height, outline and projection need physical confirmation."
+    },
+    {
+      "test": "PCB1 continuous rear insertion",
+      "pass_for_tested_geometry": true,
+      "intersections_mm3": {},
+      "condition": "Bare PCB envelope only; existing feet removed; 78x108 mm and assumed PCB thickness from Parameters."
+    },
+    {
+      "test": "PCB1 continuous full component envelope",
+      "pass_for_tested_geometry": true,
+      "intersections_mm3": {},
+      "condition": "Conservative full rectangle above PCB. Both long edges must be free of components for at least 1.2 mm; no component may exceed assumed ComponentHeight. Actual edge/component heights unmeasured."
+    },
+    {
+      "test": "Knob1 continuous rear insertion, bounding box",
+      "pass_for_tested_geometry": true,
+      "intersections_mm3": {},
+      "condition": "Only the simplified unmeasured connector reference. Final axis height, outline and projection need physical confirmation."
+    },
+    {
+      "test": "RCA1_0 continuous rear insertion, bounding box",
+      "pass_for_tested_geometry": true,
+      "intersections_mm3": {},
+      "condition": "Only the simplified unmeasured connector reference. Final axis height, outline and projection need physical confirmation."
+    },
+    {
+      "test": "RCA1_1 continuous rear insertion, bounding box",
+      "pass_for_tested_geometry": true,
+      "intersections_mm3": {},
+      "condition": "Only the simplified unmeasured connector reference. Final axis height, outline and projection need physical confirmation."
+    },
+    {
+      "test": "PCB2 continuous rear insertion",
+      "pass_for_tested_geometry": true,
+      "intersections_mm3": {},
+      "condition": "Bare PCB envelope only; existing feet removed; 78x108 mm and assumed PCB thickness from Parameters."
+    },
+    {
+      "test": "PCB2 continuous full component envelope",
+      "pass_for_tested_geometry": true,
+      "intersections_mm3": {},
+      "condition": "Conservative full rectangle above PCB. Both long edges must be free of components for at least 1.2 mm; no component may exceed assumed ComponentHeight. Actual edge/component heights unmeasured."
+    },
+    {
+      "test": "Knob2 continuous rear insertion, bounding box",
+      "pass_for_tested_geometry": true,
+      "intersections_mm3": {},
+      "condition": "Only the simplified unmeasured connector reference. Final axis height, outline and projection need physical confirmation."
+    },
+    {
+      "test": "RCA2_0 continuous rear insertion, bounding box",
+      "pass_for_tested_geometry": true,
+      "intersections_mm3": {},
+      "condition": "Only the simplified unmeasured connector reference. Final axis height, outline and projection need physical confirmation."
+    },
+    {
+      "test": "RCA2_1 continuous rear insertion, bounding box",
+      "pass_for_tested_geometry": true,
+      "intersections_mm3": {},
+      "condition": "Only the simplified unmeasured connector reference. Final axis height, outline and projection need physical confirmation."
+    },
+    {
+      "test": "PCB0 underside example: 2 mm protrusion",
+      "pass_for_tested_geometry": true,
+      "intersections_mm3": {},
+      "condition": "Hypothetical 2 mm solder envelope with 1.2 mm bare edge strips. Actual underside protrusion and chamfers are unmeasured."
+    },
+    {
+      "test": "PCB1 underside example: 2 mm protrusion",
+      "pass_for_tested_geometry": true,
+      "intersections_mm3": {},
+      "condition": "Hypothetical 2 mm solder envelope with 1.2 mm bare edge strips. Actual underside protrusion and chamfers are unmeasured."
+    },
+    {
+      "test": "PCB2 underside example: 2 mm protrusion",
+      "pass_for_tested_geometry": true,
+      "intersections_mm3": {},
+      "condition": "Hypothetical 2 mm solder envelope with 1.2 mm bare edge strips. Actual underside protrusion and chamfers are unmeasured."
+    },
+    {
+      "test": "Rear nut 0 insertion from case interior",
+      "pass_for_tested_geometry": true,
+      "intersections_mm3": {},
+      "condition": "Assumed M3 hex AF5.5/thickness2.4; nut slides sideways along X before boards and rear panel are installed. Tool/finger grip not modeled."
+    },
+    {
+      "test": "Rear nut 1 insertion from case interior",
+      "pass_for_tested_geometry": true,
+      "intersections_mm3": {},
+      "condition": "Assumed M3 hex AF5.5/thickness2.4; nut slides sideways along X before boards and rear panel are installed. Tool/finger grip not modeled."
+    },
+    {
+      "test": "Rear nut 2 insertion from case interior",
+      "pass_for_tested_geometry": true,
+      "intersections_mm3": {},
+      "condition": "Assumed M3 hex AF5.5/thickness2.4; nut slides sideways along X before boards and rear panel are installed. Tool/finger grip not modeled."
+    },
+    {
+      "test": "Rear nut 3 insertion from case interior",
+      "pass_for_tested_geometry": true,
+      "intersections_mm3": {},
+      "condition": "Assumed M3 hex AF5.5/thickness2.4; nut slides sideways along X before boards and rear panel are installed. Tool/finger grip not modeled."
+    },
+    {
+      "test": "Top nut insertion from rear interior",
+      "pass_for_tested_geometry": true,
+      "intersections_mm3": {},
+      "condition": "Assumed M3 hex AF5.5/thickness2.4. Nut loaded before electronics. Hex flats align with entry walls; tool/finger grip not modeled."
+    },
+    {
+      "test": "All printed parts in seated assembly",
+      "pass_for_tested_geometry": true,
+      "intersections_mm3": {}
+    }
+  ],
+  "not_verified": [
+    "Actual populated PCB perimeter and underside",
+    "Actual connector axes and cable bend radii",
+    "Cable routing, strain relief and loaded terminal access",
+    "Wall substrate, anchors, screw lengths and structural strength",
+    "Thermal performance, printing fit and material suitability"
+  ],
+  "assembly_notes": [
+    "Front must slide before electronics; removing it later requires withdrawing boards.",
+    "Wall spacer rings must be installed on wall screws first; do not fix them to the moving keyhole panel. Their small holes cannot pass screw heads.",
+    "Screwdriver and finger access are not proven by nut solid clearance."
+  ]
+}

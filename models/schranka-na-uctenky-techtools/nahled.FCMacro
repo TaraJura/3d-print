@@ -1,0 +1,126 @@
+# -*- coding: utf-8 -*-
+"""Render genuine FreeCAD geometry and save the assembled view in FCStd.
+
+Overwrites nahled-sestava-cad.png, nahled-otevreni-cad.png and the GUI
+visibility/camera state of schranka.FCStd. It does not alter the STL parts.
+"""
+from pathlib import Path
+import json
+import FreeCAD as App
+import FreeCADGui as Gui
+import Part
+from PySide import QtCore
+from pivy import coin
+
+OUT = Path(__file__).resolve().parent
+report = json.loads((OUT / "kontrola-modelu.json").read_text(encoding="utf-8"))
+doc = App.openDocument(str(OUT / "schranka.FCStd"))
+doc.recompute()
+body = doc.getObject("Body")
+lid = doc.getObject("Lid")
+lettering = doc.getObject("Lettering")
+assert body and lid and lettering
+assert body.Shape.isValid() and lid.Shape.isValid() and lettering.Shape.isValid()
+sheet = doc.getObject("Parameters")
+link = doc.getObject("LidAssembled")
+if link is None:
+    link = doc.addObject("App::Link", "LidAssembled")
+    link.Label = "Víko nasazené na schránku — zobrazení sestavy"
+    link.setLink(lid)
+link.LinkPlacement = App.Placement(
+    App.Vector(-sheet.CapOverhang.Value,
+               sheet.BodyDepth.Value + sheet.CapOverhang.Value,
+               sheet.BodyHeight.Value + sheet.CapThickness.Value),
+    App.Rotation(App.Vector(1, 0, 0), 180))
+for axis, formula in (
+    ("x", "-Parameters.CapOverhang"),
+    ("y", "Parameters.BodyDepth + Parameters.CapOverhang"),
+    ("z", "Parameters.BodyHeight + Parameters.CapThickness"),
+):
+    link.setExpression("LinkPlacement.Base." + axis, formula)
+doc.recompute()
+assert abs(link.Shape.BoundBox.ZMin - (sheet.BodyHeight.Value - sheet.LipDepth.Value)) < 1e-6, link.Shape.BoundBox
+view = Gui.activeDocument().activeView()
+
+def style(o, color, edge):
+    v = o.ViewObject
+    v.ShapeColor = color
+    v.LineColor = edge
+    v.LineWidth = 1.2
+    v.DisplayMode = "Flat Lines"
+
+def show_final():
+    for o in doc.Objects:
+        if hasattr(o, "ViewObject"):
+            o.ViewObject.Visibility = o in (body, link, lettering)
+    white = (0.93, 0.94, 0.93)
+    dark = (0.10, 0.13, 0.14)
+    style(body, white, (0.27, 0.31, 0.32))
+    # The assembly link takes the original lid's shape and appearance.
+    style(lid, white, (0.27, 0.31, 0.32))
+    style(lettering, dark, dark)
+
+def camera(eye, aspect):
+    eye = App.Vector(*eye)
+    up = App.Vector(0, 0, 1)
+    view.setCameraType("Orthographic")
+    rotation = App.Rotation(up.cross(eye), up, eye, "ZXY")
+    shapes = [o.Shape for o in (body, link, lettering) if o.ViewObject.Visibility]
+    bbox = Part.makeCompound(shapes).BoundBox
+    corners = [App.Vector(x, y, z) for x in (bbox.XMin, bbox.XMax)
+               for y in (bbox.YMin, bbox.YMax)
+               for z in (bbox.ZMin, bbox.ZMax)]
+    projected = [rotation.inverted().multVec(v - bbox.Center) for v in corners]
+    dx = max(v.x for v in projected) - min(v.x for v in projected)
+    dy = max(v.y for v in projected) - min(v.y for v in projected)
+    view.getCameraOrientation()
+    node = view.getCameraNode()
+    node.orientation.setValue(rotation.Q)
+    position = bbox.Center + eye.normalize() * 1000
+    node.position.setValue(position.x, position.y, position.z)
+    node.height.setValue(max(dy, dx / aspect) * 1.28)
+    node.nearDistance.setValue(1)
+    node.farDistance.setValue(3000)
+    view.redraw()
+    Gui.updateGui()
+
+def start():
+    Gui.getMainWindow().resize(1600, 1100)
+    show_final()
+    camera((0.95, -1.5, 1.05), 1.5)
+    QtCore.QTimer.singleShot(1100, save_assembled)
+
+def save_assembled():
+    view.saveImage(str(OUT / "nahled-sestava-cad.png"), 1800, 1200, "White")
+    link.setExpression("LinkPlacement.Base.z", "Parameters.BodyHeight + Parameters.CapThickness + 36 mm")
+    doc.recompute()
+    camera((0.9, -1.4, 1.25), 1.5)
+    QtCore.QTimer.singleShot(900, save_open)
+
+def save_open():
+    view.saveImage(str(OUT / "nahled-otevreni-cad.png"), 1800, 1200, "White")
+    link.setExpression("LinkPlacement.Base.z", "Parameters.BodyHeight + Parameters.CapThickness")
+    doc.recompute()
+    show_final()
+    camera((0.95, -1.5, 1.05), 1.5)
+    doc.save()
+    name = doc.Name
+    file = doc.FileName
+    App.closeDocument(name)
+    reopened = App.openDocument(file)
+    reopened.recompute()
+    visible = [o.Name for o in reopened.Objects if hasattr(o, "Shape") and o.ViewObject.Visibility]
+    invalid = [o.Name for o in reopened.Objects if "Invalid" in o.State]
+    assert set(visible) == {"Body", "LidAssembled", "Lettering"}, visible
+    assert not invalid, invalid
+    assert reopened.Body.Shape.isValid() and reopened.Lid.Shape.isValid()
+    assert reopened.Lettering.Shape.isValid()
+    assert reopened.Body.Shape.common(reopened.Lettering.Shape).Volume < 1e-6
+    report["gui_validation"] = {"saved_reopened": True, "visible_objects": visible,
+                                 "invalid_objects": invalid,
+                                 "images": ["nahled-sestava-cad.png", "nahled-otevreni-cad.png"]}
+    (OUT / "kontrola-modelu.json").write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    print("SCHRANKA_RENDER_OK", flush=True)
+    Gui.getMainWindow().close()
+
+QtCore.QTimer.singleShot(900, start)

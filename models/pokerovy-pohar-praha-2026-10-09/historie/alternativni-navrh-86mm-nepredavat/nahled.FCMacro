@@ -1,0 +1,84 @@
+# -*- coding: utf-8 -*-
+"""Skutečný FreeCAD náhled aktuálního pohar.FCStd, ne ilustrace.
+
+Přepíše zdejší nahled-{cad,celni,zadni}.png, uloží správnou viditelnost FCStd
+a doplní GUI/parametrickou kontrolu do kontrola-modelu.json. Tiskárnu neovládá.
+"""
+from pathlib import Path
+import json
+import FreeCAD as App
+import FreeCADGui as Gui
+from PySide import QtCore
+from pivy import coin
+
+OUT=Path(__file__).resolve().parent
+App.ParamGet("User parameter:BaseApp/Preferences/Document").SetInt("CountBackupFiles",0)
+doc=App.openDocument(str(OUT/"pohar.FCStd"))
+doc.recompute()
+model=doc.Pohar
+for o in doc.Objects:
+    if o.ViewObject: o.ViewObject.Visibility=(o==model)
+gold=(0.88,0.62,0.17)
+model.ViewObject.ShapeColor=gold
+model.ViewObject.LineColor=(0.33,0.22,0.05)
+model.ViewObject.LineWidth=0.8
+model.ViewObject.DisplayMode="Flat Lines"
+model.ViewObject.DiffuseColor=[gold]*len(model.Shape.Faces)
+view=Gui.activeDocument().activeView()
+def camera(eye):
+    eye=App.Vector(*eye);up=App.Vector(0,0,1)
+    view.setCameraType("Orthographic")
+    view.setCameraOrientation(App.Rotation(up.cross(eye),up,eye,"ZXY").Q)
+    view.fitAll()
+    cam=view.getCameraOrientation()
+    view.redraw();Gui.updateGui()
+def begin():
+    Gui.getMainWindow().resize(1500,1350)
+    camera((0.42,-1.9,0.78))
+    QtCore.QTimer.singleShot(1200,save_iso)
+def save_iso():
+    view.saveImage(str(OUT/"nahled-cad.png"),1500,1500,"White")
+    camera((0,-1,0.10))
+    QtCore.QTimer.singleShot(1100,save_front)
+def save_front():
+    view.saveImage(str(OUT/"nahled-celni.png"),1200,1500,"White")
+    camera((0.42,1.9,0.75))
+    QtCore.QTimer.singleShot(1100,save_back)
+def save_back():
+    view.saveImage(str(OUT/"nahled-zadni.png"),1200,1500,"White")
+    camera((0.42,-1.9,0.78))
+    QtCore.QTimer.singleShot(1000,validate)
+def validate():
+    doc.save()
+    name=doc.FileName
+    App.closeDocument(doc.Name)
+    reopened=App.openDocument(name);reopened.recompute()
+    assert reopened.Pohar.Shape.isValid() and len(reopened.Pohar.Shape.Solids)==1
+    visible=[o.Name for o in reopened.Objects if hasattr(o,"Shape") and o.ViewObject.Visibility]
+    assert visible==["Pohar"],visible
+    sheet=reopened.Parameters
+    # Native expression recompute; restore before save, STL stays the nominal version.
+    initial=sheet.getContents("B12") # CupHeight, see VALUES table.
+    assert abs(sheet.get("B12").Value-33)<.001
+    sheet.set("B12","35 mm");reopened.recompute()
+    assert reopened.Pohar.Shape.isValid() and len(reopened.Pohar.Shape.Solids)==1
+    assert abs(reopened.Pohar.Shape.BoundBox.ZLength-88)<.01
+    sheet.set("B12",initial);reopened.recompute()
+    assert abs(reopened.Pohar.Shape.BoundBox.ZLength-86)<.01
+    width=sheet.getContents("B6") # BaseWidth
+    assert abs(sheet.get("B6").Value-50)<.001
+    sheet.set("B6","52 mm");reopened.recompute()
+    assert reopened.Pohar.Shape.isValid() and len(reopened.Pohar.Shape.Solids)==1
+    assert abs(reopened.Base.Shape.BoundBox.XLength-52)<.01
+    sheet.set("B6",width);reopened.recompute()
+    assert abs(reopened.Base.Shape.BoundBox.XLength-50)<.01
+    reopened.save()
+    App.closeDocument(reopened.Name)
+    report=json.loads((OUT/"kontrola-modelu.json").read_text())
+    report["gui_validation"]={"saved_and_reopened":True,"only_visible_geometry":visible,
+       "cup_height_33_to_35_to_33":True,"base_width_50_to_52_to_50":True,
+       "previews":["nahled-cad.png","nahled-celni.png","nahled-zadni.png"]}
+    (OUT/"kontrola-modelu.json").write_text(json.dumps(report,ensure_ascii=False,indent=2)+"\n")
+    print("POHAR_RENDER_OK",flush=True)
+    Gui.getMainWindow().close()
+QtCore.QTimer.singleShot(1000,begin)

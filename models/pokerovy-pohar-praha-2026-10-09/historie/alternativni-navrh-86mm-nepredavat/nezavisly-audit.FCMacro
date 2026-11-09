@@ -1,0 +1,97 @@
+# -*- coding: utf-8 -*-
+"""Read-only independent geometry audit. Writes only nezavisly-audit.json."""
+from pathlib import Path
+import json
+import math
+import hashlib
+import zipfile
+import xml.etree.ElementTree as ET
+import FreeCAD as App
+import Part
+import Mesh
+
+OUT = Path(__file__).resolve().parent
+doc = App.openDocument(str(OUT / "pohar.FCStd"))
+obj = doc.getObject("Pohar")
+shape = obj.Shape
+mesh = Mesh.Mesh(str(OUT / "stl/pohar.stl"))
+bb = shape.BoundBox
+com = shape.Solids[0].CenterOfMass
+# Flat first-layer area and its true extents are taken from BREP.
+bottom_faces=[]
+for f in shape.Faces:
+    fb=f.BoundBox
+    if abs(fb.ZMin) < 0.00001 and abs(fb.ZMax) < 0.00001:
+        bottom_faces.append(f)
+bottom = Part.makeCompound(bottom_faces)
+contact = bottom.BoundBox
+# Ideal homogeneous solid only: actual printed infill can shift the mass.
+margin_x = min(com.x-contact.XMin, contact.XMax-com.x)
+margin_y = min(com.y-contact.YMin, contact.YMax-com.y)
+proxy_objects=[]
+python_types=[]
+invalid=[]
+for item in doc.Objects:
+    if "Python" in item.TypeId: python_types.append(item.Name)
+    if getattr(item,"Proxy",None) is not None: proxy_objects.append(item.Name)
+    if "Invalid" in item.State: invalid.append(item.Name)
+downward=[]
+for facet in mesh.Facets:
+    nz=facet.Normal.z
+    pts=[App.Vector(*p) for p in facet.Points]
+    if nz < -math.sqrt(.5) and max(p.z for p in pts)>0.001:
+        a=(pts[1]-pts[0]).cross(pts[2]-pts[0]).Length/2
+        downward.append((a,min(p.z for p in pts),max(p.z for p in pts)))
+gui_xml=ET.fromstring(zipfile.ZipFile(OUT/"pohar.FCStd").read("GuiDocument.xml"))
+visible=[]
+for provider in gui_xml.findall("./ViewProviderData/ViewProvider"):
+    for prop in provider.findall("./Properties/Property"):
+        if prop.get("name")=="Visibility" and list(prop)[0].get("value")=="true":
+            visible.append(provider.get("name"))
+report={
+    "audit_scope":"Independent read-only BREP/STL check; no physical print or strength claim",
+    "source_sha256":{p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in (OUT/"pohar.FCStd",OUT/"stl/pohar.stl",OUT/"pohar.FCMacro")},
+    "shape_valid":shape.isValid(),
+    "shape_solids":len(shape.Solids),
+    "shape_closed":shape.isClosed(),
+    "bounds_mm":[bb.XLength,bb.YLength,bb.ZLength],
+    "z_min_mm":bb.ZMin,
+    "cad_volume_mm3":shape.Volume,
+    "stl_closed":mesh.isSolid(),
+    "stl_components":mesh.countComponents(),
+    "stl_facets":mesh.CountFacets,
+    "stl_volume_mm3":mesh.Volume,
+    "stl_volume_difference_percent":100*abs(mesh.Volume-shape.Volume)/shape.Volume,
+    "bottom_contact_area_mm2":sum(f.Area for f in bottom_faces),
+    "bottom_contact_bounds_mm":[contact.XLength,contact.YLength],
+    "homogeneous_solid_center_of_mass_mm":[com.x,com.y,com.z],
+    "homogeneous_solid_com_inside_footprint":margin_x>0 and margin_y>0,
+    "homogeneous_solid_contact_margins_mm":[margin_x,margin_y],
+    "homogeneous_solid_min_tip_angle_degrees":math.degrees(math.atan(min(margin_x,margin_y)/com.z)),
+    "no_custom_python_proxy":not proxy_objects and not python_types,
+    "custom_proxy_objects":proxy_objects,
+    "python_type_objects":python_types,
+    "invalid_object_states":invalid,
+    "saved_visible_objects":visible,
+    "only_final_shape_visible":visible==["Pohar"],
+    "steep_downward_facet_area_above_bed_mm2":sum(x[0] for x in downward),
+    "overhang_assessment":"Cup cone 32.5 degrees from vertical; card planes 13 degrees. Short 0.55 mm relief overhangs and rounded card corners require sliced path inspection.",
+    "physical_print_verified":False,
+    "visual_review_2026_10_09":{
+        "method":"Independent visual inspection of real CAD PNG and sliced relief path PNG",
+        "cad_preview_sha256":hashlib.sha256((OUT/"nahled-cad.png").read_bytes()).hexdigest(),
+        "toolpath_preview_sha256":hashlib.sha256((OUT/"rozlozeni/nahled-reliefu-drahy.png").read_bytes()).hexdigest(),
+        "readable":"POKER, VÍTĚZ, PRAHA, 9. 10. 2026, rear JIŘÍ/NOVÁK, both ace A and large spade/heart symbols",
+        "minor_note":"The lower small spade is partly intersected by the stem foot; both large suit motifs remain complete and readable.",
+        "material_color":"Single gold CAD presentation; this does not establish physical spool selection.",
+        "blocking_issue_found":False,
+    },
+}
+assert report["shape_valid"] and report["shape_solids"]==1 and report["shape_closed"]
+assert report["stl_closed"] and report["stl_components"]==1
+assert report["no_custom_python_proxy"] and not invalid
+assert report["homogeneous_solid_com_inside_footprint"]
+assert report["only_final_shape_visible"]
+(OUT/"nezavisly-audit.json").write_text(json.dumps(report,ensure_ascii=False,indent=2)+"\n")
+print("NEZAVISLY_AUDIT_OK",json.dumps(report,ensure_ascii=False),flush=True)
+App.closeDocument(doc.Name)

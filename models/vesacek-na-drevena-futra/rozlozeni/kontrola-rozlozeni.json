@@ -1,0 +1,44 @@
+{
+  "status": "geometry-only, no process or G-code",
+  "source_stl": "../stl/vesacek.stl",
+  "source_stl_sha256": "a111e13ef7702d9d639f93ceb67be09926f7a70fc661a14aff36dc6193a23aa5",
+  "plate": "podlozka-01-geometrie.3mf",
+  "plate_sha256": "1bb006a9d5814056772b1c3ab4915a33f1f8d63d3956b2a8876f338acc18cef0",
+  "preview": "podlozka-01.png",
+  "printer": "Anycubic Kobra X 0.4 nozzle",
+  "bed_mm": [
+    260,
+    260,
+    260
+  ],
+  "physical_pieces": 1,
+  "triangle_count": 7496,
+  "source_bounds_mm": {
+    "min": [
+      -22.0,
+      -2.209753952357122e-15,
+      0.0
+    ],
+    "max": [
+      22.0,
+      58.0,
+      86.0
+    ]
+  },
+  "placed_bounds_mm": {
+    "min": [
+      108.0,
+      87.0,
+      0.0
+    ],
+    "max": [
+      152.0,
+      173.0,
+      58.0
+    ]
+  },
+  "orientation": "back Y=0 to bed Z=0; +90 deg about CAD X",
+  "xy_min_margin_mm": 87.0,
+  "support_setting": "to be checked in configured project",
+  "physical_fit_or_strength_verified": false
+}

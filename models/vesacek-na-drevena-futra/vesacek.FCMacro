@@ -1,0 +1,224 @@
+# -*- coding: utf-8 -*-
+"""Druhý vizuální návrh trojháčku na jeden vrut, rozměry v mm.
+
+Spuštění ve FreeCADu přepíše VÝHRADNĚ soubory vesacek.FCStd,
+stl/vesacek.stl a kontrola-modelu.json ve složce tohoto makra.
+Náhled vytváří samostatné nahled.FCMacro. Všechny rozměry jsou
+návrhové předpoklady; futra, vrut ani břemena nebyly změřené.
+"""
+from pathlib import Path
+import json
+import FreeCAD as App
+import Mesh
+import MeshPart
+
+OUT = Path(__file__).resolve().parent
+(OUT / "stl").mkdir(exist_ok=True)
+
+doc = App.newDocument("VesacekNaFutra")
+doc.Label = "Věšáček na dřevěná futra – vizuální návrh v2"
+params = doc.addObject("Spreadsheet::Sheet", "Parameters")
+params.Label = "Parametry (mm) – návrhové předpoklady"
+params.set("A1", "Parametr")
+params.set("B1", "Hodnota")
+params.set("C1", "Původ")
+params.setStyle("A1:C1", "bold", "add")
+params.setBackground("A1:C1", (0.81, 0.88, 0.91))
+values = [
+    ("PlateWidth", "Šířka dosedací destičky", 44, "Návrh; změřit šířku futer"),
+    ("PlateHeight", "Výška destičky", 86, "Návrh"),
+    ("PlateThick", "Tloušťka destičky", 8, "Návrh; zesílení u delšího háku"),
+    ("CornerRadius", "Poloměr rohů destičky", 10, "Návrh"),
+    ("ScrewZ", "Výška osy jediného vrutu", 68, "Návrh; ověřit polohu vůči dveřím"),
+    ("ScrewClearance", "Průchozí otvor pro vrut", 4.5, "Návrh; přeměřit skutečný vrut"),
+    ("HeadDiameter", "Ústí zápustné hlavy", 9, "Návrh; přeměřit hlavu vrutu"),
+    ("SinkDepth", "Hloubka zapuštění", 2.3, "Návrh"),
+    ("BossRadius", "Poloměr výztuhy kolem hlavy", 10.5, "Návrh"),
+    ("BossHeight", "Převýšení výztuhy", 1.5, "Návrh"),
+    ("MainZ", "Výška kořene hlavního háku", 44, "Návrh; odstup od výztuhy vrutu"),
+    ("MainReach", "Vyložení hlavního háku od čela", 50, "Návrh po Jiřího požadavku prodloužit"),
+    ("MainRise", "Zvednutí špičky hlavního háku", 12, "Návrh; přístup k vrutu"),
+    ("MainRootRadius", "Poloměr kořene hlavního háku", 12, "Návrh; mohutnější kořen"),
+    ("MainTipRadius", "Poloměr špičky hlavního háku", 6, "Návrh; mohutnější konec"),
+    ("SideX", "Odsazení bočních háků od osy", 12.5, "Návrh"),
+    ("SideZ", "Výška kořene bočních háků", 23, "Návrh"),
+    ("SideReach", "Vyložení bočních háků od čela", 22, "Návrh"),
+    ("SideRise", "Zvednutí špiček bočních háků", 8, "Návrh"),
+    ("SideRootRadius", "Poloměr kořene bočních háků", 6, "Návrh"),
+]
+for row, (alias, label, val, origin) in enumerate(values, 2):
+    params.set("A%d" % row, label)
+    params.set("B%d" % row, "%s mm" % val)
+    params.setAlias("B%d" % row, alias)
+    params.set("C%d" % row, origin)
+    params.setBackground("B%d" % row, (1.0, 0.94, 0.76))
+params.setColumnWidth("A", 305)
+params.setColumnWidth("B", 135)
+params.setColumnWidth("C", 365)
+doc.recompute()
+
+def expr(obj, prop, formula):
+    obj.setExpression(prop, formula)
+
+def box(name, x, y, z, dx, dy, dz):
+    obj = doc.addObject("Part::Box", name)
+    obj.Label = "Pomocný tvar – " + name
+    for field, formula in (("Placement.Base.x", x), ("Placement.Base.y", y),
+                           ("Placement.Base.z", z), ("Length", dx),
+                           ("Width", dy), ("Height", dz)):
+        expr(obj, field, formula)
+    return obj
+
+def cy(name, x, y, z, radius, height):
+    obj = doc.addObject("Part::Cylinder", name)
+    obj.Label = "Pomocný válec – " + name
+    obj.Placement.Rotation = App.Rotation(App.Vector(0, 0, 1), App.Vector(0, 1, 0))
+    for field, formula in (("Placement.Base.x", x), ("Placement.Base.y", y),
+                           ("Placement.Base.z", z), ("Radius", radius),
+                           ("Height", height)):
+        expr(obj, field, formula)
+    return obj
+
+# Souřadnice: X do šířky futer, Y ven od futer, Z vzhůru.
+# Zadní dosedací plocha je rovina Y=0. Zaoblený obdélník je sestaven
+# ze dvou obdélníků a čtyř válců, všechno jsou běžné objekty FreeCADu.
+W = "Parameters.PlateWidth"
+H = "Parameters.PlateHeight"
+T = "Parameters.PlateThick"
+R = "Parameters.CornerRadius"
+plate_parts = [
+    box("PlateCoreVertical", f"-{W}/2+{R}", "0 mm", "0 mm",
+        f"{W}-2*{R}", T, H),
+    box("PlateCoreHorizontal", f"-{W}/2", "0 mm", R,
+        W, T, f"{H}-2*{R}"),
+]
+for side, x in (("Left", f"-{W}/2+{R}"), ("Right", f"{W}/2-{R}")):
+    for level, z in (("Bottom", R), ("Top", f"{H}-{R}")):
+        plate_parts.append(cy("PlateCorner" + side + level,
+                              x, "0 mm", z, R, T))
+plate = doc.addObject("Part::MultiFuse", "RoundedPlate")
+plate.Label = "Pomocná oblá destička"
+plate.Shapes = plate_parts
+plate.Refine = True
+
+boss = cy("ScrewBoss", "0 mm", T, "Parameters.ScrewZ",
+          "Parameters.BossRadius", "Parameters.BossHeight")
+
+def ring(name, x, y, z, radius):
+    circ = doc.addObject("Part::Circle", name)
+    circ.Label = "Profil háku – " + name
+    circ.Placement.Rotation = App.Rotation(App.Vector(0, 0, 1), App.Vector(0, 1, 0))
+    for field, formula in (("Placement.Base.x", x), ("Placement.Base.y", y),
+                           ("Placement.Base.z", z), ("Radius", radius)):
+        expr(circ, field, formula)
+    return circ
+
+def horn(name, x, base_z, reach, rise, root_r, tip_r):
+    # Průřezy leží rovnoběžně s futry. Jemné zvednutí konce brání sesunutí.
+    points = [
+        (f"{T}-1.5 mm", base_z, root_r),
+        (f"{T}+3 mm", base_z, root_r),
+        (f"{T}+0.36*{reach}", f"{base_z}+0.10*{rise}", f"0.89*{root_r}"),
+        (f"{T}+0.68*{reach}", f"{base_z}+0.40*{rise}", f"0.68*{root_r}"),
+        (f"{T}+0.90*{reach}", f"{base_z}+0.78*{rise}", f"0.56*{root_r}"),
+        (f"{T}+{reach}", f"{base_z}+{rise}", tip_r),
+    ]
+    sections = [ring(name + "Section%d" % i, x, y, z, radius)
+                for i, (y, z, radius) in enumerate(points, 1)]
+    loft = doc.addObject("Part::Loft", name)
+    loft.Label = "Plynule zvednutý " + name
+    loft.Sections = sections
+    loft.Solid = True
+    loft.Ruled = False
+    loft.Closed = False
+    return loft
+
+main = horn("MainHook", "0 mm", "Parameters.MainZ",
+            "Parameters.MainReach", "Parameters.MainRise",
+            "Parameters.MainRootRadius", "Parameters.MainTipRadius")
+left = horn("LeftHook", "-Parameters.SideX", "Parameters.SideZ",
+            "Parameters.SideReach", "Parameters.SideRise",
+            "Parameters.SideRootRadius", "0.38*Parameters.SideRootRadius")
+right = horn("RightHook", "Parameters.SideX", "Parameters.SideZ",
+             "Parameters.SideReach", "Parameters.SideRise",
+             "Parameters.SideRootRadius", "0.38*Parameters.SideRootRadius")
+
+whole = doc.addObject("Part::MultiFuse", "SolidBeforeHole")
+whole.Label = "Pomocný spojený tvar"
+whole.Shapes = [plate, boss, main, left, right]
+whole.Refine = True
+
+through = cy("ScrewBore", "0 mm", "-1 mm", "Parameters.ScrewZ",
+             "Parameters.ScrewClearance/2", f"{T}+Parameters.BossHeight+2 mm")
+sink = doc.addObject("Part::Cone", "Countersink")
+sink.Label = "Pomocné zapuštění hlavy vrutu"
+sink.Placement.Rotation = App.Rotation(App.Vector(0, 0, 1), App.Vector(0, 1, 0))
+for field, formula in (
+        ("Placement.Base.z", "Parameters.ScrewZ"),
+        ("Placement.Base.y", f"{T}+Parameters.BossHeight-Parameters.SinkDepth"),
+        ("Radius1", "Parameters.ScrewClearance/2"),
+        ("Radius2", "Parameters.HeadDiameter/2"),
+        ("Height", "Parameters.SinkDepth")):
+    expr(sink, field, formula)
+hole = doc.addObject("Part::Fuse", "CompleteScrewCut")
+hole.Base = through
+hole.Tool = sink
+hole.Refine = True
+
+result = doc.addObject("Part::Cut", "Vesacek")
+result.Label = "Věšáček – jeden díl, jeden vrut"
+result.Base = whole
+result.Tool = hole
+result.Refine = True
+doc.recompute()
+
+shape = result.Shape
+assert not shape.isNull(), "Prázdný výsledek"
+assert shape.isValid(), "Neplatná CAD geometrie"
+assert len(shape.Solids) == 1, "Výsledek není jediný solid: %s" % len(shape.Solids)
+bb = shape.BoundBox
+assert abs(bb.XLength - 44) < 0.02
+assert abs(bb.ZLength - 86) < 0.02
+assert abs(bb.YLength - 58) < 0.02
+
+mesh = MeshPart.meshFromShape(Shape=shape, LinearDeflection=0.08,
+                              AngularDeflection=0.20, Relative=False)
+assert mesh.CountFacets > 100
+assert mesh.isSolid(), "Neuzavřená síť před exportem"
+stl = OUT / "stl" / "vesacek.stl"
+mesh.write(str(stl))
+reloaded = Mesh.Mesh(str(stl))
+assert reloaded.isSolid(), "Neuzavřený STL export"
+assert reloaded.countComponents() == 1, "STL má více komponent"
+if App.GuiUp:
+    for obj in doc.Objects:
+        if obj.ViewObject is not None:
+            obj.ViewObject.Visibility = (obj == result)
+doc.recompute()
+doc.saveAs(str(OUT / "vesacek.FCStd"))
+
+report = {
+    "status": "vizualni_navrh_bez_fyzickeho_overeni",
+    "user_requirements": ["jeden vrut do dreva", "drobne veci", "drevena futra"],
+    "design_assumptions_mm": {
+        "plate_width": 44, "plate_height": 86, "plate_thickness": 8,
+        "screw_clearance_diameter": 4.5, "countersink_mouth_diameter": 9,
+        "main_reach_from_face": 50, "main_root_diameter": 24,
+        "main_tip_diameter": 12, "main_tip_rise": 12,
+        "side_reach_from_face": 22,
+    },
+    "shape_valid": bool(shape.isValid()), "solids": len(shape.Solids),
+    "bounds_mm": {"x": bb.XLength, "y": bb.YLength, "z": bb.ZLength},
+    "volume_mm3": shape.Volume,
+    "stl_facets": mesh.CountFacets,
+    "stl_closed_after_reload": bool(reloaded.isSolid()),
+    "stl_components_after_reload": reloaded.countComponents(),
+    "screw_count": 1,
+    "rotation_resistance_verified": False,
+    "load_capacity_verified": False,
+    "speaker_use_verified": False,
+    "actual_jamb_screw_fit_verified": False,
+}
+(OUT / "kontrola-modelu.json").write_text(
+    json.dumps(report, ensure_ascii=False, indent=2) + "\n")
+print("VESACEK_CAD_OK", report["bounds_mm"], flush=True)

@@ -1,0 +1,108 @@
+# -*- coding: utf-8 -*-
+"""Reopen saved FCStd, exercise two parameter relations, restore in memory.
+
+Updates only kontrola-modelu.json; never saves the test changes to FCStd.
+"""
+from pathlib import Path
+import json
+import FreeCAD as App
+import Part
+
+OUT = Path(__file__).resolve().parent
+doc = App.openDocument(str(OUT / "schranka.FCStd"))
+doc.recompute()
+sheet, body, lid, lip, label, subtitle, lettering, shell, linked = (
+    doc.getObject(name) for name in
+    ("Parameters", "Body", "Lid", "LipOuter", "TechToolsLettering",
+     "ReceiptsLettering", "Lettering", "BodyShell", "LidAssembled"))
+assert all((sheet, body, lid, lip, label, subtitle, lettering, shell, linked))
+assert body.Shape.isValid() and lid.Shape.isValid()
+
+def check_lettering():
+    assert label.Shape.isValid() and subtitle.Shape.isValid()
+    assert lettering.Shape.isValid() and len(lettering.Shape.Solids) >= 2
+    top, bottom = label.Shape.BoundBox, subtitle.Shape.BoundBox
+    center = body.Shape.BoundBox.Center.x
+    top_center = (top.XMin + top.XMax) / 2
+    bottom_center = (bottom.XMin + bottom.XMax) / 2
+    assert abs(top_center - center) < 1e-6, (top_center, center)
+    assert abs(bottom_center - center) < 1e-6, (bottom_center, center)
+    assert abs(top_center - bottom_center) < 1e-6
+    assert min(top.XMin, bottom.XMin) > 0
+    assert max(top.XMax, bottom.XMax) < sheet.BodyWidth.Value
+    gap = top.ZMin - bottom.ZMax
+    assert gap > 1, gap
+    assert bottom.ZMin > sheet.Floor.Value
+    assert top.ZMax < sheet.BodyHeight.Value
+    assert abs(top.YMin) < 1e-6 and abs(bottom.YMin) < 1e-6
+    assert abs(top.YMax - 0.8) < 1e-6 and abs(bottom.YMax - 0.8) < 1e-6
+    overlap = body.Shape.common(lettering.Shape).Volume
+    assert overlap < 1e-6, overlap
+    partition_error = abs(body.Shape.Volume + lettering.Shape.Volume - shell.Shape.Volume)
+    assert partition_error < 1e-4, partition_error
+    return {"body_center_x_mm": center, "techtools_center_x_mm": top_center,
+            "uctenky_center_x_mm": bottom_center, "row_gap_mm": gap,
+            "body_lettering_overlap_mm3": overlap,
+            "body_lettering_partition_error_mm3": partition_error}
+
+baseline_lettering = check_lettering()
+slot_probe = Part.makeBox(100, 8, sheet.CapThickness.Value + 0.2,
+    App.Vector((sheet.LidWidth.Value - 100) / 2,
+               (sheet.LidDepth.Value - 8) / 2, -0.1))
+assert lid.Shape.common(slot_probe).Volume < 1e-6
+assembly_overlap = body.Shape.common(linked.Shape).Volume
+assert assembly_overlap < 1e-6, assembly_overlap
+baseline = {"body_volume": body.Shape.Volume, "lid_volume": lid.Shape.Volume,
+            "lettering_volume": lettering.Shape.Volume,
+            "body_width": body.Shape.BoundBox.XLength,
+            "lip_width": lip.Shape.BoundBox.XLength,
+            "label_min_x": label.Shape.BoundBox.XMin,
+            "subtitle_min_x": subtitle.Shape.BoundBox.XMin}
+
+sheet.set("B9", "0.85 mm")  # FitClearance, originally 0.65 mm.
+doc.recompute()
+assert lid.Shape.isValid() and len(lid.Shape.Solids) == 1
+assert abs(lip.Shape.BoundBox.XLength - (baseline["lip_width"] - 0.4)) < 1e-6
+assert abs(body.Shape.Volume - baseline["body_volume"]) < 1e-6
+assert check_lettering()["row_gap_mm"] > 1
+fit_volume = lid.Shape.Volume
+
+sheet.set("B2", "155 mm")  # BodyWidth, originally 150 mm.
+doc.recompute()
+assert body.Shape.isValid() and lid.Shape.isValid()
+assert len(body.Shape.Solids) == len(lid.Shape.Solids) == 1
+assert abs(body.Shape.BoundBox.XLength - 155) < 1e-6
+assert abs(label.Shape.BoundBox.XMin - (baseline["label_min_x"] + 2.5)) < 1e-6
+assert abs(subtitle.Shape.BoundBox.XMin - (baseline["subtitle_min_x"] + 2.5)) < 1e-6
+changed_lettering = check_lettering()
+assert abs(linked.Shape.BoundBox.XMax - 158) < 1e-6
+assert body.Shape.common(linked.Shape).Volume < 1e-6
+
+sheet.set("B2", "150 mm")
+sheet.set("B9", "0.65 mm")
+doc.recompute()
+assert abs(body.Shape.Volume - baseline["body_volume"]) < 1e-6
+assert abs(lid.Shape.Volume - baseline["lid_volume"]) < 1e-6
+assert abs(lettering.Shape.Volume - baseline["lettering_volume"]) < 1e-6
+restored_lettering = check_lettering()
+assert not [o.Name for o in doc.Objects if "Invalid" in o.State]
+report = json.loads((OUT / "kontrola-modelu.json").read_text(encoding="utf-8"))
+report["parametric_check"] = {
+    "saved_document_reopened": True,
+    "fit_clearance_test_mm": [0.65, 0.85, 0.65],
+    "lip_width_delta_mm": -0.4,
+    "body_width_test_mm": [150, 155, 150],
+    "label_recenter_delta_mm": 2.5,
+    "subtitle_recenter_delta_mm": 2.5,
+    "lettering_rows_mm": {"baseline": baseline_lettering,
+                          "changed_body_width": changed_lettering,
+                          "restored": restored_lettering},
+    "body_and_lid_valid_after_changes": True,
+    "original_volumes_restored": True,
+    "temporary_changes_saved_to_fcstd": False,
+    "receipt_slot_central_probe_open": True,
+    "assembled_body_lid_overlap_mm3": assembly_overlap,
+}
+(OUT / "kontrola-modelu.json").write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+print("SCHRANKA_PARAMETERS_OK", flush=True)
+App.closeDocument(doc.Name)

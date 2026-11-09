@@ -1,0 +1,632 @@
+# -*- coding: utf-8 -*-
+"""V05: ornamented red wall scabbard for one knife, standard FreeCAD 1.1.3 objects only.
+
+Model frame = installed frame = print frame (nothing is rotated for export):
+  Z up, closed end on the bed at Z = 0, mouth at Parameters.MouthZ;
+  X along the wall (the 45 mm blade height), blade centred on X = 0;
+  Y depth: blade plane at Y = 0, the room towards -Y, the flat wall plane at Y = +BladeAxisFromWall.
+
+All solids are one PartDesign::Body. Sketches are fully constrained and driven by the Parameters
+sheet. No Python proxy, no element references (chamfers come from 45 degree tapered pads), so the
+saved document recomputes without this macro.
+
+Overwrites ONLY its own FCStd, STL and JSON beside this macro. Earlier revisions and the printer
+are never read or modified. Reference knife objects are illustrations, not measurements.
+"""
+from pathlib import Path
+import hashlib, json, math
+import FreeCAD as App
+import Part, Sketcher, Mesh, MeshPart
+
+OUT = Path(__file__).resolve().parent
+NAME = 'PouzdroNozeZdobeneV05'
+if NAME in App.listDocuments():
+    raise RuntimeError('Save and close the existing document first.')
+App.ParamGet('User parameter:BaseApp/Preferences/Document').SetInt('CountBackupFiles', 0)
+doc = App.newDocument(NAME)
+doc.Label = 'Zdobené červené pouzdro na nůž — revize 05'
+s = doc.addObject('Spreadsheet::Sheet', 'Parameters')
+s.Label = 'Parametry: zadání / návrh / odvozeno'
+
+GIVEN = 'ZADÁNÍ JIŘÍHO'
+OLDER = 'DŘÍVĚJŠÍ ZADÁNÍ'
+COORD = 'NÁVRHOVÁ HODNOTA Z KOORDINACE — není měření'
+DESIGN = 'NÁVRH'
+DECOR = 'NÁVRH — DEKOR'
+SECTIONS = [
+    ('Čepel a nůž', [
+        ('BladeLength', 200, 'Délka čepele pro pouzdro', GIVEN),
+        ('BladeHeight', 45, 'Výška čepele od ostří ke hřbetu', GIVEN),
+        ('BladeThickness', 3, 'Tloušťka čepele', GIVEN),
+        ('NeckGap', 10, 'Přechod mezi koncem ostří a rukojetí', OLDER),
+        ('HandleLength', 105, 'Délka rukojeti', OLDER),
+        ('HandleMaxWidth', 25, 'Největší šířka rukojeti', OLDER),
+    ]),
+    ('Dutina a odsazení', [
+        ('TipReserve', 8, 'Rezerva pod špičkou při dosednutí rukojeti na límec', COORD),
+        ('HeightClearance', 2, 'Vůle výšky čepele celkem (1 mm na stranu)', COORD),
+        ('ThicknessClearance', 1.4, 'Vůle tloušťky celkem (0,7 mm na stranu)', COORD),
+        ('BladeAxisFromWall', 24, 'Rovina čepele před stěnou; místo za rukojetí', COORD),
+        ('LeadInSide', 2.2, 'Náběh ústí na každou stranu', DESIGN),
+        ('LeadInLength', 12, 'Délka náběhu ústí', DESIGN),
+    ]),
+    ('Tělo a uzavřený konec', [
+        ('WallFlat', 2.4, 'Nepřerušená stěna pod dekorem, kolmo na dutinu', DESIGN),
+        ('CavityFloorZ', 16, 'Dno dutiny nad podložkou (uzavřený konec)', DESIGN),
+        ('TrimMargin', 12, 'Přesah konstrukčních obrysů za koncové roviny', DESIGN),
+    ]),
+    ('Zadní montáž', [
+        ('PlateThickness', 4, 'Tloušťka zadní desky na stěně', DESIGN),
+        ('PlateBevel', 1.6, 'Sražení přední hrany desky', DESIGN),
+        ('PlateHalfWidth', 39, 'Polovina šířky desky u patky a oušek', DESIGN),
+        ('PlateStripHalf', 13, 'Polovina šířky střední zadní lišty', DESIGN),
+        ('EarHeight', 14, 'Výška oušek nad rovinou ústí', DESIGN),
+        ('EarInnerX', 25, 'Vnitřní hrana oušek; volné místo pro rukojeť', DESIGN),
+        ('FootHeight', 17, 'Výška plné patky desky', DESIGN),
+        ('RibHalf', 3, 'Polovina tloušťky středního žebra', DESIGN),
+        ('TopBlockHalf', 22, 'Polovina šířky horního bloku žebra', DESIGN),
+        ('BottomBlockHalf', 14, 'Polovina šířky dolního bloku žebra', DESIGN),
+        ('BottomBlockHeight', 22, 'Výška dolního bloku žebra', DESIGN),
+        ('RibTopGap', 3, 'Odstup vršku žebra pod rovinou ústí', DESIGN),
+        ('RibEmbed', .5, 'Zapuštění žebra do těla a desky', DESIGN),
+        ('MountHole', 5.5, 'Vepsaný průměr montážního otvoru; skutečné vruty neznámé', DESIGN),
+        ('MountX', 32, 'Vzdálenost obou os vrutů od svislé osy', DESIGN),
+        ('MountEdge', 7, 'Osa vrutu od podložky a nad rovinou ústí', DESIGN),
+    ]),
+    ('Límec a koncovka', [
+        ('RimLowerProud', 2.4, 'Dolní pás límce nad čelem', DECOR),
+        ('RimUpperProud', 4.2, 'Horní pás límce nad čelem', DECOR),
+        ('RimLowerFlare', 3.4, 'Rozšíření dolního pásu za hranu těla', DECOR),
+        ('RimUpperFlare', 6.6, 'Rozšíření horního pásu za hranu těla', DECOR),
+        ('RimNotchDepth', 30, 'Střed dolního okraje límce pod ústím', DECOR),
+        ('RimUpperDepth', 22, 'Dolní okraj horního pásu pod ústím', DECOR),
+        ('RimTopBevel', 1.6, 'Sražení horní hrany límce', DECOR),
+        ('ChapeProud', 3, 'Koncovka nad čelem', DECOR),
+        ('ChapeTipHalf', 17, 'Polovina šířky hrotu koncovky ve střední rovině', DECOR),
+        ('ChapeFlare', 3.5, 'Rozšíření koncovky za hranu těla', DECOR),
+        ('ChapeNotchZ', 36, 'Střed horního okraje koncovky', DECOR),
+    ]),
+    ('Reliéf čela', [
+        ('ReliefLow', 1.2, 'Lemování a podklad emblému', DECOR),
+        ('ReliefBand', 2, 'Šikmé pásy', DECOR),
+        ('ReliefRingStep', 1, 'Prstenec emblému nad podkladem', DECOR),
+        ('ReliefGemStep', 2, 'Střed emblému nad podkladem', DECOR),
+        ('ReliefStudStep', 1, 'Výstupky límce nad horním pásem', DECOR),
+        ('RailInnerX', 18.8, 'Vnitřní hrana bočního lemování', DECOR),
+        ('RailOuterX', 24.2, 'Vnější hrana bočního lemování', DECOR),
+        ('BandHalfX', 21, 'Polovina rozpětí šikmého pásu', DECOR),
+        ('BandRise', 16, 'Zdvih ramene šikmého pásu', DECOR),
+        ('BandWidth', 7.5, 'Svislá šířka šikmého pásu', DECOR),
+        ('BandCount', 3, 'Počet pásů nad emblémem i pod ním', DECOR),
+        ('BandGapToEmblem', 4.5, 'Mezera mezi emblémem a prvním pásem', DECOR),
+        ('EmblemZ', 120, 'Výška středu emblému', DECOR),
+        ('EmblemHalfX', 24, 'Polovina šířky podkladu emblému', DECOR),
+        ('EmblemHalfZ', 46, 'Polovina výšky podkladu emblému', DECOR),
+        ('RingHalfX', 19.5, 'Prstenec: polovina šířky vně', DECOR),
+        ('RingHalfZ', 39, 'Prstenec: polovina výšky vně', DECOR),
+        ('RingInnerHalfX', 13.5, 'Prstenec: polovina šířky uvnitř', DECOR),
+        ('RingInnerHalfZ', 30, 'Prstenec: polovina výšky uvnitř', DECOR),
+        ('GemHalfX', 8, 'Střed: polovina šířky', DECOR),
+        ('GemHalfZ', 22, 'Střed: polovina výšky', DECOR),
+        ('ProngWidth', 4.4, 'Paprsky mezi středem a prstencem: šířka', DECOR),
+        ('ChapeBossHalfX', 9, 'Štítek koncovky: polovina šířky', DECOR),
+        ('ChapeBossHalfZ', 10, 'Štítek koncovky: polovina výšky', DECOR),
+        ('ChapeBossZ', 15, 'Štítek koncovky: výška středu', DECOR),
+        ('ChapeBossStep', 1.4, 'Štítek koncovky nad koncovkou', DECOR),
+        ('StudHalf', 4, 'Výstupek límce: polovina úhlopříčky', DECOR),
+        ('StudPitch', 10.5, 'Rozteč výstupků límce', DECOR),
+        ('StudCount', 5, 'Počet výstupků límce', DECOR),
+        ('StudZ', 8.5, 'Střed výstupků pod ústím', DECOR),
+    ]),
+]
+DERIVED = [
+    ('CavityT', '=BladeThickness+ThicknessClearance', 'Tloušťka dutiny'),
+    ('CavityH', '=BladeHeight+HeightClearance', 'Šířka dutiny podél stěny'),
+    ('CavityL', '=BladeLength+NeckGap+TipReserve', 'Délka dutiny: čepel + krček + rezerva'),
+    ('MouthZ', '=CavityFloorZ+CavityL', 'Rovina ústí'),
+    ('SeatTipZ', '=CavityFloorZ+TipReserve', 'Špička při dosednutí rukojeti na límec'),
+    ('HeelZ', '=MouthZ-NeckGap', 'Konec ostří při dosednutí'),
+    ('FaceOffset', '=CavityT/2+WallFlat', 'Čelo a zadní plocha těla od roviny čepele'),
+    ('RidgeX', '=CavityH/2+CavityT/2+WallFlat*sqrt(2)', 'Boční hřeben těla; zkosení drží stěnu WallFlat'),
+    ('BandSlope', '=BandRise/BandHalfX', 'Sklon všech lomených linií'),
+    ('BandRegion', '=(MouthZ-RimNotchDepth+FaceOffset/cos(atan(BandSlope)))-(EmblemZ+EmblemHalfZ+BandGapToEmblem)', 'Výška pole pásů'),
+    ('BandPitch', '=(BandRegion-BandGapToEmblem-BandWidth)/(BandCount-1)', 'Rozteč pásů'),
+    ('WallFaceY', '=BladeAxisFromWall-PlateThickness', 'Přední plocha desky od roviny čepele'),
+]
+s.set('A1', 'Parametr')
+s.set('B1', 'Hodnota')
+s.set('C1', 'Původ a omezení')
+row = 2
+ALL_VALUES = []
+for title, items in SECTIONS:
+    s.set('A%d' % row, title.upper())
+    s.setStyle('A%d' % row, 'bold')
+    row += 1
+    for alias, value, label, source in items:
+        s.set('A%d' % row, label)
+        count = alias in ('BandCount', 'StudCount')
+        s.set('B%d' % row, str(value) if count else '%s mm' % value)
+        s.setAlias('B%d' % row, alias)
+        s.set('C%d' % row, source)
+        s.setBackground('B%d' % row, (.83, .96, .88) if source in (GIVEN, OLDER) else (1, .93, .75))
+        ALL_VALUES.append((alias, value, label, source))
+        row += 1
+s.set('A%d' % row, 'ODVOZENO')
+s.setStyle('A%d' % row, 'bold')
+row += 1
+for alias, formula, label in DERIVED:
+    s.set('A%d' % row, label)
+    s.set('B%d' % row, formula)
+    s.setAlias('B%d' % row, alias)
+    s.set('C%d' % row, 'ODVOZENO Z VÝŠE OZNAČENÝCH HODNOT')
+    row += 1
+s.setColumnWidth('A', 430)
+s.setColumnWidth('B', 120)
+s.setColumnWidth('C', 360)
+doc.recompute()
+
+
+def P(alias):
+    return 'Parameters.' + alias
+
+
+def val(expr):
+    result = s.evalExpression(str(expr).replace('Parameters.', ''))
+    return float(getattr(result, 'Value', result))
+
+
+body = doc.addObject('PartDesign::Body', 'Scabbard')
+body.Label = 'TISKNOUT 1× — zdobené pouzdro V05'
+origin = {o.Role: o for o in body.Origin.OriginFeatures}
+
+
+def add_loop(sk, pts):
+    base = sk.GeometryCount
+    n = len(pts)
+    coords = [(val(a), val(b)) for a, b in pts]
+    for i in range(n):
+        p, q = coords[i], coords[(i + 1) % n]
+        sk.addGeometry(Part.LineSegment(App.Vector(p[0], p[1], 0), App.Vector(q[0], q[1], 0)), False)
+    for i in range(n):
+        sk.addConstraint(Sketcher.Constraint('Coincident', base + i, 2, base + (i + 1) % n, 1))
+    for i, ((a, b), (u, v)) in enumerate(zip(pts, coords)):
+        c = sk.addConstraint(Sketcher.Constraint('DistanceX', base + i, 1, u))
+        sk.setExpression('Constraints[%d]' % c, a)
+        c = sk.addConstraint(Sketcher.Constraint('DistanceY', base + i, 1, v))
+        sk.setExpression('Constraints[%d]' % c, b)
+
+
+def sketch(name, loops, offset=None, plane='XZ_Plane'):
+    """Closed polygons; every vertex is pinned by two expressions, so DoF is always 0."""
+    sk = body.newObject('Sketcher::SketchObject', name)
+    sk.AttachmentSupport = [(origin[plane], '')]
+    sk.MapMode = 'FlatFace'
+    if offset:
+        sk.setExpression('AttachmentOffset.Base.z', offset)
+    for pts in loops:
+        add_loop(sk, pts)
+    return sk
+
+
+def pad(name, sk, length, taper=None, symmetric=False):
+    f = body.newObject('PartDesign::Pad', name)
+    f.Profile = sk
+    f.setExpression('Length', length)
+    if symmetric:
+        f.SideType = 'Symmetric'
+    if taper is not None:
+        f.TaperAngle = taper
+    f.Refine = True
+    return f
+
+
+def hipped(name, outline, half_thickness):
+    """Outline in the blade plane, 45 deg roof to a flat plateau on both sides: the facet language."""
+    return pad(name, sketch(name + 'Outline', [outline]), '2*(%s)' % half_thickness, -45, True)
+
+
+def mirror_x(points):
+    """Closed outline symmetric about X = 0 from its +X half, listed bottom to top."""
+    neg = lambda a: '-(%s)' % a
+    return points + [(neg(a), b) for a, b in reversed(points)]
+
+
+# ---------- Body, mouth rim and chape: one faceted silhouette ----------
+Face, Ridge, Mouth, Trim = P('FaceOffset'), P('RidgeX'), P('MouthZ'), P('TrimMargin')
+Slope = P('BandSlope')
+TipBody = '(%s - 2 mm)' % P('ChapeTipHalf')
+hipped('BodyCore', mirror_x([
+    ('%s - 6 mm' % TipBody, '-6 mm'),
+    (Ridge, '%s - %s' % (Ridge, TipBody)),
+    (Ridge, '%s + 6 mm' % Mouth),
+]), Face)
+
+ChapeX = '(%s + %s)' % (Ridge, P('ChapeFlare'))
+ChapeShoulderX = '(%s - %s)' % (Ridge, Face)
+ChapeShoulderZ = '(%s + %s * %s)' % (P('ChapeNotchZ'), ChapeShoulderX, Slope)
+hipped('ChapeArmor', [
+    ('%s - 8 mm' % P('ChapeTipHalf'), '-8 mm'),
+    (ChapeX, '%s - %s' % (ChapeX, P('ChapeTipHalf'))),
+    (ChapeX, ChapeShoulderZ),
+    (ChapeShoulderX, ChapeShoulderZ),
+    ('0 mm', P('ChapeNotchZ')),
+    ('-' + ChapeShoulderX, ChapeShoulderZ),
+    ('-' + ChapeX, ChapeShoulderZ),
+    ('-' + ChapeX, '%s - %s' % (ChapeX, P('ChapeTipHalf'))),
+    ('-(%s - 8 mm)' % P('ChapeTipHalf'), '-8 mm'),
+], '%s + %s' % (Face, P('ChapeProud')))
+
+RimNotch = '(%s - %s)' % (Mouth, P('RimNotchDepth'))
+RimLowZ = '(%s - %s * %s)' % (RimNotch, Ridge, Slope)
+RimLowX = '(%s + %s)' % (Ridge, P('RimLowerFlare'))
+hipped('RimLower', [
+    ('0 mm', RimNotch),
+    ('-' + Ridge, RimLowZ),
+    ('-' + RimLowX, '%s + %s' % (RimLowZ, P('RimLowerFlare'))),
+    ('-' + RimLowX, '%s + %s' % (Mouth, Trim)),
+    (RimLowX, '%s + %s' % (Mouth, Trim)),
+    (RimLowX, '%s + %s' % (RimLowZ, P('RimLowerFlare'))),
+    (Ridge, RimLowZ),
+], '%s + %s' % (Face, P('RimLowerProud')))
+
+RimUpFace = '(%s + %s)' % (Face, P('RimUpperProud'))
+RimUpX = '(%s + %s)' % (Ridge, P('RimUpperFlare'))
+RimUpZ = '(%s - %s)' % (Mouth, P('RimUpperDepth'))
+RimUpTop = '(%s - %s + %s)' % (Mouth, P('RimTopBevel'), RimUpFace)
+hipped('RimUpper', mirror_x([
+    (Ridge, RimUpZ),
+    (RimUpX, '%s + %s' % (RimUpZ, P('RimUpperFlare'))),
+    (RimUpX, RimUpTop),
+]), RimUpFace)
+
+trim = sketch('TrimEndsOutline', [
+    [('-200 mm', Mouth), ('200 mm', Mouth), ('200 mm', '%s + 60 mm' % Mouth), ('-200 mm', '%s + 60 mm' % Mouth)],
+    [('-200 mm', '-60 mm'), ('200 mm', '-60 mm'), ('200 mm', '0 mm'), ('-200 mm', '0 mm')],
+])
+trim_ends = body.newObject('PartDesign::Pocket', 'TrimEnds')
+trim_ends.Profile = trim
+trim_ends.Type = 1
+trim_ends.SideType = 'Symmetric'
+trim_ends.Refine = True
+
+# ---------- Rear stand-off: flat wall plate and rib. Grows from the bed, needs no support ----------
+Wall, FrontOfPlate = P('BladeAxisFromWall'), P('WallFaceY')
+Half, Strip, EarIn = P('PlateHalfWidth'), P('PlateStripHalf'), P('EarInnerX')
+EarTop = '(%s + %s)' % (Mouth, P('EarHeight'))
+EarFlareZ = '(%s - (%s - %s))' % (Mouth, Half, Strip)
+FootTop = P('FootHeight')
+plate_outline = [
+    (Half, '0 mm'),
+    (Half, FootTop),
+    (Strip, '%s + (%s - %s)' % (FootTop, Half, Strip)),
+    (Strip, EarFlareZ),
+    (Half, Mouth),
+    (Half, '%s - 3 mm' % EarTop),
+    ('%s - 3 mm' % Half, EarTop),
+    (EarIn, EarTop),
+    (EarIn, '%s + 2 mm' % Mouth),
+    ('%s - 3 mm' % EarIn, '%s - 1 mm' % Mouth),
+    ('-(%s - 3 mm)' % EarIn, '%s - 1 mm' % Mouth),
+    ('-' + EarIn, '%s + 2 mm' % Mouth),
+    ('-' + EarIn, EarTop),
+    ('-(%s - 3 mm)' % Half, EarTop),
+    ('-' + Half, '%s - 3 mm' % EarTop),
+    ('-' + Half, Mouth),
+    ('-' + Strip, EarFlareZ),
+    ('-' + Strip, '%s + (%s - %s)' % (FootTop, Half, Strip)),
+    ('-' + Half, FootTop),
+    ('-' + Half, '0 mm'),
+]
+Rib, TopBlock, BottomBlock = P('RibHalf'), P('TopBlockHalf'), P('BottomBlockHalf')
+RibTop = '(%s - %s)' % (Mouth, P('RibTopGap'))
+RibFlareZ = '(%s - 8 mm - (%s - %s))' % (RibTop, TopBlock, Rib)
+rib_outline = mirror_x([
+    (BottomBlock, '0 mm'),
+    (BottomBlock, P('BottomBlockHeight')),
+    (Rib, '%s + (%s - %s)' % (P('BottomBlockHeight'), BottomBlock, Rib)),
+    (Rib, RibFlareZ),
+    (TopBlock, '%s - 8 mm' % RibTop),
+    (TopBlock, RibTop),
+])
+pad('StandoffRib', sketch('StandoffRibOutline', [rib_outline],
+                          '-(%s - %s)' % (Face, P('RibEmbed'))),
+    '%s - %s + 2 * %s' % (FrontOfPlate, Face, P('RibEmbed')))
+doc.getObject('StandoffRib').Reversed = True
+pad('WallPlate', sketch('WallPlateOutline', [plate_outline], '-' + Wall),
+    '%s - %s' % (P('PlateThickness'), P('PlateBevel')))
+pad('WallPlateBevel', sketch('WallPlateBevelOutline', [plate_outline],
+                             '-(%s - %s + %s)' % (Wall, P('PlateThickness'), P('PlateBevel'))),
+    P('PlateBevel'), -45)
+
+# ---------- Front relief: additive only, never cut into the wall ----------
+def pattern(name, original, axis, count, pitch, reversed_=False):
+    f = body.newObject('PartDesign::LinearPattern', name)
+    f.Originals = [original]
+    f.Direction = (origin[axis], [''])
+    f.Reversed = reversed_
+    f.setExpression('Occurrences', count)
+    f.setExpression('Length', '(%s - 1) * %s' % (count, pitch))
+    f.Refine = True
+    body.Tip = f  # A pattern does not move the Tip by itself; without this it would stay outside the chain.
+    return f
+
+
+Low, Band = P('ReliefLow'), P('ReliefBand')
+InX, OutX = P('RailInnerX'), P('RailOuterX')
+RailBottom, RailTop = '%s - 6 mm' % P('ChapeNotchZ'), '%s + 12 mm' % RimNotch
+pad('EdgeRails', sketch('EdgeRailsOutline', [
+    [(InX, RailBottom), (OutX, RailBottom), (OutX, RailTop), (InX, RailTop)],
+    [('-' + OutX, RailBottom), ('-' + InX, RailBottom), ('-' + InX, RailTop), ('-' + OutX, RailTop)],
+], Face), Low, -45)
+
+BX, BR, BW = P('BandHalfX'), P('BandRise'), P('BandWidth')
+EZ, EHZ, EHX = P('EmblemZ'), P('EmblemHalfZ'), P('EmblemHalfX')
+UpperBase = '(%s + %s + %s)' % (EZ, EHZ, P('BandGapToEmblem'))
+LowerBase = '(%s - %s - %s)' % (EZ, EHZ, P('BandGapToEmblem'))
+upper = sketch('BandUpperOutline', [[
+    ('0 mm', UpperBase), (BX, '%s - %s' % (UpperBase, BR)), (BX, '%s - %s + %s' % (UpperBase, BR, BW)),
+    ('0 mm', '%s + %s' % (UpperBase, BW)), ('-' + BX, '%s - %s + %s' % (UpperBase, BR, BW)),
+    ('-' + BX, '%s - %s' % (UpperBase, BR)),
+]], Face)
+upper_pad = pad('BandUpper', upper, Band, -45)
+pattern('BandUpperRow', upper_pad, 'Z_Axis', P('BandCount'), P('BandPitch'))
+lower = sketch('BandLowerOutline', [[
+    ('0 mm', LowerBase), ('-' + BX, '%s + %s' % (LowerBase, BR)), ('-' + BX, '%s + %s - %s' % (LowerBase, BR, BW)),
+    ('0 mm', '%s - %s' % (LowerBase, BW)), (BX, '%s + %s - %s' % (LowerBase, BR, BW)),
+    (BX, '%s + %s' % (LowerBase, BR)),
+]], Face)
+lower_pad = pad('BandLower', lower, Band, -45)
+pattern('BandLowerRow', lower_pad, 'Z_Axis', P('BandCount'), P('BandPitch'), True)
+
+
+
+
+def hexagon(half_x, half_z):
+    rise = '(%s) * %s' % (half_x, Slope)
+    top, bottom = '%s + %s' % (EZ, half_z), '%s - %s' % (EZ, half_z)
+    return [('0 mm', bottom), (half_x, '%s + %s' % (bottom, rise)), (half_x, '%s - %s' % (top, rise)),
+            ('0 mm', top), ('-(%s)' % half_x, '%s - %s' % (top, rise)), ('-(%s)' % half_x, '%s + %s' % (bottom, rise))]
+
+
+pad('EmblemBase', sketch('EmblemBaseOutline', [hexagon(EHX, EHZ)], Face), Low, -45)
+EmblemTop = '%s + %s' % (Face, Low)
+pad('EmblemRing', sketch('EmblemRingOutline', [hexagon(P('RingHalfX'), P('RingHalfZ'))], EmblemTop),
+    P('ReliefRingStep'), -45)
+# A tapered pad offsets an inner hole the wrong way (undercut lip), so the hole is its own shallow pocket.
+# It stops on top of the emblem base: it removes only the ring step, never the wall.
+moat = body.newObject('PartDesign::Pocket', 'EmblemMoat')
+moat.Profile = sketch('EmblemMoatOutline', [hexagon(P('RingInnerHalfX'), P('RingInnerHalfZ'))],
+                      '%s + %s' % (EmblemTop, P('ReliefRingStep')))
+moat.setExpression('Length', P('ReliefRingStep'))
+moat.TaperAngle = -45
+moat.Refine = True
+pad('EmblemGem', sketch('EmblemGemOutline', [hexagon(P('GemHalfX'), P('GemHalfZ'))], EmblemTop),
+    P('ReliefGemStep'), -45)
+
+# Six prongs hold the centre in the ring, each overlapping both so the relief stays one piece.
+GX, GZ = P('GemHalfX'), P('GemHalfZ')
+RX, RZ = P('RingInnerHalfX'), P('RingInnerHalfZ')
+PW = '(%s / 2)' % P('ProngWidth')
+corner = lambda hx, hz: '%s - (%s) * %s' % (hz, hx, Slope)
+GemCorner, RingCorner = corner(GX, GZ), corner(RX, RZ)
+
+
+def prong_side(sx, sz):
+    x = lambda a: '(%s) * (%s)' % (sx, a)
+    z = lambda a, d: '%s + (%s) * (%s) + %s' % (EZ, sz, a, d)
+    return [(x('%s - 1 mm' % GX), z(GemCorner, '-' + PW)), (x('%s + 1 mm' % RX), z(RingCorner, '-' + PW)),
+            (x('%s + 1 mm' % RX), z(RingCorner, PW)), (x('%s - 1 mm' % GX), z(GemCorner, PW))]
+
+
+def prong_end(sz):
+    z = lambda a: '%s + (%s) * (%s)' % (EZ, sz, a)
+    return [('-' + PW, z('%s - 2 mm' % GZ)), (PW, z('%s - 2 mm' % GZ)), (PW, z('%s + 1 mm' % RZ)), ('-' + PW, z('%s + 1 mm' % RZ))]
+
+
+pad('EmblemProngs', sketch('EmblemProngsOutline', [
+    prong_side(1, 1), prong_side(-1, 1), prong_side(1, -1), prong_side(-1, -1), prong_end(1), prong_end(-1)], EmblemTop),
+    P('ReliefRingStep'), -45)
+
+ChapeFace = '%s + %s' % (Face, P('ChapeProud'))
+BZ, BHX, BHZ = P('ChapeBossZ'), P('ChapeBossHalfX'), P('ChapeBossHalfZ')
+boss_rise = '(%s) * %s' % (BHX, Slope)
+pad('ChapeBoss', sketch('ChapeBossOutline', [[
+    ('0 mm', '%s - %s' % (BZ, BHZ)), (BHX, '%s - %s + %s' % (BZ, BHZ, boss_rise)), (BHX, '%s + %s - %s' % (BZ, BHZ, boss_rise)),
+    ('0 mm', '%s + %s' % (BZ, BHZ)), ('-' + BHX, '%s + %s - %s' % (BZ, BHZ, boss_rise)), ('-' + BHX, '%s - %s + %s' % (BZ, BHZ, boss_rise)),
+]], ChapeFace), P('ChapeBossStep'), -45)
+
+StudZ = '(%s - %s)' % (Mouth, P('StudZ'))
+StudStart = '(-(%s - 1) * %s / 2)' % (P('StudCount'), P('StudPitch'))
+stud = pad('RimStud', sketch('RimStudOutline', [[
+    (StudStart, '%s - %s' % (StudZ, P('StudHalf'))),
+    ('%s + %s' % (StudStart, P('StudHalf')), StudZ),
+    (StudStart, '%s + %s' % (StudZ, P('StudHalf'))),
+    ('%s - %s' % (StudStart, P('StudHalf')), StudZ),
+]], RimUpFace), P('ReliefStudStep'), -45)
+pattern('RimStudRow', stud, 'X_Axis', P('StudCount'), P('StudPitch'))
+
+# ---------- Functional cuts last, so nothing added above can reach the blade path ----------
+HT, HH = '%s / 2' % P('CavityT'), '%s / 2' % P('CavityH')
+
+
+def rectangle(half_x, half_y):
+    return [('-(%s)' % half_x, '-(%s)' % half_y), (half_x, '-(%s)' % half_y), (half_x, half_y), ('-(%s)' % half_x, half_y)]
+
+
+cavity = body.newObject('PartDesign::Pocket', 'Cavity')
+cavity.Profile = sketch('CavitySection', [rectangle(HH, HT)], Mouth, 'XY_Plane')
+cavity.setExpression('Length', P('CavityL'))
+cavity.Refine = True
+lead = body.newObject('PartDesign::SubtractiveLoft', 'MouthLeadIn')
+lead.Profile = sketch('LeadInMouth', [rectangle('%s + %s' % (HH, P('LeadInSide')), '%s + %s' % (HT, P('LeadInSide')))],
+                      Mouth, 'XY_Plane')
+lead.Sections = [sketch('LeadInEnd', [rectangle(HH, HT)], '%s - %s' % (Mouth, P('LeadInLength')), 'XY_Plane')]
+lead.Ruled = True
+lead.Refine = True
+
+
+def screw_hole(cx, cz):
+    """Circumscribes the circle; the roof is two 45 deg lines, so it prints upright without a bridge."""
+    r, k = '(%s / 2)' % P('MountHole'), '(sqrt(2) - 1)'
+    x = lambda f: '%s + (%s) * %s' % (cx, f, r)
+    z = lambda f: '%s + (%s) * %s' % (cz, f, r)
+    return [(x('-%s' % k), z('-1')), (x(k), z('-1')), (x('1'), z('-%s' % k)), (x('1'), z(k)),
+            (cx, z('sqrt(2)')), (x('-1'), z(k)), (x('-1'), z('-%s' % k))]
+
+
+holes = body.newObject('PartDesign::Pocket', 'MountHoles')
+holes.Profile = sketch('MountHolesOutline', [
+    screw_hole(P('MountX'), '%s + %s' % (Mouth, P('MountEdge'))),
+    screw_hole('-' + P('MountX'), P('MountEdge')),
+], '-' + FrontOfPlate)
+holes.setExpression('Length', '%s + 1 mm' % P('PlateThickness'))
+holes.Refine = True
+body.Tip = holes
+doc.recompute()
+
+# ---------- Self checks during generation; the full evidence is audit-pouzdra.FCMacro ----------
+broken = [o.Name for o in doc.Objects if 'Invalid' in o.State or 'Error' in o.State]
+assert not broken, broken
+shape = body.Shape
+assert shape.isValid() and len(shape.Solids) == 1, (shape.isValid(), len(shape.Solids))
+sketches = [o for o in doc.Objects if o.TypeId == 'Sketcher::SketchObject']
+assert all(o.FullyConstrained for o in sketches), [o.Name for o in sketches if not o.FullyConstrained]
+assert not [o.Name for o in doc.Objects if o.TypeId == 'App::FeaturePython' or hasattr(o, 'Proxy')]
+
+
+# ---------- Reference knife: hidden, illustrative. Stops with the wider handle on the mouth ----------
+def box(name, label, dims, pos):
+    o = doc.addObject('Part::Box', name)
+    o.Label = label
+    for k, v in zip(('Length', 'Width', 'Height'), dims):
+        o.setExpression(k, v)
+    for k, v in zip('xyz', pos):
+        o.setExpression('Placement.Base.' + k, v)
+    return o
+
+
+blade_env = box('BladeEnvelope', 'REFERENCE 200 × 45 × 3 — obálka zadané čepele, dosednutá poloha',
+                [P('BladeHeight'), P('BladeThickness'), P('BladeLength')],
+                ['-%s / 2' % P('BladeHeight'), '-%s / 2' % P('BladeThickness'), P('SeatTipZ')])
+heel = s.HeelZ.Value
+tip = s.SeatTipZ.Value
+half_h, half_t = s.BladeHeight.Value / 2, s.BladeThickness.Value / 2
+# Illustrative outline only: spine on +X, a tip inside the envelope. The real tip shape is unknown.
+outline = [(half_h, tip + 12), (half_h, heel), (-half_h, heel), (-half_h, tip + 72), (half_h - 26, tip + 18), (half_h - 3, tip)]
+blade_face = Part.Face(Part.makePolygon([App.Vector(x, -half_t, z) for x, z in outline + outline[:1]]))
+illustrative = doc.addObject('Part::Feature', 'IllustrativeBlade')
+illustrative.Label = 'ILUSTRACE — obrys čepele a špičky není změřený'
+illustrative.Shape = blade_face.extrude(App.Vector(0, 2 * half_t, 0))
+neck_shape = Part.makeBox(12, s.BladeThickness.Value, s.NeckGap.Value,
+                          App.Vector(half_h - 12, -half_t, heel))
+neck = doc.addObject('Part::Feature', 'IllustrativeNeck')
+neck.Label = 'ILUSTRACE — krček 10 mm tenký jako čepel, tedy průchozí ústím (nejnepříznivější případ délky)'
+neck.Shape = neck_shape
+handle_shape = Part.makeLoft([
+    Part.Wire(Part.Ellipse(App.Vector(half_h - 12.5, 0, z), 12.5, w / 2).toShape())
+    for z, w in ((s.MouthZ.Value, 22), (s.MouthZ.Value + s.HandleLength.Value, s.HandleMaxWidth.Value))
+], True, True)
+handle = doc.addObject('Part::Feature', 'IllustrativeHandle')
+handle.Label = 'ILUSTRACE — délka 105, šířka do 25; výška 25 a tvar jsou návrh, dosedá na límec'
+handle.Shape = handle_shape
+group = doc.addObject('App::DocumentObjectGroup', 'KnifeReference')
+group.Label = 'REFERENCE NOŽE — ilustrace, netisknout, není změřený tvar'
+group.Group = [blade_env, illustrative, neck, handle]
+doc.recompute()
+
+# ---------- Native parameter test on the live document, values restored afterwards ----------
+reference = shape.Volume
+
+
+def probe(changes):
+    for alias, value in changes:
+        s.set(alias, value)
+    doc.recompute()
+    sh = body.Shape
+    result = {'valid': sh.isValid(), 'solids': len(sh.Solids), 'mouth_z': s.MouthZ.Value,
+              'cavity': [s.CavityH.Value, s.CavityT.Value, s.CavityL.Value], 'volume': sh.Volume,
+              'state': [o.Name for o in doc.Objects if 'Invalid' in o.State or 'Error' in o.State]}
+    assert result['valid'] and result['solids'] == 1 and not result['state'], result
+    return result
+
+
+parameter_test = {
+    'thickness_4_5': probe([('BladeThickness', '4.5 mm')]),
+    'length_190': probe([('BladeThickness', '3 mm'), ('BladeLength', '190 mm')]),
+    'band_count_2': probe([('BladeLength', '200 mm'), ('BandCount', '2')]),
+    'axis_from_wall_22': probe([('BandCount', '3'), ('BladeAxisFromWall', '22 mm')]),
+}
+probe([('BladeAxisFromWall', '24 mm')])
+assert abs(body.Shape.Volume - reference) < 1e-4, (body.Shape.Volume, reference)
+assert parameter_test['band_count_2']['volume'] < reference - 50, 'band rows are not in the feature chain'
+shape = body.Shape
+
+# ---------- Exports: the STL is the final object in its own frame, only shifted onto the bed ----------
+bb = shape.optimalBoundingBox(False, False)
+print_shape = shape.copy()
+stl_offset = [-bb.XMin, -bb.YMin, -bb.ZMin]
+print_shape.translate(App.Vector(*stl_offset))
+(OUT / 'stl').mkdir(exist_ok=True)
+stl_path = OUT / 'stl/pouzdro-zdobene.stl'
+mesh = MeshPart.meshFromShape(Shape=print_shape, LinearDeflection=.03, AngularDeflection=.10, Relative=False)
+mesh.write(str(stl_path))
+m = Mesh.Mesh(str(stl_path))
+assert m.isSolid() and m.countComponents() == 1 and not m.hasNonManifolds()
+digest = hashlib.sha256(stl_path.read_bytes()).hexdigest()
+mb = m.BoundBox
+bounds = [mb.XLength, mb.YLength, mb.ZLength]
+
+record = {
+    'revision': '05', 'units': 'mm', 'object': body.Name, 'object_type': body.TypeId,
+    'frame': 'Z up = print and installed vertical; closed end on bed; X along wall; Y from room (-) to wall (+)',
+    'export_mapping': 'translation only',
+    'stl_offset_mm': stl_offset,
+    'parameters': {a: v for a, v, _, _ in ALL_VALUES},
+    'parameter_source': {a: src for a, _, _, src in ALL_VALUES},
+    'derived': {a: getattr(s, a) if isinstance(getattr(s, a), (int, float)) else getattr(s, a).Value for a, _, _ in DERIVED},
+    'overall_mm': [bb.XLength, bb.YLength, bb.ZLength], 'overall_method': 'optimalBoundingBox',
+    'part': {'valid': True, 'solids': 1, 'volume_mm3': shape.Volume, 'faces': len(shape.Faces),
+             'stl_closed': True, 'stl_components': 1, 'facets': m.CountFacets, 'stl_sha256': digest,
+             'bbox_print_mm': bounds},
+    'native_fully_constrained_sketches': len(sketches),
+    'features': [o.Name for o in body.Group if not o.TypeId.startswith('Sketcher')],
+    'parameter_test': parameter_test,
+    'physical_print_verified': False,
+}
+manifest = {
+    'revision': '05', 'units': 'mm', 'physical_part_count': 1,
+    'parts': [{
+        'id': 'pouzdro-zdobene', 'name': 'Zdobené pouzdro na nůž — 1 kus',
+        'file': 'stl/pouzdro-zdobene.stl', 'quantity': 1, 'sha256': digest, 'bbox_mm': bounds,
+        'orientation': 'Svisle ústím nahoru jako po montáži: uzavřený konec, spodek žebra a patka zadní desky na podložce.',
+        'supports': False,
+        'support_note': 'Dutina a náběh jsou shora otevřené. Dolní plochy dekoru, límce a střechy obou vrutových otvorů mají 45°, jen čtyři přechody dolních křídel límce lokálně až cca 49,2° podle STL (asi 31 mm² nad 45,5°). Řez této varianty je bez nových ostrovů a bez podpor; kvalita těchto míst není fyzicky ověřená.',
+        'critical_z_mm': [.2, 1, 3, s.CavityFloorZ.Value, s.CavityFloorZ.Value + .4, s.FootHeight.Value,
+                           s.SeatTipZ.Value, s.ChapeNotchZ.Value, s.EmblemZ.Value,
+                           s.MouthZ.Value - s.RimNotchDepth.Value, s.MouthZ.Value - s.LeadInLength.Value,
+                           s.MouthZ.Value - .2, s.MouthZ.Value + .2, s.MouthZ.Value + s.MountEdge.Value,
+                           s.MouthZ.Value + s.EarHeight.Value],
+        # Model facts in the STL frame, so the toolpath check needs no second copy of the dimensions.
+        'blade_path': {
+            'blade_half_xy_mm': [s.BladeHeight.Value / 2, s.BladeThickness.Value / 2],
+            'cavity_half_xy_mm': [s.CavityH.Value / 2, s.CavityT.Value / 2],
+            'centre_xy_mm': stl_offset[:2],
+            'floor_z_mm': s.CavityFloorZ.Value, 'mouth_z_mm': s.MouthZ.Value,
+            'lead_in_start_z_mm': s.MouthZ.Value - s.LeadInLength.Value,
+        },
+        'mount_holes': [
+            {'x_mm': stl_offset[0] + s.MountX.Value, 'z_mm': s.MouthZ.Value + s.MountEdge.Value},
+            {'x_mm': stl_offset[0] - s.MountX.Value, 'z_mm': s.MountEdge.Value},
+        ],
+        'mount_hole_diameter_mm': s.MountHole.Value,
+        'wall_plate_y_mm': [stl_offset[1] + s.WallFaceY.Value, stl_offset[1] + s.BladeAxisFromWall.Value],
+    }],
+}
+if App.GuiUp:
+    for o in doc.Objects:
+        if hasattr(o, 'ViewObject') and o.ViewObject:
+            o.ViewObject.Visibility = o == body
+doc.saveAs(str(OUT / 'pouzdro.FCStd'))
+(OUT / 'kontrola-modelu.json').write_text(json.dumps(record, ensure_ascii=False, indent=2) + '\n')
+(OUT / 'print-manifest.json').write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + '\n')
+print('V05_CAD_OK ' + json.dumps({k: record[k] for k in ('overall_mm', 'part')}, ensure_ascii=False), flush=True)

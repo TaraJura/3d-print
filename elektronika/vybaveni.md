@@ -1,6 +1,19 @@
 # Vybavení a materiál
 
-Kanonický inventář pomůcek pro elektroniku a montáž v tomto osobním projektu. Stav doplněný **23. 9. 2026** vychází z uživatelských potvrzení, fotografií a zaznamenané zkoušky; údaje o sestavování serva a nové sadě kondenzátorů jsou pouze hlasová hlášení. Nejde o úplnou inventuru domácnosti; celkové počty nebyly sepsané. Parametry tiskárny a sklad filamentů zůstávají v [tiskárně](../docs/tiskarna.md) a [materiálech](../docs/materialy.md).
+Kanonický inventář pomůcek pro elektroniku a montáž v tomto osobním projektu. Poslední doplnění **4. 10. 2026** je hlasové hlášení o příjmu čteček a audio zesilovače. Starší záznamy vycházejí z uživatelských potvrzení, fotografií a zaznamenané zkoušky; údaje o sestavování serva a sadě kondenzátorů jsou pouze hlasová hlášení. Nejde o úplnou inventuru domácnosti; celkové počty nebyly sepsané. Parametry tiskárny a sklad filamentů zůstávají v [tiskárně](../docs/tiskarna.md) a [materiálech](../docs/materialy.md).
+
+## Příjem čteček a audio zesilovače (4. 10. 2026)
+
+Jiří hlasem potvrdil, že následující položky **přišly a má je k dispozici**. Jde o hlášený příjem, nikoli o fyzické přepočítání nebo funkční zkoušku.
+
+| Položka | Hlášený příjem | Omezení evidence |
+|---|---|---|
+| RC522 RFID čtečky | **Přibližně 10 dalších kusů** v nové zásilce | Přesný počet nové zásilky ani celkový počet vlastněných čteček nejsou potvrzené. Nelze z toho odvodit skladový součet s dřívější objednávkou; nové kusy nebyly potvrzeně použité ani otestované. |
+| Audio zesilovač, pravděpodobně PAM8403 | Příjem potvrzený, **počet nepočítán** | Hlasový popis „SOP-16 SMD PAM/PAN8403 2×3“ odpovídá pravděpodobně PAM8403 2×3 W. Označení konkrétního čipu/modulu ani pouzdro nebyly ověřené fotografií; model a parametry vlastněného kusu zůstávají předběžné. Zapojení a funkčnost nepotvrzené. |
+
+Pokud jde skutečně o PAM8403, [datasheet výrobce Diodes](https://www.diodes.com/datasheet/download/PAM8403.pdf) popisuje stereo audio zesilovač třídy D v SOP-16, napájení 2,5–5,5 V a přibližně 3 W na kanál při 5 V / 4 Ω / 10 % THD. To je specifikace tohoto modelu, nikoli identifikace nebo měření přijatého dílu. Jde o zesilovač zvuku pro reproduktory, ne o VF zesilovač dosahu RFID.
+
+Historická objednávka **6 RC522 dne 29. 9. 2026** pro Live Game Defender zůstává záznamem objednávky v [projektové poznámce Brainu](/home/novakj/projects/techtools-brain/projects/casino-table-monitor/notes/2026-09-29-rfid-prototype-order.md), nikoli potvrzeným aktuálním skladovým součtem.
 
 ## Převzatá sada kondenzátorů
 

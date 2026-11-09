@@ -1,0 +1,145 @@
+# -*- coding: utf-8 -*-
+"""Skutečné CAD náhledy skříňky, zavřené a otevřené dvířka.
+
+Přepíše zdejší skrinka.FCStd pouze uloženým stavem zobrazení/otevření,
+nahled-zavreno-cad.png, nahled-otevreno-cad.png a kontrola-nahledu.json.
+STL, zdroj geometrie a seznam tiskových dílů nemění. Bílá keramická
+obálka je pouze schematická kontextová geometrie; po snímání se odstraní.
+"""
+from pathlib import Path
+import json
+import FreeCAD as App
+import FreeCADGui as Gui
+import Part
+from PySide import QtCore
+from pivy import coin
+
+OUT = Path(__file__).resolve().parent
+doc = App.openDocument(str(OUT / 'skrinka.FCStd'))
+doc.recompute()
+sheet = doc.getObject('Parameters')
+assert sheet
+prefixes = ('BokLevy_', 'BokPravy_', 'DvereLeve_', 'DverePrave_', 'Cep_',
+            'Pricka_', 'SpojPricky_', 'Roh_', 'SpojBoku_', 'SpojDveri_')
+assembly = [o for o in doc.Objects if o.TypeId == 'App::Link' and o.Name.startswith(prefixes)]
+assert len(assembly) == 54, [o.Name for o in assembly]
+invalid = [o.Name for o in doc.Objects if 'Invalid' in o.State]
+assert not invalid, invalid
+view = Gui.activeDocument().activeView()
+
+def opening(angle):
+    sheet.set(sheet.getCellFromAlias('LeftOpening'), f'{angle} deg')
+    sheet.set(sheet.getCellFromAlias('RightOpening'), f'{angle} deg')
+    doc.recompute()
+
+def show_final():
+    for o in doc.Objects:
+        if hasattr(o, 'ViewObject'):
+            o.ViewObject.Visibility = o in assembly
+        if hasattr(o, 'Shape') and hasattr(o.ViewObject, 'ShapeColor'):
+            o.ViewObject.ShapeColor = (0.075, 0.083, 0.092)
+            o.ViewObject.LineColor = (0.26, 0.29, 0.33)
+            o.ViewObject.LineWidth = 1.1
+            o.ViewObject.DisplayMode = 'Flat Lines'
+            try:
+                material = o.ViewObject.ShapeMaterial
+                material.DiffuseColor = (0.075, 0.083, 0.092)
+                material.AmbientColor = (0.075, 0.083, 0.092)
+                material.SpecularColor = (0.20, 0.22, 0.25)
+                material.Shininess = 20
+                o.ViewObject.ShapeMaterial = material
+            except Exception:
+                pass
+
+def indicative_sink():
+    # Záměrně schematický rozměrový obrys; není model skutečné keramiky.
+    w, d, h = sheet.CabinetWidth.Value, sheet.CabinetDepth.Value, 65.0
+    outer = Part.makeBox(w, d, h, App.Vector(0, 0, sheet.CabinetHeight.Value + 2))
+    vertical = [e for e in outer.Edges if e.BoundBox.ZLength > h - 1]
+    outer = outer.makeFillet(7, vertical)
+    inner = Part.makeBox(w-36, d-36, h, App.Vector(18, 18, sheet.CabinetHeight.Value+18))
+    vertical = [e for e in inner.Edges if e.BoundBox.ZLength > h - 1]
+    inner = inner.makeFillet(10, vertical)
+    sink = doc.addObject('Part::Feature', 'IndicativeSinkForPreview')
+    sink.Label = 'Pouze schematický obrys umyvadla 370 × 180, nepředávaný díl'
+    sink.Shape = outer.cut(inner)
+    sink.ViewObject.ShapeColor = (0.93, 0.94, 0.95)
+    sink.ViewObject.LineColor = (0.57, 0.60, 0.64)
+    sink.ViewObject.LineWidth = 1.1
+    sink.ViewObject.DisplayMode = 'Flat Lines'
+    sink.ViewObject.Visibility = True
+    return sink
+
+def camera(eye, aspect=1.0, include_sink=True):
+    eye = App.Vector(*eye)
+    up = App.Vector(0, 0, 1)
+    view.setCameraType('Orthographic')
+    rotation = App.Rotation(up.cross(eye), up, eye, 'ZXY')
+    shown = assembly + ([sink] if include_sink else [])
+    bbox = Part.makeCompound([o.Shape for o in shown]).BoundBox
+    corners = [App.Vector(x,y,z) for x in (bbox.XMin,bbox.XMax)
+               for y in (bbox.YMin,bbox.YMax) for z in (bbox.ZMin,bbox.ZMax)]
+    projected = [rotation.inverted().multVec(v-bbox.Center) for v in corners]
+    dx = max(v.x for v in projected)-min(v.x for v in projected)
+    dy = max(v.y for v in projected)-min(v.y for v in projected)
+    node = view.getCameraNode()
+    node.orientation.setValue(rotation.Q)
+    position = bbox.Center + eye.normalize()*1600
+    node.position.setValue(position.x,position.y,position.z)
+    node.height.setValue(max(dy,dx/aspect)*1.13)
+    node.nearDistance.setValue(1)
+    node.farDistance.setValue(4000)
+    view.redraw()
+    Gui.updateGui()
+
+def start():
+    global sink
+    Gui.getMainWindow().resize(1300, 1300)
+    opening(0)
+    show_final()
+    sink = indicative_sink()
+    doc.recompute()
+    camera((-0.55, 1.85, 0.78))
+    QtCore.QTimer.singleShot(1300, save_closed)
+
+def save_closed():
+    view.saveImage(str(OUT/'nahled-zavreno-cad.png'),1800,1800,'Transparent')
+    opening(90)
+    sink.ViewObject.Visibility = True
+    camera((-0.72, 1.9, 0.91))
+    QtCore.QTimer.singleShot(1200, save_open)
+
+def save_open():
+    view.saveImage(str(OUT/'nahled-otevreno-cad.png'),1800,1800,'Transparent')
+    doc.removeObject(sink.Name)
+    opening(0)
+    show_final()
+    camera((-0.55,1.85,0.78), include_sink=False)
+    doc.save()
+    filename = doc.FileName
+    expected = [o.Name for o in assembly]
+    App.closeDocument(doc.Name)
+    reopened = App.openDocument(filename)
+    reopened.recompute()
+    visible = [o.Name for o in reopened.Objects if hasattr(o,'Shape') and o.ViewObject.Visibility]
+    assert set(visible)==set(expected), (visible,expected)
+    bad = [o.Name for o in reopened.Objects if 'Invalid' in o.State]
+    bad_shapes = [o.Name for o in reopened.Objects if hasattr(o,'Shape') and
+                  not o.Shape.isNull() and not o.Shape.isValid()]
+    assert not bad and not bad_shapes, (bad,bad_shapes)
+    assert not reopened.getObject('IndicativeSinkForPreview')
+    assert abs(reopened.Parameters.LeftOpening.Value)<1e-8
+    assert abs(reopened.Parameters.RightOpening.Value)<1e-8
+    report = {'saved_reopened':True, 'visible_assembly_count':len(visible),
+              'visible_objects':visible, 'visible_objects_all_links':all(reopened.getObject(n).TypeId=='App::Link' for n in visible),
+              'invalid_objects':bad,'invalid_shapes':bad_shapes,
+              'left_opening_deg':0,'right_opening_deg':0,
+              'reference_sink_saved_in_fcstd':False,
+              'reference_sink_note':'Bílý obrys v PNG je schematický, není přesný model skutečné keramiky.',
+              'images':['nahled-zavreno-cad.png','nahled-otevreno-cad.png']}
+    (OUT/'kontrola-nahledu.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+    print('SKRINKA_RENDER_OK',flush=True)
+    App.closeDocument(reopened.Name)
+    Gui.getMainWindow().close()
+
+QtCore.QTimer.singleShot(900,start)

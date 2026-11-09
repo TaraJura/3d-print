@@ -1,0 +1,65 @@
+{
+  "shape_valid": true,
+  "solids": 1,
+  "bounds_mm": {
+    "x": 58.0,
+    "y": 58.0,
+    "z": 86.0,
+    "z_min": 0.0
+  },
+  "volume_mm3": 51751.24430140585,
+  "stl_facets": 17930,
+  "stl_closed_after_reload": true,
+  "stl_components_after_reload": 1,
+  "design_parameters_mm": {
+    "FootWidth": 58,
+    "FootDepth": 40,
+    "FootHeight": 2,
+    "FootRadius": 6,
+    "BaseWidth": 50,
+    "BaseDepth": 32,
+    "BaseHeight": 20,
+    "BaseRadius": 4,
+    "StemRadius": 4.8,
+    "CupZ": 50,
+    "CupHeight": 33,
+    "CupBottomRadius": 7,
+    "CupTopRadius": 28,
+    "RimHeight": 3,
+    "RimRadius": 29,
+    "CupFloor": 2,
+    "CupInnerBottom": 6,
+    "CupInnerTop": 27.5,
+    "Relief": 0.55,
+    "CardWidth": 16,
+    "CardHeight": 27,
+    "CardThickness": 2.6,
+    "CardRadius": 2,
+    "CardZ": 21
+  },
+  "one_piece": true,
+  "copies": 1,
+  "physical_print_verified": false,
+  "front": "Y<0",
+  "name_on_back": "JIŘÍ NOVÁK",
+  "texts": [
+    "POKER",
+    "VÍTĚZ",
+    "PRAHA",
+    "9. 10. 2026"
+  ],
+  "support_design": "self-supporting cone; relief 0.55 mm; verify actual sliced paths",
+  "gui_validation": {
+    "saved_and_reopened": true,
+    "only_visible_geometry": [
+      "Pohar"
+    ],
+    "cup_height_33_to_35_to_33": true,
+    "base_width_50_to_52_to_50": true,
+    "previews": [
+      "nahled-cad.png",
+      "nahled-celni.png",
+      "nahled-zadni.png"
+    ]
+  }
+}

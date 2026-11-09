@@ -1,0 +1,152 @@
+# -*- coding: utf-8 -*-
+"""Otevřený organizér: 9 přihrádek + dlouhý žlab, jeden tisknutelný díl.
+
+Spouštět ve skutečném FreeCADu. Přepíše POUZE organizer.FCStd,
+stl/organizer.stl a kontrola-modelu.json vedle tohoto makra.
+Náhled/uloženou viditelnost vytváří nahled.FCMacro. Regenerace přebírá
+hodnoty níže, ne případné neuložené ruční úpravy v jiném dokumentu.
+Všechny rozměry kromě přibližné výšky přihrádek 100 mm jsou návrhové.
+"""
+from pathlib import Path
+import json
+import math
+import FreeCAD as App
+import Part
+import Sketcher
+import Mesh
+import MeshPart
+
+OUT = Path(__file__).resolve().parent
+(OUT / 'stl').mkdir(exist_ok=True)
+doc = App.newDocument('OrganizerElektroniky')
+doc.Label = 'Organizér elektroniky na zeď · 10 přihrádek'
+sheet = doc.addObject('Spreadsheet::Sheet', 'Parameters')
+sheet.Label = 'Parametry v mm · zadání a návrhové hodnoty'
+PARAMETERS = [
+    ('Width', 'Vnější šířka', 246, 'NÁVRH: profil Kobra X 260, brim5 + mezera0.1 + rezerva'),
+    ('Depth', 'Vnější hloubka / vyložení od zdi', 246, 'NÁVRH: maximální praktický půdorys s brimem'),
+    ('BinDepth', 'Čistá výška přihrádek nad dnem', 100, 'ZADÁNO: přibližně 100 mm'),
+    ('Floor', 'Tloušťka dna', 4, 'NÁVRH'),
+    ('Wall', 'Tloušťka vnějších stěn', 3.6, 'NÁVRH'),
+    ('Divider', 'Tloušťka vnitřních přepážek', 2.4, 'NÁVRH'),
+    ('Back', 'Zesílená zadní stěna', 8, 'NÁVRH'),
+    ('ToolWidth', 'Čistá šířka dlouhého žlabu', 60, 'NÁVRH'),
+    ('MountRise', 'Převýšení montážních zad nad přihrádkami', 46, 'NÁVRH'),
+    ('ScrewInset', 'Odsazení šroubů od boků', 30, 'NÁVRH'),
+    ('LowerOffset', 'Spodní otvory nad hranou přihrádek', 12, 'NÁVRH'),
+    ('ScrewPitch', 'Svislá rozteč otvorů', 20, 'NÁVRH'),
+    ('HoleDiameter', 'Kruhový průchod uvnitř kapkového otvoru', 5.5, 'NÁVRH: skutečné šrouby nepotvrzené'),
+    ('BraceReach', 'Dosah klínových výztuh dovnitř od zad', 28, 'NÁVRH'),
+    ('BraceThickness', 'Tloušťka dvou klínových výztuh', 6, 'NÁVRH'),
+]
+for c,v in [('A1','Parametr'),('B1','Hodnota'),('C1','Původ / omezení')]: sheet.set(c,v)
+sheet.setStyle('A1:C1','bold','add')
+for row,(alias,label,value,origin) in enumerate(PARAMETERS,2):
+    sheet.set('A%d'%row,label); sheet.set('B%d'%row,'%g mm'%value)
+    sheet.setAlias('B%d'%row,alias); sheet.set('C%d'%row,origin)
+    sheet.setBackground('B%d'%row,(0.86,0.94,0.89) if alias=='BinDepth' else (1.,0.94,0.78))
+derived = [
+    ('Top','Horní hrana přihrádek','=Floor+BinDepth'),
+    ('OverallHeight','Celková výška včetně zad','=Top+MountRise'),
+    ('GridWidth','Šířka mřížky mezi vnější stěnou a žlabem','=Width-2*Wall-ToolWidth-Divider'),
+    ('CellWidth','Čistá šířka malé přihrádky','=(GridWidth-2*Divider)/3'),
+    ('InnerDepth','Čistá délka dlouhého žlabu','=Depth-Wall-Back'),
+    ('CellDepth','Čistá hloubka malé přihrádky','=(InnerDepth-2*Divider)/3'),
+]
+for row,(alias,label,formula) in enumerate(derived,18):
+    sheet.set('A%d'%row,label);sheet.set('B%d'%row,formula);sheet.setAlias('B%d'%row,alias)
+    sheet.set('C%d'%row,'ODVOZENO; neměnit samostatně')
+sheet.setColumnWidth('A',370);sheet.setColumnWidth('B',130);sheet.setColumnWidth('C',550)
+doc.recompute()
+
+def expr(obj,prop,value): obj.setExpression(prop,value)
+P='Parameters.'
+W,D,F,T,B,I,G,CW,CD,ID=[P+k for k in ('Width','Depth','Floor','Top','Back','Divider','GridWidth','CellWidth','CellDepth','InnerDepth')]
+wall=P+'Wall'
+def box(name,x,y,z,dx,dy,dz):
+    o=doc.addObject('Part::Box',name)
+    for key,value in [('Placement.Base.x',x),('Placement.Base.y',y),('Placement.Base.z',z),('Length',dx),('Width',dy),('Height',dz)]:expr(o,key,value)
+    return o
+
+parts=[box('Floor','0 mm','0 mm','0 mm',W,D,F),
+       box('Front','0 mm','0 mm',F,W,wall,P+'BinDepth'),
+       box('Left','0 mm',wall,F,wall,ID,P+'BinDepth'),
+       box('Right',W+'-'+wall,wall,F,wall,ID,P+'BinDepth'),
+       box('Back','0 mm',D+'-'+B,'0 mm',W,B,P+'OverallHeight')]
+for col in (1,2):
+    parts.append(box('DividerX%d'%col,wall+'+%d*%s+%d*%s'%(col,CW,col-1,I),wall,F,I,ID,P+'BinDepth'))
+parts.append(box('ToolDivider',wall+'+'+G,wall,F,I,ID,P+'BinDepth'))
+for row in (1,2):
+    parts.append(box('DividerY%d'%row,wall,wall+'+%d*%s+%d*%s'%(row,CD,row-1,I),F,G,I,P+'BinDepth'))
+
+def triangle(name,points):
+    s=doc.addObject('Sketcher::SketchObject',name)
+    for i in range(3): s.addGeometry(Part.LineSegment(App.Vector(*points[i],0),App.Vector(*points[(i+1)%3],0)),False)
+    for i in range(3):s.addConstraint(Sketcher.Constraint('Coincident',i,2,(i+1)%3,1))
+    return s
+
+# Two self-supporting gussets. Their section shrinks with increasing Z.
+brace=triangle('BraceSection',[(0,0),(28,0),(28,100.5)])
+brace.addConstraint(Sketcher.Constraint('Coincident',0,1,-1,1))
+brace.addConstraint(Sketcher.Constraint('Horizontal',0))
+brace.addConstraint(Sketcher.Constraint('Vertical',1))
+idx=brace.addConstraint(Sketcher.Constraint('Distance',0,28.));expr(brace,'Constraints[%d]'%idx,P+'BraceReach')
+idx=brace.addConstraint(Sketcher.Constraint('Distance',1,100.5));expr(brace,'Constraints[%d]'%idx,P+'BinDepth+0.5 mm')
+for suffix,x in [('Left',P+'ScrewInset'),('Right',W+'-'+P+'ScrewInset')]:
+    e=doc.addObject('Part::Extrusion','Brace'+suffix);e.Base=brace;e.DirMode='Normal';e.Solid=True
+    expr(e,'LengthFwd',P+'BraceThickness')
+    e.Placement.Rotation=App.Rotation(App.Vector(0,1,0),App.Vector(0,0,1),App.Vector(1,0,0),'ZXY')
+    expr(e,'Placement.Base.x',x+'-'+P+'BraceThickness/2')
+    expr(e,'Placement.Base.y',D+'-'+B+'-'+P+'BraceReach')
+    expr(e,'Placement.Base.z',F+'-0.5 mm')
+    parts.append(e)
+
+whole=doc.addObject('Part::MultiFuse','BeforeHoles');whole.Shapes=parts;whole.Refine=True
+
+# Circle plus tangent 45-degree roof: preserves the entire nominal round bore.
+a=5.5/(2*math.sqrt(2))
+roof=triangle('HoleRoofSection',[(-a,a),(a,a),(0,2*a)])
+roof.addConstraint(Sketcher.Constraint('Horizontal',0))
+idx=roof.addConstraint(Sketcher.Constraint('DistanceX',0,1,-a));expr(roof,'Constraints[%d]'%idx,'-Parameters.HoleDiameter/(2*sqrt(2))')
+idx=roof.addConstraint(Sketcher.Constraint('DistanceY',0,1,a));expr(roof,'Constraints[%d]'%idx,'Parameters.HoleDiameter/(2*sqrt(2))')
+idx=roof.addConstraint(Sketcher.Constraint('Distance',0,2*a));expr(roof,'Constraints[%d]'%idx,'Parameters.HoleDiameter/sqrt(2)')
+roof.addConstraint(Sketcher.Constraint('PointOnObject',1,2,-2))
+idx=roof.addConstraint(Sketcher.Constraint('DistanceY',1,2,2*a));expr(roof,'Constraints[%d]'%idx,'Parameters.HoleDiameter/sqrt(2)')
+holes=[]
+for side,x in [('Left',P+'ScrewInset'),('Right',W+'-'+P+'ScrewInset')]:
+    for level,z in [('Lower',T+'+'+P+'LowerOffset'),('Upper',T+'+'+P+'LowerOffset+'+P+'ScrewPitch')]:
+        name=side+level
+        c=doc.addObject('Part::Cylinder','HoleCircle'+name)
+        expr(c,'Radius',P+'HoleDiameter/2');expr(c,'Height',B+'+2 mm')
+        e=doc.addObject('Part::Extrusion','HoleRoof'+name);e.Base=roof;e.DirMode='Normal';e.Solid=True
+        expr(e,'LengthFwd',B+'+2 mm')
+        for o in (c,e):
+            o.Placement.Rotation=App.Rotation(App.Vector(1,0,0),90)
+            expr(o,'Placement.Base.x',x);expr(o,'Placement.Base.y',D+'+1 mm');expr(o,'Placement.Base.z',z)
+            holes.append(o)
+tools=doc.addObject('Part::MultiFuse','MountHoles');tools.Shapes=holes;tools.Refine=True
+result=doc.addObject('Part::Cut','Organizer');result.Base=whole;result.Tool=tools;result.Refine=True
+result.Label='01 Organizér · 9 přihrádek + žlab · jeden kus'
+doc.recompute()
+shape=result.Shape
+assert shape.isValid() and len(shape.Solids)==1,(shape.isValid(),len(shape.Solids))
+bb=shape.BoundBox
+assert all(abs(v-e)<0.01 for v,e in zip((bb.XLength,bb.YLength,bb.ZLength),(246,246,150)))
+mesh=MeshPart.meshFromShape(Shape=shape,LinearDeflection=0.06,AngularDeflection=0.15,Relative=False)
+assert mesh.isSolid() and mesh.countComponents()==1
+stl=OUT/'stl/organizer.stl';mesh.write(str(stl))
+reload=Mesh.Mesh(str(stl));assert reload.isSolid() and reload.countComponents()==1
+if App.GuiUp:
+    for o in doc.Objects:o.ViewObject.Visibility=o==result
+doc.saveAs(str(OUT/'organizer.FCStd'))
+report={'user_requirement_mm':{'approximate_compartment_depth':100},
+    'design_mm':{alias:value for alias,_,value,_ in PARAMETERS},
+    'bounds_mm':[bb.XLength,bb.YLength,bb.ZLength],'valid':shape.isValid(),'solids':len(shape.Solids),
+    'volume_mm3':shape.Volume,'stl_facets':mesh.CountFacets,'stl_closed':reload.isSolid(),'stl_components':reload.countComponents(),
+    'small_cells':{'count':9,'clear_width_mm':float(sheet.CellWidth),'clear_depth_mm':float(sheet.CellDepth),'clear_height_mm':100},
+    'tool_trough':{'count':1,'clear_width_mm':60,'clear_length_mm':float(sheet.InnerDepth),'clear_height_mm':100},
+    'brace_intrusion':{'count':2,'width_mm':6,'maximum_reach_mm':28,'tapers_to_zero_at_z_mm':104},
+    'mount_holes':{'count':4,'nominal_circle_diameter_mm':5.5,'centres_xz_mm':[[30,116],[30,136],[216,116],[216,136]],'axis':'Y'},
+    'physical_print_verified':False,'mounting_and_load_verified':False}
+(OUT/'kontrola-modelu.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
+print('ORGANIZER_CAD_OK',report['bounds_mm'],flush=True)

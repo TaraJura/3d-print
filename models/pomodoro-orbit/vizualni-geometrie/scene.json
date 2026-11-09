@@ -1,0 +1,85 @@
+{
+  "parts": [
+    {
+      "file": "Base.stl",
+      "name": "01 — zakladna s vedenim a vnitrnim zavitem",
+      "color": [
+        0.065,
+        0.075,
+        0.09
+      ]
+    },
+    {
+      "file": "Rotor.stl",
+      "name": "02 — otocny venec 0–25 (30 poloh)",
+      "color": [
+        0.78,
+        0.51,
+        0.16
+      ]
+    },
+    {
+      "file": "Crown.stl",
+      "name": "03 — pevna koruna s kapsami a sipkou",
+      "color": [
+        0.065,
+        0.075,
+        0.09
+      ]
+    },
+    {
+      "file": "Screw.stl",
+      "name": "04 — velky rucni sroub s otevrenou kapsou",
+      "color": [
+        0.065,
+        0.075,
+        0.09
+      ]
+    },
+    {
+      "file": "Token1.stl",
+      "name": "05 — oboustranny zetton 1",
+      "color": [
+        0.78,
+        0.51,
+        0.16
+      ]
+    },
+    {
+      "file": "Token2.stl",
+      "name": "06 — oboustranny zetton 2",
+      "color": [
+        0.78,
+        0.51,
+        0.16
+      ]
+    },
+    {
+      "file": "Token3.stl",
+      "name": "07 — oboustranny zetton 3",
+      "color": [
+        0.78,
+        0.51,
+        0.16
+      ]
+    },
+    {
+      "file": "Token4.stl",
+      "name": "08 — oboustranny zetton 4",
+      "color": [
+        0.78,
+        0.51,
+        0.16
+      ]
+    },
+    {
+      "file": "ModeMedallion.stl",
+      "name": "09 — oboustranny medailon FOCUS25 / BREAK5",
+      "color": [
+        0.78,
+        0.51,
+        0.16
+      ]
+    }
+  ]
+}

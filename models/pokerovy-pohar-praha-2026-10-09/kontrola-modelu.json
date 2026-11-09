@@ -1,0 +1,68 @@
+{
+  "units": "mm",
+  "physical_parts": 1,
+  "parameters_mm": {
+    "BaseW": 64,
+    "BaseD": 46,
+    "BaseH": 4,
+    "Corner": 5,
+    "PlinthW": 58,
+    "PlinthD": 40,
+    "PlinthH": 21,
+    "StemStartR": 17,
+    "StemR": 8,
+    "StemTaperH": 15,
+    "StemH": 16,
+    "CupZ": 52,
+    "CupH": 38,
+    "CupBottomR": 10,
+    "CupTopR": 29,
+    "CupWall": 1.6,
+    "CupFloor": 2,
+    "CardRelief": 0.5,
+    "InkRelief": 0.85,
+    "LabelRelief": 0.6
+  },
+  "source": "Agent design dimensions; user set one gold colour and print max about 2h",
+  "valid": true,
+  "solids": 1,
+  "bbox_mm": [
+    64.0,
+    60.0,
+    92.0
+  ],
+  "volume_mm3": 78209.25108784795,
+  "stl_closed": true,
+  "stl_components": 1,
+  "stl_facets": 24684,
+  "stl_sha256": "b646ab976d75711fd0b13badd3a50cb7e9c3457e4a28617554c277472e84ac8f",
+  "macro_sha256": "2ef2047b22c2f10c035d60cd3fcf1ea6cb10299b81541812da5fddb019055e1d",
+  "parametric_test": "BaseW64 ->66 ->64 mm passed; native sketch dependencies recompute",
+  "lettering": [
+    "POKER",
+    "VÍTĚZ",
+    "PRAHA",
+    "9. 10. 2026"
+  ],
+  "cards": [
+    "A spades",
+    "K hearts"
+  ],
+  "bowl_outer_slope_degrees_from_vertical": 26.56505117707799,
+  "physical_print_verified": false,
+  "slicing_status": "Verified final 3MF, 1h44m18s,31.15g,384layers,0new disconnected islands",
+  "gui_validation": {
+    "saved_reopened": true,
+    "visible_objects": [
+      "Trophy"
+    ],
+    "invalid_objects": [],
+    "images": [
+      "nahled-cad.png",
+      "nahled-predek-cad.png"
+    ],
+    "reopen_audit": "nezavisla-kontrola.json"
+  },
+  "bbox_method": "OCCT optimal bounding box, analytic CAD",
+  "slicing_audit": "rozlozeni/kontrola-rezani.json"
+}

@@ -1,0 +1,148 @@
+{
+  "parts": [
+    {
+      "id": "Base",
+      "name": "01 — zakladna s vedenim a vnitrnim zavitem",
+      "file": "stl/base.stl",
+      "plate": 1,
+      "count": 1,
+      "supports": false,
+      "support_note": "Rovnou zakladnou dolu. Bez podpor.",
+      "critical_z_mm": [
+        0.2,
+        0.6,
+        1.2,
+        2.8,
+        13.400000190734863
+      ]
+    },
+    {
+      "id": "Rotor",
+      "name": "02 — otocny venec 0–25 (30 poloh)",
+      "file": "stl/rotor.stl",
+      "plate": 2,
+      "count": 1,
+      "supports": false,
+      "support_note": "Rovnou zakladnou dolu. Bez podpor.",
+      "critical_z_mm": [
+        0.2,
+        0.6,
+        1.2,
+        2.8,
+        6.600000190734866
+      ]
+    },
+    {
+      "id": "Crown",
+      "name": "03 — pevna koruna s kapsami a sipkou",
+      "file": "stl/crown.stl",
+      "plate": 1,
+      "count": 1,
+      "supports": false,
+      "support_note": "Spodni plochou dolu; male slepe diry vodicich cepu mostuji3.8mm. Kapsy zhora.",
+      "critical_z_mm": [
+        0.2,
+        0.6,
+        1.2,
+        2.8,
+        4.399999904632571
+      ]
+    },
+    {
+      "id": "Screw",
+      "name": "04 — velky rucni sroub s otevrenou kapsou",
+      "file": "stl/screw.stl",
+      "plate": 1,
+      "count": 1,
+      "supports": false,
+      "support_note": "Osou Z, koncem jadra na podlozce; 45stupnove boky zavitu a hlavice; kapsa nahoru.",
+      "critical_z_mm": [
+        0.2,
+        0.6,
+        1.2,
+        2.8,
+        22.450000286102295
+      ]
+    },
+    {
+      "id": "Token1",
+      "name": "05 — oboustranny zetton 1",
+      "file": "stl/token1.stl",
+      "plate": 2,
+      "count": 1,
+      "supports": false,
+      "support_note": "Cislem nahoru; drobny spodni gravirovany motiv ma kratke mosty; predani obsahuje vsechny kopie.",
+      "critical_z_mm": [
+        0.2,
+        0.6,
+        1.2,
+        2.8,
+        2.550000047683716
+      ]
+    },
+    {
+      "id": "Token2",
+      "name": "06 — oboustranny zetton 2",
+      "file": "stl/token2.stl",
+      "plate": 2,
+      "count": 1,
+      "supports": false,
+      "support_note": "Cislem nahoru; drobny spodni gravirovany motiv ma kratke mosty; predani obsahuje vsechny kopie.",
+      "critical_z_mm": [
+        0.2,
+        0.6,
+        1.2,
+        2.8,
+        2.550000047683716
+      ]
+    },
+    {
+      "id": "Token3",
+      "name": "07 — oboustranny zetton 3",
+      "file": "stl/token3.stl",
+      "plate": 2,
+      "count": 1,
+      "supports": false,
+      "support_note": "Cislem nahoru; drobny spodni gravirovany motiv ma kratke mosty; predani obsahuje vsechny kopie.",
+      "critical_z_mm": [
+        0.2,
+        0.6,
+        1.2,
+        2.8,
+        2.550000047683716
+      ]
+    },
+    {
+      "id": "Token4",
+      "name": "08 — oboustranny zetton 4",
+      "file": "stl/token4.stl",
+      "plate": 2,
+      "count": 1,
+      "supports": false,
+      "support_note": "Cislem nahoru; drobny spodni gravirovany motiv ma kratke mosty; predani obsahuje vsechny kopie.",
+      "critical_z_mm": [
+        0.2,
+        0.6,
+        1.2,
+        2.8,
+        2.550000047683716
+      ]
+    },
+    {
+      "id": "ModeMedallion",
+      "name": "09 — oboustranny medailon FOCUS25 / BREAK5",
+      "file": "stl/modemedallion.stl",
+      "plate": 2,
+      "count": 1,
+      "supports": false,
+      "support_note": "Cislem nahoru; drobny spodni gravirovany motiv ma kratke mosty; predani obsahuje vsechny kopie.",
+      "critical_z_mm": [
+        0.2,
+        0.6,
+        1.2,
+        2.8,
+        2.79999995231629
+      ]
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "date_local": "2026-10-30",
+  "source_root": "/home/novakj/.codex/worktrees/db50/3d-print/models/drzak-noze-na-stenu",
+  "canonical_root": "/home/novakj/3d-print/models/drzak-noze-na-stenu",
+  "destination_was_absent": true,
+  "cad_audit_passed": 25,
+  "cad_audit_failed": 0,
+  "physical_parts": 4,
+  "configured_plates": 2,
+  "assembly_mm": [
+    360,
+    90,
+    41.7
+  ],
+  "source_stl_manifest_consistent": true,
+  "configured_projects_match_final_stl": true,
+  "physical_print_verified": false,
+  "physical_knife_fit_verified": false,
+  "wall_anchors_verified": false,
+  "copied_excluding": [
+    ".cache",
+    "__pycache__",
+    "*.log",
+    "*.pyc"
+  ],
+  "sync_method": "exclusive file creation; SHA256 comparison for every delivered file"
+}

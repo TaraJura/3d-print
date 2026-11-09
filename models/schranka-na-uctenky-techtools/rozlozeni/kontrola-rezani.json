@@ -1,0 +1,293 @@
+{
+  "project": "podlozka-01-kobra-x-pla-projekt.3mf",
+  "project_sha256": "e8c2907502a27769f257ea8cb57cb464ff730ee50611dc5f0b7764d8a6aa7c03",
+  "geometry_only_3mf": "podlozka-01-geometrie.3mf",
+  "geometry_only_sha256": "106a201ad9248ee1967082cf2fa89a292892a84805d44e791995318daceb6b2c",
+  "object_names": [
+    "viko-se-sterbinou",
+    "telo-techtools"
+  ],
+  "physical_parts": 2,
+  "material_regions": 3,
+  "object_extruders_one_based": {
+    "viko-se-sterbinou": "1",
+    "telo-techtools": "1",
+    "napis-techtools-uctenky": "2"
+  },
+  "machine": "Anycubic Kobra X 0.4 nozzle",
+  "process": "Schranka TechTools 0.20mm PLA bila cerna 3 steny 15%",
+  "filament": [
+    "NAVRH Alzament PLA Basic bila @Kobra X 0.4",
+    "NAVRH Alzament PLA Basic cerna @Kobra X 0.4"
+  ],
+  "filament_colours": [
+    "#F7F7F2",
+    "#17191B"
+  ],
+  "filament_status": "Provisional Alzament PLA Basic start values, not physically calibrated; physical ACE slots unverified",
+  "effective_settings": {
+    "layer_height": "0.2",
+    "wall_loops": "3",
+    "sparse_infill_density": "15%",
+    "enable_support": "0",
+    "enable_prime_tower": "1",
+    "brim_type": "auto_brim",
+    "brim_width": "5",
+    "outer_wall_speed": "70",
+    "inner_wall_speed": "100",
+    "top_surface_speed": "60",
+    "textured_plate_temp": [
+      "50",
+      "50"
+    ],
+    "textured_plate_temp_initial_layer": [
+      "50",
+      "50"
+    ],
+    "nozzle_temperature": [
+      "205",
+      "205"
+    ],
+    "nozzle_temperature_initial_layer": [
+      "215",
+      "215"
+    ]
+  },
+  "slicer_exit_codes": [
+    0,
+    0
+  ],
+  "slice_warning_details": [],
+  "layers": 690,
+  "gcode_roles": [
+    "Bottom surface",
+    "Custom",
+    "Gap infill",
+    "Inner wall",
+    "Internal Bridge",
+    "Internal solid infill",
+    "Outer wall",
+    "Prime tower",
+    "Sparse infill",
+    "Top surface"
+  ],
+  "supports_generated": false,
+  "brim_generated": false,
+  "project_meshes": [
+    {
+      "name": "telo-techtools",
+      "triangle_count": 9176,
+      "min_xyz_mm": [
+        55.0,
+        10.0,
+        0.0
+      ],
+      "max_xyz_mm": [
+        205.0,
+        120.0,
+        138.0
+      ],
+      "source_triangles_and_placement_preserved": true,
+      "maximum_vertex_delta_mm": 7.674902349208423e-06
+    },
+    {
+      "name": "napis-techtools-uctenky",
+      "triangle_count": 9100,
+      "min_xyz_mm": [
+        68.0359039,
+        10.000000480999999,
+        63.000003899999996
+      ],
+      "max_xyz_mm": [
+        191.9640961,
+        10.800000672,
+        100.9758416
+      ],
+      "source_triangles_and_placement_preserved": true,
+      "maximum_vertex_delta_mm": 7.674902349208423e-06
+    },
+    {
+      "name": "viko-se-sterbinou",
+      "triangle_count": 480,
+      "min_xyz_mm": [
+        52.0,
+        134.0,
+        0.0
+      ],
+      "max_xyz_mm": [
+        208.0,
+        250.0,
+        11.1999998
+      ],
+      "source_triangles_and_placement_preserved": true,
+      "maximum_vertex_delta_mm": 7.6741210932596e-06
+    }
+  ],
+  "sliced_meshes": [
+    {
+      "name": "telo-techtools",
+      "triangle_count": 9176,
+      "min_xyz_mm": [
+        55.0,
+        10.0,
+        0.0
+      ],
+      "max_xyz_mm": [
+        205.0,
+        120.0,
+        138.0
+      ],
+      "source_triangles_and_placement_preserved": true,
+      "maximum_vertex_delta_mm": 7.674902349208423e-06
+    },
+    {
+      "name": "napis-techtools-uctenky",
+      "triangle_count": 9100,
+      "min_xyz_mm": [
+        68.0359039,
+        10.000000505000001,
+        63.0000038
+      ],
+      "max_xyz_mm": [
+        191.9640961,
+        10.800000695,
+        100.9758416
+      ],
+      "source_triangles_and_placement_preserved": true,
+      "maximum_vertex_delta_mm": 7.674902349208423e-06
+    },
+    {
+      "name": "viko-se-sterbinou",
+      "triangle_count": 480,
+      "min_xyz_mm": [
+        52.0,
+        134.0,
+        0.0
+      ],
+      "max_xyz_mm": [
+        208.0,
+        250.0,
+        11.1999998
+      ],
+      "source_triangles_and_placement_preserved": true,
+      "maximum_vertex_delta_mm": 7.6741210932596e-06
+    }
+  ],
+  "project_mesh_repairs": [
+    {
+      "edges_fixed": "0",
+      "degenerate_facets": "0",
+      "facets_removed": "0",
+      "facets_reversed": "0",
+      "backwards_edges": "0"
+    },
+    {
+      "edges_fixed": "0",
+      "degenerate_facets": "0",
+      "facets_removed": "0",
+      "facets_reversed": "0",
+      "backwards_edges": "0"
+    },
+    {
+      "edges_fixed": "0",
+      "degenerate_facets": "0",
+      "facets_removed": "0",
+      "facets_reversed": "0",
+      "backwards_edges": "0"
+    }
+  ],
+  "sliced_mesh_repairs": [
+    {
+      "edges_fixed": "0",
+      "degenerate_facets": "0",
+      "facets_removed": "0",
+      "facets_reversed": "0",
+      "backwards_edges": "0"
+    },
+    {
+      "edges_fixed": "0",
+      "degenerate_facets": "0",
+      "facets_removed": "0",
+      "facets_reversed": "0",
+      "backwards_edges": "0"
+    },
+    {
+      "edges_fixed": "0",
+      "degenerate_facets": "0",
+      "facets_removed": "0",
+      "facets_reversed": "0",
+      "backwards_edges": "0"
+    }
+  ],
+  "selected_layer_extrusion_segments": {
+    "1": 4498,
+    "56": 1465,
+    "320": 582,
+    "430": 745,
+    "690": 962
+  },
+  "extrusion_xy_bounds_mm": [
+    [
+      5.888,
+      10.189
+    ],
+    [
+      207.79,
+      249.79
+    ]
+  ],
+  "tool_changes": 183,
+  "used_tools_zero_based": [
+    0,
+    1
+  ],
+  "per_object_extrusion_segments_by_tool": {
+    "telo-techtools": {
+      "0": 221758,
+      "1": 6138
+    },
+    "viko-se-sterbinou": {
+      "0": 19180
+    }
+  },
+  "black_lettering_extrusion_bounds_xyz_mm": [
+    [
+      68.246,
+      10.189,
+      63.2
+    ],
+    [
+      191.753,
+      10.611,
+      101.0
+    ]
+  ],
+  "prime_tower_xy_bounds_mm": [
+    [
+      5.888,
+      157.617
+    ],
+    [
+      48.112,
+      185.383
+    ]
+  ],
+  "prime_tower_extrusion_segments": 137911,
+  "both_parts_present_on_first_layer": true,
+  "receipt_slot_clear_on_first_layer": true,
+  "layer_preview": "podlozka-01-vrstvy.png",
+  "estimated_filament_g": 372.24,
+  "estimated_filament_by_tool_g": {
+    "white_T0": 346.23,
+    "black_T1": 26.01
+  },
+  "estimated_normal_time": "7h 56m 25s = 28585.021",
+  "first_layer_gcode_temperatures_c": {
+    "bed": 50,
+    "nozzle": 215
+  },
+  "gcode_stored_in_project": false,
+  "gcode_kept_only_in_ignored_cache": true,
+  "physical_print_verified": false,
+  "physical_fit_verified": false
+}

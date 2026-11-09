@@ -1,0 +1,189 @@
+# -*- coding: utf-8 -*-
+"""Independent checks of the saved CAD; never saves or regenerates organizer.FCStd.
+
+Writes only kontrola-nezavisla.json beside this macro. Uses actual solids and
+boolean probes, including a reversible in-memory spreadsheet perturbation.
+"""
+from pathlib import Path
+import hashlib
+import json
+import math
+import traceback
+import FreeCAD as App
+import Part
+import Mesh
+
+OUT = Path(__file__).resolve().parent
+SOURCE = OUT / 'organizer.FCStd'
+REPORT = OUT / 'kontrola-nezavisla.json'
+TOL = 1e-5
+source_sha = hashlib.sha256(SOURCE.read_bytes()).hexdigest()
+doc = None
+report = {'audit_version': 1, 'source_fcstd_sha256_before': source_sha,
+          'source_file_saved_by_audit': False,
+          'physical_print_verified': False, 'load_capacity_verified': False,
+          'tests': {}}
+
+def near(actual, expected, tol=1e-5):
+    assert abs(actual-expected) < tol, (actual, expected)
+
+def bounds(s):
+    b = s.BoundBox
+    return [b.XMin, b.XMax, b.YMin, b.YMax, b.ZMin, b.ZMax]
+
+def scalar(sheet, alias):
+    return float(getattr(sheet, alias))
+
+def inspect_actual_geometry(label):
+    sheet = doc.Parameters
+    p = {name: scalar(sheet, name) for name in
+         ['Width', 'Depth', 'Floor', 'Top', 'Back', 'OverallHeight',
+          'BinDepth', 'ScrewInset', 'LowerOffset', 'ScrewPitch',
+          'HoleDiameter', 'BraceThickness', 'BraceReach', 'Wall']}
+    W, D, F, top, back, H = [p[k] for k in
+                            ['Width', 'Depth', 'Floor', 'Top', 'Back', 'OverallHeight']]
+    shape = doc.Organizer.Shape
+    assert shape.isValid() and len(shape.Solids) == 1
+    for a, b in zip(bounds(shape), [0, W, 0, D, 0, H]): near(a, b)
+    errors = {o.Name: list(o.State) for o in doc.Objects
+              if any('invalid' in s.lower() or 'error' in s.lower() for s in o.State)}
+    assert not errors, errors
+    out = {'parameters_mm': p, 'valid': shape.isValid(), 'solid_count': len(shape.Solids),
+           'bounds_mm': bounds(shape), 'volume_mm3': shape.Volume,
+           'object_errors': errors,
+           'sketches': {o.Name: {'state': list(o.State),
+                                'fully_constrained': getattr(o, 'FullyConstrained', None)}
+                        for o in doc.Objects if o.TypeId == 'Sketcher::SketchObject'}}
+
+    # Finite air volumes bounded between the floor and bin rim, cut out of
+    # the actual body. The ten solids demonstrate actual cavity separation.
+    empty = Part.makeBox(W, D, top-F-0.02, App.Vector(0, 0, F+0.01)).cut(shape)
+    assert len(empty.Solids) == 10, len(empty.Solids)
+    out['independent_cavity_count'] = len(empty.Solids)
+    out['cavities'] = [{'bounds_mm': bounds(s), 'clear_volume_mm3': s.Volume}
+                       for s in sorted(empty.Solids, key=lambda s: (round(s.BoundBox.XMin, 3), s.BoundBox.YMin))]
+    near(top-F, p['BinDepth'])
+    floor_probe = Part.makeBox(W-0.02, D-0.02, F-0.02, App.Vector(0.01, 0.01, 0.01))
+    assert floor_probe.cut(shape).Volume < TOL
+    out['continuous_floor_thickness_mm'] = F
+    out['clear_bin_height_mm'] = top-F
+    out['cavity_section_counts'] = []
+    for z in [F+0.05, F+p['BinDepth']/2, top-0.15]:
+        air_slice = Part.makeBox(W, D, 0.1, App.Vector(0, 0, z)).cut(shape)
+        assert len(air_slice.Solids) == 10, (z, len(air_slice.Solids))
+        out['cavity_section_counts'].append({'z_mm': z, 'count': len(air_slice.Solids)})
+
+    out['mounts'] = []
+    r = p['HoleDiameter']/2
+    for x in [p['ScrewInset'], W-p['ScrewInset']]:
+        for z in [top+p['LowerOffset'], top+p['LowerOffset']+p['ScrewPitch']]:
+            bore = Part.makeCylinder(r, back+2, App.Vector(x, D+1, z), App.Vector(0, -1, 0))
+            bore_collision = bore.common(shape).Volume
+            assert bore_collision < TOL, (x, z, bore_collision)
+            # A 20 mm diameter approach tool stops 0.01 mm before the front
+            # mounting surface, so the actual back wall is not a collision.
+            driver = Part.makeCylinder(10, D-back+20-0.01,
+                                       App.Vector(x, -20, z), App.Vector(0, 1, 0))
+            driver_collision = driver.common(shape).Volume
+            assert driver_collision < TOL, (x, z, driver_collision)
+            # The external 4.5..6 mm radius bearing band must be continuous.
+            # A real washer ID is unknown; also report contact for an
+            # illustrative 6 mm ID, whose rim partly spans the teardrop roof.
+            disk = Part.makeCylinder(6, 0.2, App.Vector(x, D-back, z), App.Vector(0, 1, 0))
+            centre = Part.makeCylinder(4.5, 0.4, App.Vector(x, D-back-0.1, z), App.Vector(0, 1, 0))
+            bearing_band = disk.cut(centre)
+            band_missing = bearing_band.cut(shape).Volume
+            assert band_missing < TOL, (x, z, band_missing)
+            example_id = Part.makeCylinder(3, 0.4, App.Vector(x, D-back-0.1, z), App.Vector(0, 1, 0))
+            example_ring = disk.cut(example_id)
+            contact_fraction = example_ring.common(shape).Volume/example_ring.Volume
+            assert contact_fraction > 0.95, contact_fraction
+            out['mounts'].append({'centre_xz_mm': [x, z], 'bore_diameter_mm': 2*r,
+                                   'bore_collision_mm3': bore_collision,
+                                   'driver_diameter_mm': 20,
+                                   'driver_collision_mm3': driver_collision,
+                                   'continuous_bearing_band_outer_inner_diameter_mm': [12, 9],
+                                   'bearing_band_missing_mm3': band_missing,
+                                   'illustrative_washer_od12_id6_contact_fraction': contact_fraction,
+                                   'roof_edge_clearance_mm': H-z-r*math.sqrt(2)})
+
+    # All rear-facing planar geometry is at Y=Depth; mount contact is flush.
+    rear_faces = [f for f in shape.Faces
+                  if isinstance(f.Surface, Part.Plane)
+                  and all(abs(v.Point.y-D) < TOL for v in f.Vertexes)]
+    assert len(rear_faces) == 1, len(rear_faces)
+    rb = rear_faces[0].BoundBox
+    for a, b in zip([rb.XMin, rb.XMax, rb.ZMin, rb.ZMax], [0, W, 0, H]): near(a, b)
+    out['wall_contact'] = {'rear_plane_y_mm': D, 'planar_faces': len(rear_faces),
+                           'rear_face_area_mm2': sum(f.Area for f in rear_faces),
+                           'shape_does_not_project_behind_plane': shape.BoundBox.YMax <= D+TOL}
+
+    out['braces'] = []
+    for name, x in [('BraceLeft', p['ScrewInset']), ('BraceRight', W-p['ScrewInset'])]:
+        brace = doc.getObject(name).Shape
+        expect = [x-p['BraceThickness']/2, x+p['BraceThickness']/2,
+                  D-back-p['BraceReach'], D-back, F-0.5, top]
+        for a, b in zip(bounds(brace), expect): near(a, b)
+        floor_intersection = brace.common(doc.Floor.Shape)
+        brace_back_faces = [f for f in brace.Faces
+                            if isinstance(f.Surface, Part.Plane)
+                            and all(abs(v.Point.y-(D-back)) < TOL for v in f.Vertexes)]
+        back_front_faces = [f for f in doc.Back.Shape.Faces
+                            if isinstance(f.Surface, Part.Plane)
+                            and all(abs(v.Point.y-(D-back)) < TOL for v in f.Vertexes)]
+        back_interface_area = sum(a.common(b).Area for a in brace_back_faces
+                                  for b in back_front_faces)
+        assert floor_intersection.Volume > 1, floor_intersection.Volume
+        assert back_interface_area > 1, back_interface_area
+        assert brace.cut(shape).Volume < TOL
+        fused = brace.fuse(doc.Floor.Shape).fuse(doc.Back.Shape)
+        assert len(fused.Solids) == 1
+        out['braces'].append({'name': name, 'bounds_mm': bounds(brace),
+                              'floor_overlap_mm3': floor_intersection.Volume,
+                              'back_interface_mm2': back_interface_area,
+                              'connected_to_floor_and_back': len(fused.Solids) == 1})
+    report['tests'][label] = out
+    return out
+
+try:
+    doc = App.openDocument(str(SOURCE))
+    doc.recompute()
+    baseline = inspect_actual_geometry('saved_model')
+    original = {alias: doc.Parameters.getContents('B%d' % row) for alias, row in
+                [('Width', 2), ('Depth', 3), ('BinDepth', 4), ('HoleDiameter', 14)]}
+    for alias, row, value in [('Width', 2, 230), ('Depth', 3, 230),
+                               ('BinDepth', 4, 110), ('HoleDiameter', 14, 6.0)]:
+        doc.Parameters.set('B%d' % row, '%g mm' % value)
+    doc.recompute()
+    inspect_actual_geometry('perturbed_width230_depth230_bindepth110_hole6')
+    for alias, row in [('Width', 2), ('Depth', 3), ('BinDepth', 4), ('HoleDiameter', 14)]:
+        doc.Parameters.set('B%d' % row, original[alias])
+    doc.recompute()
+    restored = inspect_actual_geometry('restored_in_memory')
+    near(restored['volume_mm3'], baseline['volume_mm3'], 1e-3)
+    mesh = Mesh.Mesh(str(OUT / 'stl' / 'organizer.stl'))
+    assert mesh.isSolid() and mesh.countComponents() == 1
+    for a, b in zip(bounds(mesh), baseline['bounds_mm']): near(a, b, 0.001)
+    # Tessellated circular bores differ slightly from exact BRep volume.
+    # Explicit relative tolerance is 0.001%, while bounds remain 0.001 mm.
+    volume_tolerance_fraction = 1e-5
+    near(mesh.Volume, baseline['volume_mm3'], baseline['volume_mm3']*volume_tolerance_fraction)
+    report['stl'] = {'closed': mesh.isSolid(), 'components': mesh.countComponents(),
+                     'facets': mesh.CountFacets, 'bounds_mm': bounds(mesh),
+                     'volume_mm3': mesh.Volume,
+                     'volume_difference_from_cad_mm3': mesh.Volume-baseline['volume_mm3'],
+                     'volume_difference_fraction': (mesh.Volume-baseline['volume_mm3'])/baseline['volume_mm3'],
+                     'volume_tolerance_fraction': volume_tolerance_fraction}
+    report['passed'] = True
+except Exception:
+    report['passed'] = False
+    report['failure'] = traceback.format_exc()
+finally:
+    if doc is not None:
+        App.closeDocument(doc.Name)
+    report['source_fcstd_sha256_after'] = hashlib.sha256(SOURCE.read_bytes()).hexdigest()
+    report['source_file_hash_unchanged'] = report['source_fcstd_sha256_after'] == source_sha
+    REPORT.write_text(json.dumps(report, ensure_ascii=False, indent=2)+'\n')
+    print('INDEPENDENT_AUDIT', json.dumps({'passed': report.get('passed'),
+          'source_file_hash_unchanged': report['source_file_hash_unchanged'],
+          'failure': report.get('failure')}, ensure_ascii=False), flush=True)

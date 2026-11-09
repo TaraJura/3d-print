@@ -1,0 +1,242 @@
+# -*- coding: utf-8 -*-
+"""Independent audit of the saved V04 against the saved V03. Saves no CAD document.
+Writes only audit-montaze.json beside this script. Parameter tests stay in memory.
+V04 coordinates are derived below from the primary parameters, in the V04 frame:
+the butt is on the left at X = -ButtOverhang and the knife lengths add towards +X.
+They are not copied from the V03 audit.
+"""
+from pathlib import Path
+from zipfile import ZipFile
+import hashlib,json,math,random
+import xml.etree.ElementTree as ET
+import numpy as np
+from PIL import Image,ImageOps
+import FreeCAD as App
+import Part,Mesh
+ROOT=Path(__file__).resolve().parent;V3=ROOT.parent/'revize-03-tvarovany-dle-noze'
+FILES={'v04_fcstd':ROOT/'drzak.FCStd','v04_stl':ROOT/'stl/drzak-zrcadlovy.stl','v03_fcstd':V3/'drzak.FCStd','v03_stl':V3/'stl/drzak-tvarovany.stl'}
+sha=lambda p:hashlib.sha256(Path(p).read_bytes()).hexdigest()
+opened={k:sha(p) for k,p in FILES.items()}
+d3=App.openDocument(str(FILES['v03_fcstd']));d4=App.openDocument(str(FILES['v04_fcstd']))
+s3=d3.getObject('Parameters');s=d4.getObject('Parameters');obj=d4.getObject('Holder');srcobj=d4.getObject('HolderSource')
+v03=d3.getObject('Holder').Shape.copy();holder=obj.Shape.copy()
+checks=[];TOL=1e-6
+def check(n,passed,detail=None):checks.append({'check':n,'passed':bool(passed),'detail':detail})
+def dims(bb):return [bb.XLength,bb.YLength,bb.ZLength]
+def diff(a,b):return {'a_minus_b_mm3':a.cut(b).Volume,'b_minus_a_mm3':b.cut(a).Volume,'common_mm3':a.common(b).Volume}
+def same(a,b,tol=TOL):
+    d=diff(a,b);return d['a_minus_b_mm3']<tol and d['b_minus_a_mm3']<tol and abs(d['common_mm3']-a.Volume)<max(tol,1e-5),d
+def overlap(sh):return sh.common(holder).Volume
+def inside(x,y,z):return holder.isInside(App.Vector(x,y,z),1e-7,True)
+ALIASES=['KnifeLength','BladeHeelHeight','BladeStationHeight','StationDistance','HandleLength','NeckGap','HandleMaxWidth','HandleRiseAssumed','HandleFrontWidthAssumed','BladeThicknessAssumed','SpineY','Length','ButtOverhang','BladeMouth','HandleMouthClearance','Wall','RootRadius','FitSlack','CenterZ','FootWidth','FootHeight','TabWidth','TabHeight','TabDepth','MountInset','MountY','MountHole','GussetWidth']
+g={a:getattr(s,a).Value for a in ALIASES}
+L=s3.Length.Value;plane=App.Vector(L/2,0,0);normal=App.Vector(1,0,0)
+
+# --- A. Native parametric document, reopened from disk
+check('parameters_identical_to_v03',all(abs(getattr(s3,a).Value-g[a])<1e-12 for a in ALIASES),{'count':len(ALIASES),'real_length_alias':'Length','Length_mm':L})
+check('final_object_is_native_mirror',obj.TypeId=='Part::Mirroring' and obj.Source is srcobj and srcobj.TypeId=='Part::Cut' and abs(obj.Normal.x-1)<1e-12 and abs(obj.Base.x-L/2)<1e-9 and dict(obj.ExpressionEngine).get('.Base.x')=='Parameters.Length / 2',{'type':obj.TypeId,'source':srcobj.Name,'base_x_mm':obj.Base.x,'expression':dict(obj.ExpressionEngine).get('.Base.x')})
+sketches=[o for o in d4.Objects if o.TypeId=='Sketcher::SketchObject']
+check('native_fully_constrained_sketches',len(sketches)==22 and all(o.FullyConstrained for o in sketches),{'count':len(sketches)})
+check('no_python_proxy_dependency',not [o.Name for o in d4.Objects if 'Python' in o.TypeId])
+check('no_invalid_objects',not [o.Name for o in d4.Objects if 'Invalid' in o.State])
+gui=ET.fromstring(ZipFile(FILES['v04_fcstd']).read('GuiDocument.xml'))
+visible=[vp.get('name') for vp in gui.iter('ViewProvider') for p in vp.iter('Property') if p.get('name')=='Visibility' and p.find('Bool') is not None and p.find('Bool').get('value')=='true']
+check('saved_document_shows_only_final_model',visible==['Holder'],{'visible':visible})
+
+# --- B. Valid solid, same dimensions and volume, exact mirror of the saved V03 BRep
+bb4,bb3=holder.optimalBoundingBox(False,False),v03.optimalBoundingBox(False,False)
+check('valid_single_solid',holder.isValid() and len(holder.Solids)==1 and holder.Volume>0,{'solids':len(holder.Solids),'volume_mm3':holder.Volume,'shape_type':holder.ShapeType})
+check('dimensions_equal_v03',all(abs(a-b)<1e-6 for a,b in zip(dims(bb4),dims(bb3))) and all(abs(a-b)<1e-5 for a,b in zip(dims(bb4),[230,60,42.314069])),{'v04_optimal_mm':dims(bb4),'v03_optimal_mm':dims(bb3),'method':'optimalBoundingBox'})
+check('volume_and_area_equal_v03',abs(holder.Volume-v03.Volume)<TOL and abs(holder.Area-v03.Area)<TOL,{'v04_mm3':holder.Volume,'v03_mm3':v03.Volume,'v04_area_mm2':holder.Area,'v03_area_mm2':v03.Area})
+exact=v03.mirror(plane,normal)
+alt=v03.copy();alt.transformShape(App.Matrix(-1,0,0,L,0,1,0,0,0,0,1,0,0,0,0,1),True,False)
+ok,detail=same(exact,alt);check('reference_mirror_cross_check_mirror_vs_transformShape',ok and abs(exact.Volume-v03.Volume)<TOL,{**detail,'exact_volume_mm3':exact.Volume,'transformGeometry_used':False})
+ok,detail=same(holder,exact);check('holder_equals_exact_mirror_of_v03_brep',ok,{**detail,'tolerance_mm3':TOL,'plane':'X=115','normal':[1,0,0]})
+ok,detail=same(srcobj.Shape,v03);check('hidden_source_equals_v03_holder',ok,detail)
+def vertices(shape):return np.array([[v.X,v.Y,v.Z] for v in shape.Vertexes])
+a,b=vertices(holder),vertices(exact)
+nearest=lambda p,q:np.sqrt(((p[:,None,:]-q[None,:,:])**2).sum(axis=2)).min(axis=1).max()
+vertex_error=max(nearest(a,b),nearest(b,a))
+check('topology_and_vertices_match_exact_mirror',(len(holder.Faces),len(holder.Edges),len(holder.Vertexes))==(len(v03.Faces),len(v03.Edges),len(v03.Vertexes)) and vertex_error<1e-6,{'faces':len(holder.Faces),'edges':len(holder.Edges),'vertices':len(holder.Vertexes),'maximum_vertex_distance_mm':float(vertex_error)})
+c3,c4=v03.Solids[0].CenterOfMass,holder.Solids[0].CenterOfMass
+check('centre_of_mass_mirrored',abs(c4.x-(L-c3.x))<1e-6 and abs(c4.y-c3.y)<1e-6 and abs(c4.z-c3.z)<1e-6,{'v03':list(c3),'v04':list(c4)})
+rng=random.Random(20261102);mismatch=0;N=2000;n_in=0
+for _ in range(N):
+    x,y,z=rng.uniform(-1,231),rng.uniform(-1,61),rng.uniform(-1,43.4)
+    a_in=v03.isInside(App.Vector(x,y,z),1e-7,True);n_in+=a_in;mismatch+=a_in!=holder.isInside(App.Vector(L-x,y,z),1e-7,True)
+check('random_point_membership_parity',mismatch==0 and n_in>50,{'points':N,'inside_v03':n_in,'mismatches':mismatch,'seed':20261102})
+zmid=(bb3.ZMin+bb3.ZMax)/2
+turned=v03.copy();turned.rotate(App.Vector(L/2,0,zmid),App.Vector(0,1,0),180)
+flipped=v03.copy();flipped.rotate(App.Vector(L/2,30,0),App.Vector(0,0,1),180)
+controls={'unmirrored_v03':holder.cut(v03).Volume,'turned_180_on_bed':holder.cut(turned).Volume,'upside_down':holder.cut(flipped).Volume}
+check('negative_controls_not_a_rotation',all(v>1000 for v in controls.values()),{'volume_difference_mm3':controls})
+
+# --- C. V04 frame, wall side and open top
+butt=-g['ButtOverhang'];handle_end=butt+g['HandleLength'];heel=handle_end+g['NeckGap'];station=heel+g['StationDistance'];tip=butt+g['KnifeLength']
+check('v04_frame_from_primary_parameters',[butt,handle_end,heel,station,tip]==[-30,75,85,185,310] and all(abs(getattr(s,a).Value-v)<1e-9 for a,v in [('MirroredButtX',butt),('MirroredHandleX',handle_end),('MirroredHeelX',heel),('MirroredStationX',station),('MirroredTipX',tip)]),{'butt_x':butt,'handle_seat_x':[0,handle_end],'open_gap_x':[handle_end,heel],'heel_x':heel,'station_x':station,'tip_x':tip,'v03_gap_x':[145,155]})
+def contact_y(x):
+    low,high=g['FootHeight']+.01,45.
+    for _ in range(27):
+        mid=(low+high)/2
+        if inside(x,mid,g['CenterZ']):low=mid
+        else:high=mid
+    return (low+high)/2
+b_st,b_heel=contact_y(station),contact_y(heel)
+check('blade_seat_rises_5mm_per_100mm_towards_tip_on_the_right',abs(b_st-b_heel-(g['BladeHeelHeight']-g['BladeStationHeight']))<1e-5,{'station_x_mm':[heel,station],'measured_inner_floor_y_mm':[b_heel,b_st],'delta_y_mm':b_st-b_heel})
+R,cz=g['RootRadius'],g['CenterZ'];heel_y=g['SpineY']-g['BladeHeelHeight']
+apex_heel=heel_y-R*math.sqrt(2)+math.sqrt(R**2-(g['BladeThicknessAssumed']/2)**2)-g['FitSlack']
+taper=(g['BladeHeelHeight']-g['BladeStationHeight'])/g['StationDistance']
+hand_h=g['SpineY']-(heel_y+g['HandleRiseAssumed']);hand_cy=g['SpineY']-hand_h/2
+w_end=g['HandleFrontWidthAssumed']+(g['HandleMaxWidth']-g['HandleFrontWidthAssumed'])*handle_end/g['HandleLength']
+apex_start=hand_cy-math.sqrt((hand_h/2)**2+(g['HandleFrontWidthAssumed']/2)**2)-g['FitSlack'];apex_end=hand_cy-math.sqrt((hand_h/2)**2+(w_end/2)**2)-g['FitSlack']
+mouth_start=g['HandleFrontWidthAssumed']+g['HandleMouthClearance'];mouth_end=w_end+g['HandleMouthClearance']
+def seat(x):
+    if x>heel:return apex_heel+(x-heel)*taper,g['BladeMouth']
+    u=(handle_end-x)/handle_end;return apex_start+u*(apex_end-apex_start),mouth_start+u*(mouth_end-mouth_start)
+rows=[]
+for x in [1,50,74,86,130,185,229]:
+    apex,mouth=seat(x);bottom=apex+R*math.sqrt(2)-R
+    root_ok=inside(x,bottom-.01,cz) and not inside(x,bottom+.01,cz);side_ok=True
+    for sign in [-1,1]:
+        off=mouth/3
+        for dist,expected in [(g['Wall']-.01,True),(g['Wall']+.01,False)]:
+            side_ok&=inside(x,apex+off-dist/math.sqrt(2),cz+sign*(off+dist/math.sqrt(2)))==expected
+        rim=cz+sign*mouth/2
+        side_ok&=inside(x,apex+mouth/2-.01,rim) and not inside(x,apex+mouth/2+.01,rim)
+    rows.append({'x_mm':x,'seat':'blade' if x>heel else 'handle','apex_y_mm':apex,'mouth_mm':mouth,'root_ok':root_ok,'side_walls_ok':bool(side_ok)})
+check('rounded_V_and_walls_at_seven_v04_stations',all(r['root_ok'] and r['side_walls_ok'] for r in rows),rows)
+def measured_mouth(x):
+    apex,mouth=seat(x);y=apex+mouth/2-.02;low,high=cz,cz+mouth/2+1
+    for _ in range(26):
+        mid=(low+high)/2
+        if inside(x,y,mid):high=mid
+        else:low=mid
+    return 2*(low-cz)+.04
+mouths={'x_0.2_handle_end':measured_mouth(.2),'x_74.8_handle_start':measured_mouth(74.8),'x_150_blade':measured_mouth(150)}
+check('mouth_widths_on_correct_sides',abs(mouths['x_0.2_handle_end']-seat(.2)[1])<.01 and abs(mouths['x_74.8_handle_start']-seat(74.8)[1])<.01 and abs(mouths['x_150_blade']-g['BladeMouth'])<.01,{'measured_mm':mouths,'design_end_values_mm':[mouth_start,mouth_end,g['BladeMouth']]})
+gap=Part.makeBox(g['NeckGap']-.2,60,50,App.Vector(handle_end+.1,g['FootHeight']+.1,0))
+foot=Part.makeBox(g['NeckGap'],g['FootHeight'],g['FootWidth'],App.Vector(handle_end,0,cz-g['FootWidth']/2))
+v03gap=Part.makeBox(g['NeckGap']-.2,60,50,App.Vector(145.1,g['FootHeight']+.1,0))
+check('neck_gap_open_above_foot_at_x75_85',overlap(gap)<1e-7 and abs(overlap(foot)-foot.Volume)<1e-6 and overlap(v03gap)>100,{'free_x_mm':[handle_end+.1,heel-.1],'minimum_y_mm':g['FootHeight']+.1,'foot_mm3':overlap(foot),'material_in_old_v03_gap_x145_155_mm3':overlap(v03gap)})
+sidebox=lambda x:Part.makeBox(5,70,5,App.Vector(x,-1,41))
+check('wide_handle_side_is_left',overlap(sidebox(0))>0 and overlap(sidebox(225))==0,{'material_z_above_41_at_x0_5_mm3':overlap(sidebox(0)),'material_z_above_41_at_x225_230_mm3':overlap(sidebox(225))})
+wall_faces=lambda shape:sum(f.Area for f in shape.Faces if f.Surface.TypeId=='Part::GeomPlane' and abs(f.normalAt(0,0).z+1)<1e-9 and abs(f.BoundBox.ZMax)<1e-7)
+check('rear_mounting_plane_unchanged_at_z0',abs(bb4.ZMin)<1e-6 and overlap(Part.makeBox(300,80,1,App.Vector(-30,-10,-1)))==0 and abs(wall_faces(holder)-wall_faces(v03))<1e-6 and wall_faces(holder)>1000,{'zmin_mm':bb4.ZMin,'rear_face_area_v04_mm2':wall_faces(holder),'rear_face_area_v03_mm2':wall_faces(v03)})
+top=[]
+for x in [1,20,40,60,74,86,110,140,170,200,229]:
+    floor=seat(x)[0]+R*math.sqrt(2)-R+.05;top.append({'x_mm':x,'free_above_y_mm':floor,'material_mm3':overlap(Part.makeBox(.2,70-floor,.2,App.Vector(x-.1,floor,cz-.1)))})
+check('open_top_above_both_seats',all(t['material_mm3']==0 for t in top) and abs(bb4.YMin)<1e-6 and abs(bb4.YMax-60)<1e-6,top)
+centers=sorted({(round(f.Surface.Center.x,6),round(f.Surface.Center.y,6)) for f in holder.Faces if f.Surface.TypeId=='Part::GeomCylinder' and abs(f.Surface.Radius-g['MountHole']/2)<1e-6 and abs(abs(f.Surface.Axis.z)-1)<1e-9})
+xs=[g['MountInset'],L-g['MountInset']]
+check('exactly_two_mount_holes_spacing_160',centers==[(xs[0],g['MountY']),(xs[1],g['MountY'])] and abs(xs[1]-xs[0]-160)<1e-9,{'centers_xy_mm':centers,'diameter_mm':g['MountHole']})
+for x in xs:
+    hole=Part.makeCylinder(g['MountHole']/2,6,App.Vector(x,g['MountY'],-1));tool=Part.makeCylinder(5,60,App.Vector(x,g['MountY'],g['TabDepth']))
+    check('mount_hole_through_and_tool_clear_x%g'%x,overlap(hole)<1e-7 and overlap(tool)<1e-7,{'driver_diameter_mm':10,'actual_fasteners_unknown':True,'knife_removed':True})
+
+# --- D. Mirrored reference knife
+refs=[d4.getObject(n) for n in ['IllustrativeBlade','IllustrativeHandle','IllustrativeNeck']]
+for o in refs:
+    ok,detail=same(o.Shape,d3.getObject(o.Name).Shape.mirror(plane,normal),1e-5)
+    check('reference_mirror_'+o.Name,ok and o.TypeId=='Part::Mirroring' and o.Shape.isValid() and len(o.Shape.Solids)==1 and 'ILUSTRACE' in o.Label,detail)
+rigid=Part.makeCompound([o.Shape for o in refs]);bb=rigid.optimalBoundingBox(False,False)
+tess=rigid.copy();verts,tris=tess.tessellate(.003);V=np.array([[v.x,v.y,v.z] for v in verts])
+check('reference_actual_envelope_340x45x25',all(abs(a-b)<.01 for a,b in zip(dims(bb),[340,45,25])) and all(abs(a-b)<.02 for a,b in zip(V.max(axis=0)-V.min(axis=0),[340,45,25])),{'optimal_boundbox_mm':dims(bb),'generic_boundbox_mm_not_used':dims(rigid.BoundBox),'mesh_dimensions_mm':[float(v) for v in V.max(axis=0)-V.min(axis=0)]})
+rb,rh=refs[0].Shape.optimalBoundingBox(False,False),refs[1].Shape.optimalBoundingBox(False,False)
+check('knife_tip_right_handle_left',abs(rb.XMax-tip)<1e-5 and abs(rb.XMin-heel)<1e-5 and abs(rh.XMin-butt)<1e-5 and abs(rh.XMax-handle_end)<1e-5 and abs(rh.XLength-g['HandleLength'])<1e-5,{'blade_x_mm':[rb.XMin,rb.XMax],'handle_x_mm':[rh.XMin,rh.XMax],'holder_x_mm':[bb4.XMin,bb4.XMax]})
+check('whole_rigid_reference_clear',overlap(rigid)<1e-7,{'collision_mm3':overlap(rigid),'minimum_distance_mm':rigid.distToShape(holder)[0]})
+worst=0.
+for lift in range(61):
+    moved=rigid.copy();moved.translate(App.Vector(0,lift,0));worst=max(worst,overlap(moved))
+check('rigid_reference_straight_up_60mm',worst<1e-7,{'maximum_collision_mm3':worst,'sampling_step_mm':1,'actual_knife_fit_not_proven':True})
+for o in refs[:2]:
+    moved=o.Shape.copy();moved.translate(App.Vector(0,-.3,0))
+    check('reference_support_under_'+o.Name,overlap(moved)>1e-7,{'downward_probe_mm':.3,'overlap_mm3':overlap(moved),'not_physical_load_validation':True})
+
+# --- E. STL against CAD and against the mirrored V03 STL
+def read_stl(path):
+    raw=Path(path).read_bytes();n=int.from_bytes(raw[80:84],'little');assert len(raw)==84+50*n,'expected binary STL'
+    data=np.frombuffer(raw,dtype=np.dtype([('n','<3f4'),('v','<9f4'),('a','<u2')]),count=n,offset=84);return data['v'].reshape(-1,3,3).astype(float)
+def mesh_report(tri):
+    keys=np.round(tri.reshape(-1,3),5);uniq,idx=np.unique(keys,axis=0,return_inverse=True);idx=idx.reshape(-1,3)
+    directed={};parent=list(range(len(idx)))
+    def root(i):
+        while parent[i]!=i:parent[i]=parent[parent[i]];i=parent[i]
+        return i
+    for t,face in enumerate(idx.tolist()):
+        for j in range(3):directed.setdefault((face[j],face[(j+1)%3]),[]).append(t)
+    for (a_,b_),ts in directed.items():
+        for other in directed.get((b_,a_),[]):parent[root(ts[0])]=root(other)
+    closed=all(len(ts)==1 and len(directed.get((a_,b_)[::-1],[]))==1 for (a_,b_),ts in directed.items())
+    vol=float(np.einsum('ij,ij->i',tri[:,0],np.cross(tri[:,1],tri[:,2])).sum()/6)
+    return uniq,{'facets':len(tri),'vertices':len(uniq),'closed_consistent_winding':closed,'components':len({root(i) for i in range(len(idx))}),'signed_volume_mm3':vol,'area_mm2':float(np.linalg.norm(np.cross(tri[:,1]-tri[:,0],tri[:,2]-tri[:,0]),axis=1).sum()/2)}
+t4=read_stl(FILES['v04_stl']);t3=read_stl(FILES['v03_stl']);u4,m4=mesh_report(t4);u3,m3=mesh_report(t3)
+fm=Mesh.Mesh(str(FILES['v04_stl']))
+check('stl_closed_single_component',m4['closed_consistent_winding'] and m4['components']==1 and m4['signed_volume_mm3']>0 and fm.isSolid() and fm.countComponents()==1 and not fm.hasNonManifolds() and not fm.hasSelfIntersections() and not fm.hasInvalidPoints() and not fm.hasNonUniformOrientedFacets(),m4)
+pb=holder.copy();pb.rotate(App.Vector(),App.Vector(1,0,0),90);pbb=pb.optimalBoundingBox(False,False);lo,hi=t4.reshape(-1,3).min(axis=0),t4.reshape(-1,3).max(axis=0)
+check('stl_bbox_matches_cad_print_frame',all(abs(a-b)<.005 for a,b in zip(hi-lo,dims(pbb))) and all(abs(v)<1e-5 for v in lo),{'stl_mm':[float(v) for v in hi-lo],'cad_print_optimal_mm':dims(pbb),'stl_min_mm':[float(v) for v in lo],'mapping':'print = (X, Zmax-Z, Y)'})
+check('stl_volume_area_match_cad',abs(m4['signed_volume_mm3']-holder.Volume)/holder.Volume<1e-3 and abs(m4['area_mm2']-holder.Area)/holder.Area<2e-3,{'stl_mm3':m4['signed_volume_mm3'],'cad_mm3':holder.Volume,'stl_mm2':m4['area_mm2'],'cad_mm2':holder.Area})
+zmax=bb4.ZMax;to_model=lambda p:np.c_[p[...,0],p[...,2],zmax-p[...,1]]
+tm=to_model(t4.reshape(-1,3)).reshape(-1,3,3)
+dist=lambda p:holder.distToShape(Part.Vertex(App.Vector(*[float(c) for c in p])))[0]
+v_err=max(dist(p) for p in to_model(u4));c_err=max(dist(p) for p in tm.mean(axis=1))
+def point_to_mesh(points,tri,chunk=120):
+    a_,b_,c_=tri[:,0],tri[:,1],tri[:,2];n=np.cross(b_-a_,c_-a_);nn=(n*n).sum(axis=1);out=[]
+    for i in range(0,len(points),chunk):
+        P=points[i:i+chunk,None,:];best=np.full(P.shape[0],np.inf)
+        d=((P-a_)*n).sum(axis=2)/nn;proj=P-d[...,None]*n
+        u=(np.cross(b_-a_,proj-a_)*n).sum(axis=2);v=(np.cross(c_-b_,proj-b_)*n).sum(axis=2);w=(np.cross(a_-c_,proj-c_)*n).sum(axis=2)
+        plane_d=np.where((u>=0)&(v>=0)&(w>=0),np.abs(d),np.inf).min(axis=1)
+        def seg(s0,s1):
+            e=s1-s0;t=np.clip(((P-s0)*e).sum(axis=2)/(e*e).sum(axis=1),0,1);return np.sqrt(((P-(s0+t[...,None]*e))**2).sum(axis=2)).min(axis=1)
+        out.append(np.minimum.reduce([best,plane_d,seg(a_,b_),seg(b_,c_),seg(c_,a_)]))
+    return np.concatenate(out)
+fine=holder.copy();fv,ft=fine.tessellate(.01);FV=np.array([[v.x,v.y,v.z] for v in fv]);FT=np.array(ft);samples=np.vstack([FV,FV[FT].mean(axis=1)])
+cad_to_mesh=float(point_to_mesh(samples,tm).max())
+check('stl_surface_matches_cad_both_ways',v_err<1e-4 and c_err<.036 and cad_to_mesh<.036,{'stl_vertices_to_cad_max_mm':v_err,'stl_triangle_centres_to_cad_max_mm':c_err,'cad_samples':len(samples),'cad_samples_to_stl_max_mm':cad_to_mesh,'linear_deflection_mm':.035})
+mirrored=u3.copy();mirrored[:,0]=L-mirrored[:,0]
+if len(u3)==len(u4):stl_mirror=float(max(nearest(mirrored,u4),nearest(u4,mirrored)))
+else:stl_mirror=float('inf')
+check('stl_is_mirror_of_v03_stl',m3['facets']==m4['facets'] and stl_mirror<1e-3 and abs(m3['signed_volume_mm3']-m4['signed_volume_mm3'])<1e-2,{'v03_facets':m3['facets'],'v04_facets':m4['facets'],'maximum_vertex_distance_mm':stl_mirror,'v03_stl_mm3':m3['signed_volume_mm3'],'v04_stl_mm3':m4['signed_volume_mm3']})
+
+# --- F. Real CAD previews
+report=json.loads((ROOT/'kontrola-modelu.json').read_text());gv=report.get('gui_validation',{})
+images=gv.get('images',[])
+check('previews_bound_to_final_document',gv.get('document_sha256_after_gui_save')==opened['v04_fcstd'] and len(images)==3 and all(sha(ROOT/f)==gv['images_sha256'][f] for f in images) and report['part']['stl_sha256']==opened['v04_stl'],{'document_sha256':gv.get('document_sha256_after_gui_save'),'images':gv.get('images_sha256')})
+def classify(path):
+    a=np.asarray(Image.open(path).convert('RGB')).astype(int);r,g_,b_=a[...,0],a[...,1],a[...,2]
+    brown=(r>g_+18)&(g_>b_)&(r<150);green=(g_>r+10)&(g_>b_+6)&(g_<140);return brown,green
+b4,g4=classify(ROOT/'nahled-profil-cad.png')
+im3=ImageOps.mirror(Image.open(V3/'nahled-profil-cad.png').convert('RGB'));tmp=np.asarray(im3).astype(int);b3=(tmp[...,0]>tmp[...,1]+18)&(tmp[...,1]>tmp[...,2])&(tmp[...,0]<150);g3=(tmp[...,1]>tmp[...,0]+10)&(tmp[...,1]>tmp[...,2]+6)&(tmp[...,1]<140)
+W=b4.shape[1];bx=float(np.nonzero(b4)[1].mean());gx=float(np.nonzero(g4)[1].mean())
+iou=lambda p,q:float((p&q).sum()/max(1,(p|q).sum()))
+check('profile_render_shows_handle_left_and_matches_flipped_v03',bx<W/2 and iou(b4,b3)>.97 and iou(g4,g3)>.97,{'image_width_px':W,'handle_pixel_mean_x':bx,'holder_pixel_mean_x':gx,'handle_iou_vs_flipped_v03':iou(b4,b3),'holder_iou_vs_flipped_v03':iou(g4,g3)})
+
+# --- G. Print-frame contact and envelope
+slab=Part.makeBox(250,.2,60,App.Vector(-10,0,-5));contact=holder.common(slab);contact3=v03.common(slab)
+check('first_layer_contact',contact.Volume>100 and len(contact.Solids)==1 and abs(contact.Volume-contact3.Volume)<1e-6,{'intersection_volume_mm3':contact.Volume,'v03_mm3':contact3.Volume,'connected_solids':len(contact.Solids)})
+check('Kobra_X_envelope_with_brim',pbb.XLength+10<260 and pbb.YLength+10<260 and pbb.ZLength<260,{'dimensions_mm':dims(pbb),'brim_margin_mm_each_side':5})
+
+# --- H. In-memory parametric recompute: the mirror must follow every change. Never saved.
+def mirror_follows():
+    now=s.Length.Value;expected=srcobj.Shape.mirror(App.Vector(now/2,0,0),normal);ok_,d_=same(obj.Shape,expected)
+    return ok_ and abs(obj.Base.x-now/2)<1e-9 and obj.Shape.isValid() and len(obj.Shape.Solids)==1,d_
+initial=obj.Shape.Volume
+for a,v in [('BladeStationHeight',39),('HandleLength',108),('HandleRiseAssumed',18)]:s.set(a,str(v)+' mm')
+d4.recompute();ok,detail=mirror_follows()
+check('native_parameter_change_stays_mirrored',ok and abs(s.HeelX.Value-142)<1e-7 and abs(s.MirroredHeelX.Value-88)<1e-7 and abs(s.TaperDrop.Value-6)<1e-7 and abs(obj.Shape.Volume-initial)>1e-3,{**detail,'test':{'BladeStationHeight':39,'HandleLength':108,'HandleRiseAssumed':18},'source_heel_x_mm':s.HeelX.Value,'mirrored_heel_x_mm':s.MirroredHeelX.Value,'volume_mm3':obj.Shape.Volume})
+for a,v in [('BladeStationHeight',40),('HandleLength',105),('HandleRiseAssumed',20)]:s.set(a,str(v)+' mm')
+s.set('Length','235 mm');d4.recompute();ok,detail=mirror_follows()
+check('mirror_plane_follows_length',ok and abs(obj.Base.x-117.5)<1e-9,{**detail,'test_length_mm':235,'plane_x_mm':obj.Base.x})
+s.set('Length','230 mm');d4.recompute();ok,detail=same(obj.Shape,holder)
+check('native_parameters_restored',ok and abs(obj.Shape.Volume-initial)<1e-5 and abs(obj.Base.x-115)<1e-9,detail)
+
+closed={k:sha(p) for k,p in FILES.items()}
+check('audited_files_unchanged_during_audit',opened==closed,closed)
+result={'revision':'04','document_sha256':closed['v04_fcstd'],'stl_sha256':closed['v04_stl'],'v03_document_sha256':closed['v03_fcstd'],'v03_stl_sha256':closed['v03_stl'],'checks':checks,'passed':sum(c['passed'] for c in checks),'failed':sum(not c['passed'] for c in checks),
+ 'limitations':['Full rigid reference is illustrative. Actual knife shape, blade thickness, handle section and centre of gravity remain unknown.',
+ '225mm blade length assumes the complete non-overlapping 340-105-10mm chain. The 20mm vertical handle offset is an uncertain interpretation.',
+ 'Only two blade heights are specified. A straight spine, interpolation and extrapolated outer 45mm of the support remain design assumptions.',
+ 'Mounting hardware, wall, gluing, print, physical fit, stability and load capacity are not verified; the tip remains exposed.']}
+(ROOT/'audit-montaze.json').write_text(json.dumps(result,ensure_ascii=False,indent=2,default=float)+'\n')
+App.closeDocument(d4.Name);App.closeDocument(d3.Name)
+print('V04_INDEPENDENT_AUDIT '+json.dumps({'passed':result['passed'],'failed':result['failed'],'failed_checks':[c['check'] for c in checks if not c['passed']]}),flush=True)

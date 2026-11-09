@@ -1,0 +1,513 @@
+{
+  "plate": {
+    "number": 2,
+    "geometry": "podlozka-02-geometrie.3mf",
+    "geometry_sha256": "97a098d650f828373935561957b4e942cf95fb7db38bc0dfe74361286f77cfa1",
+    "preview": "podlozka-02.png",
+    "physical_parts": 5,
+    "parts": [
+      {
+        "id": "Stone2",
+        "name": "Stone2_01",
+        "file": "../stl/stone2.stl",
+        "source_sha256": "28d9ab63b74f6a42da446b787c103ec79ec1250fa2c8bd6768deda7ed4455375",
+        "translation_mm": [
+          68.38196659088135,
+          103.09606647491455,
+          -0.0
+        ],
+        "placed_min_mm": [
+          35.79423236846924,
+          69.75058078765869,
+          0.0
+        ],
+        "placed_max_mm": [
+          95.15717601776123,
+          127.8024549484253,
+          24.0
+        ],
+        "size_mm": [
+          59.36294364929199,
+          58.0518741607666,
+          24.0
+        ],
+        "triangle_count": 21532,
+        "supports": false,
+        "support_note": "Rovna zakladna, svisle steny, male zaoblene hrany a otevrene dulky.",
+        "critical_z_mm": [
+          0.2,
+          1,
+          22.8,
+          23.8
+        ]
+      },
+      {
+        "id": "Stone5",
+        "name": "Stone5_01",
+        "file": "../stl/stone5.stl",
+        "source_sha256": "3bea8b60c9fa39618d0ddf85513b6a33889622b03af308f3ab20bdd926223647",
+        "translation_mm": [
+          133.03157138824463,
+          96.1907377243042,
+          -0.0
+        ],
+        "placed_min_mm": [
+          107.15717601776123,
+          69.75058078765869,
+          0.0
+        ],
+        "placed_max_mm": [
+          158.90596675872803,
+          122.6308946609497,
+          60.0
+        ],
+        "size_mm": [
+          51.7487907409668,
+          52.880313873291016,
+          60.0
+        ],
+        "triangle_count": 28690,
+        "supports": false,
+        "support_note": "Rovna zakladna, svisle steny, male zaoblene hrany a otevrene dulky.",
+        "critical_z_mm": [
+          0.2,
+          1,
+          58.8,
+          59.8
+        ]
+      },
+      {
+        "id": "Stone4",
+        "name": "Stone4_01",
+        "file": "../stl/stone4.stl",
+        "source_sha256": "321579f0cbb2a1df0fb3283ce256d2c8519e8422ccc835fb6e8968be8a8f30da",
+        "translation_mm": [
+          197.5558671951294,
+          93.31792545318604,
+          -0.0
+        ],
+        "placed_min_mm": [
+          170.90596675872803,
+          69.75058078765869,
+          0.0
+        ],
+        "placed_max_mm": [
+          224.20576763153076,
+          121.03235721588135,
+          48.0
+        ],
+        "size_mm": [
+          53.299800872802734,
+          51.281776428222656,
+          48.0
+        ],
+        "triangle_count": 26832,
+        "supports": false,
+        "support_note": "Rovna zakladna, svisle steny, male zaoblene hrany a otevrene dulky.",
+        "critical_z_mm": [
+          0.2,
+          1,
+          46.8,
+          47.8
+        ]
+      },
+      {
+        "id": "Stone1",
+        "name": "Stone1_01",
+        "file": "../stl/stone1.stl",
+        "source_sha256": "b47bf2f79ff151ad5c3bdc321a81f45fe4fd7b167f8d19602b7182773c6facf1",
+        "translation_mm": [
+          61.02555751800537,
+          165.0259370803833,
+          -0.0
+        ],
+        "placed_min_mm": [
+          35.79423236846924,
+          139.8024549484253,
+          0.0
+        ],
+        "placed_max_mm": [
+          86.2568826675415,
+          190.2494192123413,
+          12.0
+        ],
+        "size_mm": [
+          50.462650299072266,
+          50.446964263916016,
+          12.0
+        ],
+        "triangle_count": 18882,
+        "supports": false,
+        "support_note": "Rovna zakladna, svisle steny, male zaoblene hrany a otevrene dulky.",
+        "critical_z_mm": [
+          0.2,
+          1,
+          10.8,
+          11.8
+        ]
+      },
+      {
+        "id": "Stone3",
+        "name": "Stone3_01",
+        "file": "../stl/stone3.stl",
+        "source_sha256": "276ccf8d3f582fa0c1764ae559146399a6efa276c0198883b3e8fef400169aa6",
+        "translation_mm": [
+          123.17211055755615,
+          164.71768283843994,
+          -0.0
+        ],
+        "placed_min_mm": [
+          98.2568826675415,
+          139.8024549484253,
+          0.0
+        ],
+        "placed_max_mm": [
+          148.0873384475708,
+          189.6329107284546,
+          36.0
+        ],
+        "size_mm": [
+          49.8304557800293,
+          49.8304557800293,
+          36.0
+        ],
+        "triangle_count": 24182,
+        "supports": false,
+        "support_note": "Rovna zakladna, svisle steny, male zaoblene hrany a otevrene dulky.",
+        "critical_z_mm": [
+          0.2,
+          1,
+          34.8,
+          35.8
+        ]
+      }
+    ],
+    "minimum_geometry_edge_margin_mm": 35.79423236846924,
+    "minimum_bbox_gap_mm": 12.0,
+    "colour": "#BD6650",
+    "material_name": "PLA Basic — kameny (barva navrh)",
+    "profile": {
+      "kind": "Basic",
+      "mvs": "8",
+      "nozzle": "205",
+      "initial_nozzle": "215",
+      "bed": "50"
+    }
+  },
+  "project": "podlozka-02-kobra-x-pla-projekt.3mf",
+  "configured": {
+    "sha256": "7bdb67b94d1a7525e4990799b5ce62df5364d447f5dca118980ba306d2656bba",
+    "objects": [
+      {
+        "name": "Stone2_01",
+        "preserved_geometry_and_placement": true,
+        "maximum_vertex_delta_mm": 1.0355346660162468e-06
+      },
+      {
+        "name": "Stone5_01",
+        "preserved_geometry_and_placement": true,
+        "maximum_vertex_delta_mm": 9.061157228984484e-07
+      },
+      {
+        "name": "Stone4_01",
+        "preserved_geometry_and_placement": true,
+        "maximum_vertex_delta_mm": 9.061157228984484e-07
+      },
+      {
+        "name": "Stone1_01",
+        "preserved_geometry_and_placement": true,
+        "maximum_vertex_delta_mm": 2.399018814713827e-07
+      },
+      {
+        "name": "Stone3_01",
+        "preserved_geometry_and_placement": true,
+        "maximum_vertex_delta_mm": 9.061157228984484e-07
+      }
+    ],
+    "physical_parts": 5,
+    "mesh_repairs": [
+      {
+        "edges_fixed": "0",
+        "degenerate_facets": "0",
+        "facets_removed": "0",
+        "facets_reversed": "0",
+        "backwards_edges": "0"
+      },
+      {
+        "edges_fixed": "0",
+        "degenerate_facets": "0",
+        "facets_removed": "0",
+        "facets_reversed": "0",
+        "backwards_edges": "0"
+      },
+      {
+        "edges_fixed": "0",
+        "degenerate_facets": "0",
+        "facets_removed": "0",
+        "facets_reversed": "0",
+        "backwards_edges": "0"
+      },
+      {
+        "edges_fixed": "0",
+        "degenerate_facets": "0",
+        "facets_removed": "0",
+        "facets_reversed": "0",
+        "backwards_edges": "0"
+      },
+      {
+        "edges_fixed": "0",
+        "degenerate_facets": "0",
+        "facets_removed": "0",
+        "facets_reversed": "0",
+        "backwards_edges": "0"
+      }
+    ],
+    "settings": {
+      "printer_model": "Anycubic Kobra X",
+      "printer_settings_id": "Anycubic Kobra X 0.4 nozzle",
+      "print_settings_id": "Montessori Zahrada objevů 0.20 mm Basic navrh @Kobra X",
+      "filament_settings_id": [
+        "NAVRH Alzament PLA Basic PLA Basic — kameny (barva navrh) @Kobra X 0.4"
+      ],
+      "nozzle_diameter": [
+        "0.4"
+      ],
+      "layer_height": "0.2",
+      "wall_loops": "4",
+      "sparse_infill_density": "20%",
+      "sparse_infill_pattern": "gyroid",
+      "enable_support": "0",
+      "support_on_build_plate_only": "0",
+      "brim_type": "outer_only",
+      "brim_width": "3",
+      "nozzle_temperature": [
+        "205"
+      ],
+      "nozzle_temperature_initial_layer": [
+        "215"
+      ],
+      "textured_plate_temp": [
+        "50"
+      ],
+      "outer_wall_speed": "40",
+      "inner_wall_speed": "70",
+      "filament_colour": [
+        "#BD6650"
+      ],
+      "filament_max_volumetric_speed": [
+        "8"
+      ],
+      "enable_prime_tower": "0",
+      "initial_layer_print_height": "0.2",
+      "top_shell_layers": "5",
+      "bottom_shell_layers": "5"
+    },
+    "has_gcode": false
+  },
+  "delivered": {
+    "sha256": "044aabfee23a54d8c6e042351e7bbafcab796e6707a2b39097372584aca5205b",
+    "objects": [
+      {
+        "name": "Stone2_01",
+        "preserved_geometry_and_placement": true,
+        "maximum_vertex_delta_mm": 1.0355346660162468e-06
+      },
+      {
+        "name": "Stone5_01",
+        "preserved_geometry_and_placement": true,
+        "maximum_vertex_delta_mm": 9.061157228984484e-07
+      },
+      {
+        "name": "Stone4_01",
+        "preserved_geometry_and_placement": true,
+        "maximum_vertex_delta_mm": 9.061157228984484e-07
+      },
+      {
+        "name": "Stone1_01",
+        "preserved_geometry_and_placement": true,
+        "maximum_vertex_delta_mm": 2.399018814713827e-07
+      },
+      {
+        "name": "Stone3_01",
+        "preserved_geometry_and_placement": true,
+        "maximum_vertex_delta_mm": 9.061157228984484e-07
+      }
+    ],
+    "physical_parts": 5,
+    "mesh_repairs": [
+      {
+        "edges_fixed": "0",
+        "degenerate_facets": "0",
+        "facets_removed": "0",
+        "facets_reversed": "0",
+        "backwards_edges": "0"
+      },
+      {
+        "edges_fixed": "0",
+        "degenerate_facets": "0",
+        "facets_removed": "0",
+        "facets_reversed": "0",
+        "backwards_edges": "0"
+      },
+      {
+        "edges_fixed": "0",
+        "degenerate_facets": "0",
+        "facets_removed": "0",
+        "facets_reversed": "0",
+        "backwards_edges": "0"
+      },
+      {
+        "edges_fixed": "0",
+        "degenerate_facets": "0",
+        "facets_removed": "0",
+        "facets_reversed": "0",
+        "backwards_edges": "0"
+      },
+      {
+        "edges_fixed": "0",
+        "degenerate_facets": "0",
+        "facets_removed": "0",
+        "facets_reversed": "0",
+        "backwards_edges": "0"
+      }
+    ],
+    "settings": {
+      "printer_model": "Anycubic Kobra X",
+      "printer_settings_id": "Anycubic Kobra X 0.4 nozzle",
+      "print_settings_id": "Montessori Zahrada objevů 0.20 mm Basic navrh @Kobra X",
+      "filament_settings_id": [
+        "NAVRH Alzament PLA Basic PLA Basic — kameny (barva navrh) @Kobra X 0.4"
+      ],
+      "nozzle_diameter": [
+        "0.4"
+      ],
+      "layer_height": "0.2",
+      "wall_loops": "4",
+      "sparse_infill_density": "20%",
+      "sparse_infill_pattern": "gyroid",
+      "enable_support": "0",
+      "support_on_build_plate_only": "0",
+      "brim_type": "outer_only",
+      "brim_width": "3",
+      "nozzle_temperature": [
+        "205"
+      ],
+      "nozzle_temperature_initial_layer": [
+        "215"
+      ],
+      "textured_plate_temp": [
+        "50"
+      ],
+      "outer_wall_speed": "40",
+      "inner_wall_speed": "70",
+      "filament_colour": [
+        "#BD6650"
+      ],
+      "filament_max_volumetric_speed": [
+        "8"
+      ],
+      "enable_prime_tower": "0",
+      "initial_layer_print_height": "0.2",
+      "top_shell_layers": "5",
+      "bottom_shell_layers": "5"
+    },
+    "has_gcode": true,
+    "gcode_bytes": 38893135,
+    "gcode_sha256": "d3ec2d1e689f779fcb38cd001be15ea54de3fd517ca1a1f443d2c5319e8389e5",
+    "slice_metadata": {
+      "prediction": "30187",
+      "weight": "153.54",
+      "outside": "false",
+      "support_used": "false"
+    },
+    "warnings": []
+  },
+  "toolpath_audit": {
+    "physical_parts": 5,
+    "all_objects_on_first_layer": true,
+    "layers": 300,
+    "all_layers_have_extrusion": true,
+    "maximum_extrusion_z_mm": 60.0,
+    "roles_segments": {
+      "Brim": 2659,
+      "Outer wall": 74687,
+      "Inner wall": 187710,
+      "Bottom surface": 1156,
+      "Gap infill": 504,
+      "Internal solid infill": 16634,
+      "Sparse infill": 1054497,
+      "Internal Bridge": 2591,
+      "Top surface": 1199
+    },
+    "support_segments": 0,
+    "brim_generated": true,
+    "deposition_island_test": {
+      "method": "Actual path graph: deposited strokes connect within 0.46 mm nominal width; every component must contact preceding-layer strokes within 0.71 mm (width plus 0.25 mm allowance). Does not certify full overhang support.",
+      "disconnected_new_islands": [],
+      "passed": true,
+      "maximum_components_per_layer": 5
+    },
+    "extrusion_min_xy_mm": [
+      33.746,
+      67.701
+    ],
+    "extrusion_max_xy_mm": [
+      226.255,
+      192.299
+    ],
+    "minimum_extrusion_edge_margin_mm": 33.745000000000005,
+    "maximum_commanded_extrusion_speed_mm_s": 80.0,
+    "maximum_commanded_volumetric_flow_mm3_s_segments_at_least_0_1mm": 6.593620505595333,
+    "maximum_raw_segment_flow_mm3_s": 8.41848656411547,
+    "flow_quantisation_note": "XY coordinates use 0.001 mm and E uses 0.00001 mm precision; raw flow of moves below 0.1 mm is dominated by rounding. Audited flow uses segments at least 0.1 mm.",
+    "preview": "podlozka-02-vrstvy.png",
+    "detail_previews": [
+      "detail-02-Stone2_01-drahy.png",
+      "detail-02-Stone5_01-drahy.png",
+      "detail-02-Stone4_01-drahy.png",
+      "detail-02-Stone1_01-drahy.png",
+      "detail-02-Stone3_01-drahy.png"
+    ],
+    "selected_z_mm": [
+      0.2,
+      0.4,
+      0.6,
+      0.8,
+      1.0,
+      2.0,
+      4.0,
+      6.0,
+      10.0,
+      10.8,
+      11.8,
+      15.0,
+      20.0,
+      22.8,
+      23.8,
+      34.8,
+      35.8,
+      46.8,
+      47.8,
+      58.8,
+      59.8,
+      60.0
+    ],
+    "estimated_filament_g": 153.54,
+    "estimated_printing_time": "8h 23m 7s",
+    "first_layer_gcode_temperature_c": {
+      "bed": 50.0,
+      "nozzle": 215.0
+    },
+    "physical_print_verified": false
+  },
+  "machine_profile_sha256": "baf80d3287e1e863fba29cdfd240b9b5ebc28bd87e1b4d03fc79e53f0009570a",
+  "process_sha256": "f334575c2205ec0fb71bb98dbd3b372cc91e15bb664eac7745084dd275de9845",
+  "filament_sha256": "ad0bd1771ee702989f906b7e77188591cffb64340d1d229fb98c2f92d2f1aadf",
+  "cli_exit_codes": [
+    0,
+    0
+  ],
+  "cli_error_messages": [
+    "calc_exclude_triangles:Unable to create exclude triangles"
+  ]
+}

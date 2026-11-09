@@ -1,0 +1,866 @@
+{
+  "audit_version": 1,
+  "source_fcstd_sha256_before": "7fb5996142fcf8b951e7c4e296c7ec9fa46d2b564da20e6f6dc4fa224aa6e7a3",
+  "source_file_saved_by_audit": false,
+  "physical_print_verified": false,
+  "load_capacity_verified": false,
+  "tests": {
+    "saved_model": {
+      "parameters_mm": {
+        "Width": 246.0,
+        "Depth": 246.0,
+        "Floor": 4.0,
+        "Top": 104.0,
+        "Back": 8.0,
+        "OverallHeight": 150.0,
+        "BinDepth": 100.0,
+        "ScrewInset": 30.0,
+        "LowerOffset": 12.0,
+        "ScrewPitch": 20.0,
+        "HoleDiameter": 5.5,
+        "BraceThickness": 6.0,
+        "BraceReach": 28.0,
+        "Wall": 3.6
+      },
+      "valid": true,
+      "solid_count": 1,
+      "bounds_mm": [
+        0.0,
+        246.0,
+        0.0,
+        246.0,
+        0.0,
+        150.0
+      ],
+      "volume_mm3": 1053760.2188438212,
+      "object_errors": {},
+      "sketches": {
+        "BraceSection": {
+          "state": [
+            "Up-to-date"
+          ],
+          "fully_constrained": true
+        },
+        "HoleRoofSection": {
+          "state": [
+            "Up-to-date"
+          ],
+          "fully_constrained": true
+        }
+      },
+      "independent_cavity_count": 10,
+      "cavities": [
+        {
+          "bounds_mm": [
+            3.6,
+            60.8,
+            3.6,
+            80.13333333333333,
+            4.01,
+            103.99000000000001
+          ],
+          "clear_volume_mm3": 437683.11253333325
+        },
+        {
+          "bounds_mm": [
+            3.6,
+            60.8,
+            82.53333333333333,
+            159.0666666666667,
+            4.01,
+            103.99000000000001
+          ],
+          "clear_volume_mm3": 437683.11253333336
+        },
+        {
+          "bounds_mm": [
+            3.6,
+            60.8,
+            161.46666666666667,
+            238.00000000000003,
+            4.009999999999991,
+            103.99000000000001
+          ],
+          "clear_volume_mm3": 429326.5752199004
+        },
+        {
+          "bounds_mm": [
+            63.19999999999999,
+            120.39999999999999,
+            3.6,
+            80.13333333333333,
+            4.01,
+            103.99000000000001
+          ],
+          "clear_volume_mm3": 437683.11253333325
+        },
+        {
+          "bounds_mm": [
+            63.19999999999999,
+            120.39999999999999,
+            82.53333333333333,
+            159.0666666666667,
+            4.01,
+            103.99000000000001
+          ],
+          "clear_volume_mm3": 437683.1125333334
+        },
+        {
+          "bounds_mm": [
+            63.19999999999999,
+            120.39999999999999,
+            161.46666666666667,
+            238.00000000000003,
+            4.01,
+            103.99000000000001
+          ],
+          "clear_volume_mm3": 437683.11253333336
+        },
+        {
+          "bounds_mm": [
+            122.8,
+            180.00000000000003,
+            3.6,
+            80.13333333333333,
+            4.01,
+            103.99000000000001
+          ],
+          "clear_volume_mm3": 437683.11253333336
+        },
+        {
+          "bounds_mm": [
+            122.8,
+            180.00000000000003,
+            82.53333333333333,
+            159.0666666666667,
+            4.01,
+            103.99000000000001
+          ],
+          "clear_volume_mm3": 437683.1125333335
+        },
+        {
+          "bounds_mm": [
+            122.8,
+            180.00000000000003,
+            161.46666666666667,
+            238.00000000000003,
+            4.01,
+            103.99000000000001
+          ],
+          "clear_volume_mm3": 437683.1125333334
+        },
+        {
+          "bounds_mm": [
+            182.4,
+            242.4,
+            3.6,
+            238.00000000000003,
+            4.009999999999991,
+            103.99000000000001
+          ],
+          "clear_volume_mm3": 1397762.1826865673
+        }
+      ],
+      "continuous_floor_thickness_mm": 4.0,
+      "clear_bin_height_mm": 100.0,
+      "cavity_section_counts": [
+        {
+          "z_mm": 4.05,
+          "count": 10
+        },
+        {
+          "z_mm": 54.0,
+          "count": 10
+        },
+        {
+          "z_mm": 103.85,
+          "count": 10
+        }
+      ],
+      "mounts": [
+        {
+          "centre_xz_mm": [
+            30.0,
+            116.0
+          ],
+          "bore_diameter_mm": 5.5,
+          "bore_collision_mm3": 0.0,
+          "driver_diameter_mm": 20,
+          "driver_collision_mm3": 0.0,
+          "continuous_bearing_band_outer_inner_diameter_mm": [
+            12,
+            9
+          ],
+          "bearing_band_missing_mm3": 0.0,
+          "illustrative_washer_od12_id6_contact_fraction": 0.9894240781309741,
+          "roof_edge_clearance_mm": 30.11091270347399
+        },
+        {
+          "centre_xz_mm": [
+            30.0,
+            136.0
+          ],
+          "bore_diameter_mm": 5.5,
+          "bore_collision_mm3": 0.0,
+          "driver_diameter_mm": 20,
+          "driver_collision_mm3": 0.0,
+          "continuous_bearing_band_outer_inner_diameter_mm": [
+            12,
+            9
+          ],
+          "bearing_band_missing_mm3": 0.0,
+          "illustrative_washer_od12_id6_contact_fraction": 0.9894240781309743,
+          "roof_edge_clearance_mm": 10.11091270347399
+        },
+        {
+          "centre_xz_mm": [
+            216.0,
+            116.0
+          ],
+          "bore_diameter_mm": 5.5,
+          "bore_collision_mm3": 0.0,
+          "driver_diameter_mm": 20,
+          "driver_collision_mm3": 0.0,
+          "continuous_bearing_band_outer_inner_diameter_mm": [
+            12,
+            9
+          ],
+          "bearing_band_missing_mm3": 0.0,
+          "illustrative_washer_od12_id6_contact_fraction": 0.9894240781309744,
+          "roof_edge_clearance_mm": 30.11091270347399
+        },
+        {
+          "centre_xz_mm": [
+            216.0,
+            136.0
+          ],
+          "bore_diameter_mm": 5.5,
+          "bore_collision_mm3": 0.0,
+          "driver_diameter_mm": 20,
+          "driver_collision_mm3": 0.0,
+          "continuous_bearing_band_outer_inner_diameter_mm": [
+            12,
+            9
+          ],
+          "bearing_band_missing_mm3": 0.0,
+          "illustrative_washer_od12_id6_contact_fraction": 0.9894240781309751,
+          "roof_edge_clearance_mm": 10.11091270347399
+        }
+      ],
+      "wall_contact": {
+        "rear_plane_y_mm": 246.0,
+        "planar_faces": 1,
+        "rear_face_area_mm2": 36798.475116671674,
+        "shape_does_not_project_behind_plane": true
+      },
+      "braces": [
+        {
+          "name": "BraceLeft",
+          "bounds_mm": [
+            27.0,
+            33.0,
+            210.0,
+            238.0,
+            3.499999999999986,
+            104.0
+          ],
+          "floor_overlap_mm3": 83.79104477611969,
+          "back_interface_mm2": 603.0000000000001,
+          "connected_to_floor_and_back": true
+        },
+        {
+          "name": "BraceRight",
+          "bounds_mm": [
+            213.0,
+            219.0,
+            210.0,
+            238.0,
+            3.499999999999986,
+            104.0
+          ],
+          "floor_overlap_mm3": 83.79104477611969,
+          "back_interface_mm2": 603.0000000000001,
+          "connected_to_floor_and_back": true
+        }
+      ]
+    },
+    "perturbed_width230_depth230_bindepth110_hole6": {
+      "parameters_mm": {
+        "Width": 230.0,
+        "Depth": 230.0,
+        "Floor": 4.0,
+        "Top": 114.0,
+        "Back": 8.0,
+        "OverallHeight": 160.0,
+        "BinDepth": 110.0,
+        "ScrewInset": 30.0,
+        "LowerOffset": 12.0,
+        "ScrewPitch": 20.0,
+        "HoleDiameter": 6.0,
+        "BraceThickness": 6.0,
+        "BraceReach": 28.0,
+        "Wall": 3.6
+      },
+      "valid": true,
+      "solid_count": 1,
+      "bounds_mm": [
+        0.0,
+        230.0,
+        0.0,
+        230.0,
+        0.0,
+        160.0
+      ],
+      "volume_mm3": 1035252.196077323,
+      "object_errors": {},
+      "sketches": {
+        "BraceSection": {
+          "state": [
+            "Up-to-date"
+          ],
+          "fully_constrained": true
+        },
+        "HoleRoofSection": {
+          "state": [
+            "Up-to-date"
+          ],
+          "fully_constrained": true
+        }
+      },
+      "independent_cavity_count": 10,
+      "cavities": [
+        {
+          "bounds_mm": [
+            3.6,
+            55.46666666666667,
+            3.6,
+            74.8,
+            4.01,
+            113.99000000000001
+          ],
+          "clear_volume_mm3": 406145.8752
+        },
+        {
+          "bounds_mm": [
+            3.6,
+            55.46666666666667,
+            77.2,
+            148.40000000000003,
+            4.01,
+            113.99000000000001
+          ],
+          "clear_volume_mm3": 406145.87520000007
+        },
+        {
+          "bounds_mm": [
+            3.6,
+            55.46666666666667,
+            150.8,
+            222.00000000000003,
+            4.009999999999991,
+            113.99000000000001
+          ],
+          "clear_volume_mm3": 396949.3575529411
+        },
+        {
+          "bounds_mm": [
+            57.86666666666666,
+            109.73333333333333,
+            3.6,
+            74.8,
+            4.01,
+            113.99000000000001
+          ],
+          "clear_volume_mm3": 406145.8752
+        },
+        {
+          "bounds_mm": [
+            57.86666666666666,
+            109.73333333333333,
+            77.2,
+            148.40000000000003,
+            4.01,
+            113.99000000000001
+          ],
+          "clear_volume_mm3": 406145.8752000001
+        },
+        {
+          "bounds_mm": [
+            57.86666666666666,
+            109.73333333333333,
+            150.8,
+            222.00000000000003,
+            4.01,
+            113.99000000000001
+          ],
+          "clear_volume_mm3": 406145.8752
+        },
+        {
+          "bounds_mm": [
+            112.13333333333334,
+            164.00000000000003,
+            3.6,
+            74.8,
+            4.01,
+            113.99000000000001
+          ],
+          "clear_volume_mm3": 406145.8752
+        },
+        {
+          "bounds_mm": [
+            112.13333333333334,
+            164.00000000000003,
+            77.2,
+            148.40000000000003,
+            4.01,
+            113.99000000000001
+          ],
+          "clear_volume_mm3": 406145.87520000007
+        },
+        {
+          "bounds_mm": [
+            112.13333333333334,
+            164.00000000000003,
+            150.8,
+            222.00000000000003,
+            4.01,
+            113.99000000000001
+          ],
+          "clear_volume_mm3": 406145.8751999999
+        },
+        {
+          "bounds_mm": [
+            166.4,
+            226.4,
+            3.6,
+            222.00000000000003,
+            4.009999999999991,
+            113.99000000000001
+          ],
+          "clear_volume_mm3": 1431981.4023529415
+        }
+      ],
+      "continuous_floor_thickness_mm": 4.0,
+      "clear_bin_height_mm": 110.0,
+      "cavity_section_counts": [
+        {
+          "z_mm": 4.05,
+          "count": 10
+        },
+        {
+          "z_mm": 59.0,
+          "count": 10
+        },
+        {
+          "z_mm": 113.85,
+          "count": 10
+        }
+      ],
+      "mounts": [
+        {
+          "centre_xz_mm": [
+            30.0,
+            126.0
+          ],
+          "bore_diameter_mm": 6.0,
+          "bore_collision_mm3": 0.0,
+          "driver_diameter_mm": 20,
+          "driver_collision_mm3": 0.0,
+          "continuous_bearing_band_outer_inner_diameter_mm": [
+            12,
+            9
+          ],
+          "bearing_band_missing_mm3": 0.0,
+          "illustrative_washer_od12_id6_contact_fraction": 0.977230037938739,
+          "roof_edge_clearance_mm": 29.757359312880716
+        },
+        {
+          "centre_xz_mm": [
+            30.0,
+            146.0
+          ],
+          "bore_diameter_mm": 6.0,
+          "bore_collision_mm3": 0.0,
+          "driver_diameter_mm": 20,
+          "driver_collision_mm3": 0.0,
+          "continuous_bearing_band_outer_inner_diameter_mm": [
+            12,
+            9
+          ],
+          "bearing_band_missing_mm3": 0.0,
+          "illustrative_washer_od12_id6_contact_fraction": 0.9772300379387386,
+          "roof_edge_clearance_mm": 9.757359312880714
+        },
+        {
+          "centre_xz_mm": [
+            200.0,
+            126.0
+          ],
+          "bore_diameter_mm": 6.0,
+          "bore_collision_mm3": 0.0,
+          "driver_diameter_mm": 20,
+          "driver_collision_mm3": 0.0,
+          "continuous_bearing_band_outer_inner_diameter_mm": [
+            12,
+            9
+          ],
+          "bearing_band_missing_mm3": 0.0,
+          "illustrative_washer_od12_id6_contact_fraction": 0.9772300379387384,
+          "roof_edge_clearance_mm": 29.757359312880716
+        },
+        {
+          "centre_xz_mm": [
+            200.0,
+            146.0
+          ],
+          "bore_diameter_mm": 6.0,
+          "bore_collision_mm3": 0.0,
+          "driver_diameter_mm": 20,
+          "driver_collision_mm3": 0.0,
+          "continuous_bearing_band_outer_inner_diameter_mm": [
+            12,
+            9
+          ],
+          "bearing_band_missing_mm3": 0.0,
+          "illustrative_washer_od12_id6_contact_fraction": 0.977230037938738,
+          "roof_edge_clearance_mm": 9.757359312880714
+        }
+      ],
+      "wall_contact": {
+        "rear_plane_y_mm": 230.0,
+        "planar_faces": 1,
+        "rear_face_area_mm2": 36679.17699835309,
+        "shape_does_not_project_behind_plane": true
+      },
+      "braces": [
+        {
+          "name": "BraceLeft",
+          "bounds_mm": [
+            26.999999999999986,
+            33.000000000000014,
+            194.0,
+            222.0,
+            3.4999999999999987,
+            114.00000000000003
+          ],
+          "floor_overlap_mm3": 83.80995475112996,
+          "back_interface_mm2": 663.0000000000002,
+          "connected_to_floor_and_back": true
+        },
+        {
+          "name": "BraceRight",
+          "bounds_mm": [
+            197.0,
+            203.00000000000003,
+            194.0,
+            222.0,
+            3.4999999999999987,
+            114.00000000000003
+          ],
+          "floor_overlap_mm3": 83.80995475113038,
+          "back_interface_mm2": 663.0000000000002,
+          "connected_to_floor_and_back": true
+        }
+      ]
+    },
+    "restored_in_memory": {
+      "parameters_mm": {
+        "Width": 246.0,
+        "Depth": 246.0,
+        "Floor": 4.0,
+        "Top": 104.0,
+        "Back": 8.0,
+        "OverallHeight": 150.0,
+        "BinDepth": 100.0,
+        "ScrewInset": 30.0,
+        "LowerOffset": 12.0,
+        "ScrewPitch": 20.0,
+        "HoleDiameter": 5.5,
+        "BraceThickness": 6.0,
+        "BraceReach": 28.0,
+        "Wall": 3.6
+      },
+      "valid": true,
+      "solid_count": 1,
+      "bounds_mm": [
+        0.0,
+        246.0,
+        0.0,
+        246.0,
+        0.0,
+        150.0
+      ],
+      "volume_mm3": 1053760.218843821,
+      "object_errors": {},
+      "sketches": {
+        "BraceSection": {
+          "state": [
+            "Up-to-date"
+          ],
+          "fully_constrained": true
+        },
+        "HoleRoofSection": {
+          "state": [
+            "Up-to-date"
+          ],
+          "fully_constrained": true
+        }
+      },
+      "independent_cavity_count": 10,
+      "cavities": [
+        {
+          "bounds_mm": [
+            3.6,
+            60.8,
+            3.6,
+            80.13333333333333,
+            4.01,
+            103.99000000000001
+          ],
+          "clear_volume_mm3": 437683.11253333325
+        },
+        {
+          "bounds_mm": [
+            3.6,
+            60.8,
+            82.53333333333333,
+            159.0666666666667,
+            4.01,
+            103.99000000000001
+          ],
+          "clear_volume_mm3": 437683.11253333336
+        },
+        {
+          "bounds_mm": [
+            3.6,
+            60.8,
+            161.46666666666667,
+            238.00000000000003,
+            4.009999999999988,
+            103.99000000000001
+          ],
+          "clear_volume_mm3": 429326.5752199004
+        },
+        {
+          "bounds_mm": [
+            63.19999999999999,
+            120.39999999999999,
+            3.6,
+            80.13333333333333,
+            4.01,
+            103.99000000000001
+          ],
+          "clear_volume_mm3": 437683.11253333325
+        },
+        {
+          "bounds_mm": [
+            63.19999999999999,
+            120.39999999999999,
+            82.53333333333333,
+            159.0666666666667,
+            4.01,
+            103.99000000000001
+          ],
+          "clear_volume_mm3": 437683.1125333334
+        },
+        {
+          "bounds_mm": [
+            63.19999999999999,
+            120.39999999999999,
+            161.46666666666667,
+            238.00000000000003,
+            4.01,
+            103.99000000000001
+          ],
+          "clear_volume_mm3": 437683.11253333336
+        },
+        {
+          "bounds_mm": [
+            122.8,
+            180.00000000000003,
+            3.6,
+            80.13333333333333,
+            4.01,
+            103.99000000000001
+          ],
+          "clear_volume_mm3": 437683.11253333336
+        },
+        {
+          "bounds_mm": [
+            122.8,
+            180.00000000000003,
+            82.53333333333333,
+            159.0666666666667,
+            4.01,
+            103.99000000000001
+          ],
+          "clear_volume_mm3": 437683.1125333335
+        },
+        {
+          "bounds_mm": [
+            122.8,
+            180.00000000000003,
+            161.46666666666667,
+            238.00000000000003,
+            4.01,
+            103.99000000000001
+          ],
+          "clear_volume_mm3": 437683.1125333334
+        },
+        {
+          "bounds_mm": [
+            182.4,
+            242.4,
+            3.6,
+            238.00000000000003,
+            4.009999999999988,
+            103.99000000000001
+          ],
+          "clear_volume_mm3": 1397762.1826865673
+        }
+      ],
+      "continuous_floor_thickness_mm": 4.0,
+      "clear_bin_height_mm": 100.0,
+      "cavity_section_counts": [
+        {
+          "z_mm": 4.05,
+          "count": 10
+        },
+        {
+          "z_mm": 54.0,
+          "count": 10
+        },
+        {
+          "z_mm": 103.85,
+          "count": 10
+        }
+      ],
+      "mounts": [
+        {
+          "centre_xz_mm": [
+            30.0,
+            116.0
+          ],
+          "bore_diameter_mm": 5.5,
+          "bore_collision_mm3": 0.0,
+          "driver_diameter_mm": 20,
+          "driver_collision_mm3": 0.0,
+          "continuous_bearing_band_outer_inner_diameter_mm": [
+            12,
+            9
+          ],
+          "bearing_band_missing_mm3": 0.0,
+          "illustrative_washer_od12_id6_contact_fraction": 0.9894240781309741,
+          "roof_edge_clearance_mm": 30.11091270347399
+        },
+        {
+          "centre_xz_mm": [
+            30.0,
+            136.0
+          ],
+          "bore_diameter_mm": 5.5,
+          "bore_collision_mm3": 0.0,
+          "driver_diameter_mm": 20,
+          "driver_collision_mm3": 0.0,
+          "continuous_bearing_band_outer_inner_diameter_mm": [
+            12,
+            9
+          ],
+          "bearing_band_missing_mm3": 0.0,
+          "illustrative_washer_od12_id6_contact_fraction": 0.9894240781309743,
+          "roof_edge_clearance_mm": 10.11091270347399
+        },
+        {
+          "centre_xz_mm": [
+            216.0,
+            116.0
+          ],
+          "bore_diameter_mm": 5.5,
+          "bore_collision_mm3": 0.0,
+          "driver_diameter_mm": 20,
+          "driver_collision_mm3": 0.0,
+          "continuous_bearing_band_outer_inner_diameter_mm": [
+            12,
+            9
+          ],
+          "bearing_band_missing_mm3": 0.0,
+          "illustrative_washer_od12_id6_contact_fraction": 0.9894240781309741,
+          "roof_edge_clearance_mm": 30.11091270347399
+        },
+        {
+          "centre_xz_mm": [
+            216.0,
+            136.0
+          ],
+          "bore_diameter_mm": 5.5,
+          "bore_collision_mm3": 0.0,
+          "driver_diameter_mm": 20,
+          "driver_collision_mm3": 0.0,
+          "continuous_bearing_band_outer_inner_diameter_mm": [
+            12,
+            9
+          ],
+          "bearing_band_missing_mm3": 0.0,
+          "illustrative_washer_od12_id6_contact_fraction": 0.9894240781309744,
+          "roof_edge_clearance_mm": 10.11091270347399
+        }
+      ],
+      "wall_contact": {
+        "rear_plane_y_mm": 246.0,
+        "planar_faces": 1,
+        "rear_face_area_mm2": 36798.475116671674,
+        "shape_does_not_project_behind_plane": true
+      },
+      "braces": [
+        {
+          "name": "BraceLeft",
+          "bounds_mm": [
+            26.999999999999986,
+            33.000000000000014,
+            210.0,
+            238.0,
+            3.4999999999999987,
+            104.00000000000003
+          ],
+          "floor_overlap_mm3": 83.79104477611776,
+          "back_interface_mm2": 603.0000000000002,
+          "connected_to_floor_and_back": true
+        },
+        {
+          "name": "BraceRight",
+          "bounds_mm": [
+            213.0,
+            219.00000000000003,
+            210.0,
+            238.0,
+            3.4999999999999987,
+            104.00000000000003
+          ],
+          "floor_overlap_mm3": 83.79104477611776,
+          "back_interface_mm2": 603.0000000000002,
+          "connected_to_floor_and_back": true
+        }
+      ]
+    }
+  },
+  "stl": {
+    "closed": true,
+    "components": 1,
+    "facets": 1260,
+    "bounds_mm": [
+      0.0,
+      246.0,
+      0.0,
+      246.0,
+      0.0,
+      150.0
+    ],
+    "volume_mm3": 1053763.5,
+    "volume_difference_from_cad_mm3": 3.281156178796664,
+    "volume_difference_fraction": 3.1137597720254867e-06,
+    "volume_tolerance_fraction": 1e-05
+  },
+  "passed": true,
+  "source_fcstd_sha256_after": "7fb5996142fcf8b951e7c4e296c7ec9fa46d2b564da20e6f6dc4fa224aa6e7a3",
+  "source_file_hash_unchanged": true
+}

@@ -1,0 +1,113 @@
+{
+  "date": "2026-10-24",
+  "material_user_confirmed": "Alzament TPU 95A",
+  "dimensions_origin": "design_assumptions_mm",
+  "parts": [
+    {
+      "object": "Strip1",
+      "stl": "stl/pasek-08.stl",
+      "dimensions_mm": [
+        70.0,
+        14.0,
+        0.8
+      ],
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 746.7313172837844,
+      "stl_closed": true,
+      "stl_components": 1,
+      "facets": 856,
+      "cad_origin_mm": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "object": "Strip2",
+      "stl": "stl/pasek-16.stl",
+      "dimensions_mm": [
+        70.0,
+        14.0,
+        1.6
+      ],
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 1486.2244050936981,
+      "stl_closed": true,
+      "stl_components": 1,
+      "facets": 1280,
+      "cad_origin_mm": [
+        0.0,
+        20.0,
+        0.0
+      ]
+    },
+    {
+      "object": "Strip3",
+      "stl": "stl/pasek-32.stl",
+      "dimensions_mm": [
+        70.0,
+        14.0,
+        3.2
+      ],
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2957.9723512396545,
+      "stl_closed": true,
+      "stl_components": 1,
+      "facets": 1704,
+      "cad_origin_mm": [
+        0.0,
+        40.0,
+        0.0
+      ]
+    },
+    {
+      "object": "Ring1",
+      "stl": "stl/krouzek-08.stl",
+      "dimensions_mm": [
+        32.0,
+        32.0,
+        12.0
+      ],
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 940.9698316032145,
+      "stl_closed": true,
+      "stl_components": 1,
+      "facets": 840,
+      "cad_origin_mm": [
+        0.0,
+        62.0,
+        0.0
+      ]
+    },
+    {
+      "object": "Ring2",
+      "stl": "stl/krouzek-16.stl",
+      "dimensions_mm": [
+        32.0,
+        32.0,
+        12.0
+      ],
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 1833.6848000472892,
+      "stl_closed": true,
+      "stl_components": 1,
+      "facets": 840,
+      "cad_origin_mm": [
+        40.0,
+        62.0,
+        0.0
+      ]
+    }
+  ],
+  "physical_part_count": 5,
+  "assembled_stl_components": 5,
+  "collisions": 0,
+  "physical_print_tested": false,
+  "shore_measurement": false,
+  "support_needed_by_geometry": false
+}

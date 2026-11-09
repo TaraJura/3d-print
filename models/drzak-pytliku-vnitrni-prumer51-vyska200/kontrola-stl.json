@@ -1,0 +1,57 @@
+{
+  "stl": {
+    "sha256": "4f7999af17e7021df0751d1a18a96731de063e862192139ecc285279a911ec2d",
+    "facets": 142458,
+    "bytes_ok": true,
+    "bbox_mm": [
+      54.20000076293945,
+      55.80000305175781,
+      200.0
+    ],
+    "all_edges_exactly_two_faces": true,
+    "consistent_winding": true,
+    "degenerate_faces": 0,
+    "signed_volume_mm3": 130405.31936720987,
+    "euler_characteristic": -4,
+    "connected_components": 1
+  },
+  "cad": {
+    "valid": true,
+    "solids": 1,
+    "bbox_mm": [
+      54.2,
+      55.80356042412132,
+      200.00000000000003
+    ],
+    "volume_mm3": 130402.08255719446
+  },
+  "midheight_section": {
+    "z_mm": 100,
+    "slot_parallel_x_mm": [
+      -3.0,
+      3.0
+    ],
+    "slot_clear_width_mm": 6.0,
+    "parallel_lip_y_intervals_mm": [
+      [
+        25.58808316384797,
+        26.596052338646047
+      ],
+      [
+        25.58808316384797,
+        26.596052338646047
+      ]
+    ],
+    "inner_radius_mm": 25.5,
+    "inner_diameter_mm": 51.0,
+    "circular_envelope_circumference_mm": 160.22122533307945,
+    "lip_fillet_radii_mm": [
+      0.3
+    ]
+  },
+  "limitations": [
+    "CAD and mesh checks only; no slicing or physical print verification.",
+    "51 mm is the diameter of the circular inner envelope; 6 mm dispensing slot intentionally opens it.",
+    "Physical bag and mounting-screw fit have not been measured."
+  ]
+}

@@ -1,0 +1,107 @@
+{
+  "status": "locally sliced; actual layer/toolpath audit still required",
+  "physical_fit_load_wall_anchors_print": "unverified",
+  "supports_requested": false,
+  "material": "Alzament PLA Basic draft profile, not calibrated",
+  "machine_profile_sha256": "baf80d3287e1e863fba29cdfd240b9b5ebc28bd87e1b4d03fc79e53f0009570a",
+  "process_profile_sha256": "10eccc866f7b573017437b7c945edf861be834da2157d8c968f8eec15b79c562",
+  "filament_profile_sha256": "c91955b40c68529f1412ab9f747b5e66f551299b9f709093419516d2acab915f",
+  "geometry_sha256": "b048b566333a2b62c5c18f0611ee5c3d92a228791684629252ed17ea9456f223",
+  "configured": {
+    "path": "/tmp/rfid-holder-next-8ymyk7h5/configured.3mf",
+    "sha256": "178a84afa09950544228f4ba69945ee00f54952af1dab599b2998dab68c6d646",
+    "physical_parts": 1,
+    "has_gcode": false,
+    "profile": {
+      "printer_model": "Anycubic Kobra X",
+      "printer_settings_id": "Anycubic Kobra X 0.4 nozzle",
+      "print_settings_id": "Drzak RFID 0.20 mm PLA navrh Kobra X",
+      "filament_settings_id": [
+        "Alzament PLA Basic navrh @Anycubic Kobra X 0.4 nozzle"
+      ],
+      "filament_type": [
+        "PLA"
+      ],
+      "nozzle_diameter": [
+        "0.4"
+      ],
+      "layer_height": "0.2",
+      "brim_type": "outer_only",
+      "brim_width": "5",
+      "enable_support": "0",
+      "support_type": "normal(auto)",
+      "support_on_build_plate_only": "0",
+      "wall_loops": "4",
+      "sparse_infill_density": "25%",
+      "outer_wall_speed": "50",
+      "inner_wall_speed": "75",
+      "initial_layer_speed": "25",
+      "nozzle_temperature": [
+        "205"
+      ],
+      "nozzle_temperature_initial_layer": [
+        "215"
+      ],
+      "hot_plate_temp": [
+        "50"
+      ]
+    }
+  },
+  "delivered": {
+    "path": "/home/novakj/3d-print/models/drzak-krabicky-laskakit-rfid/rozlozeni/podlozka-01-nastaveny-projekt.3mf",
+    "sha256": "2dcea7b63b887008aa02f4efb39755544ccca5bc702a652a016e1db6a00b3db3",
+    "physical_parts": 1,
+    "has_gcode": true,
+    "profile": {
+      "printer_model": "Anycubic Kobra X",
+      "printer_settings_id": "Anycubic Kobra X 0.4 nozzle",
+      "print_settings_id": "Drzak RFID 0.20 mm PLA navrh Kobra X",
+      "filament_settings_id": [
+        "Alzament PLA Basic navrh @Anycubic Kobra X 0.4 nozzle"
+      ],
+      "filament_type": [
+        "PLA"
+      ],
+      "nozzle_diameter": [
+        "0.4"
+      ],
+      "layer_height": "0.2",
+      "brim_type": "outer_only",
+      "brim_width": "5",
+      "enable_support": "0",
+      "support_type": "normal(auto)",
+      "support_on_build_plate_only": "0",
+      "wall_loops": "4",
+      "sparse_infill_density": "25%",
+      "outer_wall_speed": "50",
+      "inner_wall_speed": "75",
+      "initial_layer_speed": "25",
+      "nozzle_temperature": [
+        "205"
+      ],
+      "nozzle_temperature_initial_layer": [
+        "215"
+      ],
+      "hot_plate_temp": [
+        "50"
+      ]
+    },
+    "gcode_bytes": 21860085,
+    "gcode_sha256": "bc67d1674495f9fb5fd424ae8b62f535207c18d2abd3694a84549ba9b7afda2e",
+    "slice_metadata": {
+      "prediction": "32152",
+      "weight": "160.85",
+      "outside": "false",
+      "support_used": "false"
+    },
+    "warnings": [
+      {
+        "msg": "not_support_traditional_timelapse",
+        "level": "1",
+        "error_code": "1000C003"
+      }
+    ]
+  },
+  "export_log_tail": "[2026-09-27 15:09:47.849402] [0x00007fd9f788b900] [trace]   Initializing StaticPrintConfigs\n[2026-09-27 15:09:47.863888] [0x00007fd9f788b900] [error]   calc_exclude_triangles:Unable to create exclude triangles\n\n",
+  "slice_log_tail": "[2026-09-27 15:09:47.914172] [0x0000747d0bfd2900] [trace]   Initializing StaticPrintConfigs\n[2026-09-27 15:09:47.928987] [0x0000747d0bfd2900] [error]   calc_exclude_triangles:Unable to create exclude triangles\n\n[2026-09-27 15:09:47.929160] [0x0000747d0bfd2900] [error]   calc_exclude_triangles:Unable to create exclude triangles\n\n"
+}

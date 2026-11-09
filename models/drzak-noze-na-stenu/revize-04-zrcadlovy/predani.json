@@ -1,0 +1,73 @@
+{
+  "date_local": "2026-11-02",
+  "revision": "04",
+  "mirror_of_revision": "03",
+  "canonical_root": "/home/novakj/3d-print/models/drzak-noze-na-stenu/revize-04-zrcadlovy",
+  "change": "Only horizontal orientation: X -> 230 - X; Y and Z unchanged; tip right, handle left when viewing the wall; rear mounting side and top removal unchanged",
+  "physical_parts": 1,
+  "configured_plates": 1,
+  "independent_checks_passed": 49,
+  "independent_checks_failed": 0,
+  "artifacts_sha256": {
+    "fcstd": "cb9b15fb8e255e919e906f65ebfcdaeaf8bfef613587a7d3cda934b1d23927ff",
+    "macro": "a80969f56c53efe1ba283cfac41320acdd19d9ce98125fdba8fe43b355e04437",
+    "stl": "bc2463fe86b7e4fa48ceb8a7b32e9e2c70a7fef2724d6139766703b3d5d4d36d",
+    "preview": "186989365c512449d8d7a9e6c90b8c3828994c55deafa6b4d96acc2f7bd876b6",
+    "project_3mf": "ffc4af999958927a2c84064215ea86e55ff7764548d6ad142fba9010d807ee79",
+    "cad_manifest": "ea4913db523fecef4c7e1aa1ac5b6ad5a46a7fb8d28c3003d2888a3bb4013f83",
+    "gcode_in_project": "c5625a49cc976a4127c8bfed6f3f5518b220c9b9d34c27cc52ae558900f8b3b3"
+  },
+  "audit_bound_to": {
+    "document_sha256": "cb9b15fb8e255e919e906f65ebfcdaeaf8bfef613587a7d3cda934b1d23927ff",
+    "stl_sha256": "bc2463fe86b7e4fa48ceb8a7b32e9e2c70a7fef2724d6139766703b3d5d4d36d",
+    "v03_document_sha256": "31f503994475db055ab8cc9b2e32625255f3e38fcc256c34acd65406843cceb6",
+    "v03_stl_sha256": "4bc49e5857ff18e83c351b267225b3ce64110e57ffb9f98e7c2124f1876d8fc5"
+  },
+  "source_manifest_matches_sliced_project": true,
+  "layers": 300,
+  "new_disconnected_islands": 0,
+  "actual_support_segments": 0,
+  "supports_enabled": false,
+  "estimated_filament_g": 54.31,
+  "estimated_printing_time": "3h 20m 37s",
+  "minimum_extrusion_edge_margin_mm": 5.386,
+  "slicer_warnings": [
+    "not_support_traditional_timelapse"
+  ],
+  "cli_messages": [
+    "calc_exclude_triangles:Unable to create exclude triangles"
+  ],
+  "important_assumptions": [
+    "20 mm interpreted as vertical offset of handle bottom, not confirmed in that axis",
+    "225 mm blade assumes complete chain 340 - 105 - 10",
+    "straight spine, 2 mm blade and elliptical handle widening 22 to 25 mm are design assumptions"
+  ],
+  "untouched_files_check": {
+    "knife_v01_v02_v03_and_legacy_root": {
+      "files": 165,
+      "digest_before": "d806eba425cd78ac6ac1cf84fbfc9516ca16b38640518706c178c36cf70807ef",
+      "digest_after": "d806eba425cd78ac6ac1cf84fbfc9516ca16b38640518706c178c36cf70807ef",
+      "identical": true
+    },
+    "repo_docs_and_index": {
+      "files": 9,
+      "digest_before": "0839a6cc675281b8d43e72a57e017e330525ff2a4df94b43221f39269fa702d1",
+      "digest_after": "0839a6cc675281b8d43e72a57e017e330525ff2a4df94b43221f39269fa702d1",
+      "identical": true
+    },
+    "other_untracked_models_and_electronics": {
+      "files": 1220,
+      "digest_before": "0c700b893c7b55cfa3c35ad778f83fd2ebd67bd979f017dd780e723d9c227e8e",
+      "digest_after": "0c700b893c7b55cfa3c35ad778f83fd2ebd67bd979f017dd780e723d9c227e8e",
+      "identical": true
+    },
+    "git_status_unchanged": true
+  },
+  "physical_print_verified": false,
+  "actual_knife_fit_verified": false,
+  "strength_verified": false,
+  "gluing_verified": false,
+  "centre_of_gravity_known": false,
+  "tip_protected": false,
+  "printer_controlled": false
+}

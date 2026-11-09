@@ -1,0 +1,179 @@
+# -*- coding: utf-8 -*-
+"""Read-only independent FreeCAD/STL audit. Recompute in memory; never save CAD.
+
+Run in an isolated FreeCAD command process. The only output is
+nezavisla-kontrola-geometrie.json beside this macro. Input hashes are recorded
+and checked again at the end to detect concurrent modification.
+"""
+import collections
+from datetime import datetime, timezone
+import hashlib
+import json
+import math
+from pathlib import Path
+
+import FreeCAD as App
+import Part
+import Mesh
+
+ROOT = Path(__file__).resolve().parent
+CAD = ROOT / 'zahrada.FCStd'
+MANIFEST = ROOT / 'print-manifest.json'
+OUTPUT = ROOT / 'nezavisla-kontrola-geometrie.json'
+
+
+def sha(path):
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def box_values(box):
+    return {'min': [box.XMin, box.YMin, box.ZMin],
+            'max': [box.XMax, box.YMax, box.ZMax],
+            'size': [box.XLength, box.YLength, box.ZLength]}
+
+
+def mesh_audit(mesh):
+    verts, triangles = mesh.Topology
+    edges = collections.Counter()
+    directed = collections.Counter()
+    parent = list(range(len(verts)))
+
+    def find(v):
+        while parent[v] != v:
+            parent[v] = parent[parent[v]]
+            v = parent[v]
+        return v
+
+    def union(a, b):
+        ra, rb = find(a), find(b)
+        if ra != rb:
+            parent[ra] = rb
+
+    volume = 0.
+    zero_triangles = 0
+    used = set()
+    for tri in triangles:
+        a, b, c = tri
+        p, q, r = verts[a], verts[b], verts[c]
+        cross = (q-p).cross(r-p)
+        if cross.Length < 1e-10:
+            zero_triangles += 1
+        volume += p.dot(q.cross(r)) / 6.
+        used.update(tri)
+        for x, y in [(a,b), (b,c), (c,a)]:
+            edges[tuple(sorted((x,y)))] += 1
+            directed[(x,y)] += 1
+            union(x,y)
+    boundary = sum(n == 1 for n in edges.values())
+    nonmanifold = sum(n != 2 for n in edges.values())
+    wrong_winding = sum(directed[(x,y)] != 1 or directed[(y,x)] != 1
+                        for x,y in edges if edges[(x,y)] == 2)
+    return {
+        'vertices': len(verts), 'triangles': len(triangles),
+        'boundary_edges': boundary, 'non_two_manifold_edges': nonmanifold,
+        'inconsistently_oriented_edges': wrong_winding,
+        'zero_area_triangles': zero_triangles,
+        'connected_components': len({find(x) for x in used}),
+        'signed_volume_mm3': volume,
+        'freecad_mesh_is_solid': mesh.isSolid(),
+        'bbox_mm': box_values(mesh.BoundBox),
+    }, verts
+
+
+manifest = json.loads(MANIFEST.read_text())
+inputs = [CAD, MANIFEST] + [ROOT/x['file'] for x in manifest['parts']]
+before_hashes = {str(x.relative_to(ROOT)): sha(x) for x in inputs}
+doc = App.openDocument(str(CAD))
+old_volumes = {entry['id']: doc.getObject(entry['id']).Shape.Volume
+               for entry in manifest['parts']}
+for obj in doc.Objects:
+    obj.touch()
+doc.recompute()
+
+report = {
+    'audit': 'Independent reopening, forced recomputation and STL topology check',
+    'created_utc': datetime.now(timezone.utc).isoformat(),
+    'freecad_version': App.Version(),
+    'audit_macro_sha256': sha(Path(__file__).resolve()),
+    'input_sha256': before_hashes,
+    'read_only_cad': True,
+    'limitations': [
+        'STL vertex to CAD boundary distance is sampled, not exhaustive.',
+        'Triangle self intersections are not exhaustively tested.',
+        'Digital geometry checks do not certify mechanical strength or toy safety.',
+        'CAD optimal boxes and tessellated STL boxes have different numerical tolerances.',
+    ],
+    'parts': [], 'assembly_intersections': [],
+}
+finals = []
+for entry in manifest['parts']:
+    obj = doc.getObject(entry['id'])
+    if obj is None:
+        raise RuntimeError('Missing final object: ' + entry['id'])
+    finals.append(obj)
+    shape = obj.Shape
+    local = shape.copy()
+    local.translate(App.Vector(*[-float(x) for x in entry['assembly_translation_mm']]))
+    optimal = local.optimalBoundingBox()
+    path = ROOT / entry['file']
+    mesh = Mesh.Mesh(str(path))
+    mesh_result, vertices = mesh_audit(mesh)
+    shell = Part.makeShell(local.Faces)
+    sampled_indices = sorted({int(k*(len(vertices)-1)/min(255, len(vertices)-1))
+                              for k in range(min(256, len(vertices)))})
+    maximum_distance = max(Part.Vertex(vertices[k]).distToShape(shell)[0]
+                           for k in sampled_indices)
+    volume_error = abs(mesh_result['signed_volume_mm3'] - shape.Volume) / shape.Volume
+    bb_error = max(abs(a-b) for a,b in zip(
+        box_values(optimal)['min'] + box_values(optimal)['max'],
+        mesh_result['bbox_mm']['min'] + mesh_result['bbox_mm']['max']))
+    state = [str(x) for x in obj.State]
+    checks = {
+        'valid_single_closed_solid': shape.isValid() and shape.isClosed() and len(shape.Solids) == 1,
+        'recompute_volume_unchanged': abs(shape.Volume-old_volumes[entry['id']]) < 1e-5,
+        'stl_hash_matches_manifest': sha(path) == entry['sha256'],
+        'stl_closed_consistently_oriented': mesh_result['non_two_manifold_edges'] == 0
+                                          and mesh_result['inconsistently_oriented_edges'] == 0
+                                          and mesh_result['zero_area_triangles'] == 0
+                                          and mesh_result['connected_components'] == 1
+                                          and mesh_result['signed_volume_mm3'] > 0
+                                          and mesh_result['freecad_mesh_is_solid'],
+        'stl_volume_error_under_0_3_percent': volume_error < .003,
+        'stl_bbox_error_under_0_1_mm': bb_error < .1,
+        'sampled_vertices_on_cad_boundary_within_0_001_mm': maximum_distance < .001,
+        'no_final_object_error_state': not any('Error' in x or 'Invalid' in x for x in state),
+    }
+    report['parts'].append({
+        'id': entry['id'], 'cad_state': state,
+        'cad_type': obj.TypeId, 'cad_is_valid': shape.isValid(),
+        'cad_is_closed': shape.isClosed(), 'cad_solid_count': len(shape.Solids),
+        'cad_volume_before_recompute_mm3': old_volumes[entry['id']],
+        'cad_volume_after_recompute_mm3': shape.Volume,
+        'cad_local_optimal_bbox_mm': box_values(optimal),
+        'cad_local_conservative_bbox_mm': box_values(local.BoundBox),
+        'stl': mesh_result,
+        'stl_relative_volume_error': volume_error,
+        'stl_max_bbox_coordinate_error_mm': bb_error,
+        'sampled_stl_vertex_count': len(sampled_indices),
+        'sampled_stl_vertex_max_distance_to_cad_boundary_mm': maximum_distance,
+        'checks': checks,
+    })
+    print('INDEPENDENT_GEOMETRY', entry['id'], checks, flush=True)
+
+for i,a in enumerate(finals):
+    for b in finals[i+1:]:
+        report['assembly_intersections'].append({'a': a.Name, 'b': b.Name,
+                                                 'intersection_volume_mm3': a.Shape.common(b.Shape).Volume})
+
+after_hashes = {str(x.relative_to(ROOT)): sha(x) for x in inputs}
+report['summary'] = {
+    'part_count': len(report['parts']),
+    'all_part_checks_passed': all(all(x['checks'].values()) for x in report['parts']),
+    'maximum_assembly_intersection_mm3': max(x['intersection_volume_mm3'] for x in report['assembly_intersections']),
+    'source_files_unchanged_during_audit': before_hashes == after_hashes,
+    'physical_print_tested': False,
+    'toy_safety_certified': False,
+}
+OUTPUT.write_text(json.dumps(report, ensure_ascii=False, indent=2) + '\n')
+App.closeDocument(doc.Name)
+print('INDEPENDENT_GEOMETRY_COMPLETE', report['summary'], flush=True)

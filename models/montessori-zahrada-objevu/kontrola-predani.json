@@ -1,0 +1,267 @@
+{
+  "physical_parts": 6,
+  "configured_print_plates": 2,
+  "stl_count_print_folder": 6,
+  "archive": "tiskovy-balicek.zip",
+  "archive_sha256": "5e65bd283350985ef27648becb54bcd0d8ce3f425feee986868fc23e930c64f0",
+  "archive_bytes": 25976998,
+  "files": [
+    {
+      "file": "README.md",
+      "sha256": "b62d90f62d053aed6dfad312135809f8d78d445ffbf323f99e506ff70b53a957"
+    },
+    {
+      "file": "audit_fit.py",
+      "sha256": "a8a37ff564eacd7c8b434982bc06f52a433b3d9c3ab95d0092fd312e81bffff6"
+    },
+    {
+      "file": "audit_slicing.py",
+      "sha256": "0a8656f45f8aa7e8984967e10765e608fc60f536ac3ebd96b4c6afe27bb21cf3"
+    },
+    {
+      "file": "build_print_projects.py",
+      "sha256": "ddad7fe740739d6c21f310544096dc9d390d12c157a8a6095df9492f3b5bb7ae"
+    },
+    {
+      "file": "kontrola-modelu.json",
+      "sha256": "e51b62a164dc3db4abc60e804359440a7f2135bb79a1967d6302ba589e0e5456"
+    },
+    {
+      "file": "nahled-cad-shora.png",
+      "sha256": "52745aee58d1690857f371483acb526d1f13a540a56ab3b464d079375fc57fad"
+    },
+    {
+      "file": "nahled-cad.png",
+      "sha256": "9aefbd2430b89d5c847251031251413b53af67271ee0c73f429219123b61c395"
+    },
+    {
+      "file": "nahled-hry.png",
+      "sha256": "2a28998fb6064d28e7d85e1c87f1db6baa544fe8e6df84bd9f237712289e33d9"
+    },
+    {
+      "file": "nahled-shora.png",
+      "sha256": "5e765a14d3a9d9c31f2cbb9cd318081c5e1b2c14977cb4334a5af564f782aba7"
+    },
+    {
+      "file": "nahled-zahrada.png",
+      "sha256": "185e2f2beab535fb7949888631c2aceb38357afcfe55aff0d6ec0f179dd60ed5"
+    },
+    {
+      "file": "nahled.FCMacro",
+      "sha256": "dc4fe314e2cb14c7b6512221a6999546da47015db9cc4f77ad48c24c2bfc4045"
+    },
+    {
+      "file": "nezavisla-kontrola-fitu.json",
+      "sha256": "e66183674d43fd9ebefe07b65098d4427c00dcd0bee7683a392ccd4783b35aff"
+    },
+    {
+      "file": "nezavisla-kontrola-geometrie.json",
+      "sha256": "7b11f9e0a4317715268aa2c1b9fae589aa7e956ff6daa59428140c65ff55f840"
+    },
+    {
+      "file": "nezavisla-kontrola.FCMacro",
+      "sha256": "7653e1f9e1b05027802c017e946d14ce21438a41e157ef0d92d9eb1f3fe258b5"
+    },
+    {
+      "file": "nezavisla-kontrola.json",
+      "sha256": "b52f241581c0782cb78d9001e8257e75ef877909defb07fdcc45d49bdcd276f0"
+    },
+    {
+      "file": "planar-profiles.json",
+      "sha256": "ce45bb1a73e6b24110dafbdba7d03b3514a6eafda21cb237925dce4c77aeab09"
+    },
+    {
+      "file": "print-manifest.json",
+      "sha256": "7404faf4aba6f7373c58414902071f02680bff82a0e88312a8bdddef7850ba69"
+    },
+    {
+      "file": "rozlozeni/README.md",
+      "sha256": "aef908a7534aea10b81e9ea083b485d49a1034fa02e7d591343b7d3630195f6d"
+    },
+    {
+      "file": "rozlozeni/detail-01-Base_01-drahy.png",
+      "sha256": "f693fbd65e782e94c35e4764ec50f2c946a14572b012f84414322578724377cb"
+    },
+    {
+      "file": "rozlozeni/detail-02-Stone1_01-drahy.png",
+      "sha256": "fee63556e893bc8999f3f99539a72605fd326133abb8ffba7778c661354e467e"
+    },
+    {
+      "file": "rozlozeni/detail-02-Stone2_01-drahy.png",
+      "sha256": "64ccc0aad408d06657751c84ee0ab312afe8445ef8ce72ed4b4d67e11b9ba58b"
+    },
+    {
+      "file": "rozlozeni/detail-02-Stone3_01-drahy.png",
+      "sha256": "b6bb3aed45613467d2a6a12313372c76b89eb79249ecba9f41bcb0e261185a89"
+    },
+    {
+      "file": "rozlozeni/detail-02-Stone4_01-drahy.png",
+      "sha256": "b5e9f791edaa72957f32e9503d2283b73086f8b8c4d60578751d4da5c4d3d58e"
+    },
+    {
+      "file": "rozlozeni/detail-02-Stone5_01-drahy.png",
+      "sha256": "6c8a8badddaf7f5c5a6dec145cc9e6015de274e07db9e296d82f3e936327d671"
+    },
+    {
+      "file": "rozlozeni/filament-01-pla-basic-navrh.json",
+      "sha256": "dce24e02145fd063329b596e78f82389a40ccf8a9eac80238377e8eecb6fde4a"
+    },
+    {
+      "file": "rozlozeni/filament-02-pla-basic-navrh.json",
+      "sha256": "ad0bd1771ee702989f906b7e77188591cffb64340d1d229fb98c2f92d2f1aadf"
+    },
+    {
+      "file": "rozlozeni/kontrola-mikrocarek-finalni.json",
+      "sha256": "ddde2bd0fc38a585b5652f660a4070ab256d2c9a5eb1e06482db55a517545de7"
+    },
+    {
+      "file": "rozlozeni/kontrola-mikrocarek.json",
+      "sha256": "fd6eecfb239fdfde77c3515e957109463b7ffa6ea0ea23218ada2bd3067baf9a"
+    },
+    {
+      "file": "rozlozeni/kontrola-podlozky-01.json",
+      "sha256": "72d8bca8d525ece4c1b3780bea0bd1465e0994963737a6e340cb4894f7a82f5b"
+    },
+    {
+      "file": "rozlozeni/kontrola-podlozky-02.json",
+      "sha256": "3527806e7ce42ddf1d523950eb000f2781b56fa698330550c3dfbbe77bc0954b"
+    },
+    {
+      "file": "rozlozeni/kontrola-rezani.json",
+      "sha256": "2640093866cf69e670914c915e15b405f71bbec604cb7981fd917fb871c9b3ab"
+    },
+    {
+      "file": "rozlozeni/kontrola-spodnich-hran.json",
+      "sha256": "85acd1ee8a6deb2fe7396d411d53813299977b37cfb0d9108d80dbfc41cc9f9c"
+    },
+    {
+      "file": "rozlozeni/kriticka-vrstva-01-mikrovypln.png",
+      "sha256": "f62b5179b3397082bce8b9ef96cbaa8617559ca6e0b6470f988ca6b154663475"
+    },
+    {
+      "file": "rozlozeni/manifest-01.json",
+      "sha256": "6f1d7bf7da94a89a1b17c3a1c524a7f377d607205d7b6e47abd31a4d6a0d0a44"
+    },
+    {
+      "file": "rozlozeni/manifest.json",
+      "sha256": "a9aeca5c96e7b3d9389f968ef4d39173c72a40d14dd01ed439ea01a124a647ff"
+    },
+    {
+      "file": "rozlozeni/podlozka-01-geometrie.3mf",
+      "sha256": "734bbf1214cd9da7915164d1383bc3d17581cef6629d62acb68d9a2bcfdfa5a2"
+    },
+    {
+      "file": "rozlozeni/podlozka-01-kobra-x-pla-projekt.3mf",
+      "sha256": "1be70bfdc9c026d6f52357fa9afc4fd2e4128ca1fec4214f75614a88099aa081"
+    },
+    {
+      "file": "rozlozeni/podlozka-01-vrstvy.png",
+      "sha256": "b63e31b2bb7cffc896617ff1d470c7e73783c5f7e638f8f9d10a7282a3044b76"
+    },
+    {
+      "file": "rozlozeni/podlozka-01.png",
+      "sha256": "09ae0a5fa4bbd04c05c33d2513586ba2ea541253431b8277422a6983c97ea2c5"
+    },
+    {
+      "file": "rozlozeni/podlozka-02-geometrie.3mf",
+      "sha256": "97a098d650f828373935561957b4e942cf95fb7db38bc0dfe74361286f77cfa1"
+    },
+    {
+      "file": "rozlozeni/podlozka-02-kobra-x-pla-projekt.3mf",
+      "sha256": "044aabfee23a54d8c6e042351e7bbafcab796e6707a2b39097372584aca5205b"
+    },
+    {
+      "file": "rozlozeni/podlozka-02-vrstvy.png",
+      "sha256": "a7a240c8ee16f20b70e43705436b30d743c00e24b0d3dccc869c99f3fcfee7c6"
+    },
+    {
+      "file": "rozlozeni/podlozka-02.png",
+      "sha256": "69f046404948732bef81a5c07496b5ed138b7f743984148308b636139ac17ae6"
+    },
+    {
+      "file": "rozlozeni/proces-01-kobra-x-pla-navrh.json",
+      "sha256": "e8c2c183744a676d0304e43b5038f4545ca079e6303931cee08334ba7ad787f8"
+    },
+    {
+      "file": "rozlozeni/proces-02-kobra-x-pla-navrh.json",
+      "sha256": "f334575c2205ec0fb71bb98dbd3b372cc91e15bb664eac7745084dd275de9845"
+    },
+    {
+      "file": "stl/base.stl",
+      "sha256": "2ccbd25186087df1b2185121f5149efe6e8b2ca4384e0e79d1fdece4b7dda705"
+    },
+    {
+      "file": "stl/stone1.stl",
+      "sha256": "b47bf2f79ff151ad5c3bdc321a81f45fe4fd7b167f8d19602b7182773c6facf1"
+    },
+    {
+      "file": "stl/stone2.stl",
+      "sha256": "28d9ab63b74f6a42da446b787c103ec79ec1250fa2c8bd6768deda7ed4455375"
+    },
+    {
+      "file": "stl/stone3.stl",
+      "sha256": "276ccf8d3f582fa0c1764ae559146399a6efa276c0198883b3e8fef400169aa6"
+    },
+    {
+      "file": "stl/stone4.stl",
+      "sha256": "321579f0cbb2a1df0fb3283ce256d2c8519e8422ccc835fb6e8968be8a8f30da"
+    },
+    {
+      "file": "stl/stone5.stl",
+      "sha256": "3bea8b60c9fa39618d0ddf85513b6a33889622b03af308f3ab20bdd926223647"
+    },
+    {
+      "file": "vizualizace.py",
+      "sha256": "3cbcee2fa7674f4c0416f0e5292e083bc95ec1f1cf43152d8e70304174a7ddb2"
+    },
+    {
+      "file": "vizualni-geometrie/Base.stl",
+      "sha256": "2ccbd25186087df1b2185121f5149efe6e8b2ca4384e0e79d1fdece4b7dda705"
+    },
+    {
+      "file": "vizualni-geometrie/Stone1.stl",
+      "sha256": "b02bdea8d73251ef163a9fcf424eb4f278e79583d17438175ebb2125bb8fd7d0"
+    },
+    {
+      "file": "vizualni-geometrie/Stone2.stl",
+      "sha256": "5c895f8c13ff9da834df8593edaf00e40dc887cbd86117eadd8173ef6c08cb97"
+    },
+    {
+      "file": "vizualni-geometrie/Stone3.stl",
+      "sha256": "624043d70a8c583d608ff846cf9d389208b73b479a71d9668e2bb775442bf7dc"
+    },
+    {
+      "file": "vizualni-geometrie/Stone4.stl",
+      "sha256": "e3e056a638e2e03e2dd096ddf22c7baeaee5ee821bc1c25ce863dbcc11d17dc5"
+    },
+    {
+      "file": "vizualni-geometrie/Stone5.stl",
+      "sha256": "ebb2e858c3af69eec36d8ab9ddb08efcf8aa7e3af87bb9c541ce490c6e9c688e"
+    },
+    {
+      "file": "vizualni-geometrie/scene.json",
+      "sha256": "acc29eb3aaed922221204ae5f3e3c46e9258a778b3f7152f8a57b123b1429506"
+    },
+    {
+      "file": "zabalit.py",
+      "sha256": "12f634e6243441f13902750a07416dce6b7e06dbc18bdcecd4ce69fc3185a770"
+    },
+    {
+      "file": "zahrada.FCMacro",
+      "sha256": "d72bdcc78694bf83bf56b3396d643fe0ba8f8c69c1f7fdb349ae023df0f77df1"
+    },
+    {
+      "file": "zahrada.FCStd",
+      "sha256": "be592e80429c4457040506c95cd09b40a3fc6efc89800d695e7d9bc2d5ceb938"
+    }
+  ],
+  "visual_review": [
+    "nahled-zahrada.png",
+    "nahled-cad.png",
+    "rozlozeni/podlozka-01-vrstvy.png",
+    "rozlozeni/podlozka-02-vrstvy.png",
+    "rozlozeni/detail-02-Stone5_01-drahy.png"
+  ],
+  "physical_print_verified": false,
+  "toy_safety_certified": false
+}

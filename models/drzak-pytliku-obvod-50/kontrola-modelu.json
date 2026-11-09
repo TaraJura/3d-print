@@ -1,0 +1,43 @@
+{
+  "date": "2026-10-17",
+  "source": "/home/novakj/Downloads/trash-bag-holder-d60-l200_g.3mf",
+  "method": "Parametric reconstruction from measured mesh surfaces; solid rear corners replace relief cavities; retained 20 degree top slope, flat rear, original mounting diameters; scaled front and floor openings.",
+  "user_inputs_mm": {
+    "inner_circumference": 50,
+    "height": 200
+  },
+  "nominal_inner_diameter_mm": 15.915494309189533,
+  "nominal_inner_circumference_mm": 50.0,
+  "bounds_mm": {
+    "x": 19.115494309189533,
+    "y": 20.718373757243405,
+    "z": 200.00000000000003
+  },
+  "shape_valid": true,
+  "solid_count": 1,
+  "volume_mm3": 30258.24530378686,
+  "mesh_solid": true,
+  "mesh_facets": 90804,
+  "wall_mm": 1.6,
+  "rear_web_mm": 1.7,
+  "slot_clear_width_mm": 2.0,
+  "slot_lip_radius_mm": 0.3,
+  "stl_sha256": "3f3b00c04879afd7ab53f27361b92b5946eeffc9974d577f1b59619fabdcbbe3",
+  "limits": [
+    "No slicing or physical print test requested/performed.",
+    "Bag fit and mounting screws not physically measured.",
+    "Nominal circumference describes the circular envelope; the front is intentionally slotted."
+  ],
+  "gui_validation": {
+    "saved_with_only_final_object_visible": true,
+    "preview_images": [
+      "nahled.png",
+      "nahled-shora.png"
+    ]
+  },
+  "stl_bounds_mm": [
+    19.115493774414062,
+    20.71549415588379,
+    200.0
+  ]
+}

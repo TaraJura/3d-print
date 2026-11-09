@@ -1,0 +1,63 @@
+{
+  "source_manifest_sha256": "7404faf4aba6f7373c58414902071f02680bff82a0e88312a8bdddef7850ba69",
+  "machine": "Anycubic Kobra X 0.4 nozzle",
+  "physical_parts": 1,
+  "plates": [
+    {
+      "number": 1,
+      "geometry": "podlozka-01-geometrie.3mf",
+      "geometry_sha256": "734bbf1214cd9da7915164d1383bc3d17581cef6629d62acb68d9a2bcfdfa5a2",
+      "preview": "podlozka-01.png",
+      "physical_parts": 1,
+      "parts": [
+        {
+          "id": "Base",
+          "name": "Base_01",
+          "file": "../stl/base.stl",
+          "source_sha256": "2ccbd25186087df1b2185121f5149efe6e8b2ca4384e0e79d1fdece4b7dda705",
+          "translation_mm": [
+            129.98518753051758,
+            130.0,
+            -0.0
+          ],
+          "placed_min_mm": [
+            14.014812469482422,
+            14.007408142089844,
+            0.0
+          ],
+          "placed_max_mm": [
+            245.98518753051758,
+            245.99259185791016,
+            12.0
+          ],
+          "size_mm": [
+            231.97037506103516,
+            231.9851837158203,
+            12.0
+          ],
+          "triangle_count": 13740,
+          "supports": false,
+          "support_note": "Rovna zakladna, svisle steny, male zaoblene hrany a otevrene dulky.",
+          "critical_z_mm": [
+            0.2,
+            1,
+            8,
+            11.4,
+            12
+          ]
+        }
+      ],
+      "minimum_geometry_edge_margin_mm": 14.007408142089844,
+      "minimum_bbox_gap_mm": null,
+      "colour": "#EEE3CC",
+      "material_name": "PLA Basic — svetla zakladna (barva navrh)",
+      "profile": {
+        "kind": "Basic",
+        "mvs": "8",
+        "nozzle": "205",
+        "initial_nozzle": "215",
+        "bed": "50"
+      }
+    }
+  ]
+}

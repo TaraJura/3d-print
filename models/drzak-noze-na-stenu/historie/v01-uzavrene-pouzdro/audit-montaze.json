@@ -1,0 +1,209 @@
+{
+  "document_sha256": "90b13d54100a6cde2577bd1befd39bddf5e0845e03293dc8b99f9655281ade93",
+  "checks": [
+    {
+      "check": "valid_single_solid_BodyLeft",
+      "passed": true,
+      "detail": {
+        "volume_mm3": 111781.81271685663,
+        "solids": 1
+      }
+    },
+    {
+      "check": "valid_single_solid_BodyRight",
+      "passed": true,
+      "detail": {
+        "volume_mm3": 111685.61271685686,
+        "solids": 1
+      }
+    },
+    {
+      "check": "valid_single_solid_CoverLeft",
+      "passed": true,
+      "detail": {
+        "volume_mm3": 36131.90115612209,
+        "solids": 1
+      }
+    },
+    {
+      "check": "valid_single_solid_CoverRight",
+      "passed": true,
+      "detail": {
+        "volume_mm3": 36097.90115612203,
+        "solids": 1
+      }
+    },
+    {
+      "check": "entire_clear_cavity_346x49x29",
+      "passed": true,
+      "detail": {
+        "intersection_mm3": 0.0
+      }
+    },
+    {
+      "check": "known_knife_rectangular_envelope",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "lift_7_then_forward_10_CoverLeft",
+      "passed": true,
+      "detail": {
+        "maximum_overlap_mm3": [
+          0.0,
+          0.0
+        ],
+        "step_mm": 0.5
+      }
+    },
+    {
+      "check": "unlifted_cover_captured_by_heads_CoverLeft",
+      "passed": true,
+      "detail": {
+        "blocked_overlap_mm3": 60.21068666895915
+      }
+    },
+    {
+      "check": "lift_7_then_forward_10_CoverRight",
+      "passed": true,
+      "detail": {
+        "maximum_overlap_mm3": [
+          0.0,
+          0.0
+        ],
+        "step_mm": 0.5
+      }
+    },
+    {
+      "check": "unlifted_cover_captured_by_heads_CoverRight",
+      "passed": true,
+      "detail": {
+        "blocked_overlap_mm3": 60.21068666881651
+      }
+    },
+    {
+      "check": "tray_halves_assemble_along_x",
+      "passed": true,
+      "detail": {
+        "maximum_overlap_mm3": 0.0,
+        "travel_mm": 40,
+        "step_mm": 1
+      }
+    },
+    {
+      "check": "mount_through_hole_x22",
+      "passed": true,
+      "detail": {
+        "diameter_mm": 5.5
+      }
+    },
+    {
+      "check": "provisional_head_clears_cavity_x22",
+      "passed": true,
+      "detail": {
+        "assumed_head_diameter_mm": 10,
+        "assumed_head_height_mm": 3
+      }
+    },
+    {
+      "check": "straight_driver_access_x22",
+      "passed": true,
+      "detail": {
+        "tool_envelope_diameter_mm": 10,
+        "covers_removed": true
+      }
+    },
+    {
+      "check": "mount_through_hole_x158",
+      "passed": true,
+      "detail": {
+        "diameter_mm": 5.5
+      }
+    },
+    {
+      "check": "provisional_head_clears_cavity_x158",
+      "passed": true,
+      "detail": {
+        "assumed_head_diameter_mm": 10,
+        "assumed_head_height_mm": 3
+      }
+    },
+    {
+      "check": "straight_driver_access_x158",
+      "passed": true,
+      "detail": {
+        "tool_envelope_diameter_mm": 10,
+        "covers_removed": true
+      }
+    },
+    {
+      "check": "mount_through_hole_x202",
+      "passed": true,
+      "detail": {
+        "diameter_mm": 5.5
+      }
+    },
+    {
+      "check": "provisional_head_clears_cavity_x202",
+      "passed": true,
+      "detail": {
+        "assumed_head_diameter_mm": 10,
+        "assumed_head_height_mm": 3
+      }
+    },
+    {
+      "check": "straight_driver_access_x202",
+      "passed": true,
+      "detail": {
+        "tool_envelope_diameter_mm": 10,
+        "covers_removed": true
+      }
+    },
+    {
+      "check": "mount_through_hole_x338",
+      "passed": true,
+      "detail": {
+        "diameter_mm": 5.5
+      }
+    },
+    {
+      "check": "provisional_head_clears_cavity_x338",
+      "passed": true,
+      "detail": {
+        "assumed_head_diameter_mm": 10,
+        "assumed_head_height_mm": 3
+      }
+    },
+    {
+      "check": "straight_driver_access_x338",
+      "passed": true,
+      "detail": {
+        "tool_envelope_diameter_mm": 10,
+        "covers_removed": true
+      }
+    },
+    {
+      "check": "knife_lift_9_then_forward_50",
+      "passed": true,
+      "detail": {
+        "maximum_overlap_mm3": 0.0
+      }
+    },
+    {
+      "check": "orthogonal_seam_rays_blocked",
+      "passed": true,
+      "detail": {
+        "samples": 126,
+        "unblocked_rays": [],
+        "ray_cross_section_mm": 0.02
+      }
+    }
+  ],
+  "passed": 25,
+  "failed": 0,
+  "limitations": [
+    "Rectangular knife envelope is a design assumption using the maximum handle thickness over its whole length.",
+    "Screw heads and 10mm screwdriver envelope are proposed dimensions; actual screws, wall and anchoring are unknown.",
+    "Discrete movement and orthogonal seam samples are digital checks, not physical fit, retention, load or print validation."
+  ]
+}

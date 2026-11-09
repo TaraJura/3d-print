@@ -1,0 +1,615 @@
+{
+  "status": "V02 candidate for physical retest after feed-path and failed-phase assessment; not a verified repair of error11833",
+  "date": "2026-10-24",
+  "v01_inputs_sha256": {
+    "podlozka-01-kobra-x-alzament-tpu95a-projekt.3mf": "57802d559b4c5b03d0049fa4aed8fad02bbf53a10da04a3ba52c5afd1cf413bb",
+    "podlozka-01-geometrie.3mf": "36356a58054705f5f5cd4bf28bb2af6a49ffbbcb6468dfcf7bc2abb1cdb825b0",
+    "pripravit-podlozku.py": "fd6139df7f9c5de4954131339355daf473fc68d21f18f30526b2a97df690f7bd",
+    "proces-kobra-x-tpu-navrh.json": "09f5ba612f711342239512bd92d8c4a8967586af75c2ca56b311f2ab7c9c3320",
+    "filament-alzament-tpu95a-navrh.json": "7d47e3594fdd0a03b62c3d2d0e146076b7ac6f910f8b24b004c73eb9e7691fa4",
+    "kontrola-rozlozeni.json": "c6c78711916f027d85bd6e7bf169fda44d916012b54ab9a0e410e5d7f42f0da4"
+  },
+  "v01_inputs_unchanged": true,
+  "geometry": {
+    "physical_pieces": 5,
+    "geometry_file": "podlozka-01-v02-geometrie.3mf",
+    "geometry_sha256": "36356a58054705f5f5cd4bf28bb2af6a49ffbbcb6468dfcf7bc2abb1cdb825b0",
+    "parts": [
+      {
+        "id": "pasek-08",
+        "name": "01 Pasek 0.8 mm",
+        "number": 1,
+        "source_stl": "../../stl/pasek-08.stl",
+        "source_sha256": "acf157b88ace814bcfa3cd82a53148945170c46374648d96b08ae3e6916923d8",
+        "translation_mm": [
+          68.99692585552111,
+          96.0,
+          -0.0
+        ],
+        "min_mm": [
+          69.0,
+          96.0,
+          0.0
+        ],
+        "max_mm": [
+          138.9969258555211,
+          110.0,
+          0.800000011920929
+        ],
+        "size_mm": [
+          69.99692585552111,
+          14.0,
+          0.800000011920929
+        ],
+        "vertices": 428,
+        "triangles": 856,
+        "watertight": true,
+        "connected_components": 1
+      },
+      {
+        "id": "pasek-16",
+        "name": "02 Pasek 1.6 mm",
+        "number": 2,
+        "source_stl": "../../stl/pasek-16.stl",
+        "source_sha256": "ac4caad3db54432f75b7abc143153765bd15f23668d15fa00cb345845e055f68",
+        "translation_mm": [
+          68.99692585552111,
+          122.0,
+          -0.0
+        ],
+        "min_mm": [
+          69.0,
+          122.0,
+          0.0
+        ],
+        "max_mm": [
+          138.9969258555211,
+          136.0,
+          1.600000023841858
+        ],
+        "size_mm": [
+          69.99692585552111,
+          14.0,
+          1.600000023841858
+        ],
+        "vertices": 638,
+        "triangles": 1280,
+        "watertight": true,
+        "connected_components": 1
+      },
+      {
+        "id": "pasek-32",
+        "name": "03 Pasek 3.2 mm",
+        "number": 3,
+        "source_stl": "../../stl/pasek-32.stl",
+        "source_sha256": "def87b514c4b78563085776e56c29b4adae01c8799d675270048fb8599a2d1c5",
+        "translation_mm": [
+          68.99692585552111,
+          148.0,
+          -0.0
+        ],
+        "min_mm": [
+          69.0,
+          148.0,
+          0.0
+        ],
+        "max_mm": [
+          138.9969258555211,
+          162.0,
+          3.200000047683716
+        ],
+        "size_mm": [
+          69.99692585552111,
+          14.0,
+          3.200000047683716
+        ],
+        "vertices": 848,
+        "triangles": 1704,
+        "watertight": true,
+        "connected_components": 1
+      },
+      {
+        "id": "krouzek-08",
+        "name": "04 Krouzek stena 0.8 mm",
+        "number": 4,
+        "source_stl": "../../stl/krouzek-08.stl",
+        "source_sha256": "8dd834acc631cceed5eeb1ce70ee9965f8fc1ec30baf56310c7069583d1c8873",
+        "translation_mm": [
+          158.99283891636878,
+          95.99820962897502,
+          -0.0
+        ],
+        "min_mm": [
+          159.0,
+          96.0,
+          0.0
+        ],
+        "max_mm": [
+          190.99283891636878,
+          127.99641862860881,
+          12.0
+        ],
+        "size_mm": [
+          31.992838916368783,
+          31.996418628608808,
+          12.0
+        ],
+        "vertices": 420,
+        "triangles": 840,
+        "watertight": true,
+        "connected_components": 1
+      },
+      {
+        "id": "krouzek-16",
+        "name": "05 Krouzek stena 1.6 mm",
+        "number": 5,
+        "source_stl": "../../stl/krouzek-16.stl",
+        "source_sha256": "7e51d7b056f889e8b66a147e10cf709a5c6b91901c03f83cddd3e1fc6492ef4b",
+        "translation_mm": [
+          158.99283891636878,
+          141.99820962897502,
+          -0.0
+        ],
+        "min_mm": [
+          159.0,
+          142.0,
+          0.0
+        ],
+        "max_mm": [
+          190.99283891636878,
+          173.9964186286088,
+          12.0
+        ],
+        "size_mm": [
+          31.992838916368783,
+          31.996418628608808,
+          12.0
+        ],
+        "vertices": 420,
+        "triangles": 840,
+        "watertight": true,
+        "connected_components": 1
+      }
+    ],
+    "minimum_bbox_gap_mm": 12.0,
+    "minimum_geometry_bed_margin_mm": 69.0,
+    "supports_required": false,
+    "printer_operation": false
+  },
+  "configured_project": {
+    "file": "configured-v02.3mf",
+    "sha256": "f796407a80a64b341a94836a49799509a8a2b40910954edf0cb1071e7483118d",
+    "physical_parts": 5,
+    "objects": [
+      {
+        "id": "pasek-08",
+        "max_vertex_delta_mm": 1.682442757555691e-06,
+        "preserved_geometry_and_placement": true
+      },
+      {
+        "id": "pasek-16",
+        "max_vertex_delta_mm": 1.682442757555691e-06,
+        "preserved_geometry_and_placement": true
+      },
+      {
+        "id": "pasek-32",
+        "max_vertex_delta_mm": 1.682442757555691e-06,
+        "preserved_geometry_and_placement": true
+      },
+      {
+        "id": "krouzek-08",
+        "max_vertex_delta_mm": 1.1426774051415123e-06,
+        "preserved_geometry_and_placement": true
+      },
+      {
+        "id": "krouzek-16",
+        "max_vertex_delta_mm": 1.1533463464274973e-06,
+        "preserved_geometry_and_placement": true
+      }
+    ],
+    "mesh_repairs": [
+      {
+        "edges_fixed": "0",
+        "degenerate_facets": "0",
+        "facets_removed": "0",
+        "facets_reversed": "0",
+        "backwards_edges": "0"
+      },
+      {
+        "edges_fixed": "0",
+        "degenerate_facets": "0",
+        "facets_removed": "0",
+        "facets_reversed": "0",
+        "backwards_edges": "0"
+      },
+      {
+        "edges_fixed": "0",
+        "degenerate_facets": "0",
+        "facets_removed": "0",
+        "facets_reversed": "0",
+        "backwards_edges": "0"
+      },
+      {
+        "edges_fixed": "0",
+        "degenerate_facets": "0",
+        "facets_removed": "0",
+        "facets_reversed": "0",
+        "backwards_edges": "0"
+      },
+      {
+        "edges_fixed": "0",
+        "degenerate_facets": "0",
+        "facets_removed": "0",
+        "facets_reversed": "0",
+        "backwards_edges": "0"
+      }
+    ],
+    "has_gcode": false,
+    "settings": {
+      "printer_model": "Anycubic Kobra X",
+      "nozzle_diameter": [
+        "0.4"
+      ],
+      "layer_height": "0.2",
+      "wall_loops": "2",
+      "sparse_infill_density": "100%",
+      "enable_support": "0",
+      "brim_type": "no_brim",
+      "wall_generator": "arachne",
+      "nozzle_temperature": [
+        "225"
+      ],
+      "nozzle_temperature_initial_layer": [
+        "225"
+      ],
+      "textured_plate_temp": [
+        "60"
+      ],
+      "filament_max_volumetric_speed": [
+        "2"
+      ],
+      "enable_prime_tower": "0"
+    }
+  },
+  "delivered_project": {
+    "file": "podlozka-01-v02-bez-wipe-kobra-x-alzament-tpu95a.3mf",
+    "sha256": "cf52630d61a79766a2db4b2466c3b582ed70c6f0d9d14f49acc744a8519a1248",
+    "physical_parts": 5,
+    "objects": [
+      {
+        "id": "pasek-08",
+        "max_vertex_delta_mm": 1.682442757555691e-06,
+        "preserved_geometry_and_placement": true
+      },
+      {
+        "id": "pasek-16",
+        "max_vertex_delta_mm": 1.682442757555691e-06,
+        "preserved_geometry_and_placement": true
+      },
+      {
+        "id": "pasek-32",
+        "max_vertex_delta_mm": 1.682442757555691e-06,
+        "preserved_geometry_and_placement": true
+      },
+      {
+        "id": "krouzek-08",
+        "max_vertex_delta_mm": 1.333945391479574e-06,
+        "preserved_geometry_and_placement": true
+      },
+      {
+        "id": "krouzek-16",
+        "max_vertex_delta_mm": 1.2134665610119555e-06,
+        "preserved_geometry_and_placement": true
+      }
+    ],
+    "mesh_repairs": [
+      {
+        "edges_fixed": "0",
+        "degenerate_facets": "0",
+        "facets_removed": "0",
+        "facets_reversed": "0",
+        "backwards_edges": "0"
+      },
+      {
+        "edges_fixed": "0",
+        "degenerate_facets": "0",
+        "facets_removed": "0",
+        "facets_reversed": "0",
+        "backwards_edges": "0"
+      },
+      {
+        "edges_fixed": "0",
+        "degenerate_facets": "0",
+        "facets_removed": "0",
+        "facets_reversed": "0",
+        "backwards_edges": "0"
+      },
+      {
+        "edges_fixed": "0",
+        "degenerate_facets": "0",
+        "facets_removed": "0",
+        "facets_reversed": "0",
+        "backwards_edges": "0"
+      },
+      {
+        "edges_fixed": "0",
+        "degenerate_facets": "0",
+        "facets_removed": "0",
+        "facets_reversed": "0",
+        "backwards_edges": "0"
+      }
+    ],
+    "has_gcode": true,
+    "settings": {
+      "printer_model": "Anycubic Kobra X",
+      "nozzle_diameter": [
+        "0.4"
+      ],
+      "layer_height": "0.2",
+      "wall_loops": "2",
+      "sparse_infill_density": "100%",
+      "enable_support": "0",
+      "brim_type": "no_brim",
+      "wall_generator": "arachne",
+      "nozzle_temperature": [
+        "225"
+      ],
+      "nozzle_temperature_initial_layer": [
+        "225"
+      ],
+      "textured_plate_temp": [
+        "60"
+      ],
+      "filament_max_volumetric_speed": [
+        "2"
+      ],
+      "enable_prime_tower": "0"
+    },
+    "gcode_sha256": "2fa9ae302857d3b6bf28d17e2d3ec6879034e93cef306b311644ff4a4e1cafac",
+    "slice_metadata": {
+      "prediction": "4911",
+      "weight": "9.79",
+      "outside": "false",
+      "support_used": "false"
+    },
+    "warnings": [
+      {
+        "msg": "bed_temperature_too_high_than_filament",
+        "level": "1",
+        "error_code": "1000C001"
+      },
+      {
+        "msg": "not_support_traditional_timelapse",
+        "level": "1",
+        "error_code": "1000C003"
+      }
+    ],
+    "warning_review": "Bed60C is an explicit uncalibrated choice from Alzament TDS60-80C; product page30-50C conflicts. The inherited material glass-transition parameter is unchanged; warning is retained. Traditional timelapse is unsupported.",
+    "paths": {
+      "layer_count": 60,
+      "all_5_objects_on_first_layer": true,
+      "part_layers": [
+        {
+          "id": "pasek-08",
+          "layer_count": 4,
+          "all_expected_layers_present": true,
+          "extruded_volume_mm3": 750.1854086095594
+        },
+        {
+          "id": "pasek-16",
+          "layer_count": 8,
+          "all_expected_layers_present": true,
+          "extruded_volume_mm3": 1494.2988033887573
+        },
+        {
+          "id": "pasek-32",
+          "layer_count": 16,
+          "all_expected_layers_present": true,
+          "extruded_volume_mm3": 2976.200038354377
+        },
+        {
+          "id": "krouzek-08",
+          "layer_count": 60,
+          "all_expected_layers_present": true,
+          "extruded_volume_mm3": 890.0237103345962,
+          "ring_wall_check": {
+            "layers_checked": 60,
+            "inner_and_outer_radial_bands_have_all_72_angular_bins_every_layer": true,
+            "minimum_path_radius_mm": 15.389581102161301,
+            "maximum_path_radius_mm": 15.796459508383528,
+            "note": "Checks actual inner/outer deposition around all360degrees. This is not proof of physical bonding."
+          }
+        },
+        {
+          "id": "krouzek-16",
+          "layer_count": 60,
+          "all_expected_layers_present": true,
+          "extruded_volume_mm3": 1784.758117116804,
+          "ring_wall_check": {
+            "layers_checked": 60,
+            "inner_and_outer_radial_bands_have_all_72_angular_bins_every_layer": true,
+            "minimum_path_radius_mm": 14.577473246416872,
+            "maximum_path_radius_mm": 15.807707297391358,
+            "note": "Checks actual inner/outer deposition around all360degrees. This is not proof of physical bonding."
+          }
+        }
+      ],
+      "extrusion_roles": {
+        "Outer wall": 28228,
+        "Inner wall": 15269,
+        "Bottom surface": 1098,
+        "Gap infill": 171,
+        "Internal solid infill": 8107,
+        "Top surface": 665
+      },
+      "interlayer_contact": {
+        "method": "Path samples every0.15mm rounded to0.25mm grid; previous-layer radius0.5mm",
+        "unanchored_sample_count": 0
+      },
+      "max_commanded_extrusion_speed_mm_s": 25.0,
+      "max_volumetric_flow_mm3_s_segments_ge_0_1mm": 2.0031414005736043,
+      "max_raw_segment_flow_mm3_s": 2.1513495113954084,
+      "flow_note": "Very short segments are affected by XYZ/E rounding; flow limit check uses length>=0.1mm.",
+      "estimated_filament_g": 9.79,
+      "estimated_print_time": "1h 21m 51s",
+      "physical_print_verified": false
+    }
+  },
+  "effective_settings_differences": {
+    "filament_deretraction_speed": {
+      "v01": [
+        "nil"
+      ],
+      "v02": [
+        "20"
+      ]
+    },
+    "filament_notes": {
+      "v01": [
+        "Experimental uncalibrated Alzament TPU95A. User confirmed material on 2026-10-24. TDS https://dwn.alza.cz/manual/161249: nozzle220-240 bed60-80; Gray product190-230/30-50 conflicts with TDS. 225/60 is provisional choice based on TDS. Density1.24 inherited from Anycubic, unverified for Alzament. No physical print verified."
+      ],
+      "v02": [
+        "Experimental uncalibrated Alzament TPU95A. User confirmed material on 2026-10-24. TDS https://dwn.alza.cz/manual/161249: nozzle220-240 bed60-80; Gray product190-230/30-50 conflicts with TDS. 225/60 is provisional choice based on TDS. Density1.24 inherited from Anycubic, unverified for Alzament. No physical print verified. V02: wipe disabled; explicit retraction0.8mm and retraction/restoration20mm/s; layer-change retraction disabled. Candidate only; not a verified fix for printer error11833. Firmware startup G9111 not audited."
+      ]
+    },
+    "filament_retract_when_changing_layer": {
+      "v01": [
+        "nil"
+      ],
+      "v02": [
+        "0"
+      ]
+    },
+    "filament_retraction_length": {
+      "v01": [
+        "nil"
+      ],
+      "v02": [
+        "0.8"
+      ]
+    },
+    "filament_retraction_speed": {
+      "v01": [
+        "nil"
+      ],
+      "v02": [
+        "20"
+      ]
+    },
+    "filament_settings_id": {
+      "v01": [
+        "EXPERIMENT Alzament TPU95A Gray 225C bed60C @Kobra X"
+      ],
+      "v02": [
+        "EXPERIMENT V02 bez wipe Alzament TPU95A 225C bed60C @Kobra X"
+      ]
+    },
+    "filament_wipe": {
+      "v01": [
+        "nil"
+      ],
+      "v02": [
+        "0"
+      ]
+    },
+    "filename_format": {
+      "v01": "TPU-test-Alzament95A-plate{plate_number}.gcode",
+      "v02": "TPU-test-Alzament95A-V02-bez-wipe-plate{plate_number}.gcode"
+    }
+  },
+  "all_explicit_e_audit": {
+    "method": "Every explicit G0/G1 E move with relative/absolute mode and feed tracking; includes E-only restoration and retraction.",
+    "all_explicit_e_moves_checked": 54524,
+    "counts": {
+      "negative_e_only": 493,
+      "positive_e_only": 492,
+      "positive_xyz": 53538,
+      "positive_xyz_quantized": 1
+    },
+    "absolute_filament_distance_mm": {
+      "negative_e_only": 394.40000000000344,
+      "positive_e_only": 393.60000000000343,
+      "positive_xyz": 3282.553349999273,
+      "positive_xyz_quantized": 1e-05
+    },
+    "maximum_nominal_filament_speed_mm_s": {
+      "negative_e_only": 20.0,
+      "positive_e_only": 20.0,
+      "positive_xyz": 0.8944271910058137,
+      "positive_xyz_quantized": 25.0
+    },
+    "extreme_examples": {
+      "negative_e_only": {
+        "line": 86,
+        "layer": 1,
+        "command": "G1 E-.8 F1200",
+        "e_delta_mm": -0.8,
+        "xyz_length_mm": 0.0,
+        "commanded_feed_mm_min": 1200.0,
+        "nominal_filament_speed_mm_s": 20.0
+      },
+      "positive_e_only": {
+        "line": 91,
+        "layer": 1,
+        "command": "G1 E.8 F1200",
+        "e_delta_mm": 0.8,
+        "xyz_length_mm": 0.0,
+        "commanded_feed_mm_min": 1200.0,
+        "nominal_filament_speed_mm_s": 20.0
+      },
+      "positive_xyz": {
+        "line": 8518,
+        "layer": 4,
+        "command": "G1 X166.326 Y144.789 E.00008",
+        "e_delta_mm": 8e-05,
+        "xyz_length_mm": 0.0022360679774850456,
+        "commanded_feed_mm_min": 1500.0,
+        "nominal_filament_speed_mm_s": 0.8944271910058137
+      },
+      "positive_xyz_quantized": {
+        "line": 31223,
+        "layer": 16,
+        "command": "G1 X75.366 Y150.257 E.00001",
+        "e_delta_mm": 1e-05,
+        "xyz_length_mm": 0.0,
+        "commanded_feed_mm_min": 1500.0,
+        "nominal_filament_speed_mm_s": 25.0
+      }
+    },
+    "first_explicit_e_move": {
+      "line": 86,
+      "layer": 1,
+      "command": "G1 E-.8 F1200",
+      "e_delta_mm": -0.8,
+      "xyz_length_mm": 0.0,
+      "commanded_feed_mm_min": 1200.0,
+      "nominal_filament_speed_mm_s": 20.0
+    },
+    "combined_xyz_negative_e_moves": 0,
+    "wipe_markers_present": false,
+    "startup_macro": {
+      "line": 63,
+      "command": "G9111 bedTemp=60 extruderTemp=225"
+    },
+    "coincident_xyz_note": "Positive_xyz_quantized contains explicit XYZ moves whose rounded endpoint equals the current position. Each has at most0.0001mm positive E and retained model feed<=25mm/s. These are reported, not omitted as retraction or purge.",
+    "standalone_temperature_commands": [
+      {
+        "line": 2876,
+        "command": "M140 S60"
+      },
+      {
+        "line": 64875,
+        "command": "M140 S0"
+      },
+      {
+        "line": 64876,
+        "command": "M104 S0"
+      }
+    ],
+    "tool_loading_commands": [],
+    "macro_boundary": "G9111 is a firmware macro. Its internal heating, waits, purge, feed, retraction and jam checks are not present in this file and were not audited. Actual motor speed and temperature were not measured.",
+    "error_11833_resolution_verified": false,
+    "physical_print_verified": false
+  },
+  "printer_contact": false
+}

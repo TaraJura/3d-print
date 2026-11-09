@@ -1,0 +1,191 @@
+{
+  "project": "podlozka-01-kobra-x-pla-projekt.3mf",
+  "gcode_sha256": "2bd3867b9e5846b8e164f81718709444c434c905ad70a53954f7688114f86260",
+  "source_manifest_sha256": "14fd2deb3cb1dcc3909b0f5e7d6409044f2dedbd59687b54048fa165172cc13d",
+  "method": "Actual extruded strokes, grey = previous layer, dark = current material, orange = bridge/overhang. Reported bridge length is whole extrusion move, not unsupported gap.",
+  "holes": [
+    {
+      "hole": 1,
+      "centre_print_x_mm": 43.0,
+      "hole_axis_z_mm": 43,
+      "preview": "detail-otvor-01-mostky.png",
+      "layers": [
+        {
+          "z_mm": 43.0,
+          "roles": {
+            "Inner wall": 6,
+            "Outer wall": 2,
+            "Internal solid infill": 2
+          },
+          "bridge_stroke_count": 0,
+          "maximum_bridge_stroke_mm": 0
+        },
+        {
+          "z_mm": 44.8,
+          "roles": {
+            "Inner wall": 6,
+            "Outer wall": 2,
+            "Internal solid infill": 2
+          },
+          "bridge_stroke_count": 0,
+          "maximum_bridge_stroke_mm": 0
+        },
+        {
+          "z_mm": 45.0,
+          "roles": {
+            "Inner wall": 6,
+            "Outer wall": 6,
+            "Internal solid infill": 2
+          },
+          "bridge_stroke_count": 0,
+          "maximum_bridge_stroke_mm": 0
+        },
+        {
+          "z_mm": 45.2,
+          "roles": {
+            "Inner wall": 6,
+            "Outer wall": 6,
+            "Internal solid infill": 2
+          },
+          "bridge_stroke_count": 0,
+          "maximum_bridge_stroke_mm": 0
+        },
+        {
+          "z_mm": 45.4,
+          "roles": {
+            "Inner wall": 6,
+            "Outer wall": 10,
+            "Internal solid infill": 2
+          },
+          "bridge_stroke_count": 0,
+          "maximum_bridge_stroke_mm": 0
+        },
+        {
+          "z_mm": 45.6,
+          "roles": {
+            "Inner wall": 6,
+            "Outer wall": 14,
+            "Internal solid infill": 2
+          },
+          "bridge_stroke_count": 0,
+          "maximum_bridge_stroke_mm": 0
+        },
+        {
+          "z_mm": 45.8,
+          "roles": {
+            "Inner wall": 10,
+            "Outer wall": 8,
+            "Overhang wall": 10,
+            "Internal solid infill": 2
+          },
+          "bridge_stroke_count": 0,
+          "maximum_bridge_stroke_mm": 0
+        },
+        {
+          "z_mm": 46.0,
+          "roles": {
+            "Internal solid infill": 2,
+            "Bridge": 3,
+            "Inner wall": 24,
+            "Overhang wall": 8,
+            "Outer wall": 8
+          },
+          "bridge_stroke_count": 3,
+          "maximum_bridge_stroke_mm": 5.944000000000003
+        }
+      ]
+    },
+    {
+      "hole": 2,
+      "centre_print_x_mm": 203.0,
+      "hole_axis_z_mm": 43,
+      "preview": "detail-otvor-02-mostky.png",
+      "layers": [
+        {
+          "z_mm": 43.0,
+          "roles": {
+            "Inner wall": 6,
+            "Outer wall": 2,
+            "Internal solid infill": 2
+          },
+          "bridge_stroke_count": 0,
+          "maximum_bridge_stroke_mm": 0
+        },
+        {
+          "z_mm": 44.8,
+          "roles": {
+            "Inner wall": 6,
+            "Outer wall": 2,
+            "Internal solid infill": 2
+          },
+          "bridge_stroke_count": 0,
+          "maximum_bridge_stroke_mm": 0
+        },
+        {
+          "z_mm": 45.0,
+          "roles": {
+            "Inner wall": 6,
+            "Outer wall": 6,
+            "Internal solid infill": 2
+          },
+          "bridge_stroke_count": 0,
+          "maximum_bridge_stroke_mm": 0
+        },
+        {
+          "z_mm": 45.2,
+          "roles": {
+            "Inner wall": 6,
+            "Outer wall": 6,
+            "Internal solid infill": 2
+          },
+          "bridge_stroke_count": 0,
+          "maximum_bridge_stroke_mm": 0
+        },
+        {
+          "z_mm": 45.4,
+          "roles": {
+            "Inner wall": 6,
+            "Outer wall": 10,
+            "Internal solid infill": 2
+          },
+          "bridge_stroke_count": 0,
+          "maximum_bridge_stroke_mm": 0
+        },
+        {
+          "z_mm": 45.6,
+          "roles": {
+            "Inner wall": 6,
+            "Outer wall": 14,
+            "Internal solid infill": 2
+          },
+          "bridge_stroke_count": 0,
+          "maximum_bridge_stroke_mm": 0
+        },
+        {
+          "z_mm": 45.8,
+          "roles": {
+            "Inner wall": 10,
+            "Outer wall": 8,
+            "Overhang wall": 10,
+            "Internal solid infill": 2
+          },
+          "bridge_stroke_count": 0,
+          "maximum_bridge_stroke_mm": 0
+        },
+        {
+          "z_mm": 46.0,
+          "roles": {
+            "Internal solid infill": 2,
+            "Bridge": 3,
+            "Inner wall": 24,
+            "Overhang wall": 8,
+            "Outer wall": 8
+          },
+          "bridge_stroke_count": 3,
+          "maximum_bridge_stroke_mm": 5.943999999999988
+        }
+      ]
+    }
+  ],
+  "physical_bridge_quality_verified": false
+}

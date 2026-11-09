@@ -1,0 +1,58 @@
+# -*- coding: utf-8 -*-
+"""Real CAD views of V03. Only presentation references and visibility change.
+Knife references already saved by drzak.FCMacro; never modify their geometry.
+"""
+from pathlib import Path
+import json
+import FreeCAD as App
+import FreeCADGui as Gui
+import Part
+from PySide import QtCore
+from pivy import coin
+OUT=Path(__file__).resolve().parent
+App.ParamGet('User parameter:BaseApp/Preferences/Document').SetInt('CountBackupFiles',0)
+doc=App.openDocument(str(OUT/'drzak.FCStd'));doc.recompute();holder=doc.Holder
+knife=[doc.IllustrativeBlade,doc.IllustrativeHandle,doc.IllustrativeNeck]
+original=holder.Shape.Volume
+def style(o,color):
+ o.ViewObject.ShapeColor=color;o.ViewObject.DisplayMode='Flat Lines';o.ViewObject.LineColor=(.10,.18,.14);o.ViewObject.LineWidth=.65
+style(holder,(.27,.43,.35));style(knife[0],(.76,.80,.79));style(knife[1],(.30,.17,.10));style(knife[2],(.55,.60,.58))
+def ref(n,label,shape,color):
+ o=doc.getObject(n) or doc.addObject('Part::Feature',n);o.Shape=shape;o.Label=label;style(o,color);return o
+wall=ref('IllustrativeWall','ILUSTRACE — materiál stěny neznámý',Part.makeBox(1200,800,1,App.Vector(-500,-400,-1)),(.96,.95,.92))
+screws=[]
+for i,x in enumerate([35,195]):
+ y=doc.Parameters.MountY.Value;sh=Part.makeCylinder(5,3,App.Vector(x,y,4)).cut(Part.makeBox(6,1,1.3,App.Vector(x-3,y-.5,5.8)))
+ screws.append(ref('IllustrativeScrew%d'%i,'ILUSTRACE — hlavaØ10×3; skutečné vruty neznámé',sh,(.52,.55,.53)))
+group=doc.getObject('VisualContext') or doc.addObject('App::DocumentObjectGroup','VisualContext');group.Label='ILUSTRACE — netisknout';group.Group=[wall]+screws
+view=Gui.activeDocument().activeView()
+def show(objs):
+ for o in doc.Objects:
+  if hasattr(o,'ViewObject'):o.ViewObject.Visibility=o in objs
+ doc.KnifeReference.ViewObject.Visibility=True;group.ViewObject.Visibility=True
+ for o in knife+[wall]+screws:o.ViewObject.Visibility=o in objs
+def camera(eye,shapes,aspect=2,margin=1.20):
+ eye=App.Vector(*eye);up=App.Vector(0,1,0);rot=App.Rotation(up.cross(eye),up,eye,'ZXY');view.setCameraType('Orthographic')
+ bb=Part.makeCompound(shapes).BoundBox;corners=[App.Vector(x,y,z) for x in [bb.XMin,bb.XMax] for y in [bb.YMin,bb.YMax] for z in [bb.ZMin,bb.ZMax]]
+ proj=[rot.inverted().multVec(v-bb.Center) for v in corners];dx=max(p.x for p in proj)-min(p.x for p in proj);dy=max(p.y for p in proj)-min(p.y for p in proj)
+ view.getCameraOrientation();node=view.getCameraNode();node.orientation.setValue(rot.Q);pos=bb.Center+eye.normalize()*1000;node.position.setValue(pos.x,pos.y,pos.z)
+ node.height.setValue(max(dy,dx/aspect)*margin);node.nearDistance.setValue(1);node.farDistance.setValue(3000);view.redraw();Gui.updateGui()
+def start():
+ Gui.getMainWindow().resize(1800,1050);show([holder]+knife+[wall]+screws);camera((.27,.55,1.8),[holder.Shape]+[o.Shape for o in knife])
+ QtCore.QTimer.singleShot(900,save_main)
+def save_main():
+ view.saveImage(str(OUT/'nahled-s-nozem-cad.png'),2400,1200,'White')
+ show([holder,wall]+screws);camera((.42,.85,1.7),[holder.Shape],1.8,1.22)
+ QtCore.QTimer.singleShot(850,save_empty)
+def save_empty():
+ view.saveImage(str(OUT/'nahled-prazdny-cad.png'),2400,1333,'White')
+ show([holder]+knife+[wall]+screws);camera((0,0,1),[holder.Shape]+[o.Shape for o in knife],2.2,1.20)
+ QtCore.QTimer.singleShot(850,save_front)
+def save_front():
+ view.saveImage(str(OUT/'nahled-profil-cad.png'),2400,1091,'White')
+ show([holder]);doc.KnifeReference.ViewObject.Visibility=False;group.ViewObject.Visibility=False;camera((.42,.85,1.7),[holder.Shape],1.8,1.22)
+ doc.recompute();assert abs(holder.Shape.Volume-original)<1e-7;doc.save();p=doc.FileName;App.closeDocument(doc.Name)
+ d=App.openDocument(p);d.recompute();vis=[o.Name for o in d.Objects if hasattr(o,'Shape') and o.ViewObject.Visibility];assert vis==['Holder'],vis
+ report=json.loads((OUT/'kontrola-modelu.json').read_text());report['gui_validation']={'saved_reopened':True,'visible':['Holder'],'illustrations_hidden':True,'images':['nahled-s-nozem-cad.png','nahled-prazdny-cad.png','nahled-profil-cad.png']};(OUT/'kontrola-modelu.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
+ print('V03_RENDER_OK',flush=True);Gui.getMainWindow().close()
+QtCore.QTimer.singleShot(900,start)

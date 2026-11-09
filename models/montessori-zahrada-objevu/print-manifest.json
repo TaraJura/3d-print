@@ -1,0 +1,142 @@
+{
+  "name": "Zahrada objevu",
+  "materials": {
+    "1": {
+      "name": "PLA Basic — svetla zakladna (barva navrh)",
+      "colour": "#EEE3CC"
+    },
+    "2": {
+      "name": "PLA Basic — kameny (barva navrh)",
+      "colour": "#BD6650"
+    }
+  },
+  "parts": [
+    {
+      "id": "Base",
+      "name": "01 — zakladna / 5 sedel / hmatova spirala",
+      "file": "stl/base.stl",
+      "plate": 1,
+      "count": 1,
+      "supports": false,
+      "support_note": "Rovna zakladna, svisle steny, male zaoblene hrany a otevrene dulky.",
+      "critical_z_mm": [
+        0.2,
+        1,
+        8,
+        11.4,
+        12
+      ],
+      "sha256": "2ccbd25186087df1b2185121f5149efe6e8b2ca4384e0e79d1fdece4b7dda705",
+      "assembly_translation_mm": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "id": "Stone1",
+      "name": "02 — Kruh / 1 dulku / 12 mm",
+      "file": "stl/stone1.stl",
+      "plate": 2,
+      "count": 1,
+      "supports": false,
+      "support_note": "Rovna zakladna, svisle steny, male zaoblene hrany a otevrene dulky.",
+      "critical_z_mm": [
+        0.2,
+        1,
+        10.8,
+        11.8
+      ],
+      "sha256": "b47bf2f79ff151ad5c3bdc321a81f45fe4fd7b167f8d19602b7182773c6facf1",
+      "assembly_translation_mm": [
+        0.0,
+        -73.0,
+        8.0
+      ]
+    },
+    {
+      "id": "Stone2",
+      "name": "03 — Trojuhelnik / 2 dulku / 24 mm",
+      "file": "stl/stone2.stl",
+      "plate": 2,
+      "count": 1,
+      "supports": false,
+      "support_note": "Rovna zakladna, svisle steny, male zaoblene hrany a otevrene dulky.",
+      "critical_z_mm": [
+        0.2,
+        1,
+        22.8,
+        23.8
+      ],
+      "sha256": "28d9ab63b74f6a42da446b787c103ec79ec1250fa2c8bd6768deda7ed4455375",
+      "assembly_translation_mm": [
+        69.427125689535,
+        -22.558240589375,
+        8.0
+      ]
+    },
+    {
+      "id": "Stone3",
+      "name": "04 — Ctverec / 3 dulku / 36 mm",
+      "file": "stl/stone3.stl",
+      "plate": 2,
+      "count": 1,
+      "supports": false,
+      "support_note": "Rovna zakladna, svisle steny, male zaoblene hrany a otevrene dulky.",
+      "critical_z_mm": [
+        0.2,
+        1,
+        34.8,
+        35.8
+      ],
+      "sha256": "276ccf8d3f582fa0c1764ae559146399a6efa276c0198883b3e8fef400169aa6",
+      "assembly_translation_mm": [
+        42.908323417316,
+        59.058240589374996,
+        8.0
+      ]
+    },
+    {
+      "id": "Stone4",
+      "name": "05 — Petiuholnik / 4 dulku / 48 mm",
+      "file": "stl/stone4.stl",
+      "plate": 2,
+      "count": 1,
+      "supports": false,
+      "support_note": "Rovna zakladna, svisle steny, male zaoblene hrany a otevrene dulky.",
+      "critical_z_mm": [
+        0.2,
+        1,
+        46.8,
+        47.8
+      ],
+      "sha256": "321579f0cbb2a1df0fb3283ce256d2c8519e8422ccc835fb6e8968be8a8f30da",
+      "assembly_translation_mm": [
+        -42.908323417316,
+        59.058240589374996,
+        8.0
+      ]
+    },
+    {
+      "id": "Stone5",
+      "name": "06 — Sestiuhelnik / 5 dulku / 60 mm",
+      "file": "stl/stone5.stl",
+      "plate": 2,
+      "count": 1,
+      "supports": false,
+      "support_note": "Rovna zakladna, svisle steny, male zaoblene hrany a otevrene dulky.",
+      "critical_z_mm": [
+        0.2,
+        1,
+        58.8,
+        59.8
+      ],
+      "sha256": "3bea8b60c9fa39618d0ddf85513b6a33889622b03af308f3ab20bdd926223647",
+      "assembly_translation_mm": [
+        -69.427125689535,
+        -22.558240589375,
+        8.0
+      ]
+    }
+  ]
+}

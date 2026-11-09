@@ -1,0 +1,89 @@
+{
+  "source_manifest_sha256": "a8abfc0c3d05bc0863dfa7f54811ac1b64726bcd28ab770031d7f99803337ee8",
+  "machine": "Anycubic Kobra X 0.4 nozzle",
+  "physical_parts": 1,
+  "plates": [
+    {
+      "number": 1,
+      "geometry": "podlozka-01-geometrie.3mf",
+      "geometry_sha256": "d7fecb420b3786c65f0f42ba8438a890722b53e088c4ede87e2a82288dec09dd",
+      "preview": "podlozka-01.png",
+      "physical_parts": 1,
+      "parts": [
+        {
+          "id": "drzak-tvarovany",
+          "name": "01_drzak-tvarovany_01",
+          "file": "../stl/drzak-tvarovany.stl",
+          "source_sha256": "4bc49e5857ff18e83c351b267225b3ce64110e57ffb9f98e7c2124f1876d8fc5",
+          "translation_mm": [
+            7.999999999999994,
+            7.999999999999993,
+            -0.0
+          ],
+          "placed_min_mm": [
+            8.0,
+            8.0,
+            0.0
+          ],
+          "placed_max_mm": [
+            238.0,
+            50.314067840576165,
+            59.99626922607422
+          ],
+          "size_mm": [
+            230.0,
+            42.314067840576165,
+            59.99626922607422
+          ],
+          "triangle_count": 2340,
+          "supports": false,
+          "support_note": "Souvislá patka a svislé stojiny pod oběma sedly. StěnyV rostou45°;10mm přechod je shora otevřený. Ověřit návaznost tvarovaných sedel a vrcholy otvorůØ5,5mm.",
+          "critical_z_mm": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1,
+            2,
+            3,
+            4,
+            5.8,
+            6,
+            8,
+            8.8,
+            10,
+            13,
+            15,
+            17,
+            20,
+            23,
+            25,
+            27,
+            30,
+            35,
+            38,
+            40,
+            43,
+            48,
+            50.8,
+            51,
+            59.996,
+            60
+          ]
+        }
+      ],
+      "minimum_geometry_edge_margin_mm": 8.0,
+      "minimum_bbox_gap_mm": null,
+      "colour": "#334451",
+      "material_name": "prototyp — barva návrhu",
+      "profile": {
+        "kind": "Basic",
+        "mvs": "8",
+        "nozzle": "205",
+        "initial_nozzle": "215",
+        "bed": "50"
+      },
+      "supports_enabled": false
+    }
+  ]
+}

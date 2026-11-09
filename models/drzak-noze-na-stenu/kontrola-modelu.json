@@ -1,0 +1,167 @@
+{
+  "units": "mm",
+  "user_dimensions_mm": [
+    340,
+    45,
+    25
+  ],
+  "clear_envelope_mm": [
+    346,
+    49,
+    29
+  ],
+  "overall_mm": [
+    360.0,
+    90.0,
+    41.7
+  ],
+  "parameters_mm": {
+    "KnifeLength": 340,
+    "KnifeHeight": 45,
+    "HandleThickness": 25,
+    "LengthClearance": 6,
+    "HeightClearance": 4,
+    "DepthClearance": 4,
+    "EndAllowance": 7,
+    "BackThickness": 3,
+    "FloorLevel": 18,
+    "FloorThickness": 4,
+    "RetainerHeight": 8,
+    "WallThickness": 3,
+    "SeamOverlap": 4,
+    "SeamGap": 0.3,
+    "CoverGap": 0.5,
+    "CoverLift": 7,
+    "CoverOverlap": 4,
+    "StudShaft": 4.2,
+    "StudHead": 8,
+    "KeySlot": 4.8,
+    "KeyHead": 8.6,
+    "MountHole": 5.5,
+    "CornerRadius": 6
+  },
+  "parts": {
+    "vanicka-leva": {
+      "object": "BodyLeft",
+      "bbox_print_mm": [
+        182.0,
+        90.0,
+        41.699999999999996
+      ],
+      "volume_mm3": 111781.81271685663,
+      "valid": true,
+      "solids": 1,
+      "stl_closed": true,
+      "stl_components": 1,
+      "stl_sha256": "7846346b13beefc825070e31e707af45e7cc1cff4372f39a02261988d1d044b5",
+      "facets": 4268,
+      "print_min_z": 0.0
+    },
+    "vanicka-prava": {
+      "object": "BodyRight",
+      "bbox_print_mm": [
+        181.7,
+        90.0,
+        41.699999999999996
+      ],
+      "volume_mm3": 111685.61271685686,
+      "valid": true,
+      "solids": 1,
+      "stl_closed": true,
+      "stl_components": 1,
+      "stl_sha256": "150d27acc0631bc6934a2b955881e487956a45920574a0b557b9455b1ed57819",
+      "facets": 4272,
+      "print_min_z": 0.0
+    },
+    "kryt-levy": {
+      "object": "CoverLeft",
+      "bbox_print_mm": [
+        182.0,
+        68.0,
+        3.0000000000000213
+      ],
+      "volume_mm3": 36131.90115612209,
+      "valid": true,
+      "solids": 1,
+      "stl_closed": true,
+      "stl_components": 1,
+      "stl_sha256": "fc710eae721d02220729bf0837f3892b3b8f59976a420ddbc41d622a817c431a",
+      "facets": 1364,
+      "print_min_z": -7.105427357601002e-15
+    },
+    "kryt-pravy": {
+      "object": "CoverRight",
+      "bbox_print_mm": [
+        181.7,
+        68.0,
+        3.0000000000000213
+      ],
+      "volume_mm3": 36097.90115612203,
+      "valid": true,
+      "solids": 1,
+      "stl_closed": true,
+      "stl_components": 1,
+      "stl_sha256": "66d22efde4b1ceb546eec2d33854679d765370b359207c3d99920c15565b7d1a",
+      "facets": 1364,
+      "print_min_z": -7.105427357601002e-15
+    }
+  },
+  "assembly_collisions": [],
+  "knife_envelope_collision_volumes_mm3": {
+    "vanicka-leva": 0.0,
+    "vanicka-prava": 0.0,
+    "kryt-levy": 0.0,
+    "kryt-pravy": 0.0
+  },
+  "cover_paths": [
+    {
+      "part": "left",
+      "lift_mm": 7,
+      "sample_step_mm": 0.25,
+      "pull_mm": 10,
+      "collisions": 0
+    },
+    {
+      "part": "right",
+      "lift_mm": 7,
+      "sample_step_mm": 0.25,
+      "pull_mm": 10,
+      "collisions": 0
+    }
+  ],
+  "knife_removal": {
+    "lift_mm": 9,
+    "forward_mm": 50,
+    "samples": 70,
+    "collisions": 0
+  },
+  "native_parameter_test": {
+    "knife_test_mm": [
+      350,
+      47,
+      27
+    ],
+    "assembly_width_mm": 370,
+    "height_mm": 92,
+    "inner_depth_mm": 31,
+    "restored": true
+  },
+  "physical_print_verified": false,
+  "physical_fit_verified": false,
+  "wall_mount_verified": false,
+  "gui_validation": {
+    "saved_reopened": true,
+    "visible_printed_parts": [
+      "BodyLeft",
+      "BodyRight",
+      "CoverLeft",
+      "CoverRight"
+    ],
+    "reference_knife_hidden": true,
+    "images": [
+      "nahled-zavreno-cad.png",
+      "nahled-otevreno-cad.png",
+      "nahled-montaz-cad.png"
+    ]
+  }
+}

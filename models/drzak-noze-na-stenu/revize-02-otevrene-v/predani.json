@@ -1,0 +1,22 @@
+{
+  "revision": "02",
+  "date_local": "2026-10-30",
+  "canonical_root": "/home/novakj/3d-print/models/drzak-noze-na-stenu/revize-02-otevrene-v",
+  "physical_parts": 1,
+  "configured_plates": 1,
+  "independent_checks_passed": 27,
+  "independent_checks_failed": 0,
+  "assembled_mm": [
+    230,
+    55,
+    45.242640687119284
+  ],
+  "supports_enabled": false,
+  "actual_support_segments": 0,
+  "source_manifest_matches_sliced_projects": true,
+  "physical_print_verified": false,
+  "physical_knife_fit_verified": false,
+  "centre_of_gravity_known": false,
+  "tip_protected": false,
+  "sync_method": "exclusive creation and SHA-256 comparison of every delivered file"
+}

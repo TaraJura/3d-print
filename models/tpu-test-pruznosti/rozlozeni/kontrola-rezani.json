@@ -1,0 +1,453 @@
+{
+  "status": "Locally sliced and paths checked; physical print unverified",
+  "date": "2026-10-24",
+  "geometry": {
+    "physical_pieces": 5,
+    "geometry_file": "podlozka-01-geometrie.3mf",
+    "geometry_sha256": "36356a58054705f5f5cd4bf28bb2af6a49ffbbcb6468dfcf7bc2abb1cdb825b0",
+    "parts": [
+      {
+        "id": "pasek-08",
+        "name": "01 Pasek 0.8 mm",
+        "number": 1,
+        "source_stl": "../stl/pasek-08.stl",
+        "source_sha256": "acf157b88ace814bcfa3cd82a53148945170c46374648d96b08ae3e6916923d8",
+        "translation_mm": [
+          68.99692585552111,
+          96.0,
+          -0.0
+        ],
+        "min_mm": [
+          69.0,
+          96.0,
+          0.0
+        ],
+        "max_mm": [
+          138.9969258555211,
+          110.0,
+          0.800000011920929
+        ],
+        "size_mm": [
+          69.99692585552111,
+          14.0,
+          0.800000011920929
+        ],
+        "vertices": 428,
+        "triangles": 856,
+        "watertight": true,
+        "connected_components": 1
+      },
+      {
+        "id": "pasek-16",
+        "name": "02 Pasek 1.6 mm",
+        "number": 2,
+        "source_stl": "../stl/pasek-16.stl",
+        "source_sha256": "ac4caad3db54432f75b7abc143153765bd15f23668d15fa00cb345845e055f68",
+        "translation_mm": [
+          68.99692585552111,
+          122.0,
+          -0.0
+        ],
+        "min_mm": [
+          69.0,
+          122.0,
+          0.0
+        ],
+        "max_mm": [
+          138.9969258555211,
+          136.0,
+          1.600000023841858
+        ],
+        "size_mm": [
+          69.99692585552111,
+          14.0,
+          1.600000023841858
+        ],
+        "vertices": 638,
+        "triangles": 1280,
+        "watertight": true,
+        "connected_components": 1
+      },
+      {
+        "id": "pasek-32",
+        "name": "03 Pasek 3.2 mm",
+        "number": 3,
+        "source_stl": "../stl/pasek-32.stl",
+        "source_sha256": "def87b514c4b78563085776e56c29b4adae01c8799d675270048fb8599a2d1c5",
+        "translation_mm": [
+          68.99692585552111,
+          148.0,
+          -0.0
+        ],
+        "min_mm": [
+          69.0,
+          148.0,
+          0.0
+        ],
+        "max_mm": [
+          138.9969258555211,
+          162.0,
+          3.200000047683716
+        ],
+        "size_mm": [
+          69.99692585552111,
+          14.0,
+          3.200000047683716
+        ],
+        "vertices": 848,
+        "triangles": 1704,
+        "watertight": true,
+        "connected_components": 1
+      },
+      {
+        "id": "krouzek-08",
+        "name": "04 Krouzek stena 0.8 mm",
+        "number": 4,
+        "source_stl": "../stl/krouzek-08.stl",
+        "source_sha256": "8dd834acc631cceed5eeb1ce70ee9965f8fc1ec30baf56310c7069583d1c8873",
+        "translation_mm": [
+          158.99283891636878,
+          95.99820962897502,
+          -0.0
+        ],
+        "min_mm": [
+          159.0,
+          96.0,
+          0.0
+        ],
+        "max_mm": [
+          190.99283891636878,
+          127.99641862860881,
+          12.0
+        ],
+        "size_mm": [
+          31.992838916368783,
+          31.996418628608808,
+          12.0
+        ],
+        "vertices": 420,
+        "triangles": 840,
+        "watertight": true,
+        "connected_components": 1
+      },
+      {
+        "id": "krouzek-16",
+        "name": "05 Krouzek stena 1.6 mm",
+        "number": 5,
+        "source_stl": "../stl/krouzek-16.stl",
+        "source_sha256": "7e51d7b056f889e8b66a147e10cf709a5c6b91901c03f83cddd3e1fc6492ef4b",
+        "translation_mm": [
+          158.99283891636878,
+          141.99820962897502,
+          -0.0
+        ],
+        "min_mm": [
+          159.0,
+          142.0,
+          0.0
+        ],
+        "max_mm": [
+          190.99283891636878,
+          173.9964186286088,
+          12.0
+        ],
+        "size_mm": [
+          31.992838916368783,
+          31.996418628608808,
+          12.0
+        ],
+        "vertices": 420,
+        "triangles": 840,
+        "watertight": true,
+        "connected_components": 1
+      }
+    ],
+    "minimum_bbox_gap_mm": 12.0,
+    "minimum_geometry_bed_margin_mm": 69.0,
+    "supports_required": false,
+    "printer_operation": false
+  },
+  "machine_profile_sha256": "baf80d3287e1e863fba29cdfd240b9b5ebc28bd87e1b4d03fc79e53f0009570a",
+  "process_profile_sha256": "09f5ba612f711342239512bd92d8c4a8967586af75c2ca56b311f2ab7c9c3320",
+  "filament_profile_sha256": "7d47e3594fdd0a03b62c3d2d0e146076b7ac6f910f8b24b004c73eb9e7691fa4",
+  "configured_project": {
+    "file": "configured.3mf",
+    "sha256": "d724e3279753b4bc4073146fa037d8b8c139b6d3a738d921e63aaf4fa89b404a",
+    "physical_parts": 5,
+    "objects": [
+      {
+        "id": "pasek-08",
+        "max_vertex_delta_mm": 1.682442757555691e-06,
+        "preserved_geometry_and_placement": true
+      },
+      {
+        "id": "pasek-16",
+        "max_vertex_delta_mm": 1.682442757555691e-06,
+        "preserved_geometry_and_placement": true
+      },
+      {
+        "id": "pasek-32",
+        "max_vertex_delta_mm": 1.682442757555691e-06,
+        "preserved_geometry_and_placement": true
+      },
+      {
+        "id": "krouzek-08",
+        "max_vertex_delta_mm": 1.1426774051415123e-06,
+        "preserved_geometry_and_placement": true
+      },
+      {
+        "id": "krouzek-16",
+        "max_vertex_delta_mm": 1.1533463464274973e-06,
+        "preserved_geometry_and_placement": true
+      }
+    ],
+    "mesh_repairs": [
+      {
+        "edges_fixed": "0",
+        "degenerate_facets": "0",
+        "facets_removed": "0",
+        "facets_reversed": "0",
+        "backwards_edges": "0"
+      },
+      {
+        "edges_fixed": "0",
+        "degenerate_facets": "0",
+        "facets_removed": "0",
+        "facets_reversed": "0",
+        "backwards_edges": "0"
+      },
+      {
+        "edges_fixed": "0",
+        "degenerate_facets": "0",
+        "facets_removed": "0",
+        "facets_reversed": "0",
+        "backwards_edges": "0"
+      },
+      {
+        "edges_fixed": "0",
+        "degenerate_facets": "0",
+        "facets_removed": "0",
+        "facets_reversed": "0",
+        "backwards_edges": "0"
+      },
+      {
+        "edges_fixed": "0",
+        "degenerate_facets": "0",
+        "facets_removed": "0",
+        "facets_reversed": "0",
+        "backwards_edges": "0"
+      }
+    ],
+    "has_gcode": false,
+    "settings": {
+      "printer_model": "Anycubic Kobra X",
+      "nozzle_diameter": [
+        "0.4"
+      ],
+      "layer_height": "0.2",
+      "wall_loops": "2",
+      "sparse_infill_density": "100%",
+      "enable_support": "0",
+      "brim_type": "no_brim",
+      "wall_generator": "arachne",
+      "nozzle_temperature": [
+        "225"
+      ],
+      "nozzle_temperature_initial_layer": [
+        "225"
+      ],
+      "textured_plate_temp": [
+        "60"
+      ],
+      "filament_max_volumetric_speed": [
+        "2"
+      ],
+      "enable_prime_tower": "0"
+    }
+  },
+  "delivered_project": {
+    "file": "podlozka-01-kobra-x-alzament-tpu95a-projekt.3mf",
+    "sha256": "57802d559b4c5b03d0049fa4aed8fad02bbf53a10da04a3ba52c5afd1cf413bb",
+    "physical_parts": 5,
+    "objects": [
+      {
+        "id": "pasek-08",
+        "max_vertex_delta_mm": 1.682442757555691e-06,
+        "preserved_geometry_and_placement": true
+      },
+      {
+        "id": "pasek-16",
+        "max_vertex_delta_mm": 1.682442757555691e-06,
+        "preserved_geometry_and_placement": true
+      },
+      {
+        "id": "pasek-32",
+        "max_vertex_delta_mm": 1.682442757555691e-06,
+        "preserved_geometry_and_placement": true
+      },
+      {
+        "id": "krouzek-08",
+        "max_vertex_delta_mm": 1.333945391479574e-06,
+        "preserved_geometry_and_placement": true
+      },
+      {
+        "id": "krouzek-16",
+        "max_vertex_delta_mm": 1.2134665610119555e-06,
+        "preserved_geometry_and_placement": true
+      }
+    ],
+    "mesh_repairs": [
+      {
+        "edges_fixed": "0",
+        "degenerate_facets": "0",
+        "facets_removed": "0",
+        "facets_reversed": "0",
+        "backwards_edges": "0"
+      },
+      {
+        "edges_fixed": "0",
+        "degenerate_facets": "0",
+        "facets_removed": "0",
+        "facets_reversed": "0",
+        "backwards_edges": "0"
+      },
+      {
+        "edges_fixed": "0",
+        "degenerate_facets": "0",
+        "facets_removed": "0",
+        "facets_reversed": "0",
+        "backwards_edges": "0"
+      },
+      {
+        "edges_fixed": "0",
+        "degenerate_facets": "0",
+        "facets_removed": "0",
+        "facets_reversed": "0",
+        "backwards_edges": "0"
+      },
+      {
+        "edges_fixed": "0",
+        "degenerate_facets": "0",
+        "facets_removed": "0",
+        "facets_reversed": "0",
+        "backwards_edges": "0"
+      }
+    ],
+    "has_gcode": true,
+    "settings": {
+      "printer_model": "Anycubic Kobra X",
+      "nozzle_diameter": [
+        "0.4"
+      ],
+      "layer_height": "0.2",
+      "wall_loops": "2",
+      "sparse_infill_density": "100%",
+      "enable_support": "0",
+      "brim_type": "no_brim",
+      "wall_generator": "arachne",
+      "nozzle_temperature": [
+        "225"
+      ],
+      "nozzle_temperature_initial_layer": [
+        "225"
+      ],
+      "textured_plate_temp": [
+        "60"
+      ],
+      "filament_max_volumetric_speed": [
+        "2"
+      ],
+      "enable_prime_tower": "0"
+    },
+    "gcode_sha256": "41dabb8cd453d75afc76b817f2210c763a688748dde2c38981ca8450a565d5ca",
+    "slice_metadata": {
+      "prediction": "4918",
+      "weight": "9.79",
+      "outside": "false",
+      "support_used": "false"
+    },
+    "warnings": [
+      {
+        "msg": "bed_temperature_too_high_than_filament",
+        "level": "1",
+        "error_code": "1000C001"
+      },
+      {
+        "msg": "not_support_traditional_timelapse",
+        "level": "1",
+        "error_code": "1000C003"
+      }
+    ],
+    "warning_review": "Bed60C is an explicit uncalibrated choice from Alzament TDS60-80C; product page30-50C conflicts. The inherited material glass-transition parameter is unchanged; warning is retained. Traditional timelapse is unsupported.",
+    "paths": {
+      "layer_count": 60,
+      "all_5_objects_on_first_layer": true,
+      "part_layers": [
+        {
+          "id": "pasek-08",
+          "layer_count": 4,
+          "all_expected_layers_present": true,
+          "extruded_volume_mm3": 750.1854086095594
+        },
+        {
+          "id": "pasek-16",
+          "layer_count": 8,
+          "all_expected_layers_present": true,
+          "extruded_volume_mm3": 1494.2988033887573
+        },
+        {
+          "id": "pasek-32",
+          "layer_count": 16,
+          "all_expected_layers_present": true,
+          "extruded_volume_mm3": 2976.200038354377
+        },
+        {
+          "id": "krouzek-08",
+          "layer_count": 60,
+          "all_expected_layers_present": true,
+          "extruded_volume_mm3": 890.0237103345962,
+          "ring_wall_check": {
+            "layers_checked": 60,
+            "inner_and_outer_radial_bands_have_all_72_angular_bins_every_layer": true,
+            "minimum_path_radius_mm": 15.389581102161301,
+            "maximum_path_radius_mm": 15.796459508383528,
+            "note": "Checks actual inner/outer deposition around all360degrees. This is not proof of physical bonding."
+          }
+        },
+        {
+          "id": "krouzek-16",
+          "layer_count": 60,
+          "all_expected_layers_present": true,
+          "extruded_volume_mm3": 1784.758117116804,
+          "ring_wall_check": {
+            "layers_checked": 60,
+            "inner_and_outer_radial_bands_have_all_72_angular_bins_every_layer": true,
+            "minimum_path_radius_mm": 14.577473246416872,
+            "maximum_path_radius_mm": 15.807707297391358,
+            "note": "Checks actual inner/outer deposition around all360degrees. This is not proof of physical bonding."
+          }
+        }
+      ],
+      "extrusion_roles": {
+        "Outer wall": 28228,
+        "Inner wall": 15269,
+        "Bottom surface": 1098,
+        "Gap infill": 171,
+        "Internal solid infill": 8107,
+        "Top surface": 665
+      },
+      "interlayer_contact": {
+        "method": "Path samples every0.15mm rounded to0.25mm grid; previous-layer radius0.5mm",
+        "unanchored_sample_count": 0
+      },
+      "max_commanded_extrusion_speed_mm_s": 25.0,
+      "max_volumetric_flow_mm3_s_segments_ge_0_1mm": 2.0031414005736043,
+      "max_raw_segment_flow_mm3_s": 2.1513495113954084,
+      "flow_note": "Very short segments are affected by XYZ/E rounding; flow limit check uses length>=0.1mm.",
+      "estimated_filament_g": 9.79,
+      "estimated_print_time": "1h 21m 58s",
+      "physical_print_verified": false
+    }
+  },
+  "printer_contact": false
+}

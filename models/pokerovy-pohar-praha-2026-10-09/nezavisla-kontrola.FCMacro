@@ -1,0 +1,38 @@
+import traceback
+try:
+    # -*- coding: utf-8 -*-
+    """Read-only CAD/STL reopen audit; writes only nezavisla-kontrola.json."""
+    from pathlib import Path
+    import json,hashlib
+    from zipfile import ZipFile
+    import xml.etree.ElementTree as ET
+    import FreeCAD as App
+    import Mesh
+    OUT=Path(__file__).resolve().parent
+    source=json.loads((OUT/'kontrola-modelu.json').read_text())
+    filename=OUT/'pokerovy-pohar.FCStd';doc=App.openDocument(str(filename));doc.recompute();s=doc.Trophy.Shape
+    assert s.isValid() and len(s.Solids)==1
+    bb=s.optimalBoundingBox()
+    assert abs(s.Volume-source['volume_mm3'])<1e-5
+    assert all(abs(x-y)<1e-6 for x,y in zip([bb.XLength,bb.YLength,bb.ZLength],source['bbox_mm']))
+    assert abs(doc.Parameters.InkRelief.Value-0.85)<1e-6
+    stl=OUT/'stl'/'pokerovy-pohar.stl';mesh=Mesh.Mesh(str(stl));sha=hashlib.sha256(stl.read_bytes()).hexdigest()
+    assert sha==source['stl_sha256'];assert mesh.CountFacets==source['stl_facets'];assert mesh.isSolid() and mesh.countComponents()==1
+    assert hashlib.sha256((OUT/'pokerovy-pohar.FCMacro').read_bytes()).hexdigest()==source['macro_sha256']
+    with ZipFile(filename) as z:
+        gui=ET.fromstring(z.read('GuiDocument.xml'))
+    visible=[]
+    for vp in gui.findall('.//ViewProvider'):
+        for prop in vp.findall('.//Property'):
+            if prop.get('name')=='Visibility' and any(n.get('value')=='true' for n in prop):visible.append(vp.get('name'))
+    assert 'Trophy' in visible,visible
+    shapes=[o.Name for o in doc.Objects if hasattr(o,'Shape')]
+    assert set(visible).intersection(shapes)=={'Trophy'},visible
+    invalid=[o.Name for o in doc.Objects if 'Invalid' in o.State];assert not invalid
+    report={'saved_reopened':True,'cad_valid':True,'solids':1,'visible_shape_objects':['Trophy'],'invalid_objects':invalid,'ink_relief_mm':doc.Parameters.InkRelief.Value,'stl_sha256':sha,'stl_closed':True,'stl_components':1,'stl_facets':mesh.CountFacets,'cad_bbox_mm':[bb.XLength,bb.YLength,bb.ZLength],'cad_volume_mm3':s.Volume,'cad_report_consistent':True,'source_macro_consistent':True,'fcstd_sha256':hashlib.sha256(filename.read_bytes()).hexdigest(),'png_sha256':{p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in [OUT/'nahled-cad.png',OUT/'nahled-predek-cad.png']},'physical_print_verified':False}
+    (OUT/'nezavisla-kontrola.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
+    print('POKER_REOPEN_AUDIT_OK '+json.dumps(report),flush=True)
+    App.closeDocument(doc.Name)
+except Exception:
+    traceback.print_exc()
+    raise

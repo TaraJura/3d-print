@@ -1,0 +1,201 @@
+"""Native, expression-driven printed thread experiment for Pomodoro Orbit.
+
+Owns only zkouska-zavitu.FCStd and zkouska-zavitu.json beside this macro.
+No user document, runtime, or external configuration is modified.
+Set ORBIT_THREAD_HELPER_ONLY=1 when importing only the helper definitions.
+"""
+from pathlib import Path
+import json
+import math
+import os
+import FreeCAD as App
+import Part
+import Sketcher
+
+
+def add_thread_parameters(doc):
+    p = doc.addObject("Spreadsheet::Sheet", "ThreadParameters")
+    values = [
+        ("ThreadCoreR", 8.2), ("ThreadCrestR", 9.7),
+        ("ThreadPitch", 3.6), ("ThreadStart", 4),
+        ("ThreadTravel", 7.2), ("ThreadMin", 2.1), ("ThreadMax", 12),
+        ("ThreadOverlap", 0.2), ("ThreadClearance", 0.3),
+        ("FemaleOverlap", 0.1), ("FemaleOuterR", 14),
+    ]
+    for row, (alias, value) in enumerate(values, 1):
+        p.set("A%d" % row, alias)
+        p.set("B%d" % row, "%s mm" % value)
+        p.setAlias("B%d" % row, alias)
+    doc.recompute()
+    return p
+
+
+def native_thread(doc, params, prefix="Male", female=False):
+    """Return a native solid thread envelope, clipped to ThreadMin..ThreadMax.
+
+    Female clearance is 0.3 mm normal to each 45 degree flank, and 0.3 mm
+    radial at the root bore. The triangular cutter therefore extends by
+    clearance*sqrt(2) at its sharp crest. Fused core makes one continuous tool.
+    No Python feature proxy is stored in the resulting document.
+    """
+    ref = params.Name
+    expr = lambda s: s.replace("P.", ref + ".")
+    core = "P.ThreadCoreR + P.ThreadClearance" if female else "P.ThreadCoreR"
+    root = core + (" - P.FemaleOverlap" if female else " - P.ThreadOverlap")
+    crest = "P.ThreadCrestR + P.ThreadClearance * sqrt(2)" if female else "P.ThreadCrestR"
+    half = "(" + crest + ") - (" + root + ")"
+    start = "P.ThreadStart - P.ThreadPitch" if female else "P.ThreadStart"
+    travel = "P.ThreadTravel + 2 * P.ThreadPitch" if female else "P.ThreadTravel"
+    # The profile lies in the radial XZ plane; local sketch y maps to global z.
+    profile = doc.addObject("Sketcher::SketchObject", prefix + "ThreadProfile")
+    profile.Placement = App.Placement(App.Vector(0, 0, 0), App.Rotation(App.Vector(1, 0, 0), 90))
+    coords = [(8.0, 2.3), (9.7, 4.0), (8.0, 5.7)]
+    for i in range(3):
+        a, b = coords[i], coords[(i + 1) % 3]
+        profile.addGeometry(Part.LineSegment(App.Vector(*a, 0), App.Vector(*b, 0)), False)
+    for i in range(3):
+        profile.addConstraint(Sketcher.Constraint("Coincident", i, 2, (i + 1) % 3, 1))
+    position_exprs = [(root, "(" + start + ") - (" + half + ")"),
+                      (crest, start),
+                      (root, "(" + start + ") + (" + half + ")")]
+    for i, (xexpr, yexpr) in enumerate(position_exprs):
+        ci = profile.addConstraint(Sketcher.Constraint("DistanceX", i, 1, coords[i][0]))
+        profile.setExpression("Constraints[%d]" % ci, expr(xexpr))
+        ci = profile.addConstraint(Sketcher.Constraint("DistanceY", i, 1, coords[i][1]))
+        profile.setExpression("Constraints[%d]" % ci, expr(yexpr))
+    helix = doc.addObject("Part::Helix", prefix + "ThreadHelix")
+    helix.setExpression("Pitch", expr("P.ThreadPitch"))
+    helix.setExpression("Height", expr(travel))
+    helix.setExpression("Radius", expr(core))
+    helix.Angle = 0
+    helix.setExpression("Placement.Base.z", expr(start))
+    sweep = doc.addObject("Part::Sweep", prefix + "ThreadSweep")
+    sweep.Sections = [profile]
+    sweep.Spine = (helix, ["Edge1"])
+    sweep.Solid = True
+    sweep.Frenet = True
+    clip = doc.addObject("Part::Cylinder", prefix + "ThreadClip")
+    clip.setExpression("Radius", expr("P.FemaleOuterR + 1 mm"))
+    clip.setExpression("Height", expr("P.ThreadMax - P.ThreadMin"))
+    clip.setExpression("Placement.Base.z", expr("P.ThreadMin"))
+    cropped = doc.addObject("Part::Common", prefix + "ThreadCropped")
+    cropped.Base, cropped.Tool = sweep, clip
+    core_obj = doc.addObject("Part::Cylinder", prefix + "Core")
+    core_obj.setExpression("Radius", expr(core))
+    core_obj.setExpression("Height", expr("P.ThreadMax - P.ThreadMin"))
+    core_obj.setExpression("Placement.Base.z", expr("P.ThreadMin"))
+    result = doc.addObject("Part::Fuse", prefix + "Thread")
+    result.Base, result.Tool = core_obj, cropped
+    result.Refine = True
+    doc.recompute()
+    if App.GuiUp:
+        for obj in [profile, helix, sweep, clip, cropped, core_obj]:
+            obj.ViewObject.Visibility = False
+    return result
+
+
+def shape_report(obj):
+    shape = obj.Shape
+    if shape.isNull():
+        return {"type": obj.TypeId, "null": True, "status": obj.State}
+    vertices, triangles = shape.tessellate(0.03)
+    mesh_bounds = [[min(getattr(v, axis) for v in vertices), max(getattr(v, axis) for v in vertices)]
+                   for axis in ["x", "y", "z"]] if vertices else []
+    return {"type": obj.TypeId, "valid": shape.isValid(),
+            "solids": len(shape.Solids), "closed": shape.isClosed(),
+            "volume": shape.Volume,
+            "bounds": [shape.BoundBox.XMin, shape.BoundBox.XMax,
+                       shape.BoundBox.YMin, shape.BoundBox.YMax,
+                       shape.BoundBox.ZMin, shape.BoundBox.ZMax],
+            "tessellated_bounds": mesh_bounds,
+            "status": obj.State}
+
+
+def run_test():
+    out = Path(__file__).resolve().parent
+    doc = App.newDocument("OrbitThreadTest")
+    p = add_thread_parameters(doc)
+    male = native_thread(doc, p, "Male", False)
+    female_tool = native_thread(doc, p, "Female", True)
+    blank = doc.addObject("Part::Cylinder", "FemaleBlank")
+    blank.setExpression("Radius", p.Name + ".FemaleOuterR")
+    blank.setExpression("Height", p.Name + ".ThreadMax - " + p.Name + ".ThreadMin")
+    blank.setExpression("Placement.Base.z", p.Name + ".ThreadMin")
+    female = doc.addObject("Part::Cut", "FemaleNut")
+    female.Base, female.Tool = blank, female_tool
+    female.Refine = True
+    doc.recompute()
+    report = {name: shape_report(doc.getObject(name)) for name in [
+        "MaleThreadSweep", "MaleThreadCropped", "MaleThread",
+        "FemaleThreadSweep", "FemaleThreadCropped", "FemaleThread", "FemaleNut"]}
+    report["collision_volume"] = male.Shape.common(female.Shape).Volume
+    report["minimum_distance_mm"] = male.Shape.distToShape(female.Shape)[0]
+    report["native_only"] = all("Python" not in o.TypeId for o in doc.Objects)
+    report["flank_clearance_mm"] = 0.3
+    report["female_major_crest_radial_clearance_mm"] = 0.3 * math.sqrt(2)
+    # Recompute test proves the native dependency chain responds to a parameter.
+    p.set("B3", "3.8 mm")
+    doc.recompute()
+    report["pitch_3_8_test"] = {"male": shape_report(male), "female": shape_report(female),
+                                "helix_pitch": float(doc.getObject("MaleThreadHelix").Pitch),
+                                "collision_volume": male.Shape.common(female.Shape).Volume}
+    p.set("B3", "3.6 mm")
+    doc.recompute()
+    report["restored_pitch"] = float(doc.getObject("MaleThreadHelix").Pitch)
+    # Exact assembly dimensions requested for the Orbit cap and knob.
+    shaft = doc.addObject("Part::Cylinder", "AssemblyShaft")
+    shaft.Radius, shaft.Height = 8.2, 15.0
+    shaft.Placement.Base.z = 2.1
+    head = doc.addObject("Part::Cylinder", "AssemblyHead")
+    head.Radius, head.Height = 15.0, 4.5
+    head.Placement.Base.z = 17.1
+    full_screw = doc.addObject("Part::MultiFuse", "AssemblyScrew")
+    full_screw.Shapes = [male, shaft, head]
+    full_screw.Refine = True
+    # Continue bore and groove through the hub; leave a solid 1.6 mm floor.
+    for name in ["FemaleThreadClip", "FemaleCore"]:
+        obj = doc.getObject(name)
+        obj.setExpression("Height", None)
+        obj.setExpression("Placement.Base.z", None)
+        obj.Height = 10.8
+        obj.Placement.Base.z = 1.6
+    hub = doc.addObject("Part::Cylinder", "AssemblyHubBlank")
+    hub.Radius, hub.Height = 34.0, 12.3
+    hub_bored = doc.addObject("Part::Cut", "AssemblyHubBore")
+    hub_bored.Base, hub_bored.Tool = hub, doc.getObject("FemaleCore")
+    hub_bored.Refine = True
+    hub_threaded = doc.addObject("Part::Cut", "AssemblyHubThread")
+    hub_threaded.Base, hub_threaded.Tool = hub_bored, doc.getObject("FemaleThreadCropped")
+    hub_threaded.Refine = False
+    entrance = doc.addObject("Part::Cone", "AssemblyEntrance")
+    entrance.Radius1, entrance.Radius2, entrance.Height = 8.5, 10.4, 1.9
+    entrance.Placement.Base.z = 10.4
+    hub_nut = doc.addObject("Part::Cut", "AssemblyHub")
+    hub_nut.Base, hub_nut.Tool = hub_threaded, entrance
+    hub_nut.Refine = True
+    doc.recompute()
+    print("ASSEMBLY_INTERMEDIATE " + json.dumps({n: shape_report(doc.getObject(n)) for n in [
+        "FemaleThreadSweep", "FemaleThreadCropped", "FemaleCore", "FemaleThread", "AssemblyHub"]}))
+    report["assembly_screw"] = shape_report(full_screw)
+    report["assembly_hub"] = shape_report(hub_nut)
+    report["assembly_screw_hub_distance"] = full_screw.Shape.distToShape(hub_nut.Shape)[0]
+    report["assembly_unscrew_test"] = []
+    for deg in [0, 30, 90, 180, 270, 360, 540, 720, 1080, 1440]:
+        moved = full_screw.Shape.copy()
+        moved.rotate(App.Vector(0, 0, 0), App.Vector(0, 0, 1), deg)
+        moved.translate(App.Vector(0, 0, 3.6 * deg / 360))
+        report["assembly_unscrew_test"].append({"angle_deg": deg,
+            "z_shift_mm": 3.6 * deg / 360,
+            "collision_volume": moved.common(hub_nut.Shape).Volume})
+    if App.GuiUp:
+        for obj in doc.Objects:
+            if hasattr(obj, "Shape"):
+                obj.ViewObject.Visibility = obj == male
+    doc.recompute()
+    doc.saveAs(str(out / "zkouska-zavitu.FCStd"))
+    (out / "zkouska-zavitu.json").write_text(json.dumps(report, indent=2), encoding="utf-8")
+    print("ORBIT_THREAD_TEST " + json.dumps(report))
+
+
+if os.environ.get("ORBIT_THREAD_HELPER_ONLY") != "1":
+    run_test()

@@ -1,0 +1,2 @@
+models/montessori-zahrada-objevu/nahled.FCMacro:20: DeprecationWarning: builtin type SwigPyObject has no __module__ attribute
+  n=view.getCameraNode();n.orientation.setValue(rot.Q)

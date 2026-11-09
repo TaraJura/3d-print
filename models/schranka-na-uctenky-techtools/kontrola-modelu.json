@@ -1,0 +1,131 @@
+{
+  "units": "mm",
+  "status": "CAD a STL; fyzický tisk a fit neověřeny",
+  "source": "Všechny rozměry jsou návrhové volby agenta; uživatel žádné nezadal",
+  "parameters_mm": {
+    "BodyWidth": 150.0,
+    "BodyDepth": 110.0,
+    "BodyHeight": 138.0,
+    "Wall": 3.2,
+    "Floor": 3.6,
+    "CapThickness": 3.2,
+    "CapOverhang": 3.0,
+    "FitClearance": 0.65,
+    "LipDepth": 8.0,
+    "LipWall": 2.6,
+    "SlotLength": 120.0,
+    "SlotWidth": 12.0,
+    "LabelHeight": 83.0,
+    "SubtitleHeight": 63.0
+  },
+  "parts": {
+    "telo": {
+      "bbox_mm": [
+        150.0,
+        110.0,
+        138.0
+      ],
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 276377.39882140124,
+      "stl_facets": 9176,
+      "stl_closed": true,
+      "stl_components": 1,
+      "stl_sha256": "fd7f99e6b0e5fd3b87b2785bed698c44148b005bfe1ec7f8fd32a58ce6f57197"
+    },
+    "napis": {
+      "bbox_mm": [
+        123.92818791946308,
+        0.8000000000000048,
+        37.97583892683222
+      ],
+      "valid": true,
+      "solids": 18,
+      "volume_mm3": 1159.1771785974352,
+      "stl_facets": 9100,
+      "stl_closed": true,
+      "stl_components": 18,
+      "stl_sha256": "05283c1b078dc0b6f7c04822b4751f80efe592f53f194fb22f073c4cfcc631c9"
+    },
+    "viko": {
+      "bbox_mm": [
+        156.0,
+        116.0,
+        11.2
+      ],
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 63357.128526306406,
+      "stl_facets": 480,
+      "stl_closed": true,
+      "stl_components": 1,
+      "stl_sha256": "02db047288cc4c61b004de277af3864e70e8c495c8d872b605c332b912895de4"
+    }
+  },
+  "color_overlap_mm3": 0.0,
+  "color_volume_partition_valid": true,
+  "nominal_fit_clearance_per_side_mm": 0.65,
+  "slot_through_cap": true,
+  "physical_print_verified": false,
+  "physical_fit_verified": false,
+  "gui_validation": {
+    "saved_reopened": true,
+    "visible_objects": [
+      "Lettering",
+      "Body",
+      "LidAssembled"
+    ],
+    "invalid_objects": [],
+    "images": [
+      "nahled-sestava-cad.png",
+      "nahled-otevreni-cad.png"
+    ]
+  },
+  "parametric_check": {
+    "saved_document_reopened": true,
+    "fit_clearance_test_mm": [
+      0.65,
+      0.85,
+      0.65
+    ],
+    "lip_width_delta_mm": -0.4,
+    "body_width_test_mm": [
+      150,
+      155,
+      150
+    ],
+    "label_recenter_delta_mm": 2.5,
+    "subtitle_recenter_delta_mm": 2.5,
+    "lettering_rows_mm": {
+      "baseline": {
+        "body_center_x_mm": 75.0,
+        "techtools_center_x_mm": 75.0000000002886,
+        "uctenky_center_x_mm": 74.99999999966442,
+        "row_gap_mm": 1.6590604033422665,
+        "body_lettering_overlap_mm3": 0.0,
+        "body_lettering_partition_error_mm3": 1.3387762010097504e-09
+      },
+      "changed_body_width": {
+        "body_center_x_mm": 77.5,
+        "techtools_center_x_mm": 77.5000000002886,
+        "uctenky_center_x_mm": 77.49999999966442,
+        "row_gap_mm": 1.6590604033422665,
+        "body_lettering_overlap_mm3": 0.0,
+        "body_lettering_partition_error_mm3": 1.3969838619232178e-09
+      },
+      "restored": {
+        "body_center_x_mm": 75.0,
+        "techtools_center_x_mm": 75.0000000002886,
+        "uctenky_center_x_mm": 74.99999999966442,
+        "row_gap_mm": 1.6590604033422665,
+        "body_lettering_overlap_mm3": 0.0,
+        "body_lettering_partition_error_mm3": 1.3387762010097504e-09
+      }
+    },
+    "body_and_lid_valid_after_changes": true,
+    "original_volumes_restored": true,
+    "temporary_changes_saved_to_fcstd": false,
+    "receipt_slot_central_probe_open": true,
+    "assembled_body_lid_overlap_mm3": 0.0
+  }
+}

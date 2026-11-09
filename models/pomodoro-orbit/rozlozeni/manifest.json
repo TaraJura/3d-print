@@ -1,0 +1,371 @@
+{
+  "source_manifest_sha256": "1683bb61595c68745d19bdcac9fe5fc127c144f6355467f10331de7c0e9dc85d",
+  "machine": "Anycubic Kobra X 0.4 nozzle",
+  "physical_parts": 9,
+  "plates": [
+    {
+      "number": 1,
+      "geometry": "podlozka-01-geometrie.3mf",
+      "geometry_sha256": "3b9039711aeb0046b9ef30f822e0a7601fb9c72283ff59eda39efb44370831f3",
+      "preview": "podlozka-01.png",
+      "physical_parts": 3,
+      "parts": [
+        {
+          "id": "Base",
+          "name": "Base_01",
+          "file": "../stl/base.stl",
+          "source_sha256": "5ed33c9819a4a8f72e27ae06d8e6ba6947be608ffcb347a848f493fa4673a0b5",
+          "translation_mm": [
+            84.0,
+            108.01851844787598,
+            -0.0
+          ],
+          "placed_min_mm": [
+            28.0,
+            52.03592491149902,
+            0.0
+          ],
+          "placed_max_mm": [
+            140.0,
+            164.00111198425293,
+            13.800000190734863
+          ],
+          "size_mm": [
+            112.0,
+            111.9651870727539,
+            13.800000190734863
+          ],
+          "triangle_count": 6176,
+          "supports": false,
+          "support_note": "Rovnou zakladnou dolu. Bez podpor.",
+          "critical_z_mm": [
+            0.2,
+            0.6,
+            1.2,
+            2.8,
+            13.400000190734863
+          ]
+        },
+        {
+          "id": "Crown",
+          "name": "Crown_01",
+          "file": "../stl/crown.stl",
+          "source_sha256": "8ab7ae8ced439e5537339f0908292ac4f12a26a1e4d3ae781a090c3c54c71c33",
+          "translation_mm": [
+            192.0,
+            93.02970695495605,
+            1.9073486612342094e-07
+          ],
+          "placed_min_mm": [
+            152.0,
+            52.03592491149902,
+            0.0
+          ],
+          "placed_max_mm": [
+            232.0,
+            134.0234889984131,
+            4.799999904632571
+          ],
+          "size_mm": [
+            80.0,
+            81.98756408691406,
+            4.799999904632571
+          ],
+          "triangle_count": 19300,
+          "supports": false,
+          "support_note": "Spodni plochou dolu; male slepe diry vodicich cepu mostuji3.8mm. Kapsy zhora.",
+          "critical_z_mm": [
+            0.2,
+            0.6,
+            1.2,
+            2.8,
+            4.399999904632571
+          ]
+        },
+        {
+          "id": "Screw",
+          "name": "Screw_01",
+          "file": "../stl/screw.stl",
+          "source_sha256": "7b6f1a988fcd7e084b43bbd31c85ab8c2a45bc259dce2760d9a7e9b51f059619",
+          "translation_mm": [
+            43.98148155212402,
+            191.98259353637695,
+            -9.536743306171047e-08
+          ],
+          "placed_min_mm": [
+            28.0,
+            176.00111198425293,
+            0.0
+          ],
+          "placed_max_mm": [
+            59.96296310424805,
+            207.96407508850098,
+            22.850000286102294
+          ],
+          "size_mm": [
+            31.962963104248047,
+            31.962963104248047,
+            22.850000286102294
+          ],
+          "triangle_count": 9686,
+          "supports": false,
+          "support_note": "Osou Z, koncem jadra na podlozce; 45stupnove boky zavitu a hlavice; kapsa nahoru.",
+          "critical_z_mm": [
+            0.2,
+            0.6,
+            1.2,
+            2.8,
+            22.450000286102295
+          ]
+        }
+      ],
+      "minimum_geometry_edge_margin_mm": 28.0,
+      "minimum_bbox_gap_mm": 12.0,
+      "colour": "#17191B",
+      "material_name": "cerna",
+      "profile": {
+        "kind": "Basic",
+        "mvs": "8",
+        "nozzle": "205",
+        "initial_nozzle": "215",
+        "bed": "50"
+      }
+    },
+    {
+      "number": 2,
+      "geometry": "podlozka-02-geometrie.3mf",
+      "geometry_sha256": "52c3b05fb0b07a81d23a6f0cf386c508c09ddf287824c60b23056ec369b56d75",
+      "preview": "podlozka-02.png",
+      "physical_parts": 6,
+      "parts": [
+        {
+          "id": "Rotor",
+          "name": "Rotor_01",
+          "file": "../stl/rotor.stl",
+          "source_sha256": "f0a9bfc7fecb3e7ad74feaf6cb9e1c93589fb542fc717186117a1636ecfddf60",
+          "translation_mm": [
+            64.0,
+            130.0,
+            1.9073486612342094e-07
+          ],
+          "placed_min_mm": [
+            11.014690399169922,
+            77.01469039916992,
+            0.0
+          ],
+          "placed_max_mm": [
+            116.98530960083008,
+            182.98530960083008,
+            7.000000190734866
+          ],
+          "size_mm": [
+            105.97061920166016,
+            105.97061920166016,
+            7.000000190734866
+          ],
+          "triangle_count": 26820,
+          "supports": false,
+          "support_note": "Rovnou zakladnou dolu. Bez podpor.",
+          "critical_z_mm": [
+            0.2,
+            0.6,
+            1.2,
+            2.8,
+            6.600000190734866
+          ]
+        },
+        {
+          "id": "ModeMedallion",
+          "name": "ModeMedallion_01",
+          "file": "../stl/modemedallion.stl",
+          "source_sha256": "76289e26dc46f85be5f4687383ee14ba1ee0858be38ee277e71afabcea82b483",
+          "translation_mm": [
+            140.98530960083008,
+            89.01096057891846,
+            3.814697322468419e-07
+          ],
+          "placed_min_mm": [
+            128.98530960083008,
+            77.01469039916992,
+            0.0
+          ],
+          "placed_max_mm": [
+            152.98530960083008,
+            101.00723075866699,
+            3.19999995231629
+          ],
+          "size_mm": [
+            24.0,
+            23.99254035949707,
+            3.19999995231629
+          ],
+          "triangle_count": 3258,
+          "supports": false,
+          "support_note": "Cislem nahoru; drobny spodni gravirovany motiv ma kratke mosty; predani obsahuje vsechny kopie.",
+          "critical_z_mm": [
+            0.2,
+            0.6,
+            1.2,
+            2.8,
+            2.79999995231629
+          ]
+        },
+        {
+          "id": "Token1",
+          "name": "Token1_01",
+          "file": "../stl/token1.stl",
+          "source_sha256": "272797c6bdc8037e8445daba5b44baa589ea9a7ec80e4c342281267fb858ec3f",
+          "translation_mm": [
+            170.98530960083008,
+            83.01282548904419,
+            -0.0
+          ],
+          "placed_min_mm": [
+            164.98530960083008,
+            77.01469039916992,
+            0.0
+          ],
+          "placed_max_mm": [
+            176.98530960083008,
+            89.01096057891846,
+            2.950000047683716
+          ],
+          "size_mm": [
+            12.0,
+            11.996270179748535,
+            2.950000047683716
+          ],
+          "triangle_count": 1804,
+          "supports": false,
+          "support_note": "Cislem nahoru; drobny spodni gravirovany motiv ma kratke mosty; predani obsahuje vsechny kopie.",
+          "critical_z_mm": [
+            0.2,
+            0.6,
+            1.2,
+            2.8,
+            2.550000047683716
+          ]
+        },
+        {
+          "id": "Token2",
+          "name": "Token2_01",
+          "file": "../stl/token2.stl",
+          "source_sha256": "a8741eb783c188f27d640fb90d833ff8fe2f9b2cfe1ac4da3f9fc349a08e8bb4",
+          "translation_mm": [
+            194.98530960083008,
+            83.01282548904419,
+            -0.0
+          ],
+          "placed_min_mm": [
+            188.98530960083008,
+            77.01469039916992,
+            0.0
+          ],
+          "placed_max_mm": [
+            200.98530960083008,
+            89.01096057891846,
+            2.950000047683716
+          ],
+          "size_mm": [
+            12.0,
+            11.996270179748535,
+            2.950000047683716
+          ],
+          "triangle_count": 2502,
+          "supports": false,
+          "support_note": "Cislem nahoru; drobny spodni gravirovany motiv ma kratke mosty; predani obsahuje vsechny kopie.",
+          "critical_z_mm": [
+            0.2,
+            0.6,
+            1.2,
+            2.8,
+            2.550000047683716
+          ]
+        },
+        {
+          "id": "Token3",
+          "name": "Token3_01",
+          "file": "../stl/token3.stl",
+          "source_sha256": "9db4adb5ce064447a54737e7f7e832e8237dd9ed0f8bd8751f8f8898644c9b71",
+          "translation_mm": [
+            218.98530960083008,
+            83.01282548904419,
+            -0.0
+          ],
+          "placed_min_mm": [
+            212.98530960083008,
+            77.01469039916992,
+            0.0
+          ],
+          "placed_max_mm": [
+            224.98530960083008,
+            89.01096057891846,
+            2.950000047683716
+          ],
+          "size_mm": [
+            12.0,
+            11.996270179748535,
+            2.950000047683716
+          ],
+          "triangle_count": 3770,
+          "supports": false,
+          "support_note": "Cislem nahoru; drobny spodni gravirovany motiv ma kratke mosty; predani obsahuje vsechny kopie.",
+          "critical_z_mm": [
+            0.2,
+            0.6,
+            1.2,
+            2.8,
+            2.550000047683716
+          ]
+        },
+        {
+          "id": "Token4",
+          "name": "Token4_01",
+          "file": "../stl/token4.stl",
+          "source_sha256": "61b5c341bbf5add2f7c75287f722c04a0f4c7e9cafbe2a05a497ad6b78f24f3f",
+          "translation_mm": [
+            242.98530960083008,
+            83.01282548904419,
+            -0.0
+          ],
+          "placed_min_mm": [
+            236.98530960083008,
+            77.01469039916992,
+            0.0
+          ],
+          "placed_max_mm": [
+            248.98530960083008,
+            89.01096057891846,
+            2.950000047683716
+          ],
+          "size_mm": [
+            12.0,
+            11.996270179748535,
+            2.950000047683716
+          ],
+          "triangle_count": 1816,
+          "supports": false,
+          "support_note": "Cislem nahoru; drobny spodni gravirovany motiv ma kratke mosty; predani obsahuje vsechny kopie.",
+          "critical_z_mm": [
+            0.2,
+            0.6,
+            1.2,
+            2.8,
+            2.550000047683716
+          ]
+        }
+      ],
+      "minimum_geometry_edge_margin_mm": 11.014690399169922,
+      "minimum_bbox_gap_mm": 12.0,
+      "colour": "#D4AF37",
+      "material_name": "zlata",
+      "profile": {
+        "kind": "Silk Gold",
+        "mvs": "5.5",
+        "nozzle": "220",
+        "initial_nozzle": "220",
+        "bed": "50"
+      }
+    }
+  ]
+}

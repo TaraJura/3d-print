@@ -1,0 +1,341 @@
+{
+  "source_manifest_sha256": "2da9d3c0fb78bc3554ec359387ba755848d014dde9e1b03d80722868a0b6ba48",
+  "machine": "Anycubic Kobra X 0.4 nozzle",
+  "physical_parts": 7,
+  "plates": [
+    {
+      "number": 1,
+      "geometry": "podlozka-01-geometrie.3mf",
+      "geometry_sha256": "8025fa3d6802e2d57d4cecf6e6caa1b7fff8b079b1104ba98cfad2c2a1e966f9",
+      "preview": "podlozka-01.png",
+      "physical_parts": 2,
+      "parts": [
+        {
+          "id": "telo",
+          "name": "01_Telo",
+          "file": "../stl/telo.stl",
+          "source_sha256": "89c1ac503775cf6a7e566c219b7825101ed76ce5de5ebae82ba6701e44975135",
+          "translation_mm": [
+            25.0,
+            40.0,
+            -0.0
+          ],
+          "placed_min_mm": [
+            25.0,
+            40.0,
+            0.0
+          ],
+          "placed_max_mm": [
+            113.4000015258789,
+            197.1999969482422,
+            134.0
+          ],
+          "size_mm": [
+            88.4000015258789,
+            157.1999969482422,
+            134.0
+          ],
+          "triangle_count": 5440,
+          "supports": true,
+          "support_note": "Automatic snug supports for front guide/upper nut boss; rear rim down. Allowed also on model.",
+          "critical_z_mm": [
+            0.2,
+            2.8,
+            6,
+            10,
+            12,
+            116.0,
+            118.0,
+            124.0,
+            126.0,
+            127.0,
+            128.0,
+            129.0,
+            130.0,
+            131.0,
+            132.0,
+            133.0,
+            134.0
+          ]
+        },
+        {
+          "id": "celo",
+          "name": "02_Posuvne_celo",
+          "file": "../stl/celo.stl",
+          "source_sha256": "20537a9ffa5a9e114c9002f2314901318d0ac33ab8b83545248c23a06d967f74",
+          "translation_mm": [
+            130.0,
+            40.0,
+            -0.0
+          ],
+          "placed_min_mm": [
+            130.0,
+            40.0,
+            0.0
+          ],
+          "placed_max_mm": [
+            215.4000015258789,
+            194.8000030517578,
+            2.4000000953674316
+          ],
+          "size_mm": [
+            85.4000015258789,
+            154.8000030517578,
+            2.4000000953674316
+          ],
+          "triangle_count": 6792,
+          "supports": false,
+          "support_note": "Flat outer face or ring on bed; no supports needed in this orientation.",
+          "critical_z_mm": [
+            0.2,
+            0.4,
+            0.8,
+            1.6,
+            2.2,
+            2.4
+          ]
+        }
+      ],
+      "minimum_geometry_edge_margin_mm": 25.0,
+      "minimum_bbox_gap_mm": 16.599998474121094,
+      "colour": "#334451",
+      "material_name": "rozmerovy prototyp — barva navrhu",
+      "profile": {
+        "kind": "Basic",
+        "mvs": "8",
+        "nozzle": "205",
+        "initial_nozzle": "215",
+        "bed": "50"
+      },
+      "supports_enabled": true
+    },
+    {
+      "number": 2,
+      "geometry": "podlozka-02-geometrie.3mf",
+      "geometry_sha256": "b9609107b10e8cf3487bbf52ea50e4ef5f3a6c3f4da30509eb2918a9b4e4f816",
+      "preview": "podlozka-02.png",
+      "physical_parts": 5,
+      "parts": [
+        {
+          "id": "zada",
+          "name": "03_Zadni_panel",
+          "file": "../stl/zada.stl",
+          "source_sha256": "221f663fdd30dcc03b4abf8e0f988a7b5310ea3b950905881b3cf260fde7b23b",
+          "translation_mm": [
+            25.0,
+            35.0,
+            -0.0
+          ],
+          "placed_min_mm": [
+            25.0,
+            35.0,
+            0.0
+          ],
+          "placed_max_mm": [
+            113.4000015258789,
+            204.1999969482422,
+            20.399999618530273
+          ],
+          "size_mm": [
+            88.4000015258789,
+            169.1999969482422,
+            20.399999618530273
+          ],
+          "triangle_count": 5072,
+          "supports": false,
+          "support_note": "Flat outer face or ring on bed; no supports needed in this orientation.",
+          "critical_z_mm": [
+            0.2,
+            0.4,
+            0.8,
+            1.6,
+            2.2,
+            2.4,
+            2.8,
+            3,
+            4,
+            6,
+            8,
+            20.4
+          ]
+        },
+        {
+          "id": "pojistka-cela",
+          "name": "04_Horni_pojistka",
+          "file": "../stl/pojistka-cela.stl",
+          "source_sha256": "62af599f0c39de9770bc5d1bdba715d496814fed7d13a0bdd7913e7be63ecb77",
+          "translation_mm": [
+            134.0,
+            40.0,
+            -0.0
+          ],
+          "placed_min_mm": [
+            134.0,
+            40.0,
+            0.0
+          ],
+          "placed_max_mm": [
+            204.4000015258789,
+            55.0,
+            2.799999952316284
+          ],
+          "size_mm": [
+            70.4000015258789,
+            15.0,
+            2.799999952316284
+          ],
+          "triangle_count": 436,
+          "supports": false,
+          "support_note": "Flat outer face or ring on bed; no supports needed in this orientation.",
+          "critical_z_mm": [
+            0.2,
+            0.4,
+            0.8,
+            1.6,
+            2.2,
+            2.4,
+            2.8
+          ]
+        },
+        {
+          "id": "odstup-1",
+          "name": "05_Odstup",
+          "file": "../stl/odstup-1.stl",
+          "source_sha256": "831dc3723c99b3ecfbbd75b1dcb717d27de028cc275d9f85c9f194fd658aa269",
+          "translation_mm": [
+            144.9966432421934,
+            69.99916076357476,
+            -0.0
+          ],
+          "placed_min_mm": [
+            145.0,
+            70.0,
+            0.0
+          ],
+          "placed_max_mm": [
+            159.9966432421934,
+            84.99832153017633,
+            8.0
+          ],
+          "size_mm": [
+            14.996643242193386,
+            14.998321530176327,
+            8.0
+          ],
+          "triangle_count": 840,
+          "supports": false,
+          "support_note": "Flat outer face or ring on bed; no supports needed in this orientation.",
+          "critical_z_mm": [
+            0.2,
+            0.4,
+            0.8,
+            1.6,
+            2.2,
+            2.4,
+            2.8,
+            3,
+            4,
+            6,
+            8
+          ]
+        },
+        {
+          "id": "odstup-2",
+          "name": "06_Odstup",
+          "file": "../stl/odstup-2.stl",
+          "source_sha256": "831dc3723c99b3ecfbbd75b1dcb717d27de028cc275d9f85c9f194fd658aa269",
+          "translation_mm": [
+            144.9966432421934,
+            99.99916076357476,
+            -0.0
+          ],
+          "placed_min_mm": [
+            145.0,
+            100.0,
+            0.0
+          ],
+          "placed_max_mm": [
+            159.9966432421934,
+            114.99832153017633,
+            8.0
+          ],
+          "size_mm": [
+            14.996643242193386,
+            14.998321530176327,
+            8.0
+          ],
+          "triangle_count": 840,
+          "supports": false,
+          "support_note": "Flat outer face or ring on bed; no supports needed in this orientation.",
+          "critical_z_mm": [
+            0.2,
+            0.4,
+            0.8,
+            1.6,
+            2.2,
+            2.4,
+            2.8,
+            3,
+            4,
+            6,
+            8
+          ]
+        },
+        {
+          "id": "odstup-3",
+          "name": "07_Odstup",
+          "file": "../stl/odstup-3.stl",
+          "source_sha256": "831dc3723c99b3ecfbbd75b1dcb717d27de028cc275d9f85c9f194fd658aa269",
+          "translation_mm": [
+            144.9966432421934,
+            129.99916076357476,
+            -0.0
+          ],
+          "placed_min_mm": [
+            145.0,
+            130.0,
+            0.0
+          ],
+          "placed_max_mm": [
+            159.9966432421934,
+            144.99832153017633,
+            8.0
+          ],
+          "size_mm": [
+            14.996643242193386,
+            14.998321530176327,
+            8.0
+          ],
+          "triangle_count": 840,
+          "supports": false,
+          "support_note": "Flat outer face or ring on bed; no supports needed in this orientation.",
+          "critical_z_mm": [
+            0.2,
+            0.4,
+            0.8,
+            1.6,
+            2.2,
+            2.4,
+            2.8,
+            3,
+            4,
+            6,
+            8
+          ]
+        }
+      ],
+      "minimum_geometry_edge_margin_mm": 25.0,
+      "minimum_bbox_gap_mm": 15.0,
+      "colour": "#334451",
+      "material_name": "rozmerovy prototyp — barva navrhu",
+      "profile": {
+        "kind": "Basic",
+        "mvs": "8",
+        "nozzle": "205",
+        "initial_nozzle": "215",
+        "bed": "50"
+      },
+      "supports_enabled": false
+    }
+  ]
+}

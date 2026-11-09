@@ -1,0 +1,75 @@
+# -*- coding: utf-8 -*-
+"""Actual FreeCAD render of V02. Saves presentation only; exports unchanged.
+Knife and screws are explicitly illustrative and hidden in saved FCStd.
+"""
+from pathlib import Path
+import json
+import FreeCAD as App
+import FreeCADGui as Gui
+import Part
+from PySide import QtCore
+from pivy import coin
+OUT=Path(__file__).resolve().parent
+App.ParamGet('User parameter:BaseApp/Preferences/Document').SetInt('CountBackupFiles',0)
+doc=App.openDocument(str(OUT/'drzak.FCStd'));doc.recompute();holder=doc.Holder
+original_volume=holder.Shape.Volume
+def ref(n,label,shape,color):
+ o=doc.getObject(n) or doc.addObject('Part::Feature',n);o.Label=label;o.Shape=shape
+ o.ViewObject.ShapeColor=color;o.ViewObject.DisplayMode='Flat Lines';o.ViewObject.LineColor=(.14,.18,.16);o.ViewObject.LineWidth=.7
+ return o
+wall=ref('IllustrativeWall','ILUSTRACE — stěna a její materiál nejsou známy',Part.makeBox(1200,800,1,App.Vector(-500,-400,-1)),(.96,.95,.92))
+floor=7.10
+pts=[(-55,floor+42),(150,floor+45),(165,floor+39),(165,floor+4),(135,floor),(0,floor+7),(-45,floor+24),(-55,floor+42)]
+blade=ref('IllustrativeBlade','ILUSTRACE NOŽE — délka čepele, obrys a tloušťka2mm NEMĚŘENY',Part.Face(Part.makePolygon([App.Vector(x,y,23) for x,y in pts])).extrude(App.Vector(0,0,2)),(.76,.80,.79))
+sh=Part.makeBox(120,24,25,App.Vector(165,floor+21,11.5));sh=sh.makeFillet(4,sh.Edges)
+handle=ref('IllustrativeHandle','ILUSTRACE NOŽE — rozdělení délky a obrys rukojeti nejsou zadány',sh,(.30,.17,.10))
+bolster=ref('IllustrativeBolster','ILUSTRACE — záštita neměřena',Part.makeBox(9,25,14,App.Vector(160,floor+19,17)),(.55,.60,.58))
+rivets=[]
+for i,x in enumerate([190,225,260]):
+ handle.Shape=handle.Shape.cut(Part.makeCylinder(2,1,App.Vector(x,floor+33,35.9)))
+ rivets.append(ref('IllustrativeRivet%d'%i,'ILUSTRACE — nýt rukojeti',Part.makeCylinder(2,.6,App.Vector(x,floor+33,35.9)),(.72,.75,.73)))
+screws=[]
+for i,x in enumerate([35,195]):
+ sh=Part.makeCylinder(5,3,App.Vector(x,43,4)).cut(Part.makeBox(6,1,1.3,App.Vector(x-3,42.5,5.8)))
+ screws.append(ref('IllustrativeScrew%d'%i,'ILUSTRACE — hlava Ø10×3, skutečné vruty NEZNÁMÉ',sh,(.52,.55,.53)))
+refs=[wall,blade,handle,bolster]+rivets+screws
+group=doc.getObject('Illustrations') or doc.addObject('App::DocumentObjectGroup','Illustrations');group.Label='ILUSTRACE — netisknout, není potvrzený profil ani těžiště nože';group.Group=refs
+v=holder.ViewObject;v.ShapeColor=(.27,.43,.35);v.LineColor=(.09,.17,.13);v.LineWidth=.75;v.DisplayMode='Flat Lines'
+view=Gui.activeDocument().activeView()
+def show(objs):
+ for o in doc.Objects:
+  if hasattr(o,'ViewObject'):o.ViewObject.Visibility=o in objs
+ group.ViewObject.Visibility=True
+ for o in refs:o.ViewObject.Visibility=o in objs
+def camera(eye,shapes,margin=1.2,aspect=2):
+ eye=App.Vector(*eye);up=App.Vector(0,1,0);rot=App.Rotation(up.cross(eye),up,eye,'ZXY');view.setCameraType('Orthographic')
+ bb=Part.makeCompound(shapes).BoundBox
+ corners=[App.Vector(x,y,z) for x in [bb.XMin,bb.XMax] for y in [bb.YMin,bb.YMax] for z in [bb.ZMin,bb.ZMax]]
+ proj=[rot.inverted().multVec(v-bb.Center) for v in corners]
+ dx=max(p.x for p in proj)-min(p.x for p in proj);dy=max(p.y for p in proj)-min(p.y for p in proj)
+ view.getCameraOrientation();node=view.getCameraNode();node.orientation.setValue(rot.Q);pos=bb.Center+eye.normalize()*1000;node.position.setValue(pos.x,pos.y,pos.z)
+ node.height.setValue(max(dy,dx/aspect)*margin);node.nearDistance.setValue(1);node.farDistance.setValue(3000);view.redraw();Gui.updateGui()
+def start():
+ Gui.getMainWindow().resize(1800,1050);show([holder]+refs)
+ camera((.32,.60,1.8),[holder.Shape,blade.Shape,handle.Shape],1.20,2)
+ QtCore.QTimer.singleShot(900,save_main)
+def save_main():
+ view.saveImage(str(OUT/'nahled-s-nozem-cad.png'),2400,1200,'White')
+ show([holder,wall]+screws);camera((.55,.85,1.7),[holder.Shape],1.23,1.8)
+ QtCore.QTimer.singleShot(850,save_empty)
+def save_empty():
+ view.saveImage(str(OUT/'nahled-prazdny-cad.png'),2400,1333,'White')
+ show([holder]);camera((2.8,.30,.45),[holder.Shape],1.18,1.6)
+ QtCore.QTimer.singleShot(850,save_side)
+def save_side():
+ view.saveImage(str(OUT/'nahled-profil-cad.png'),1600,1000,'White')
+ show([holder]);group.ViewObject.Visibility=False;camera((.55,.85,1.7),[holder.Shape],1.23,1.8)
+ doc.recompute();assert abs(holder.Shape.Volume-original_volume)<1e-7
+ for o in [blade,handle,bolster]:assert o.Shape.common(holder.Shape).Volume<1e-5,(o.Name,o.Shape.common(holder.Shape).Volume)
+ doc.save();name=doc.Name;path=doc.FileName;App.closeDocument(name)
+ re=App.openDocument(path);re.recompute();visible=[o.Name for o in re.Objects if hasattr(o,'Shape') and o.ViewObject.Visibility]
+ assert visible==['Holder'],visible;assert re.Holder.Shape.isValid()
+ report=json.loads((OUT/'kontrola-modelu.json').read_text());report['gui_validation']={'saved_reopened':True,'visible':['Holder'],'illustrations_hidden':True,'illustrative_knife_collision_mm3':0,'images':['nahled-s-nozem-cad.png','nahled-prazdny-cad.png','nahled-profil-cad.png']}
+ (OUT/'kontrola-modelu.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
+ print('OPEN_V_RENDER_OK',flush=True);Gui.getMainWindow().close()
+QtCore.QTimer.singleShot(900,start)

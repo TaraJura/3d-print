@@ -1,0 +1,264 @@
+{
+  "plate": {
+    "number": 1,
+    "geometry": "podlozka-01-geometrie.3mf",
+    "geometry_sha256": "734bbf1214cd9da7915164d1383bc3d17581cef6629d62acb68d9a2bcfdfa5a2",
+    "preview": "podlozka-01.png",
+    "physical_parts": 1,
+    "parts": [
+      {
+        "id": "Base",
+        "name": "Base_01",
+        "file": "../stl/base.stl",
+        "source_sha256": "2ccbd25186087df1b2185121f5149efe6e8b2ca4384e0e79d1fdece4b7dda705",
+        "translation_mm": [
+          129.98518753051758,
+          130.0,
+          -0.0
+        ],
+        "placed_min_mm": [
+          14.014812469482422,
+          14.007408142089844,
+          0.0
+        ],
+        "placed_max_mm": [
+          245.98518753051758,
+          245.99259185791016,
+          12.0
+        ],
+        "size_mm": [
+          231.97037506103516,
+          231.9851837158203,
+          12.0
+        ],
+        "triangle_count": 13740,
+        "supports": false,
+        "support_note": "Rovna zakladna, svisle steny, male zaoblene hrany a otevrene dulky.",
+        "critical_z_mm": [
+          0.2,
+          1,
+          8,
+          11.4,
+          12
+        ]
+      }
+    ],
+    "minimum_geometry_edge_margin_mm": 14.007408142089844,
+    "minimum_bbox_gap_mm": null,
+    "colour": "#EEE3CC",
+    "material_name": "PLA Basic — svetla zakladna (barva navrh)",
+    "profile": {
+      "kind": "Basic",
+      "mvs": "8",
+      "nozzle": "205",
+      "initial_nozzle": "215",
+      "bed": "50"
+    }
+  },
+  "project": "podlozka-01-kobra-x-pla-projekt.3mf",
+  "configured": {
+    "sha256": "5239ca206358f58b289d9402cbf4d1cdec5311828ebc7b47cc0e5ab23ead5e4e",
+    "objects": [
+      {
+        "name": "Base_01",
+        "preserved_geometry_and_placement": true,
+        "maximum_vertex_delta_mm": 4.312744138701419e-06
+      }
+    ],
+    "physical_parts": 1,
+    "mesh_repairs": [
+      {
+        "edges_fixed": "0",
+        "degenerate_facets": "0",
+        "facets_removed": "0",
+        "facets_reversed": "0",
+        "backwards_edges": "0"
+      }
+    ],
+    "settings": {
+      "printer_model": "Anycubic Kobra X",
+      "printer_settings_id": "Anycubic Kobra X 0.4 nozzle",
+      "print_settings_id": "Montessori Zahrada objevů 0.20 mm Basic navrh @Kobra X",
+      "filament_settings_id": [
+        "NAVRH Alzament PLA Basic PLA Basic — svetla zakladna (barva navrh) @Kobra X 0.4"
+      ],
+      "nozzle_diameter": [
+        "0.4"
+      ],
+      "layer_height": "0.2",
+      "wall_loops": "4",
+      "sparse_infill_density": "20%",
+      "sparse_infill_pattern": "gyroid",
+      "enable_support": "0",
+      "support_on_build_plate_only": "0",
+      "brim_type": "outer_only",
+      "brim_width": "3",
+      "nozzle_temperature": [
+        "205"
+      ],
+      "nozzle_temperature_initial_layer": [
+        "215"
+      ],
+      "textured_plate_temp": [
+        "50"
+      ],
+      "outer_wall_speed": "40",
+      "inner_wall_speed": "70",
+      "filament_colour": [
+        "#EEE3CC"
+      ],
+      "filament_max_volumetric_speed": [
+        "8"
+      ],
+      "enable_prime_tower": "0",
+      "initial_layer_print_height": "0.2",
+      "top_shell_layers": "5",
+      "bottom_shell_layers": "5"
+    },
+    "has_gcode": false
+  },
+  "delivered": {
+    "sha256": "1be70bfdc9c026d6f52357fa9afc4fd2e4128ca1fec4214f75614a88099aa081",
+    "objects": [
+      {
+        "name": "Base_01",
+        "preserved_geometry_and_placement": true,
+        "maximum_vertex_delta_mm": 4.312744138701419e-06
+      }
+    ],
+    "physical_parts": 1,
+    "mesh_repairs": [
+      {
+        "edges_fixed": "0",
+        "degenerate_facets": "0",
+        "facets_removed": "0",
+        "facets_reversed": "0",
+        "backwards_edges": "0"
+      }
+    ],
+    "settings": {
+      "printer_model": "Anycubic Kobra X",
+      "printer_settings_id": "Anycubic Kobra X 0.4 nozzle",
+      "print_settings_id": "Montessori Zahrada objevů 0.20 mm Basic navrh @Kobra X",
+      "filament_settings_id": [
+        "NAVRH Alzament PLA Basic PLA Basic — svetla zakladna (barva navrh) @Kobra X 0.4"
+      ],
+      "nozzle_diameter": [
+        "0.4"
+      ],
+      "layer_height": "0.2",
+      "wall_loops": "4",
+      "sparse_infill_density": "20%",
+      "sparse_infill_pattern": "gyroid",
+      "enable_support": "0",
+      "support_on_build_plate_only": "0",
+      "brim_type": "outer_only",
+      "brim_width": "3",
+      "nozzle_temperature": [
+        "205"
+      ],
+      "nozzle_temperature_initial_layer": [
+        "215"
+      ],
+      "textured_plate_temp": [
+        "50"
+      ],
+      "outer_wall_speed": "40",
+      "inner_wall_speed": "70",
+      "filament_colour": [
+        "#EEE3CC"
+      ],
+      "filament_max_volumetric_speed": [
+        "8"
+      ],
+      "enable_prime_tower": "0",
+      "initial_layer_print_height": "0.2",
+      "top_shell_layers": "5",
+      "bottom_shell_layers": "5"
+    },
+    "has_gcode": true,
+    "gcode_bytes": 40240570,
+    "gcode_sha256": "ad37f6a2af36800ed6cc29fe48809acf455c1ec5f2479383fb922b98ca3c29d5",
+    "slice_metadata": {
+      "prediction": "44174",
+      "weight": "210.93",
+      "outside": "false",
+      "support_used": "false"
+    },
+    "warnings": []
+  },
+  "toolpath_audit": {
+    "physical_parts": 1,
+    "all_objects_on_first_layer": true,
+    "layers": 60,
+    "all_layers_have_extrusion": true,
+    "maximum_extrusion_z_mm": 12.0,
+    "roles_segments": {
+      "Brim": 845,
+      "Outer wall": 21444,
+      "Inner wall": 60052,
+      "Bottom surface": 999,
+      "Gap infill": 2758,
+      "Internal solid infill": 61619,
+      "Sparse infill": 1243813,
+      "Internal Bridge": 12163,
+      "Top surface": 5321
+    },
+    "support_segments": 0,
+    "brim_generated": true,
+    "deposition_island_test": {
+      "method": "Actual path graph using per-stroke G-code WIDTH: same-layer connection distance <= half the sum of stroke widths; every component must contact preceding-layer strokes within half the sum of widths plus 0.25 mm allowance. Does not check deposition order within a layer and does not certify full overhang support.",
+      "disconnected_new_islands": [],
+      "passed": true,
+      "maximum_components_per_layer": 6
+    },
+    "extrusion_min_xy_mm": [
+      12.774,
+      12.816
+    ],
+    "extrusion_max_xy_mm": [
+      247.198,
+      247.184
+    ],
+    "minimum_extrusion_edge_margin_mm": 12.774,
+    "maximum_commanded_extrusion_speed_mm_s": 80.0,
+    "maximum_commanded_volumetric_flow_mm3_s_segments_at_least_0_1mm": 6.5801095355644845,
+    "maximum_raw_segment_flow_mm3_s": 8.418486563876202,
+    "flow_quantisation_note": "XY coordinates use 0.001 mm and E uses 0.00001 mm precision; raw flow of moves below 0.1 mm is dominated by rounding. Audited flow uses segments at least 0.1 mm.",
+    "preview": "podlozka-01-vrstvy.png",
+    "detail_previews": [
+      "detail-01-Base_01-drahy.png"
+    ],
+    "selected_z_mm": [
+      0.2,
+      0.4,
+      0.6,
+      0.8,
+      1.0,
+      2.0,
+      4.0,
+      6.0,
+      8.0,
+      10.0,
+      11.4,
+      12.0
+    ],
+    "estimated_filament_g": 210.93,
+    "estimated_printing_time": "12h 16m 14s",
+    "first_layer_gcode_temperature_c": {
+      "bed": 50.0,
+      "nozzle": 215.0
+    },
+    "physical_print_verified": false
+  },
+  "machine_profile_sha256": "baf80d3287e1e863fba29cdfd240b9b5ebc28bd87e1b4d03fc79e53f0009570a",
+  "process_sha256": "e8c2c183744a676d0304e43b5038f4545ca079e6303931cee08334ba7ad787f8",
+  "filament_sha256": "dce24e02145fd063329b596e78f82389a40ccf8a9eac80238377e8eecb6fde4a",
+  "cli_exit_codes": [
+    0,
+    0
+  ],
+  "cli_error_messages": [
+    "calc_exclude_triangles:Unable to create exclude triangles"
+  ]
+}

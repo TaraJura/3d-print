@@ -1,0 +1,37 @@
+# -*- coding: utf-8 -*-
+"""Render actual CAD geometry, overwrite PNGs and saved FCStd visibility only."""
+from pathlib import Path
+import json
+import FreeCAD as App
+import FreeCADGui as Gui
+from PySide import QtCore
+from pivy import coin
+OUT=Path(__file__).resolve().parent
+App.ParamGet('User parameter:BaseApp/Preferences/Document').SetInt('CountBackupFiles',0)
+doc=App.openDocument(str(OUT/'pokerovy-pohar.FCStd'));doc.recompute();obj=doc.Trophy
+assert obj.Shape.isValid() and len(obj.Shape.Solids)==1
+view=Gui.activeDocument().activeView()
+for o in doc.Objects:
+    if hasattr(o,'ViewObject'):o.ViewObject.Visibility=o==obj
+v=obj.ViewObject;v.ShapeColor=(0.83,0.58,0.16);v.LineColor=(0.42,0.25,0.06);v.DisplayMode='Flat Lines';v.LineWidth=1.0
+m=v.ShapeMaterial;m.DiffuseColor=(0.83,0.58,0.16);m.AmbientColor=(0.50,0.32,0.07);m.SpecularColor=(0.93,0.79,0.37);m.Shininess=60;v.ShapeMaterial=m
+Gui.getMainWindow().resize(1300,1500)
+def camera(eye):
+    up=App.Vector(0,0,1);eye=App.Vector(*eye);rot=App.Rotation(up.cross(eye),up,eye,'ZXY')
+    node=view.getCameraNode();node.orientation.setValue(rot.Q);pos=obj.Shape.BoundBox.Center+eye.normalize()*700
+    node.position.setValue(pos.x,pos.y,pos.z);node.height.setValue(125);node.nearDistance.setValue(1);node.farDistance.setValue(2000)
+    view.redraw();Gui.updateGui()
+def start():
+    view.setCameraType('Orthographic');camera((0.45,-2.0,1.15));QtCore.QTimer.singleShot(1200,save_main)
+def save_main():
+    view.saveImage(str(OUT/'nahled-cad.png'),1400,1600,'White');camera((0,-2.0,0.5));QtCore.QTimer.singleShot(900,save_front)
+def save_front():
+    view.saveImage(str(OUT/'nahled-predek-cad.png'),1400,1600,'White');camera((0.45,-2.0,1.15));doc.save()
+    d=doc
+    visible=[o.Name for o in d.Objects if hasattr(o,'Shape') and o.ViewObject.Visibility]
+    assert visible==['Trophy'],visible
+    assert d.Trophy.Shape.isValid() and len(d.Trophy.Shape.Solids)==1
+    report=json.loads((OUT/'kontrola-modelu.json').read_text());report['gui_validation']={'saved_reopened':False,'visible_objects':visible,'invalid_objects':[o.Name for o in d.Objects if 'Invalid' in o.State],'images':['nahled-cad.png','nahled-predek-cad.png']}
+    (OUT/'kontrola-modelu.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
+    print('POKER_RENDER_OK',flush=True);QtCore.QTimer.singleShot(100,QtCore.QCoreApplication.quit)
+QtCore.QTimer.singleShot(900,start)

@@ -1,0 +1,14 @@
+{
+  "front_render": "nahled-cad-celo.png",
+  "front_render_sha256": "bdf02759f150b75ccff413d7b65c04658fe020b65a2a3217752835964b1fb400",
+  "stl_sha256": "52272f11c1da5100c33756c3c9fe94aa64b06f5f66380c752142e7aab70269b5",
+  "fcstd_sha256": "60896561b73ba786734fc74abd816cced1274a5c87541a244740688f988c6f35",
+  "silhouette_iou_with_stl_projection": 0.9954647334119803,
+  "scale_px_per_mm": [
+    8.769230780473372,
+    8.758064519660511
+  ],
+  "red_pixel_share": 0.9994635490212366,
+  "overview": "prehled-navrhu.png",
+  "overview_sha256": "951c372b94ba21b1bc2b93835828bba882a5fd84a0826dc4822192d74b7272ad"
+}

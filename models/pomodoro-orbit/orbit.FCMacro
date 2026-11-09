@@ -1,0 +1,286 @@
+# -*- coding: utf-8 -*-
+"""ORBIT 25: actual FreeCAD 1.1.3 macro, standard objects, no proxies.
+Overwrites ONLY orbit.FCStd, stl/*.stl, kontrola-modelu.json and
+print-manifest.json beside this macro. Close orbit.FCStd before regeneration.
+All dimensions agent design choices. An external timer measures time.
+"""
+from pathlib import Path
+import math, json, hashlib
+import FreeCAD as App
+import Part, Sketcher, Mesh, MeshPart
+OUT=Path(__file__).resolve().parent
+FONT='/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf'
+NAME='PomodoroOrbit'
+if NAME in App.listDocuments(): raise RuntimeError('Nejprve ulozte a zavrete ORBIT.')
+App.ParamGet('User parameter:BaseApp/Preferences/Document').SetInt('CountBackupFiles',0)
+doc=App.newDocument(NAME); doc.Label='ORBIT 25 — mechanicky ritual'
+sheet=doc.addObject('Spreadsheet::Sheet','Parameters')
+sheet.Label='Navrhove parametry mm — zdroj orbit.FCMacro'
+VALUES=[('BaseR',56),('BaseH',4.8),('HubR',34),('HubH',7.5),('RingR',53),('RadialGap',0.4),('RingH',7),('CapR',40),('CapH',4),('AxialGap',0.5),('ThreadCoreR',8.2),('ThreadOuterR',9.7),('ThreadPitch',3.6),('ThreadClearance',0.3),('TokenR',6),('TokenGap',0.35),('TokenH',2.6),('TokenWellDepth',1.1),('TokenOrbit',27.5),('ThreadStart',4),('ThreadTravel',7.2),('ThreadMin',2.1),('ThreadMax',12),('ThreadOverlap',0.2),('FemaleOverlap',0.1),('FemaleOuterR',14)]
+for row,(n,v) in enumerate(VALUES,2):
+    sheet.set('A%d'%row,n);sheet.set('B%d'%row,'%g mm'%v);sheet.setAlias('B%d'%row,n);sheet.set('C%d'%row,'NAVRH 14.10.2026')
+sheet.set('A1','Parametr');sheet.set('B1','mm');sheet.setColumnWidth('A',190);sheet.setColumnWidth('B',100)
+doc.recompute()
+def p(n):return 'Parameters.'+n
+def ex(o,k,v):
+    if isinstance(v,str):o.setExpression(k,v)
+    else:setattr(o,k,v)
+def cyl(n,r,h,z=0,x=0,y=0):
+    o=doc.addObject('Part::Cylinder',n)
+    for k,v in [('Radius',r),('Height',h),('Placement.Base.z',z),('Placement.Base.x',x),('Placement.Base.y',y)]:
+        if isinstance(v,str):o.setExpression(k,v)
+        elif '.' in k:setattr(o.Placement.Base,k.split('.')[-1],v)
+        else:setattr(o,k,v)
+    return o
+def cone(n,r1,r2,h,z=0):
+    o=doc.addObject('Part::Cone',n)
+    for k,v in [('Radius1',r1),('Radius2',r2),('Height',h),('Placement.Base.z',z)]:
+        if isinstance(v,str):o.setExpression(k,v)
+        elif '.' in k:o.Placement.Base.z=v
+        else:setattr(o,k,v)
+    return o
+def box(n,l,w,h,x,y,z,angle=0):
+    o=doc.addObject('Part::Box',n);o.Length=l;o.Width=w;o.Height=h
+    o.Placement=App.Placement(App.Vector(x,y,z),App.Rotation(App.Vector(0,0,1),angle));return o
+def feat(n,s):
+    o=doc.addObject('Part::Feature',n);o.Shape=s;return o
+def fuse(n,objs):
+    o=doc.addObject('Part::MultiFuse',n);o.Shapes=objs;o.Refine=True;return o
+def cut(n,a,b):
+    o=doc.addObject('Part::Cut',n);o.Base=a;o.Tool=b;o.Refine=True;return o
+def textshape(s,size):
+    faces=[]
+    for char in Part.makeWireString(s,FONT,size,0):
+        wires=[]
+        for w in char:wires.extend(x for x in Part.Compound(w.Edges).connectEdgesToWires().Wires if x.isClosed())
+        if wires:faces.extend(Part.makeFace(wires,'Part::FaceMakerBullseye').Faces)
+    obj=Part.makeCompound(faces);bb=obj.BoundBox;obj.translate(App.Vector(-bb.Center.x,-bb.Center.y,0));return obj
+def text(n,s,size,x,y,z,depth,angle=0):
+    o=feat(n+'Glyph',textshape(s,size));o.Placement=App.Placement(App.Vector(x,y,z),App.Rotation(App.Vector(0,0,1),angle)).multiply(o.Placement)
+    e=doc.addObject('Part::Extrusion',n);e.Base=o;e.DirMode='Normal';e.Solid=True;e.LengthFwd=depth;return e
+# Bottom chamfer grows 1:1; full stable circular first layer. Hub ends at 12.3mm.
+foot=cone('FootChamfer',p('BaseR')+'-1.5 mm',p('BaseR'),'1.5 mm')
+basewall=cyl('BaseWall',p('BaseR'),p('BaseH')+'-1.5 mm','1.5 mm')
+hub=cyl('Hub',p('HubR'),p('HubH'),p('BaseH'))
+# Narrow black perimeter band; rotor seats on three continuous annular contact tracks.
+rawbase=fuse('BaseStructure',[foot,basewall,hub])
+# Alignment pins keep top cap fixed independently of the screw. Their cones guide assembly.
+pins=[]
+for i,a in enumerate([90,210,330]):
+    t=math.radians(a);x,y=21*math.cos(t),21*math.sin(t)
+    pin=cyl('Locator%d'%i,1.6,1.5,p('BaseH')+'+'+p('HubH'),x,y)
+    pins.append(pin)
+baseplus=fuse('BaseWithLocators',[rawbase]+pins)
+# Rotor, in assembled coordinates. Low bore chamfer clears elephant foot and hub root.
+ringbottom=cone('RingBottom',p('RingR')+'-0.6 mm',p('RingR'),'0.6 mm',p('BaseH'))
+ringwall=cyl('RingWall',p('RingR'),p('RingH')+'-1.2 mm',p('BaseH')+'+0.6 mm')
+ringtop=cone('RingTop',p('RingR'),p('RingR')+'-0.6 mm','0.6 mm',p('BaseH')+'+'+p('RingH')+'-0.6 mm')
+ringblank=fuse('RingBlank',[ringbottom,ringwall,ringtop])
+bore=cyl('RingBore',p('HubR')+'+'+p('RadialGap'),p('RingH')+'+2 mm',p('BaseH')+'-1 mm')
+lead=cone('RingLeadIn',p('HubR')+'+'+p('RadialGap')+'+0.45 mm',p('HubR')+'+'+p('RadialGap'),'0.45 mm',p('BaseH'))
+ringtools=[bore,lead]
+for i in range(60):
+    a=math.radians(i*6);r=53.35
+    q=cyl('Flute%02d'%i,1.3,p('RingH')+'+2 mm',p('BaseH')+'-1 mm')
+    q.setExpression('Placement.Base.x','('+p('RingR')+'+0.35 mm)*%0.12f'%math.cos(a))
+    q.setExpression('Placement.Base.y','('+p('RingR')+'+0.35 mm)*%0.12f'%math.sin(a));ringtools.append(q)
+# 30 minute positions; engraved scale will remain a single gold part.
+for i in range(30):
+    a=90-i*12;rad=math.radians(a);major=i%5==0
+    length=2.6 if major else 1.4;width=.8 if major else .65
+    r=50-length
+    q=box('Tick%02d'%i,length,width,.8,r*math.cos(rad)+width/2*math.sin(rad),r*math.sin(rad)-width/2*math.cos(rad),11.25,a)
+    q.setExpression('Placement.Base.z',p('BaseH')+'+'+p('RingH')+'-0.55 mm');ringtools.append(q)
+    if major:
+        rt=45.5;ringtools.append(text('Minute%02d'%i,str(i),3.5,rt*math.cos(rad),rt*math.sin(rad),11.2,.8,a-90))
+ring=cut('Rotor',ringblank,fuse('RingEngravingTools',ringtools));ring.Label='02 — otocny venec 0–25 (30 poloh)'
+# Cap underside is flat, prints down. Solid stop on hub keeps rotor free.
+capbody=cyl('CapBody',p('CapR'),p('CapH'),p('BaseH')+'+'+p('HubH'))
+capbevel=cone('CapBevel',p('CapR'),p('CapR')+'-0.8 mm','0.8 mm',p('BaseH')+'+'+p('HubH')+'+'+p('CapH'))
+capblank=fuse('CapBlank',[capbody,capbevel])
+captools=[cyl('ScrewThrough',10.15,8,11.5),cone('ScrewCountersink',10.15,11.15,1.0,16.5)]
+for i,a in enumerate([90,210,330]):
+    rad=math.radians(a);captools.append(cyl('LocatorSocket%d'%i,1.9,1.8,p('BaseH')+'+'+p('HubH'),21*math.cos(rad),21*math.sin(rad)))
+# Raised top edge 0.8mm counts toward thickness. Wells have finger scallops.
+for i,a in enumerate([45,135,225,315]):
+    rad=math.radians(a);x,y=27.5*math.cos(rad),27.5*math.sin(rad)
+    w=cyl('TokenWell%d'%i,p('TokenR')+'+'+p('TokenGap'),p('TokenWellDepth')+'+1 mm',p('BaseH')+'+'+p('HubH')+'+'+p('CapH')+'+0.8 mm-'+p('TokenWellDepth'),x,y);captools.append(w)
+    captools.append(cyl('FingerScoop%d'%i,3.3,2.1,16.0,34*math.cos(rad),34*math.sin(rad)))
+# Fixed index triangle projects inward from bezel, points at ring zero north.
+tri=Part.Face(Part.makePolygon([App.Vector(-2,39.2,0),App.Vector(2,39.2,0),App.Vector(0,42,0),App.Vector(-2,39.2,0)]))
+arrow=feat('IndexArrow',tri.extrude(App.Vector(0,0,.7)));arrow.Placement.Base.z=16.4
+captext=[]
+captext.append(text('FocusText','FOCUS',3.2,0,23,16.6,.8))
+captext.append(text('BreakText','5 / 15',3.2,0,-23,16.6,.8))
+captext.append(text('OrbitText','ORBIT',3.5,0,-34,16.6,.8))
+capcut=cut('CapRecesses',capblank,fuse('CapTools',captools+captext))
+cap=fuse('Crown',[capcut,arrow]);cap.Label='03 — pevna koruna s kapsami a sipkou'
+# Thread construction appended below.
+# Four reversible satellites. Number side = complete; recessed ring side = ready.
+tokens=[]
+for i,a in enumerate([45,135,225,315],1):
+    coinbody=cyl('TokenBody%d'%i,p('TokenR'),p('TokenH'))
+    coinrim=cone('TokenTopBevel%d'%i,p('TokenR'),p('TokenR')+'-0.35 mm','0.35 mm',p('TokenH'))
+    glyph=text('TokenNumber%d'%i,str(i),5.2,0,0,2.4,.8)
+    blank=cut('TokenEngraved%d'%i,fuse('TokenBlank%d'%i,[coinbody,coinrim]),glyph)
+    groove=cut('TokenEmptyRingTool%d'%i,cyl('TokenGrooveOuter%d'%i,3.9,.5,-.05),cyl('TokenGrooveInner%d'%i,2.9,.7,-.1))
+    tok=cut('Token%d'%i,blank,groove);tok.Label='%02d — oboustranny zetton %d'%(4+i,i)
+    rad=math.radians(a);tok.Placement.Base=App.Vector(27.5*math.cos(rad),27.5*math.sin(rad),16.0)
+    tokens.append(tok)
+# Reversible 25/5 medallion sits in the screw head; it is deliberately removable.
+modebody=cyl('ModeBlank',12,2.8)
+modetop=cone('ModeBevel',12,11.6,.4,2.8)
+mode25=text('Mode25','25',7.0,0,0,2.6,.8)
+mode5shape=textshape('5',9.8)
+mode5shape=Part.makeCompound([f.extrude(App.Vector(0,0,.7)) for f in mode5shape.Faces])
+mode5shape.rotate(App.Vector(),App.Vector(1,0,0),180);mode5shape.translate(App.Vector(0,0,.6))
+mode5=feat('Mode5Recess',mode5shape)
+mode=cut('ModeMedallion',cut('ModeFront',fuse('ModeBlankWithBevel',[modebody,modetop]),mode25),mode5)
+mode.Label='09 — oboustranny medailon FOCUS25 / BREAK5';mode.Placement.Base.z=23.85
+# Dependent native axial stop rather than independently editable competing heights.
+sheet.set(sheet.getCellFromAlias('HubH'),'=B8+B11')
+
+# Native helical thread, same phase male/female, expanded female ends.
+def native_thread(doc, params, prefix="Male", female=False):
+    """Return a native solid thread envelope, clipped to ThreadMin..ThreadMax.
+
+    Female clearance is 0.3 mm normal to each 45 degree flank, and 0.3 mm
+    radial at the root bore. The triangular cutter therefore extends by
+    clearance*sqrt(2) at its sharp crest. Fused core makes one continuous tool.
+    No Python feature proxy is stored in the resulting document.
+    """
+    ref = params.Name
+    expr = lambda s: s.replace("P.", ref + ".")
+    core = "P.ThreadCoreR + P.ThreadClearance" if female else "P.ThreadCoreR"
+    root = core + (" - P.FemaleOverlap" if female else " - P.ThreadOverlap")
+    crest = "P.ThreadOuterR + P.ThreadClearance * sqrt(2)" if female else "P.ThreadOuterR"
+    half = "(" + crest + ") - (" + root + ")"
+    start = "P.ThreadStart - P.ThreadPitch" if female else "P.ThreadStart"
+    travel = "P.ThreadTravel + 2 * P.ThreadPitch" if female else "P.ThreadTravel"
+    # The profile lies in the radial XZ plane; local sketch y maps to global z.
+    profile = doc.addObject("Sketcher::SketchObject", prefix + "ThreadProfile")
+    profile.Placement = App.Placement(App.Vector(0, 0, 0), App.Rotation(App.Vector(1, 0, 0), 90))
+    coords = [(8.0, 2.3), (9.7, 4.0), (8.0, 5.7)]
+    for i in range(3):
+        a, b = coords[i], coords[(i + 1) % 3]
+        profile.addGeometry(Part.LineSegment(App.Vector(*a, 0), App.Vector(*b, 0)), False)
+    for i in range(3):
+        profile.addConstraint(Sketcher.Constraint("Coincident", i, 2, (i + 1) % 3, 1))
+    position_exprs = [(root, "(" + start + ") - (" + half + ")"),
+                      (crest, start),
+                      (root, "(" + start + ") + (" + half + ")")]
+    for i, (xexpr, yexpr) in enumerate(position_exprs):
+        ci = profile.addConstraint(Sketcher.Constraint("DistanceX", i, 1, coords[i][0]))
+        profile.setExpression("Constraints[%d]" % ci, expr(xexpr))
+        ci = profile.addConstraint(Sketcher.Constraint("DistanceY", i, 1, coords[i][1]))
+        profile.setExpression("Constraints[%d]" % ci, expr(yexpr))
+    helix = doc.addObject("Part::Helix", prefix + "ThreadHelix")
+    helix.setExpression("Pitch", expr("P.ThreadPitch"))
+    helix.setExpression("Height", expr(travel))
+    helix.setExpression("Radius", expr(core))
+    helix.Angle = 0
+    helix.setExpression("Placement.Base.z", expr(start))
+    sweep = doc.addObject("Part::Sweep", prefix + "ThreadSweep")
+    sweep.Sections = [profile]
+    sweep.Spine = (helix, ["Edge1"])
+    sweep.Solid = True
+    sweep.Frenet = True
+    clip = doc.addObject("Part::Cylinder", prefix + "ThreadClip")
+    clip.setExpression("Radius", expr("P.FemaleOuterR + 1 mm"))
+    clip.setExpression("Height", expr("P.ThreadMax - P.ThreadMin"))
+    clip.setExpression("Placement.Base.z", expr("P.ThreadMin"))
+    cropped = doc.addObject("Part::Common", prefix + "ThreadCropped")
+    cropped.Base, cropped.Tool = sweep, clip
+    core_obj = doc.addObject("Part::Cylinder", prefix + "Core")
+    core_obj.setExpression("Radius", expr(core))
+    core_obj.setExpression("Height", expr("P.ThreadMax - P.ThreadMin"))
+    core_obj.setExpression("Placement.Base.z", expr("P.ThreadMin"))
+    result = doc.addObject("Part::Fuse", prefix + "Thread")
+    result.Base, result.Tool = core_obj, cropped
+    result.Refine = True
+    doc.recompute()
+    if App.GuiUp:
+        for obj in [profile, helix, sweep, clip, cropped, core_obj]:
+            obj.ViewObject.Visibility = False
+    return result
+
+
+male=native_thread(doc,sheet,'Male',False)
+female=native_thread(doc,sheet,'Female',True)
+shaft=cyl('ScrewShaft',p('ThreadCoreR'),'12.55 mm','2.1 mm')
+# Self-supporting 45 degree head. It seats against the crown countersink.
+headcone=cone('ScrewHeadCone',p('ThreadCoreR'),'16 mm','7.8 mm','14.55 mm')
+headcyl=cyl('ScrewHeadGrip',16,2.6,22.35)
+headblank=fuse('ScrewBlank',[male,shaft,headcone,headcyl])
+headtools=[cyl('MedallionWell',12.35,2.1,23.85),cyl('MedallionFingerScoop',3,2.1,23.85,0,-14)]
+for i in range(24):
+    a=math.radians(i*15)
+    headtools.append(cyl('HeadFlute%02d'%i,.8,12,14,16.2*math.cos(a),16.2*math.sin(a)))
+screw=cut('Screw',headblank,fuse('ScrewGripTools',headtools));screw.Label='04 — velky rucni sroub s otevrenou kapsou'
+# Blind female bore: 1.6mm floor and widened entrance.
+blind=cyl('FemaleBore',p('ThreadCoreR')+'+'+p('ThreadClearance'),'13 mm','1.6 mm')
+entrance=cone('ThreadEntrance',8.5,10.4,1.9,10.4)
+basebore=cut('BaseBore',baseplus,blind)
+basethread=cut('BaseThread',basebore,doc.FemaleThreadCropped)
+base=cut('Base',basethread,entrance);base.Label='01 — zakladna s vedenim a vnitrnim zavitem'
+finals=[base,ring,cap,screw]+tokens+[mode]
+doc.recompute()
+print('ORBIT_RECOMPUTE_DONE',flush=True)
+report={'units':'mm','origin':'all dimensions agent design choices','physical_print_verified':False,'timekeeping':'external timer required; manual ring and flip medallion','parts':[]}
+# Actual collision check ignores intended surface contact but no volumetric overlap.
+for ob in finals:
+    assert ob.Shape.isValid(), 'Invalid '+ob.Name
+    assert len(ob.Shape.Solids)==1, (ob.Name,len(ob.Shape.Solids))
+collisions=[]
+for i,a in enumerate(finals):
+    for b in finals[i+1:]:
+        volume=a.Shape.common(b.Shape).Volume
+        if volume>1e-5:collisions.append({'a':a.Name,'b':b.Name,'volume_mm3':volume})
+report['collisions']=collisions
+print('ORBIT_COLLISIONS '+json.dumps(collisions),flush=True)
+assert not collisions, str(collisions)
+# Native dimensional test exercises recomputation of moving radial fit.
+initial=ring.Shape.Volume
+sheet.set(sheet.getCellFromAlias('RadialGap'),'0.5 mm');doc.recompute()
+assert ring.Shape.isValid() and ring.Shape.Volume<initial
+sheet.set(sheet.getCellFromAlias('RadialGap'),'0.4 mm');doc.recompute()
+assert abs(ring.Shape.Volume-initial)<1e-5
+report['parametric_test']='RadialGap0.4 ->0.5 ->0.4mm changed bore volume and restored; native objects only'
+report['native_only']=all('Python' not in o.TypeId for o in doc.Objects)
+report['clearances_mm']={'rotor_radial':.4,'rotor_axial':.5,'thread_flank_design':.3,'thread_floor':.5,'token_radial':.35,'medallion_radial':.35}
+(OUT/'stl').mkdir(exist_ok=True)
+(OUT/'vizualni-geometrie').mkdir(exist_ok=True)
+manifest={'parts':[]};scene={'parts':[]}
+for idx,ob in enumerate(finals):
+    gold=ob in [ring]+tokens+[mode]
+    color=[.78,.51,.16] if gold else [.065,.075,.09]
+    # Export both positioned assembly for honest visualization and flat-bottom print parts.
+    mesh=MeshPart.meshFromShape(Shape=ob.Shape,LinearDeflection=.035,AngularDeflection=.10,Relative=False)
+    scene_file=OUT/'vizualni-geometrie'/(ob.Name+'.stl');mesh.write(str(scene_file))
+    scene['parts'].append({'file':scene_file.name,'name':ob.Label,'color':color})
+    shape=ob.Shape.copy();bb=mesh.BoundBox
+    shape.translate(App.Vector(-bb.Center.x,-bb.Center.y,-bb.ZMin))
+    pm=MeshPart.meshFromShape(Shape=shape,LinearDeflection=.035,AngularDeflection=.10,Relative=False)
+    stl=OUT/'stl'/(ob.Name.lower()+'.stl');pm.write(str(stl));loaded=Mesh.Mesh(str(stl))
+    assert loaded.isSolid() and loaded.countComponents()==1,ob.Name
+    bbox=loaded.BoundBox
+    report['parts'].append({'id':ob.Name,'label':ob.Label,'valid':True,'solids':len(ob.Shape.Solids),'stl_closed':loaded.isSolid(),'stl_components':loaded.countComponents(),'stl_facets':loaded.CountFacets,'volume_mm3':ob.Shape.Volume,'print_bbox_mm':[bbox.XLength,bbox.YLength,bbox.ZLength],'stl_sha256':hashlib.sha256(stl.read_bytes()).hexdigest()})
+    note='Rovnou zakladnou dolu. Bez podpor.'
+    if ob==cap:note='Spodni plochou dolu; male slepe diry vodicich cepu mostuji3.8mm. Kapsy zhora.'
+    if ob==screw:note='Osou Z, koncem jadra na podlozce; 45stupnove boky zavitu a hlavice; kapsa nahoru.'
+    if ob in tokens+[mode]:note='Cislem nahoru; drobny spodni gravirovany motiv ma kratke mosty; predani obsahuje vsechny kopie.'
+    manifest['parts'].append({'id':ob.Name,'name':ob.Label,'file':str(stl.relative_to(OUT)),'plate':2 if gold else 1,'count':1,'supports':False,'support_note':note,'critical_z_mm':[.2,.6,1.2,2.8,max(.2,bbox.ZLength-.4)]})
+    if App.GuiUp:
+        ob.ViewObject.ShapeColor=tuple(color)
+        ob.ViewObject.DisplayMode='Flat Lines'
+if App.GuiUp:
+    for ob in doc.Objects:
+        if hasattr(ob,'ViewObject'):ob.ViewObject.Visibility=ob in finals
+report['macro_sha256']=hashlib.sha256(Path(__file__).read_bytes()).hexdigest()
+report['physical_parts']=len(finals)
+report['cad_dimensions_mm']={'diameter':112,'height':27.05}
+doc.saveAs(str(OUT/'orbit.FCStd'))
+(OUT/'kontrola-modelu.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
+(OUT/'print-manifest.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n')
+(OUT/'vizualni-geometrie'/'scene.json').write_text(json.dumps(scene,ensure_ascii=False,indent=2)+'\n')
+print('ORBIT_CAD_OK '+str(len(finals)),flush=True)

@@ -1,0 +1,107 @@
+# -*- coding: utf-8 -*-
+"""Render the actual saved CAD geometry. Overwrites CAD PNG files and saves
+the final FCStd visibility/camera; never changes the printable part shapes.
+Knife, screws and wall are labelled ILLUSTRATION and hidden in saved FCStd.
+"""
+from pathlib import Path
+import json
+import FreeCAD as App
+import FreeCADGui as Gui
+import Part
+from PySide import QtCore
+from pivy import coin
+OUT=Path(__file__).resolve().parent
+App.ParamGet('User parameter:BaseApp/Preferences/Document').SetInt('CountBackupFiles',0)
+doc=App.openDocument(str(OUT/'drzak.FCStd'));doc.recompute()
+parts=[doc.getObject(n) for n in ['BodyLeft','BodyRight','CoverLeft','CoverRight']]
+assert all(o.Shape.isValid() and len(o.Shape.Solids)==1 for o in parts)
+original_shapes={o.Name:(o.Shape.Volume,o.Shape.BoundBox.XLength) for o in parts}
+def ref(n,label,shape,color):
+ o=doc.getObject(n)
+ if o is None:o=doc.addObject('Part::Feature',n)
+ o.Label=label;o.Shape=shape;o.ViewObject.ShapeColor=color;o.ViewObject.DisplayMode='Flat Lines';o.ViewObject.LineColor=(.15,.20,.19);o.ViewObject.LineWidth=.65
+ return o
+wall=ref('IllustrativeWall','ILUSTRACE — stěna, materiál neznámý',Part.makeBox(1200,900,1,App.Vector(-420,-430,-1)),(.96,.95,.92))
+material=wall.ViewObject.ShapeMaterial
+material.EmissiveColor=(.30,.30,.29)
+wall.ViewObject.ShapeMaterial=material
+# A reference silhouette only. Blade length/thickness and handle contour have
+# NOT been measured, and never drive the printed geometry.
+points=[(10,60),(215,63),(230,57),(230,22),(200,18),(65,25),(20,42),(10,60)]
+wire=Part.makePolygon([App.Vector(x,y,16) for x,y in points])
+blade=ref('IllustrativeBlade','ILUSTRACE NOŽE — obrys a čepel 2 mm NEMĚŘENY',Part.Face(wire).extrude(App.Vector(0,0,2)),(.72,.77,.77))
+handle_shape=Part.makeBox(120,24,25,App.Vector(230,35,5))
+handle_shape=handle_shape.makeFillet(4,handle_shape.Edges)
+handle=ref('IllustrativeHandle','ILUSTRACE NOŽE — rozdělení čepel/rukojeť není zadáno',handle_shape,(.24,.13,.08))
+bolster=ref('IllustrativeBolster','ILUSTRACE NOŽE — záštita neměřena',Part.makeBox(10,30,14,App.Vector(225,31,10)),(.52,.58,.58))
+rivets=[]
+for i,x in enumerate([255,290,325]):rivets.append(ref('IllustrativeRivet%d'%i,'ILUSTRACE — nýt rukojeti',Part.makeCylinder(2,1,App.Vector(x,47,29)),(.70,.73,.71)))
+screws=[]
+for i,x in enumerate([22,158,202,338]):
+ sh=Part.makeCylinder(5,3,App.Vector(x,79,3))
+ slot=Part.makeBox(6,1,1.2,App.Vector(x-3,78.5,5))
+ sh=sh.cut(slot)
+ screws.append(ref('IllustrativeScrew%d'%i,'ILUSTRACE — hlava Ø10 × 3, skutečné vruty NEZNÁMÉ',sh,(.45,.48,.47)))
+refgroup=doc.getObject('Illustrations') or doc.addObject('App::DocumentObjectGroup','Illustrations')
+refgroup.Label='ILUSTRACE — netisknout, skutečný nůž a stěna neověřeny'
+refgroup.Group=[wall,blade,handle,bolster]+rivets+screws
+for o in doc.Objects:
+ if hasattr(o,'ViewObject'):o.ViewObject.Visibility=False
+for i,o in enumerate(parts):
+ v=o.ViewObject;v.ShapeColor=(.13,.24,.21) if i<2 else (.29,.43,.36)
+ v.LineColor=(.075,.14,.12);v.LineWidth=.7;v.DisplayMode='Flat Lines';v.Visibility=True
+wall.ViewObject.DisplayMode='Flat Lines';wall.ViewObject.LineColor=(.96,.95,.92)
+view=Gui.activeDocument().activeView()
+def show(objects):
+ for o in doc.Objects:
+  if hasattr(o,'ViewObject'):o.ViewObject.Visibility=o in objects
+ refgroup.ViewObject.Visibility=True
+ for o in refgroup.Group:o.ViewObject.Visibility=o in objects
+def camera(eye,shapes,margin=1.22,aspect=2):
+ eye=App.Vector(*eye);up=App.Vector(0,1,0)
+ view.setCameraType('Orthographic');rot=App.Rotation(up.cross(eye),up,eye,'ZXY')
+ bb=Part.makeCompound(shapes).BoundBox
+ corners=[App.Vector(x,y,z) for x in [bb.XMin,bb.XMax] for y in [bb.YMin,bb.YMax] for z in [bb.ZMin,bb.ZMax]]
+ proj=[rot.inverted().multVec(v-bb.Center) for v in corners]
+ dx=max(p.x for p in proj)-min(p.x for p in proj);dy=max(p.y for p in proj)-min(p.y for p in proj)
+ view.getCameraOrientation();node=view.getCameraNode();node.orientation.setValue(rot.Q)
+ pos=bb.Center+eye.normalize()*1000;node.position.setValue(pos.x,pos.y,pos.z)
+ node.height.setValue(max(dy,dx/aspect)*margin);node.nearDistance.setValue(1);node.farDistance.setValue(3000)
+ view.redraw();Gui.updateGui()
+def start():
+ Gui.getMainWindow().resize(1800,1000)
+ show(parts+[wall]);camera((.33,.42,1.7),[o.Shape for o in parts],1.22)
+ QtCore.QTimer.singleShot(1000,closed)
+def closed():
+ view.saveImage(str(OUT/'nahled-zavreno-cad.png'),2000,1000,'White')
+ show(parts[:2]+[wall,blade,handle,bolster]+rivets+screws)
+ camera((.20,.45,1.8),[o.Shape for o in parts[:2]],1.22)
+ QtCore.QTimer.singleShot(850,opened)
+def opened():
+ view.saveImage(str(OUT/'nahled-otevreno-cad.png'),2000,1000,'White')
+ # Exploded copies retain exactly the shapes of the exported parts.
+ moved=[]
+ for i,p in enumerate(parts[2:]):
+  o=doc.getObject('ExplodedCover%d'%i) or doc.addObject('App::Link','ExplodedCover%d'%i)
+  o.setLink(p);o.LinkPlacement=App.Placement(App.Vector(0,-95,70),App.Rotation())
+  o.Label='ROZLOŽENÝ POHLED — kryt odložený po sejmutí';moved.append(o)
+ show(parts[:2]+moved+[wall,blade,handle,bolster]+rivets+screws)
+ camera((.26,.5,1.8),[o.Shape for o in parts[:2]+moved],1.18,1.65)
+ QtCore.QTimer.singleShot(850,exploded)
+def exploded():
+ view.saveImage(str(OUT/'nahled-montaz-cad.png'),2000,1212,'White')
+ # Preserve only assembled printable parts in the saved document.
+ show(parts);refgroup.ViewObject.Visibility=False
+ camera((.33,.42,1.7),[o.Shape for o in parts],1.22)
+ doc.recompute()
+ for o in parts:assert abs(o.Shape.Volume-original_shapes[o.Name][0])<1e-7
+ doc.save();path=doc.FileName;App.closeDocument(doc.Name)
+ again=App.openDocument(path);again.recompute()
+ visible=[o.Name for o in again.Objects if hasattr(o,'Shape') and o.ViewObject.Visibility]
+ assert set(visible)=={'BodyLeft','BodyRight','CoverLeft','CoverRight'},visible
+ assert all(again.getObject(n).Shape.isValid() for n in visible)
+ report=json.loads((OUT/'kontrola-modelu.json').read_text())
+ report['gui_validation']={'saved_reopened':True,'visible_printed_parts':visible,'reference_knife_hidden':True,'images':['nahled-zavreno-cad.png','nahled-otevreno-cad.png','nahled-montaz-cad.png']}
+ (OUT/'kontrola-modelu.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
+ print('DRZAK_RENDER_OK',flush=True);Gui.getMainWindow().close()
+QtCore.QTimer.singleShot(1000,start)

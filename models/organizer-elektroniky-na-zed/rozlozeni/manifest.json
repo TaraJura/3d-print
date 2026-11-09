@@ -1,0 +1,53 @@
+{
+  "number": 1,
+  "geometry": "podlozka-01-geometrie.3mf",
+  "geometry_sha256": "102d84f92025a90b2dd7e8df51b32a2a8ebfdf4ba680c0f1616d8b8fbed222b6",
+  "preview": "podlozka-01.png",
+  "physical_parts": 1,
+  "parts": [
+    {
+      "id": "organizer",
+      "name": "01_Organizer_elektroniky_na_zed",
+      "file": "../stl/organizer.stl",
+      "source_sha256": "98b65c30034a7e696545444dfee85b697ccf8d3a5b04def999bd9b65b0902bdb",
+      "translation_mm": [
+        7.0,
+        7.0,
+        -0.0
+      ],
+      "placed_min_mm": [
+        7.0,
+        7.0,
+        0.0
+      ],
+      "placed_max_mm": [
+        253.0,
+        253.0,
+        150.0
+      ],
+      "size_mm": [
+        246.0,
+        246.0,
+        150.0
+      ],
+      "triangle_count": 1260,
+      "supports": false,
+      "support_note": "Dnem na podlozce. Svisle steny, 45stupnove strisky otvoru a spojite zebrove vyztuhy; bez podpor.",
+      "critical_z_mm": [
+        4,
+        104,
+        113.25,
+        116,
+        117.94,
+        119.89,
+        133.25,
+        136,
+        137.94,
+        139.89,
+        150
+      ]
+    }
+  ],
+  "minimum_geometry_edge_margin_mm": 7.0,
+  "minimum_bbox_gap_mm": null
+}

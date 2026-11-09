@@ -1,0 +1,146 @@
+# -*- coding: utf-8 -*-
+"""V04: exact X-mirror of the V03 contoured open knife cradle, standard FreeCAD 1.1.3 objects.
+The V03 sketches, lofts and booleans are rebuilt unchanged as HolderSource. The final object
+Holder is a native Part::Mirroring about the plane X = Parameters.Length/2, so X -> 230 - X
+while Y (height, open top) and Z (depth from the wall) stay the same.
+Overwrites ONLY its own FCStd, STL and JSON beside this macro. Earlier
+revisions and printer are never modified. All uncertain interpretations
+are explicitly labelled in the spreadsheet and audit.
+"""
+from pathlib import Path
+import math,json,hashlib
+import FreeCAD as App
+import Part,Sketcher,Mesh,MeshPart
+OUT=Path(__file__).resolve().parent; NAME='DrzakNozeZrcadlovyV04'
+if NAME in App.listDocuments():raise RuntimeError('Save and close the existing document first.')
+App.ParamGet('User parameter:BaseApp/Preferences/Document').SetInt('CountBackupFiles',0)
+doc=App.newDocument(NAME);doc.Label='Zrcadlový otevřený držák nože — revize04'
+s=doc.addObject('Spreadsheet::Sheet','Parameters');s.Label='Zadání / odvození / neověřené návrhové předpoklady'
+VALUES=[('KnifeLength',340,'Celková délka nože','DŘÍVĚJŠÍ ZADÁNÍ'),('BladeHeelHeight',45,'Největší výška čepele','NOVÉ ZADÁNÍ'),('BladeStationHeight',40,'Výška čepele po100mm ke špičce','NOVÉ ZADÁNÍ'),('StationDistance',100,'Rozteč dvou míst výšky čepele','NOVÉ ZADÁNÍ'),('HandleLength',105,'Délka rukojeti','NOVÉ ZADÁNÍ'),('NeckGap',10,'Přechod ostří / rukojeť','ZADÁNÍ — význam délkového řetězce je předpoklad'),('HandleMaxWidth',25,'Maximální šířka rukojeti','DŘÍVĚJŠÍ ZADÁNÍ'),
+('HandleRiseAssumed',20,'Výškový odskok spodku rukojeti','NEJASNÉ ZADÁNÍ — návrhový výklad dvou cm mínus'),('HandleFrontWidthAssumed',22,'Šířka rukojeti na začátku','NÁVRH — mírné rozšíření22→25, nebylo změřeno'),('BladeThicknessAssumed',2,'Tloušťka referenční čepele','ILUSTRACE — není zadána'),('SpineY',55,'Rovný hřbet referenčního nože','NÁVRH — rovnost hřbetu nebyla potvrzena'),
+('Length',230,'Délka držáku','NÁVRH — jeden díl, zachovánoV02'),('ButtOverhang',30,'Volný konec rukojeti za držákem','NÁVRH — úchop a těžiště neověřeny'),('BladeMouth',12,'Rozevření V pod čepelí','NÁVRH — tloušťka čepele neověřena'),('HandleMouthClearance',4,'Přídavek rozevření nad šířku rukojeti','NÁVRH'),('Wall',3,'Kolmá tloušťka V v příčném řezu','NÁVRH'),('RootRadius',2,'Zaoblení dna obou sedel','NÁVRH'),('FitSlack',.15,'Digitální odstup reference od sedla','NÁVRH — není tisková kalibrace'),('CenterZ',24,'Osa nože od stěny','NÁVRH'),('FootWidth',4,'Šířka spojovací patky','NÁVRH'),('FootHeight',4,'Výška spojovací patky','NÁVRH'),('TabWidth',24,'Šířka montážních oušek','NÁVRH'),('TabHeight',60,'Výška montážních oušek','NÁVRH — přístup nástroje nad zvýšeným sedlem'),('TabDepth',4,'Tloušťka montážních oušek','NÁVRH'),('MountInset',35,'Osa vrutu od konce držáku','NÁVRH — zachovánoV02'),('MountY',48,'Výška os vrutů','NÁVRH — přístup nástroje nad zvýšeným sedlem'),('MountHole',5.5,'Průchozí montážní otvor','NÁVRH — skutečné vruty neznámé'),('GussetWidth',10,'Šířka žeber','NÁVRH')]
+for k,v in [('A1','Parametr'),('B1','mm'),('C1','Původ a omezení')]:s.set(k,v)
+for i,(a,v,label,source) in enumerate(VALUES,2):
+ s.set('A%d'%i,label);s.set('B%d'%i,str(v)+' mm');s.setAlias('B%d'%i,a);s.set('C%d'%i,source);s.setBackground('B%d'%i,(.83,.96,.88) if source in ['NOVÉ ZADÁNÍ','DŘÍVĚJŠÍ ZADÁNÍ'] else (1,.93,.75))
+DERIVED=[('BladeLengthAssumed','=KnifeLength-HandleLength-NeckGap'),('KnifeOriginX','=Length+ButtOverhang-KnifeLength'),('HeelX','=Length+ButtOverhang-HandleLength-NeckGap'),('HandleX','=HeelX+NeckGap'),('StationX','=HeelX-StationDistance'),('TaperDrop','=BladeHeelHeight-BladeStationHeight'),('HeelY','=SpineY-BladeHeelHeight'),('HandleBottomY','=HeelY+HandleRiseAssumed'),('HandleHeightAssumed','=SpineY-HandleBottomY'),('HandleCenterY','=SpineY-HandleHeightAssumed/2'),('HandleWidthAtEnd','=HandleFrontWidthAssumed+(HandleMaxWidth-HandleFrontWidthAssumed)*(Length-HandleX)/HandleLength'),('BladeApexHeel','=HeelY-RootRadius*sqrt(2)+sqrt(RootRadius^2-(BladeThicknessAssumed/2)^2)-FitSlack'),('HandleApexStart','=HandleCenterY-sqrt((HandleHeightAssumed/2)^2+(HandleFrontWidthAssumed/2)^2)-FitSlack'),('HandleApexEnd','=HandleCenterY-sqrt((HandleHeightAssumed/2)^2+(HandleWidthAtEnd/2)^2)-FitSlack'),('MountSpacing','=Length-2*MountInset'),('MirroredHeelX','=Length-HeelX'),('MirroredHandleX','=Length-HandleX'),('MirroredStationX','=Length-StationX'),('MirroredTipX','=Length-KnifeOriginX'),('MirroredButtX','=-ButtOverhang')]
+for i,(a,f) in enumerate(DERIVED,len(VALUES)+3):s.set('A%d'%i,a);s.set('B%d'%i,f);s.setAlias('B%d'%i,a);s.set('C%d'%i,'ODVOZENO Z VÝŠE OZNAČENÝCH HODNOT')
+s.setColumnWidth('A',350);s.setColumnWidth('B',140);s.setColumnWidth('C',500);doc.recompute()
+P=lambda a:'Parameters.'+a
+def val(f):return float(s.evalExpression(f.replace('Parameters.','')).Value)
+def box(n,dims,pos):
+ o=doc.addObject('Part::Box',n)
+ for k,v in zip(['Length','Width','Height'],dims):o.setExpression(k,str(v))
+ for k,v in zip('xyz',pos):o.setExpression('Placement.Base.'+k,str(v))
+ return o
+def cyl(n,r,ht,pos,axis=(0,0,1)):
+ o=doc.addObject('Part::Cylinder',n);o.setExpression('Radius',r);o.setExpression('Height',ht);o.Placement.Rotation=App.Rotation(App.Vector(0,0,1),App.Vector(*axis))
+ for k,v in zip('xyz',pos):o.setExpression('Placement.Base.'+k,v)
+ return o
+def fuse(n,items):o=doc.addObject('Part::MultiFuse',n);o.Shapes=items;o.Refine=True;return o
+def cut(n,a,b):o=doc.addObject('Part::Cut',n);o.Base=a;o.Tool=b;o.Refine=True;return o
+def sketch(n,x,pts):
+ sk=doc.addObject('Sketcher::SketchObject',n);sk.Placement.Rotation=App.Rotation(App.Vector(0,1,0),90);sk.setExpression('Placement.Base.x',x)
+ coords=[(-val(z),val(y)) for z,y in pts]
+ for i,(u,v) in enumerate(coords):
+  u2,v2=coords[(i+1)%len(coords)];sk.addGeometry(Part.LineSegment(App.Vector(u,v,0),App.Vector(u2,v2,0)),False)
+ for i in range(len(pts)):sk.addConstraint(Sketcher.Constraint('Coincident',i,2,(i+1)%len(pts),1))
+ for i,((z,y),(u,v)) in enumerate(zip(pts,coords)):
+  ci=sk.addConstraint(Sketcher.Constraint('DistanceX',i,1,u));sk.setExpression('Constraints[%d]'%ci,'-('+z+')')
+  ci=sk.addConstraint(Sketcher.Constraint('DistanceY',i,1,v));sk.setExpression('Constraints[%d]'%ci,y)
+ return sk
+def circle_sketch(n,x,cy):
+ sk=doc.addObject('Sketcher::SketchObject',n);sk.Placement.Rotation=App.Rotation(App.Vector(0,1,0),90);sk.setExpression('Placement.Base.x',x)
+ sk.addGeometry(Part.Circle(App.Vector(-val(P('CenterZ')),val(cy),0),App.Vector(0,0,1),val(P('RootRadius'))),False)
+ for kind,f,initial in [('DistanceX','-'+P('CenterZ'),-s.CenterZ.Value),('DistanceY',cy,val(cy))]:
+  i=sk.addConstraint(Sketcher.Constraint(kind,0,3,initial));sk.setExpression('Constraints[%d]'%i,f)
+ i=sk.addConstraint(Sketcher.Constraint('Radius',0,s.RootRadius.Value));sk.setExpression('Constraints[%d]'%i,P('RootRadius'))
+ return sk
+def mirrored(n,src,label):
+ o=doc.addObject('Part::Mirroring',n);o.Source=src;o.Normal=App.Vector(1,0,0);o.setExpression('Base.x',P('Length')+'/2');o.Label=label;return o
+def mirror_delta(final,src):
+ exact=src.mirror(App.Vector(s.Length.Value/2,0,0),App.Vector(1,0,0));return final.cut(exact).Volume,exact.cut(final).Volume
+def loft(n,sections):o=doc.addObject('Part::Loft',n);o.Sections=sections;o.Solid=True;o.Ruled=True;o.Closed=False;return o
+c,r,t=P('CenterZ'),P('RootRadius'),P('Wall')
+def make_rail(n,stations):
+ out=[];ins=[];roots=[];webs=[]
+ for i,(x,apex,mouth) in enumerate(stations):
+  h='('+apex+')+('+mouth+')/2';half='('+mouth+')/2+'+t+'*sqrt(2)';floor='('+apex+')-3 mm';bottomhalf=t+'*sqrt(2)-3 mm'
+  out.append(sketch(n+'Outer%d'%i,x,[(c+'-('+half+')',h),(c+'+('+half+')',h),(c+'+('+bottomhalf+')',floor),(c+'-('+bottomhalf+')',floor)]))
+  ty='('+apex+')+'+r+'/sqrt(2)';ih='('+mouth+')/2+3 mm'
+  ins.append(sketch(n+'Inner%d'%i,x,[(c+'-'+r+'/sqrt(2)',ty),(c+'-('+ih+')',h+'+3 mm'),(c+'+('+ih+')',h+'+3 mm'),(c+'+'+r+'/sqrt(2)',ty)]))
+  roots.append(circle_sketch(n+'Root%d'%i,x,'('+apex+')+'+r+'*sqrt(2)'))
+  webs.append(sketch(n+'Web%d'%i,x,[(c+'-2 mm','0.001 mm'),(c+'+2 mm','0.001 mm'),(c+'+2 mm','('+apex+')-2 mm'),(c+'-2 mm','('+apex+')-2 mm')]))
+ outer=loft(n+'OuterLoft',out);inner=loft(n+'InnerLoft',ins);root=loft(n+'RootLoft',roots)
+ shell=cut(n+'Shell',outer,fuse(n+'RoundedCavity',[inner,root]));web=loft(n+'WebLoft',webs)
+ return fuse(n+'Rail',[shell,web])
+def blade_apex(x):return P('BladeApexHeel')+'+('+P('HeelX')+'-('+x+'))*'+P('TaperDrop')+'/'+P('StationDistance')
+blade_stations=[('0 mm',blade_apex('0 mm'),P('BladeMouth')),(P('StationX'),blade_apex(P('StationX')),P('BladeMouth')),(P('HeelX'),P('BladeApexHeel'),P('BladeMouth'))]
+handle_stations=[(P('HandleX'),P('HandleApexStart'),P('HandleFrontWidthAssumed')+'+'+P('HandleMouthClearance')),(P('Length'),P('HandleApexEnd'),P('HandleWidthAtEnd')+'+'+P('HandleMouthClearance'))]
+blade_rail=make_rail('Blade',blade_stations);handle_rail=make_rail('Handle',handle_stations)
+foot=box('ContinuousFoot',[P('Length'),P('FootHeight'),P('FootWidth')],['0 mm','0 mm',c+'-'+P('FootWidth')+'/2'])
+items=[blade_rail,handle_rail,foot];holes=[]
+for i,x in enumerate([P('MountInset'),P('Length')+'-'+P('MountInset')]):
+ rr=P('TabWidth')+'/2';tab=fuse('MountTab%d'%i,[box('TabRect%d'%i,[P('TabWidth'),P('TabHeight')+'-'+rr,P('TabDepth')],[x+'-'+rr,'0 mm','0 mm']),cyl('TabRound%d'%i,rr,P('TabDepth'),[x,P('TabHeight')+'-'+rr,'0 mm'])]);items.append(tab)
+ pts=[('0.001 mm','0.001 mm'),(c+'+3 mm','0.001 mm'),(c+'+3 mm','3 mm'),('3 mm',c+'+3 mm'),('0.001 mm',c+'+3 mm')]
+ sk=sketch('GussetSketch%d'%i,x+'-'+P('GussetWidth')+'/2',pts);ex=doc.addObject('Part::Extrusion','Gusset%d'%i);ex.Base=sk;ex.Dir=App.Vector(1,0,0);ex.setExpression('LengthFwd',P('GussetWidth'));ex.Solid=True;items.append(ex)
+ holes.append(cyl('MountHole%d'%i,P('MountHole')+'/2',P('TabDepth')+'+2 mm',[x,P('MountY'),'-1 mm']))
+source=cut('HolderSource',fuse('BeforeMountHoles',items),fuse('MountHoleTools',holes));source.Label='ZDROJ V03 — nezrcadlený, NETISKNOUT'
+holder=mirrored('Holder',source,'TISKNOUT1× — zrcadlený držák: špička vpravo, rukojeť vlevo')
+doc.recompute()
+for part in (source,holder):assert part.Shape.isValid() and len(part.Shape.Solids)==1,(part.Name,part.Shape.isValid(),len(part.Shape.Solids))
+assert max(mirror_delta(holder.Shape,source.Shape))<1e-6,mirror_delta(holder.Shape,source.Shape)
+sketches=[o for o in doc.Objects if o.TypeId=='Sketcher::SketchObject'];assert all(o.FullyConstrained for o in sketches)
+assert not [o.Name for o in doc.Objects if 'Invalid' in o.State]
+# The uncertain reference is stored as ordinary static Part geometry, hidden.
+# It is regenerated with the macro, not presented as a measured knife profile.
+def reference(n,label,shape):o=doc.addObject('Part::Feature',n);o.Label=label;o.Shape=shape;return o
+org,heel,hh,sy,hy,cz=s.KnifeOriginX.Value,s.HeelX.Value,s.HandleX.Value,s.SpineY.Value,s.HeelY.Value,s.CenterZ.Value
+station=s.StationX.Value
+points=[(org,sy-2),(org+30,sy),(heel,sy),(heel,hy),(station,sy-s.BladeStationHeight.Value),(0,hy+9),(org+35,sy-21),(org,sy-2)]
+blade_shape=Part.Face(Part.makePolygon([App.Vector(x,y,cz-s.BladeThicknessAssumed.Value/2) for x,y in points])).extrude(App.Vector(0,0,s.BladeThicknessAssumed.Value))
+srcblade=reference('SourceIllustrativeBlade','ZDROJ V03, ILUSTRACE — nezrcadlená čepel',blade_shape)
+refblade=mirrored('IllustrativeBlade',srcblade,'ILUSTRACE zrcadlená — dva známé body45/40mm; ostatní obrys návrh')
+def ellipse(x,width):
+ e=Part.Ellipse(App.Vector(),s.HandleHeightAssumed.Value/2,width/2).toShape();e.rotate(App.Vector(),App.Vector(1,1,1),120);e.translate(App.Vector(x,s.HandleCenterY.Value,cz));return Part.Wire(e)
+handle_shape=Part.makeLoft([ellipse(hh,s.HandleFrontWidthAssumed.Value),ellipse(hh+s.HandleLength.Value,s.HandleMaxWidth.Value)],True,True)
+srchandle=reference('SourceIllustrativeHandle','ZDROJ V03, ILUSTRACE — nezrcadlená rukojeť',handle_shape)
+refhandle=mirrored('IllustrativeHandle',srchandle,'ILUSTRACE zrcadlená — délka105mm; eliptický průřez a rozšíření22→25 návrh')
+neck_shape=Part.makeBox(s.NeckGap.Value,12,8,App.Vector(heel,sy-15,cz-4))
+srcneck=reference('SourceIllustrativeNeck','ZDROJ V03, ILUSTRACE — nezrcadlený přechod',neck_shape)
+refneck=mirrored('IllustrativeNeck',srcneck,'ILUSTRACE zrcadlená —10mm přechod; obrys a výška neověřeny')
+group=doc.addObject('App::DocumentObjectGroup','KnifeReference');group.Label='ILUSTRACE zrcadlená — regenerovat makrem, není změřený tvar nože';group.Group=[refblade,refhandle,refneck]
+sourcegroup=doc.addObject('App::DocumentObjectGroup','KnifeReferenceSource');sourcegroup.Label='ZDROJ V03 — nezrcadlená ilustrace, skrytá';sourcegroup.Group=[srcblade,srchandle,srcneck]
+doc.recompute()
+rigid=Part.makeCompound([refblade.Shape,refhandle.Shape,refneck.Shape]);overlap=rigid.common(holder.Shape).Volume;assert overlap<1e-5,('reference fit',overlap)
+ref_bb=rigid.optimalBoundingBox(False,False);assert abs(ref_bb.XMin-s.MirroredButtX.Value)<1e-6 and abs(ref_bb.XMax-s.MirroredTipX.Value)<1e-6,ref_bb
+maxv=overlap
+for lift in range(1,61):a=rigid.copy();a.translate(App.Vector(0,lift,0));maxv=max(maxv,a.common(holder.Shape).Volume)
+assert maxv<1e-5
+# The 10mm gap is open above the connecting foot, not a tall guard under tang.
+clear=Part.makeBox(s.NeckGap.Value-.2,50,34,App.Vector(s.MirroredHandleX.Value+.1,s.FootHeight.Value+.1,cz-17));assert clear.common(holder.Shape).Volume<1e-5
+for x in [s.MountInset.Value,s.Length.Value-s.MountInset.Value]:
+ hole=Part.makeCylinder(s.MountHole.Value/2,6,App.Vector(x,s.MountY.Value,-1));tool=Part.makeCylinder(5,60,App.Vector(x,s.MountY.Value,s.TabDepth.Value))
+ assert hole.common(holder.Shape).Volume<1e-5 and tool.common(holder.Shape).Volume<1e-5
+# Native recomputation test, including newly changed taper and handle links.
+v=holder.Shape.Volume
+for a,new in [('BladeStationHeight',39),('HandleLength',110),('HandleRiseAssumed',18)]:s.set(a,str(new)+' mm')
+doc.recompute();assert holder.Shape.isValid() and len(holder.Shape.Solids)==1 and abs(s.HeelX.Value-140)<1e-7 and abs(s.MirroredHeelX.Value-90)<1e-7
+assert max(mirror_delta(holder.Shape,source.Shape))<1e-6,'mirror after parameter change'
+for a,new in [('BladeStationHeight',40),('HandleLength',105),('HandleRiseAssumed',20)]:s.set(a,str(new)+' mm')
+# The mirror plane must follow the holder length, not a stored number.
+s.set('Length','240 mm');doc.recompute();assert abs(holder.Base.x-120)<1e-9 and holder.Shape.isValid() and len(holder.Shape.Solids)==1
+assert max(mirror_delta(holder.Shape,source.Shape))<1e-6,'mirror after Length change'
+s.set('Length','230 mm')
+doc.recompute();assert abs(holder.Shape.Volume-v)<1e-5 and abs(holder.Base.x-115)<1e-9
+shape=holder.Shape.copy();shape.rotate(App.Vector(),App.Vector(1,0,0),90);bb=shape.optimalBoundingBox(False,False);shape.translate(App.Vector(-bb.XMin,-bb.YMin,-bb.ZMin))
+(OUT/'stl').mkdir(exist_ok=True);path=OUT/'stl/drzak-zrcadlovy.stl';mesh=MeshPart.meshFromShape(Shape=shape,LinearDeflection=.035,AngularDeflection=.10,Relative=False);mesh.write(str(path));m=Mesh.Mesh(str(path));assert m.isSolid() and m.countComponents()==1
+bb=m.BoundBox;bounds=[bb.XLength,bb.YLength,bb.ZLength];digest=hashlib.sha256(path.read_bytes()).hexdigest()
+obb=holder.Shape.optimalBoundingBox(False,False)
+record={'revision':'04','mirror_of_revision':'03','mirror':{'object':'Holder','type':holder.TypeId,'source':source.Name,'plane':'X = Parameters.Length/2','plane_x_mm':holder.Base.x,'normal':list(holder.Normal),'expression':dict(holder.ExpressionEngine).get('.Base.x'),'mapping':'X -> 230 - X, Y and Z unchanged','print_mapping_of_export':'(X, Zmax-Z, Y) as in V03'},'units':'mm','parameters_mm':{a:v for a,v,_,_ in VALUES},'measurement_status':{a:source_note for a,_,_,source_note in VALUES},'derived_blade_length_assumed_mm':s.BladeLengthAssumed.Value,'assumed_chain_note':'225 = 340 - 105 - 10 only if these three lengths form the full longitudinal chain','heel_x_mm':s.MirroredHeelX.Value,'handle_x_mm':s.MirroredHandleX.Value,'station_x_mm':s.MirroredStationX.Value,'tip_x_mm':s.MirroredTipX.Value,'butt_x_mm':s.MirroredButtX.Value,'open_gap_x_mm':[s.MirroredHandleX.Value,s.MirroredHeelX.Value],'source_frame_v03':{'heel_x_mm':s.HeelX.Value,'handle_x_mm':s.HandleX.Value,'station_x_mm':s.StationX.Value,'tip_x_mm':s.KnifeOriginX.Value,'butt_x_mm':s.Length.Value+s.ButtOverhang.Value},'blade_taper_mm_per_100mm':s.TaperDrop.Value,'known_blade_stations':[{'x':s.MirroredHeelX.Value,'height':45},{'x':s.MirroredStationX.Value,'height':40}],'blade_stations':[{'x':s.Length.Value-val(x),'apex_y':val(a),'mouth':val(mo)} for x,a,mo in blade_stations],'handle_stations':[{'x':s.Length.Value-val(x),'apex_y':val(a),'mouth':val(mo)} for x,a,mo in handle_stations],'overall_mm':[obb.XLength,obb.YLength,obb.ZLength],'overall_method':'optimalBoundingBox','mount_spacing_mm':s.MountSpacing.Value,'part':{'object':'Holder','valid':True,'solids':1,'volume_mm3':holder.Shape.Volume,'stl_closed':True,'stl_components':1,'facets':m.CountFacets,'stl_sha256':digest,'bbox_print_mm':bounds,'bbox_print_note':'Measured on the STL mesh; the round tab tops are tessellated, so Z is slightly below the CAD 60 mm.'},'native_fully_constrained_sketches':len(sketches),'rigid_reference':{'bbox_mm':[ref_bb.XLength,ref_bb.YLength,ref_bb.ZLength],'x_range_mm':[ref_bb.XMin,ref_bb.XMax],'bbox_method':'optimalBoundingBox (ordinary NURBS bounding box is conservative)','initial_collision_mm3':overlap,'lift_mm':60,'sample_step_mm':1,'max_collision_mm3':maxv,'actual_knife_fit':False},'open_neck_gap_above_foot':True,'parameter_test':{'blade_station_height':39,'handle_length':110,'assumed_rise':18,'length':240,'mirror_followed_each_change':True,'passed':True,'restored':True},'physical_print_verified':False,'centre_of_gravity_known':False,'tip_protected':False}
+manifest={'revision':'04','units':'mm','physical_part_count':1,'parts':[{'id':'drzak-zrcadlovy','name':'Zrcadlový V držák —1 kus','file':'stl/drzak-zrcadlovy.stl','quantity':1,'sha256':digest,'bbox_mm':bounds,'orientation':'Instalovaná spodní patka, ouška a žebra na podložce; osaY modelu je tiskovéZ, délkaX230 leží v podložce. Proti V03 zrcadleno jen v ose X.','supports':False,'support_note':'Souvislá patka a svislé stojiny pod oběma sedly. StěnyV rostou45°;10mm přechod je shora otevřený. Rozhodnutí bez podpor ověřeno novým řezem této varianty, ne převzato z V03.','critical_z_mm':[.2,3,4,5.8,8.8,10,13,15,17,20,23,25,27,30,35,38,40,43,48,50.8,51,60]}]}
+if App.GuiUp:
+ for o in doc.Objects:
+  if hasattr(o,'ViewObject'):o.ViewObject.Visibility=o==holder
+doc.saveAs(str(OUT/'drzak.FCStd'))
+(OUT/'kontrola-modelu.json').write_text(json.dumps(record,ensure_ascii=False,indent=2)+'\n');(OUT/'print-manifest.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n')
+print('V04_CAD_OK '+json.dumps(record,ensure_ascii=False),flush=True)

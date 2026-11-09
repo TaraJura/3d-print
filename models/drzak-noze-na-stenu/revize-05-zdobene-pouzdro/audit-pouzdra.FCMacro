@@ -1,0 +1,352 @@
+# -*- coding: utf-8 -*-
+"""Read-only audit of the SAVED V05 FCStd and STL. Parameter tests run in memory and the document is
+never saved. Results are bound to the SHA-256 of both files. Writes only audit-pouzdra.json.
+Coordinates are read from the Parameters sheet, nothing is copied from another revision.
+"""
+from pathlib import Path
+from zipfile import ZipFile
+import hashlib, json, math
+import xml.etree.ElementTree as ET
+import FreeCAD as App
+import Part, Mesh
+
+OUT = Path(__file__).resolve().parent
+FCSTD, STL = OUT / 'pouzdro.FCStd', OUT / 'stl/pouzdro-zdobene.stl'
+sha = lambda p: hashlib.sha256(p.read_bytes()).hexdigest()
+before = {'fcstd': sha(FCSTD), 'stl': sha(STL)}
+results = []
+
+
+def check(name, ok, **data):
+    results.append({'check': name, 'passed': bool(ok), **data})
+    print(('PASS ' if ok else 'FAIL ') + name + ' ' + json.dumps(data, ensure_ascii=False, default=str)[:220], flush=True)
+
+
+doc = App.openDocument(str(FCSTD))
+body, s = doc.Scabbard, doc.Parameters
+shape = body.Shape
+V = lambda a: getattr(s, a).Value if hasattr(getattr(s, a), 'Value') else float(getattr(s, a))
+floor, mouth, wall_y = V('CavityFloorZ'), V('MouthZ'), V('BladeAxisFromWall')
+BL, BH, BT = V('BladeLength'), V('BladeHeight'), V('BladeThickness')
+TOL = 1e-6
+
+
+def vector(x=0, y=0, z=0):
+    return App.Vector(x, y, z)
+
+
+def blade_box(tip_z, length=None, height=None, thick=None):
+    h, t = height or BH, thick or BT
+    return Part.makeBox(h, t, length or BL, vector(-h / 2, -t / 2, tip_z))
+
+
+# ---------- Document ----------
+check('doc_final_object', body.TypeId == 'PartDesign::Body' and body.Tip.Name == 'MountHoles', type=body.TypeId, tip=body.Tip.Name)
+proxies = [o.Name for o in doc.Objects if 'Python' in o.TypeId or getattr(o, 'Proxy', None) is not None]
+check('doc_no_python_proxy', not proxies, found=proxies)
+sketches = [o for o in doc.Objects if o.TypeId == 'Sketcher::SketchObject']
+check('doc_sketches_fully_constrained', all(o.FullyConstrained for o in sketches), count=len(sketches))
+exprs = sum(len(o.ExpressionEngine) for o in sketches)
+check('doc_sketches_driven_by_sheet', exprs > 200, expressions=exprs)
+gui = ET.fromstring(ZipFile(FCSTD).read('GuiDocument.xml'))
+visible = []
+for vp in gui.iter('ViewProvider'):
+    for prop in vp.iter('Property'):
+        if prop.get('name') == 'Visibility' and prop.find('Bool') is not None and prop.find('Bool').get('value') == 'true':
+            visible.append(vp.get('name'))
+shown = [n for n in visible if doc.getObject(n) is not None and doc.getObject(n).TypeId not in ('App::DocumentObjectGroup', 'Spreadsheet::Sheet') and hasattr(doc.getObject(n), 'Shape')]
+check('doc_saved_shows_only_final', shown == ['Scabbard'], visible=shown)
+leftovers = [o.Name for o in doc.Objects if o.Name.startswith('Tmp')]
+check('doc_no_temporary_render_objects', not leftovers, found=leftovers)
+
+# ---------- Solid and dimensions ----------
+check('solid_valid_single', shape.isValid() and len(shape.Solids) == 1, valid=shape.isValid(), solids=len(shape.Solids), volume_mm3=shape.Volume)
+obb = shape.optimalBoundingBox(False, False)
+check('overall_fits_printer_height', obb.ZLength < 260, overall_mm=[obb.XLength, obb.YLength, obb.ZLength], x=[obb.XMin, obb.XMax], y=[obb.YMin, obb.YMax])
+check('rear_is_wall_plane', abs(obb.YMax - wall_y) < 1e-5, y_max=obb.YMax, wall_y=wall_y)
+rear_faces = [f for f in shape.Faces if f.Surface.TypeId == 'Part::GeomPlane' and abs(f.BoundBox.YMin - wall_y) < 1e-6 and abs(f.BoundBox.YMax - wall_y) < 1e-6]
+check('rear_single_flat_face_with_two_holes', len(rear_faces) == 1 and len(rear_faces[0].Wires) == 3,
+      faces=len(rear_faces), wires=len(rear_faces[0].Wires) if rear_faces else 0, area_mm2=rear_faces[0].Area if rear_faces else 0)
+
+
+# ---------- Cavity measured on the solid ----------
+def sections(z):
+    return shape.slice(vector(0, 0, 1), z)
+
+
+def around_axis(wires):
+    """The inner outline is the small wire around the blade axis; ear and hole outlines lie off it."""
+    return [w for w in wires if w.BoundBox.XMin < 0 < w.BoundBox.XMax and w.BoundBox.YMin < 0 < w.BoundBox.YMax and w.BoundBox.YLength < 2 * V('FaceOffset')]
+
+
+def inner_box(z):
+    wires = sections(z)
+    return wires, around_axis(wires)
+
+
+mid_ok = True
+measured = []
+for z in [floor + .2 + i * (V('CavityL') - V('LeadInLength') - .4) / 8 for i in range(9)]:
+    wires, inner = inner_box(z)
+    bb = inner[0].BoundBox if inner else None
+    good = len(wires) == 2 and len(inner) == 1 and abs(bb.XLength - V('CavityH')) < 1e-6 and abs(bb.YLength - V('CavityT')) < 1e-6
+    mid_ok = mid_ok and good
+    measured.append([round(z, 2), bb.XLength if bb else None, bb.YLength if bb else None])
+check('cavity_47_by_4_4_along_length_with_closed_outer_section', mid_ok, samples=measured)
+line = Part.makeLine(vector(0, 0, -5), vector(0, 0, mouth + 80))
+hit = line.common(shape)
+spans = sorted((e.BoundBox.ZMin, e.BoundBox.ZMax) for e in hit.Edges)
+check('closed_end_centre_line', len(spans) == 1 and abs(spans[0][0]) < 1e-6 and abs(spans[0][1] - floor) < 1e-6, solid_spans_z=spans)
+# The outer chape is chamfered, so the slab directly under the cavity is what closes it.
+slab_z = 10.
+slab = Part.makeBox(V('CavityH'), V('CavityT'), floor - slab_z, vector(-V('CavityH') / 2, -V('CavityT') / 2, slab_z))
+tie = Part.makeBox(V('CavityH') + 1, V('CavityT') + 1, 1, vector(-V('CavityH') / 2 - .5, -V('CavityT') / 2 - .5, floor - 1))
+check('closed_end_solid_slab_under_cavity', abs(slab.common(shape).Volume - slab.Volume) < 1e-3 and abs(tie.common(shape).Volume - tie.Volume) < 1e-3,
+      slab_z_mm=[slab_z, floor], missing_mm3=slab.Volume - slab.common(shape).Volume, tie_layer_missing_mm3=tie.Volume - tie.common(shape).Volume)
+top = sections(mouth - .001)
+top_inner = around_axis(top)
+check('mouth_lead_in_opening', top_inner and abs(top_inner[0].BoundBox.XLength - (V('CavityH') + 2 * V('LeadInSide'))) < .01 and abs(top_inner[0].BoundBox.YLength - (V('CavityT') + 2 * V('LeadInSide'))) < .01,
+      opening_mm=[top_inner[0].BoundBox.XLength, top_inner[0].BoundBox.YLength] if top_inner else None, lead_in_length_mm=V('LeadInLength'))
+check('cavity_length_chain', abs(V('CavityL') - (BL + V('NeckGap') + V('TipReserve'))) < 1e-9 and abs(mouth - floor - V('CavityL')) < 1e-9,
+      cavity_length_mm=V('CavityL'), chain='200 + 10 + 8')
+
+# ---------- Straight insertion of the 200 x 45 x 3 envelope ----------
+tip = V('SeatTipZ')
+seat = blade_box(tip)
+check('seated_blade_no_collision', seat.common(shape).Volume < TOL, overlap_mm3=seat.common(shape).Volume)
+check('seated_blade_fully_covered', tip + BL <= mouth + 1e-9 and tip >= floor, tip_z=tip, heel_z=tip + BL, mouth_z=mouth, depth_of_heel_below_mouth_mm=mouth - tip - BL)
+check('tip_reserve_above_floor', abs(tip - floor - V('TipReserve')) < 1e-9, reserve_mm=tip - floor)
+sweep = blade_box(tip, length=(mouth - tip) + BL + 40)
+check('straight_sweep_free_to_past_the_mouth', sweep.common(shape).Volume < TOL, overlap_mm3=sweep.common(shape).Volume, swept_top_z=tip + (mouth - tip) + BL + 40)
+stepped = max(blade_box(tip + d).common(shape).Volume for d in range(0, int(mouth - tip) + 2, 5))
+check('stepped_motion_free_each_5mm', stepped < TOL, max_overlap_mm3=stepped)
+clear = sweep.distToShape(shape)[0]
+check('sweep_side_clearance_is_design_value', abs(clear - V('ThicknessClearance') / 2) < 1e-6, minimum_distance_mm=clear)
+check('tip_position_with_neck_stopped_at_mouth', mouth - BL - floor >= V('TipReserve') and mouth - BL >= floor,
+      tip_reserve_if_heel_stops_at_mouth_mm=mouth - BL - floor, note='wider neck stops earlier; the blade is still fully covered and further from the floor')
+negatives = {
+    'blade_47_2_wide': blade_box(tip, height=47.2).common(shape).Volume,
+    'blade_4_6_thick': blade_box(tip, thick=4.6).common(shape).Volume,
+    'tip_8_1_deeper': blade_box(tip - 8.1).common(shape).Volume,
+}
+check('negative_controls_collide', all(v > 1e-3 for v in negatives.values()), overlap_mm3=negatives)
+
+# ---------- Whole reference knife, both ways round, wall and screw heads ----------
+blade, neck, handle = doc.IllustrativeBlade.Shape, doc.IllustrativeNeck.Shape, doc.IllustrativeHandle.Shape
+knife = Part.makeCompound([blade, neck, handle])
+flipped = knife.mirror(vector(), vector(1, 0, 0))
+front = V('WallFaceY')
+holes = [(V('MountX'), mouth + V('MountEdge')), (-V('MountX'), V('MountEdge'))]
+heads = [Part.makeCylinder(5, 5, vector(x, front - 5, z), vector(0, 1, 0)) for x, z in holes]
+obstacles = Part.makeCompound([shape] + heads)
+knife_ok = {}
+ears = shape.common(Part.makeBox(200, 200, 60, vector(-100, -100, mouth + .01)))
+for label, k in (('spine_plus_x', knife), ('spine_minus_x', flipped)):
+    bb = k.optimalBoundingBox(False, False)
+    worst = 0.
+    for d in list(range(0, 300, 5)):
+        moved = k.copy()
+        moved.translate(vector(0, 0, d))
+        worst = max(worst, moved.common(shape).Volume, *(moved.common(h).Volume for h in heads))
+    wall_gap = wall_y - bb.YMax
+    head_gap = min(k.distToShape(h)[0] for h in heads)
+    knife_ok[label] = {'max_overlap_mm3': worst, 'behind_handle_to_wall_mm': wall_gap, 'to_screw_head_mm': head_gap,
+                       'to_ears_mm': k.distToShape(ears)[0], 'bbox_y': [bb.YMin, bb.YMax], 'bbox_x': [bb.XMin, bb.XMax]}
+check('knife_path_free_of_collar_ears_and_heads', all(v['max_overlap_mm3'] < 1e-5 for v in knife_ok.values()), **knife_ok)
+check('handle_gap_to_wall_9_5_to_11_5', all(9.5 <= v['behind_handle_to_wall_mm'] <= 11.5 + 1e-6 for v in knife_ok.values()),
+      gap_mm=knife_ok['spine_plus_x']['behind_handle_to_wall_mm'], blade_plane_from_wall_mm=wall_y)
+lower = handle.copy()
+lower.translate(vector(0, 0, -.2))
+stop = lower.common(shape).Volume
+check('handle_is_the_stop_on_the_collar', stop > 1e-3 and handle.common(shape).Volume < TOL, overlap_0_2mm_lower_mm3=stop, tip_reserve_at_stop_mm=tip - floor)
+check('handle_above_collar_is_free', handle.BoundBox.ZMin >= mouth - 1e-6, handle_z=[handle.BoundBox.ZMin, handle.BoundBox.ZMax], ear_top_z=obb.ZMax)
+
+# ---------- Walls under the ornament ----------
+# Boxes bound the blade path: the cavity, and the full lead-in opening over the whole lead-in length.
+cavity_box = Part.makeBox(V('CavityH'), V('CavityT'), V('CavityL'), vector(-V('CavityH') / 2, -V('CavityT') / 2, floor))
+lead_w, lead_t = V('CavityH') + 2 * V('LeadInSide'), V('CavityT') + 2 * V('LeadInSide')
+lead_box = Part.makeBox(lead_w, lead_t, V('LeadInLength'), vector(-lead_w / 2, -lead_t / 2, mouth - V('LeadInLength')))
+envelope = [cavity_box, lead_box]
+
+
+def to_blade_path(sh):
+    return min(sh.distToShape(b)[0] for b in envelope)
+
+
+wall_samples = []
+z = floor + .1
+while z < mouth - .05:
+    wires = sections(z)
+    inner = around_axis(wires)
+    assert len(inner) == 1, ('inner outline', z, len(inner))
+    others = [w for w in wires if w is not inner[0] and not w.isSame(inner[0])]
+    wall_samples.append((round(z, 3), min(inner[0].distToShape(o)[0] for o in others)))
+    z += 1.0
+tunnel_walls = [w for z, w in wall_samples if z <= mouth - V('LeadInLength')]
+funnel_walls = [w for z, w in wall_samples if z > mouth - V('LeadInLength')]
+check('minimum_wall_around_straight_cavity', min(tunnel_walls) >= V('WallFlat') - 1e-6, minimum_mm=min(tunnel_walls), sections_each_1mm=len(tunnel_walls))
+check('minimum_wall_around_lead_in', min(funnel_walls) >= 1.5, minimum_mm=min(funnel_walls), sections_each_1mm=len(funnel_walls), note='thinnest place is the lip between the lead-in and the rim top bevel at the mouth plane')
+corner_walls = []
+for sx in (-1, 1):
+    for sy in (-1, 1):
+        corner = Part.Vertex(vector(sx * V('CavityH') / 2, sy * V('CavityT') / 2, floor))
+        faces_out = [f for f in shape.Faces if not (f.BoundBox.XLength <= V('CavityH') + 1e-6 and abs(f.BoundBox.YMax) <= V('CavityT') / 2 + 1e-6 and abs(f.BoundBox.YMin) <= V('CavityT') / 2 + 1e-6)]
+        corner_walls.append(min(corner.distToShape(f)[0] for f in faces_out if f.BoundBox.ZMin < floor + 40))
+check('minimum_wall_at_cavity_floor_corners', min(corner_walls) >= V('WallFlat') - 1e-6, minimum_mm=min(corner_walls))
+decor = ['EdgeRails', 'BandUpper', 'BandLower', 'EmblemBase', 'EmblemRing', 'EmblemMoat', 'EmblemGem', 'EmblemProngs', 'ChapeBoss', 'RimStud']
+
+
+def global_tool(feature):
+    """AddSubShape is stored in the sketch frame of its feature."""
+    tool_shape = feature.AddSubShape.copy()
+    tool_shape.Placement = feature.Placement.multiply(tool_shape.Placement)
+    return tool_shape
+
+
+gaps = {n: to_blade_path(global_tool(getattr(doc, n))) for n in decor}
+check('ornament_stays_outside_the_wall', min(gaps.values()) >= V('WallFlat') - 1e-6, minimum_mm=min(gaps.values()), by_feature=gaps)
+moat = global_tool(doc.EmblemMoat)
+check('moat_removes_only_ring_step', moat.BoundBox.YMax <= -(V('FaceOffset') + V('ReliefLow')) + 1e-6, moat_y=[moat.BoundBox.YMin, moat.BoundBox.YMax], base_top_y=-(V('FaceOffset') + V('ReliefLow')))
+rels = {n: V(n) for n in ('ReliefLow', 'ReliefBand')}
+check('relief_at_least_1_2mm', min(rels.values()) >= 1.2 - 1e-9 and V('ReliefLow') + V('ReliefRingStep') >= 1.2 and V('ReliefLow') + V('ReliefGemStep') >= 1.2,
+      relief_mm={'lemování': V('ReliefLow'), 'pásy': V('ReliefBand'), 'prstenec': V('ReliefLow') + V('ReliefRingStep'), 'střed emblému': V('ReliefLow') + V('ReliefGemStep'), 'horní límec nad čelem': V('RimUpperProud')})
+band_perp = V('BandWidth') * math.cos(math.atan(V('BandSlope')))
+check('band_plateau_not_thin', band_perp - 2 * V('ReliefBand') >= 1.2, plateau_mm=band_perp - 2 * V('ReliefBand'))
+
+# ---------- Mounting ----------
+hole_results = []
+for (x, z) in holes:
+    r = V('MountHole') / 2
+    through = Part.makeCylinder(r - 1e-4, 8, vector(x, front - 2, z), vector(0, 1, 0))
+    tool_path = Part.makeCylinder(5.5, front + 80, vector(x, -80, z), vector(0, 1, 0))
+    seat_disc = Part.makeCylinder(5, .05, vector(x, front, z), vector(0, 1, 0)).common(shape)
+    annulus = math.pi * (25 - r * r) * .05
+    hole_results.append({'x': x, 'z': z, 'shaft_overlap_mm3': through.common(shape).Volume, 'tool_overlap_mm3': tool_path.common(shape).Volume,
+                         'head_seat_volume_ratio': seat_disc.Volume / annulus, 'to_cavity_mm': to_blade_path(through)})
+check('two_screw_holes_through_and_clear', all(h['shaft_overlap_mm3'] < 1e-5 for h in hole_results), holes=hole_results, distance_between_mm=math.dist(holes[0], holes[1]))
+check('tool_access_straight_from_room', all(h['tool_overlap_mm3'] < 1e-5 for h in hole_results), tool_diameter_mm=11)
+check('heads_seat_on_plate', all(h['head_seat_volume_ratio'] > .9 for h in hole_results), head_diameter_mm=10, ratios=[h['head_seat_volume_ratio'] for h in hole_results])
+check('holes_outside_cavity', all(h['to_cavity_mm'] > 3 for h in hole_results), mm=[h['to_cavity_mm'] for h in hole_results])
+
+# ---------- Printing: worst downward face, footprint ----------
+bed_area = 0.
+over_45 = []
+for f in shape.Faces:
+    if f.BoundBox.ZLength < 1e-6 and f.BoundBox.ZMax < 1e-6:
+        bed_area += f.Area
+        continue
+    u0, u1, v0, v1 = f.ParameterRange
+    low = 0.
+    for a in range(10):
+        for b in range(10):
+            u, v = u0 + (u1 - u0) * (.02 + .96 * a / 9), v0 + (v1 - v0) * (.02 + .96 * b / 9)
+            if f.isPartOfDomain(u, v):
+                low = min(low, f.normalAt(u, v).z)
+    if low < -math.sin(math.radians(45)) - 1e-6:
+        bb = f.BoundBox
+        over_45.append({'worst_deg': math.degrees(math.asin(-low)), 'area_mm2': f.Area, 'x': [bb.XMin, bb.XMax], 'y': [bb.YMin, bb.YMax], 'z': [bb.ZMin, bb.ZMax]})
+worst_cad = max((f['worst_deg'] for f in over_45), default=45.)
+check('cad_downward_faces_over_45_deg_only_at_rim_wings', worst_cad <= 50 and len(over_45) == 4 and all(f['z'][0] > mouth - 60 for f in over_45),
+      worst_sampled_deg=worst_cad, faces_over_45=over_45, note='Warped transition of the rim wings, sampled on a grid. The exact local maximum comes from the STL facet scan below. Not every face is within 45 deg.')
+base = shape.slice(vector(0, 0, 1), .1)
+base_face = Part.makeCompound([Part.Face(w) for w in base])
+foot = base_face.BoundBox
+com = shape.Solids[0].CenterOfMass
+pts = [(v.X, v.Y) for w in base for v in w.OrderedVertexes]
+inside = foot.XMin < com.x < foot.XMax and foot.YMin < com.y < foot.YMax
+check('footprint_on_bed', bed_area > 500 and inside, bed_contact_mm2=bed_area, footprint_bbox_mm=[foot.XLength, foot.YLength], height_to_depth=obb.ZLength / foot.YLength, height_to_width=obb.ZLength / foot.XLength,
+      centre_of_mass=[com.x, com.y, com.z], static_tip_margin_deg=math.degrees(math.atan(min(com.y - foot.YMin, foot.YMax - com.y) / com.z)))
+
+# ---------- STL against the saved CAD ----------
+mesh = Mesh.Mesh(str(STL))
+offset = [-obb.XMin, -obb.YMin, -obb.ZMin]
+moved = shape.copy()
+moved.translate(vector(*offset))
+vertex_max = max(moved.distToShape(Part.Vertex(p.Vector))[0] for p in mesh.Points)
+check('stl_closed_manifold_single', mesh.isSolid() and mesh.countComponents() == 1 and not mesh.hasNonManifolds() and not mesh.hasNonUniformOrientedFacets(),
+      facets=mesh.CountFacets, components=mesh.countComponents())
+# BEGIN self-intersection candidates
+flags = mesh.getSelfIntersections()
+all_facets = mesh.Facets
+
+
+def separation(i, j):
+    """Largest gap by which the plane of one triangle strictly separates the other; 0 means not separated."""
+    best = 0.
+    for a, b in ((all_facets[i], all_facets[j]), (all_facets[j], all_facets[i])):
+        p = [App.Vector(*v) for v in a.Points]
+        n = (p[1] - p[0]).cross(p[2] - p[0])
+        n.normalize()
+        d = [n.dot(App.Vector(*v) - p[0]) for v in b.Points]
+        if min(d) > 0 or max(d) < 0:
+            best = max(best, min(abs(x) for x in d))
+    return best
+
+
+pairs = sorted({(min(x[0], x[1]), max(x[0], x[1])) for x in flags})
+gaps_pairs = [separation(i, j) for i, j in pairs]
+flag_ids = sorted({i for pair in pairs for i in pair})
+check('stl_self_intersection_flag_is_false_positive', all(g > 0 for g in gaps_pairs),
+      raw_mesh_api_flag=mesh.hasSelfIntersections(), raw_records=len(flags), unique_pairs=len(pairs), facets=len(flag_ids),
+      flagged_area_mm2=sum(all_facets[i].Area for i in flag_ids), minimum_plane_separation_mm=min(gaps_pairs) if gaps_pairs else None,
+      warning='The raw FreeCAD Mesh flag stays set. Each candidate pair is separated by the plane of one triangle in double precision; these are near-touching facets on the rim and chape wing transitions, not a real intersection.')
+# END self-intersection candidates
+area_over = {45.5: 0., 48: 0.}
+worst_mesh = 0.
+for f in all_facets:
+    n = f.Normal
+    if n.z >= 0 or f.Area <= 0 or max(p[2] for p in f.Points) < 1e-3:
+        continue
+    angle = math.degrees(math.asin(min(1., -n.z)))
+    worst_mesh = max(worst_mesh, angle)
+    for k in area_over:
+        if angle > k:
+            area_over[k] += f.Area
+check('stl_overhang_stays_under_50_deg', worst_mesh < 50, worst_deg=worst_mesh, area_over_45_5_mm2=area_over[45.5], area_over_48_mm2=area_over[48])
+check('stl_matches_saved_cad', vertex_max < .05 and abs(mesh.Volume - shape.Volume) < 5, vertices=mesh.CountPoints, max_vertex_distance_mm=vertex_max, stl_volume_mm3=mesh.Volume, cad_volume_mm3=shape.Volume)
+mb = mesh.BoundBox
+check('stl_translation_only_and_z_up', abs(mb.XLength - obb.XLength) < .01 and abs(mb.YLength - obb.YLength) < .01 and abs(mb.ZLength - obb.ZLength) < .01 and mb.ZMin > -1e-3,
+      bbox_mm=[mb.XLength, mb.YLength, mb.ZLength], offset_mm=offset)
+
+# ---------- Native parameter changes in memory, never saved ----------
+reference = shape.Volume
+tests = {}
+
+
+def probe(name, changes, expect):
+    for a, v in changes:
+        s.set(a, v)
+    doc.recompute()
+    sh = body.Shape
+    clean = not [o.Name for o in doc.Objects if 'Invalid' in o.State or 'Error' in o.State]
+    t, b_l, b_h, b_t = V('SeatTipZ'), V('BladeLength'), V('BladeHeight'), V('BladeThickness')
+    free = Part.makeBox(b_h, b_t, 700, vector(-b_h / 2, -b_t / 2, t)).common(sh).Volume
+    inner = around_axis(sh.slice(vector(0, 0, 1), V('CavityFloorZ') + 40))
+    tests[name] = {'valid': sh.isValid(), 'solids': len(sh.Solids), 'clean': clean, 'volume_mm3': sh.Volume, 'sweep_overlap_mm3': free,
+                   'cavity_measured_mm': [inner[0].BoundBox.XLength, inner[0].BoundBox.YLength] if inner else None,
+                   'y_max_mm': sh.BoundBox.YMax, 'mouth_z_mm': V('MouthZ'), **expect(sh)}
+    return tests[name]
+
+
+p1 = probe('blade_thickness_4_5', [('BladeThickness', '4.5 mm')], lambda sh: {})
+p2 = probe('blade_length_190', [('BladeThickness', '3 mm'), ('BladeLength', '190 mm')], lambda sh: {})
+p3 = probe('band_count_2', [('BladeLength', '200 mm'), ('BandCount', '2')], lambda sh: {})
+p4 = probe('axis_from_wall_22', [('BandCount', '3'), ('BladeAxisFromWall', '22 mm')], lambda sh: {})
+for a, v in [('BladeAxisFromWall', '24 mm')]:
+    s.set(a, v)
+doc.recompute()
+restored = body.Shape.Volume
+check('parameters_drive_geometry',
+      all(t['valid'] and t['solids'] == 1 and t['clean'] and t['sweep_overlap_mm3'] < TOL for t in tests.values())
+      and abs(p1['cavity_measured_mm'][1] - 5.9) < 1e-6 and abs(p2['mouth_z_mm'] - (floor + 208)) < 1e-6
+      and p3['volume_mm3'] < reference - 50 and abs(p4['y_max_mm'] - 22) < 1e-5, **tests)
+check('parameters_restored_in_memory', abs(restored - reference) < 1e-3, restored_mm3=restored, reference_mm3=reference)
+check('files_not_touched_by_audit', sha(FCSTD) == before['fcstd'] and sha(STL) == before['stl'], fcstd=before['fcstd'], stl=before['stl'])
+
+failed = [r['check'] for r in results if not r['passed']]
+report = {'revision': '05', 'fcstd_sha256': before['fcstd'], 'stl_sha256': before['stl'], 'checks_total': len(results),
+          'checks_passed': len(results) - len(failed), 'checks_failed': failed, 'results': results,
+          'scope': 'Digital checks of saved files only. Reference knife outline, neck and handle shape are illustrations.',
+          'physical_print_verified': False, 'real_knife_fit_verified': False}
+(OUT / 'audit-pouzdra.json').write_text(json.dumps(report, ensure_ascii=False, indent=2, default=str) + '\n')
+print('V05_AUDIT passed=%d failed=%d %s' % (report['checks_passed'], len(failed), failed), flush=True)

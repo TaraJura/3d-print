@@ -1,0 +1,129 @@
+{
+  "units": "mm",
+  "revision": "02 — otevřené V",
+  "user_dimensions_mm": {
+    "length": 340,
+    "height": 45,
+    "max_handle_width": 25
+  },
+  "parameters_mm": {
+    "KnifeLength": 340,
+    "KnifeHeight": 45,
+    "HandleThickness": 25,
+    "Length": 230,
+    "Mouth": 34,
+    "Wall": 3,
+    "RootRadius": 2,
+    "TopY": 23,
+    "CenterZ": 24,
+    "OuterBottom": 3,
+    "FootWidth": 4,
+    "FootHeight": 4,
+    "TabWidth": 24,
+    "TabHeight": 55,
+    "TabDepth": 4,
+    "MountInset": 35,
+    "MountY": 43,
+    "MountHole": 5.5,
+    "GussetWidth": 10
+  },
+  "overall_assembled_mm": [
+    230.0,
+    55.0,
+    45.242640687119284
+  ],
+  "mouth_mm": 34.0,
+  "inner_root_y_mm": 6.82842712474619,
+  "rounded_channel_depth_mm": 16.17157287525381,
+  "mount_spacing_mm": 160.0,
+  "reference_end_overhang_mm": 55.0,
+  "part": {
+    "object": "Holder",
+    "valid": true,
+    "solids": 1,
+    "volume_mm3": 54642.06068278998,
+    "stl_closed": true,
+    "stl_components": 1,
+    "stl_facets": 1824,
+    "stl_sha256": "31d6c1ee2a026189888e43316bf2662243bf337c7a34b2c320620c8e78d375ac",
+    "bbox_print_mm": [
+      230.0,
+      45.24264068711929,
+      54.996270184009795
+    ]
+  },
+  "fully_constrained_native_sketches": [
+    "OuterVSketch",
+    "InnerTriangleSketch",
+    "Gusset0Sketch",
+    "Gusset1Sketch"
+  ],
+  "section_lift_tests": [
+    {
+      "rectangular_section_mm": 1,
+      "initial_bottom_y_mm": 7.1784271247461895,
+      "lift_mm": 40,
+      "collision_mm3": 0.0
+    },
+    {
+      "rectangular_section_mm": 2,
+      "initial_bottom_y_mm": 7.1784271247461895,
+      "lift_mm": 40,
+      "collision_mm3": 0.0
+    },
+    {
+      "rectangular_section_mm": 3,
+      "initial_bottom_y_mm": 7.6,
+      "lift_mm": 40,
+      "collision_mm3": 0.0
+    },
+    {
+      "rectangular_section_mm": 4,
+      "initial_bottom_y_mm": 8.1,
+      "lift_mm": 40,
+      "collision_mm3": 0.0
+    },
+    {
+      "rectangular_section_mm": 6,
+      "initial_bottom_y_mm": 9.1,
+      "lift_mm": 40,
+      "collision_mm3": 0.0
+    },
+    {
+      "rectangular_section_mm": 10,
+      "initial_bottom_y_mm": 11.1,
+      "lift_mm": 40,
+      "collision_mm3": 0.0
+    },
+    {
+      "rectangular_section_mm": 25,
+      "initial_bottom_y_mm": 18.6,
+      "lift_mm": 40,
+      "collision_mm3": 0.0
+    }
+  ],
+  "parameter_test": {
+    "length": 240,
+    "mouth": 36,
+    "root_radius": 2.2,
+    "valid": true,
+    "restored": true
+  },
+  "physical_print_verified": false,
+  "actual_knife_fit_verified": false,
+  "centre_of_gravity_known": false,
+  "tip_protected": false,
+  "gui_validation": {
+    "saved_reopened": true,
+    "visible": [
+      "Holder"
+    ],
+    "illustrations_hidden": true,
+    "illustrative_knife_collision_mm3": 0,
+    "images": [
+      "nahled-s-nozem-cad.png",
+      "nahled-prazdny-cad.png",
+      "nahled-profil-cad.png"
+    ]
+  }
+}

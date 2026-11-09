@@ -1,0 +1,47 @@
+{
+  "status": "vizualni_navrh_bez_fyzickeho_overeni",
+  "user_requirements": [
+    "jeden vrut do dreva",
+    "drobne veci",
+    "drevena futra"
+  ],
+  "design_assumptions_mm": {
+    "plate_width": 44,
+    "plate_height": 86,
+    "plate_thickness": 7,
+    "screw_clearance_diameter": 4.5,
+    "countersink_mouth_diameter": 9,
+    "main_reach_from_face": 30,
+    "side_reach_from_face": 22
+  },
+  "shape_valid": true,
+  "solids": 1,
+  "bounds_mm": {
+    "x": 44.0,
+    "y": 37.0,
+    "z": 86.0
+  },
+  "volume_mm3": 33845.13404579961,
+  "stl_facets": 7002,
+  "stl_closed_after_reload": true,
+  "stl_components_after_reload": 1,
+  "screw_count": 1,
+  "rotation_resistance_verified": false,
+  "load_capacity_verified": false,
+  "speaker_use_verified": false,
+  "actual_jamb_screw_fit_verified": false,
+  "gui_validation": {
+    "saved_and_reopened": true,
+    "only_visible_geometry": [
+      "Vesacek"
+    ],
+    "parametric_plate_width_44_to_46_to_44": true,
+    "previews": [
+      "nahled-na-futrech-cad.png",
+      "nahled-sikmy-cad.png",
+      "nahled-celni-cad.png",
+      "nahled-bocni-cad.png"
+    ],
+    "illustrative_jamb_and_screw_not_saved_in_model": true
+  }
+}

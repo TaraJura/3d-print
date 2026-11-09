@@ -1,0 +1,169 @@
+{
+  "units": "mm",
+  "origin": "all dimensions agent design choices",
+  "physical_print_verified": false,
+  "timekeeping": "external timer required; manual ring and flip medallion",
+  "parts": [
+    {
+      "id": "Base",
+      "label": "01 — zakladna s vedenim a vnitrnim zavitem",
+      "valid": true,
+      "solids": 1,
+      "stl_closed": true,
+      "stl_components": 1,
+      "stl_facets": 6176,
+      "volume_mm3": 71270.22804020325,
+      "print_bbox_mm": [
+        112.0,
+        111.9651870727539,
+        13.800000190734863
+      ],
+      "stl_sha256": "5ed33c9819a4a8f72e27ae06d8e6ba6947be608ffcb347a848f493fa4673a0b5"
+    },
+    {
+      "id": "Rotor",
+      "label": "02 — otocny venec 0–25 (30 poloh)",
+      "valid": true,
+      "solids": 1,
+      "stl_closed": true,
+      "stl_components": 1,
+      "stl_facets": 26820,
+      "volume_mm3": 34877.78579141307,
+      "print_bbox_mm": [
+        105.97061920166016,
+        105.97061920166016,
+        7.000000190734866
+      ],
+      "stl_sha256": "f0a9bfc7fecb3e7ad74feaf6cb9e1c93589fb542fc717186117a1636ecfddf60"
+    },
+    {
+      "id": "Crown",
+      "label": "03 — pevna koruna s kapsami a sipkou",
+      "valid": true,
+      "solids": 1,
+      "stl_closed": true,
+      "stl_components": 1,
+      "stl_facets": 19300,
+      "volume_mm3": 21747.81144208,
+      "print_bbox_mm": [
+        80.0,
+        81.98756408691406,
+        4.799999904632571
+      ],
+      "stl_sha256": "8ab7ae8ced439e5537339f0908292ac4f12a26a1e4d3ae781a090c3c54c71c33"
+    },
+    {
+      "id": "Screw",
+      "label": "04 — velky rucni sroub s otevrenou kapsou",
+      "valid": true,
+      "solids": 1,
+      "stl_closed": true,
+      "stl_components": 1,
+      "stl_facets": 9686,
+      "volume_mm3": 8082.723531418427,
+      "print_bbox_mm": [
+        31.962963104248047,
+        31.962963104248047,
+        22.850000286102294
+      ],
+      "stl_sha256": "7b6f1a988fcd7e084b43bbd31c85ab8c2a45bc259dce2760d9a7e9b51f059619"
+    },
+    {
+      "id": "Token1",
+      "label": "05 — oboustranny zetton 1",
+      "valid": true,
+      "solids": 1,
+      "stl_closed": true,
+      "stl_components": 1,
+      "stl_facets": 1804,
+      "volume_mm3": 316.9650468285487,
+      "print_bbox_mm": [
+        12.0,
+        11.996270179748535,
+        2.950000047683716
+      ],
+      "stl_sha256": "272797c6bdc8037e8445daba5b44baa589ea9a7ec80e4c342281267fb858ec3f"
+    },
+    {
+      "id": "Token2",
+      "label": "06 — oboustranny zetton 2",
+      "valid": true,
+      "solids": 1,
+      "stl_closed": true,
+      "stl_components": 1,
+      "stl_facets": 2502,
+      "volume_mm3": 316.1184956092752,
+      "print_bbox_mm": [
+        12.0,
+        11.996270179748535,
+        2.950000047683716
+      ],
+      "stl_sha256": "a8741eb783c188f27d640fb90d833ff8fe2f9b2cfe1ac4da3f9fc349a08e8bb4"
+    },
+    {
+      "id": "Token3",
+      "label": "07 — oboustranny zetton 3",
+      "valid": true,
+      "solids": 1,
+      "stl_closed": true,
+      "stl_components": 1,
+      "stl_facets": 3770,
+      "volume_mm3": 315.97501865976176,
+      "print_bbox_mm": [
+        12.0,
+        11.996270179748535,
+        2.950000047683716
+      ],
+      "stl_sha256": "9db4adb5ce064447a54737e7f7e832e8237dd9ed0f8bd8751f8f8898644c9b71"
+    },
+    {
+      "id": "Token4",
+      "label": "08 — oboustranny zetton 4",
+      "valid": true,
+      "solids": 1,
+      "stl_closed": true,
+      "stl_components": 1,
+      "stl_facets": 1816,
+      "volume_mm3": 315.8001873311583,
+      "print_bbox_mm": [
+        12.0,
+        11.996270179748535,
+        2.950000047683716
+      ],
+      "stl_sha256": "61b5c341bbf5add2f7c75287f722c04a0f4c7e9cafbe2a05a497ad6b78f24f3f"
+    },
+    {
+      "id": "ModeMedallion",
+      "label": "09 — oboustranny medailon FOCUS25 / BREAK5",
+      "valid": true,
+      "solids": 1,
+      "stl_closed": true,
+      "stl_components": 1,
+      "stl_facets": 3258,
+      "volume_mm3": 1394.8652725078641,
+      "print_bbox_mm": [
+        24.0,
+        23.99254035949707,
+        3.19999995231629
+      ],
+      "stl_sha256": "76289e26dc46f85be5f4687383ee14ba1ee0858be38ee277e71afabcea82b483"
+    }
+  ],
+  "collisions": [],
+  "parametric_test": "RadialGap0.4 ->0.5 ->0.4mm changed bore volume and restored; native objects only",
+  "native_only": true,
+  "clearances_mm": {
+    "rotor_radial": 0.4,
+    "rotor_axial": 0.5,
+    "thread_flank_design": 0.3,
+    "thread_floor": 0.5,
+    "token_radial": 0.35,
+    "medallion_radial": 0.35
+  },
+  "macro_sha256": "449b901f4f67e91c4003b16fa3e9fb8c8f5b7fa150e14b6f4ce41d5c7c915350",
+  "physical_parts": 9,
+  "cad_dimensions_mm": {
+    "diameter": 112,
+    "height": 27.05
+  }
+}

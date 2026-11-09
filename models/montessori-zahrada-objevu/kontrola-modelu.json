@@ -1,0 +1,174 @@
+{
+  "design_date": "2026-10-14",
+  "status": "DIGITALNI PROTOTYP; fyzicky tisk a bezpecnost neovereny",
+  "age_assumption": "3–5 let, bez odpovedi uzivatele",
+  "parameters": {
+    "BaseR": 116,
+    "BaseH": 12,
+    "Orbit": 73,
+    "SeatDepth": 4,
+    "Clearance": 0.55,
+    "UnitH": 12,
+    "DotR": 4,
+    "DotDepth": 1.2
+  },
+  "parts": [
+    {
+      "id": "Base",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 462576.3341835447,
+      "bbox_mm": [
+        232.0,
+        232.0,
+        12.0
+      ]
+    },
+    {
+      "id": "Stone1",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 23916.273369424805,
+      "bbox_mm": [
+        54.620379242773964,
+        54.620379242773964,
+        12.0
+      ]
+    },
+    {
+      "id": "Stone2",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 47889.50048020108,
+      "bbox_mm": [
+        59.893221623491435,
+        58.890361330928236,
+        24.0
+      ]
+    },
+    {
+      "id": "Stone3",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 71878.79632438507,
+      "bbox_mm": [
+        50.65982933623183,
+        50.65982933623184,
+        36.0
+      ]
+    },
+    {
+      "id": "Stone4",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 95864.49662767693,
+      "bbox_mm": [
+        53.894198734597175,
+        52.190527376041906,
+        48.0
+      ]
+    },
+    {
+      "id": "Stone5",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 119849.17601680585,
+      "bbox_mm": [
+        52.45425907206292,
+        53.85256420313956,
+        60.0
+      ]
+    }
+  ],
+  "assembly_collisions": [
+    {
+      "a": "Base",
+      "b": "Stone1",
+      "volume_mm3": 0.0
+    },
+    {
+      "a": "Base",
+      "b": "Stone2",
+      "volume_mm3": 0.0
+    },
+    {
+      "a": "Base",
+      "b": "Stone3",
+      "volume_mm3": 0.0
+    },
+    {
+      "a": "Base",
+      "b": "Stone4",
+      "volume_mm3": 0.0
+    },
+    {
+      "a": "Base",
+      "b": "Stone5",
+      "volume_mm3": 0.0
+    },
+    {
+      "a": "Stone1",
+      "b": "Stone2",
+      "volume_mm3": 0.0
+    },
+    {
+      "a": "Stone1",
+      "b": "Stone3",
+      "volume_mm3": 0.0
+    },
+    {
+      "a": "Stone1",
+      "b": "Stone4",
+      "volume_mm3": 0.0
+    },
+    {
+      "a": "Stone1",
+      "b": "Stone5",
+      "volume_mm3": 0.0
+    },
+    {
+      "a": "Stone2",
+      "b": "Stone3",
+      "volume_mm3": 0.0
+    },
+    {
+      "a": "Stone2",
+      "b": "Stone4",
+      "volume_mm3": 0.0
+    },
+    {
+      "a": "Stone2",
+      "b": "Stone5",
+      "volume_mm3": 0.0
+    },
+    {
+      "a": "Stone3",
+      "b": "Stone4",
+      "volume_mm3": 0.0
+    },
+    {
+      "a": "Stone3",
+      "b": "Stone5",
+      "volume_mm3": 0.0
+    },
+    {
+      "a": "Stone4",
+      "b": "Stone5",
+      "volume_mm3": 0.0
+    }
+  ],
+  "parametric_test": {
+    "clearance_mm": [
+      0.55,
+      0.7,
+      0.55
+    ],
+    "unit_height_mm": [
+      12,
+      13,
+      12
+    ],
+    "restored": true
+  },
+  "bbox_method": "FreeCAD Shape.BoundBox: konzervativni CAD obalka, u fillet muze nadhodnotit XY. Presna obalka v nezavisla-kontrola.json."
+}

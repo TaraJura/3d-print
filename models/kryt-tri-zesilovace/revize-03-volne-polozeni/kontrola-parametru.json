@@ -1,0 +1,38 @@
+{
+  "cad_file_unchanged": true,
+  "cad_sha256": "65315d084aa5588f1001c7e5689a1b7c1e0abbe426522babc317f8d6558b1fe8",
+  "height_scenarios": [
+    {
+      "component_height_mm": 30,
+      "body_height_mm": 133.20000000000002,
+      "valid_single_solids": [
+        "Body",
+        "Front",
+        "Rear",
+        "TopLock",
+        "Spacer1",
+        "Spacer2",
+        "Spacer3"
+      ],
+      "hard_collisions": []
+    },
+    {
+      "component_height_mm": 42,
+      "body_height_mm": 169.20000000000002,
+      "valid_single_solids": [
+        "Body",
+        "Front",
+        "Rear",
+        "TopLock",
+        "Spacer1",
+        "Spacer2",
+        "Spacer3"
+      ],
+      "hard_collisions": []
+    }
+  ],
+  "v02_cad_material_volume_mm3": 214991.2018760441,
+  "v03_cad_material_volume_mm3": 206331.76187604578,
+  "cad_material_reduction_percent": 4.027811335735976,
+  "scope": "Native recompute and CAD volumes; physical fit, thermal performance and print economy not proven by volume alone."
+}

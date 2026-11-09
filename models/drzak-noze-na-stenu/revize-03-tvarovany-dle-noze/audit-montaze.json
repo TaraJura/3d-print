@@ -1,0 +1,312 @@
+{
+  "revision": "03",
+  "document_sha256": "31f503994475db055ab8cc9b2e32625255f3e38fcc256c34acd65406843cceb6",
+  "checks": [
+    {
+      "check": "valid_single_solid",
+      "passed": true,
+      "detail": {
+        "solids": 1,
+        "volume_mm3": 49257.09535707344
+      }
+    },
+    {
+      "check": "holder_envelope",
+      "passed": true,
+      "detail": {
+        "dimensions_mm": [
+          230.00000000017866,
+          60.0,
+          42.31406925854786
+        ]
+      }
+    },
+    {
+      "check": "native_fully_constrained_sketches",
+      "passed": true,
+      "detail": {
+        "count": 22
+      }
+    },
+    {
+      "check": "no_python_proxy_dependency",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "no_invalid_objects",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "blade_seat_rises_5mm_per_100mm_toward_tip",
+      "passed": true,
+      "detail": {
+        "station_x_mm": [
+          45,
+          145
+        ],
+        "measured_inner_floor_y_mm": [
+          14.582051041387022,
+          9.58205586139113
+        ],
+        "delta_y_mm": 4.999995179995892
+      }
+    },
+    {
+      "check": "rounded_V_and_3mm_walls_at_seven_stations",
+      "passed": true,
+      "detail": [
+        {
+          "x_mm": 1,
+          "root_ok": true,
+          "side_walls_3mm_ok": true,
+          "mouth_mm": 12.0
+        },
+        {
+          "x_mm": 45,
+          "root_ok": true,
+          "side_walls_3mm_ok": true,
+          "mouth_mm": 12.0
+        },
+        {
+          "x_mm": 100,
+          "root_ok": true,
+          "side_walls_3mm_ok": true,
+          "mouth_mm": 12.0
+        },
+        {
+          "x_mm": 144,
+          "root_ok": true,
+          "side_walls_3mm_ok": true,
+          "mouth_mm": 12.0
+        },
+        {
+          "x_mm": 156,
+          "root_ok": true,
+          "side_walls_3mm_ok": true,
+          "mouth_mm": 26.02857142857143
+        },
+        {
+          "x_mm": 180,
+          "root_ok": true,
+          "side_walls_3mm_ok": true,
+          "mouth_mm": 26.714285714285715
+        },
+        {
+          "x_mm": 229,
+          "root_ok": true,
+          "side_walls_3mm_ok": true,
+          "mouth_mm": 28.114285714285714
+        }
+      ]
+    },
+    {
+      "check": "handle_mouth_widens_26_to_28_142857",
+      "passed": true,
+      "detail": {
+        "start_mouth_mm": 26,
+        "end_mouth_mm": 28.142857142857142,
+        "start_x_mm": 155,
+        "end_x_mm": 230,
+        "width22to25_is_design_assumption": true
+      }
+    },
+    {
+      "check": "neck_gap_open_above_foot",
+      "passed": true,
+      "detail": {
+        "x_range_mm": [
+          145.1,
+          154.9
+        ],
+        "minimum_y_mm": 4.1
+      }
+    },
+    {
+      "check": "exactly_two_mount_holes",
+      "passed": true,
+      "detail": {
+        "centers_xy_mm": [
+          [
+            35.0,
+            48.0
+          ],
+          [
+            195.0,
+            48.0
+          ]
+        ],
+        "diameter_mm": 5.5
+      }
+    },
+    {
+      "check": "mount_hole_through_x35",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "provisional_head_and_driver_clear_x35",
+      "passed": true,
+      "detail": {
+        "head_mm": [
+          10,
+          3
+        ],
+        "driver_diameter_mm": 10,
+        "actual_fasteners_unknown": true,
+        "knife_removed": true
+      }
+    },
+    {
+      "check": "mount_hole_through_x195",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "provisional_head_and_driver_clear_x195",
+      "passed": true,
+      "detail": {
+        "head_mm": [
+          10,
+          3
+        ],
+        "driver_diameter_mm": 10,
+        "actual_fasteners_unknown": true,
+        "knife_removed": true
+      }
+    },
+    {
+      "check": "reference_solids_valid_and_labelled",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "reference_actual_envelope_340x45x25",
+      "passed": true,
+      "detail": {
+        "generic_boundbox_mm": [
+          340.0,
+          45.0,
+          24.999932840460605
+        ],
+        "optimal_boundbox_mm": [
+          340.0000001,
+          45.0000001,
+          25.000000200000002
+        ],
+        "mesh_bounds_mm": [
+          [
+            -80.0,
+            260.0
+          ],
+          [
+            10.0,
+            55.0
+          ],
+          [
+            11.500050453690118,
+            36.499983294150724
+          ]
+        ],
+        "mesh_dimensions_mm": [
+          340.0,
+          45.0,
+          24.999932840460605
+        ],
+        "mesh_deflection_mm": 0.003,
+        "mesh_triangles": 314318,
+        "generic_boundbox_not_used_for_acceptance": true
+      }
+    },
+    {
+      "check": "handle_reference_length_105",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "whole_rigid_reference_clear",
+      "passed": true,
+      "detail": {
+        "collision_mm3": 0.0,
+        "minimum_distance_mm": 0.10606339867596297
+      }
+    },
+    {
+      "check": "rigid_reference_straight_up_60mm",
+      "passed": true,
+      "detail": {
+        "maximum_collision_mm3": 0.0,
+        "sampling_step_mm": 1,
+        "actual_knife_fit_not_proven": true
+      }
+    },
+    {
+      "check": "reference_support_under_IllustrativeBlade",
+      "passed": true,
+      "detail": {
+        "downward_probe_mm": 0.3,
+        "overlap_mm3": 4.5270204856167044,
+        "not_physical_load_validation": true
+      }
+    },
+    {
+      "check": "reference_support_under_IllustrativeHandle",
+      "passed": true,
+      "detail": {
+        "downward_probe_mm": 0.3,
+        "overlap_mm3": 32.701479449465594,
+        "not_physical_load_validation": true
+      }
+    },
+    {
+      "check": "native_parameter_change",
+      "passed": true,
+      "detail": {
+        "test_blade_station_height": 39,
+        "test_handle_length": 108,
+        "test_assumed_rise": 18,
+        "heel_x_mm": 142.0,
+        "taper_delta_mm": 6.0
+      }
+    },
+    {
+      "check": "native_parameters_restored",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "first_layer_contact",
+      "passed": true,
+      "detail": {
+        "intersection_volume_mm3": 298.0199995020141,
+        "connected_solids": 1
+      }
+    },
+    {
+      "check": "Kobra_X_envelope_with_brim",
+      "passed": true,
+      "detail": {
+        "dimensions_mm": [
+          230.00000020000004,
+          42.31406935854787,
+          60.000000099999994
+        ],
+        "brim_margin_mm_each_side": 5
+      }
+    },
+    {
+      "check": "document_unchanged_during_readonly_audit",
+      "passed": true,
+      "detail": null
+    }
+  ],
+  "passed": 26,
+  "failed": 0,
+  "limitations": [
+    "Full rigid reference is illustrative. Actual knife shape, blade thickness, handle section and centre of gravity remain unknown.",
+    "225mm blade length assumes the complete non-overlapping 340-105-10mm chain. The 20mm vertical handle offset is an uncertain interpretation.",
+    "Only two blade heights are specified. A straight spine, interpolation and extrapolated outer 45mm of the support remain design assumptions.",
+    "Mounting hardware, wall, print, physical fit, stability and load capacity are not verified; the tip remains exposed."
+  ]
+}

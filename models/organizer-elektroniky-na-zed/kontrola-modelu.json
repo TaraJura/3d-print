@@ -1,0 +1,87 @@
+{
+  "user_requirement_mm": {
+    "approximate_compartment_depth": 100
+  },
+  "design_mm": {
+    "Width": 246,
+    "Depth": 246,
+    "BinDepth": 100,
+    "Floor": 4,
+    "Wall": 3.6,
+    "Divider": 2.4,
+    "Back": 8,
+    "ToolWidth": 60,
+    "MountRise": 46,
+    "ScrewInset": 30,
+    "LowerOffset": 12,
+    "ScrewPitch": 20,
+    "HoleDiameter": 5.5,
+    "BraceReach": 28,
+    "BraceThickness": 6
+  },
+  "bounds_mm": [
+    246.0,
+    246.0,
+    150.0
+  ],
+  "valid": true,
+  "solids": 1,
+  "volume_mm3": 1053760.2188438212,
+  "stl_facets": 1260,
+  "stl_closed": true,
+  "stl_components": 1,
+  "small_cells": {
+    "count": 9,
+    "clear_width_mm": 57.199999999999996,
+    "clear_depth_mm": 76.53333333333333,
+    "clear_height_mm": 100
+  },
+  "tool_trough": {
+    "count": 1,
+    "clear_width_mm": 60,
+    "clear_length_mm": 234.4,
+    "clear_height_mm": 100
+  },
+  "brace_intrusion": {
+    "count": 2,
+    "width_mm": 6,
+    "maximum_reach_mm": 28,
+    "tapers_to_zero_at_z_mm": 104
+  },
+  "mount_holes": {
+    "count": 4,
+    "nominal_circle_diameter_mm": 5.5,
+    "centres_xz_mm": [
+      [
+        30,
+        116
+      ],
+      [
+        30,
+        136
+      ],
+      [
+        216,
+        116
+      ],
+      [
+        216,
+        136
+      ]
+    ],
+    "axis": "Y"
+  },
+  "physical_print_verified": false,
+  "mounting_and_load_verified": false,
+  "gui_validation": {
+    "saved_and_reopened": true,
+    "visible_geometry": [
+      "Organizer"
+    ],
+    "actual_cad_previews": [
+      "nahled-perspektiva.png",
+      "nahled-shora.png",
+      "nahled-montaz.png"
+    ]
+  }
+}

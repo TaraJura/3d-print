@@ -1,0 +1,294 @@
+{
+  "machine": "Anycubic Kobra X 0.4 nozzle",
+  "physical_parts": 1,
+  "plate": {
+    "number": 1,
+    "geometry": "podlozka-01-geometrie.3mf",
+    "geometry_sha256": "7a25803e035af806699fabdd2cd9b72df78dd6b34ad0a7568f24aaacdc9b6bec",
+    "preview": "podlozka-01.png",
+    "physical_parts": 1,
+    "parts": [
+      {
+        "id": "pokerovy-pohar",
+        "name": "01_Pokerovy_pohar_Praha_2026_10_09",
+        "file": "../stl/pokerovy-pohar.stl",
+        "source_sha256": "b646ab976d75711fd0b13badd3a50cb7e9c3457e4a28617554c277472e84ac8f",
+        "translation_mm": [
+          130.0,
+          130.0,
+          -0.0
+        ],
+        "placed_min_mm": [
+          98.0,
+          100.00932502746582,
+          0.0
+        ],
+        "placed_max_mm": [
+          162.0,
+          159.99067497253418,
+          92.0
+        ],
+        "size_mm": [
+          64.0,
+          59.98134994506836,
+          92.0
+        ],
+        "triangle_count": 24684,
+        "supports": false,
+        "support_note": "Nastojato na podstavci; samonosna kuzelova miska. Reliéfy vyžadují kontrolu skutečných vrstev.",
+        "critical_z_mm": [
+          4,
+          9,
+          14,
+          19,
+          23,
+          46,
+          58,
+          65,
+          72,
+          80,
+          90
+        ]
+      }
+    ],
+    "minimum_geometry_edge_margin_mm": 98.0,
+    "minimum_bbox_gap_mm": null
+  },
+  "project": "podlozka-01-kobra-x-zlaty-silk-projekt.3mf",
+  "source_stl_sha256": "b646ab976d75711fd0b13badd3a50cb7e9c3457e4a28617554c277472e84ac8f",
+  "machine_profile_sha256": "baf80d3287e1e863fba29cdfd240b9b5ebc28bd87e1b4d03fc79e53f0009570a",
+  "process_sha256": "e934486226bf69498c1143e8d7dd5f10dcc9e50bcc2e10d12a2303e6bde9185d",
+  "filament_sha256": "c7d2116e3973911809bf09a3cf05d4e59ebd650ca9dc1496211b51831e85d09c",
+  "configured": {
+    "sha256": "62c3981f11bba279e7f3180a203c56f2568183b926969e6dcf63d898ca047fdc",
+    "objects": [
+      {
+        "name": "01_Pokerovy_pohar_Praha_2026_10_09",
+        "preserved_geometry_and_placement": true,
+        "maximum_vertex_delta_mm": 1.957348629844091e-06
+      }
+    ],
+    "physical_parts": 1,
+    "mesh_repairs": [
+      {
+        "edges_fixed": "0",
+        "degenerate_facets": "0",
+        "facets_removed": "0",
+        "facets_reversed": "0",
+        "backwards_edges": "0"
+      }
+    ],
+    "settings": {
+      "printer_model": "Anycubic Kobra X",
+      "printer_settings_id": "Anycubic Kobra X 0.4 nozzle",
+      "print_settings_id": "Poker Praha 0.24 mm Gold Silk navrh @Kobra X",
+      "filament_settings_id": [
+        "NAVRH Alzament PLA Silk Gold @Kobra X 0.4"
+      ],
+      "nozzle_diameter": [
+        "0.4"
+      ],
+      "layer_height": "0.24",
+      "wall_loops": "2",
+      "sparse_infill_density": "10%",
+      "sparse_infill_pattern": "gyroid",
+      "enable_support": "0",
+      "support_on_build_plate_only": "0",
+      "brim_type": "outer_only",
+      "brim_width": "3",
+      "nozzle_temperature": [
+        "220"
+      ],
+      "nozzle_temperature_initial_layer": [
+        "220"
+      ],
+      "textured_plate_temp": [
+        "50"
+      ],
+      "outer_wall_speed": "50",
+      "inner_wall_speed": "80",
+      "filament_colour": [
+        "#D4AF37"
+      ],
+      "filament_max_volumetric_speed": [
+        "5.5"
+      ],
+      "enable_prime_tower": "0",
+      "initial_layer_print_height": "0.2",
+      "top_shell_layers": "4",
+      "bottom_shell_layers": "4"
+    },
+    "has_gcode": false
+  },
+  "delivered": {
+    "sha256": "9f6cc03980b40ce542ccc2ec8743802fc1e1a36aef2ccbd4241383acb9569e9e",
+    "objects": [
+      {
+        "name": "01_Pokerovy_pohar_Praha_2026_10_09",
+        "preserved_geometry_and_placement": true,
+        "maximum_vertex_delta_mm": 1.957348629844091e-06
+      }
+    ],
+    "physical_parts": 1,
+    "mesh_repairs": [
+      {
+        "edges_fixed": "0",
+        "degenerate_facets": "0",
+        "facets_removed": "0",
+        "facets_reversed": "0",
+        "backwards_edges": "0"
+      }
+    ],
+    "settings": {
+      "printer_model": "Anycubic Kobra X",
+      "printer_settings_id": "Anycubic Kobra X 0.4 nozzle",
+      "print_settings_id": "Poker Praha 0.24 mm Gold Silk navrh @Kobra X",
+      "filament_settings_id": [
+        "NAVRH Alzament PLA Silk Gold @Kobra X 0.4"
+      ],
+      "nozzle_diameter": [
+        "0.4"
+      ],
+      "layer_height": "0.24",
+      "wall_loops": "2",
+      "sparse_infill_density": "10%",
+      "sparse_infill_pattern": "gyroid",
+      "enable_support": "0",
+      "support_on_build_plate_only": "0",
+      "brim_type": "outer_only",
+      "brim_width": "3",
+      "nozzle_temperature": [
+        "220"
+      ],
+      "nozzle_temperature_initial_layer": [
+        "220"
+      ],
+      "textured_plate_temp": [
+        "50"
+      ],
+      "outer_wall_speed": "50",
+      "inner_wall_speed": "80",
+      "filament_colour": [
+        "#D4AF37"
+      ],
+      "filament_max_volumetric_speed": [
+        "5.5"
+      ],
+      "enable_prime_tower": "0",
+      "initial_layer_print_height": "0.2",
+      "top_shell_layers": "4",
+      "bottom_shell_layers": "4"
+    },
+    "has_gcode": true,
+    "gcode_bytes": 5688034,
+    "gcode_sha256": "bf499cb1b343aef7aa8b9afd11fd2171fed5285d71083aaa73792c46f552dc9d",
+    "slice_metadata": {
+      "prediction": "6258",
+      "weight": "31.15",
+      "outside": "false",
+      "support_used": "false"
+    },
+    "warnings": [
+      {
+        "msg": "not_support_traditional_timelapse",
+        "level": "1",
+        "error_code": "1000C003"
+      }
+    ]
+  },
+  "toolpath_audit": {
+    "physical_parts": 1,
+    "all_objects_on_first_layer": true,
+    "layers": 384,
+    "all_layers_have_extrusion": true,
+    "maximum_extrusion_z_mm": 92.12,
+    "roles_segments": {
+      "Brim": 213,
+      "Outer wall": 43987,
+      "Inner wall": 34906,
+      "Bottom surface": 300,
+      "Internal solid infill": 9278,
+      "Overhang wall": 304,
+      "Gap infill": 3462,
+      "Sparse infill": 81728,
+      "Internal Bridge": 1424,
+      "Top surface": 996
+    },
+    "support_segments": 0,
+    "brim_generated": true,
+    "deposition_island_test": {
+      "method": "Actual path graph: deposited strokes connect within 0.46 mm nominal width; every component must contact preceding-layer strokes within 0.71 mm (width plus 0.25 mm allowance). Does not certify full overhang support.",
+      "disconnected_new_islands": [],
+      "passed": true,
+      "maximum_components_per_layer": 10
+    },
+    "extrusion_min_xy_mm": [
+      95.386,
+      100.219
+    ],
+    "extrusion_max_xy_mm": [
+      164.614,
+      159.781
+    ],
+    "minimum_extrusion_edge_margin_mm": 95.386,
+    "maximum_commanded_extrusion_speed_mm_s": 70.0,
+    "maximum_commanded_volumetric_flow_mm3_s_segments_at_least_0_1mm": 5.536025900799593,
+    "maximum_raw_segment_flow_mm3_s": 6.846632751707292,
+    "flow_quantisation_note": "XY coordinates use 0.001 mm and E uses 0.00001 mm precision; raw flow of moves below 0.1 mm is dominated by rounding. Audited flow uses segments at least 0.1 mm.",
+    "preview": "podlozka-01-vrstvy.png",
+    "selected_z_mm": [
+      0.2,
+      0.68,
+      0.92,
+      4.04,
+      9.08,
+      14.12,
+      19.16,
+      23.0,
+      29.96,
+      46.04,
+      58.04,
+      65.0,
+      68.84,
+      69.08,
+      71.96,
+      79.88,
+      89.96,
+      92.12
+    ],
+    "estimated_filament_g": 31.15,
+    "estimated_printing_time": "1h 44m 18s",
+    "first_layer_gcode_temperature_c": {
+      "bed": 50,
+      "nozzle": 220
+    },
+    "physical_print_verified": false
+  },
+  "cli_exit_codes": [
+    0,
+    0
+  ],
+  "cli_error_messages": [
+    "calc_exclude_triangles:Unable to create exclude triangles"
+  ],
+  "supplier_source": {
+    "url": "https://www.alza.cz/alzament-pla-silk-1-kg-gold-d12869930.htm",
+    "verified_date": "2026-10-09",
+    "nozzle_range_c": [
+      210,
+      230
+    ],
+    "bed_range_c": [
+      45,
+      60
+    ],
+    "speed_range_mm_s": [
+      40,
+      250
+    ],
+    "vendor_detail_speed_mm_s": 50
+  },
+  "physical_spool_slot_verified": false,
+  "physical_print_verified": false,
+  "printer_io_performed": false
+}

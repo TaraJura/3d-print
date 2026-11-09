@@ -1,0 +1,180 @@
+{
+  "status": "locally sliced; physical print, fit, stability and load unverified",
+  "source_stl_sha256": "a111e13ef7702d9d639f93ceb67be09926f7a70fc661a14aff36dc6193a23aa5",
+  "geometry_plate_sha256": "1bb006a9d5814056772b1c3ab4915a33f1f8d63d3956b2a8876f338acc18cef0",
+  "machine_profile_sha256": "baf80d3287e1e863fba29cdfd240b9b5ebc28bd87e1b4d03fc79e53f0009570a",
+  "process_profile_sha256": "9c4b3ee81329aaffc744b4b9f7c336f480cd9a6fed4c989fed2bec57742f8d93",
+  "filament_profile_sha256": "fe822911d3ab745c23dfc85ebf161e6b97e0dfa0e476eaf1e5f78d7172a5c70e",
+  "support_decision": "back plate lies on bed; all three hook roots overlap the plate and lofts grow gradually; no automatic supports",
+  "material_condition": "PLA temperature/profile is a starting assumption, not measured spool calibration or verified load capacity",
+  "configured": {
+    "sha256": "41a3a2e0dd8010408cfecc9b208fdd531e2aa42c4ed36782b2c3c80c05a96ccf",
+    "physical_pieces": 1,
+    "has_gcode": false,
+    "settings": {
+      "printer_model": "Anycubic Kobra X",
+      "printer_settings_id": "Anycubic Kobra X 0.4 nozzle",
+      "print_settings_id": "Vesacek 0.20 mm PLA navrh Kobra X",
+      "filament_settings_id": [
+        "PLA navrh @Anycubic Kobra X 0.4 nozzle"
+      ],
+      "filament_type": [
+        "PLA"
+      ],
+      "nozzle_diameter": [
+        "0.4"
+      ],
+      "layer_height": "0.2",
+      "wall_loops": "5",
+      "sparse_infill_density": "100%",
+      "sparse_infill_pattern": "rectilinear",
+      "enable_support": "0",
+      "brim_type": "outer_only",
+      "brim_width": "5",
+      "nozzle_temperature": [
+        "205"
+      ],
+      "nozzle_temperature_initial_layer": [
+        "215"
+      ],
+      "textured_plate_temp": [
+        "50"
+      ],
+      "textured_plate_temp_initial_layer": [
+        "50"
+      ]
+    }
+  },
+  "delivered": {
+    "sha256": "d3de9f3e34c03ce255afbebdfe5afb01632b9981db82203558aa4b060693db91",
+    "physical_pieces": 1,
+    "has_gcode": true,
+    "settings": {
+      "printer_model": "Anycubic Kobra X",
+      "printer_settings_id": "Anycubic Kobra X 0.4 nozzle",
+      "print_settings_id": "Vesacek 0.20 mm PLA navrh Kobra X",
+      "filament_settings_id": [
+        "PLA navrh @Anycubic Kobra X 0.4 nozzle"
+      ],
+      "filament_type": [
+        "PLA"
+      ],
+      "nozzle_diameter": [
+        "0.4"
+      ],
+      "layer_height": "0.2",
+      "wall_loops": "5",
+      "sparse_infill_density": "100%",
+      "sparse_infill_pattern": "rectilinear",
+      "enable_support": "0",
+      "brim_type": "outer_only",
+      "brim_width": "5",
+      "nozzle_temperature": [
+        "205"
+      ],
+      "nozzle_temperature_initial_layer": [
+        "215"
+      ],
+      "textured_plate_temp": [
+        "50"
+      ],
+      "textured_plate_temp_initial_layer": [
+        "50"
+      ]
+    },
+    "gcode_sha256": "fc917844dbdef9e38524664b1efe99f1bdd43d31c2c8321bc87e572db024e795",
+    "gcode_bytes": 6244197,
+    "layers_and_roles": {
+      "layer_count": 290,
+      "all_layers_have_extrusion": true,
+      "extrusion_xy_min_mm": [
+        103.558,
+        82.558
+      ],
+      "extrusion_xy_max_mm": [
+        156.442,
+        177.442
+      ],
+      "gcode_roles": [
+        "Bottom surface",
+        "Brim",
+        "Custom",
+        "Gap infill",
+        "Inner wall",
+        "Internal solid infill",
+        "Outer wall",
+        "Top surface"
+      ],
+      "first_layer_roles": [
+        "Bottom surface",
+        "Brim",
+        "Gap infill",
+        "Inner wall",
+        "Outer wall"
+      ],
+      "supports_generated": false
+    },
+    "interlayer_contact": {
+      "method": "0.2 mm path samples on a 0.25 mm grid; prior-layer search radii 0.5 and 1 mm",
+      "checked_sites": 2496350,
+      "sites_over_0_5_mm": 2,
+      "over_0_5_mm_examples": [
+        [
+          150,
+          117.5,
+          142.25
+        ],
+        [
+          150,
+          142.5,
+          142.25
+        ]
+      ],
+      "sites_over_1_mm": 0,
+      "physical_print_verified": false
+    },
+    "slice_metadata": {
+      "prediction": "11500",
+      "weight": "57.23",
+      "outside": "false",
+      "support_used": "false"
+    },
+    "warnings": []
+  },
+  "export_log_tail": "[2026-09-28 17:04:53.182266] [0x000076ad1f597900] [trace]   Initializing StaticPrintConfigs\n[2026-09-28 17:04:53.212401] [0x000076ad1f597900] [error]   calc_exclude_triangles:Unable to create exclude triangles\n\n",
+  "slice_log_tail": "[2026-09-28 17:04:53.299285] [0x00007d8735618900] [trace]   Initializing StaticPrintConfigs\n[2026-09-28 17:04:53.326369] [0x00007d8735618900] [error]   calc_exclude_triangles:Unable to create exclude triangles\n\n[2026-09-28 17:04:53.326552] [0x00007d8735618900] [error]   calc_exclude_triangles:Unable to create exclude triangles\n\n",
+  "printer_contact": false,
+  "layer_preview": "nahled-kritickych-vrstev.png",
+  "previewed_layers": {
+    "1": {
+      "z_mm": 0.2,
+      "caption": "První vrstva a brim",
+      "extrusion_segments": 1858
+    },
+    "33": {
+      "z_mm": 6.6000000000000005,
+      "caption": "Kořeny háčků v desce",
+      "extrusion_segments": 994
+    },
+    "40": {
+      "z_mm": 8.0,
+      "caption": "Konec desky / otvor",
+      "extrusion_segments": 2509
+    },
+    "55": {
+      "z_mm": 11.0,
+      "caption": "Háčky nad deskou",
+      "extrusion_segments": 1057
+    },
+    "270": {
+      "z_mm": 54.0,
+      "caption": "Hlavní háček u špičky",
+      "extrusion_segments": 363
+    },
+    "290": {
+      "z_mm": 58.0,
+      "caption": "Koncová vrstva",
+      "extrusion_segments": 111
+    }
+  }
+}

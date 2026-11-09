@@ -1,0 +1,61 @@
+# -*- coding: utf-8 -*-
+"""Skutečné CAD náhledy; spustit GUI FreeCADu po organizer.FCMacro.
+Přepíše tři zdejší PNG, uloží FCStd s viditelným finálním dílem.
+Žádné tiskárnové I/O. Barva je pouze vizualizační.
+"""
+from pathlib import Path
+import json
+import re
+import FreeCAD as App
+import FreeCADGui as Gui
+from PySide import QtCore
+from pivy import coin
+
+OUT=Path(__file__).resolve().parent
+doc=App.openDocument(str(OUT/'organizer.FCStd'))
+doc.recompute()
+view=Gui.activeDocument().activeView()
+
+def camera(eye):
+    eye=App.Vector(*eye);up=App.Vector(0,0,1)
+    view.setCameraType('Orthographic')
+    view.setCameraOrientation(App.Rotation(up.cross(eye),up,eye,'ZXY').Q)
+    view.fitAll()
+    view.setCamera(re.sub(r'height\s+([0-9.eE+-]+)',lambda m:'height '+str(float(m.group(1))*1.12),view.getCamera()))
+    view.redraw();Gui.updateGui()
+
+def start():
+    Gui.getMainWindow().resize(1700,1300)
+    for o in doc.Objects:o.ViewObject.Visibility=o.Name=='Organizer'
+    o=doc.Organizer.ViewObject
+    o.ShapeColor=(0.28,0.59,0.64);o.LineColor=(0.12,0.27,0.30);o.LineWidth=1.2
+    o.DisplayMode='Flat Lines';o.Deviation=0.08;o.AngularDeflection=12
+    camera((1.1,-1.45,1.75))
+    QtCore.QTimer.singleShot(1300,save_main)
+
+def save_main():
+    view.saveImage(str(OUT/'nahled-perspektiva.png'),1700,1300,'White')
+    view.viewTop();view.fitAll();Gui.updateGui()
+    QtCore.QTimer.singleShot(1000,save_top)
+
+def save_top():
+    view.saveImage(str(OUT/'nahled-shora.png'),1400,1400,'White')
+    camera((0.55,-1.5,0.40))
+    QtCore.QTimer.singleShot(1000,save_mount)
+
+def save_mount():
+    view.saveImage(str(OUT/'nahled-montaz.png'),1700,1100,'White')
+    camera((1.1,-1.45,1.75));doc.save()
+    filename=doc.FileName;App.closeDocument(doc.Name)
+    reopened=App.openDocument(filename);reopened.recompute()
+    visible=[o.Name for o in reopened.Objects if hasattr(o,'Shape') and o.ViewObject.Visibility]
+    assert visible==['Organizer'],visible
+    assert reopened.Organizer.Shape.isValid() and len(reopened.Organizer.Shape.Solids)==1
+    p=OUT/'kontrola-modelu.json';r=json.loads(p.read_text())
+    r['gui_validation']={'saved_and_reopened':True,'visible_geometry':visible,
+        'actual_cad_previews':['nahled-perspektiva.png','nahled-shora.png','nahled-montaz.png']}
+    p.write_text(json.dumps(r,ensure_ascii=False,indent=2)+'\n')
+    print('ORGANIZER_PREVIEW_OK',flush=True)
+    App.closeDocument(reopened.Name);Gui.getMainWindow().close()
+
+QtCore.QTimer.singleShot(1000,start)

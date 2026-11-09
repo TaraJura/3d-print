@@ -1,0 +1,365 @@
+{
+  "project": "podlozka-01-kobra-x-pla-projekt.3mf",
+  "project_sha256": "ffc4af999958927a2c84064215ea86e55ff7764548d6ad142fba9010d807ee79",
+  "bridge_overhang_strokes_all_layers": {
+    "strokes_total": 527,
+    "strokes_at_mount_tabs_above_hole_axis": 42,
+    "roles": {
+      "Internal Bridge": 485,
+      "Overhang wall": 36,
+      "Bridge": 6
+    },
+    "z_range_at_tabs_mm": [
+      50.8,
+      51.0
+    ],
+    "outside_tabs": {
+      "strokes": 485,
+      "roles": {
+        "Internal Bridge": 485
+      },
+      "z_range_mm": [
+        7.4,
+        25.6
+      ],
+      "bbox_xy_mm": [
+        [
+          9.742,
+          24.009
+        ],
+        [
+          209.617,
+          31.673
+        ]
+      ],
+      "longest_stroke_mm": 9.735370973928026
+    }
+  },
+  "actual_paths_vs_mirrored_v03": {
+    "v03_project_sha256": "b55bf2d57dc594e33da300dd02fe0dfa529908cfcdbca4378aaec81f3e6402ac",
+    "layers_compared": 300,
+    "same_layer_heights": true,
+    "mirror": "X -> 246 - X (print frame), Y unchanged",
+    "maximum_outer_wall_point_to_mirrored_v03_path_mm": 0.012467266675140988,
+    "at_z_mm": 10.8,
+    "maximum_per_layer_outer_wall_extent_difference_mm": 0.0009997999999526996,
+    "note": "Outer walls only; seams, infill and gap fill are generated separately per slice and are not expected to be mirrored."
+  },
+  "gcode_sha256": "c5625a49cc976a4127c8bfed6f3f5518b220c9b9d34c27cc52ae558900f8b3b3",
+  "source_manifest_sha256": "ea4913db523fecef4c7e1aa1ac5b6ad5a46a7fb8d28c3003d2888a3bb4013f83",
+  "method": "Actual extruded strokes, grey = previous layer, dark = current material, orange = bridge/overhang. Reported bridge length is whole extrusion move, not unsupported gap.",
+  "holes": [
+    {
+      "hole": 1,
+      "centre_print_x_mm": 42.99999989999998,
+      "hole_axis_z_mm": 48,
+      "preview": "detail-otvor-01-mostky.png",
+      "layers": [
+        {
+          "z_mm": 48.0,
+          "roles": {
+            "Inner wall": 6,
+            "Outer wall": 2,
+            "Internal solid infill": 2
+          },
+          "bridge_stroke_count": 0,
+          "maximum_bridge_stroke_mm": 0
+        },
+        {
+          "z_mm": 49.8,
+          "roles": {
+            "Inner wall": 6,
+            "Outer wall": 2,
+            "Internal solid infill": 2
+          },
+          "bridge_stroke_count": 0,
+          "maximum_bridge_stroke_mm": 0
+        },
+        {
+          "z_mm": 50.0,
+          "roles": {
+            "Inner wall": 6,
+            "Outer wall": 6,
+            "Internal solid infill": 2
+          },
+          "bridge_stroke_count": 0,
+          "maximum_bridge_stroke_mm": 0
+        },
+        {
+          "z_mm": 50.2,
+          "roles": {
+            "Inner wall": 6,
+            "Outer wall": 6,
+            "Internal solid infill": 2
+          },
+          "bridge_stroke_count": 0,
+          "maximum_bridge_stroke_mm": 0
+        },
+        {
+          "z_mm": 50.4,
+          "roles": {
+            "Inner wall": 6,
+            "Outer wall": 10,
+            "Internal solid infill": 2
+          },
+          "bridge_stroke_count": 0,
+          "maximum_bridge_stroke_mm": 0
+        },
+        {
+          "z_mm": 50.6,
+          "roles": {
+            "Inner wall": 6,
+            "Outer wall": 14,
+            "Internal solid infill": 2
+          },
+          "bridge_stroke_count": 0,
+          "maximum_bridge_stroke_mm": 0
+        },
+        {
+          "z_mm": 50.8,
+          "roles": {
+            "Inner wall": 10,
+            "Outer wall": 8,
+            "Overhang wall": 10,
+            "Internal solid infill": 2
+          },
+          "bridge_stroke_count": 0,
+          "maximum_bridge_stroke_mm": 0
+        },
+        {
+          "z_mm": 51.0,
+          "roles": {
+            "Internal solid infill": 2,
+            "Bridge": 3,
+            "Inner wall": 24,
+            "Overhang wall": 8,
+            "Outer wall": 8
+          },
+          "bridge_stroke_count": 3,
+          "maximum_bridge_stroke_mm": 5.944000000000003
+        }
+      ]
+    },
+    {
+      "hole": 2,
+      "centre_print_x_mm": 202.99999989999998,
+      "hole_axis_z_mm": 48,
+      "preview": "detail-otvor-02-mostky.png",
+      "layers": [
+        {
+          "z_mm": 48.0,
+          "roles": {
+            "Inner wall": 6,
+            "Outer wall": 2,
+            "Internal solid infill": 2
+          },
+          "bridge_stroke_count": 0,
+          "maximum_bridge_stroke_mm": 0
+        },
+        {
+          "z_mm": 49.8,
+          "roles": {
+            "Inner wall": 6,
+            "Outer wall": 2,
+            "Internal solid infill": 2
+          },
+          "bridge_stroke_count": 0,
+          "maximum_bridge_stroke_mm": 0
+        },
+        {
+          "z_mm": 50.0,
+          "roles": {
+            "Inner wall": 6,
+            "Outer wall": 6,
+            "Internal solid infill": 2
+          },
+          "bridge_stroke_count": 0,
+          "maximum_bridge_stroke_mm": 0
+        },
+        {
+          "z_mm": 50.2,
+          "roles": {
+            "Inner wall": 6,
+            "Outer wall": 6,
+            "Internal solid infill": 2
+          },
+          "bridge_stroke_count": 0,
+          "maximum_bridge_stroke_mm": 0
+        },
+        {
+          "z_mm": 50.4,
+          "roles": {
+            "Inner wall": 6,
+            "Outer wall": 10,
+            "Internal solid infill": 2
+          },
+          "bridge_stroke_count": 0,
+          "maximum_bridge_stroke_mm": 0
+        },
+        {
+          "z_mm": 50.6,
+          "roles": {
+            "Inner wall": 6,
+            "Outer wall": 14,
+            "Internal solid infill": 2
+          },
+          "bridge_stroke_count": 0,
+          "maximum_bridge_stroke_mm": 0
+        },
+        {
+          "z_mm": 50.8,
+          "roles": {
+            "Inner wall": 10,
+            "Outer wall": 8,
+            "Overhang wall": 10,
+            "Internal solid infill": 2
+          },
+          "bridge_stroke_count": 0,
+          "maximum_bridge_stroke_mm": 0
+        },
+        {
+          "z_mm": 51.0,
+          "roles": {
+            "Internal solid infill": 2,
+            "Bridge": 3,
+            "Inner wall": 24,
+            "Overhang wall": 8,
+            "Outer wall": 8
+          },
+          "bridge_stroke_count": 3,
+          "maximum_bridge_stroke_mm": 5.943999999999988
+        }
+      ]
+    }
+  ],
+  "transition": {
+    "preview": "detail-prechod-drahy.png",
+    "open_gap_x_print_mm": [
+      82.99999989999998,
+      92.99999989999998
+    ],
+    "tested_interior_gap_x_print_mm": [
+      83.29999989999997,
+      92.69999989999998
+    ],
+    "foot_top_z_mm": 4,
+    "all_layers_above_foot_have_zero_extruded_strokes_in_interior_gap": true,
+    "selected_layers": [
+      {
+        "z_mm": 0.2,
+        "clipped_roles": {
+          "Brim": 12,
+          "Outer wall": 2,
+          "Inner wall": 6,
+          "Gap infill": 1
+        }
+      },
+      {
+        "z_mm": 4.0,
+        "clipped_roles": {
+          "Inner wall": 18,
+          "Outer wall": 2,
+          "Sparse infill": 25,
+          "Top surface": 24,
+          "Gap infill": 4
+        }
+      },
+      {
+        "z_mm": 4.2,
+        "clipped_roles": {
+          "Inner wall": 18,
+          "Outer wall": 6,
+          "Sparse infill": 25
+        }
+      },
+      {
+        "z_mm": 8.8,
+        "clipped_roles": {
+          "Inner wall": 18,
+          "Outer wall": 8,
+          "Sparse infill": 43,
+          "Internal solid infill": 11
+        }
+      },
+      {
+        "z_mm": 13.0,
+        "clipped_roles": {
+          "Inner wall": 27,
+          "Outer wall": 15,
+          "Internal solid infill": 104,
+          "Sparse infill": 11
+        }
+      },
+      {
+        "z_mm": 17.0,
+        "clipped_roles": {
+          "Inner wall": 9,
+          "Outer wall": 3,
+          "Sparse infill": 16
+        }
+      },
+      {
+        "z_mm": 20.0,
+        "clipped_roles": {
+          "Inner wall": 9,
+          "Outer wall": 3,
+          "Sparse infill": 11
+        }
+      },
+      {
+        "z_mm": 23.0,
+        "clipped_roles": {
+          "Inner wall": 9,
+          "Outer wall": 3,
+          "Sparse infill": 16
+        }
+      },
+      {
+        "z_mm": 25.0,
+        "clipped_roles": {
+          "Inner wall": 9,
+          "Outer wall": 5,
+          "Internal solid infill": 6,
+          "Sparse infill": 25
+        }
+      },
+      {
+        "z_mm": 27.0,
+        "clipped_roles": {
+          "Inner wall": 24,
+          "Outer wall": 18,
+          "Internal solid infill": 6
+        }
+      },
+      {
+        "z_mm": 30.0,
+        "clipped_roles": {
+          "Inner wall": 18,
+          "Outer wall": 10,
+          "Internal solid infill": 6
+        }
+      },
+      {
+        "z_mm": 35.0,
+        "clipped_roles": {
+          "Inner wall": 18,
+          "Outer wall": 10,
+          "Internal solid infill": 6
+        }
+      },
+      {
+        "z_mm": 38.0,
+        "clipped_roles": {
+          "Inner wall": 18,
+          "Outer wall": 10,
+          "Internal solid infill": 6
+        }
+      },
+      {
+        "z_mm": 40.0,
+        "clipped_roles": {}
+      }
+    ]
+  },
+  "physical_bridge_quality_verified": false
+}

@@ -1,0 +1,1110 @@
+{
+  "audited_file": "skrinka.FCStd",
+  "sha256": "5f203532c626826bba2ebda7581b1fff82042e62a9cec1743e3a8c92a32cbf4e",
+  "source_macro_sha256": "d7221a8b0ccfa3ddf0593e196c489b2b683eac3957be8f12f2bab36305a60a25",
+  "file_hash_note": "FCStd hash identifies the audit-opened snapshot; subsequent GUI visibility/camera saves may change archive hash without changing audited geometry.",
+  "provenance": "Independent headless FreeCAD audit of saved and reopened native document; nominal CAD only.",
+  "physical_parts": 54,
+  "bill_count": 54,
+  "invalid_parts": [],
+  "closed_bounds_mm": [
+    0.0,
+    370.0,
+    -6.106226635438361e-16,
+    180.0,
+    0.0,
+    550.0
+  ],
+  "closed_part_geometry_fingerprint": [
+    {
+      "name": "BokLevy_1",
+      "volume_mm3": 141550.214387,
+      "bounds_mm": [
+        0.0,
+        20.0,
+        0.0,
+        176.5,
+        0.0,
+        183.0
+      ]
+    },
+    {
+      "name": "BokPravy_1",
+      "volume_mm3": 141550.214387,
+      "bounds_mm": [
+        350.0,
+        370.0,
+        0.0,
+        176.5,
+        0.0,
+        183.0
+      ]
+    },
+    {
+      "name": "DvereLeve_1",
+      "volume_mm3": 120396.440527,
+      "bounds_mm": [
+        9.5,
+        184.0,
+        167.5,
+        180.0,
+        2.0,
+        183.666667
+      ]
+    },
+    {
+      "name": "DverePrave_1",
+      "volume_mm3": 120396.440527,
+      "bounds_mm": [
+        186.0,
+        360.5,
+        167.5,
+        180.0,
+        2.0,
+        183.666667
+      ]
+    },
+    {
+      "name": "Cep_1_L",
+      "volume_mm3": 629.889327,
+      "bounds_mm": [
+        10.5,
+        17.5,
+        168.5,
+        175.5,
+        67.5,
+        113.5
+      ]
+    },
+    {
+      "name": "Cep_1_P",
+      "volume_mm3": 629.889327,
+      "bounds_mm": [
+        352.5,
+        359.5,
+        168.5,
+        175.5,
+        67.5,
+        113.5
+      ]
+    },
+    {
+      "name": "BokLevy_2",
+      "volume_mm3": 141550.214387,
+      "bounds_mm": [
+        0.0,
+        20.0,
+        0.0,
+        176.5,
+        183.5,
+        366.5
+      ]
+    },
+    {
+      "name": "BokPravy_2",
+      "volume_mm3": 141550.214387,
+      "bounds_mm": [
+        350.0,
+        370.0,
+        0.0,
+        176.5,
+        183.5,
+        366.5
+      ]
+    },
+    {
+      "name": "DvereLeve_2",
+      "volume_mm3": 120396.440527,
+      "bounds_mm": [
+        9.5,
+        184.0,
+        167.5,
+        180.0,
+        184.166667,
+        365.833333
+      ]
+    },
+    {
+      "name": "DverePrave_2",
+      "volume_mm3": 120396.440527,
+      "bounds_mm": [
+        186.0,
+        360.5,
+        167.5,
+        180.0,
+        184.166667,
+        365.833333
+      ]
+    },
+    {
+      "name": "Cep_2_L",
+      "volume_mm3": 629.889327,
+      "bounds_mm": [
+        10.5,
+        17.5,
+        168.5,
+        175.5,
+        251.0,
+        297.0
+      ]
+    },
+    {
+      "name": "Cep_2_P",
+      "volume_mm3": 629.889327,
+      "bounds_mm": [
+        352.5,
+        359.5,
+        168.5,
+        175.5,
+        251.0,
+        297.0
+      ]
+    },
+    {
+      "name": "BokLevy_3",
+      "volume_mm3": 141550.214387,
+      "bounds_mm": [
+        0.0,
+        20.0,
+        0.0,
+        176.5,
+        367.0,
+        550.0
+      ]
+    },
+    {
+      "name": "BokPravy_3",
+      "volume_mm3": 141550.214387,
+      "bounds_mm": [
+        350.0,
+        370.0,
+        0.0,
+        176.5,
+        367.0,
+        550.0
+      ]
+    },
+    {
+      "name": "DvereLeve_3",
+      "volume_mm3": 119994.316667,
+      "bounds_mm": [
+        9.5,
+        184.0,
+        167.5,
+        180.0,
+        366.333333,
+        548.0
+      ]
+    },
+    {
+      "name": "DverePrave_3",
+      "volume_mm3": 119994.316667,
+      "bounds_mm": [
+        186.0,
+        360.5,
+        167.5,
+        180.0,
+        366.333333,
+        548.0
+      ]
+    },
+    {
+      "name": "Cep_3_L",
+      "volume_mm3": 629.889327,
+      "bounds_mm": [
+        10.5,
+        17.5,
+        168.5,
+        175.5,
+        434.5,
+        480.5
+      ]
+    },
+    {
+      "name": "Cep_3_P",
+      "volume_mm3": 629.889327,
+      "bounds_mm": [
+        352.5,
+        359.5,
+        168.5,
+        175.5,
+        434.5,
+        480.5
+      ]
+    },
+    {
+      "name": "Pricka_000",
+      "volume_mm3": 25757.216517,
+      "bounds_mm": [
+        4.0,
+        185.0,
+        -0.0,
+        12.0,
+        0.0,
+        12.0
+      ]
+    },
+    {
+      "name": "Pricka_001",
+      "volume_mm3": 25757.216517,
+      "bounds_mm": [
+        185.0,
+        366.0,
+        -0.0,
+        12.0,
+        0.0,
+        12.0
+      ]
+    },
+    {
+      "name": "SpojPricky_00",
+      "volume_mm3": 2400.0,
+      "bounds_mm": [
+        160.0,
+        210.0,
+        12.0,
+        16.0,
+        0.0,
+        12.0
+      ]
+    },
+    {
+      "name": "Roh_000",
+      "volume_mm3": 2112.0,
+      "bounds_mm": [
+        4.0,
+        28.0,
+        12.0,
+        36.0,
+        0.0,
+        12.0
+      ]
+    },
+    {
+      "name": "Roh_001",
+      "volume_mm3": 2112.0,
+      "bounds_mm": [
+        342.0,
+        366.0,
+        12.0,
+        36.0,
+        0.0,
+        12.0
+      ]
+    },
+    {
+      "name": "Pricka_010",
+      "volume_mm3": 26064.0,
+      "bounds_mm": [
+        4.0,
+        185.0,
+        164.0,
+        176.0,
+        0.0,
+        12.0
+      ]
+    },
+    {
+      "name": "Pricka_011",
+      "volume_mm3": 26064.0,
+      "bounds_mm": [
+        185.0,
+        366.0,
+        164.0,
+        176.0,
+        0.0,
+        12.0
+      ]
+    },
+    {
+      "name": "SpojPricky_01",
+      "volume_mm3": 2400.0,
+      "bounds_mm": [
+        160.0,
+        210.0,
+        160.0,
+        164.0,
+        0.0,
+        12.0
+      ]
+    },
+    {
+      "name": "Roh_010",
+      "volume_mm3": 2112.0,
+      "bounds_mm": [
+        4.0,
+        28.0,
+        140.0,
+        164.0,
+        0.0,
+        12.0
+      ]
+    },
+    {
+      "name": "Roh_011",
+      "volume_mm3": 2112.0,
+      "bounds_mm": [
+        342.0,
+        366.0,
+        140.0,
+        164.0,
+        0.0,
+        12.0
+      ]
+    },
+    {
+      "name": "Pricka_100",
+      "volume_mm3": 25757.216517,
+      "bounds_mm": [
+        4.0,
+        185.0,
+        -0.0,
+        12.0,
+        538.0,
+        550.0
+      ]
+    },
+    {
+      "name": "Pricka_101",
+      "volume_mm3": 25757.216517,
+      "bounds_mm": [
+        185.0,
+        366.0,
+        -0.0,
+        12.0,
+        538.0,
+        550.0
+      ]
+    },
+    {
+      "name": "SpojPricky_10",
+      "volume_mm3": 2400.0,
+      "bounds_mm": [
+        160.0,
+        210.0,
+        12.0,
+        16.0,
+        538.0,
+        550.0
+      ]
+    },
+    {
+      "name": "Roh_100",
+      "volume_mm3": 2112.0,
+      "bounds_mm": [
+        4.0,
+        28.0,
+        12.0,
+        36.0,
+        538.0,
+        550.0
+      ]
+    },
+    {
+      "name": "Roh_101",
+      "volume_mm3": 2112.0,
+      "bounds_mm": [
+        342.0,
+        366.0,
+        12.0,
+        36.0,
+        538.0,
+        550.0
+      ]
+    },
+    {
+      "name": "Pricka_110",
+      "volume_mm3": 26064.0,
+      "bounds_mm": [
+        4.0,
+        185.0,
+        164.0,
+        176.0,
+        538.0,
+        550.0
+      ]
+    },
+    {
+      "name": "Pricka_111",
+      "volume_mm3": 26064.0,
+      "bounds_mm": [
+        185.0,
+        366.0,
+        164.0,
+        176.0,
+        538.0,
+        550.0
+      ]
+    },
+    {
+      "name": "SpojPricky_11",
+      "volume_mm3": 2400.0,
+      "bounds_mm": [
+        160.0,
+        210.0,
+        160.0,
+        164.0,
+        538.0,
+        550.0
+      ]
+    },
+    {
+      "name": "Roh_110",
+      "volume_mm3": 2112.0,
+      "bounds_mm": [
+        4.0,
+        28.0,
+        140.0,
+        164.0,
+        538.0,
+        550.0
+      ]
+    },
+    {
+      "name": "Roh_111",
+      "volume_mm3": 2112.0,
+      "bounds_mm": [
+        342.0,
+        366.0,
+        140.0,
+        164.0,
+        538.0,
+        550.0
+      ]
+    },
+    {
+      "name": "SpojBoku_100",
+      "volume_mm3": 6400.0,
+      "bounds_mm": [
+        4.0,
+        8.0,
+        24.0,
+        44.0,
+        143.25,
+        223.25
+      ]
+    },
+    {
+      "name": "SpojBoku_101",
+      "volume_mm3": 6400.0,
+      "bounds_mm": [
+        4.0,
+        24.0,
+        158.0,
+        162.0,
+        143.25,
+        223.25
+      ]
+    },
+    {
+      "name": "SpojBoku_110",
+      "volume_mm3": 6400.0,
+      "bounds_mm": [
+        362.0,
+        366.0,
+        24.0,
+        44.0,
+        143.25,
+        223.25
+      ]
+    },
+    {
+      "name": "SpojBoku_111",
+      "volume_mm3": 6400.0,
+      "bounds_mm": [
+        346.0,
+        366.0,
+        158.0,
+        162.0,
+        143.25,
+        223.25
+      ]
+    },
+    {
+      "name": "SpojDveri_100",
+      "volume_mm3": 6400.0,
+      "bounds_mm": [
+        45.0,
+        65.0,
+        172.0,
+        176.0,
+        143.916667,
+        223.916667
+      ]
+    },
+    {
+      "name": "SpojDveri_101",
+      "volume_mm3": 6400.0,
+      "bounds_mm": [
+        140.0,
+        160.0,
+        172.0,
+        176.0,
+        143.916667,
+        223.916667
+      ]
+    },
+    {
+      "name": "SpojDveri_110",
+      "volume_mm3": 6400.0,
+      "bounds_mm": [
+        305.0,
+        325.0,
+        172.0,
+        176.0,
+        143.916667,
+        223.916667
+      ]
+    },
+    {
+      "name": "SpojDveri_111",
+      "volume_mm3": 6400.0,
+      "bounds_mm": [
+        210.0,
+        230.0,
+        172.0,
+        176.0,
+        143.916667,
+        223.916667
+      ]
+    },
+    {
+      "name": "SpojBoku_200",
+      "volume_mm3": 6400.0,
+      "bounds_mm": [
+        4.0,
+        8.0,
+        24.0,
+        44.0,
+        326.75,
+        406.75
+      ]
+    },
+    {
+      "name": "SpojBoku_201",
+      "volume_mm3": 6400.0,
+      "bounds_mm": [
+        4.0,
+        24.0,
+        158.0,
+        162.0,
+        326.75,
+        406.75
+      ]
+    },
+    {
+      "name": "SpojBoku_210",
+      "volume_mm3": 6400.0,
+      "bounds_mm": [
+        362.0,
+        366.0,
+        24.0,
+        44.0,
+        326.75,
+        406.75
+      ]
+    },
+    {
+      "name": "SpojBoku_211",
+      "volume_mm3": 6400.0,
+      "bounds_mm": [
+        346.0,
+        366.0,
+        158.0,
+        162.0,
+        326.75,
+        406.75
+      ]
+    },
+    {
+      "name": "SpojDveri_200",
+      "volume_mm3": 6400.0,
+      "bounds_mm": [
+        45.0,
+        65.0,
+        172.0,
+        176.0,
+        326.083333,
+        406.083333
+      ]
+    },
+    {
+      "name": "SpojDveri_201",
+      "volume_mm3": 6400.0,
+      "bounds_mm": [
+        140.0,
+        160.0,
+        172.0,
+        176.0,
+        326.083333,
+        406.083333
+      ]
+    },
+    {
+      "name": "SpojDveri_210",
+      "volume_mm3": 6400.0,
+      "bounds_mm": [
+        305.0,
+        325.0,
+        172.0,
+        176.0,
+        326.083333,
+        406.083333
+      ]
+    },
+    {
+      "name": "SpojDveri_211",
+      "volume_mm3": 6400.0,
+      "bounds_mm": [
+        210.0,
+        230.0,
+        172.0,
+        176.0,
+        326.083333,
+        406.083333
+      ]
+    }
+  ],
+  "all_closed_hard_collisions": [],
+  "connector_contacts": [
+    {
+      "name": "SpojPricky_00",
+      "contacts": [
+        {
+          "name": "Pricka_000",
+          "area_mm2": 300.0
+        },
+        {
+          "name": "Pricka_001",
+          "area_mm2": 300.0
+        }
+      ]
+    },
+    {
+      "name": "Roh_000",
+      "contacts": [
+        {
+          "name": "BokLevy_1",
+          "area_mm2": 288.0
+        },
+        {
+          "name": "Pricka_000",
+          "area_mm2": 285.9622109984425
+        }
+      ]
+    },
+    {
+      "name": "Roh_001",
+      "contacts": [
+        {
+          "name": "BokPravy_1",
+          "area_mm2": 288.0
+        },
+        {
+          "name": "Pricka_001",
+          "area_mm2": 285.9622109984425
+        }
+      ]
+    },
+    {
+      "name": "SpojPricky_01",
+      "contacts": [
+        {
+          "name": "Pricka_010",
+          "area_mm2": 300.0
+        },
+        {
+          "name": "Pricka_011",
+          "area_mm2": 300.0
+        }
+      ]
+    },
+    {
+      "name": "Roh_010",
+      "contacts": [
+        {
+          "name": "BokLevy_1",
+          "area_mm2": 319.99999999999994
+        },
+        {
+          "name": "Pricka_010",
+          "area_mm2": 288.0
+        }
+      ]
+    },
+    {
+      "name": "Roh_011",
+      "contacts": [
+        {
+          "name": "BokPravy_1",
+          "area_mm2": 320.0
+        },
+        {
+          "name": "Pricka_011",
+          "area_mm2": 288.0
+        }
+      ]
+    },
+    {
+      "name": "SpojPricky_10",
+      "contacts": [
+        {
+          "name": "Pricka_100",
+          "area_mm2": 300.0
+        },
+        {
+          "name": "Pricka_101",
+          "area_mm2": 300.0
+        }
+      ]
+    },
+    {
+      "name": "Roh_100",
+      "contacts": [
+        {
+          "name": "BokLevy_3",
+          "area_mm2": 288.0
+        },
+        {
+          "name": "Pricka_100",
+          "area_mm2": 285.96221099844246
+        }
+      ]
+    },
+    {
+      "name": "Roh_101",
+      "contacts": [
+        {
+          "name": "BokPravy_3",
+          "area_mm2": 288.0
+        },
+        {
+          "name": "Pricka_101",
+          "area_mm2": 285.96221099844286
+        }
+      ]
+    },
+    {
+      "name": "SpojPricky_11",
+      "contacts": [
+        {
+          "name": "Pricka_110",
+          "area_mm2": 300.0
+        },
+        {
+          "name": "Pricka_111",
+          "area_mm2": 300.0
+        }
+      ]
+    },
+    {
+      "name": "Roh_110",
+      "contacts": [
+        {
+          "name": "BokLevy_3",
+          "area_mm2": 319.99999999999994
+        },
+        {
+          "name": "Pricka_110",
+          "area_mm2": 288.0
+        }
+      ]
+    },
+    {
+      "name": "Roh_111",
+      "contacts": [
+        {
+          "name": "BokPravy_3",
+          "area_mm2": 320.0
+        },
+        {
+          "name": "Pricka_111",
+          "area_mm2": 288.0
+        }
+      ]
+    },
+    {
+      "name": "SpojBoku_100",
+      "contacts": [
+        {
+          "name": "BokLevy_1",
+          "area_mm2": 795.0
+        },
+        {
+          "name": "BokLevy_2",
+          "area_mm2": 795.0
+        }
+      ]
+    },
+    {
+      "name": "SpojBoku_101",
+      "contacts": [
+        {
+          "name": "BokLevy_1",
+          "area_mm2": 603.0
+        },
+        {
+          "name": "BokLevy_2",
+          "area_mm2": 603.0
+        }
+      ]
+    },
+    {
+      "name": "SpojBoku_110",
+      "contacts": [
+        {
+          "name": "BokPravy_1",
+          "area_mm2": 795.0
+        },
+        {
+          "name": "BokPravy_2",
+          "area_mm2": 795.0
+        }
+      ]
+    },
+    {
+      "name": "SpojBoku_111",
+      "contacts": [
+        {
+          "name": "BokPravy_1",
+          "area_mm2": 603.0
+        },
+        {
+          "name": "BokPravy_2",
+          "area_mm2": 603.0
+        }
+      ]
+    },
+    {
+      "name": "SpojDveri_100",
+      "contacts": [
+        {
+          "name": "DvereLeve_1",
+          "area_mm2": 795.0
+        },
+        {
+          "name": "DvereLeve_2",
+          "area_mm2": 795.0
+        }
+      ]
+    },
+    {
+      "name": "SpojDveri_101",
+      "contacts": [
+        {
+          "name": "DvereLeve_1",
+          "area_mm2": 795.0
+        },
+        {
+          "name": "DvereLeve_2",
+          "area_mm2": 795.0
+        }
+      ]
+    },
+    {
+      "name": "SpojDveri_110",
+      "contacts": [
+        {
+          "name": "DverePrave_1",
+          "area_mm2": 795.0
+        },
+        {
+          "name": "DverePrave_2",
+          "area_mm2": 795.0
+        }
+      ]
+    },
+    {
+      "name": "SpojDveri_111",
+      "contacts": [
+        {
+          "name": "DverePrave_1",
+          "area_mm2": 795.0
+        },
+        {
+          "name": "DverePrave_2",
+          "area_mm2": 795.0
+        }
+      ]
+    },
+    {
+      "name": "SpojBoku_200",
+      "contacts": [
+        {
+          "name": "BokLevy_2",
+          "area_mm2": 795.0
+        },
+        {
+          "name": "BokLevy_3",
+          "area_mm2": 795.0
+        }
+      ]
+    },
+    {
+      "name": "SpojBoku_201",
+      "contacts": [
+        {
+          "name": "BokLevy_2",
+          "area_mm2": 603.0
+        },
+        {
+          "name": "BokLevy_3",
+          "area_mm2": 603.0
+        }
+      ]
+    },
+    {
+      "name": "SpojBoku_210",
+      "contacts": [
+        {
+          "name": "BokPravy_2",
+          "area_mm2": 795.0
+        },
+        {
+          "name": "BokPravy_3",
+          "area_mm2": 795.0
+        }
+      ]
+    },
+    {
+      "name": "SpojBoku_211",
+      "contacts": [
+        {
+          "name": "BokPravy_2",
+          "area_mm2": 603.0
+        },
+        {
+          "name": "BokPravy_3",
+          "area_mm2": 603.0
+        }
+      ]
+    },
+    {
+      "name": "SpojDveri_200",
+      "contacts": [
+        {
+          "name": "DvereLeve_2",
+          "area_mm2": 795.0
+        },
+        {
+          "name": "DvereLeve_3",
+          "area_mm2": 795.0
+        }
+      ]
+    },
+    {
+      "name": "SpojDveri_201",
+      "contacts": [
+        {
+          "name": "DvereLeve_2",
+          "area_mm2": 795.0
+        },
+        {
+          "name": "DvereLeve_3",
+          "area_mm2": 795.0
+        }
+      ]
+    },
+    {
+      "name": "SpojDveri_210",
+      "contacts": [
+        {
+          "name": "DverePrave_2",
+          "area_mm2": 795.0
+        },
+        {
+          "name": "DverePrave_3",
+          "area_mm2": 795.0
+        }
+      ]
+    },
+    {
+      "name": "SpojDveri_211",
+      "contacts": [
+        {
+          "name": "DverePrave_2",
+          "area_mm2": 795.0
+        },
+        {
+          "name": "DverePrave_3",
+          "area_mm2": 795.0
+        }
+      ]
+    }
+  ],
+  "connectors_less_than_two_face_contacts": [],
+  "right_side_same_part_rotate_y180_symmetric_difference_mm3": 0.0,
+  "ninety_degree_rotation": [
+    {
+      "name": "DvereLeve_1",
+      "link_axis": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "link_angle_deg": 90.0,
+      "symmetric_difference_mm3": 0.0
+    },
+    {
+      "name": "DverePrave_1",
+      "link_axis": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "link_angle_deg": -90.0,
+      "symmetric_difference_mm3": 0.0
+    }
+  ],
+  "door_sweep_hard_collisions": [],
+  "hinge_nominal_fit_mm": {
+    "pin_diameter": 4,
+    "round_bore_diameter": 4.6,
+    "diametral_clearance": 0.6,
+    "radial_clearance": 0.3,
+    "axial_clearance_each_end": 2,
+    "shaft_length": 44,
+    "head_diameter": 7
+  },
+  "pin_overlaps": [],
+  "measured_shaft_to_bore_distances_mm": [
+    {
+      "pin": "Cep_1_L",
+      "fixed_bore": 0.29999999999998134,
+      "door_bore": 0.29999999999996424
+    },
+    {
+      "pin": "Cep_1_P",
+      "fixed_bore": 0.2999999999999343,
+      "door_bore": 0.2999999999999542
+    },
+    {
+      "pin": "Cep_2_L",
+      "fixed_bore": 0.29999999999998506,
+      "door_bore": 0.29999999999996424
+    },
+    {
+      "pin": "Cep_2_P",
+      "fixed_bore": 0.29999999999993426,
+      "door_bore": 0.2999999999999542
+    },
+    {
+      "pin": "Cep_3_L",
+      "fixed_bore": 0.29999999999998506,
+      "door_bore": 0.29999999999996424
+    },
+    {
+      "pin": "Cep_3_P",
+      "fixed_bore": 0.29999999999993426,
+      "door_bore": 0.2999999999999542
+    }
+  ],
+  "physical_assumptions": [
+    "370/180 adopted from sink size; clearance against walls and ceramics needs measurement",
+    "Open back and top; sink support independent",
+    "Body adhesive connector strength and mounting anchors unverified",
+    "WC/room clearance for door swing unmeasured",
+    "3D-print fit, pin wear, adhesive resistance in damp bathroom and load capacity untested",
+    "No designed door catch or positive 90-degree physical opening stop; angle range describes CAD verification, not installed hardware"
+  ]
+}

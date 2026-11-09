@@ -1,0 +1,28 @@
+{
+  "saved_reopened": true,
+  "cad_valid": true,
+  "solids": 1,
+  "visible_shape_objects": [
+    "Trophy"
+  ],
+  "invalid_objects": [],
+  "ink_relief_mm": 0.85,
+  "stl_sha256": "b646ab976d75711fd0b13badd3a50cb7e9c3457e4a28617554c277472e84ac8f",
+  "stl_closed": true,
+  "stl_components": 1,
+  "stl_facets": 24684,
+  "cad_bbox_mm": [
+    64.0000002,
+    60.0,
+    92.0000001
+  ],
+  "cad_volume_mm3": 78209.25108784794,
+  "cad_report_consistent": true,
+  "source_macro_consistent": true,
+  "fcstd_sha256": "eb343756e45f0959a71275993a1efb81b3696c840f07df30fe58981c31d6cea4",
+  "png_sha256": {
+    "nahled-cad.png": "aedda7758bb0235bcccd70d380b239b6c5680c394b2c6e2819bbad74b481e920",
+    "nahled-predek-cad.png": "9ba0d5d111020a733ba5946b8440eb4e3492942ad587799f6134fb9b156b2d1c"
+  },
+  "physical_print_verified": false
+}

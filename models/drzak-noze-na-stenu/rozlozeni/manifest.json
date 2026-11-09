@@ -1,0 +1,225 @@
+{
+  "source_manifest_sha256": "1d8ac1fadfdfefe3f0a205b721fdfe1fcd18e71724d973142fa3251fa98f4263",
+  "machine": "Anycubic Kobra X 0.4 nozzle",
+  "physical_parts": 4,
+  "plates": [
+    {
+      "number": 1,
+      "geometry": "podlozka-01-geometrie.3mf",
+      "geometry_sha256": "75535c60a0aee71e17d42065691bf01f45959399ba25c09cff2bcf38ec33cf3c",
+      "preview": "podlozka-01.png",
+      "physical_parts": 2,
+      "parts": [
+        {
+          "id": "vanicka-leva",
+          "name": "01_vanicka-leva_01",
+          "file": "../stl/vanicka-leva.stl",
+          "source_sha256": "7846346b13beefc825070e31e707af45e7cc1cff4372f39a02261988d1d044b5",
+          "translation_mm": [
+            8.0,
+            8.0,
+            -0.0
+          ],
+          "placed_min_mm": [
+            8.0,
+            8.0,
+            0.0
+          ],
+          "placed_max_mm": [
+            190.0,
+            98.0,
+            41.70000076293945
+          ],
+          "size_mm": [
+            182.0,
+            90.0,
+            41.70000076293945
+          ],
+          "triangle_count": 4268,
+          "supports": true,
+          "support_note": "Záchytný lem v Z=32–35 mm a přechody stupňového spoje; podpory přístupné z otevřené vaničky.",
+          "critical_z_mm": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1,
+            1.3,
+            1.6,
+            2,
+            3,
+            4,
+            6,
+            8,
+            10,
+            32,
+            35,
+            39,
+            40.9,
+            41.7
+          ]
+        },
+        {
+          "id": "vanicka-prava",
+          "name": "02_vanicka-prava_01",
+          "file": "../stl/vanicka-prava.stl",
+          "source_sha256": "150d27acc0631bc6934a2b955881e487956a45920574a0b557b9455b1ed57819",
+          "translation_mm": [
+            8.0,
+            110.0,
+            -0.0
+          ],
+          "placed_min_mm": [
+            8.0,
+            110.0,
+            0.0
+          ],
+          "placed_max_mm": [
+            189.6999969482422,
+            200.0,
+            41.70000076293945
+          ],
+          "size_mm": [
+            181.6999969482422,
+            90.0,
+            41.70000076293945
+          ],
+          "triangle_count": 4272,
+          "supports": true,
+          "support_note": "Záchytný lem v Z=32–35 mm a přechody stupňového spoje; podpory přístupné z otevřené vaničky.",
+          "critical_z_mm": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1,
+            1.3,
+            1.6,
+            2,
+            3,
+            4,
+            6,
+            8,
+            10,
+            32,
+            35,
+            39,
+            40.9,
+            41.7
+          ]
+        }
+      ],
+      "minimum_geometry_edge_margin_mm": 8.0,
+      "minimum_bbox_gap_mm": 12.0,
+      "colour": "#334451",
+      "material_name": "prototyp — barva návrhu",
+      "profile": {
+        "kind": "Basic",
+        "mvs": "8",
+        "nozzle": "205",
+        "initial_nozzle": "215",
+        "bed": "50"
+      },
+      "supports_enabled": true
+    },
+    {
+      "number": 2,
+      "geometry": "podlozka-02-geometrie.3mf",
+      "geometry_sha256": "130b02ef361de52a2e7cab4bae29123363ac0bf804b5707e4b7d187e303013d0",
+      "preview": "podlozka-02.png",
+      "physical_parts": 2,
+      "parts": [
+        {
+          "id": "kryt-levy",
+          "name": "03_kryt-levy_01",
+          "file": "../stl/kryt-levy.stl",
+          "source_sha256": "fc710eae721d02220729bf0837f3892b3b8f59976a420ddbc41d622a817c431a",
+          "translation_mm": [
+            8.0,
+            8.0,
+            7.105427357601002e-15
+          ],
+          "placed_min_mm": [
+            8.0,
+            8.0,
+            0.0
+          ],
+          "placed_max_mm": [
+            190.0,
+            76.0,
+            3.000000000000007
+          ],
+          "size_mm": [
+            182.0,
+            68.0,
+            3.000000000000007
+          ],
+          "triangle_count": 1364,
+          "supports": false,
+          "support_note": "Plochým pohledovým čelem dolů; všechny otvory svisle, bez podpor.",
+          "critical_z_mm": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1,
+            1.6,
+            2,
+            3
+          ]
+        },
+        {
+          "id": "kryt-pravy",
+          "name": "04_kryt-pravy_01",
+          "file": "../stl/kryt-pravy.stl",
+          "source_sha256": "66d22efde4b1ceb546eec2d33854679d765370b359207c3d99920c15565b7d1a",
+          "translation_mm": [
+            8.0,
+            88.0,
+            7.105427357601002e-15
+          ],
+          "placed_min_mm": [
+            8.0,
+            88.0,
+            0.0
+          ],
+          "placed_max_mm": [
+            189.6999969482422,
+            156.0,
+            3.000000000000007
+          ],
+          "size_mm": [
+            181.6999969482422,
+            68.0,
+            3.000000000000007
+          ],
+          "triangle_count": 1364,
+          "supports": true,
+          "support_note": "Spodní přesah středového spoje je 1,6 mm nad podložkou.",
+          "critical_z_mm": [
+            0.2,
+            0.4,
+            0.6,
+            0.8,
+            1,
+            1.6,
+            2,
+            3
+          ]
+        }
+      ],
+      "minimum_geometry_edge_margin_mm": 8.0,
+      "minimum_bbox_gap_mm": 12.0,
+      "colour": "#334451",
+      "material_name": "prototyp — barva návrhu",
+      "profile": {
+        "kind": "Basic",
+        "mvs": "8",
+        "nozzle": "205",
+        "initial_nozzle": "215",
+        "bed": "50"
+      },
+      "supports_enabled": true
+    }
+  ]
+}

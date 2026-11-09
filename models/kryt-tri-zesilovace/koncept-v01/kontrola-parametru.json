@@ -1,0 +1,22 @@
+{
+  "non_destructive": true,
+  "tested_changes_mm": {
+    "PCBWidth": 112,
+    "Pitch": 72,
+    "PCBHeight": 42
+  },
+  "derived_width_height_mm": [
+    144.0,
+    228.0
+  ],
+  "native_recompute_ok": true,
+  "valid_single_solid_parts": [
+    "Chassis",
+    "Front",
+    "Lid",
+    "Tray1",
+    "Tray2",
+    "Tray3"
+  ],
+  "not_validated": "PCB fit, fastening, air flow, physical print"
+}

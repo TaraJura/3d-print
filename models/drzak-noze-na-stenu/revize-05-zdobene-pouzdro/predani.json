@@ -1,0 +1,89 @@
+{
+  "date_local": "2026-11-03",
+  "revision": "05",
+  "replaces_active_revision": "04",
+  "canonical_root": "/home/novakj/3d-print/models/drzak-noze-na-stenu/revize-05-zdobene-pouzdro",
+  "change": "New ornamented red one-piece wall scabbard, knife slides in straight from above. Jiri rejected the V04 design.",
+  "given_by_jiri": {
+    "blade_length_mm": 200,
+    "blade_height_mm": 45,
+    "blade_thickness_mm": 3,
+    "mounting": "on the wall, inserted from above"
+  },
+  "design_values": {
+    "cavity_mm": [
+      218,
+      47,
+      4.4
+    ],
+    "cavity_chain": "200 + neck 10 + tip reserve 8",
+    "blade_plane_from_wall_mm": 24,
+    "space_behind_25mm_handle_mm": 11.5,
+    "wall_under_ornament_mm": 2.4,
+    "mount_holes": 2,
+    "mount_hole_inscribed_mm": 5.5
+  },
+  "physical_parts": 1,
+  "configured_plates": 1,
+  "checks_passed": 48,
+  "checks_failed": 0,
+  "partial_recompute": {
+    "recomputed": [
+      "stl_self_intersection_flag_is_false_positive"
+    ],
+    "renamed_only": [
+      "cad_downward_faces_over_45_deg_only_at_rim_wings"
+    ],
+    "not_rerun": "All other results come from the full run on the same FCStd and STL hashes; geometry unchanged."
+  },
+  "artifacts_sha256": {
+    "fcstd": "60896561b73ba786734fc74abd816cced1274a5c87541a244740688f988c6f35",
+    "macro": "fbe45a08085a1e9bd2821faf1090d567c8e939c85a87c486e4ce6acf36fe8b41",
+    "stl": "52272f11c1da5100c33756c3c9fe94aa64b06f5f66380c752142e7aab70269b5",
+    "preview": "951c372b94ba21b1bc2b93835828bba882a5fd84a0826dc4822192d74b7272ad",
+    "project_3mf": "db2a8a1a438cf909530de85f0b264cc8427ed5da4bbfd6591d66397f0398f401",
+    "cad_manifest": "a40aaf4f7dbc5926143e734e9236301b40b36f8a65a111e7e260a25fbf03ee47",
+    "gcode_in_project": "6135c73bc1879f7cca1ef44d12be291283885737b1f669aca8b448bd016b2d66"
+  },
+  "audit_bound_to": {
+    "document_sha256": "60896561b73ba786734fc74abd816cced1274a5c87541a244740688f988c6f35",
+    "stl_sha256": "52272f11c1da5100c33756c3c9fe94aa64b06f5f66380c752142e7aab70269b5"
+  },
+  "source_manifest_matches_sliced_project": true,
+  "overall_mm": [
+    78,
+    33.8,
+    248
+  ],
+  "volume_mm3": 174543.36448049272,
+  "layers": 1240,
+  "new_disconnected_islands": 0,
+  "actual_support_segments": 0,
+  "supports_enabled": false,
+  "strokes_in_blade_path": 0,
+  "estimated_filament_g": 160.35,
+  "estimated_printing_time": "10h 26m 37s",
+  "minimum_extrusion_edge_margin_mm": 83.815,
+  "slicer_warnings": [
+    "not_support_traditional_timelapse"
+  ],
+  "cli_messages": [
+    "calc_exclude_triangles:Unable to create exclude triangles"
+  ],
+  "warnings": [
+    "Local overhang up to about 49.2 deg per STL at four rim wing transitions, about 31 mm2 above 45.5 deg; not every face is within 45 deg. No new islands in the slice; geometry intentionally unchanged.",
+    "Raw FreeCAD Mesh self-intersection flag stays set; all 41 candidate pairs are separated by the plane of one triangle (minimum 0.000035 mm), slicer mesh repairs 0.",
+    "Earlier total length 340 mm minus handle 105 and blade 200 leaves 35 mm, not the 10 mm neck. Measure tip to start of the wider handle before printing: designed 210 mm, cavity allows at most 218 mm."
+  ],
+  "important_assumptions": [
+    "Blade dimensions are as stated by Jiri, not measured here.",
+    "Neck 10 mm and handle 105 x 25 mm come from earlier statements; their shape in the reference is illustrative.",
+    "Handle front is wider than the 8.8 mm mouth and acts as the stop.",
+    "Real screws and wall are unknown; holes are 5.5 mm inscribed, head up to 10 mm.",
+    "Red is project metadata; Elegoo PLA Red 14.0007.203 is listed in stock, loading, slot and calibration are not confirmed."
+  ],
+  "physical_print_verified": false,
+  "real_knife_fit_verified": false,
+  "printer_controlled": false,
+  "gui_slicer_open_tested": false
+}

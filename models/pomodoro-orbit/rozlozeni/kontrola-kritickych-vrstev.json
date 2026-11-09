@@ -1,0 +1,181 @@
+{
+  "project": "podlozka-01-kobra-x-pla-projekt.3mf",
+  "project_sha256": "a672754c7d79fb3a516b696d6ab0c8d9a97154fca02c88d1ba6c3ccb7b8cf813",
+  "gcode_sha256": "0078f9014a33e030468647ebc9a5e28a61819744547e468bf34fb12b8a2f6d48",
+  "source": "Existing final sliced project; no reslice",
+  "checks": [
+    {
+      "part": "Screw",
+      "image": "kriticke-vrstvy-screw.png",
+      "layers": [
+        {
+          "layer_one_based": 77,
+          "z_mm": 12.36,
+          "previous_z_mm": 12.2,
+          "current_roles_segments": {
+            "Inner wall": 130,
+            "Outer wall": 65,
+            "Sparse infill": 136
+          },
+          "previous_segments": 304,
+          "current_segments": 331,
+          "minimum_current_path_distance_from_axis_mm": 0.23058258158328748
+        },
+        {
+          "layer_one_based": 78,
+          "z_mm": 12.52,
+          "previous_z_mm": 12.36,
+          "current_roles_segments": {
+            "Inner wall": 130,
+            "Outer wall": 65,
+            "Sparse infill": 132
+          },
+          "previous_segments": 331,
+          "current_segments": 327,
+          "minimum_current_path_distance_from_axis_mm": 0.325338082860141
+        },
+        {
+          "layer_one_based": 93,
+          "z_mm": 14.92,
+          "previous_z_mm": 14.76,
+          "current_roles_segments": {
+            "Inner wall": 129,
+            "Outer wall": 65,
+            "Sparse infill": 171,
+            "Internal solid infill": 126
+          },
+          "previous_segments": 475,
+          "current_segments": 491,
+          "minimum_current_path_distance_from_axis_mm": 0.34417805882199926
+        },
+        {
+          "layer_one_based": 125,
+          "z_mm": 20.04,
+          "previous_z_mm": 19.88,
+          "current_roles_segments": {
+            "Inner wall": 386,
+            "Outer wall": 238,
+            "Sparse infill": 304,
+            "Internal solid infill": 272
+          },
+          "previous_segments": 1331,
+          "current_segments": 1200,
+          "minimum_current_path_distance_from_axis_mm": 0.1871416470351918
+        },
+        {
+          "layer_one_based": 135,
+          "z_mm": 21.64,
+          "previous_z_mm": 21.48,
+          "current_roles_segments": {
+            "Inner wall": 427,
+            "Outer wall": 268,
+            "Internal solid infill": 213
+          },
+          "previous_segments": 923,
+          "current_segments": 908,
+          "minimum_current_path_distance_from_axis_mm": 0.19382644286974648
+        },
+        {
+          "layer_one_based": 136,
+          "z_mm": 21.8,
+          "previous_z_mm": 21.64,
+          "current_roles_segments": {
+            "Inner wall": 638,
+            "Outer wall": 269,
+            "Gap infill": 61,
+            "Internal solid infill": 402,
+            "Top surface": 69
+          },
+          "previous_segments": 908,
+          "current_segments": 1439,
+          "minimum_current_path_distance_from_axis_mm": 0.06995047574923521
+        },
+        {
+          "layer_one_based": 137,
+          "z_mm": 21.96,
+          "previous_z_mm": 21.8,
+          "current_roles_segments": {
+            "Inner wall": 645,
+            "Outer wall": 396,
+            "Gap infill": 2,
+            "Internal solid infill": 614
+          },
+          "previous_segments": 1439,
+          "current_segments": 1657,
+          "minimum_current_path_distance_from_axis_mm": 12.547681101802134
+        }
+      ]
+    },
+    {
+      "part": "Crown",
+      "image": "kriticke-vrstvy-crown.png",
+      "layers": [
+        {
+          "layer_one_based": 10,
+          "z_mm": 1.64,
+          "previous_z_mm": 1.48,
+          "current_roles_segments": {
+            "Inner wall": 701,
+            "Outer wall": 350,
+            "Sparse infill": 3107
+          },
+          "previous_segments": 3580,
+          "current_segments": 4158,
+          "minimum_current_path_distance_from_axis_mm": 9.35029304504394
+        },
+        {
+          "layer_one_based": 11,
+          "z_mm": 1.8,
+          "previous_z_mm": 1.64,
+          "current_roles_segments": {
+            "Inner wall": 701,
+            "Outer wall": 348,
+            "Sparse infill": 3125
+          },
+          "previous_segments": 4158,
+          "current_segments": 4174,
+          "minimum_current_path_distance_from_axis_mm": 9.35029304504394
+        },
+        {
+          "layer_one_based": 12,
+          "z_mm": 1.96,
+          "previous_z_mm": 1.8,
+          "current_roles_segments": {
+            "Sparse infill": 3132,
+            "Bridge": 125,
+            "Inner wall": 507,
+            "Outer wall": 253
+          },
+          "previous_segments": 4174,
+          "current_segments": 4017,
+          "minimum_current_path_distance_from_axis_mm": 9.35029304504394
+        },
+        {
+          "layer_one_based": 13,
+          "z_mm": 2.12,
+          "previous_z_mm": 1.96,
+          "current_roles_segments": {
+            "Inner wall": 505,
+            "Outer wall": 252,
+            "Sparse infill": 3143,
+            "Internal solid infill": 120
+          },
+          "previous_segments": 4017,
+          "current_segments": 4020,
+          "minimum_current_path_distance_from_axis_mm": 9.35029304504394
+        }
+      ]
+    }
+  ],
+  "new_slice_performed": false,
+  "printer_io_performed": false,
+  "physical_print_verified": false,
+  "visual_inspection": {
+    "performed": true,
+    "method": "Manual inspection of generated actual path panels, previous layer in grey, current in dark and bridges orange",
+    "screw_cone": "Continuous gradual perimeter widening at Z12.36/12.52/14.92/20.04; no new detached path islands in full graph audit",
+    "screw_pocket": "Z21.80 is pocket floor surface; Z21.96 contains no deposition inside radius12.547mm around the axis; open-top pocket has no bridging ceiling",
+    "crown_sockets": "Three 3.8mm blind socket openings remain at Z1.80; actual Bridge paths close them at Z1.96 and are covered at2.12",
+    "limitations": "Digital path review only. No physical bridge quality or fit verification."
+  }
+}

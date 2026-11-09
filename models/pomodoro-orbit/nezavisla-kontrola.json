@@ -1,0 +1,1232 @@
+{
+  "scope": "Independent digital CAD/STL and assembly-motion audit; no physical print or fit test",
+  "input_cad_sha256": "feb0213ae9e798637c7e6d60542992be18bc3b5462e570afe6435c9a675b5bc4",
+  "input_macro_sha256": "449b901f4f67e91c4003b16fa3e9fb8c8f5b7fa150e14b6f4ce41d5c7c915350",
+  "physical_print_verified": false,
+  "native_only": true,
+  "native_expression_count": 388,
+  "invalid_document_objects": [],
+  "parts": [
+    {
+      "id": "Base",
+      "type": "Part::Cut",
+      "valid": true,
+      "solids": 1,
+      "closed": true,
+      "volume_mm3": 71270.22804020323,
+      "bounds": {
+        "x": [
+          -56.0,
+          56.0
+        ],
+        "y": [
+          -55.982594192045724,
+          55.98259419204571
+        ],
+        "z": [
+          0.0,
+          13.8
+        ]
+      },
+      "recompute_volume_delta": 0.0,
+      "reported_volume_delta": -1.4551915228366852e-11
+    },
+    {
+      "id": "Rotor",
+      "type": "Part::Cut",
+      "valid": true,
+      "solids": 1,
+      "closed": true,
+      "volume_mm3": 34877.78579141309,
+      "bounds": {
+        "x": [
+          -52.98530927835051,
+          52.98530927835051
+        ],
+        "y": [
+          -52.98530927835051,
+          52.98530927835051
+        ],
+        "z": [
+          4.8,
+          11.8
+        ]
+      },
+      "recompute_volume_delta": 0.0,
+      "reported_volume_delta": 1.4551915228366852e-11
+    },
+    {
+      "id": "Crown",
+      "type": "Part::MultiFuse",
+      "valid": true,
+      "solids": 1,
+      "closed": true,
+      "volume_mm3": 21747.811442080023,
+      "bounds": {
+        "x": [
+          -40.0,
+          40.0
+        ],
+        "y": [
+          -39.98756728003266,
+          42.0
+        ],
+        "z": [
+          12.3,
+          17.1
+        ]
+      },
+      "recompute_volume_delta": 0.0,
+      "reported_volume_delta": 2.1827872842550278e-11
+    },
+    {
+      "id": "Screw",
+      "type": "Part::Cut",
+      "valid": true,
+      "solids": 1,
+      "closed": true,
+      "volume_mm3": 8082.723531418429,
+      "bounds": {
+        "x": [
+          -15.981481481481481,
+          15.981481481481481
+        ],
+        "y": [
+          -15.981481481481481,
+          15.981481481481481
+        ],
+        "z": [
+          2.1,
+          24.950000000000003
+        ]
+      },
+      "recompute_volume_delta": 0.0,
+      "reported_volume_delta": 1.8189894035458565e-12
+    },
+    {
+      "id": "Token1",
+      "type": "Part::Cut",
+      "valid": true,
+      "solids": 1,
+      "closed": true,
+      "volume_mm3": 316.9650468285487,
+      "bounds": {
+        "x": [
+          13.445436482630058,
+          25.445436482630058
+        ],
+        "y": [
+          13.447301390625155,
+          25.44357157463495
+        ],
+        "z": [
+          16.0,
+          18.950000000000003
+        ]
+      },
+      "recompute_volume_delta": 0.0,
+      "reported_volume_delta": 0.0
+    },
+    {
+      "id": "Token2",
+      "type": "Part::Cut",
+      "valid": true,
+      "solids": 1,
+      "closed": true,
+      "volume_mm3": 316.1184956092752,
+      "bounds": {
+        "x": [
+          -25.445436482630054,
+          -13.445436482630054
+        ],
+        "y": [
+          13.447301390625158,
+          25.443571574634955
+        ],
+        "z": [
+          16.0,
+          18.950000000000003
+        ]
+      },
+      "recompute_volume_delta": 0.0,
+      "reported_volume_delta": 0.0
+    },
+    {
+      "id": "Token3",
+      "type": "Part::Cut",
+      "valid": true,
+      "solids": 1,
+      "closed": true,
+      "volume_mm3": 315.97501865976176,
+      "bounds": {
+        "x": [
+          -25.44543648263006,
+          -13.445436482630061
+        ],
+        "y": [
+          -25.44357157463495,
+          -13.447301390625157
+        ],
+        "z": [
+          16.0,
+          18.950000000000003
+        ]
+      },
+      "recompute_volume_delta": 0.0,
+      "reported_volume_delta": 0.0
+    },
+    {
+      "id": "Token4",
+      "type": "Part::Cut",
+      "valid": true,
+      "solids": 1,
+      "closed": true,
+      "volume_mm3": 315.8001873311583,
+      "bounds": {
+        "x": [
+          13.44543648263005,
+          25.44543648263005
+        ],
+        "y": [
+          -25.44357157463496,
+          -13.447301390625164
+        ],
+        "z": [
+          16.0,
+          18.950000000000003
+        ]
+      },
+      "recompute_volume_delta": 0.0,
+      "reported_volume_delta": 0.0
+    },
+    {
+      "id": "ModeMedallion",
+      "type": "Part::Cut",
+      "valid": true,
+      "solids": 1,
+      "closed": true,
+      "volume_mm3": 1394.865272507864,
+      "bounds": {
+        "x": [
+          -12.0,
+          12.0
+        ],
+        "y": [
+          -11.996270184009798,
+          11.996270184009795
+        ],
+        "z": [
+          23.85,
+          27.05
+        ]
+      },
+      "recompute_volume_delta": 0.0,
+      "reported_volume_delta": -2.2737367544323206e-13
+    }
+  ],
+  "physical_parts": 9,
+  "manifest_ids_match": true,
+  "macro_hash_matches_report": true,
+  "stl": [
+    {
+      "id": "Base",
+      "sha256": "5ed33c9819a4a8f72e27ae06d8e6ba6947be608ffcb347a848f493fa4673a0b5",
+      "hash_matches_report": true,
+      "facets": 6176,
+      "facets_match_report": true,
+      "closed": true,
+      "components": 1,
+      "print_z_min": 0.0,
+      "print_bounds_mm": [
+        112.0,
+        111.9651870727539,
+        13.800000190734863
+      ],
+      "bbox_matches_report": true
+    },
+    {
+      "id": "Rotor",
+      "sha256": "f0a9bfc7fecb3e7ad74feaf6cb9e1c93589fb542fc717186117a1636ecfddf60",
+      "hash_matches_report": true,
+      "facets": 26820,
+      "facets_match_report": true,
+      "closed": true,
+      "components": 1,
+      "print_z_min": -1.9073486612342094e-07,
+      "print_bounds_mm": [
+        105.97061920166016,
+        105.97061920166016,
+        7.000000190734866
+      ],
+      "bbox_matches_report": true
+    },
+    {
+      "id": "Crown",
+      "sha256": "8ab7ae8ced439e5537339f0908292ac4f12a26a1e4d3ae781a090c3c54c71c33",
+      "hash_matches_report": true,
+      "facets": 19300,
+      "facets_match_report": true,
+      "closed": true,
+      "components": 1,
+      "print_z_min": -1.9073486612342094e-07,
+      "print_bounds_mm": [
+        80.0,
+        81.98756408691406,
+        4.799999904632571
+      ],
+      "bbox_matches_report": true
+    },
+    {
+      "id": "Screw",
+      "sha256": "7b6f1a988fcd7e084b43bbd31c85ab8c2a45bc259dce2760d9a7e9b51f059619",
+      "hash_matches_report": true,
+      "facets": 9686,
+      "facets_match_report": true,
+      "closed": true,
+      "components": 1,
+      "print_z_min": 9.536743306171047e-08,
+      "print_bounds_mm": [
+        31.962963104248047,
+        31.962963104248047,
+        22.850000286102294
+      ],
+      "bbox_matches_report": true
+    },
+    {
+      "id": "Token1",
+      "sha256": "272797c6bdc8037e8445daba5b44baa589ea9a7ec80e4c342281267fb858ec3f",
+      "hash_matches_report": true,
+      "facets": 1804,
+      "facets_match_report": true,
+      "closed": true,
+      "components": 1,
+      "print_z_min": 0.0,
+      "print_bounds_mm": [
+        12.0,
+        11.996270179748535,
+        2.950000047683716
+      ],
+      "bbox_matches_report": true
+    },
+    {
+      "id": "Token2",
+      "sha256": "a8741eb783c188f27d640fb90d833ff8fe2f9b2cfe1ac4da3f9fc349a08e8bb4",
+      "hash_matches_report": true,
+      "facets": 2502,
+      "facets_match_report": true,
+      "closed": true,
+      "components": 1,
+      "print_z_min": 0.0,
+      "print_bounds_mm": [
+        12.0,
+        11.996270179748535,
+        2.950000047683716
+      ],
+      "bbox_matches_report": true
+    },
+    {
+      "id": "Token3",
+      "sha256": "9db4adb5ce064447a54737e7f7e832e8237dd9ed0f8bd8751f8f8898644c9b71",
+      "hash_matches_report": true,
+      "facets": 3770,
+      "facets_match_report": true,
+      "closed": true,
+      "components": 1,
+      "print_z_min": 0.0,
+      "print_bounds_mm": [
+        12.0,
+        11.996270179748535,
+        2.950000047683716
+      ],
+      "bbox_matches_report": true
+    },
+    {
+      "id": "Token4",
+      "sha256": "61b5c341bbf5add2f7c75287f722c04a0f4c7e9cafbe2a05a497ad6b78f24f3f",
+      "hash_matches_report": true,
+      "facets": 1816,
+      "facets_match_report": true,
+      "closed": true,
+      "components": 1,
+      "print_z_min": 0.0,
+      "print_bounds_mm": [
+        12.0,
+        11.996270179748535,
+        2.950000047683716
+      ],
+      "bbox_matches_report": true
+    },
+    {
+      "id": "ModeMedallion",
+      "sha256": "76289e26dc46f85be5f4687383ee14ba1ee0858be38ee277e71afabcea82b483",
+      "hash_matches_report": true,
+      "facets": 3258,
+      "facets_match_report": true,
+      "closed": true,
+      "components": 1,
+      "print_z_min": -3.814697322468419e-07,
+      "print_bounds_mm": [
+        24.0,
+        23.99254035949707,
+        3.19999995231629
+      ],
+      "bbox_matches_report": true
+    }
+  ],
+  "assembly_bounds_mm": {
+    "x": [
+      -56.0,
+      56.0
+    ],
+    "y": [
+      -55.982594192045724,
+      55.98259419204571
+    ],
+    "z": [
+      0.0,
+      27.05
+    ]
+  },
+  "assembly_size_mm": [
+    112.0,
+    111.96518838409143,
+    27.05
+  ],
+  "static_collisions": [],
+  "rotor_sweep": [
+    {
+      "angle_deg": 0,
+      "collisions": {}
+    },
+    {
+      "angle_deg": 6,
+      "collisions": {}
+    },
+    {
+      "angle_deg": 12,
+      "collisions": {}
+    },
+    {
+      "angle_deg": 18,
+      "collisions": {}
+    },
+    {
+      "angle_deg": 24,
+      "collisions": {}
+    },
+    {
+      "angle_deg": 30,
+      "collisions": {}
+    },
+    {
+      "angle_deg": 36,
+      "collisions": {}
+    },
+    {
+      "angle_deg": 42,
+      "collisions": {}
+    },
+    {
+      "angle_deg": 48,
+      "collisions": {}
+    },
+    {
+      "angle_deg": 54,
+      "collisions": {}
+    },
+    {
+      "angle_deg": 60,
+      "collisions": {}
+    },
+    {
+      "angle_deg": 66,
+      "collisions": {}
+    },
+    {
+      "angle_deg": 72,
+      "collisions": {}
+    },
+    {
+      "angle_deg": 78,
+      "collisions": {}
+    },
+    {
+      "angle_deg": 84,
+      "collisions": {}
+    },
+    {
+      "angle_deg": 90,
+      "collisions": {}
+    },
+    {
+      "angle_deg": 96,
+      "collisions": {}
+    },
+    {
+      "angle_deg": 102,
+      "collisions": {}
+    },
+    {
+      "angle_deg": 108,
+      "collisions": {}
+    },
+    {
+      "angle_deg": 114,
+      "collisions": {}
+    },
+    {
+      "angle_deg": 120,
+      "collisions": {}
+    },
+    {
+      "angle_deg": 126,
+      "collisions": {}
+    },
+    {
+      "angle_deg": 132,
+      "collisions": {}
+    },
+    {
+      "angle_deg": 138,
+      "collisions": {}
+    },
+    {
+      "angle_deg": 144,
+      "collisions": {}
+    },
+    {
+      "angle_deg": 150,
+      "collisions": {}
+    },
+    {
+      "angle_deg": 156,
+      "collisions": {}
+    },
+    {
+      "angle_deg": 162,
+      "collisions": {}
+    },
+    {
+      "angle_deg": 168,
+      "collisions": {}
+    },
+    {
+      "angle_deg": 174,
+      "collisions": {}
+    },
+    {
+      "angle_deg": 180,
+      "collisions": {}
+    },
+    {
+      "angle_deg": 186,
+      "collisions": {}
+    },
+    {
+      "angle_deg": 192,
+      "collisions": {}
+    },
+    {
+      "angle_deg": 198,
+      "collisions": {}
+    },
+    {
+      "angle_deg": 204,
+      "collisions": {}
+    },
+    {
+      "angle_deg": 210,
+      "collisions": {}
+    },
+    {
+      "angle_deg": 216,
+      "collisions": {}
+    },
+    {
+      "angle_deg": 222,
+      "collisions": {}
+    },
+    {
+      "angle_deg": 228,
+      "collisions": {}
+    },
+    {
+      "angle_deg": 234,
+      "collisions": {}
+    },
+    {
+      "angle_deg": 240,
+      "collisions": {}
+    },
+    {
+      "angle_deg": 246,
+      "collisions": {}
+    },
+    {
+      "angle_deg": 252,
+      "collisions": {}
+    },
+    {
+      "angle_deg": 258,
+      "collisions": {}
+    },
+    {
+      "angle_deg": 264,
+      "collisions": {}
+    },
+    {
+      "angle_deg": 270,
+      "collisions": {}
+    },
+    {
+      "angle_deg": 276,
+      "collisions": {}
+    },
+    {
+      "angle_deg": 282,
+      "collisions": {}
+    },
+    {
+      "angle_deg": 288,
+      "collisions": {}
+    },
+    {
+      "angle_deg": 294,
+      "collisions": {}
+    },
+    {
+      "angle_deg": 300,
+      "collisions": {}
+    },
+    {
+      "angle_deg": 306,
+      "collisions": {}
+    },
+    {
+      "angle_deg": 312,
+      "collisions": {}
+    },
+    {
+      "angle_deg": 318,
+      "collisions": {}
+    },
+    {
+      "angle_deg": 324,
+      "collisions": {}
+    },
+    {
+      "angle_deg": 330,
+      "collisions": {}
+    },
+    {
+      "angle_deg": 336,
+      "collisions": {}
+    },
+    {
+      "angle_deg": 342,
+      "collisions": {}
+    },
+    {
+      "angle_deg": 348,
+      "collisions": {}
+    },
+    {
+      "angle_deg": 354,
+      "collisions": {}
+    },
+    {
+      "angle_deg": 360,
+      "collisions": {}
+    }
+  ],
+  "rotor_axial_gap_mm": 0.5,
+  "rotor_hub_radial_gap_mm": 0.3999999999999986,
+  "screw_unscrew": [
+    {
+      "angle_deg": 0,
+      "z_shift_mm": 0.0,
+      "collisions": {}
+    },
+    {
+      "angle_deg": 30,
+      "z_shift_mm": 0.3,
+      "collisions": {}
+    },
+    {
+      "angle_deg": 45,
+      "z_shift_mm": 0.45,
+      "collisions": {}
+    },
+    {
+      "angle_deg": 90,
+      "z_shift_mm": 0.9,
+      "collisions": {}
+    },
+    {
+      "angle_deg": 180,
+      "z_shift_mm": 1.8,
+      "collisions": {}
+    },
+    {
+      "angle_deg": 270,
+      "z_shift_mm": 2.7,
+      "collisions": {}
+    },
+    {
+      "angle_deg": 360,
+      "z_shift_mm": 3.6,
+      "collisions": {}
+    },
+    {
+      "angle_deg": 450,
+      "z_shift_mm": 4.5,
+      "collisions": {}
+    },
+    {
+      "angle_deg": 540,
+      "z_shift_mm": 5.4,
+      "collisions": {}
+    },
+    {
+      "angle_deg": 720,
+      "z_shift_mm": 7.2,
+      "collisions": {}
+    },
+    {
+      "angle_deg": 900,
+      "z_shift_mm": 9.0,
+      "collisions": {}
+    },
+    {
+      "angle_deg": 1080,
+      "z_shift_mm": 10.8,
+      "collisions": {}
+    },
+    {
+      "angle_deg": 1260,
+      "z_shift_mm": 12.6,
+      "collisions": {}
+    },
+    {
+      "angle_deg": 1440,
+      "z_shift_mm": 14.4,
+      "collisions": {}
+    }
+  ],
+  "thread_minimum_distance_mm": 0.299651096342018,
+  "reversible_parts": [
+    {
+      "id": "Token1",
+      "floor_z_mm": 16.0,
+      "upright_collisions": {},
+      "flipped_collisions": {},
+      "flipped_bounds": {
+        "x": [
+          13.445436482630058,
+          25.445436482630058
+        ],
+        "y": [
+          13.447301390625162,
+          25.44357157463496
+        ],
+        "z": [
+          16.0,
+          18.950000000000003
+        ]
+      },
+      "vertical_extraction": [
+        {
+          "lift_mm": 0,
+          "upright_collisions": {},
+          "flipped_collisions": {}
+        },
+        {
+          "lift_mm": 0.2,
+          "upright_collisions": {},
+          "flipped_collisions": {}
+        },
+        {
+          "lift_mm": 0.5,
+          "upright_collisions": {},
+          "flipped_collisions": {}
+        },
+        {
+          "lift_mm": 1,
+          "upright_collisions": {},
+          "flipped_collisions": {}
+        },
+        {
+          "lift_mm": 2,
+          "upright_collisions": {},
+          "flipped_collisions": {}
+        },
+        {
+          "lift_mm": 4,
+          "upright_collisions": {},
+          "flipped_collisions": {}
+        },
+        {
+          "lift_mm": 8,
+          "upright_collisions": {},
+          "flipped_collisions": {}
+        },
+        {
+          "lift_mm": 15,
+          "upright_collisions": {},
+          "flipped_collisions": {}
+        }
+      ],
+      "lifted_flip": [
+        {
+          "angle_deg": 0,
+          "lift_mm": 8,
+          "collisions": {}
+        },
+        {
+          "angle_deg": 30,
+          "lift_mm": 8,
+          "collisions": {}
+        },
+        {
+          "angle_deg": 60,
+          "lift_mm": 8,
+          "collisions": {}
+        },
+        {
+          "angle_deg": 90,
+          "lift_mm": 8,
+          "collisions": {}
+        },
+        {
+          "angle_deg": 120,
+          "lift_mm": 8,
+          "collisions": {}
+        },
+        {
+          "angle_deg": 150,
+          "lift_mm": 8,
+          "collisions": {}
+        },
+        {
+          "angle_deg": 180,
+          "lift_mm": 8,
+          "collisions": {}
+        }
+      ],
+      "tested_flip_lift_mm": 8,
+      "upright_bottom_section_area_mm2": 91.73450548483633,
+      "flipped_bottom_section_area_mm2": 91.78308991192807
+    },
+    {
+      "id": "Token2",
+      "floor_z_mm": 16.0,
+      "upright_collisions": {},
+      "flipped_collisions": {},
+      "flipped_bounds": {
+        "x": [
+          -25.445436482630054,
+          -13.445436482630054
+        ],
+        "y": [
+          13.447301390625158,
+          25.44357157463495
+        ],
+        "z": [
+          16.0,
+          18.950000000000003
+        ]
+      },
+      "vertical_extraction": [
+        {
+          "lift_mm": 0,
+          "upright_collisions": {},
+          "flipped_collisions": {}
+        },
+        {
+          "lift_mm": 0.2,
+          "upright_collisions": {},
+          "flipped_collisions": {}
+        },
+        {
+          "lift_mm": 0.5,
+          "upright_collisions": {},
+          "flipped_collisions": {}
+        },
+        {
+          "lift_mm": 1,
+          "upright_collisions": {},
+          "flipped_collisions": {}
+        },
+        {
+          "lift_mm": 2,
+          "upright_collisions": {},
+          "flipped_collisions": {}
+        },
+        {
+          "lift_mm": 4,
+          "upright_collisions": {},
+          "flipped_collisions": {}
+        },
+        {
+          "lift_mm": 8,
+          "upright_collisions": {},
+          "flipped_collisions": {}
+        },
+        {
+          "lift_mm": 15,
+          "upright_collisions": {},
+          "flipped_collisions": {}
+        }
+      ],
+      "lifted_flip": [
+        {
+          "angle_deg": 0,
+          "lift_mm": 8,
+          "collisions": {}
+        },
+        {
+          "angle_deg": 30,
+          "lift_mm": 8,
+          "collisions": {}
+        },
+        {
+          "angle_deg": 60,
+          "lift_mm": 8,
+          "collisions": {}
+        },
+        {
+          "angle_deg": 90,
+          "lift_mm": 8,
+          "collisions": {}
+        },
+        {
+          "angle_deg": 120,
+          "lift_mm": 8,
+          "collisions": {}
+        },
+        {
+          "angle_deg": 150,
+          "lift_mm": 8,
+          "collisions": {}
+        },
+        {
+          "angle_deg": 180,
+          "lift_mm": 8,
+          "collisions": {}
+        }
+      ],
+      "tested_flip_lift_mm": 8,
+      "upright_bottom_section_area_mm2": 91.7345054848363,
+      "flipped_bottom_section_area_mm2": 90.2439058782308
+    },
+    {
+      "id": "Token3",
+      "floor_z_mm": 16.0,
+      "upright_collisions": {},
+      "flipped_collisions": {},
+      "flipped_bounds": {
+        "x": [
+          -25.44543648263006,
+          -13.445436482630061
+        ],
+        "y": [
+          -25.443571574634948,
+          -13.44730139062515
+        ],
+        "z": [
+          15.999999999999996,
+          18.950000000000003
+        ]
+      },
+      "vertical_extraction": [
+        {
+          "lift_mm": 0,
+          "upright_collisions": {},
+          "flipped_collisions": {}
+        },
+        {
+          "lift_mm": 0.2,
+          "upright_collisions": {},
+          "flipped_collisions": {}
+        },
+        {
+          "lift_mm": 0.5,
+          "upright_collisions": {},
+          "flipped_collisions": {}
+        },
+        {
+          "lift_mm": 1,
+          "upright_collisions": {},
+          "flipped_collisions": {}
+        },
+        {
+          "lift_mm": 2,
+          "upright_collisions": {},
+          "flipped_collisions": {}
+        },
+        {
+          "lift_mm": 4,
+          "upright_collisions": {},
+          "flipped_collisions": {}
+        },
+        {
+          "lift_mm": 8,
+          "upright_collisions": {},
+          "flipped_collisions": {}
+        },
+        {
+          "lift_mm": 15,
+          "upright_collisions": {},
+          "flipped_collisions": {}
+        }
+      ],
+      "lifted_flip": [
+        {
+          "angle_deg": 0,
+          "lift_mm": 8,
+          "collisions": {}
+        },
+        {
+          "angle_deg": 30,
+          "lift_mm": 8,
+          "collisions": {}
+        },
+        {
+          "angle_deg": 60,
+          "lift_mm": 8,
+          "collisions": {}
+        },
+        {
+          "angle_deg": 90,
+          "lift_mm": 8,
+          "collisions": {}
+        },
+        {
+          "angle_deg": 120,
+          "lift_mm": 8,
+          "collisions": {}
+        },
+        {
+          "angle_deg": 150,
+          "lift_mm": 8,
+          "collisions": {}
+        },
+        {
+          "angle_deg": 180,
+          "lift_mm": 8,
+          "collisions": {}
+        }
+      ],
+      "tested_flip_lift_mm": 8,
+      "upright_bottom_section_area_mm2": 91.73450548483632,
+      "flipped_bottom_section_area_mm2": 89.98303845438772
+    },
+    {
+      "id": "Token4",
+      "floor_z_mm": 16.0,
+      "upright_collisions": {},
+      "flipped_collisions": {},
+      "flipped_bounds": {
+        "x": [
+          13.44543648263005,
+          25.44543648263005
+        ],
+        "y": [
+          -25.443571574634955,
+          -13.447301390625157
+        ],
+        "z": [
+          15.999999999999996,
+          18.950000000000003
+        ]
+      },
+      "vertical_extraction": [
+        {
+          "lift_mm": 0,
+          "upright_collisions": {},
+          "flipped_collisions": {}
+        },
+        {
+          "lift_mm": 0.2,
+          "upright_collisions": {},
+          "flipped_collisions": {}
+        },
+        {
+          "lift_mm": 0.5,
+          "upright_collisions": {},
+          "flipped_collisions": {}
+        },
+        {
+          "lift_mm": 1,
+          "upright_collisions": {},
+          "flipped_collisions": {}
+        },
+        {
+          "lift_mm": 2,
+          "upright_collisions": {},
+          "flipped_collisions": {}
+        },
+        {
+          "lift_mm": 4,
+          "upright_collisions": {},
+          "flipped_collisions": {}
+        },
+        {
+          "lift_mm": 8,
+          "upright_collisions": {},
+          "flipped_collisions": {}
+        },
+        {
+          "lift_mm": 15,
+          "upright_collisions": {},
+          "flipped_collisions": {}
+        }
+      ],
+      "lifted_flip": [
+        {
+          "angle_deg": 0,
+          "lift_mm": 8,
+          "collisions": {}
+        },
+        {
+          "angle_deg": 30,
+          "lift_mm": 8,
+          "collisions": {}
+        },
+        {
+          "angle_deg": 60,
+          "lift_mm": 8,
+          "collisions": {}
+        },
+        {
+          "angle_deg": 90,
+          "lift_mm": 8,
+          "collisions": {}
+        },
+        {
+          "angle_deg": 120,
+          "lift_mm": 8,
+          "collisions": {}
+        },
+        {
+          "angle_deg": 150,
+          "lift_mm": 8,
+          "collisions": {}
+        },
+        {
+          "angle_deg": 180,
+          "lift_mm": 8,
+          "collisions": {}
+        }
+      ],
+      "tested_flip_lift_mm": 8,
+      "upright_bottom_section_area_mm2": 91.73450548483632,
+      "flipped_bottom_section_area_mm2": 89.66516355303658
+    },
+    {
+      "id": "ModeMedallion",
+      "floor_z_mm": 23.85,
+      "upright_collisions": {},
+      "flipped_collisions": {},
+      "flipped_bounds": {
+        "x": [
+          -12.0,
+          12.0
+        ],
+        "y": [
+          -11.996270184009798,
+          11.996270184009795
+        ],
+        "z": [
+          23.85,
+          27.050000000000004
+        ]
+      },
+      "vertical_extraction": [
+        {
+          "lift_mm": 0,
+          "upright_collisions": {},
+          "flipped_collisions": {}
+        },
+        {
+          "lift_mm": 0.2,
+          "upright_collisions": {},
+          "flipped_collisions": {}
+        },
+        {
+          "lift_mm": 0.5,
+          "upright_collisions": {},
+          "flipped_collisions": {}
+        },
+        {
+          "lift_mm": 1,
+          "upright_collisions": {},
+          "flipped_collisions": {}
+        },
+        {
+          "lift_mm": 2,
+          "upright_collisions": {},
+          "flipped_collisions": {}
+        },
+        {
+          "lift_mm": 4,
+          "upright_collisions": {},
+          "flipped_collisions": {}
+        },
+        {
+          "lift_mm": 8,
+          "upright_collisions": {},
+          "flipped_collisions": {}
+        },
+        {
+          "lift_mm": 15,
+          "upright_collisions": {},
+          "flipped_collisions": {}
+        }
+      ],
+      "lifted_flip": [
+        {
+          "angle_deg": 0,
+          "lift_mm": 15,
+          "collisions": {}
+        },
+        {
+          "angle_deg": 30,
+          "lift_mm": 15,
+          "collisions": {}
+        },
+        {
+          "angle_deg": 60,
+          "lift_mm": 15,
+          "collisions": {}
+        },
+        {
+          "angle_deg": 90,
+          "lift_mm": 15,
+          "collisions": {}
+        },
+        {
+          "angle_deg": 120,
+          "lift_mm": 15,
+          "collisions": {}
+        },
+        {
+          "angle_deg": 150,
+          "lift_mm": 15,
+          "collisions": {}
+        },
+        {
+          "angle_deg": 180,
+          "lift_mm": 15,
+          "collisions": {}
+        }
+      ],
+      "tested_flip_lift_mm": 15,
+      "insufficient_lift_note": "8 mm lift was rejected: the 12 mm radius medallion hits the screw head during rotation; use the tested 15 mm lift or move it fully clear.",
+      "upright_bottom_section_area_mm2": 413.0305570583925,
+      "flipped_bottom_section_area_mm2": 384.50262987346565
+    }
+  ],
+  "input_cad_changed_during_audit": false,
+  "all_passed": true
+}

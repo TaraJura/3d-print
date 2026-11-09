@@ -1,0 +1,5367 @@
+{
+  "source_manifest_sha256": "b285058715d40511f389ea8ef735b56c2a32afae5132af82ac62a952eac44a58",
+  "machine": "Anycubic Kobra X 0.4 nozzle",
+  "bed_mm": [
+    260.0,
+    260.0,
+    260.0
+  ],
+  "physical_parts": 54,
+  "type_counts": {
+    "bok-segment": 6,
+    "dvere-dolni": 1,
+    "dvere-dolni-prave": 1,
+    "dvere-stredni": 1,
+    "dvere-stredni-prave": 1,
+    "dvere-horni": 1,
+    "dvere-horni-prave": 1,
+    "pricka-predni-polovina": 4,
+    "pricka-zadni-polovina": 4,
+    "spojka-panelu": 16,
+    "spojka-pricky": 4,
+    "rohovy-uhelnik": 8,
+    "cep-pantu": 6
+  },
+  "plates": [
+    {
+      "number": 1,
+      "geometry": "podlozka-01-geometrie.3mf",
+      "geometry_sha256": "4f1b99303cb9e86181a16c13ae105c3c1f8008f35aad3c2584d1018decb530e3",
+      "preview": "podlozka-01.png",
+      "physical_parts": 12,
+      "parts": [
+        {
+          "id": "bok-segment",
+          "name": "bok-segment-01",
+          "file": "stl/bok-segment.stl",
+          "source_sha256": "1d4c936ffbe41b6a8fcb9af6900924977a238587cd0c00ac556141fce939fe21",
+          "translation_mm": [
+            8.5,
+            8.25,
+            -0.0
+          ],
+          "placed_min_mm": [
+            8.5,
+            8.25,
+            0.0
+          ],
+          "placed_max_mm": [
+            191.5,
+            184.75,
+            20.0
+          ],
+          "size_mm": [
+            183.0,
+            176.5,
+            20.0
+          ],
+          "triangle_count": 644,
+          "supports": false,
+          "support_note": "Vnější plochou na podložku; pantová pouzdra mají podložený kořen a otvor s 45° stropem ve směru +X sestavy / +Z tisku.",
+          "critical_z_mm": [
+            0.2,
+            4.2,
+            10.000000000000018,
+            14,
+            16,
+            17.2,
+            18.4,
+            19.800000000000036
+          ]
+        },
+        {
+          "id": "pricka-predni-polovina",
+          "name": "pricka-predni-polovina-01",
+          "file": "stl/pricka-predni-polovina.stl",
+          "source_sha256": "88341b811a158010e118d941b6099a0b18d6d02210ddeca827c1931484349741",
+          "translation_mm": [
+            8.5,
+            196.75,
+            -0.0
+          ],
+          "placed_min_mm": [
+            8.5,
+            196.75,
+            0.0
+          ],
+          "placed_max_mm": [
+            189.5,
+            208.75,
+            12.0
+          ],
+          "size_mm": [
+            181.0,
+            12.0,
+            12.0
+          ],
+          "triangle_count": 12,
+          "supports": false,
+          "support_note": "Na dolní ploše; hranol bez převisů.",
+          "critical_z_mm": [
+            0.2,
+            6.0,
+            11.8
+          ]
+        },
+        {
+          "id": "pricka-predni-polovina",
+          "name": "pricka-predni-polovina-02",
+          "file": "stl/pricka-predni-polovina.stl",
+          "source_sha256": "88341b811a158010e118d941b6099a0b18d6d02210ddeca827c1931484349741",
+          "translation_mm": [
+            8.5,
+            220.75,
+            -0.0
+          ],
+          "placed_min_mm": [
+            8.5,
+            220.75,
+            0.0
+          ],
+          "placed_max_mm": [
+            189.5,
+            232.75,
+            12.0
+          ],
+          "size_mm": [
+            181.0,
+            12.0,
+            12.0
+          ],
+          "triangle_count": 12,
+          "supports": false,
+          "support_note": "Na dolní ploše; hranol bez převisů.",
+          "critical_z_mm": [
+            0.2,
+            6.0,
+            11.8
+          ]
+        },
+        {
+          "id": "spojka-pricky",
+          "name": "spojka-pricky-01",
+          "file": "stl/spojka-pricky.stl",
+          "source_sha256": "4e7773173b2b19938c6d2468853c9110829e14a1ae310419129fb2ceaedcdc21",
+          "translation_mm": [
+            201.5,
+            196.75,
+            -0.0
+          ],
+          "placed_min_mm": [
+            201.5,
+            196.75,
+            0.0
+          ],
+          "placed_max_mm": [
+            251.5,
+            208.75,
+            4.0
+          ],
+          "size_mm": [
+            50.0,
+            12.0,
+            4.0
+          ],
+          "triangle_count": 12,
+          "supports": false,
+          "support_note": "Plochou 50×12 mm na podložku, výška 4 mm.",
+          "critical_z_mm": [
+            0.2,
+            2.0000000000000013,
+            3.8000000000000025
+          ]
+        },
+        {
+          "id": "spojka-pricky",
+          "name": "spojka-pricky-02",
+          "file": "stl/spojka-pricky.stl",
+          "source_sha256": "4e7773173b2b19938c6d2468853c9110829e14a1ae310419129fb2ceaedcdc21",
+          "translation_mm": [
+            201.5,
+            220.75,
+            -0.0
+          ],
+          "placed_min_mm": [
+            201.5,
+            220.75,
+            0.0
+          ],
+          "placed_max_mm": [
+            251.5,
+            232.75,
+            4.0
+          ],
+          "size_mm": [
+            50.0,
+            12.0,
+            4.0
+          ],
+          "triangle_count": 12,
+          "supports": false,
+          "support_note": "Plochou 50×12 mm na podložku, výška 4 mm.",
+          "critical_z_mm": [
+            0.2,
+            2.0000000000000013,
+            3.8000000000000025
+          ]
+        },
+        {
+          "id": "rohovy-uhelnik",
+          "name": "rohovy-uhelnik-01",
+          "file": "stl/rohovy-uhelnik.stl",
+          "source_sha256": "69b0e9a2d7e0fe478e5aa58702ea13565d0197ee2833d813d887a5762c76cab5",
+          "translation_mm": [
+            203.5,
+            8.25,
+            -0.0
+          ],
+          "placed_min_mm": [
+            203.5,
+            8.25,
+            0.0
+          ],
+          "placed_max_mm": [
+            227.5,
+            32.25,
+            12.0
+          ],
+          "size_mm": [
+            24.0,
+            24.0,
+            12.0
+          ],
+          "triangle_count": 20,
+          "supports": false,
+          "support_note": "L půdorys na podložce, výška 12 mm, žádný převis.",
+          "critical_z_mm": [
+            0.2,
+            6.0,
+            11.8
+          ]
+        },
+        {
+          "id": "cep-pantu",
+          "name": "cep-pantu-01",
+          "file": "stl/cep-pantu.stl",
+          "source_sha256": "8eed97f341cdf2c44e8a600939909b5899582f64237dab41517a77e69d27ce2c",
+          "translation_mm": [
+            239.5,
+            8.25,
+            4.440892098500626e-16
+          ],
+          "placed_min_mm": [
+            239.5,
+            8.25,
+            0.0
+          ],
+          "placed_max_mm": [
+            246.5,
+            15.25,
+            46.0
+          ],
+          "size_mm": [
+            7.0,
+            7.0,
+            46.0
+          ],
+          "triangle_count": 476,
+          "supports": false,
+          "support_note": "Nastojato na Ø7 hlavě, osa Z; dřík Ø4 / délka 44, brim pomáhá přilnavosti.",
+          "critical_z_mm": [
+            0.2,
+            23.0,
+            45.8
+          ]
+        },
+        {
+          "id": "cep-pantu",
+          "name": "cep-pantu-02",
+          "file": "stl/cep-pantu.stl",
+          "source_sha256": "8eed97f341cdf2c44e8a600939909b5899582f64237dab41517a77e69d27ce2c",
+          "translation_mm": [
+            8.5,
+            244.75,
+            4.440892098500626e-16
+          ],
+          "placed_min_mm": [
+            8.5,
+            244.75,
+            0.0
+          ],
+          "placed_max_mm": [
+            15.5,
+            251.75,
+            46.0
+          ],
+          "size_mm": [
+            7.0,
+            7.0,
+            46.0
+          ],
+          "triangle_count": 476,
+          "supports": false,
+          "support_note": "Nastojato na Ø7 hlavě, osa Z; dřík Ø4 / délka 44, brim pomáhá přilnavosti.",
+          "critical_z_mm": [
+            0.2,
+            23.0,
+            45.8
+          ]
+        },
+        {
+          "id": "cep-pantu",
+          "name": "cep-pantu-03",
+          "file": "stl/cep-pantu.stl",
+          "source_sha256": "8eed97f341cdf2c44e8a600939909b5899582f64237dab41517a77e69d27ce2c",
+          "translation_mm": [
+            27.5,
+            244.75,
+            4.440892098500626e-16
+          ],
+          "placed_min_mm": [
+            27.5,
+            244.75,
+            0.0
+          ],
+          "placed_max_mm": [
+            34.5,
+            251.75,
+            46.0
+          ],
+          "size_mm": [
+            7.0,
+            7.0,
+            46.0
+          ],
+          "triangle_count": 476,
+          "supports": false,
+          "support_note": "Nastojato na Ø7 hlavě, osa Z; dřík Ø4 / délka 44, brim pomáhá přilnavosti.",
+          "critical_z_mm": [
+            0.2,
+            23.0,
+            45.8
+          ]
+        },
+        {
+          "id": "cep-pantu",
+          "name": "cep-pantu-04",
+          "file": "stl/cep-pantu.stl",
+          "source_sha256": "8eed97f341cdf2c44e8a600939909b5899582f64237dab41517a77e69d27ce2c",
+          "translation_mm": [
+            46.5,
+            244.75,
+            4.440892098500626e-16
+          ],
+          "placed_min_mm": [
+            46.5,
+            244.75,
+            0.0
+          ],
+          "placed_max_mm": [
+            53.5,
+            251.75,
+            46.0
+          ],
+          "size_mm": [
+            7.0,
+            7.0,
+            46.0
+          ],
+          "triangle_count": 476,
+          "supports": false,
+          "support_note": "Nastojato na Ø7 hlavě, osa Z; dřík Ø4 / délka 44, brim pomáhá přilnavosti.",
+          "critical_z_mm": [
+            0.2,
+            23.0,
+            45.8
+          ]
+        },
+        {
+          "id": "cep-pantu",
+          "name": "cep-pantu-05",
+          "file": "stl/cep-pantu.stl",
+          "source_sha256": "8eed97f341cdf2c44e8a600939909b5899582f64237dab41517a77e69d27ce2c",
+          "translation_mm": [
+            65.5,
+            244.75,
+            4.440892098500626e-16
+          ],
+          "placed_min_mm": [
+            65.5,
+            244.75,
+            0.0
+          ],
+          "placed_max_mm": [
+            72.5,
+            251.75,
+            46.0
+          ],
+          "size_mm": [
+            7.0,
+            7.0,
+            46.0
+          ],
+          "triangle_count": 476,
+          "supports": false,
+          "support_note": "Nastojato na Ø7 hlavě, osa Z; dřík Ø4 / délka 44, brim pomáhá přilnavosti.",
+          "critical_z_mm": [
+            0.2,
+            23.0,
+            45.8
+          ]
+        },
+        {
+          "id": "cep-pantu",
+          "name": "cep-pantu-06",
+          "file": "stl/cep-pantu.stl",
+          "source_sha256": "8eed97f341cdf2c44e8a600939909b5899582f64237dab41517a77e69d27ce2c",
+          "translation_mm": [
+            84.5,
+            244.75,
+            4.440892098500626e-16
+          ],
+          "placed_min_mm": [
+            84.5,
+            244.75,
+            0.0
+          ],
+          "placed_max_mm": [
+            91.5,
+            251.75,
+            46.0
+          ],
+          "size_mm": [
+            7.0,
+            7.0,
+            46.0
+          ],
+          "triangle_count": 476,
+          "supports": false,
+          "support_note": "Nastojato na Ø7 hlavě, osa Z; dřík Ø4 / délka 44, brim pomáhá přilnavosti.",
+          "critical_z_mm": [
+            0.2,
+            23.0,
+            45.8
+          ]
+        }
+      ],
+      "minimum_geometry_edge_margin_mm": 8.25,
+      "minimum_bbox_gap_mm": 12.0,
+      "project": "podlozka-01-kobra-x-cerny-pla-projekt.3mf",
+      "process_sha256": "5b1453c9a6e9e170c0e562fecaf0be2b5469d1f30d74651105c039fc55431c58",
+      "filament_sha256": "bf8b01b1871aa681b610eae6c82ce99144c8f52c0e4a861fe1b3bf7d8035dd2e",
+      "configured": {
+        "sha256": "bab4867337f289f8bc1aec9f0aacf9a2cb429d4ab076fe94040b7108a0b57f23",
+        "objects": [
+          {
+            "name": "bok-segment-01",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 4.824218535759428e-08
+          },
+          {
+            "name": "pricka-predni-polovina-01",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 0.0
+          },
+          {
+            "name": "pricka-predni-polovina-02",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 0.0
+          },
+          {
+            "name": "spojka-pricky-01",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 2.6645352591003757e-15
+          },
+          {
+            "name": "spojka-pricky-02",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 2.6645352591003757e-15
+          },
+          {
+            "name": "rohovy-uhelnik-01",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 0.0
+          },
+          {
+            "name": "cep-pantu-01",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 1.206362920669335e-07
+          },
+          {
+            "name": "cep-pantu-02",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 1.206362920669335e-07
+          },
+          {
+            "name": "cep-pantu-03",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 1.2063629029057665e-07
+          },
+          {
+            "name": "cep-pantu-04",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 1.2063629384329033e-07
+          },
+          {
+            "name": "cep-pantu-05",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 1.2063628673786297e-07
+          },
+          {
+            "name": "cep-pantu-06",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 1.2063628673786297e-07
+          }
+        ],
+        "physical_parts": 12,
+        "mesh_repairs": [
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          },
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          },
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          },
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          },
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          },
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          },
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          },
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          },
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          },
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          },
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          },
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          }
+        ],
+        "settings": {
+          "printer_model": "Anycubic Kobra X",
+          "printer_settings_id": "Anycubic Kobra X 0.4 nozzle",
+          "print_settings_id": "Skrinka 0.20 mm cerne PLA navrh Kobra X",
+          "filament_settings_id": [
+            "NAVRH Alzament PLA Basic cerna @Kobra X 0.4"
+          ],
+          "nozzle_diameter": [
+            "0.4"
+          ],
+          "layer_height": "0.2",
+          "wall_loops": "4",
+          "sparse_infill_density": "25%",
+          "sparse_infill_pattern": "gyroid",
+          "enable_support": "0",
+          "support_on_build_plate_only": "0",
+          "brim_type": "outer_only",
+          "brim_width": "5",
+          "nozzle_temperature": [
+            "205"
+          ],
+          "nozzle_temperature_initial_layer": [
+            "215"
+          ],
+          "textured_plate_temp": [
+            "50"
+          ],
+          "outer_wall_speed": "50",
+          "inner_wall_speed": "75",
+          "filament_colour": [
+            "#17191B"
+          ]
+        },
+        "has_gcode": false
+      },
+      "delivered": {
+        "sha256": "5383b435e9b7d56dec3e9033d7af4454666503581237df8e308ecdf109bff4a0",
+        "objects": [
+          {
+            "name": "bok-segment-01",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 4.824218535759428e-08
+          },
+          {
+            "name": "pricka-predni-polovina-01",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 0.0
+          },
+          {
+            "name": "pricka-predni-polovina-02",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 0.0
+          },
+          {
+            "name": "spojka-pricky-01",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 2.6645352591003757e-15
+          },
+          {
+            "name": "spojka-pricky-02",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 2.6645352591003757e-15
+          },
+          {
+            "name": "rohovy-uhelnik-01",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 0.0
+          },
+          {
+            "name": "cep-pantu-01",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 1.206362920669335e-07
+          },
+          {
+            "name": "cep-pantu-02",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 1.206362920669335e-07
+          },
+          {
+            "name": "cep-pantu-03",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 1.2063629029057665e-07
+          },
+          {
+            "name": "cep-pantu-04",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 1.2063629384329033e-07
+          },
+          {
+            "name": "cep-pantu-05",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 1.2063628673786297e-07
+          },
+          {
+            "name": "cep-pantu-06",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 1.2063628673786297e-07
+          }
+        ],
+        "physical_parts": 12,
+        "mesh_repairs": [
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          },
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          },
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          },
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          },
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          },
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          },
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          },
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          },
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          },
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          },
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          },
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          }
+        ],
+        "settings": {
+          "printer_model": "Anycubic Kobra X",
+          "printer_settings_id": "Anycubic Kobra X 0.4 nozzle",
+          "print_settings_id": "Skrinka 0.20 mm cerne PLA navrh Kobra X",
+          "filament_settings_id": [
+            "NAVRH Alzament PLA Basic cerna @Kobra X 0.4"
+          ],
+          "nozzle_diameter": [
+            "0.4"
+          ],
+          "layer_height": "0.2",
+          "wall_loops": "4",
+          "sparse_infill_density": "25%",
+          "sparse_infill_pattern": "gyroid",
+          "enable_support": "0",
+          "support_on_build_plate_only": "0",
+          "brim_type": "outer_only",
+          "brim_width": "5",
+          "nozzle_temperature": [
+            "205"
+          ],
+          "nozzle_temperature_initial_layer": [
+            "215"
+          ],
+          "textured_plate_temp": [
+            "50"
+          ],
+          "outer_wall_speed": "50",
+          "inner_wall_speed": "75",
+          "filament_colour": [
+            "#17191B"
+          ]
+        },
+        "has_gcode": true,
+        "gcode_bytes": 22871249,
+        "gcode_sha256": "d000c285b23e6804910818861578a7cba2d284092d5220112f710c3881e8618f",
+        "slice_metadata": {
+          "prediction": "30951",
+          "weight": "142.49",
+          "outside": "false",
+          "support_used": "false"
+        },
+        "warnings": [
+          {
+            "msg": "not_support_traditional_timelapse",
+            "level": "1",
+            "error_code": "1000C003"
+          }
+        ]
+      },
+      "toolpath_audit": {
+        "physical_parts": 12,
+        "all_objects_on_first_layer": true,
+        "layers": 230,
+        "all_layers_have_extrusion": true,
+        "maximum_extrusion_z_mm": 46.0,
+        "roles_segments": {
+          "Brim": 6467,
+          "Outer wall": 49080,
+          "Inner wall": 131915,
+          "Bottom surface": 2689,
+          "Gap infill": 102,
+          "Internal solid infill": 22113,
+          "Sparse infill": 549634,
+          "Internal Bridge": 2193,
+          "Top surface": 2470,
+          "Bridge": 90
+        },
+        "support_segments": 0,
+        "bridge_overhang_segments": 2283,
+        "maximum_bridge_extrusion_segment_mm": 206.55003809488878,
+        "maximum_external_bridge_extrusion_segment_mm": 2.781000000000006,
+        "internal_bridge_note": "Internal Bridge crosses sparse infill; segment length is not unsupported free span.",
+        "support_layer_range": null,
+        "bridge_layer_range": [
+          15,
+          86
+        ],
+        "extrusion_min_xy_mm": [
+          4.058,
+          3.808
+        ],
+        "extrusion_max_xy_mm": [
+          255.942,
+          256.185
+        ],
+        "minimum_extrusion_edge_margin_mm": 3.808,
+        "preview": "podlozka-01-vrstvy.png",
+        "selected_z_mm": [
+          0.2,
+          2.0,
+          3.8,
+          4.2,
+          6.0,
+          10.0,
+          11.8,
+          14.0,
+          16.0,
+          17.2,
+          18.4,
+          19.8,
+          23.0,
+          45.8
+        ],
+        "estimated_filament_g": 142.49,
+        "estimated_printing_time": "8h 35m 51s",
+        "first_layer_gcode_temperature_c": {
+          "bed": 50,
+          "nozzle": 215
+        },
+        "physical_print_fit_support_removal": "Neověřeno"
+      },
+      "cli_exit_codes": [
+        0,
+        0
+      ],
+      "cli_error_messages": [
+        "calc_exclude_triangles:Unable to create exclude triangles"
+      ],
+      "status": "Nastaveno a lokálně nařezáno; skutečné dráhy zkontrolovány; fyzický tisk neověřen"
+    },
+    {
+      "number": 2,
+      "geometry": "podlozka-02-geometrie.3mf",
+      "geometry_sha256": "2218eaa640cb0fbc1ce2554b8e6d7ee9491158b798732eccba156fef8ff34d88",
+      "preview": "podlozka-02.png",
+      "physical_parts": 6,
+      "parts": [
+        {
+          "id": "bok-segment",
+          "name": "bok-segment-02",
+          "file": "stl/bok-segment.stl",
+          "source_sha256": "1d4c936ffbe41b6a8fcb9af6900924977a238587cd0c00ac556141fce939fe21",
+          "translation_mm": [
+            8.5,
+            17.75,
+            -0.0
+          ],
+          "placed_min_mm": [
+            8.5,
+            17.75,
+            0.0
+          ],
+          "placed_max_mm": [
+            191.5,
+            194.25,
+            20.0
+          ],
+          "size_mm": [
+            183.0,
+            176.5,
+            20.0
+          ],
+          "triangle_count": 644,
+          "supports": false,
+          "support_note": "Vnější plochou na podložku; pantová pouzdra mají podložený kořen a otvor s 45° stropem ve směru +X sestavy / +Z tisku.",
+          "critical_z_mm": [
+            0.2,
+            4.2,
+            10.000000000000018,
+            14,
+            16,
+            17.2,
+            18.4,
+            19.800000000000036
+          ]
+        },
+        {
+          "id": "pricka-predni-polovina",
+          "name": "pricka-predni-polovina-03",
+          "file": "stl/pricka-predni-polovina.stl",
+          "source_sha256": "88341b811a158010e118d941b6099a0b18d6d02210ddeca827c1931484349741",
+          "translation_mm": [
+            8.5,
+            206.25,
+            -0.0
+          ],
+          "placed_min_mm": [
+            8.5,
+            206.25,
+            0.0
+          ],
+          "placed_max_mm": [
+            189.5,
+            218.25,
+            12.0
+          ],
+          "size_mm": [
+            181.0,
+            12.0,
+            12.0
+          ],
+          "triangle_count": 12,
+          "supports": false,
+          "support_note": "Na dolní ploše; hranol bez převisů.",
+          "critical_z_mm": [
+            0.2,
+            6.0,
+            11.8
+          ]
+        },
+        {
+          "id": "pricka-predni-polovina",
+          "name": "pricka-predni-polovina-04",
+          "file": "stl/pricka-predni-polovina.stl",
+          "source_sha256": "88341b811a158010e118d941b6099a0b18d6d02210ddeca827c1931484349741",
+          "translation_mm": [
+            8.5,
+            230.25,
+            -0.0
+          ],
+          "placed_min_mm": [
+            8.5,
+            230.25,
+            0.0
+          ],
+          "placed_max_mm": [
+            189.5,
+            242.25,
+            12.0
+          ],
+          "size_mm": [
+            181.0,
+            12.0,
+            12.0
+          ],
+          "triangle_count": 12,
+          "supports": false,
+          "support_note": "Na dolní ploše; hranol bez převisů.",
+          "critical_z_mm": [
+            0.2,
+            6.0,
+            11.8
+          ]
+        },
+        {
+          "id": "spojka-pricky",
+          "name": "spojka-pricky-03",
+          "file": "stl/spojka-pricky.stl",
+          "source_sha256": "4e7773173b2b19938c6d2468853c9110829e14a1ae310419129fb2ceaedcdc21",
+          "translation_mm": [
+            201.5,
+            206.25,
+            -0.0
+          ],
+          "placed_min_mm": [
+            201.5,
+            206.25,
+            0.0
+          ],
+          "placed_max_mm": [
+            251.5,
+            218.25,
+            4.0
+          ],
+          "size_mm": [
+            50.0,
+            12.0,
+            4.0
+          ],
+          "triangle_count": 12,
+          "supports": false,
+          "support_note": "Plochou 50×12 mm na podložku, výška 4 mm.",
+          "critical_z_mm": [
+            0.2,
+            2.0000000000000013,
+            3.8000000000000025
+          ]
+        },
+        {
+          "id": "spojka-pricky",
+          "name": "spojka-pricky-04",
+          "file": "stl/spojka-pricky.stl",
+          "source_sha256": "4e7773173b2b19938c6d2468853c9110829e14a1ae310419129fb2ceaedcdc21",
+          "translation_mm": [
+            201.5,
+            230.25,
+            -0.0
+          ],
+          "placed_min_mm": [
+            201.5,
+            230.25,
+            0.0
+          ],
+          "placed_max_mm": [
+            251.5,
+            242.25,
+            4.0
+          ],
+          "size_mm": [
+            50.0,
+            12.0,
+            4.0
+          ],
+          "triangle_count": 12,
+          "supports": false,
+          "support_note": "Plochou 50×12 mm na podložku, výška 4 mm.",
+          "critical_z_mm": [
+            0.2,
+            2.0000000000000013,
+            3.8000000000000025
+          ]
+        },
+        {
+          "id": "rohovy-uhelnik",
+          "name": "rohovy-uhelnik-02",
+          "file": "stl/rohovy-uhelnik.stl",
+          "source_sha256": "69b0e9a2d7e0fe478e5aa58702ea13565d0197ee2833d813d887a5762c76cab5",
+          "translation_mm": [
+            203.5,
+            17.75,
+            -0.0
+          ],
+          "placed_min_mm": [
+            203.5,
+            17.75,
+            0.0
+          ],
+          "placed_max_mm": [
+            227.5,
+            41.75,
+            12.0
+          ],
+          "size_mm": [
+            24.0,
+            24.0,
+            12.0
+          ],
+          "triangle_count": 20,
+          "supports": false,
+          "support_note": "L půdorys na podložce, výška 12 mm, žádný převis.",
+          "critical_z_mm": [
+            0.2,
+            6.0,
+            11.8
+          ]
+        }
+      ],
+      "minimum_geometry_edge_margin_mm": 8.5,
+      "minimum_bbox_gap_mm": 12.0,
+      "project": "podlozka-02-kobra-x-cerny-pla-projekt.3mf",
+      "process_sha256": "5b1453c9a6e9e170c0e562fecaf0be2b5469d1f30d74651105c039fc55431c58",
+      "filament_sha256": "bf8b01b1871aa681b610eae6c82ce99144c8f52c0e4a861fe1b3bf7d8035dd2e",
+      "configured": {
+        "sha256": "36e8a6c0247d93375690057203316b3f7e051e5c7ee7f1f9abd20a0a30a7bc37",
+        "objects": [
+          {
+            "name": "bok-segment-02",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 4.824218535759428e-08
+          },
+          {
+            "name": "pricka-predni-polovina-03",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 0.0
+          },
+          {
+            "name": "pricka-predni-polovina-04",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 0.0
+          },
+          {
+            "name": "spojka-pricky-03",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 2.6645352591003757e-15
+          },
+          {
+            "name": "spojka-pricky-04",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 2.6645352591003757e-15
+          },
+          {
+            "name": "rohovy-uhelnik-02",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 0.0
+          }
+        ],
+        "physical_parts": 6,
+        "mesh_repairs": [
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          },
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          },
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          },
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          },
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          },
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          }
+        ],
+        "settings": {
+          "printer_model": "Anycubic Kobra X",
+          "printer_settings_id": "Anycubic Kobra X 0.4 nozzle",
+          "print_settings_id": "Skrinka 0.20 mm cerne PLA navrh Kobra X",
+          "filament_settings_id": [
+            "NAVRH Alzament PLA Basic cerna @Kobra X 0.4"
+          ],
+          "nozzle_diameter": [
+            "0.4"
+          ],
+          "layer_height": "0.2",
+          "wall_loops": "4",
+          "sparse_infill_density": "25%",
+          "sparse_infill_pattern": "gyroid",
+          "enable_support": "0",
+          "support_on_build_plate_only": "0",
+          "brim_type": "outer_only",
+          "brim_width": "5",
+          "nozzle_temperature": [
+            "205"
+          ],
+          "nozzle_temperature_initial_layer": [
+            "215"
+          ],
+          "textured_plate_temp": [
+            "50"
+          ],
+          "outer_wall_speed": "50",
+          "inner_wall_speed": "75",
+          "filament_colour": [
+            "#17191B"
+          ]
+        },
+        "has_gcode": false
+      },
+      "delivered": {
+        "sha256": "716ec5beb183d5d21aaffa05532b075ff82e04197272493164c5c7bd70ac07c5",
+        "objects": [
+          {
+            "name": "bok-segment-02",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 4.824218535759428e-08
+          },
+          {
+            "name": "pricka-predni-polovina-03",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 0.0
+          },
+          {
+            "name": "pricka-predni-polovina-04",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 0.0
+          },
+          {
+            "name": "spojka-pricky-03",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 2.6645352591003757e-15
+          },
+          {
+            "name": "spojka-pricky-04",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 2.6645352591003757e-15
+          },
+          {
+            "name": "rohovy-uhelnik-02",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 0.0
+          }
+        ],
+        "physical_parts": 6,
+        "mesh_repairs": [
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          },
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          },
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          },
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          },
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          },
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          }
+        ],
+        "settings": {
+          "printer_model": "Anycubic Kobra X",
+          "printer_settings_id": "Anycubic Kobra X 0.4 nozzle",
+          "print_settings_id": "Skrinka 0.20 mm cerne PLA navrh Kobra X",
+          "filament_settings_id": [
+            "NAVRH Alzament PLA Basic cerna @Kobra X 0.4"
+          ],
+          "nozzle_diameter": [
+            "0.4"
+          ],
+          "layer_height": "0.2",
+          "wall_loops": "4",
+          "sparse_infill_density": "25%",
+          "sparse_infill_pattern": "gyroid",
+          "enable_support": "0",
+          "support_on_build_plate_only": "0",
+          "brim_type": "outer_only",
+          "brim_width": "5",
+          "nozzle_temperature": [
+            "205"
+          ],
+          "nozzle_temperature_initial_layer": [
+            "215"
+          ],
+          "textured_plate_temp": [
+            "50"
+          ],
+          "outer_wall_speed": "50",
+          "inner_wall_speed": "75",
+          "filament_colour": [
+            "#17191B"
+          ]
+        },
+        "has_gcode": true,
+        "gcode_bytes": 16925821,
+        "gcode_sha256": "7d707dab8a1bb492570a8c870ad641dabdc4f60e981b58abba7573575f72fde1",
+        "slice_metadata": {
+          "prediction": "28643",
+          "weight": "138.03",
+          "outside": "false",
+          "support_used": "false"
+        },
+        "warnings": [
+          {
+            "msg": "not_support_traditional_timelapse",
+            "level": "1",
+            "error_code": "1000C003"
+          }
+        ]
+      },
+      "toolpath_audit": {
+        "physical_parts": 6,
+        "all_objects_on_first_layer": true,
+        "layers": 100,
+        "all_layers_have_extrusion": true,
+        "maximum_extrusion_z_mm": 20.0,
+        "roles_segments": {
+          "Brim": 2698,
+          "Outer wall": 2496,
+          "Inner wall": 6467,
+          "Gap infill": 102,
+          "Bottom surface": 2551,
+          "Internal solid infill": 17865,
+          "Sparse infill": 549634,
+          "Internal Bridge": 2193,
+          "Top surface": 2422,
+          "Bridge": 90
+        },
+        "support_segments": 0,
+        "bridge_overhang_segments": 2283,
+        "maximum_bridge_extrusion_segment_mm": 206.55003809488878,
+        "maximum_external_bridge_extrusion_segment_mm": 2.781000000000006,
+        "internal_bridge_note": "Internal Bridge crosses sparse infill; segment length is not unsupported free span.",
+        "support_layer_range": null,
+        "bridge_layer_range": [
+          15,
+          86
+        ],
+        "extrusion_min_xy_mm": [
+          4.058,
+          13.308
+        ],
+        "extrusion_max_xy_mm": [
+          255.942,
+          246.692
+        ],
+        "minimum_extrusion_edge_margin_mm": 4.057999999999993,
+        "preview": "podlozka-02-vrstvy.png",
+        "selected_z_mm": [
+          0.2,
+          2.0,
+          3.8,
+          4.2,
+          6.0,
+          10.0,
+          11.8,
+          14.0,
+          16.0,
+          17.2,
+          18.4,
+          19.8
+        ],
+        "estimated_filament_g": 138.03,
+        "estimated_printing_time": "7h 57m 23s",
+        "first_layer_gcode_temperature_c": {
+          "bed": 50,
+          "nozzle": 215
+        },
+        "physical_print_fit_support_removal": "Neověřeno"
+      },
+      "cli_exit_codes": [
+        0,
+        0
+      ],
+      "cli_error_messages": [
+        "calc_exclude_triangles:Unable to create exclude triangles"
+      ],
+      "status": "Nastaveno a lokálně nařezáno; skutečné dráhy zkontrolovány; fyzický tisk neověřen"
+    },
+    {
+      "number": 3,
+      "geometry": "podlozka-03-geometrie.3mf",
+      "geometry_sha256": "0d12964e8167eaa7def45a421ef79f2233fb83e40fd45fc1890c742993daa970",
+      "preview": "podlozka-03.png",
+      "physical_parts": 4,
+      "parts": [
+        {
+          "id": "bok-segment",
+          "name": "bok-segment-03",
+          "file": "stl/bok-segment.stl",
+          "source_sha256": "1d4c936ffbe41b6a8fcb9af6900924977a238587cd0c00ac556141fce939fe21",
+          "translation_mm": [
+            20.5,
+            17.75,
+            -0.0
+          ],
+          "placed_min_mm": [
+            20.5,
+            17.75,
+            0.0
+          ],
+          "placed_max_mm": [
+            203.5,
+            194.25,
+            20.0
+          ],
+          "size_mm": [
+            183.0,
+            176.5,
+            20.0
+          ],
+          "triangle_count": 644,
+          "supports": false,
+          "support_note": "Vnější plochou na podložku; pantová pouzdra mají podložený kořen a otvor s 45° stropem ve směru +X sestavy / +Z tisku.",
+          "critical_z_mm": [
+            0.2,
+            4.2,
+            10.000000000000018,
+            14,
+            16,
+            17.2,
+            18.4,
+            19.800000000000036
+          ]
+        },
+        {
+          "id": "pricka-zadni-polovina",
+          "name": "pricka-zadni-polovina-01",
+          "file": "stl/pricka-zadni-polovina.stl",
+          "source_sha256": "601507d8fd831592ecfcfc4588fdedfafd277f952388f256a040bd4ce1750d6f",
+          "translation_mm": [
+            20.5,
+            206.25,
+            -0.0
+          ],
+          "placed_min_mm": [
+            20.5,
+            206.25,
+            0.0
+          ],
+          "placed_max_mm": [
+            201.5,
+            218.25,
+            12.0
+          ],
+          "size_mm": [
+            181.0,
+            12.0,
+            12.0
+          ],
+          "triangle_count": 180,
+          "supports": false,
+          "support_note": "Na dolní ploše; kotevní otvor má 45° špičku ve směru +Z.",
+          "critical_z_mm": [
+            0.2,
+            6.0,
+            11.8
+          ]
+        },
+        {
+          "id": "pricka-zadni-polovina",
+          "name": "pricka-zadni-polovina-02",
+          "file": "stl/pricka-zadni-polovina.stl",
+          "source_sha256": "601507d8fd831592ecfcfc4588fdedfafd277f952388f256a040bd4ce1750d6f",
+          "translation_mm": [
+            20.5,
+            230.25,
+            -0.0
+          ],
+          "placed_min_mm": [
+            20.5,
+            230.25,
+            0.0
+          ],
+          "placed_max_mm": [
+            201.5,
+            242.25,
+            12.0
+          ],
+          "size_mm": [
+            181.0,
+            12.0,
+            12.0
+          ],
+          "triangle_count": 180,
+          "supports": false,
+          "support_note": "Na dolní ploše; kotevní otvor má 45° špičku ve směru +Z.",
+          "critical_z_mm": [
+            0.2,
+            6.0,
+            11.8
+          ]
+        },
+        {
+          "id": "rohovy-uhelnik",
+          "name": "rohovy-uhelnik-03",
+          "file": "stl/rohovy-uhelnik.stl",
+          "source_sha256": "69b0e9a2d7e0fe478e5aa58702ea13565d0197ee2833d813d887a5762c76cab5",
+          "translation_mm": [
+            215.5,
+            17.75,
+            -0.0
+          ],
+          "placed_min_mm": [
+            215.5,
+            17.75,
+            0.0
+          ],
+          "placed_max_mm": [
+            239.5,
+            41.75,
+            12.0
+          ],
+          "size_mm": [
+            24.0,
+            24.0,
+            12.0
+          ],
+          "triangle_count": 20,
+          "supports": false,
+          "support_note": "L půdorys na podložce, výška 12 mm, žádný převis.",
+          "critical_z_mm": [
+            0.2,
+            6.0,
+            11.8
+          ]
+        }
+      ],
+      "minimum_geometry_edge_margin_mm": 17.75,
+      "minimum_bbox_gap_mm": 12.0,
+      "project": "podlozka-03-kobra-x-cerny-pla-projekt.3mf",
+      "process_sha256": "5b1453c9a6e9e170c0e562fecaf0be2b5469d1f30d74651105c039fc55431c58",
+      "filament_sha256": "bf8b01b1871aa681b610eae6c82ce99144c8f52c0e4a861fe1b3bf7d8035dd2e",
+      "configured": {
+        "sha256": "4b6545d21e2f9db9cf6bc2a2e177faddae95d7b829e24efdcb3e714e6896fb6d",
+        "objects": [
+          {
+            "name": "bok-segment-03",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 4.824218535759428e-08
+          },
+          {
+            "name": "pricka-zadni-polovina-01",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 3.861572267283009e-06
+          },
+          {
+            "name": "pricka-zadni-polovina-02",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 3.861572267283009e-06
+          },
+          {
+            "name": "rohovy-uhelnik-03",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 0.0
+          }
+        ],
+        "physical_parts": 4,
+        "mesh_repairs": [
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          },
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          },
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          },
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          }
+        ],
+        "settings": {
+          "printer_model": "Anycubic Kobra X",
+          "printer_settings_id": "Anycubic Kobra X 0.4 nozzle",
+          "print_settings_id": "Skrinka 0.20 mm cerne PLA navrh Kobra X",
+          "filament_settings_id": [
+            "NAVRH Alzament PLA Basic cerna @Kobra X 0.4"
+          ],
+          "nozzle_diameter": [
+            "0.4"
+          ],
+          "layer_height": "0.2",
+          "wall_loops": "4",
+          "sparse_infill_density": "25%",
+          "sparse_infill_pattern": "gyroid",
+          "enable_support": "0",
+          "support_on_build_plate_only": "0",
+          "brim_type": "outer_only",
+          "brim_width": "5",
+          "nozzle_temperature": [
+            "205"
+          ],
+          "nozzle_temperature_initial_layer": [
+            "215"
+          ],
+          "textured_plate_temp": [
+            "50"
+          ],
+          "outer_wall_speed": "50",
+          "inner_wall_speed": "75",
+          "filament_colour": [
+            "#17191B"
+          ]
+        },
+        "has_gcode": false
+      },
+      "delivered": {
+        "sha256": "d50e535e226b4504e10c3ff0c4b272da84906fa4bb65b3f2edc3fc7e775dafe4",
+        "objects": [
+          {
+            "name": "bok-segment-03",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 4.824218535759428e-08
+          },
+          {
+            "name": "pricka-zadni-polovina-01",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 3.861572267283009e-06
+          },
+          {
+            "name": "pricka-zadni-polovina-02",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 3.861572267283009e-06
+          },
+          {
+            "name": "rohovy-uhelnik-03",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 0.0
+          }
+        ],
+        "physical_parts": 4,
+        "mesh_repairs": [
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          },
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          },
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          },
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          }
+        ],
+        "settings": {
+          "printer_model": "Anycubic Kobra X",
+          "printer_settings_id": "Anycubic Kobra X 0.4 nozzle",
+          "print_settings_id": "Skrinka 0.20 mm cerne PLA navrh Kobra X",
+          "filament_settings_id": [
+            "NAVRH Alzament PLA Basic cerna @Kobra X 0.4"
+          ],
+          "nozzle_diameter": [
+            "0.4"
+          ],
+          "layer_height": "0.2",
+          "wall_loops": "4",
+          "sparse_infill_density": "25%",
+          "sparse_infill_pattern": "gyroid",
+          "enable_support": "0",
+          "support_on_build_plate_only": "0",
+          "brim_type": "outer_only",
+          "brim_width": "5",
+          "nozzle_temperature": [
+            "205"
+          ],
+          "nozzle_temperature_initial_layer": [
+            "215"
+          ],
+          "textured_plate_temp": [
+            "50"
+          ],
+          "outer_wall_speed": "50",
+          "inner_wall_speed": "75",
+          "filament_colour": [
+            "#17191B"
+          ]
+        },
+        "has_gcode": true,
+        "gcode_bytes": 16499212,
+        "gcode_sha256": "9a608928951b28569346ded527ee0f799eaba1af5ab7574075cd88868bda0adb",
+        "slice_metadata": {
+          "prediction": "27786",
+          "weight": "133.95",
+          "outside": "false",
+          "support_used": "false"
+        },
+        "warnings": [
+          {
+            "msg": "not_support_traditional_timelapse",
+            "level": "1",
+            "error_code": "1000C003"
+          }
+        ]
+      },
+      "toolpath_audit": {
+        "physical_parts": 4,
+        "all_objects_on_first_layer": true,
+        "layers": 100,
+        "all_layers_have_extrusion": true,
+        "maximum_extrusion_z_mm": 20.0,
+        "roles_segments": {
+          "Brim": 1916,
+          "Outer wall": 2816,
+          "Inner wall": 6803,
+          "Gap infill": 94,
+          "Bottom surface": 2223,
+          "Internal solid infill": 16205,
+          "Sparse infill": 535236,
+          "Internal Bridge": 1819,
+          "Top surface": 2252,
+          "Bridge": 180
+        },
+        "support_segments": 0,
+        "bridge_overhang_segments": 1999,
+        "maximum_bridge_extrusion_segment_mm": 206.55003809488878,
+        "maximum_external_bridge_extrusion_segment_mm": 3.850999999999999,
+        "internal_bridge_note": "Internal Bridge crosses sparse infill; segment length is not unsupported free span.",
+        "support_layer_range": null,
+        "bridge_layer_range": [
+          11,
+          86
+        ],
+        "extrusion_min_xy_mm": [
+          16.058,
+          13.308
+        ],
+        "extrusion_max_xy_mm": [
+          243.942,
+          246.692
+        ],
+        "minimum_extrusion_edge_margin_mm": 13.307999999999993,
+        "preview": "podlozka-03-vrstvy.png",
+        "selected_z_mm": [
+          0.2,
+          4.2,
+          6.0,
+          10.0,
+          11.8,
+          14.0,
+          16.0,
+          17.2,
+          18.4,
+          19.8
+        ],
+        "estimated_filament_g": 133.95,
+        "estimated_printing_time": "7h 43m 6s",
+        "first_layer_gcode_temperature_c": {
+          "bed": 50,
+          "nozzle": 215
+        },
+        "physical_print_fit_support_removal": "Neověřeno"
+      },
+      "cli_exit_codes": [
+        0,
+        0
+      ],
+      "cli_error_messages": [
+        "calc_exclude_triangles:Unable to create exclude triangles"
+      ],
+      "status": "Nastaveno a lokálně nařezáno; skutečné dráhy zkontrolovány; fyzický tisk neověřen"
+    },
+    {
+      "number": 4,
+      "geometry": "podlozka-04-geometrie.3mf",
+      "geometry_sha256": "82a9c443dca0629b1a8decb70aa41d2b9b8f9b29617f2708f3e1a56b926ee257",
+      "preview": "podlozka-04.png",
+      "physical_parts": 4,
+      "parts": [
+        {
+          "id": "bok-segment",
+          "name": "bok-segment-04",
+          "file": "stl/bok-segment.stl",
+          "source_sha256": "1d4c936ffbe41b6a8fcb9af6900924977a238587cd0c00ac556141fce939fe21",
+          "translation_mm": [
+            20.5,
+            17.75,
+            -0.0
+          ],
+          "placed_min_mm": [
+            20.5,
+            17.75,
+            0.0
+          ],
+          "placed_max_mm": [
+            203.5,
+            194.25,
+            20.0
+          ],
+          "size_mm": [
+            183.0,
+            176.5,
+            20.0
+          ],
+          "triangle_count": 644,
+          "supports": false,
+          "support_note": "Vnější plochou na podložku; pantová pouzdra mají podložený kořen a otvor s 45° stropem ve směru +X sestavy / +Z tisku.",
+          "critical_z_mm": [
+            0.2,
+            4.2,
+            10.000000000000018,
+            14,
+            16,
+            17.2,
+            18.4,
+            19.800000000000036
+          ]
+        },
+        {
+          "id": "pricka-zadni-polovina",
+          "name": "pricka-zadni-polovina-03",
+          "file": "stl/pricka-zadni-polovina.stl",
+          "source_sha256": "601507d8fd831592ecfcfc4588fdedfafd277f952388f256a040bd4ce1750d6f",
+          "translation_mm": [
+            20.5,
+            206.25,
+            -0.0
+          ],
+          "placed_min_mm": [
+            20.5,
+            206.25,
+            0.0
+          ],
+          "placed_max_mm": [
+            201.5,
+            218.25,
+            12.0
+          ],
+          "size_mm": [
+            181.0,
+            12.0,
+            12.0
+          ],
+          "triangle_count": 180,
+          "supports": false,
+          "support_note": "Na dolní ploše; kotevní otvor má 45° špičku ve směru +Z.",
+          "critical_z_mm": [
+            0.2,
+            6.0,
+            11.8
+          ]
+        },
+        {
+          "id": "pricka-zadni-polovina",
+          "name": "pricka-zadni-polovina-04",
+          "file": "stl/pricka-zadni-polovina.stl",
+          "source_sha256": "601507d8fd831592ecfcfc4588fdedfafd277f952388f256a040bd4ce1750d6f",
+          "translation_mm": [
+            20.5,
+            230.25,
+            -0.0
+          ],
+          "placed_min_mm": [
+            20.5,
+            230.25,
+            0.0
+          ],
+          "placed_max_mm": [
+            201.5,
+            242.25,
+            12.0
+          ],
+          "size_mm": [
+            181.0,
+            12.0,
+            12.0
+          ],
+          "triangle_count": 180,
+          "supports": false,
+          "support_note": "Na dolní ploše; kotevní otvor má 45° špičku ve směru +Z.",
+          "critical_z_mm": [
+            0.2,
+            6.0,
+            11.8
+          ]
+        },
+        {
+          "id": "rohovy-uhelnik",
+          "name": "rohovy-uhelnik-04",
+          "file": "stl/rohovy-uhelnik.stl",
+          "source_sha256": "69b0e9a2d7e0fe478e5aa58702ea13565d0197ee2833d813d887a5762c76cab5",
+          "translation_mm": [
+            215.5,
+            17.75,
+            -0.0
+          ],
+          "placed_min_mm": [
+            215.5,
+            17.75,
+            0.0
+          ],
+          "placed_max_mm": [
+            239.5,
+            41.75,
+            12.0
+          ],
+          "size_mm": [
+            24.0,
+            24.0,
+            12.0
+          ],
+          "triangle_count": 20,
+          "supports": false,
+          "support_note": "L půdorys na podložce, výška 12 mm, žádný převis.",
+          "critical_z_mm": [
+            0.2,
+            6.0,
+            11.8
+          ]
+        }
+      ],
+      "minimum_geometry_edge_margin_mm": 17.75,
+      "minimum_bbox_gap_mm": 12.0,
+      "project": "podlozka-04-kobra-x-cerny-pla-projekt.3mf",
+      "process_sha256": "5b1453c9a6e9e170c0e562fecaf0be2b5469d1f30d74651105c039fc55431c58",
+      "filament_sha256": "bf8b01b1871aa681b610eae6c82ce99144c8f52c0e4a861fe1b3bf7d8035dd2e",
+      "configured": {
+        "sha256": "211cd4a8c8fd4ee0efb2634c2081e765b8b01d364ad5faf6f2b9be0208d8863c",
+        "objects": [
+          {
+            "name": "bok-segment-04",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 4.824218535759428e-08
+          },
+          {
+            "name": "pricka-zadni-polovina-03",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 3.861572267283009e-06
+          },
+          {
+            "name": "pricka-zadni-polovina-04",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 3.861572267283009e-06
+          },
+          {
+            "name": "rohovy-uhelnik-04",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 0.0
+          }
+        ],
+        "physical_parts": 4,
+        "mesh_repairs": [
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          },
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          },
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          },
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          }
+        ],
+        "settings": {
+          "printer_model": "Anycubic Kobra X",
+          "printer_settings_id": "Anycubic Kobra X 0.4 nozzle",
+          "print_settings_id": "Skrinka 0.20 mm cerne PLA navrh Kobra X",
+          "filament_settings_id": [
+            "NAVRH Alzament PLA Basic cerna @Kobra X 0.4"
+          ],
+          "nozzle_diameter": [
+            "0.4"
+          ],
+          "layer_height": "0.2",
+          "wall_loops": "4",
+          "sparse_infill_density": "25%",
+          "sparse_infill_pattern": "gyroid",
+          "enable_support": "0",
+          "support_on_build_plate_only": "0",
+          "brim_type": "outer_only",
+          "brim_width": "5",
+          "nozzle_temperature": [
+            "205"
+          ],
+          "nozzle_temperature_initial_layer": [
+            "215"
+          ],
+          "textured_plate_temp": [
+            "50"
+          ],
+          "outer_wall_speed": "50",
+          "inner_wall_speed": "75",
+          "filament_colour": [
+            "#17191B"
+          ]
+        },
+        "has_gcode": false
+      },
+      "delivered": {
+        "sha256": "92c5a4cb7d3eaea0a8ee1eabfa3e985f3db02eab4325e938836ad1dcd3f5f025",
+        "objects": [
+          {
+            "name": "bok-segment-04",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 4.824218535759428e-08
+          },
+          {
+            "name": "pricka-zadni-polovina-03",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 3.861572267283009e-06
+          },
+          {
+            "name": "pricka-zadni-polovina-04",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 3.861572267283009e-06
+          },
+          {
+            "name": "rohovy-uhelnik-04",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 0.0
+          }
+        ],
+        "physical_parts": 4,
+        "mesh_repairs": [
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          },
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          },
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          },
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          }
+        ],
+        "settings": {
+          "printer_model": "Anycubic Kobra X",
+          "printer_settings_id": "Anycubic Kobra X 0.4 nozzle",
+          "print_settings_id": "Skrinka 0.20 mm cerne PLA navrh Kobra X",
+          "filament_settings_id": [
+            "NAVRH Alzament PLA Basic cerna @Kobra X 0.4"
+          ],
+          "nozzle_diameter": [
+            "0.4"
+          ],
+          "layer_height": "0.2",
+          "wall_loops": "4",
+          "sparse_infill_density": "25%",
+          "sparse_infill_pattern": "gyroid",
+          "enable_support": "0",
+          "support_on_build_plate_only": "0",
+          "brim_type": "outer_only",
+          "brim_width": "5",
+          "nozzle_temperature": [
+            "205"
+          ],
+          "nozzle_temperature_initial_layer": [
+            "215"
+          ],
+          "textured_plate_temp": [
+            "50"
+          ],
+          "outer_wall_speed": "50",
+          "inner_wall_speed": "75",
+          "filament_colour": [
+            "#17191B"
+          ]
+        },
+        "has_gcode": true,
+        "gcode_bytes": 16499264,
+        "gcode_sha256": "ce278c536aa95e865be455081019e4a7cb3a7e0cdcfdfa690fa02cb53fad7f17",
+        "slice_metadata": {
+          "prediction": "27786",
+          "weight": "133.95",
+          "outside": "false",
+          "support_used": "false"
+        },
+        "warnings": [
+          {
+            "msg": "not_support_traditional_timelapse",
+            "level": "1",
+            "error_code": "1000C003"
+          }
+        ]
+      },
+      "toolpath_audit": {
+        "physical_parts": 4,
+        "all_objects_on_first_layer": true,
+        "layers": 100,
+        "all_layers_have_extrusion": true,
+        "maximum_extrusion_z_mm": 20.0,
+        "roles_segments": {
+          "Brim": 1916,
+          "Outer wall": 2816,
+          "Inner wall": 6803,
+          "Gap infill": 94,
+          "Bottom surface": 2223,
+          "Internal solid infill": 16205,
+          "Sparse infill": 535236,
+          "Internal Bridge": 1819,
+          "Top surface": 2252,
+          "Bridge": 180
+        },
+        "support_segments": 0,
+        "bridge_overhang_segments": 1999,
+        "maximum_bridge_extrusion_segment_mm": 206.55003809488878,
+        "maximum_external_bridge_extrusion_segment_mm": 3.850999999999999,
+        "internal_bridge_note": "Internal Bridge crosses sparse infill; segment length is not unsupported free span.",
+        "support_layer_range": null,
+        "bridge_layer_range": [
+          11,
+          86
+        ],
+        "extrusion_min_xy_mm": [
+          16.058,
+          13.308
+        ],
+        "extrusion_max_xy_mm": [
+          243.942,
+          246.692
+        ],
+        "minimum_extrusion_edge_margin_mm": 13.307999999999993,
+        "preview": "podlozka-04-vrstvy.png",
+        "selected_z_mm": [
+          0.2,
+          4.2,
+          6.0,
+          10.0,
+          11.8,
+          14.0,
+          16.0,
+          17.2,
+          18.4,
+          19.8
+        ],
+        "estimated_filament_g": 133.95,
+        "estimated_printing_time": "7h 43m 6s",
+        "first_layer_gcode_temperature_c": {
+          "bed": 50,
+          "nozzle": 215
+        },
+        "physical_print_fit_support_removal": "Neověřeno"
+      },
+      "cli_exit_codes": [
+        0,
+        0
+      ],
+      "cli_error_messages": [
+        "calc_exclude_triangles:Unable to create exclude triangles"
+      ],
+      "status": "Nastaveno a lokálně nařezáno; skutečné dráhy zkontrolovány; fyzický tisk neověřen"
+    },
+    {
+      "number": 5,
+      "geometry": "podlozka-05-geometrie.3mf",
+      "geometry_sha256": "248ce30e1d0f1ef64c3922c01f4780adca631fc7dd634c954a20f86c42066b05",
+      "preview": "podlozka-05.png",
+      "physical_parts": 6,
+      "parts": [
+        {
+          "id": "bok-segment",
+          "name": "bok-segment-05",
+          "file": "stl/bok-segment.stl",
+          "source_sha256": "1d4c936ffbe41b6a8fcb9af6900924977a238587cd0c00ac556141fce939fe21",
+          "translation_mm": [
+            20.5,
+            9.75,
+            -0.0
+          ],
+          "placed_min_mm": [
+            20.5,
+            9.75,
+            0.0
+          ],
+          "placed_max_mm": [
+            203.5,
+            186.25,
+            20.0
+          ],
+          "size_mm": [
+            183.0,
+            176.5,
+            20.0
+          ],
+          "triangle_count": 644,
+          "supports": false,
+          "support_note": "Vnější plochou na podložku; pantová pouzdra mají podložený kořen a otvor s 45° stropem ve směru +X sestavy / +Z tisku.",
+          "critical_z_mm": [
+            0.2,
+            4.2,
+            10.000000000000018,
+            14,
+            16,
+            17.2,
+            18.4,
+            19.800000000000036
+          ]
+        },
+        {
+          "id": "spojka-panelu",
+          "name": "spojka-panelu-01",
+          "file": "stl/spojka-panelu.stl",
+          "source_sha256": "dcef25b9ceae15a16b965b5366d67033ec5cdebf73aeb2dc2bb54ec4f0addd4f",
+          "translation_mm": [
+            20.5,
+            198.25,
+            -0.0
+          ],
+          "placed_min_mm": [
+            20.5,
+            198.25,
+            0.0
+          ],
+          "placed_max_mm": [
+            100.5,
+            218.25,
+            4.0
+          ],
+          "size_mm": [
+            80.0,
+            20.0,
+            4.0
+          ],
+          "triangle_count": 12,
+          "supports": false,
+          "support_note": "Plochou 20×80 mm na podložku, výška 4 mm.",
+          "critical_z_mm": [
+            0.2,
+            2.000000000000009,
+            3.8000000000000176
+          ]
+        },
+        {
+          "id": "spojka-panelu",
+          "name": "spojka-panelu-02",
+          "file": "stl/spojka-panelu.stl",
+          "source_sha256": "dcef25b9ceae15a16b965b5366d67033ec5cdebf73aeb2dc2bb54ec4f0addd4f",
+          "translation_mm": [
+            112.5,
+            198.25,
+            -0.0
+          ],
+          "placed_min_mm": [
+            112.5,
+            198.25,
+            0.0
+          ],
+          "placed_max_mm": [
+            192.5,
+            218.25,
+            4.0
+          ],
+          "size_mm": [
+            80.0,
+            20.0,
+            4.0
+          ],
+          "triangle_count": 12,
+          "supports": false,
+          "support_note": "Plochou 20×80 mm na podložku, výška 4 mm.",
+          "critical_z_mm": [
+            0.2,
+            2.000000000000009,
+            3.8000000000000176
+          ]
+        },
+        {
+          "id": "spojka-panelu",
+          "name": "spojka-panelu-03",
+          "file": "stl/spojka-panelu.stl",
+          "source_sha256": "dcef25b9ceae15a16b965b5366d67033ec5cdebf73aeb2dc2bb54ec4f0addd4f",
+          "translation_mm": [
+            20.5,
+            230.25,
+            -0.0
+          ],
+          "placed_min_mm": [
+            20.5,
+            230.25,
+            0.0
+          ],
+          "placed_max_mm": [
+            100.5,
+            250.25,
+            4.0
+          ],
+          "size_mm": [
+            80.0,
+            20.0,
+            4.0
+          ],
+          "triangle_count": 12,
+          "supports": false,
+          "support_note": "Plochou 20×80 mm na podložku, výška 4 mm.",
+          "critical_z_mm": [
+            0.2,
+            2.000000000000009,
+            3.8000000000000176
+          ]
+        },
+        {
+          "id": "spojka-panelu",
+          "name": "spojka-panelu-04",
+          "file": "stl/spojka-panelu.stl",
+          "source_sha256": "dcef25b9ceae15a16b965b5366d67033ec5cdebf73aeb2dc2bb54ec4f0addd4f",
+          "translation_mm": [
+            112.5,
+            230.25,
+            -0.0
+          ],
+          "placed_min_mm": [
+            112.5,
+            230.25,
+            0.0
+          ],
+          "placed_max_mm": [
+            192.5,
+            250.25,
+            4.0
+          ],
+          "size_mm": [
+            80.0,
+            20.0,
+            4.0
+          ],
+          "triangle_count": 12,
+          "supports": false,
+          "support_note": "Plochou 20×80 mm na podložku, výška 4 mm.",
+          "critical_z_mm": [
+            0.2,
+            2.000000000000009,
+            3.8000000000000176
+          ]
+        },
+        {
+          "id": "rohovy-uhelnik",
+          "name": "rohovy-uhelnik-05",
+          "file": "stl/rohovy-uhelnik.stl",
+          "source_sha256": "69b0e9a2d7e0fe478e5aa58702ea13565d0197ee2833d813d887a5762c76cab5",
+          "translation_mm": [
+            215.5,
+            9.75,
+            -0.0
+          ],
+          "placed_min_mm": [
+            215.5,
+            9.75,
+            0.0
+          ],
+          "placed_max_mm": [
+            239.5,
+            33.75,
+            12.0
+          ],
+          "size_mm": [
+            24.0,
+            24.0,
+            12.0
+          ],
+          "triangle_count": 20,
+          "supports": false,
+          "support_note": "L půdorys na podložce, výška 12 mm, žádný převis.",
+          "critical_z_mm": [
+            0.2,
+            6.0,
+            11.8
+          ]
+        }
+      ],
+      "minimum_geometry_edge_margin_mm": 9.75,
+      "minimum_bbox_gap_mm": 12.0,
+      "project": "podlozka-05-kobra-x-cerny-pla-projekt.3mf",
+      "process_sha256": "5b1453c9a6e9e170c0e562fecaf0be2b5469d1f30d74651105c039fc55431c58",
+      "filament_sha256": "bf8b01b1871aa681b610eae6c82ce99144c8f52c0e4a861fe1b3bf7d8035dd2e",
+      "configured": {
+        "sha256": "b1eb8cdcb76c48c09d1ddb6885bb65909a1ad28cbd37e81849f89a19c990d696",
+        "objects": [
+          {
+            "name": "bok-segment-05",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 4.824218535759428e-08
+          },
+          {
+            "name": "spojka-panelu-01",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 1.7763568394002505e-14
+          },
+          {
+            "name": "spojka-panelu-02",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 1.7763568394002505e-14
+          },
+          {
+            "name": "spojka-panelu-03",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 1.7763568394002505e-14
+          },
+          {
+            "name": "spojka-panelu-04",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 1.7763568394002505e-14
+          },
+          {
+            "name": "rohovy-uhelnik-05",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 0.0
+          }
+        ],
+        "physical_parts": 6,
+        "mesh_repairs": [
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          },
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          },
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          },
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          },
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          },
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          }
+        ],
+        "settings": {
+          "printer_model": "Anycubic Kobra X",
+          "printer_settings_id": "Anycubic Kobra X 0.4 nozzle",
+          "print_settings_id": "Skrinka 0.20 mm cerne PLA navrh Kobra X",
+          "filament_settings_id": [
+            "NAVRH Alzament PLA Basic cerna @Kobra X 0.4"
+          ],
+          "nozzle_diameter": [
+            "0.4"
+          ],
+          "layer_height": "0.2",
+          "wall_loops": "4",
+          "sparse_infill_density": "25%",
+          "sparse_infill_pattern": "gyroid",
+          "enable_support": "0",
+          "support_on_build_plate_only": "0",
+          "brim_type": "outer_only",
+          "brim_width": "5",
+          "nozzle_temperature": [
+            "205"
+          ],
+          "nozzle_temperature_initial_layer": [
+            "215"
+          ],
+          "textured_plate_temp": [
+            "50"
+          ],
+          "outer_wall_speed": "50",
+          "inner_wall_speed": "75",
+          "filament_colour": [
+            "#17191B"
+          ]
+        },
+        "has_gcode": false
+      },
+      "delivered": {
+        "sha256": "ef139e4a6b2e33193e23d86755a252550b4bac62807e9f922f1f5bdb982d1b42",
+        "objects": [
+          {
+            "name": "bok-segment-05",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 4.824218535759428e-08
+          },
+          {
+            "name": "spojka-panelu-01",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 1.7763568394002505e-14
+          },
+          {
+            "name": "spojka-panelu-02",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 1.7763568394002505e-14
+          },
+          {
+            "name": "spojka-panelu-03",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 1.7763568394002505e-14
+          },
+          {
+            "name": "spojka-panelu-04",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 1.7763568394002505e-14
+          },
+          {
+            "name": "rohovy-uhelnik-05",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 0.0
+          }
+        ],
+        "physical_parts": 6,
+        "mesh_repairs": [
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          },
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          },
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          },
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          },
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          },
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          }
+        ],
+        "settings": {
+          "printer_model": "Anycubic Kobra X",
+          "printer_settings_id": "Anycubic Kobra X 0.4 nozzle",
+          "print_settings_id": "Skrinka 0.20 mm cerne PLA navrh Kobra X",
+          "filament_settings_id": [
+            "NAVRH Alzament PLA Basic cerna @Kobra X 0.4"
+          ],
+          "nozzle_diameter": [
+            "0.4"
+          ],
+          "layer_height": "0.2",
+          "wall_loops": "4",
+          "sparse_infill_density": "25%",
+          "sparse_infill_pattern": "gyroid",
+          "enable_support": "0",
+          "support_on_build_plate_only": "0",
+          "brim_type": "outer_only",
+          "brim_width": "5",
+          "nozzle_temperature": [
+            "205"
+          ],
+          "nozzle_temperature_initial_layer": [
+            "215"
+          ],
+          "textured_plate_temp": [
+            "50"
+          ],
+          "outer_wall_speed": "50",
+          "inner_wall_speed": "75",
+          "filament_colour": [
+            "#17191B"
+          ]
+        },
+        "has_gcode": true,
+        "gcode_bytes": 13709991,
+        "gcode_sha256": "3ed860f9a1c0c815756c7f5affb26f15c993e7b96688c2b65efcc6b59557a5b7",
+        "slice_metadata": {
+          "prediction": "25099",
+          "weight": "120.03",
+          "outside": "false",
+          "support_used": "false"
+        },
+        "warnings": [
+          {
+            "msg": "not_support_traditional_timelapse",
+            "level": "1",
+            "error_code": "1000C003"
+          }
+        ]
+      },
+      "toolpath_audit": {
+        "physical_parts": 6,
+        "all_objects_on_first_layer": true,
+        "layers": 100,
+        "all_layers_have_extrusion": true,
+        "maximum_extrusion_z_mm": 20.0,
+        "roles_segments": {
+          "Brim": 2706,
+          "Outer wall": 2176,
+          "Inner wall": 5507,
+          "Bottom surface": 2219,
+          "Gap infill": 94,
+          "Internal solid infill": 15765,
+          "Sparse infill": 440944,
+          "Internal Bridge": 3067,
+          "Top surface": 2214,
+          "Bridge": 90
+        },
+        "support_segments": 0,
+        "bridge_overhang_segments": 3157,
+        "maximum_bridge_extrusion_segment_mm": 206.55003809488878,
+        "maximum_external_bridge_extrusion_segment_mm": 2.781000000000006,
+        "internal_bridge_note": "Internal Bridge crosses sparse infill; segment length is not unsupported free span.",
+        "support_layer_range": null,
+        "bridge_layer_range": [
+          15,
+          86
+        ],
+        "extrusion_min_xy_mm": [
+          16.058,
+          5.308
+        ],
+        "extrusion_max_xy_mm": [
+          243.942,
+          254.692
+        ],
+        "minimum_extrusion_edge_margin_mm": 5.307999999999993,
+        "preview": "podlozka-05-vrstvy.png",
+        "selected_z_mm": [
+          0.2,
+          2.0,
+          3.8,
+          4.2,
+          6.0,
+          10.0,
+          11.8,
+          14.0,
+          16.0,
+          17.2,
+          18.4,
+          19.8
+        ],
+        "estimated_filament_g": 120.03,
+        "estimated_printing_time": "6h 58m 19s",
+        "first_layer_gcode_temperature_c": {
+          "bed": 50,
+          "nozzle": 215
+        },
+        "physical_print_fit_support_removal": "Neověřeno"
+      },
+      "cli_exit_codes": [
+        0,
+        0
+      ],
+      "cli_error_messages": [
+        "calc_exclude_triangles:Unable to create exclude triangles"
+      ],
+      "status": "Nastaveno a lokálně nařezáno; skutečné dráhy zkontrolovány; fyzický tisk neověřen"
+    },
+    {
+      "number": 6,
+      "geometry": "podlozka-06-geometrie.3mf",
+      "geometry_sha256": "22911ed40268adbbcf0a51d395a38295f3bdf329881c203547e32959f36ebd28",
+      "preview": "podlozka-06.png",
+      "physical_parts": 6,
+      "parts": [
+        {
+          "id": "bok-segment",
+          "name": "bok-segment-06",
+          "file": "stl/bok-segment.stl",
+          "source_sha256": "1d4c936ffbe41b6a8fcb9af6900924977a238587cd0c00ac556141fce939fe21",
+          "translation_mm": [
+            20.5,
+            9.75,
+            -0.0
+          ],
+          "placed_min_mm": [
+            20.5,
+            9.75,
+            0.0
+          ],
+          "placed_max_mm": [
+            203.5,
+            186.25,
+            20.0
+          ],
+          "size_mm": [
+            183.0,
+            176.5,
+            20.0
+          ],
+          "triangle_count": 644,
+          "supports": false,
+          "support_note": "Vnější plochou na podložku; pantová pouzdra mají podložený kořen a otvor s 45° stropem ve směru +X sestavy / +Z tisku.",
+          "critical_z_mm": [
+            0.2,
+            4.2,
+            10.000000000000018,
+            14,
+            16,
+            17.2,
+            18.4,
+            19.800000000000036
+          ]
+        },
+        {
+          "id": "spojka-panelu",
+          "name": "spojka-panelu-05",
+          "file": "stl/spojka-panelu.stl",
+          "source_sha256": "dcef25b9ceae15a16b965b5366d67033ec5cdebf73aeb2dc2bb54ec4f0addd4f",
+          "translation_mm": [
+            20.5,
+            198.25,
+            -0.0
+          ],
+          "placed_min_mm": [
+            20.5,
+            198.25,
+            0.0
+          ],
+          "placed_max_mm": [
+            100.5,
+            218.25,
+            4.0
+          ],
+          "size_mm": [
+            80.0,
+            20.0,
+            4.0
+          ],
+          "triangle_count": 12,
+          "supports": false,
+          "support_note": "Plochou 20×80 mm na podložku, výška 4 mm.",
+          "critical_z_mm": [
+            0.2,
+            2.000000000000009,
+            3.8000000000000176
+          ]
+        },
+        {
+          "id": "spojka-panelu",
+          "name": "spojka-panelu-06",
+          "file": "stl/spojka-panelu.stl",
+          "source_sha256": "dcef25b9ceae15a16b965b5366d67033ec5cdebf73aeb2dc2bb54ec4f0addd4f",
+          "translation_mm": [
+            112.5,
+            198.25,
+            -0.0
+          ],
+          "placed_min_mm": [
+            112.5,
+            198.25,
+            0.0
+          ],
+          "placed_max_mm": [
+            192.5,
+            218.25,
+            4.0
+          ],
+          "size_mm": [
+            80.0,
+            20.0,
+            4.0
+          ],
+          "triangle_count": 12,
+          "supports": false,
+          "support_note": "Plochou 20×80 mm na podložku, výška 4 mm.",
+          "critical_z_mm": [
+            0.2,
+            2.000000000000009,
+            3.8000000000000176
+          ]
+        },
+        {
+          "id": "spojka-panelu",
+          "name": "spojka-panelu-07",
+          "file": "stl/spojka-panelu.stl",
+          "source_sha256": "dcef25b9ceae15a16b965b5366d67033ec5cdebf73aeb2dc2bb54ec4f0addd4f",
+          "translation_mm": [
+            20.5,
+            230.25,
+            -0.0
+          ],
+          "placed_min_mm": [
+            20.5,
+            230.25,
+            0.0
+          ],
+          "placed_max_mm": [
+            100.5,
+            250.25,
+            4.0
+          ],
+          "size_mm": [
+            80.0,
+            20.0,
+            4.0
+          ],
+          "triangle_count": 12,
+          "supports": false,
+          "support_note": "Plochou 20×80 mm na podložku, výška 4 mm.",
+          "critical_z_mm": [
+            0.2,
+            2.000000000000009,
+            3.8000000000000176
+          ]
+        },
+        {
+          "id": "spojka-panelu",
+          "name": "spojka-panelu-08",
+          "file": "stl/spojka-panelu.stl",
+          "source_sha256": "dcef25b9ceae15a16b965b5366d67033ec5cdebf73aeb2dc2bb54ec4f0addd4f",
+          "translation_mm": [
+            112.5,
+            230.25,
+            -0.0
+          ],
+          "placed_min_mm": [
+            112.5,
+            230.25,
+            0.0
+          ],
+          "placed_max_mm": [
+            192.5,
+            250.25,
+            4.0
+          ],
+          "size_mm": [
+            80.0,
+            20.0,
+            4.0
+          ],
+          "triangle_count": 12,
+          "supports": false,
+          "support_note": "Plochou 20×80 mm na podložku, výška 4 mm.",
+          "critical_z_mm": [
+            0.2,
+            2.000000000000009,
+            3.8000000000000176
+          ]
+        },
+        {
+          "id": "rohovy-uhelnik",
+          "name": "rohovy-uhelnik-06",
+          "file": "stl/rohovy-uhelnik.stl",
+          "source_sha256": "69b0e9a2d7e0fe478e5aa58702ea13565d0197ee2833d813d887a5762c76cab5",
+          "translation_mm": [
+            215.5,
+            9.75,
+            -0.0
+          ],
+          "placed_min_mm": [
+            215.5,
+            9.75,
+            0.0
+          ],
+          "placed_max_mm": [
+            239.5,
+            33.75,
+            12.0
+          ],
+          "size_mm": [
+            24.0,
+            24.0,
+            12.0
+          ],
+          "triangle_count": 20,
+          "supports": false,
+          "support_note": "L půdorys na podložce, výška 12 mm, žádný převis.",
+          "critical_z_mm": [
+            0.2,
+            6.0,
+            11.8
+          ]
+        }
+      ],
+      "minimum_geometry_edge_margin_mm": 9.75,
+      "minimum_bbox_gap_mm": 12.0,
+      "project": "podlozka-06-kobra-x-cerny-pla-projekt.3mf",
+      "process_sha256": "5b1453c9a6e9e170c0e562fecaf0be2b5469d1f30d74651105c039fc55431c58",
+      "filament_sha256": "bf8b01b1871aa681b610eae6c82ce99144c8f52c0e4a861fe1b3bf7d8035dd2e",
+      "configured": {
+        "sha256": "ce4df4ee9eb8e811a99a6b0ffcce97b3a0032893a7ae2aba60af8643be4208ed",
+        "objects": [
+          {
+            "name": "bok-segment-06",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 4.824218535759428e-08
+          },
+          {
+            "name": "spojka-panelu-05",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 1.7763568394002505e-14
+          },
+          {
+            "name": "spojka-panelu-06",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 1.7763568394002505e-14
+          },
+          {
+            "name": "spojka-panelu-07",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 1.7763568394002505e-14
+          },
+          {
+            "name": "spojka-panelu-08",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 1.7763568394002505e-14
+          },
+          {
+            "name": "rohovy-uhelnik-06",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 0.0
+          }
+        ],
+        "physical_parts": 6,
+        "mesh_repairs": [
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          },
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          },
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          },
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          },
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          },
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          }
+        ],
+        "settings": {
+          "printer_model": "Anycubic Kobra X",
+          "printer_settings_id": "Anycubic Kobra X 0.4 nozzle",
+          "print_settings_id": "Skrinka 0.20 mm cerne PLA navrh Kobra X",
+          "filament_settings_id": [
+            "NAVRH Alzament PLA Basic cerna @Kobra X 0.4"
+          ],
+          "nozzle_diameter": [
+            "0.4"
+          ],
+          "layer_height": "0.2",
+          "wall_loops": "4",
+          "sparse_infill_density": "25%",
+          "sparse_infill_pattern": "gyroid",
+          "enable_support": "0",
+          "support_on_build_plate_only": "0",
+          "brim_type": "outer_only",
+          "brim_width": "5",
+          "nozzle_temperature": [
+            "205"
+          ],
+          "nozzle_temperature_initial_layer": [
+            "215"
+          ],
+          "textured_plate_temp": [
+            "50"
+          ],
+          "outer_wall_speed": "50",
+          "inner_wall_speed": "75",
+          "filament_colour": [
+            "#17191B"
+          ]
+        },
+        "has_gcode": false
+      },
+      "delivered": {
+        "sha256": "2dc14241ce542c59eab9300bf65eef918a466d5a2c64429f9c3244d9c4af4fd9",
+        "objects": [
+          {
+            "name": "bok-segment-06",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 4.824218535759428e-08
+          },
+          {
+            "name": "spojka-panelu-05",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 1.7763568394002505e-14
+          },
+          {
+            "name": "spojka-panelu-06",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 1.7763568394002505e-14
+          },
+          {
+            "name": "spojka-panelu-07",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 1.7763568394002505e-14
+          },
+          {
+            "name": "spojka-panelu-08",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 1.7763568394002505e-14
+          },
+          {
+            "name": "rohovy-uhelnik-06",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 0.0
+          }
+        ],
+        "physical_parts": 6,
+        "mesh_repairs": [
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          },
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          },
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          },
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          },
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          },
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          }
+        ],
+        "settings": {
+          "printer_model": "Anycubic Kobra X",
+          "printer_settings_id": "Anycubic Kobra X 0.4 nozzle",
+          "print_settings_id": "Skrinka 0.20 mm cerne PLA navrh Kobra X",
+          "filament_settings_id": [
+            "NAVRH Alzament PLA Basic cerna @Kobra X 0.4"
+          ],
+          "nozzle_diameter": [
+            "0.4"
+          ],
+          "layer_height": "0.2",
+          "wall_loops": "4",
+          "sparse_infill_density": "25%",
+          "sparse_infill_pattern": "gyroid",
+          "enable_support": "0",
+          "support_on_build_plate_only": "0",
+          "brim_type": "outer_only",
+          "brim_width": "5",
+          "nozzle_temperature": [
+            "205"
+          ],
+          "nozzle_temperature_initial_layer": [
+            "215"
+          ],
+          "textured_plate_temp": [
+            "50"
+          ],
+          "outer_wall_speed": "50",
+          "inner_wall_speed": "75",
+          "filament_colour": [
+            "#17191B"
+          ]
+        },
+        "has_gcode": true,
+        "gcode_bytes": 13709991,
+        "gcode_sha256": "e95b1842e3b05b0ff39caab4e111eb4ebcaf3568ae4a0639cfac39fc9c1cba6e",
+        "slice_metadata": {
+          "prediction": "25099",
+          "weight": "120.03",
+          "outside": "false",
+          "support_used": "false"
+        },
+        "warnings": [
+          {
+            "msg": "not_support_traditional_timelapse",
+            "level": "1",
+            "error_code": "1000C003"
+          }
+        ]
+      },
+      "toolpath_audit": {
+        "physical_parts": 6,
+        "all_objects_on_first_layer": true,
+        "layers": 100,
+        "all_layers_have_extrusion": true,
+        "maximum_extrusion_z_mm": 20.0,
+        "roles_segments": {
+          "Brim": 2706,
+          "Outer wall": 2176,
+          "Inner wall": 5507,
+          "Bottom surface": 2219,
+          "Gap infill": 94,
+          "Internal solid infill": 15765,
+          "Sparse infill": 440944,
+          "Internal Bridge": 3067,
+          "Top surface": 2214,
+          "Bridge": 90
+        },
+        "support_segments": 0,
+        "bridge_overhang_segments": 3157,
+        "maximum_bridge_extrusion_segment_mm": 206.55003809488878,
+        "maximum_external_bridge_extrusion_segment_mm": 2.781000000000006,
+        "internal_bridge_note": "Internal Bridge crosses sparse infill; segment length is not unsupported free span.",
+        "support_layer_range": null,
+        "bridge_layer_range": [
+          15,
+          86
+        ],
+        "extrusion_min_xy_mm": [
+          16.058,
+          5.308
+        ],
+        "extrusion_max_xy_mm": [
+          243.942,
+          254.692
+        ],
+        "minimum_extrusion_edge_margin_mm": 5.307999999999993,
+        "preview": "podlozka-06-vrstvy.png",
+        "selected_z_mm": [
+          0.2,
+          2.0,
+          3.8,
+          4.2,
+          6.0,
+          10.0,
+          11.8,
+          14.0,
+          16.0,
+          17.2,
+          18.4,
+          19.8
+        ],
+        "estimated_filament_g": 120.03,
+        "estimated_printing_time": "6h 58m 19s",
+        "first_layer_gcode_temperature_c": {
+          "bed": 50,
+          "nozzle": 215
+        },
+        "physical_print_fit_support_removal": "Neověřeno"
+      },
+      "cli_exit_codes": [
+        0,
+        0
+      ],
+      "cli_error_messages": [
+        "calc_exclude_triangles:Unable to create exclude triangles"
+      ],
+      "status": "Nastaveno a lokálně nařezáno; skutečné dráhy zkontrolovány; fyzický tisk neověřen"
+    },
+    {
+      "number": 7,
+      "geometry": "podlozka-07-geometrie.3mf",
+      "geometry_sha256": "5946dddfc2c21f3e8cbf34af96a631c526ec52f0373838d3e7b4855c5b6bd0ba",
+      "preview": "podlozka-07.png",
+      "physical_parts": 4,
+      "parts": [
+        {
+          "id": "dvere-dolni",
+          "name": "dvere-dolni-01",
+          "file": "stl/dvere-dolni.stl",
+          "source_sha256": "5d5416d43089b173dbb7da0975da70e60a614b78826f9d8279972e5bbb9bdc10",
+          "translation_mm": [
+            24.75,
+            23.166664123535156,
+            -0.0
+          ],
+          "placed_min_mm": [
+            24.75,
+            23.166664123535156,
+            0.0
+          ],
+          "placed_max_mm": [
+            199.25,
+            204.83333587646484,
+            12.5
+          ],
+          "size_mm": [
+            174.5,
+            181.6666717529297,
+            12.5
+          ],
+          "triangle_count": 324,
+          "supports": false,
+          "support_note": "Čelem na podložku; integrální pouzdro podepřeno blokem až k čelu; strop otvoru 45° ve směru -Y sestavy / +Z tisku.",
+          "critical_z_mm": [
+            0.2,
+            4.2,
+            6.25,
+            8,
+            10,
+            11.2,
+            12.2,
+            12.3
+          ]
+        },
+        {
+          "id": "spojka-panelu",
+          "name": "spojka-panelu-09",
+          "file": "stl/spojka-panelu.stl",
+          "source_sha256": "dcef25b9ceae15a16b965b5366d67033ec5cdebf73aeb2dc2bb54ec4f0addd4f",
+          "translation_mm": [
+            24.75,
+            216.83333587646484,
+            -0.0
+          ],
+          "placed_min_mm": [
+            24.75,
+            216.83333587646484,
+            0.0
+          ],
+          "placed_max_mm": [
+            104.75,
+            236.83333587646484,
+            4.0
+          ],
+          "size_mm": [
+            80.0,
+            20.0,
+            4.0
+          ],
+          "triangle_count": 12,
+          "supports": false,
+          "support_note": "Plochou 20×80 mm na podložku, výška 4 mm.",
+          "critical_z_mm": [
+            0.2,
+            2.000000000000009,
+            3.8000000000000176
+          ]
+        },
+        {
+          "id": "spojka-panelu",
+          "name": "spojka-panelu-10",
+          "file": "stl/spojka-panelu.stl",
+          "source_sha256": "dcef25b9ceae15a16b965b5366d67033ec5cdebf73aeb2dc2bb54ec4f0addd4f",
+          "translation_mm": [
+            116.75,
+            216.83333587646484,
+            -0.0
+          ],
+          "placed_min_mm": [
+            116.75,
+            216.83333587646484,
+            0.0
+          ],
+          "placed_max_mm": [
+            196.75,
+            236.83333587646484,
+            4.0
+          ],
+          "size_mm": [
+            80.0,
+            20.0,
+            4.0
+          ],
+          "triangle_count": 12,
+          "supports": false,
+          "support_note": "Plochou 20×80 mm na podložku, výška 4 mm.",
+          "critical_z_mm": [
+            0.2,
+            2.000000000000009,
+            3.8000000000000176
+          ]
+        },
+        {
+          "id": "rohovy-uhelnik",
+          "name": "rohovy-uhelnik-07",
+          "file": "stl/rohovy-uhelnik.stl",
+          "source_sha256": "69b0e9a2d7e0fe478e5aa58702ea13565d0197ee2833d813d887a5762c76cab5",
+          "translation_mm": [
+            211.25,
+            23.166664123535156,
+            -0.0
+          ],
+          "placed_min_mm": [
+            211.25,
+            23.166664123535156,
+            0.0
+          ],
+          "placed_max_mm": [
+            235.25,
+            47.166664123535156,
+            12.0
+          ],
+          "size_mm": [
+            24.0,
+            24.0,
+            12.0
+          ],
+          "triangle_count": 20,
+          "supports": false,
+          "support_note": "L půdorys na podložce, výška 12 mm, žádný převis.",
+          "critical_z_mm": [
+            0.2,
+            6.0,
+            11.8
+          ]
+        }
+      ],
+      "minimum_geometry_edge_margin_mm": 23.166664123535156,
+      "minimum_bbox_gap_mm": 12.0,
+      "project": "podlozka-07-kobra-x-cerny-pla-projekt.3mf",
+      "process_sha256": "5b1453c9a6e9e170c0e562fecaf0be2b5469d1f30d74651105c039fc55431c58",
+      "filament_sha256": "bf8b01b1871aa681b610eae6c82ce99144c8f52c0e4a861fe1b3bf7d8035dd2e",
+      "configured": {
+        "sha256": "d9b1dfda3e6ce0a631832d577f2a29a7a4fcf370bb1db51256a7c22d536cbbc3",
+        "objects": [
+          {
+            "name": "dvere-dolni-01",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 3.8535644506509925e-06
+          },
+          {
+            "name": "spojka-panelu-09",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 1.2353515899121703e-07
+          },
+          {
+            "name": "spojka-panelu-10",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 1.2353515899121703e-07
+          },
+          {
+            "name": "rohovy-uhelnik-07",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 2.353515782260729e-08
+          }
+        ],
+        "physical_parts": 4,
+        "mesh_repairs": [
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          },
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          },
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          },
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          }
+        ],
+        "settings": {
+          "printer_model": "Anycubic Kobra X",
+          "printer_settings_id": "Anycubic Kobra X 0.4 nozzle",
+          "print_settings_id": "Skrinka 0.20 mm cerne PLA navrh Kobra X",
+          "filament_settings_id": [
+            "NAVRH Alzament PLA Basic cerna @Kobra X 0.4"
+          ],
+          "nozzle_diameter": [
+            "0.4"
+          ],
+          "layer_height": "0.2",
+          "wall_loops": "4",
+          "sparse_infill_density": "25%",
+          "sparse_infill_pattern": "gyroid",
+          "enable_support": "0",
+          "support_on_build_plate_only": "0",
+          "brim_type": "outer_only",
+          "brim_width": "5",
+          "nozzle_temperature": [
+            "205"
+          ],
+          "nozzle_temperature_initial_layer": [
+            "215"
+          ],
+          "textured_plate_temp": [
+            "50"
+          ],
+          "outer_wall_speed": "50",
+          "inner_wall_speed": "75",
+          "filament_colour": [
+            "#17191B"
+          ]
+        },
+        "has_gcode": false
+      },
+      "delivered": {
+        "sha256": "f5a3c8850d66862a86b33df2f01eb4bac64a57419337daa45355cb9d018eb50c",
+        "objects": [
+          {
+            "name": "dvere-dolni-01",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 3.8535644506509925e-06
+          },
+          {
+            "name": "spojka-panelu-09",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 1.2353515899121703e-07
+          },
+          {
+            "name": "spojka-panelu-10",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 1.2353515899121703e-07
+          },
+          {
+            "name": "rohovy-uhelnik-07",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 2.353515782260729e-08
+          }
+        ],
+        "physical_parts": 4,
+        "mesh_repairs": [
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          },
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          },
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          },
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          }
+        ],
+        "settings": {
+          "printer_model": "Anycubic Kobra X",
+          "printer_settings_id": "Anycubic Kobra X 0.4 nozzle",
+          "print_settings_id": "Skrinka 0.20 mm cerne PLA navrh Kobra X",
+          "filament_settings_id": [
+            "NAVRH Alzament PLA Basic cerna @Kobra X 0.4"
+          ],
+          "nozzle_diameter": [
+            "0.4"
+          ],
+          "layer_height": "0.2",
+          "wall_loops": "4",
+          "sparse_infill_density": "25%",
+          "sparse_infill_pattern": "gyroid",
+          "enable_support": "0",
+          "support_on_build_plate_only": "0",
+          "brim_type": "outer_only",
+          "brim_width": "5",
+          "nozzle_temperature": [
+            "205"
+          ],
+          "nozzle_temperature_initial_layer": [
+            "215"
+          ],
+          "textured_plate_temp": [
+            "50"
+          ],
+          "outer_wall_speed": "50",
+          "inner_wall_speed": "75",
+          "filament_colour": [
+            "#17191B"
+          ]
+        },
+        "has_gcode": true,
+        "gcode_bytes": 11197957,
+        "gcode_sha256": "e7f311087619cbf1da24f6103c9e892da2f115878484030bffb77fa76ec56694",
+        "slice_metadata": {
+          "prediction": "19196",
+          "weight": "91.95",
+          "outside": "false",
+          "support_used": "false"
+        },
+        "warnings": []
+      },
+      "toolpath_audit": {
+        "physical_parts": 4,
+        "all_objects_on_first_layer": true,
+        "layers": 62,
+        "all_layers_have_extrusion": true,
+        "maximum_extrusion_z_mm": 12.4,
+        "roles_segments": {
+          "Brim": 2031,
+          "Outer wall": 1028,
+          "Inner wall": 2588,
+          "Gap infill": 45,
+          "Bottom surface": 1638,
+          "Internal solid infill": 10230,
+          "Sparse infill": 370410,
+          "Internal Bridge": 2105,
+          "Top surface": 1162,
+          "Bridge": 45
+        },
+        "support_segments": 0,
+        "bridge_overhang_segments": 2150,
+        "maximum_bridge_extrusion_segment_mm": 217.11160555115427,
+        "maximum_external_bridge_extrusion_segment_mm": 2.7810000000000024,
+        "internal_bridge_note": "Internal Bridge crosses sparse infill; segment length is not unsupported free span.",
+        "support_layer_range": null,
+        "bridge_layer_range": [
+          15,
+          56
+        ],
+        "extrusion_min_xy_mm": [
+          20.308,
+          18.724
+        ],
+        "extrusion_max_xy_mm": [
+          239.692,
+          241.276
+        ],
+        "minimum_extrusion_edge_margin_mm": 18.72399999999999,
+        "preview": "podlozka-07-vrstvy.png",
+        "selected_z_mm": [
+          0.2,
+          2.0,
+          3.8,
+          4.2,
+          6.0,
+          6.2,
+          8.0,
+          10.0,
+          11.2,
+          11.8,
+          12.2,
+          12.4
+        ],
+        "estimated_filament_g": 91.95,
+        "estimated_printing_time": "5h 19m 56s",
+        "first_layer_gcode_temperature_c": {
+          "bed": 50,
+          "nozzle": 215
+        },
+        "physical_print_fit_support_removal": "Neověřeno"
+      },
+      "status": "Nastaveno a lokálně nařezáno; skutečné dráhy zkontrolovány; fyzický tisk neověřen",
+      "cli_error_messages": [
+        "calc_exclude_triangles:Unable to create exclude triangles"
+      ],
+      "cli_exit_codes": [
+        0,
+        0
+      ]
+    },
+    {
+      "number": 8,
+      "geometry": "podlozka-08-geometrie.3mf",
+      "geometry_sha256": "3489bfbbb5db79b3b05a06e9f0cab842508cbe706a33593b43603000aa9a04a5",
+      "preview": "podlozka-08.png",
+      "physical_parts": 4,
+      "parts": [
+        {
+          "id": "dvere-dolni-prave",
+          "name": "dvere-dolni-prave-01",
+          "file": "stl/dvere-dolni-prave.stl",
+          "source_sha256": "b187661d0406b07c0464be2673d2f5c5f7f506453941749cd5f40395f60990cd",
+          "translation_mm": [
+            24.75,
+            23.166664123535156,
+            -0.0
+          ],
+          "placed_min_mm": [
+            24.75,
+            23.166664123535156,
+            0.0
+          ],
+          "placed_max_mm": [
+            199.25,
+            204.83333587646484,
+            12.5
+          ],
+          "size_mm": [
+            174.5,
+            181.6666717529297,
+            12.5
+          ],
+          "triangle_count": 324,
+          "supports": false,
+          "support_note": "Čelem na podložku; zrcadlený pravý díl. Strop otvoru 45° ve směru -Y sestavy / +Z tisku.",
+          "critical_z_mm": [
+            0.2,
+            4.2,
+            6.25,
+            8,
+            10,
+            11.2,
+            12.2,
+            12.3
+          ]
+        },
+        {
+          "id": "spojka-panelu",
+          "name": "spojka-panelu-11",
+          "file": "stl/spojka-panelu.stl",
+          "source_sha256": "dcef25b9ceae15a16b965b5366d67033ec5cdebf73aeb2dc2bb54ec4f0addd4f",
+          "translation_mm": [
+            24.75,
+            216.83333587646484,
+            -0.0
+          ],
+          "placed_min_mm": [
+            24.75,
+            216.83333587646484,
+            0.0
+          ],
+          "placed_max_mm": [
+            104.75,
+            236.83333587646484,
+            4.0
+          ],
+          "size_mm": [
+            80.0,
+            20.0,
+            4.0
+          ],
+          "triangle_count": 12,
+          "supports": false,
+          "support_note": "Plochou 20×80 mm na podložku, výška 4 mm.",
+          "critical_z_mm": [
+            0.2,
+            2.000000000000009,
+            3.8000000000000176
+          ]
+        },
+        {
+          "id": "spojka-panelu",
+          "name": "spojka-panelu-12",
+          "file": "stl/spojka-panelu.stl",
+          "source_sha256": "dcef25b9ceae15a16b965b5366d67033ec5cdebf73aeb2dc2bb54ec4f0addd4f",
+          "translation_mm": [
+            116.75,
+            216.83333587646484,
+            -0.0
+          ],
+          "placed_min_mm": [
+            116.75,
+            216.83333587646484,
+            0.0
+          ],
+          "placed_max_mm": [
+            196.75,
+            236.83333587646484,
+            4.0
+          ],
+          "size_mm": [
+            80.0,
+            20.0,
+            4.0
+          ],
+          "triangle_count": 12,
+          "supports": false,
+          "support_note": "Plochou 20×80 mm na podložku, výška 4 mm.",
+          "critical_z_mm": [
+            0.2,
+            2.000000000000009,
+            3.8000000000000176
+          ]
+        },
+        {
+          "id": "rohovy-uhelnik",
+          "name": "rohovy-uhelnik-08",
+          "file": "stl/rohovy-uhelnik.stl",
+          "source_sha256": "69b0e9a2d7e0fe478e5aa58702ea13565d0197ee2833d813d887a5762c76cab5",
+          "translation_mm": [
+            211.25,
+            23.166664123535156,
+            -0.0
+          ],
+          "placed_min_mm": [
+            211.25,
+            23.166664123535156,
+            0.0
+          ],
+          "placed_max_mm": [
+            235.25,
+            47.166664123535156,
+            12.0
+          ],
+          "size_mm": [
+            24.0,
+            24.0,
+            12.0
+          ],
+          "triangle_count": 20,
+          "supports": false,
+          "support_note": "L půdorys na podložce, výška 12 mm, žádný převis.",
+          "critical_z_mm": [
+            0.2,
+            6.0,
+            11.8
+          ]
+        }
+      ],
+      "minimum_geometry_edge_margin_mm": 23.166664123535156,
+      "minimum_bbox_gap_mm": 12.0,
+      "project": "podlozka-08-kobra-x-cerny-pla-projekt.3mf",
+      "process_sha256": "5b1453c9a6e9e170c0e562fecaf0be2b5469d1f30d74651105c039fc55431c58",
+      "filament_sha256": "bf8b01b1871aa681b610eae6c82ce99144c8f52c0e4a861fe1b3bf7d8035dd2e",
+      "configured": {
+        "sha256": "4163ebbf8591db2e68aa67607d426af528fb5e909463288744efb8b114415af0",
+        "objects": [
+          {
+            "name": "dvere-dolni-prave-01",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 4.824218535759428e-08
+          },
+          {
+            "name": "spojka-panelu-11",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 1.2353515899121703e-07
+          },
+          {
+            "name": "spojka-panelu-12",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 1.2353515899121703e-07
+          },
+          {
+            "name": "rohovy-uhelnik-08",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 2.353515782260729e-08
+          }
+        ],
+        "physical_parts": 4,
+        "mesh_repairs": [
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          },
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          },
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          },
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          }
+        ],
+        "settings": {
+          "printer_model": "Anycubic Kobra X",
+          "printer_settings_id": "Anycubic Kobra X 0.4 nozzle",
+          "print_settings_id": "Skrinka 0.20 mm cerne PLA navrh Kobra X",
+          "filament_settings_id": [
+            "NAVRH Alzament PLA Basic cerna @Kobra X 0.4"
+          ],
+          "nozzle_diameter": [
+            "0.4"
+          ],
+          "layer_height": "0.2",
+          "wall_loops": "4",
+          "sparse_infill_density": "25%",
+          "sparse_infill_pattern": "gyroid",
+          "enable_support": "0",
+          "support_on_build_plate_only": "0",
+          "brim_type": "outer_only",
+          "brim_width": "5",
+          "nozzle_temperature": [
+            "205"
+          ],
+          "nozzle_temperature_initial_layer": [
+            "215"
+          ],
+          "textured_plate_temp": [
+            "50"
+          ],
+          "outer_wall_speed": "50",
+          "inner_wall_speed": "75",
+          "filament_colour": [
+            "#17191B"
+          ]
+        },
+        "has_gcode": false
+      },
+      "delivered": {
+        "sha256": "335126f45f59b0c0b0b48cb380ce707ee0a979cb1fa31d86992054db415c0a21",
+        "objects": [
+          {
+            "name": "dvere-dolni-prave-01",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 4.824218535759428e-08
+          },
+          {
+            "name": "spojka-panelu-11",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 1.2353515899121703e-07
+          },
+          {
+            "name": "spojka-panelu-12",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 1.2353515899121703e-07
+          },
+          {
+            "name": "rohovy-uhelnik-08",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 2.353515782260729e-08
+          }
+        ],
+        "physical_parts": 4,
+        "mesh_repairs": [
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          },
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          },
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          },
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          }
+        ],
+        "settings": {
+          "printer_model": "Anycubic Kobra X",
+          "printer_settings_id": "Anycubic Kobra X 0.4 nozzle",
+          "print_settings_id": "Skrinka 0.20 mm cerne PLA navrh Kobra X",
+          "filament_settings_id": [
+            "NAVRH Alzament PLA Basic cerna @Kobra X 0.4"
+          ],
+          "nozzle_diameter": [
+            "0.4"
+          ],
+          "layer_height": "0.2",
+          "wall_loops": "4",
+          "sparse_infill_density": "25%",
+          "sparse_infill_pattern": "gyroid",
+          "enable_support": "0",
+          "support_on_build_plate_only": "0",
+          "brim_type": "outer_only",
+          "brim_width": "5",
+          "nozzle_temperature": [
+            "205"
+          ],
+          "nozzle_temperature_initial_layer": [
+            "215"
+          ],
+          "textured_plate_temp": [
+            "50"
+          ],
+          "outer_wall_speed": "50",
+          "inner_wall_speed": "75",
+          "filament_colour": [
+            "#17191B"
+          ]
+        },
+        "has_gcode": true,
+        "gcode_bytes": 11175368,
+        "gcode_sha256": "55b9a196f6bbfcdbed21bcbd6be491ddad8536d123b7dcaddf86bf06d441e687",
+        "slice_metadata": {
+          "prediction": "19287",
+          "weight": "91.93",
+          "outside": "false",
+          "support_used": "false"
+        },
+        "warnings": []
+      },
+      "toolpath_audit": {
+        "physical_parts": 4,
+        "all_objects_on_first_layer": true,
+        "layers": 62,
+        "all_layers_have_extrusion": true,
+        "maximum_extrusion_z_mm": 12.4,
+        "roles_segments": {
+          "Brim": 2029,
+          "Outer wall": 1028,
+          "Inner wall": 2587,
+          "Gap infill": 42,
+          "Bottom surface": 1638,
+          "Internal solid infill": 10234,
+          "Sparse infill": 370106,
+          "Internal Bridge": 2119,
+          "Top surface": 1162,
+          "Bridge": 45
+        },
+        "support_segments": 0,
+        "bridge_overhang_segments": 2164,
+        "maximum_bridge_extrusion_segment_mm": 221.96881310895907,
+        "maximum_external_bridge_extrusion_segment_mm": 2.781000000000006,
+        "internal_bridge_note": "Internal Bridge crosses sparse infill; segment length is not unsupported free span.",
+        "support_layer_range": null,
+        "bridge_layer_range": [
+          15,
+          56
+        ],
+        "extrusion_min_xy_mm": [
+          20.308,
+          18.724
+        ],
+        "extrusion_max_xy_mm": [
+          239.692,
+          241.276
+        ],
+        "minimum_extrusion_edge_margin_mm": 18.72399999999999,
+        "preview": "podlozka-08-vrstvy.png",
+        "selected_z_mm": [
+          0.2,
+          2.0,
+          3.8,
+          4.2,
+          6.0,
+          6.2,
+          8.0,
+          10.0,
+          11.2,
+          11.8,
+          12.2,
+          12.4
+        ],
+        "estimated_filament_g": 91.93,
+        "estimated_printing_time": "5h 21m 27s",
+        "first_layer_gcode_temperature_c": {
+          "bed": 50,
+          "nozzle": 215
+        },
+        "physical_print_fit_support_removal": "Neověřeno"
+      },
+      "status": "Nastaveno a lokálně nařezáno; skutečné dráhy zkontrolovány; fyzický tisk neověřen",
+      "cli_error_messages": [
+        "calc_exclude_triangles:Unable to create exclude triangles"
+      ],
+      "cli_exit_codes": [
+        0,
+        0
+      ]
+    },
+    {
+      "number": 9,
+      "geometry": "podlozka-09-geometrie.3mf",
+      "geometry_sha256": "bd5f724fa8ca230a76a5ba9165bfffcb3d5d83e4d808a3ae5d2d546ae3289d35",
+      "preview": "podlozka-09.png",
+      "physical_parts": 3,
+      "parts": [
+        {
+          "id": "dvere-stredni",
+          "name": "dvere-stredni-01",
+          "file": "stl/dvere-stredni.stl",
+          "source_sha256": "a4491dab3adb3d62e77fff663f679406b2a112ae69d66de48113baa9bca90a59",
+          "translation_mm": [
+            42.75,
+            23.166664123535156,
+            -0.0
+          ],
+          "placed_min_mm": [
+            42.75,
+            23.166664123535156,
+            0.0
+          ],
+          "placed_max_mm": [
+            217.25,
+            204.83333587646484,
+            12.5
+          ],
+          "size_mm": [
+            174.5,
+            181.6666717529297,
+            12.5
+          ],
+          "triangle_count": 324,
+          "supports": false,
+          "support_note": "Čelem na podložku; integrální pouzdro podepřeno blokem až k čelu; strop otvoru 45° ve směru -Y sestavy / +Z tisku.",
+          "critical_z_mm": [
+            0.2,
+            4.2,
+            6.25,
+            8,
+            10,
+            11.2,
+            12.2,
+            12.3
+          ]
+        },
+        {
+          "id": "spojka-panelu",
+          "name": "spojka-panelu-13",
+          "file": "stl/spojka-panelu.stl",
+          "source_sha256": "dcef25b9ceae15a16b965b5366d67033ec5cdebf73aeb2dc2bb54ec4f0addd4f",
+          "translation_mm": [
+            42.75,
+            216.83333587646484,
+            -0.0
+          ],
+          "placed_min_mm": [
+            42.75,
+            216.83333587646484,
+            0.0
+          ],
+          "placed_max_mm": [
+            122.75,
+            236.83333587646484,
+            4.0
+          ],
+          "size_mm": [
+            80.0,
+            20.0,
+            4.0
+          ],
+          "triangle_count": 12,
+          "supports": false,
+          "support_note": "Plochou 20×80 mm na podložku, výška 4 mm.",
+          "critical_z_mm": [
+            0.2,
+            2.000000000000009,
+            3.8000000000000176
+          ]
+        },
+        {
+          "id": "spojka-panelu",
+          "name": "spojka-panelu-14",
+          "file": "stl/spojka-panelu.stl",
+          "source_sha256": "dcef25b9ceae15a16b965b5366d67033ec5cdebf73aeb2dc2bb54ec4f0addd4f",
+          "translation_mm": [
+            134.75,
+            216.83333587646484,
+            -0.0
+          ],
+          "placed_min_mm": [
+            134.75,
+            216.83333587646484,
+            0.0
+          ],
+          "placed_max_mm": [
+            214.75,
+            236.83333587646484,
+            4.0
+          ],
+          "size_mm": [
+            80.0,
+            20.0,
+            4.0
+          ],
+          "triangle_count": 12,
+          "supports": false,
+          "support_note": "Plochou 20×80 mm na podložku, výška 4 mm.",
+          "critical_z_mm": [
+            0.2,
+            2.000000000000009,
+            3.8000000000000176
+          ]
+        }
+      ],
+      "minimum_geometry_edge_margin_mm": 23.166664123535156,
+      "minimum_bbox_gap_mm": 12.0,
+      "project": "podlozka-09-kobra-x-cerny-pla-projekt.3mf",
+      "process_sha256": "5b1453c9a6e9e170c0e562fecaf0be2b5469d1f30d74651105c039fc55431c58",
+      "filament_sha256": "bf8b01b1871aa681b610eae6c82ce99144c8f52c0e4a861fe1b3bf7d8035dd2e",
+      "configured": {
+        "sha256": "acdcfd4b4f21f85a3bbfb875f61915167cd78bb653b4a18b1ca71ab4117d080e",
+        "objects": [
+          {
+            "name": "dvere-stredni-01",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 3.8535644506509925e-06
+          },
+          {
+            "name": "spojka-panelu-13",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 1.2353515899121703e-07
+          },
+          {
+            "name": "spojka-panelu-14",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 1.2353515899121703e-07
+          }
+        ],
+        "physical_parts": 3,
+        "mesh_repairs": [
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          },
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          },
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          }
+        ],
+        "settings": {
+          "printer_model": "Anycubic Kobra X",
+          "printer_settings_id": "Anycubic Kobra X 0.4 nozzle",
+          "print_settings_id": "Skrinka 0.20 mm cerne PLA navrh Kobra X",
+          "filament_settings_id": [
+            "NAVRH Alzament PLA Basic cerna @Kobra X 0.4"
+          ],
+          "nozzle_diameter": [
+            "0.4"
+          ],
+          "layer_height": "0.2",
+          "wall_loops": "4",
+          "sparse_infill_density": "25%",
+          "sparse_infill_pattern": "gyroid",
+          "enable_support": "0",
+          "support_on_build_plate_only": "0",
+          "brim_type": "outer_only",
+          "brim_width": "5",
+          "nozzle_temperature": [
+            "205"
+          ],
+          "nozzle_temperature_initial_layer": [
+            "215"
+          ],
+          "textured_plate_temp": [
+            "50"
+          ],
+          "outer_wall_speed": "50",
+          "inner_wall_speed": "75",
+          "filament_colour": [
+            "#17191B"
+          ]
+        },
+        "has_gcode": false
+      },
+      "delivered": {
+        "sha256": "c6c58fc544a73da0eb01ee94dcb96241b2fcade13a965f9d0ea9b7cab7685539",
+        "objects": [
+          {
+            "name": "dvere-stredni-01",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 3.8535644506509925e-06
+          },
+          {
+            "name": "spojka-panelu-13",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 1.2353515899121703e-07
+          },
+          {
+            "name": "spojka-panelu-14",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 1.2353515899121703e-07
+          }
+        ],
+        "physical_parts": 3,
+        "mesh_repairs": [
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          },
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          },
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          }
+        ],
+        "settings": {
+          "printer_model": "Anycubic Kobra X",
+          "printer_settings_id": "Anycubic Kobra X 0.4 nozzle",
+          "print_settings_id": "Skrinka 0.20 mm cerne PLA navrh Kobra X",
+          "filament_settings_id": [
+            "NAVRH Alzament PLA Basic cerna @Kobra X 0.4"
+          ],
+          "nozzle_diameter": [
+            "0.4"
+          ],
+          "layer_height": "0.2",
+          "wall_loops": "4",
+          "sparse_infill_density": "25%",
+          "sparse_infill_pattern": "gyroid",
+          "enable_support": "0",
+          "support_on_build_plate_only": "0",
+          "brim_type": "outer_only",
+          "brim_width": "5",
+          "nozzle_temperature": [
+            "205"
+          ],
+          "nozzle_temperature_initial_layer": [
+            "215"
+          ],
+          "textured_plate_temp": [
+            "50"
+          ],
+          "outer_wall_speed": "50",
+          "inner_wall_speed": "75",
+          "filament_colour": [
+            "#17191B"
+          ]
+        },
+        "has_gcode": true,
+        "gcode_bytes": 11043470,
+        "gcode_sha256": "c6118470fee982057f3e68a968c1ca09ee1c2d5c0b01eb60dd1ff20bc0c3f8b2",
+        "slice_metadata": {
+          "prediction": "18683",
+          "weight": "89.49",
+          "outside": "false",
+          "support_used": "false"
+        },
+        "warnings": [
+          {
+            "msg": "not_support_traditional_timelapse",
+            "level": "1",
+            "error_code": "1000C003"
+          }
+        ]
+      },
+      "toolpath_audit": {
+        "physical_parts": 3,
+        "all_objects_on_first_layer": true,
+        "layers": 62,
+        "all_layers_have_extrusion": true,
+        "maximum_extrusion_z_mm": 12.4,
+        "roles_segments": {
+          "Brim": 1482,
+          "Outer wall": 668,
+          "Inner wall": 1526,
+          "Bottom surface": 1638,
+          "Internal solid infill": 10145,
+          "Sparse infill": 367340,
+          "Internal Bridge": 2125,
+          "Top surface": 1079,
+          "Gap infill": 38,
+          "Bridge": 45
+        },
+        "support_segments": 0,
+        "bridge_overhang_segments": 2170,
+        "maximum_bridge_extrusion_segment_mm": 217.47338787309127,
+        "maximum_external_bridge_extrusion_segment_mm": 2.780999999999999,
+        "internal_bridge_note": "Internal Bridge crosses sparse infill; segment length is not unsupported free span.",
+        "support_layer_range": null,
+        "bridge_layer_range": [
+          15,
+          56
+        ],
+        "extrusion_min_xy_mm": [
+          38.308,
+          18.724
+        ],
+        "extrusion_max_xy_mm": [
+          221.692,
+          241.276
+        ],
+        "minimum_extrusion_edge_margin_mm": 18.72399999999999,
+        "preview": "podlozka-09-vrstvy.png",
+        "selected_z_mm": [
+          0.2,
+          2.0,
+          3.8,
+          4.2,
+          6.2,
+          8.0,
+          10.0,
+          11.2,
+          12.2,
+          12.4
+        ],
+        "estimated_filament_g": 89.49,
+        "estimated_printing_time": "5h 11m 23s",
+        "first_layer_gcode_temperature_c": {
+          "bed": 50,
+          "nozzle": 215
+        },
+        "physical_print_fit_support_removal": "Neověřeno"
+      },
+      "status": "Nastaveno a lokálně nařezáno; skutečné dráhy zkontrolovány; fyzický tisk neověřen",
+      "cli_error_messages": [
+        "calc_exclude_triangles:Unable to create exclude triangles"
+      ],
+      "cli_exit_codes": [
+        0,
+        0
+      ]
+    },
+    {
+      "number": 10,
+      "geometry": "podlozka-10-geometrie.3mf",
+      "geometry_sha256": "2ab51bd20ba770da322c486dc8f8bff20586671932af5bdeca0d995de05976da",
+      "preview": "podlozka-10.png",
+      "physical_parts": 3,
+      "parts": [
+        {
+          "id": "dvere-stredni-prave",
+          "name": "dvere-stredni-prave-01",
+          "file": "stl/dvere-stredni-prave.stl",
+          "source_sha256": "65d50e216c90a6304b40a678c608c6a9ba2ca36de65cc1540fa9d81ef73ce6bb",
+          "translation_mm": [
+            42.75,
+            23.166664123535156,
+            -0.0
+          ],
+          "placed_min_mm": [
+            42.75,
+            23.166664123535156,
+            0.0
+          ],
+          "placed_max_mm": [
+            217.25,
+            204.83333587646484,
+            12.5
+          ],
+          "size_mm": [
+            174.5,
+            181.6666717529297,
+            12.5
+          ],
+          "triangle_count": 324,
+          "supports": false,
+          "support_note": "Čelem na podložku; zrcadlený pravý díl. Strop otvoru 45° ve směru -Y sestavy / +Z tisku.",
+          "critical_z_mm": [
+            0.2,
+            4.2,
+            6.25,
+            8,
+            10,
+            11.2,
+            12.2,
+            12.3
+          ]
+        },
+        {
+          "id": "spojka-panelu",
+          "name": "spojka-panelu-15",
+          "file": "stl/spojka-panelu.stl",
+          "source_sha256": "dcef25b9ceae15a16b965b5366d67033ec5cdebf73aeb2dc2bb54ec4f0addd4f",
+          "translation_mm": [
+            42.75,
+            216.83333587646484,
+            -0.0
+          ],
+          "placed_min_mm": [
+            42.75,
+            216.83333587646484,
+            0.0
+          ],
+          "placed_max_mm": [
+            122.75,
+            236.83333587646484,
+            4.0
+          ],
+          "size_mm": [
+            80.0,
+            20.0,
+            4.0
+          ],
+          "triangle_count": 12,
+          "supports": false,
+          "support_note": "Plochou 20×80 mm na podložku, výška 4 mm.",
+          "critical_z_mm": [
+            0.2,
+            2.000000000000009,
+            3.8000000000000176
+          ]
+        },
+        {
+          "id": "spojka-panelu",
+          "name": "spojka-panelu-16",
+          "file": "stl/spojka-panelu.stl",
+          "source_sha256": "dcef25b9ceae15a16b965b5366d67033ec5cdebf73aeb2dc2bb54ec4f0addd4f",
+          "translation_mm": [
+            134.75,
+            216.83333587646484,
+            -0.0
+          ],
+          "placed_min_mm": [
+            134.75,
+            216.83333587646484,
+            0.0
+          ],
+          "placed_max_mm": [
+            214.75,
+            236.83333587646484,
+            4.0
+          ],
+          "size_mm": [
+            80.0,
+            20.0,
+            4.0
+          ],
+          "triangle_count": 12,
+          "supports": false,
+          "support_note": "Plochou 20×80 mm na podložku, výška 4 mm.",
+          "critical_z_mm": [
+            0.2,
+            2.000000000000009,
+            3.8000000000000176
+          ]
+        }
+      ],
+      "minimum_geometry_edge_margin_mm": 23.166664123535156,
+      "minimum_bbox_gap_mm": 12.0,
+      "project": "podlozka-10-kobra-x-cerny-pla-projekt.3mf",
+      "process_sha256": "5b1453c9a6e9e170c0e562fecaf0be2b5469d1f30d74651105c039fc55431c58",
+      "filament_sha256": "bf8b01b1871aa681b610eae6c82ce99144c8f52c0e4a861fe1b3bf7d8035dd2e",
+      "configured": {
+        "sha256": "2a566bf3eda6e785a6b2a272d3f8c9bdbc297fe26f48681da68ccef89ffe250d",
+        "objects": [
+          {
+            "name": "dvere-stredni-prave-01",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 4.824218535759428e-08
+          },
+          {
+            "name": "spojka-panelu-15",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 1.2353515899121703e-07
+          },
+          {
+            "name": "spojka-panelu-16",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 1.2353515899121703e-07
+          }
+        ],
+        "physical_parts": 3,
+        "mesh_repairs": [
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          },
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          },
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          }
+        ],
+        "settings": {
+          "printer_model": "Anycubic Kobra X",
+          "printer_settings_id": "Anycubic Kobra X 0.4 nozzle",
+          "print_settings_id": "Skrinka 0.20 mm cerne PLA navrh Kobra X",
+          "filament_settings_id": [
+            "NAVRH Alzament PLA Basic cerna @Kobra X 0.4"
+          ],
+          "nozzle_diameter": [
+            "0.4"
+          ],
+          "layer_height": "0.2",
+          "wall_loops": "4",
+          "sparse_infill_density": "25%",
+          "sparse_infill_pattern": "gyroid",
+          "enable_support": "0",
+          "support_on_build_plate_only": "0",
+          "brim_type": "outer_only",
+          "brim_width": "5",
+          "nozzle_temperature": [
+            "205"
+          ],
+          "nozzle_temperature_initial_layer": [
+            "215"
+          ],
+          "textured_plate_temp": [
+            "50"
+          ],
+          "outer_wall_speed": "50",
+          "inner_wall_speed": "75",
+          "filament_colour": [
+            "#17191B"
+          ]
+        },
+        "has_gcode": false
+      },
+      "delivered": {
+        "sha256": "37d2027b02285db722c8ee67a854b3ec71c95b53bb273e1992d25b1feea25a71",
+        "objects": [
+          {
+            "name": "dvere-stredni-prave-01",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 4.824218535759428e-08
+          },
+          {
+            "name": "spojka-panelu-15",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 1.2353515899121703e-07
+          },
+          {
+            "name": "spojka-panelu-16",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 1.2353515899121703e-07
+          }
+        ],
+        "physical_parts": 3,
+        "mesh_repairs": [
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          },
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          },
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          }
+        ],
+        "settings": {
+          "printer_model": "Anycubic Kobra X",
+          "printer_settings_id": "Anycubic Kobra X 0.4 nozzle",
+          "print_settings_id": "Skrinka 0.20 mm cerne PLA navrh Kobra X",
+          "filament_settings_id": [
+            "NAVRH Alzament PLA Basic cerna @Kobra X 0.4"
+          ],
+          "nozzle_diameter": [
+            "0.4"
+          ],
+          "layer_height": "0.2",
+          "wall_loops": "4",
+          "sparse_infill_density": "25%",
+          "sparse_infill_pattern": "gyroid",
+          "enable_support": "0",
+          "support_on_build_plate_only": "0",
+          "brim_type": "outer_only",
+          "brim_width": "5",
+          "nozzle_temperature": [
+            "205"
+          ],
+          "nozzle_temperature_initial_layer": [
+            "215"
+          ],
+          "textured_plate_temp": [
+            "50"
+          ],
+          "outer_wall_speed": "50",
+          "inner_wall_speed": "75",
+          "filament_colour": [
+            "#17191B"
+          ]
+        },
+        "has_gcode": true,
+        "gcode_bytes": 11021500,
+        "gcode_sha256": "89ecc16548725dae2d90ea44c3fd0157cf10c718a37a5ff942f913364f57d9df",
+        "slice_metadata": {
+          "prediction": "18823",
+          "weight": "89.47",
+          "outside": "false",
+          "support_used": "false"
+        },
+        "warnings": [
+          {
+            "msg": "not_support_traditional_timelapse",
+            "level": "1",
+            "error_code": "1000C003"
+          }
+        ]
+      },
+      "toolpath_audit": {
+        "physical_parts": 3,
+        "all_objects_on_first_layer": true,
+        "layers": 62,
+        "all_layers_have_extrusion": true,
+        "maximum_extrusion_z_mm": 12.4,
+        "roles_segments": {
+          "Brim": 1481,
+          "Outer wall": 668,
+          "Inner wall": 1525,
+          "Bottom surface": 1638,
+          "Internal solid infill": 10143,
+          "Sparse infill": 367020,
+          "Internal Bridge": 2135,
+          "Top surface": 1079,
+          "Gap infill": 38,
+          "Bridge": 45
+        },
+        "support_segments": 0,
+        "bridge_overhang_segments": 2180,
+        "maximum_bridge_extrusion_segment_mm": 221.96881310895907,
+        "maximum_external_bridge_extrusion_segment_mm": 2.781000000000006,
+        "internal_bridge_note": "Internal Bridge crosses sparse infill; segment length is not unsupported free span.",
+        "support_layer_range": null,
+        "bridge_layer_range": [
+          15,
+          56
+        ],
+        "extrusion_min_xy_mm": [
+          38.308,
+          18.724
+        ],
+        "extrusion_max_xy_mm": [
+          221.692,
+          241.276
+        ],
+        "minimum_extrusion_edge_margin_mm": 18.72399999999999,
+        "preview": "podlozka-10-vrstvy.png",
+        "selected_z_mm": [
+          0.2,
+          2.0,
+          3.8,
+          4.2,
+          6.2,
+          8.0,
+          10.0,
+          11.2,
+          12.2,
+          12.4
+        ],
+        "estimated_filament_g": 89.47,
+        "estimated_printing_time": "5h 13m 43s",
+        "first_layer_gcode_temperature_c": {
+          "bed": 50,
+          "nozzle": 215
+        },
+        "physical_print_fit_support_removal": "Neověřeno"
+      },
+      "status": "Nastaveno a lokálně nařezáno; skutečné dráhy zkontrolovány; fyzický tisk neověřen",
+      "cli_error_messages": [
+        "calc_exclude_triangles:Unable to create exclude triangles"
+      ],
+      "cli_exit_codes": [
+        0,
+        0
+      ]
+    },
+    {
+      "number": 11,
+      "geometry": "podlozka-11-geometrie.3mf",
+      "geometry_sha256": "f55d082fe389baef85bf3bff5e8e9b9a69525e6a761168d40b60e969d37aeffb",
+      "preview": "podlozka-11.png",
+      "physical_parts": 1,
+      "parts": [
+        {
+          "id": "dvere-horni",
+          "name": "dvere-horni-01",
+          "file": "stl/dvere-horni.stl",
+          "source_sha256": "3ed11d7ded1543c5344e5fc72676a6abc3603be18002ac80454cf911bec5f25d",
+          "translation_mm": [
+            42.75,
+            39.166664123535156,
+            -0.0
+          ],
+          "placed_min_mm": [
+            42.75,
+            39.166664123535156,
+            0.0
+          ],
+          "placed_max_mm": [
+            217.25,
+            220.83333587646484,
+            12.5
+          ],
+          "size_mm": [
+            174.5,
+            181.6666717529297,
+            12.5
+          ],
+          "triangle_count": 448,
+          "supports": false,
+          "support_note": "Čelem na podložku; integrální pouzdro podepřeno blokem až k čelu; strop otvoru 45° ve směru -Y sestavy / +Z tisku.",
+          "critical_z_mm": [
+            0.2,
+            4.2,
+            6.25,
+            8,
+            10,
+            11.2,
+            12.2,
+            12.3
+          ]
+        }
+      ],
+      "minimum_geometry_edge_margin_mm": 39.166664123535156,
+      "minimum_bbox_gap_mm": null,
+      "project": "podlozka-11-kobra-x-cerny-pla-projekt.3mf",
+      "process_sha256": "5b1453c9a6e9e170c0e562fecaf0be2b5469d1f30d74651105c039fc55431c58",
+      "filament_sha256": "bf8b01b1871aa681b610eae6c82ce99144c8f52c0e4a861fe1b3bf7d8035dd2e",
+      "configured": {
+        "sha256": "357b3a7580ca59fd981ac2d59f63c43eddc73311640aacf8c2e6d11bb27974aa",
+        "objects": [
+          {
+            "name": "dvere-horni-01",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 3.8535644506509925e-06
+          }
+        ],
+        "physical_parts": 1,
+        "mesh_repairs": [
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          }
+        ],
+        "settings": {
+          "printer_model": "Anycubic Kobra X",
+          "printer_settings_id": "Anycubic Kobra X 0.4 nozzle",
+          "print_settings_id": "Skrinka 0.20 mm cerne PLA navrh Kobra X",
+          "filament_settings_id": [
+            "NAVRH Alzament PLA Basic cerna @Kobra X 0.4"
+          ],
+          "nozzle_diameter": [
+            "0.4"
+          ],
+          "layer_height": "0.2",
+          "wall_loops": "4",
+          "sparse_infill_density": "25%",
+          "sparse_infill_pattern": "gyroid",
+          "enable_support": "0",
+          "support_on_build_plate_only": "0",
+          "brim_type": "outer_only",
+          "brim_width": "5",
+          "nozzle_temperature": [
+            "205"
+          ],
+          "nozzle_temperature_initial_layer": [
+            "215"
+          ],
+          "textured_plate_temp": [
+            "50"
+          ],
+          "outer_wall_speed": "50",
+          "inner_wall_speed": "75",
+          "filament_colour": [
+            "#17191B"
+          ]
+        },
+        "has_gcode": false
+      },
+      "delivered": {
+        "sha256": "aa95358011ff5913faf7e64a99445f06b629bf13cb01b54b2927a5d4fa117269",
+        "objects": [
+          {
+            "name": "dvere-horni-01",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 3.8535644506509925e-06
+          }
+        ],
+        "physical_parts": 1,
+        "mesh_repairs": [
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          }
+        ],
+        "settings": {
+          "printer_model": "Anycubic Kobra X",
+          "printer_settings_id": "Anycubic Kobra X 0.4 nozzle",
+          "print_settings_id": "Skrinka 0.20 mm cerne PLA navrh Kobra X",
+          "filament_settings_id": [
+            "NAVRH Alzament PLA Basic cerna @Kobra X 0.4"
+          ],
+          "nozzle_diameter": [
+            "0.4"
+          ],
+          "layer_height": "0.2",
+          "wall_loops": "4",
+          "sparse_infill_density": "25%",
+          "sparse_infill_pattern": "gyroid",
+          "enable_support": "0",
+          "support_on_build_plate_only": "0",
+          "brim_type": "outer_only",
+          "brim_width": "5",
+          "nozzle_temperature": [
+            "205"
+          ],
+          "nozzle_temperature_initial_layer": [
+            "215"
+          ],
+          "textured_plate_temp": [
+            "50"
+          ],
+          "outer_wall_speed": "50",
+          "inner_wall_speed": "75",
+          "filament_colour": [
+            "#17191B"
+          ]
+        },
+        "has_gcode": true,
+        "gcode_bytes": 10030022,
+        "gcode_sha256": "aa66493bdd93ff2b1c6a718c83a183f66155154d79f03e2635c17165b20aeb69",
+        "slice_metadata": {
+          "prediction": "16392",
+          "weight": "79.28",
+          "outside": "false",
+          "support_used": "false"
+        },
+        "warnings": [
+          {
+            "msg": "not_support_traditional_timelapse",
+            "level": "1",
+            "error_code": "1000C003"
+          }
+        ]
+      },
+      "toolpath_audit": {
+        "physical_parts": 1,
+        "all_objects_on_first_layer": true,
+        "layers": 62,
+        "all_layers_have_extrusion": true,
+        "maximum_extrusion_z_mm": 12.4,
+        "roles_segments": {
+          "Brim": 1175,
+          "Outer wall": 1130,
+          "Inner wall": 2767,
+          "Bottom surface": 1081,
+          "Gap infill": 60,
+          "Internal solid infill": 6763,
+          "Sparse infill": 335832,
+          "Internal Bridge": 1325,
+          "Top surface": 721,
+          "Bridge": 45
+        },
+        "support_segments": 0,
+        "bridge_overhang_segments": 1370,
+        "maximum_bridge_extrusion_segment_mm": 219.07758129028176,
+        "maximum_external_bridge_extrusion_segment_mm": 2.780999999999999,
+        "internal_bridge_note": "Internal Bridge crosses sparse infill; segment length is not unsupported free span.",
+        "support_layer_range": null,
+        "bridge_layer_range": [
+          15,
+          56
+        ],
+        "extrusion_min_xy_mm": [
+          38.308,
+          34.724
+        ],
+        "extrusion_max_xy_mm": [
+          221.692,
+          225.276
+        ],
+        "minimum_extrusion_edge_margin_mm": 34.72399999999999,
+        "preview": "podlozka-11-vrstvy.png",
+        "selected_z_mm": [
+          0.2,
+          4.2,
+          6.2,
+          8.0,
+          10.0,
+          11.2,
+          12.2,
+          12.4
+        ],
+        "estimated_filament_g": 79.28,
+        "estimated_printing_time": "4h 33m 12s",
+        "first_layer_gcode_temperature_c": {
+          "bed": 50,
+          "nozzle": 215
+        },
+        "physical_print_fit_support_removal": "Neověřeno"
+      },
+      "status": "Nastaveno a lokálně nařezáno; skutečné dráhy zkontrolovány; fyzický tisk neověřen",
+      "cli_error_messages": [
+        "calc_exclude_triangles:Unable to create exclude triangles"
+      ],
+      "cli_exit_codes": [
+        0,
+        0
+      ]
+    },
+    {
+      "number": 12,
+      "geometry": "podlozka-12-geometrie.3mf",
+      "geometry_sha256": "3e6cdf6ab3f71283e5a6f21339ac9938436a2b28ca6269e0871cd9fb5ccc5f32",
+      "preview": "podlozka-12.png",
+      "physical_parts": 1,
+      "parts": [
+        {
+          "id": "dvere-horni-prave",
+          "name": "dvere-horni-prave-01",
+          "file": "stl/dvere-horni-prave.stl",
+          "source_sha256": "f80707e7fc3695c56961c26a91d8cfcef4ca47002e681b2f3dfdb011cff03ed1",
+          "translation_mm": [
+            42.75,
+            39.166664123535156,
+            -0.0
+          ],
+          "placed_min_mm": [
+            42.75,
+            39.166664123535156,
+            0.0
+          ],
+          "placed_max_mm": [
+            217.25,
+            220.83333587646484,
+            12.5
+          ],
+          "size_mm": [
+            174.5,
+            181.6666717529297,
+            12.5
+          ],
+          "triangle_count": 448,
+          "supports": false,
+          "support_note": "Čelem na podložku; zrcadlený pravý díl. Strop otvoru 45° ve směru -Y sestavy / +Z tisku.",
+          "critical_z_mm": [
+            0.2,
+            4.2,
+            6.25,
+            8,
+            10,
+            11.2,
+            12.2,
+            12.3
+          ]
+        }
+      ],
+      "minimum_geometry_edge_margin_mm": 39.166664123535156,
+      "minimum_bbox_gap_mm": null,
+      "project": "podlozka-12-kobra-x-cerny-pla-projekt.3mf",
+      "process_sha256": "5b1453c9a6e9e170c0e562fecaf0be2b5469d1f30d74651105c039fc55431c58",
+      "filament_sha256": "bf8b01b1871aa681b610eae6c82ce99144c8f52c0e4a861fe1b3bf7d8035dd2e",
+      "configured": {
+        "sha256": "bc271a78591bdcc1a850b02b22e429d322c5a5e709158d6131680953ec167f6e",
+        "objects": [
+          {
+            "name": "dvere-horni-prave-01",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 3.848095701641796e-06
+          }
+        ],
+        "physical_parts": 1,
+        "mesh_repairs": [
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          }
+        ],
+        "settings": {
+          "printer_model": "Anycubic Kobra X",
+          "printer_settings_id": "Anycubic Kobra X 0.4 nozzle",
+          "print_settings_id": "Skrinka 0.20 mm cerne PLA navrh Kobra X",
+          "filament_settings_id": [
+            "NAVRH Alzament PLA Basic cerna @Kobra X 0.4"
+          ],
+          "nozzle_diameter": [
+            "0.4"
+          ],
+          "layer_height": "0.2",
+          "wall_loops": "4",
+          "sparse_infill_density": "25%",
+          "sparse_infill_pattern": "gyroid",
+          "enable_support": "0",
+          "support_on_build_plate_only": "0",
+          "brim_type": "outer_only",
+          "brim_width": "5",
+          "nozzle_temperature": [
+            "205"
+          ],
+          "nozzle_temperature_initial_layer": [
+            "215"
+          ],
+          "textured_plate_temp": [
+            "50"
+          ],
+          "outer_wall_speed": "50",
+          "inner_wall_speed": "75",
+          "filament_colour": [
+            "#17191B"
+          ]
+        },
+        "has_gcode": false
+      },
+      "delivered": {
+        "sha256": "729ff3de837834f6db20fda97556ed181120f68b69440966a989aa543ad1af48",
+        "objects": [
+          {
+            "name": "dvere-horni-prave-01",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 3.848095701641796e-06
+          }
+        ],
+        "physical_parts": 1,
+        "mesh_repairs": [
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          }
+        ],
+        "settings": {
+          "printer_model": "Anycubic Kobra X",
+          "printer_settings_id": "Anycubic Kobra X 0.4 nozzle",
+          "print_settings_id": "Skrinka 0.20 mm cerne PLA navrh Kobra X",
+          "filament_settings_id": [
+            "NAVRH Alzament PLA Basic cerna @Kobra X 0.4"
+          ],
+          "nozzle_diameter": [
+            "0.4"
+          ],
+          "layer_height": "0.2",
+          "wall_loops": "4",
+          "sparse_infill_density": "25%",
+          "sparse_infill_pattern": "gyroid",
+          "enable_support": "0",
+          "support_on_build_plate_only": "0",
+          "brim_type": "outer_only",
+          "brim_width": "5",
+          "nozzle_temperature": [
+            "205"
+          ],
+          "nozzle_temperature_initial_layer": [
+            "215"
+          ],
+          "textured_plate_temp": [
+            "50"
+          ],
+          "outer_wall_speed": "50",
+          "inner_wall_speed": "75",
+          "filament_colour": [
+            "#17191B"
+          ]
+        },
+        "has_gcode": true,
+        "gcode_bytes": 10001523,
+        "gcode_sha256": "d48274e7af280508d70b10be5160648fee99938be0397a978ba9537efa61559d",
+        "slice_metadata": {
+          "prediction": "16565",
+          "weight": "79.25",
+          "outside": "false",
+          "support_used": "false"
+        },
+        "warnings": [
+          {
+            "msg": "not_support_traditional_timelapse",
+            "level": "1",
+            "error_code": "1000C003"
+          }
+        ]
+      },
+      "toolpath_audit": {
+        "physical_parts": 1,
+        "all_objects_on_first_layer": true,
+        "layers": 62,
+        "all_layers_have_extrusion": true,
+        "maximum_extrusion_z_mm": 12.4,
+        "roles_segments": {
+          "Brim": 1178,
+          "Outer wall": 1132,
+          "Inner wall": 2765,
+          "Bottom surface": 1081,
+          "Gap infill": 50,
+          "Internal solid infill": 6754,
+          "Sparse infill": 335430,
+          "Internal Bridge": 1297,
+          "Top surface": 720,
+          "Bridge": 45
+        },
+        "support_segments": 0,
+        "bridge_overhang_segments": 1342,
+        "maximum_bridge_extrusion_segment_mm": 221.7096446436194,
+        "maximum_external_bridge_extrusion_segment_mm": 2.781000000000006,
+        "internal_bridge_note": "Internal Bridge crosses sparse infill; segment length is not unsupported free span.",
+        "support_layer_range": null,
+        "bridge_layer_range": [
+          15,
+          56
+        ],
+        "extrusion_min_xy_mm": [
+          38.308,
+          34.724
+        ],
+        "extrusion_max_xy_mm": [
+          221.692,
+          225.276
+        ],
+        "minimum_extrusion_edge_margin_mm": 34.72399999999999,
+        "preview": "podlozka-12-vrstvy.png",
+        "selected_z_mm": [
+          0.2,
+          4.2,
+          6.2,
+          8.0,
+          10.0,
+          11.2,
+          12.2,
+          12.4
+        ],
+        "estimated_filament_g": 79.25,
+        "estimated_printing_time": "4h 36m 5s",
+        "first_layer_gcode_temperature_c": {
+          "bed": 50,
+          "nozzle": 215
+        },
+        "physical_print_fit_support_removal": "Neověřeno"
+      },
+      "status": "Nastaveno a lokálně nařezáno; skutečné dráhy zkontrolovány; fyzický tisk neověřen",
+      "cli_error_messages": [
+        "calc_exclude_triangles:Unable to create exclude triangles"
+      ],
+      "cli_exit_codes": [
+        0,
+        0
+      ]
+    }
+  ],
+  "physical_print_verified": false,
+  "machine_profile_sha256": "baf80d3287e1e863fba29cdfd240b9b5ebc28bd87e1b4d03fc79e53f0009570a"
+}

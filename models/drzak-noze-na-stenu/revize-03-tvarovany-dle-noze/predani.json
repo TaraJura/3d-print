@@ -1,0 +1,27 @@
+{
+  "date_local": "2026-10-30",
+  "revision": "03",
+  "canonical_root": "/home/novakj/3d-print/models/drzak-noze-na-stenu/revize-03-tvarovany-dle-noze",
+  "physical_parts": 1,
+  "configured_plates": 1,
+  "independent_checks_passed": 26,
+  "independent_checks_failed": 0,
+  "source_manifest_matches_sliced_projects": true,
+  "actual_support_segments": 0,
+  "important_assumptions": [
+    "20 mm interpreted as vertical offset of handle bottom, not confirmed in that axis",
+    "225 mm blade assumes complete chain 340 - 105 - 10",
+    "straight spine, 2 mm blade and elliptical handle widening 22 to 25 mm are design assumptions"
+  ],
+  "known_blade_height_stations_mm": [
+    45,
+    40
+  ],
+  "known_station_spacing_mm": 100,
+  "handle_length_mm": 105,
+  "physical_print_verified": false,
+  "actual_knife_fit_verified": false,
+  "centre_of_gravity_known": false,
+  "tip_protected": false,
+  "sync_method": "exclusive file creation and SHA-256 verification; older revisions unchanged"
+}

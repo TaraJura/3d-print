@@ -1,0 +1,785 @@
+BeginElementMap v1
+6 PostfixCount 328
+Edge
+Face
+Vertex
+;:G3(Edge2;K-2;:H5c6:4,E);FUS;:H5c2:1d,V;:H5c7,V
+;:M3;FUS;:H5c2:8,E;:H5c7,E
+;:M;FUS;:H5c1:7,E;:H5c7,E
+;:G(Edge9;K-1;:H5c2:4,E);FUS;:H5c1:1c,V;:H5c7,V
+;:G3(Edge2;K-1;:H5c3:4,E);FUS;:H5c1:1d,V;:H5c7,V
+;:G4(Edge2;K-1;:H5c5:4,E);FUS;:H5c1:1d,V;:H5c7,V
+;:H5c9,E;:G#31c;CUT;:H5da:b,V
+;:H5c9,E;:G2#2bb;CUT;:H5da:c,V
+;:H5c9,E;:M;CUT;:H5da:7,E
+;:H5cf,E;:G#31b;CUT;:H5da:b,V
+;:H5cf,E;:G2#2bc;CUT;:H5da:c,V
+;:H5cf,E;:M;CUT;:H5da:7,E
+;:H5d5,E;:G#30a;CUT;:H5da:b,V
+;:H5d5,E;:G2#2dd;CUT;:H5da:c,V
+;:H5d5,E;:M;CUT;:H5da:7,E
+;:M2;FUS;:H5c1:8,E;:H5c7,E
+;:M3;FUS;:H5c1:8,E;:H5c7,E
+;:H5c8,E;:G#2e9;CUT;:H5da:b,V
+;:H5c8,E;:G2#29f;CUT;:H5da:c,V
+;:H5c8,E;:M;CUT;:H5da:7,E
+;:H5ca,E;:G#31a;CUT;:H5da:b,V
+;:H5ca,E;:G2#2ab;CUT;:H5da:c,V
+;:H5ca,E;:M;CUT;:H5da:7,E
+;:H5cb,E;:G#316;CUT;:H5da:b,V
+;:H5cb,E;:G2#2af;CUT;:H5da:c,V
+;:H5cb,E;:M;CUT;:H5da:7,E
+;:H5cc,E;:G#312;CUT;:H5da:b,V
+;:H5cc,E;:G2#2b3;CUT;:H5da:c,V
+;:H5cc,E;:M;CUT;:H5da:7,E
+;:H5cd,E;:G#30e;CUT;:H5da:b,V
+;:H5cd,E;:G2#2b7;CUT;:H5da:c,V
+;:H5cd,E;:M;CUT;:H5da:7,E
+;:H5ce,E;:G#2e5;CUT;:H5da:b,V
+;:H5ce,E;:G2#2a3;CUT;:H5da:c,V
+;:H5ce,E;:M;CUT;:H5da:7,E
+;:H5d0,E;:G#309;CUT;:H5da:b,V
+;:H5d0,E;:G2#2bd;CUT;:H5da:c,V
+;:H5d0,E;:M;CUT;:H5da:7,E
+;:H5d1,E;:G#305;CUT;:H5da:b,V
+;:H5d1,E;:G2#2c1;CUT;:H5da:c,V
+;:H5d1,E;:M;CUT;:H5da:7,E
+;:H5d2,E;:G#301;CUT;:H5da:b,V
+;:H5d2,E;:G2#2c5;CUT;:H5da:c,V
+;:H5d2,E;:M;CUT;:H5da:7,E
+;:H5d3,E;:G#2fd;CUT;:H5da:b,V
+;:H5d3,E;:G2#2c9;CUT;:H5da:c,V
+;:H5d3,E;:M;CUT;:H5da:7,E
+;:H5d4,E;:G#2e1;CUT;:H5da:b,V
+;:H5d4,E;:G2#2a7;CUT;:H5da:c,V
+;:H5d4,E;:M;CUT;:H5da:7,E
+;:H5d6,E;:G#2f9;CUT;:H5da:b,V
+;:H5d6,E;:G2#2cd;CUT;:H5da:c,V
+;:H5d6,E;:M;CUT;:H5da:7,E
+;:H5d7,E;:G#2f5;CUT;:H5da:b,V
+;:H5d7,E;:G2#2d1;CUT;:H5da:c,V
+;:H5d7,E;:M;CUT;:H5da:7,E
+;:H5d8,E;:G#2f1;CUT;:H5da:b,V
+;:H5d8,E;:G2#2d5;CUT;:H5da:c,V
+;:H5d8,E;:M;CUT;:H5da:7,E
+;:H5d9,E;:G#2ed;CUT;:H5da:b,V
+;:H5d9,E;:G2#2d9;CUT;:H5da:c,V
+;:H5d9,E;:M;CUT;:H5da:7,E
+;:M2;FUS;:H5c3:8,E;:H5c7,E
+;:M2;FUS;:H5c4:8,E;:H5c7,E
+;:M3;FUS;:H5c3:8,E;:H5c7,E
+;:M3;FUS;:H5c4:8,E;:H5c7,E
+;:M3;FUS;:H5c5:8,E;:H5c7,E
+;:M3;FUS;:H5c6:8,E;:H5c7,E
+;:M4;FUS;:H5c3:8,E;:H5c7,E
+;:M;FUS;:H5c3:7,E;:H5c7,E
+;:H5c8,E;:G#2e7;CUT;:H5da:b,V
+;:H5c8,E;:G2#2a2;CUT;:H5da:c,V
+;:H5ca,E;:G#318;CUT;:H5da:b,V
+;:H5ca,E;:G2#2ae;CUT;:H5da:c,V
+;:H5cb,E;:G#314;CUT;:H5da:b,V
+;:H5cb,E;:G2#2b2;CUT;:H5da:c,V
+;:H5cc,E;:G#310;CUT;:H5da:b,V
+;:H5cc,E;:G2#2b6;CUT;:H5da:c,V
+;:H5cd,E;:G#30c;CUT;:H5da:b,V
+;:H5cd,E;:G2#2ba;CUT;:H5da:c,V
+;:H5ce,E;:G#2e3;CUT;:H5da:b,V
+;:H5ce,E;:G2#2a6;CUT;:H5da:c,V
+;:H5d0,E;:G#307;CUT;:H5da:b,V
+;:H5d0,E;:G2#2c0;CUT;:H5da:c,V
+;:H5d1,E;:G#303;CUT;:H5da:b,V
+;:H5d1,E;:G2#2c4;CUT;:H5da:c,V
+;:H5d2,E;:G#2ff;CUT;:H5da:b,V
+;:H5d2,E;:G2#2c8;CUT;:H5da:c,V
+;:H5d3,E;:G#2fb;CUT;:H5da:b,V
+;:H5d3,E;:G2#2cc;CUT;:H5da:c,V
+;:H5d4,E;:G#2df;CUT;:H5da:b,V
+;:H5d4,E;:G2#2aa;CUT;:H5da:c,V
+;:H5d6,E;:G#2f7;CUT;:H5da:b,V
+;:H5d6,E;:G2#2d0;CUT;:H5da:c,V
+;:H5d7,E;:G#2f3;CUT;:H5da:b,V
+;:H5d7,E;:G2#2d4;CUT;:H5da:c,V
+;:H5d8,E;:G#2ef;CUT;:H5da:b,V
+;:H5d8,E;:G2#2d8;CUT;:H5da:c,V
+;:H5d9,E;:G#2eb;CUT;:H5da:b,V
+;:H5d9,E;:G2#2dc;CUT;:H5da:c,V
+;:M;FUS;:H5c2:7,E;:H5c7,E
+;:G(Edge9;K-2;:H5c2:4,E);FUS;:H5c1:1c,V;:H5c7,V
+;:G3(Edge2;K-1;:H5c4:4,E);FUS;:H5c1:1d,V;:H5c7,V
+;:G4(Edge2;K-1;:H5c6:4,E);FUS;:H5c1:1d,V;:H5c7,V
+;:H5c8,E;:G#2e8;CUT;:H5da:b,V
+;:H5c8,E;:G2#2a0;CUT;:H5da:c,V
+;:H5ca,E;:G#319;CUT;:H5da:b,V
+;:H5ca,E;:G2#2ac;CUT;:H5da:c,V
+;:H5cb,E;:G#315;CUT;:H5da:b,V
+;:H5cb,E;:G2#2b0;CUT;:H5da:c,V
+;:H5cc,E;:G#311;CUT;:H5da:b,V
+;:H5cc,E;:G2#2b4;CUT;:H5da:c,V
+;:H5cd,E;:G#30d;CUT;:H5da:b,V
+;:H5cd,E;:G2#2b8;CUT;:H5da:c,V
+;:H5ce,E;:G#2e4;CUT;:H5da:b,V
+;:H5ce,E;:G2#2a4;CUT;:H5da:c,V
+;:H5d0,E;:G#308;CUT;:H5da:b,V
+;:H5d0,E;:G2#2be;CUT;:H5da:c,V
+;:H5d1,E;:G#304;CUT;:H5da:b,V
+;:H5d1,E;:G2#2c2;CUT;:H5da:c,V
+;:H5d2,E;:G#300;CUT;:H5da:b,V
+;:H5d2,E;:G2#2c6;CUT;:H5da:c,V
+;:H5d3,E;:G#2fc;CUT;:H5da:b,V
+;:H5d3,E;:G2#2ca;CUT;:H5da:c,V
+;:H5d4,E;:G#2e0;CUT;:H5da:b,V
+;:H5d4,E;:G2#2a8;CUT;:H5da:c,V
+;:H5d6,E;:G#2f8;CUT;:H5da:b,V
+;:H5d6,E;:G2#2ce;CUT;:H5da:c,V
+;:H5d7,E;:G#2f4;CUT;:H5da:b,V
+;:H5d7,E;:G2#2d2;CUT;:H5da:c,V
+;:H5d8,E;:G#2f0;CUT;:H5da:b,V
+;:H5d8,E;:G2#2d6;CUT;:H5da:c,V
+;:H5d9,E;:G#2ec;CUT;:H5da:b,V
+;:H5d9,E;:G2#2da;CUT;:H5da:c,V
+;:H5c8,E;:G#2e6;CUT;:H5da:b,V
+;:H5c8,E;:G2#2a1;CUT;:H5da:c,V
+;:H5ca,E;:G#317;CUT;:H5da:b,V
+;:H5ca,E;:G2#2ad;CUT;:H5da:c,V
+;:H5cb,E;:G#313;CUT;:H5da:b,V
+;:H5cb,E;:G2#2b1;CUT;:H5da:c,V
+;:H5cc,E;:G#30f;CUT;:H5da:b,V
+;:H5cc,E;:G2#2b5;CUT;:H5da:c,V
+;:H5cd,E;:G#30b;CUT;:H5da:b,V
+;:H5cd,E;:G2#2b9;CUT;:H5da:c,V
+;:H5ce,E;:G#2e2;CUT;:H5da:b,V
+;:H5ce,E;:G2#2a5;CUT;:H5da:c,V
+;:H5d0,E;:G#306;CUT;:H5da:b,V
+;:H5d0,E;:G2#2bf;CUT;:H5da:c,V
+;:H5d1,E;:G#302;CUT;:H5da:b,V
+;:H5d1,E;:G2#2c3;CUT;:H5da:c,V
+;:H5d2,E;:G#2fe;CUT;:H5da:b,V
+;:H5d2,E;:G2#2c7;CUT;:H5da:c,V
+;:H5d3,E;:G#2fa;CUT;:H5da:b,V
+;:H5d3,E;:G2#2cb;CUT;:H5da:c,V
+;:H5d4,E;:G#2de;CUT;:H5da:b,V
+;:H5d4,E;:G2#2a9;CUT;:H5da:c,V
+;:H5d6,E;:G#2f6;CUT;:H5da:b,V
+;:H5d6,E;:G2#2cf;CUT;:H5da:c,V
+;:H5d7,E;:G#2f2;CUT;:H5da:b,V
+;:H5d7,E;:G2#2d3;CUT;:H5da:c,V
+;:H5d8,E;:G#2ee;CUT;:H5da:b,V
+;:H5d8,E;:G2#2d7;CUT;:H5da:c,V
+;:H5d9,E;:G#2ea;CUT;:H5da:b,V
+;:H5d9,E;:G2#2db;CUT;:H5da:c,V
+;:G3(Edge2;K-2;:H5c4:4,E);FUS;:H5c2:1d,V;:H5c7,V
+;:M2;FUS;:H5c2:8,E;:H5c7,E
+;:M4;FUS;:H5c2:8,E;:H5c7,E
+;:H5c8,F;:M;CUT;:H5da:7,F
+;:H5c9,F;:M;CUT;:H5da:7,F
+;:H5ca,F;:M;CUT;:H5da:7,F
+;:H5cb,F;:M;CUT;:H5da:7,F
+;:H5cc,F;:M;CUT;:H5da:7,F
+;:H5cd,F;:M;CUT;:H5da:7,F
+;:H5ce,F;:M;CUT;:H5da:7,F
+;:H5cf,F;:M;CUT;:H5da:7,F
+;:H5d0,F;:M;CUT;:H5da:7,F
+;:H5d1,F;:M;CUT;:H5da:7,F
+;:H5d2,F;:M;CUT;:H5da:7,F
+;:H5d3,F;:M;CUT;:H5da:7,F
+;:H5d4,F;:M;CUT;:H5da:7,F
+;:H5d5,F;:M;CUT;:H5da:7,F
+;:H5d6,F;:M;CUT;:H5da:7,F
+;:H5d7,F;:M;CUT;:H5da:7,F
+;:H5d8,F;:M;CUT;:H5da:7,F
+;:H5d9,F;:M;CUT;:H5da:7,F
+;:M;FUS;:H5c3:7,F;:G100#280;CUT;:H5c7:e,E
+;:M;FUS;:H5c3:7,F;:G101#282;CUT;:H5c7:e,E
+;:M;FUS;:H5c3:7,F;:G102#27f;CUT;:H5c7:e,E
+;:M;FUS;:H5c3:7,F;:G103#27d;CUT;:H5c7:e,E
+;:M;FUS;:H5c3:7,F;:G104#27c;CUT;:H5c7:e,E
+;:M;FUS;:H5c3:7,F;:G105#27e;CUT;:H5c7:e,E
+;:M;FUS;:H5c3:7,F;:G106#263;CUT;:H5c7:e,E
+;:M;FUS;:H5c3:7,F;:G107#261;CUT;:H5c7:e,E
+;:M;FUS;:H5c3:7,F;:G108#260;CUT;:H5c7:e,E
+;:M;FUS;:H5c3:7,F;:G109#262;CUT;:H5c7:e,E
+;:M;FUS;:H5c3:7,F;:G110#28c;CUT;:H5c7:e,E
+;:M;FUS;:H5c3:7,F;:G111#27b;CUT;:H5c7:e,E
+;:M;FUS;:H5c3:7,F;:G112#279;CUT;:H5c7:e,E
+;:M;FUS;:H5c3:7,F;:G113#278;CUT;:H5c7:e,E
+;:M;FUS;:H5c3:7,F;:G114#27a;CUT;:H5c7:e,E
+;:M;FUS;:H5c3:7,F;:G115#277;CUT;:H5c7:e,E
+;:M;FUS;:H5c3:7,F;:G116#275;CUT;:H5c7:e,E
+;:M;FUS;:H5c3:7,F;:G117#274;CUT;:H5c7:e,E
+;:M;FUS;:H5c3:7,F;:G118#276;CUT;:H5c7:e,E
+;:M;FUS;:H5c3:7,F;:G119#273;CUT;:H5c7:e,E
+;:M;FUS;:H5c3:7,F;:G120#271;CUT;:H5c7:e,E
+;:M;FUS;:H5c3:7,F;:G121#270;CUT;:H5c7:e,E
+;:M;FUS;:H5c3:7,F;:G122#272;CUT;:H5c7:e,E
+;:M;FUS;:H5c3:7,F;:G123#26f;CUT;:H5c7:e,E
+;:M;FUS;:H5c3:7,F;:G124#26d;CUT;:H5c7:e,E
+;:M;FUS;:H5c3:7,F;:G125#26c;CUT;:H5c7:e,E
+;:M;FUS;:H5c3:7,F;:G126#26e;CUT;:H5c7:e,E
+;:M;FUS;:H5c3:7,F;:G64#26b;CUT;:H5c7:d,E
+;:M;FUS;:H5c3:7,F;:G65#269;CUT;:H5c7:d,E
+;:M;FUS;:H5c3:7,F;:G66#268;CUT;:H5c7:d,E
+;:M;FUS;:H5c3:7,F;:G67#26a;CUT;:H5c7:d,E
+;:M;FUS;:H5c3:7,F;:G68#29e;CUT;:H5c7:d,E
+;:M;FUS;:H5c3:7,F;:G69#29c;CUT;:H5c7:d,E
+;:M;FUS;:H5c3:7,F;:G70#29a;CUT;:H5c7:d,E
+;:M;FUS;:H5c3:7,F;:G71#299;CUT;:H5c7:d,E
+;:M;FUS;:H5c3:7,F;:G72#29b;CUT;:H5c7:d,E
+;:M;FUS;:H5c3:7,F;:G73#298;CUT;:H5c7:d,E
+;:M;FUS;:H5c3:7,F;:G74#296;CUT;:H5c7:d,E
+;:M;FUS;:H5c3:7,F;:G75#295;CUT;:H5c7:d,E
+;:M;FUS;:H5c3:7,F;:G76#297;CUT;:H5c7:d,E
+;:M;FUS;:H5c3:7,F;:G77#294;CUT;:H5c7:d,E
+;:M;FUS;:H5c3:7,F;:G78#292;CUT;:H5c7:d,E
+;:M;FUS;:H5c3:7,F;:G79#291;CUT;:H5c7:d,E
+;:M;FUS;:H5c3:7,F;:G80#293;CUT;:H5c7:d,E
+;:M;FUS;:H5c3:7,F;:G81#290;CUT;:H5c7:d,E
+;:M;FUS;:H5c3:7,F;:G82#28e;CUT;:H5c7:d,E
+;:M;FUS;:H5c3:7,F;:G83#28d;CUT;:H5c7:d,E
+;:M;FUS;:H5c3:7,F;:G84#28f;CUT;:H5c7:d,E
+;:M;FUS;:H5c3:7,F;:G85#267;CUT;:H5c7:d,E
+;:M;FUS;:H5c3:7,F;:G86#265;CUT;:H5c7:d,E
+;:M;FUS;:H5c3:7,F;:G87#264;CUT;:H5c7:d,E
+;:M;FUS;:H5c3:7,F;:G88#266;CUT;:H5c7:d,E
+;:M;FUS;:H5c3:7,F;:G89#29d;CUT;:H5c7:d,E
+;:M;FUS;:H5c3:7,F;:G90#28b;CUT;:H5c7:d,E
+;:M;FUS;:H5c3:7,F;:G91#289;CUT;:H5c7:d,E
+;:M;FUS;:H5c3:7,F;:G92#288;CUT;:H5c7:d,E
+;:M;FUS;:H5c3:7,F;:G93#28a;CUT;:H5c7:d,E
+;:M;FUS;:H5c3:7,F;:G94#287;CUT;:H5c7:d,E
+;:M;FUS;:H5c3:7,F;:G95#285;CUT;:H5c7:d,E
+;:M;FUS;:H5c3:7,F;:G96#284;CUT;:H5c7:d,E
+;:M;FUS;:H5c3:7,F;:G97#286;CUT;:H5c7:d,E
+;:M;FUS;:H5c3:7,F;:G98#283;CUT;:H5c7:d,E
+;:M;FUS;:H5c3:7,F;:G99#281;CUT;:H5c7:d,E
+;:M;FUS;:H5c3:7,F;:M;CUT;:H5c7:7,F
+;:M3;FUS;:H5c3:8,F;:H5c7,F
+;:M(Face2;:H5c3,F);FUS;:H5c1:16,F;:H5c7,F
+;:M2(Face2;K4;:H5c3:3,F);FUS;:H5c2:1c,F;:H5c7,F
+;:M2;FUS;:H5c1:8,F;:H5c7,F
+;:M3(Face2;K3;:H5c4:3,F);FUS;:H5c1:1c,F;:H5c7,F
+;:M4(Face3;K3;:H5c2:3,F|Face2;K2;:H5c3:3,F);FUS;:H5c1:2f,F;:H5c7,F
+;:M5(Face3;K5;:H5c2:3,F);FUS;:H5c1:1c,F;:H5c7,F
+;:M2;FUS;:H5c1:8,F;:G100#249;CUT;:H5c7:e,E
+;:M2;FUS;:H5c1:8,F;:G101#247;CUT;:H5c7:e,E
+;:M2;FUS;:H5c1:8,F;:G102#24e;CUT;:H5c7:e,E
+;:M2;FUS;:H5c1:8,F;:G103#24c;CUT;:H5c7:e,E
+;:M2;FUS;:H5c1:8,F;:G104#24d;CUT;:H5c7:e,E
+;:M2;FUS;:H5c1:8,F;:G105#24b;CUT;:H5c7:e,E
+;:M2;FUS;:H5c1:8,F;:G106#22c;CUT;:H5c7:e,E
+;:M2;FUS;:H5c1:8,F;:G107#22a;CUT;:H5c7:e,E
+;:M2;FUS;:H5c1:8,F;:G108#22b;CUT;:H5c7:e,E
+;:M2;FUS;:H5c1:8,F;:G109#229;CUT;:H5c7:e,E
+;:M2;FUS;:H5c1:8,F;:G110#25f;CUT;:H5c7:e,E
+;:M2;FUS;:H5c1:8,F;:G111#252;CUT;:H5c7:e,E
+;:M2;FUS;:H5c1:8,F;:G112#250;CUT;:H5c7:e,E
+;:M2;FUS;:H5c1:8,F;:G113#251;CUT;:H5c7:e,E
+;:M2;FUS;:H5c1:8,F;:G114#24f;CUT;:H5c7:e,E
+;:M2;FUS;:H5c1:8,F;:G115#256;CUT;:H5c7:e,E
+;:M2;FUS;:H5c1:8,F;:G116#254;CUT;:H5c7:e,E
+;:M2;FUS;:H5c1:8,F;:G117#255;CUT;:H5c7:e,E
+;:M2;FUS;:H5c1:8,F;:G118#253;CUT;:H5c7:e,E
+;:M2;FUS;:H5c1:8,F;:G119#25a;CUT;:H5c7:e,E
+;:M2;FUS;:H5c1:8,F;:G120#258;CUT;:H5c7:e,E
+;:M2;FUS;:H5c1:8,F;:G121#259;CUT;:H5c7:e,E
+;:M2;FUS;:H5c1:8,F;:G122#257;CUT;:H5c7:e,E
+;:M2;FUS;:H5c1:8,F;:G123#25e;CUT;:H5c7:e,E
+;:M2;FUS;:H5c1:8,F;:G124#25c;CUT;:H5c7:e,E
+;:M2;FUS;:H5c1:8,F;:G125#25d;CUT;:H5c7:e,E
+;:M2;FUS;:H5c1:8,F;:G126#25b;CUT;:H5c7:e,E
+;:M2;FUS;:H5c1:8,F;:G64#224;CUT;:H5c7:d,E
+;:M2;FUS;:H5c1:8,F;:G65#222;CUT;:H5c7:d,E
+;:M2;FUS;:H5c1:8,F;:G66#223;CUT;:H5c7:d,E
+;:M2;FUS;:H5c1:8,F;:G67#221;CUT;:H5c7:d,E
+;:M2;FUS;:H5c1:8,F;:G68#23d;CUT;:H5c7:d,E
+;:M2;FUS;:H5c1:8,F;:G69#230;CUT;:H5c7:d,E
+;:M2;FUS;:H5c1:8,F;:G70#22e;CUT;:H5c7:d,E
+;:M2;FUS;:H5c1:8,F;:G71#22f;CUT;:H5c7:d,E
+;:M2;FUS;:H5c1:8,F;:G72#22d;CUT;:H5c7:d,E
+;:M2;FUS;:H5c1:8,F;:G73#234;CUT;:H5c7:d,E
+;:M2;FUS;:H5c1:8,F;:G74#232;CUT;:H5c7:d,E
+;:M2;FUS;:H5c1:8,F;:G75#233;CUT;:H5c7:d,E
+;:M2;FUS;:H5c1:8,F;:G76#231;CUT;:H5c7:d,E
+;:M2;FUS;:H5c1:8,F;:G77#238;CUT;:H5c7:d,E
+;:M2;FUS;:H5c1:8,F;:G78#236;CUT;:H5c7:d,E
+;:M2;FUS;:H5c1:8,F;:G79#237;CUT;:H5c7:d,E
+;:M2;FUS;:H5c1:8,F;:G80#235;CUT;:H5c7:d,E
+;:M2;FUS;:H5c1:8,F;:G81#23c;CUT;:H5c7:d,E
+;:M2;FUS;:H5c1:8,F;:G82#23a;CUT;:H5c7:d,E
+;:M2;FUS;:H5c1:8,F;:G83#23b;CUT;:H5c7:d,E
+;:M2;FUS;:H5c1:8,F;:G84#239;CUT;:H5c7:d,E
+;:M2;FUS;:H5c1:8,F;:G85#228;CUT;:H5c7:d,E
+;:M2;FUS;:H5c1:8,F;:G86#226;CUT;:H5c7:d,E
+;:M2;FUS;:H5c1:8,F;:G87#227;CUT;:H5c7:d,E
+;:M2;FUS;:H5c1:8,F;:G88#225;CUT;:H5c7:d,E
+;:M2;FUS;:H5c1:8,F;:G89#23e;CUT;:H5c7:d,E
+;:M2;FUS;:H5c1:8,F;:G90#242;CUT;:H5c7:d,E
+;:M2;FUS;:H5c1:8,F;:G91#240;CUT;:H5c7:d,E
+;:M2;FUS;:H5c1:8,F;:G92#241;CUT;:H5c7:d,E
+;:M2;FUS;:H5c1:8,F;:G93#23f;CUT;:H5c7:d,E
+;:M2;FUS;:H5c1:8,F;:G94#246;CUT;:H5c7:d,E
+;:M2;FUS;:H5c1:8,F;:G95#244;CUT;:H5c7:d,E
+;:M2;FUS;:H5c1:8,F;:G96#245;CUT;:H5c7:d,E
+;:M2;FUS;:H5c1:8,F;:G97#243;CUT;:H5c7:d,E
+;:M2;FUS;:H5c1:8,F;:G98#24a;CUT;:H5c7:d,E
+;:M2;FUS;:H5c1:8,F;:G99#248;CUT;:H5c7:d,E
+;:M2;FUS;:H5c1:8,F;:M;CUT;:H5c7:7,F
+;:M;FUS;:H5c1:7,F;:H5c7,F
+;:M;FUS;:H5c3:7,V;:H5c7,V
+;:M;FUS;:H5c5:7,V;:H5c7,V
+;:M;FUS;:H5c1:7,V;:H5c7,V
+;:M;FUS;:H5c2:7,V;:H5c7,V
+
+MapCount 1
+
+ElementMap 1 6 3
+
+Edge
+
+ChildCount 0
+
+NameCount 214
+0
+:1.2.49 0
+:1.9.a9 0
+:1.1.6 0
+:1.9.6 0
+:1.2.43 0
+:1.9.5 0
+:1.2.48 0
+:1.9.68 0
+:1.5.6 0
+:1.2.45 0
+:1.a.5 0
+:1.2.44 0
+:1.4.68 0
+:2.4.122.221 0
+:2.4.120.222 0
+:2.4.121.223 0
+:2.4.11f.224 0
+:2.4.137.225 0
+:2.4.135.226 0
+:2.4.136.227 0
+:2.4.134.228 0
+:2.4.10d.229 0
+:2.4.10b.22a 0
+:2.4.10c.22b 0
+:2.4.10a.22c 0
+:2.4.127.22d 0
+:2.4.125.22e 0
+:2.4.126.22f 0
+:2.4.124.230 0
+:2.4.12b.231 0
+:2.4.129.232 0
+:2.4.12a.233 0
+:2.4.128.234 0
+:2.4.12f.235 0
+:2.4.12d.236 0
+:2.4.12e.237 0
+:2.4.12c.238 0
+:2.4.133.239 0
+:2.4.131.23a 0
+:2.4.132.23b 0
+:2.4.130.23c 0
+:2.4.123.23d 0
+:2.4.138.23e 0
+:2.4.13c.23f 0
+:2.4.13a.240 0
+:2.4.13b.241 0
+:2.4.139.242 0
+:2.4.140.243 0
+:2.4.13e.244 0
+:2.4.13f.245 0
+:2.4.13d.246 0
+:2.4.105.247 0
+:2.4.142.248 0
+:2.4.104.249 0
+:2.4.141.24a 0
+:2.4.109.24b 0
+:2.4.107.24c 0
+:2.4.108.24d 0
+:2.4.106.24e 0
+:2.4.112.24f 0
+:2.4.110.250 0
+:2.4.111.251 0
+:2.4.10f.252 0
+:2.4.116.253 0
+:2.4.114.254 0
+:2.4.115.255 0
+:2.4.113.256 0
+:2.4.11a.257 0
+:2.4.118.258 0
+:2.4.119.259 0
+:2.4.117.25a 0
+:2.4.11e.25b 0
+:2.4.11c.25c 0
+:2.4.11d.25d 0
+:2.4.11b.25e 0
+:2.4.10e.25f 0
+:1.1.14 0
+:1.3.42 0
+:1.4.6 0
+:1.b.6 0
+:1.9.aa 0
+:1.2.47 0
+:1.2.46 0
+:2.1.c5.260 0
+:2.1.c4.261 0
+:2.1.c6.262 0
+:2.1.c3.263 0
+:2.1.ef.264 0
+:2.1.ee.265 0
+:2.1.f0.266 0
+:2.1.ed.267 0
+:2.1.da.268 0
+:2.1.d9.269 0
+:2.1.db.26a 0
+:2.1.d8.26b 0
+:2.1.d6.26c 0
+:2.1.d5.26d 0
+:2.1.d7.26e 0
+:2.1.d4.26f 0
+:2.1.d2.270 0
+:2.1.d1.271 0
+:2.1.d3.272 0
+:2.1.d0.273 0
+:2.1.ce.274 0
+:2.1.cd.275 0
+:2.1.cf.276 0
+:2.1.cc.277 0
+:2.1.ca.278 0
+:2.1.c9.279 0
+:2.1.cb.27a 0
+:2.1.c8.27b 0
+:2.1.c1.27c 0
+:2.1.c0.27d 0
+:2.1.c2.27e 0
+:2.1.bf.27f 0
+:2.1.bd.280 0
+:2.1.fb.281 0
+:2.1.be.282 0
+:2.1.fa.283 0
+:2.1.f8.284 0
+:2.1.f7.285 0
+:2.1.f9.286 0
+:2.1.f6.287 0
+:2.1.f4.288 0
+:2.1.f3.289 0
+:2.1.f5.28a 0
+:2.1.f2.28b 0
+:2.1.c7.28c 0
+:2.1.eb.28d 0
+:2.1.ea.28e 0
+:2.1.ec.28f 0
+:2.1.e9.290 0
+:2.1.e7.291 0
+:2.1.e6.292 0
+:2.1.e8.293 0
+:2.1.e5.294 0
+:2.1.e3.295 0
+:2.1.e2.296 0
+:2.1.e4.297 0
+:2.1.e1.298 0
+:2.1.df.299 0
+:2.1.de.29a 0
+:2.1.e0.29b 0
+:2.1.dd.29c 0
+:2.1.f1.29d 0
+:2.1.dc.29e 0
+:1.8.6 0
+:1.1.13 0
+:1.2.42 0
+:1.5.14 0
+:1.2.17 0
+:1.6.17 0
+:1.8.17 0
+:1.4.17 0
+:1.2.26 0
+:1.6.26 0
+:1.8.26 0
+:1.4.26 0
+:1.2.35 0
+:1.6.35 0
+:1.8.35 0
+:1.4.35 0
+:1.2.1a 0
+:1.6.1a 0
+:1.8.1a 0
+:1.4.1a 0
+:1.2.1d 0
+:1.6.1d 0
+:1.8.1d 0
+:1.4.1d 0
+:1.2.20 0
+:1.6.20 0
+:1.8.20 0
+:1.4.20 0
+:1.2.23 0
+:1.6.23 0
+:1.8.23 0
+:1.4.23 0
+:1.1.c 0
+:1.1.f 0
+:1.2.29 0
+:1.6.29 0
+:1.8.29 0
+:1.4.29 0
+:1.2.2c 0
+:1.6.2c 0
+:1.8.2c 0
+:1.4.2c 0
+:1.2.2f 0
+:1.6.2f 0
+:1.8.2f 0
+:1.4.2f 0
+:1.2.32 0
+:1.6.32 0
+:1.8.32 0
+:1.4.32 0
+:1.2.38 0
+:1.6.38 0
+:1.8.38 0
+:1.4.38 0
+:1.2.3b 0
+:1.6.3b 0
+:1.8.3b 0
+:1.4.3b 0
+:1.2.3e 0
+:1.6.3e 0
+:1.8.3e 0
+:1.4.3e 0
+:1.2.41 0
+:1.6.41 0
+:1.8.41 0
+:1.4.41 0
+:1.1.12 0
+
+Face
+
+ChildCount 0
+
+NameCount 74
+0
+:2.3.fe 0
+:2.3.100 0
+:2.4.143 0
+:2.3.ff 0
+:2.1.fc 0
+:2.3.101 0
+:2.3.102 0
+:2.2.fd 0
+:2.5.144 0
+:2.3.103 0
+:2.6.ab 0
+:2.2.ab 0
+:2.5.ab 0
+:2.1.ab 0
+:2.6.b1 0
+:2.2.b1 0
+:2.5.b1 0
+:2.1.b1 0
+:2.6.b7 0
+:2.2.b7 0
+:2.5.b7 0
+:2.1.b7 0
+:2.6.ad 0
+:2.2.ad 0
+:2.5.ad 0
+:2.1.ad 0
+:2.6.ae 0
+:2.2.ae 0
+:2.5.ae 0
+:2.1.ae 0
+:2.6.af 0
+:2.2.af 0
+:2.5.af 0
+:2.1.af 0
+:2.6.b0 0
+:2.2.b0 0
+:2.5.b0 0
+:2.1.b0 0
+:2.1.ac 0
+:2.1.b2 0
+:2.6.b3 0
+:2.2.b3 0
+:2.5.b3 0
+:2.1.b3 0
+:2.6.b4 0
+:2.2.b4 0
+:2.5.b4 0
+:2.1.b4 0
+:2.6.b5 0
+:2.2.b5 0
+:2.5.b5 0
+:2.1.b5 0
+:2.6.b6 0
+:2.2.b6 0
+:2.5.b6 0
+:2.1.b6 0
+:2.6.b9 0
+:2.2.b9 0
+:2.5.b9 0
+:2.1.b9 0
+:2.6.ba 0
+:2.2.ba 0
+:2.5.ba 0
+:2.1.ba 0
+:2.6.bb 0
+:2.2.bb 0
+:2.5.bb 0
+:2.1.bb 0
+:2.6.bc 0
+:2.2.bc 0
+:2.5.bc 0
+:2.1.bc 0
+:2.1.b8 0
+
+Vertex
+
+ChildCount 0
+
+NameCount 143
+0
+:3.1.145 0
+:3.2.147 0
+:1.1.7 0
+:3.6.147 0
+:1.9.a8 0
+:1.1.8 0
+:3.4.147 0
+:3.8.147 0
+:1.5.6b 0
+:3.1.146 0
+:3.4.148 0
+:1.2.16.29f 0
+:1.6.6d.2a0 0
+:1.8.8b.2a1 0
+:1.4.4b.2a2 0
+:1.2.25.2a3 0
+:1.6.77.2a4 0
+:1.8.95.2a5 0
+:1.4.55.2a6 0
+:1.2.34.2a7 0
+:1.6.81.2a8 0
+:1.8.9f.2a9 0
+:1.4.5f.2aa 0
+:1.2.19.2ab 0
+:1.6.6f.2ac 0
+:1.8.8d.2ad 0
+:1.4.4d.2ae 0
+:1.2.1c.2af 0
+:1.6.71.2b0 0
+:1.8.8f.2b1 0
+:1.4.4f.2b2 0
+:1.2.1f.2b3 0
+:1.6.73.2b4 0
+:1.8.91.2b5 0
+:1.4.51.2b6 0
+:1.2.22.2b7 0
+:1.6.75.2b8 0
+:1.8.93.2b9 0
+:1.4.53.2ba 0
+:1.1.b.2bb 0
+:1.1.e.2bc 0
+:1.2.28.2bd 0
+:1.6.79.2be 0
+:1.8.97.2bf 0
+:1.4.57.2c0 0
+:1.2.2b.2c1 0
+:1.6.7b.2c2 0
+:1.8.99.2c3 0
+:1.4.59.2c4 0
+:1.2.2e.2c5 0
+:1.6.7d.2c6 0
+:1.8.9b.2c7 0
+:1.4.5b.2c8 0
+:1.2.31.2c9 0
+:1.6.7f.2ca 0
+:1.8.9d.2cb 0
+:1.4.5d.2cc 0
+:1.2.37.2cd 0
+:1.6.83.2ce 0
+:1.8.a1.2cf 0
+:1.4.61.2d0 0
+:1.2.3a.2d1 0
+:1.6.85.2d2 0
+:1.8.a3.2d3 0
+:1.4.63.2d4 0
+:1.2.3d.2d5 0
+:1.6.87.2d6 0
+:1.8.a5.2d7 0
+:1.4.65.2d8 0
+:1.2.40.2d9 0
+:1.6.89.2da 0
+:1.8.a7.2db 0
+:1.4.67.2dc 0
+:1.1.11.2dd 0
+:1.1.9 0
+:3.2.148 0
+:1.5.69 0
+:1.5.6a 0
+:1.a.4 0
+:1.8.9e.2de 0
+:1.4.5e.2df 0
+:1.6.80.2e0 0
+:1.2.33.2e1 0
+:1.8.94.2e2 0
+:1.4.54.2e3 0
+:1.6.76.2e4 0
+:1.2.24.2e5 0
+:1.8.8a.2e6 0
+:1.4.4a.2e7 0
+:1.6.6c.2e8 0
+:1.2.15.2e9 0
+:1.8.a6.2ea 0
+:1.4.66.2eb 0
+:1.6.88.2ec 0
+:1.2.3f.2ed 0
+:1.8.a4.2ee 0
+:1.4.64.2ef 0
+:1.6.86.2f0 0
+:1.2.3c.2f1 0
+:1.8.a2.2f2 0
+:1.4.62.2f3 0
+:1.6.84.2f4 0
+:1.2.39.2f5 0
+:1.8.a0.2f6 0
+:1.4.60.2f7 0
+:1.6.82.2f8 0
+:1.2.36.2f9 0
+:1.8.9c.2fa 0
+:1.4.5c.2fb 0
+:1.6.7e.2fc 0
+:1.2.30.2fd 0
+:1.8.9a.2fe 0
+:1.4.5a.2ff 0
+:1.6.7c.300 0
+:1.2.2d.301 0
+:1.8.98.302 0
+:1.4.58.303 0
+:1.6.7a.304 0
+:1.2.2a.305 0
+:1.8.96.306 0
+:1.4.56.307 0
+:1.6.78.308 0
+:1.2.27.309 0
+:1.1.10.30a 0
+:1.8.92.30b 0
+:1.4.52.30c 0
+:1.6.74.30d 0
+:1.2.21.30e 0
+:1.8.90.30f 0
+:1.4.50.310 0
+:1.6.72.311 0
+:1.2.1e.312 0
+:1.8.8e.313 0
+:1.4.4e.314 0
+:1.6.70.315 0
+:1.2.1b.316 0
+:1.8.8c.317 0
+:1.4.4c.318 0
+:1.6.6e.319 0
+:1.2.18.31a 0
+:1.1.d.31b 0
+:1.1.a.31c 0
+
+EndMap

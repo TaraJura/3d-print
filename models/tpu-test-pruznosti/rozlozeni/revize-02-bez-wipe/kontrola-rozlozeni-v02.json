@@ -1,0 +1,166 @@
+{
+  "physical_pieces": 5,
+  "geometry_file": "podlozka-01-v02-geometrie.3mf",
+  "geometry_sha256": "36356a58054705f5f5cd4bf28bb2af6a49ffbbcb6468dfcf7bc2abb1cdb825b0",
+  "parts": [
+    {
+      "id": "pasek-08",
+      "name": "01 Pasek 0.8 mm",
+      "number": 1,
+      "source_stl": "../../stl/pasek-08.stl",
+      "source_sha256": "acf157b88ace814bcfa3cd82a53148945170c46374648d96b08ae3e6916923d8",
+      "translation_mm": [
+        68.99692585552111,
+        96.0,
+        -0.0
+      ],
+      "min_mm": [
+        69.0,
+        96.0,
+        0.0
+      ],
+      "max_mm": [
+        138.9969258555211,
+        110.0,
+        0.800000011920929
+      ],
+      "size_mm": [
+        69.99692585552111,
+        14.0,
+        0.800000011920929
+      ],
+      "vertices": 428,
+      "triangles": 856,
+      "watertight": true,
+      "connected_components": 1
+    },
+    {
+      "id": "pasek-16",
+      "name": "02 Pasek 1.6 mm",
+      "number": 2,
+      "source_stl": "../../stl/pasek-16.stl",
+      "source_sha256": "ac4caad3db54432f75b7abc143153765bd15f23668d15fa00cb345845e055f68",
+      "translation_mm": [
+        68.99692585552111,
+        122.0,
+        -0.0
+      ],
+      "min_mm": [
+        69.0,
+        122.0,
+        0.0
+      ],
+      "max_mm": [
+        138.9969258555211,
+        136.0,
+        1.600000023841858
+      ],
+      "size_mm": [
+        69.99692585552111,
+        14.0,
+        1.600000023841858
+      ],
+      "vertices": 638,
+      "triangles": 1280,
+      "watertight": true,
+      "connected_components": 1
+    },
+    {
+      "id": "pasek-32",
+      "name": "03 Pasek 3.2 mm",
+      "number": 3,
+      "source_stl": "../../stl/pasek-32.stl",
+      "source_sha256": "def87b514c4b78563085776e56c29b4adae01c8799d675270048fb8599a2d1c5",
+      "translation_mm": [
+        68.99692585552111,
+        148.0,
+        -0.0
+      ],
+      "min_mm": [
+        69.0,
+        148.0,
+        0.0
+      ],
+      "max_mm": [
+        138.9969258555211,
+        162.0,
+        3.200000047683716
+      ],
+      "size_mm": [
+        69.99692585552111,
+        14.0,
+        3.200000047683716
+      ],
+      "vertices": 848,
+      "triangles": 1704,
+      "watertight": true,
+      "connected_components": 1
+    },
+    {
+      "id": "krouzek-08",
+      "name": "04 Krouzek stena 0.8 mm",
+      "number": 4,
+      "source_stl": "../../stl/krouzek-08.stl",
+      "source_sha256": "8dd834acc631cceed5eeb1ce70ee9965f8fc1ec30baf56310c7069583d1c8873",
+      "translation_mm": [
+        158.99283891636878,
+        95.99820962897502,
+        -0.0
+      ],
+      "min_mm": [
+        159.0,
+        96.0,
+        0.0
+      ],
+      "max_mm": [
+        190.99283891636878,
+        127.99641862860881,
+        12.0
+      ],
+      "size_mm": [
+        31.992838916368783,
+        31.996418628608808,
+        12.0
+      ],
+      "vertices": 420,
+      "triangles": 840,
+      "watertight": true,
+      "connected_components": 1
+    },
+    {
+      "id": "krouzek-16",
+      "name": "05 Krouzek stena 1.6 mm",
+      "number": 5,
+      "source_stl": "../../stl/krouzek-16.stl",
+      "source_sha256": "7e51d7b056f889e8b66a147e10cf709a5c6b91901c03f83cddd3e1fc6492ef4b",
+      "translation_mm": [
+        158.99283891636878,
+        141.99820962897502,
+        -0.0
+      ],
+      "min_mm": [
+        159.0,
+        142.0,
+        0.0
+      ],
+      "max_mm": [
+        190.99283891636878,
+        173.9964186286088,
+        12.0
+      ],
+      "size_mm": [
+        31.992838916368783,
+        31.996418628608808,
+        12.0
+      ],
+      "vertices": 420,
+      "triangles": 840,
+      "watertight": true,
+      "connected_components": 1
+    }
+  ],
+  "minimum_bbox_gap_mm": 12.0,
+  "minimum_geometry_bed_margin_mm": 69.0,
+  "supports_required": false,
+  "printer_operation": false
+}

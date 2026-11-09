@@ -1,0 +1,222 @@
+# -*- coding: utf-8 -*-
+"""Jednodílný nástěnný držák krabičky LaskaKit MAXI RFID, mm.
+
+Makro přepíše vedle sebe drzak.FCStd, stl/drzak.stl a kontrola-modelu.json.
+Náhled PNG vytváří samostatné nahled.FCMacro. Horní okraj obruče se má
+zachytit o skutečný přesah víka; rozměr a pevnost tohoto přesahu nejsou
+změřené, proto jde o rozměrově upravitelný prototyp.
+"""
+from pathlib import Path
+import json
+import FreeCAD as App
+import Part
+import Sketcher
+import MeshPart
+
+OUT = Path(__file__).resolve().parent
+(OUT / "stl").mkdir(exist_ok=True)
+P = [
+    ("BoxLong", "Dlouhá strana spodní části krabičky", 220, "ZADÁNO Jiřím"),
+    ("BoxShort", "Krátká strana spodní části krabičky", 150, "ZADÁNO Jiřím; nahrazuje starších 160"),
+    ("BoxToSeam", "Výška spodní části po spoj víka", 42, "ZADÁNO Jiřím"),
+    ("HoopHeight", "Výška otevřené obruče", 30, "ZADÁNO Jiřím"),
+    ("ClearanceEach", "Vůle kolem krabičky na každé straně", 1, "NÁVRH; ověřit na skutečné krabičce"),
+    ("SideWall", "Tloušťka bočních ramen", 8, "NÁVRH; ověřit nosnost"),
+    ("EndWall", "Tloušťka přední a zadní strany", 6, "NÁVRH; ověřit nosnost"),
+    ("MountWidth", "Šířka každé montážní patky", 32, "NÁVRH; místo pro hlavu šroubu"),
+    ("MountThickness", "Tloušťka patky od stěny", 10, "NÁVRH"),
+    ("MountHeight", "Výška montážní patky", 80, "NÁVRH"),
+    ("HoleDiameter", "Průměr čtyř děr pro šrouby", 5.5, "NÁVRH; šrouby a stěna neznámé"),
+    ("HoleInboard", "Střed otvoru od vnějšího boku", 21, "NÁVRH; přístup pro hlavu/nářadí"),
+    ("LowerHoleZ", "Výška spodní řady děr", 45, "NÁVRH"),
+    ("UpperHoleZ", "Výška horní řady děr", 70, "NÁVRH"),
+    ("GussetReach", "Dosah vyztužení ramen vpřed", 110, "NÁVRH"),
+    ("GussetTop", "Výška výztuh u stěny", 75, "NÁVRH"),
+    ("GussetOverlap", "Přesah výztuhy do obruče", 2, "NÁVRH; konstrukční překrytí"),
+]
+
+doc = App.newDocument("DrzakKrabickyLaskaKitRFID")
+doc.Label = "Držák krabičky LaskaKit MAXI RFID – otevřená obruč"
+sheet = doc.addObject("Spreadsheet::Sheet", "Parameters")
+sheet.Label = "Parametry (mm) – upravit sloupec B"
+sheet.set("A1", "Parametr")
+sheet.set("B1", "Hodnota")
+sheet.set("C1", "Původ a stav")
+sheet.setStyle("A1:C1", "bold", "add")
+sheet.setBackground("A1:C1", (0.82, 0.89, 0.93))
+for row, (alias, label, value, origin) in enumerate(P, 2):
+    sheet.set(f"A{row}", label)
+    sheet.set(f"B{row}", f"{value:g} mm")
+    sheet.setAlias(f"B{row}", alias)
+    sheet.set(f"C{row}", origin)
+    sheet.setBackground(f"B{row}", (0.86, 0.95, 0.88) if row <= 5 else (1.0, 0.94, 0.78))
+derived = [
+    ("InnerLong", "Vnitřní délka obruče", "=BoxLong + 2 * ClearanceEach"),
+    ("InnerShort", "Vnitřní hloubka obruče", "=BoxShort + 2 * ClearanceEach"),
+    ("OuterLong", "Vnější délka obruče", "=InnerLong + 2 * SideWall"),
+    ("OuterShort", "Vnější hloubka obruče", "=InnerShort + 2 * EndWall"),
+    ("HangingDrop", "Spodní přesah krabičky pod obruč", "=BoxToSeam - HoopHeight"),
+]
+for row, (alias, label, formula) in enumerate(derived, 19):
+    sheet.set(f"A{row}", label)
+    sheet.set(f"B{row}", formula)
+    sheet.setAlias(f"B{row}", alias)
+    sheet.set("C" + str(row), "ODVOZENO; platí, jen když víko skutečně nese obruč")
+sheet.set("A26", "UPOZORNĚNÍ: přesah víka, hmotnost plné krabičky, šrouby a typ stěny nebyly ověřeny.")
+sheet.mergeCells("A26:C26")
+sheet.setColumnWidth("A", 350)
+sheet.setColumnWidth("B", 145)
+sheet.setColumnWidth("C", 445)
+doc.recompute()
+
+def q(alias):
+    return "Parameters." + alias
+
+def expr(obj, key, value):
+    obj.setExpression(key, value)
+
+def box(name, label, sizes, pos):
+    obj = doc.addObject("Part::Box", name)
+    obj.Label = label
+    for key, value in zip(("Length", "Width", "Height"), sizes):
+        expr(obj, key, value)
+    for key, value in zip(("x", "y", "z"), pos):
+        expr(obj, "Placement.Base." + key, value)
+    return obj
+
+# X probíhá podél stěny, Y ze stěny do místnosti, Z nahoru. Držák se tiskne
+# naležato na spodní hraně obruče a montážních patek (Z=0). Není v něm dno.
+left_side = box("LeftArm", "Levé nosné rameno obruče",
+                [q("SideWall"), q("OuterShort"), q("HoopHeight")],
+                ["0 mm", "0 mm", "0 mm"])
+right_side = box("RightArm", "Pravé nosné rameno obruče",
+                 [q("SideWall"), q("OuterShort"), q("HoopHeight")],
+                 [q("OuterLong") + " - " + q("SideWall"), "0 mm", "0 mm"])
+rear = box("RearBar", "Zadní strana obruče",
+           [q("InnerLong"), q("EndWall"), q("HoopHeight")],
+           [q("SideWall"), "0 mm", "0 mm"])
+front = box("FrontBar", "Přední bezpečnostní římsa obruče",
+            [q("InnerLong"), q("EndWall"), q("HoopHeight")],
+            [q("SideWall"), q("OuterShort") + " - " + q("EndWall"), "0 mm"])
+
+mount_x = ["0 mm", q("OuterLong") + " - " + q("MountWidth")]
+mounts = []
+for i, x in enumerate(mount_x, 1):
+    mounts.append(box(f"Mount{i}", f"Patka {i} na stěnu",
+                      [q("MountWidth"), q("MountThickness"), q("MountHeight")],
+                      [x, "-" + q("MountThickness"), "0 mm"]))
+
+# Zesílené boky tvoří trojúhelníková žebra ve stejné ose jako ramena;
+# trojúhelník navazuje na patky a s přesahem 2 mm se protíná s obručí.
+gussets = []
+for i, x in enumerate(("0 mm", q("OuterLong") + " - " + q("SideWall")), 1):
+    sketch = doc.addObject("Sketcher::SketchObject", f"GussetSketch{i}")
+    sketch.Label = f"Profil boční výztuhy {i}"
+    sketch.Placement.Rotation = App.Rotation(App.Vector(0, 1, 0), App.Vector(0, 0, 1),
+                                             App.Vector(1, 0, 0), "ZXY")
+    expr(sketch, "Placement.Base.x", x)
+    p0 = App.Vector(-9, 28, 0)
+    p1 = App.Vector(110, 28, 0)
+    p2 = App.Vector(-9, 75, 0)
+    pts = [p0, p1, p2]
+    for j in range(3):
+        sketch.addGeometry(Part.LineSegment(pts[j], pts[(j + 1) % 3]), False)
+    for j in range(3):
+        sketch.addConstraint(Sketcher.Constraint("Coincident", j, 2, (j + 1) % 3, 1))
+    sketch.addConstraint(Sketcher.Constraint("Horizontal", 0))
+    sketch.addConstraint(Sketcher.Constraint("Vertical", 2))
+    for constraint, formula in [
+        (Sketcher.Constraint("DistanceX", 0, 1, -9.0), "-" + q("MountThickness") + " + 1 mm"),
+        (Sketcher.Constraint("DistanceY", 0, 1, 28.0), q("HoopHeight") + " - " + q("GussetOverlap")),
+        (Sketcher.Constraint("Distance", 0, 119.0), q("GussetReach") + " + " + q("MountThickness") + " - 1 mm"),
+        (Sketcher.Constraint("Distance", 2, 47.0), q("GussetTop") + " - " + q("HoopHeight") + " + " + q("GussetOverlap")),
+    ]:
+        cid = sketch.addConstraint(constraint)
+        sketch.setExpression(f"Constraints[{cid}]", formula)
+    rib = doc.addObject("Part::Extrusion", f"Gusset{i}")
+    rib.Label = f"Boční výztuha ramene {i}"
+    rib.Base = sketch
+    rib.DirMode = "Normal"
+    rib.Solid = True
+    expr(rib, "LengthFwd", q("SideWall"))
+    gussets.append(rib)
+
+uncut = doc.addObject("Part::MultiFuse", "UncutHolder")
+uncut.Label = "Obruč, dvě patky a dvě výztuhy"
+uncut.Shapes = [left_side, right_side, rear, front] + mounts + gussets
+uncut.Refine = True
+
+holes = []
+hole_x = [q("HoleInboard"), q("OuterLong") + " - " + q("HoleInboard")]
+for i, x in enumerate(hole_x, 1):
+    for j, z in enumerate((q("LowerHoleZ"), q("UpperHoleZ")), 1):
+        hole = doc.addObject("Part::Cylinder", f"HoleTool{i}_{j}")
+        hole.Label = f"Otvor {i}.{j} — nástroj"
+        expr(hole, "Radius", q("HoleDiameter") + " / 2")
+        expr(hole, "Height", q("MountThickness") + " + " + q("EndWall") + " + 2 mm")
+        hole.Placement.Rotation = App.Rotation(App.Vector(1, 0, 0), 90)
+        expr(hole, "Placement.Base.x", x)
+        expr(hole, "Placement.Base.y", q("EndWall") + " + 1 mm")
+        expr(hole, "Placement.Base.z", z)
+        holes.append(hole)
+all_holes = doc.addObject("Part::MultiFuse", "AllHoleTools")
+all_holes.Label = "Čtyři průchozí díry — nástroje"
+all_holes.Shapes = holes
+holder = doc.addObject("Part::Cut", "Holder")
+holder.Label = "Nástěnná obruč – 1 kus, 4 díry, bez dna"
+holder.Base = uncut
+holder.Tool = all_holes
+holder.Refine = True
+holder.addProperty("App::PropertyString", "DesignStatus", "Návrh")
+holder.DesignStatus = ("PROTOTYP: závěs za přesah víka, skutečná krabička a nosnost "
+                       "nejsou fyzicky ověřené.")
+doc.recompute()
+shape = holder.Shape
+bad = [(o.Name, str(o.State)) for o in doc.Objects if "Invalid" in o.State]
+if bad or shape.isNull() or not shape.isValid() or len(shape.Solids) != 1:
+    raise RuntimeError(f"Neplatná geometrie: {bad}, solids={len(shape.Solids)}")
+bb = shape.BoundBox
+expected_bounds = [float(sheet.OuterLong.Value),
+                   float(sheet.OuterShort.Value) + float(sheet.MountThickness.Value),
+                   max(float(sheet.MountHeight.Value), float(sheet.GussetTop.Value),
+                       float(sheet.HoopHeight.Value))]
+for actual, expected in zip((bb.XLength, bb.YLength, bb.ZLength), expected_bounds):
+    assert abs(actual - expected) < 0.01, (actual, expected)
+assert abs(float(sheet.InnerLong.Value) -
+           (float(sheet.BoxLong.Value) + 2 * float(sheet.ClearanceEach.Value))) < 0.01
+assert abs(float(sheet.InnerShort.Value) -
+           (float(sheet.BoxShort.Value) + 2 * float(sheet.ClearanceEach.Value))) < 0.01
+
+if App.GuiUp:
+    import FreeCADGui as Gui
+    for obj in doc.Objects:
+        if hasattr(obj, "ViewObject"):
+            obj.ViewObject.Visibility = obj == holder
+    holder.ViewObject.ShapeColor = (0.22, 0.49, 0.72)
+    holder.ViewObject.LineColor = (0.09, 0.18, 0.28)
+    holder.ViewObject.DisplayMode = "Flat Lines"
+
+mesh = MeshPart.meshFromShape(Shape=shape, LinearDeflection=0.07,
+                              AngularDeflection=0.16, Relative=False)
+if not mesh.isSolid():
+    raise RuntimeError("STL mesh není uzavřená")
+doc.saveAs(str(OUT / "drzak.FCStd"))
+mesh.write(str(OUT / "stl" / "drzak.stl"))
+report = {
+    "status": "CAD prototyp; fyzický fit, nosnost a tisk neověřené",
+    "user_original_input_mm": {"box_lower_long": 220, "box_lower_short": 150,
+                               "box_lower_height_to_seam": 42, "hoop_height": 30},
+    "parameters_mm": {alias: value for alias, _, value, _ in P},
+    "inner_opening_mm": [float(sheet.InnerLong.Value), float(sheet.InnerShort.Value)],
+    "outer_hoop_mm": [float(sheet.OuterLong.Value), float(sheet.OuterShort.Value)],
+    "model_envelope_mm": [bb.XLength, bb.YLength, bb.ZLength],
+    "wall_holes": {"count": len(holes), "diameter_mm": float(sheet.HoleDiameter.Value),
+                   "centres_xz_mm": [[hole.Placement.Base.x, hole.Placement.Base.z]
+                                     for hole in holes]},
+    "hanging_box_bottom_below_hoop_mm": float(sheet.HangingDrop.Value),
+    "solid_count": len(shape.Solids), "shape_valid": bool(shape.isValid()),
+    "stl_facets": mesh.CountFacets, "stl_closed": bool(mesh.isSolid()),
+    "volume_mm3": shape.Volume,
+}
+(OUT / "kontrola-modelu.json").write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n")
+print("RFID_HOLDER_CAD_OK", report["model_envelope_mm"], flush=True)

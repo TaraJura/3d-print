@@ -1,0 +1,51 @@
+{
+  "gcode_sha256": "ad8f73fd1191b6cd367ec1e6e9d596ce72e1681760181667ffe7a1bb8fd47f27",
+  "explanation": "Initial process diagnostic. The fixed-width graph flagged two short variable-width internal-solid-infill strokes. The first overlaps an earlier same-layer stroke; the second overlaps a later same-layer stroke but has no direct previous-layer contact. A targeted process change is being evaluated; this is not a new suspended CAD part.",
+  "checks": [
+    {
+      "stroke_xy": [
+        195.022,
+        210.768,
+        195.066,
+        210.615
+      ],
+      "width_mm": 0.64011,
+      "role": "Internal solid infill",
+      "z_mm": 10.6,
+      "length_mm": 0.15920113064924635,
+      "nearest_earlier_same_layer_stroke_xy": [
+        195.493,
+        210.89,
+        195.558,
+        210.554
+      ],
+      "earlier_stroke_width_mm": 0.412821,
+      "centerline_distance_mm": 0.47145854207719773,
+      "nominal_overlap_mm": 0.0550069579228023
+    },
+    {
+      "stroke_xy": [
+        186.599,
+        216.816,
+        186.751,
+        216.808
+      ],
+      "width_mm": 0.632966,
+      "role": "Internal solid infill",
+      "z_mm": 10.6,
+      "length_mm": 0.15221038072353932,
+      "nearest_earlier_same_layer_stroke_xy": [
+        186.558,
+        215.941,
+        187.111,
+        215.925
+      ],
+      "earlier_stroke_width_mm": 0.45,
+      "centerline_distance_mm": 0.8722190854822849,
+      "nominal_overlap_mm": -0.33073608548228484
+    }
+  ],
+  "status": "SUPERSEDED DIAGNOSTIC: final base process removed both original strokes",
+  "final_evidence": "kontrola-mikrocarek-finalni.json",
+  "final_gcode_sha256": "ad37f6a2af36800ed6cc29fe48809acf455c1ec5f2479383fb922b98ca3c29d5"
+}

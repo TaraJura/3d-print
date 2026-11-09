@@ -1,0 +1,33 @@
+from pathlib import Path
+import FreeCAD as App
+import FreeCADGui as Gui
+from PySide import QtCore
+from pivy import coin
+OUT=Path(__file__).resolve().parent
+doc=App.openDocument(str(OUT/'drzak.FCStd'));doc.recompute()
+view=Gui.activeDocument().activeView()
+def camera(eye):
+ eye=App.Vector(*eye);up=App.Vector(0,0,1);eye.normalize()
+ rot=App.Rotation(up.cross(eye),up,eye,'ZXY')
+ center=App.Vector(0,-0.8,100);pos=center+eye*400
+ height=230 if eye.z<0.9 else 28
+ text='#Inventor V2.1 ascii\nOrthographicCamera { viewportMapping ADJUST_CAMERA position %s %s %s orientation %s %s %s %s nearDistance 1 farDistance 1000 focalDistance 400 height %s }' % (pos.x,pos.y,pos.z,rot.Axis.x,rot.Axis.y,rot.Axis.z,rot.Angle,height)
+ view.setCamera(text);view.redraw();Gui.updateGui()
+def start():
+ Gui.getMainWindow().resize(1100,1000)
+ for o in doc.Objects:
+  if hasattr(o,'ViewObject'):o.ViewObject.Visibility=o.Name=='UpperCounterbore'
+ doc.UpperCounterbore.ViewObject.ShapeColor=(0.78,0.83,0.88)
+ doc.UpperCounterbore.ViewObject.DisplayMode='Flat Lines'
+ camera((1.0,1.4,0.6));QtCore.QTimer.singleShot(1000,save)
+def save():
+ view.saveImage(str(OUT/'nahled.png'),1000,1100,'White')
+ camera((0.02,0.01,1));QtCore.QTimer.singleShot(1000,done)
+def done():
+ view.saveImage(str(OUT/'nahled-shora.png'),1000,1000,'White')
+ camera((1.0,1.4,0.6));doc.save()
+ assert doc.UpperCounterbore.Shape.isValid()
+ print('PREVIEW_OK',flush=True)
+ App.closeDocument(doc.Name)
+ QtCore.QCoreApplication.quit()
+QtCore.QTimer.singleShot(900,start)

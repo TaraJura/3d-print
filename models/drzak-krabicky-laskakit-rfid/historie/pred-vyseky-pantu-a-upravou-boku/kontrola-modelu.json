@@ -1,0 +1,87 @@
+{
+  "status": "CAD prototyp; fyzický fit, nosnost a tisk neověřené",
+  "user_original_input_mm": {
+    "box_lower_long": 220,
+    "box_lower_short": 150,
+    "box_lower_height_to_seam": 42,
+    "hoop_height": 30
+  },
+  "parameters_mm": {
+    "BoxLong": 220,
+    "BoxShort": 150,
+    "BoxToSeam": 42,
+    "HoopHeight": 30,
+    "ClearanceEach": 1,
+    "SideWall": 8,
+    "EndWall": 6,
+    "MountWidth": 32,
+    "MountThickness": 10,
+    "MountHeight": 80,
+    "HoleDiameter": 5.5,
+    "HoleInboard": 21,
+    "LowerHoleZ": 45,
+    "UpperHoleZ": 70,
+    "GussetReach": 110,
+    "GussetTop": 75,
+    "GussetOverlap": 2
+  },
+  "inner_opening_mm": [
+    222.0,
+    152.0
+  ],
+  "outer_hoop_mm": [
+    238.0,
+    164.0
+  ],
+  "model_envelope_mm": [
+    238.0,
+    174.0,
+    80.0
+  ],
+  "wall_holes": {
+    "count": 4,
+    "diameter_mm": 5.5,
+    "centres_xz_mm": [
+      [
+        21.0,
+        45.0
+      ],
+      [
+        21.0,
+        70.0
+      ],
+      [
+        217.0,
+        45.0
+      ],
+      [
+        217.0,
+        70.0
+      ]
+    ]
+  },
+  "hanging_box_bottom_below_hoop_mm": 12.0,
+  "solid_count": 1,
+  "shape_valid": true,
+  "stl_facets": 1356,
+  "stl_closed": true,
+  "volume_mm3": 243682.62227199384,
+  "gui_validation": {
+    "saved_and_reopened": true,
+    "only_visible_geometry": [
+      "Holder"
+    ],
+    "parametric_recompute": [
+      "BoxLong",
+      "BoxShort",
+      "ClearanceEach",
+      "HoopHeight"
+    ],
+    "preview_images": [
+      "nahled-drzak.png",
+      "nahled-uchyceni.png",
+      "nahled-schematickeho-osazeni.png"
+    ],
+    "ghost_box_is_temporary": true
+  }
+}

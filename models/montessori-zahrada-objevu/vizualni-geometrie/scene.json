@@ -1,0 +1,66 @@
+{
+  "name": "ZAHRADA OBJEVU",
+  "description": "Skutecna CAD geometrie; navrhove barvy",
+  "parts": [
+    {
+      "file": "Base.stl",
+      "name": "01 — zakladna / 5 sedel / hmatova spirala",
+      "id": "Base",
+      "color": [
+        0.93,
+        0.89,
+        0.8
+      ]
+    },
+    {
+      "file": "Stone1.stl",
+      "name": "02 — Kruh / 1 dulku / 12 mm",
+      "id": "Stone1",
+      "color": [
+        0.74,
+        0.4,
+        0.31
+      ]
+    },
+    {
+      "file": "Stone2.stl",
+      "name": "03 — Trojuhelnik / 2 dulku / 24 mm",
+      "id": "Stone2",
+      "color": [
+        0.74,
+        0.4,
+        0.31
+      ]
+    },
+    {
+      "file": "Stone3.stl",
+      "name": "04 — Ctverec / 3 dulku / 36 mm",
+      "id": "Stone3",
+      "color": [
+        0.74,
+        0.4,
+        0.31
+      ]
+    },
+    {
+      "file": "Stone4.stl",
+      "name": "05 — Petiuholnik / 4 dulku / 48 mm",
+      "id": "Stone4",
+      "color": [
+        0.74,
+        0.4,
+        0.31
+      ]
+    },
+    {
+      "file": "Stone5.stl",
+      "name": "06 — Sestiuhelnik / 5 dulku / 60 mm",
+      "id": "Stone5",
+      "color": [
+        0.74,
+        0.4,
+        0.31
+      ]
+    }
+  ]
+}

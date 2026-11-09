@@ -1,0 +1,137 @@
+# -*- coding: utf-8 -*-
+"""Spatial concept ONLY. All unmeasured PCB dimensions are placeholders.
+Run in real FreeCAD. Overwrites kryt.FCStd, stl/*.stl and kontrola-modelu.json
+in this directory. No print process, fit or load claim. Native objects only.
+"""
+from pathlib import Path
+import json, hashlib
+import FreeCAD as App
+import Part, Mesh, MeshPart
+OUT=Path(__file__).resolve().parent
+NAME='TriZesilovaceKoncept'
+if NAME in App.listDocuments(): raise RuntimeError('Document is open; save and close before regeneration')
+App.ParamGet('User parameter:BaseApp/Preferences/Document').SetInt('CountBackupFiles',0)
+doc=App.newDocument(NAME)
+doc.Label='Tři zesilovače — KONCEPT, rozměry nepotvrzeny'
+sheet=doc.addObject('Spreadsheet::Sheet','Parameters')
+sheet.Label='Parametry — návrhové, NEMĚŘENÉ'
+vals=[('PCBWidth',100,'Šířka PCB — zástupná'),('PCBDepth',140,'Délka PCB — zástupná'),('PCBHeight',38,'Výška osazení — zástupná'),('Wall',3.2,'Stěna krytu'),('SideGap',16,'Prostor vedle PCB'),('FrontGap',14,'Odstup hrany PCB od čela'),('RearGap',32,'Prostor za PCB'),('Pitch',64,'Rozteč pater'),('FirstPCB',22,'Výška první PCB'),('KnobX',76,'Osa ovladače od levé hrany PCB — zástupná'),('AxisHeight',10,'Osy konektorů nad PCB — zástupná'),('KnobRadius',10,'Poloměr ovladače — zástupný'),('MountDiameter',5.5,'Průchod vrutu — návrh, vrut neznámý')]
+for c,t in [('A1','Parametr'),('B1','mm'),('C1','Původ')]: sheet.set(c,t)
+for i,(a,v,label) in enumerate(vals,2):
+ sheet.set('A%d'%i,label);sheet.set('B%d'%i,str(v)+' mm');sheet.setAlias('B%d'%i,a);sheet.set('C%d'%i,'NÁVRH, vyžaduje měření');sheet.setBackground('B%d'%i,(1.0,.91,.72))
+for i,a,f in [(18,'Width','=PCBWidth + 2 * SideGap'),(19,'Depth','=FrontGap + PCBDepth + RearGap'),(20,'Height','=FirstPCB + 2 * Pitch + PCBHeight + 20 mm')]:
+ sheet.set('A%d'%i,a);sheet.set('B%d'%i,f);sheet.setAlias('B%d'%i,a);sheet.set('C%d'%i,'ODVOZENO Z NÁVRHU')
+sheet.setColumnWidth('A',370);sheet.setColumnWidth('B',120);sheet.setColumnWidth('C',250)
+doc.recompute()
+P=lambda a:'Parameters.'+a
+
+def box(name,dims,loc):
+ o=doc.addObject('Part::Box',name)
+ for k,v in zip(['Length','Width','Height'],dims): o.setExpression(k,str(v))
+ for k,v in zip('xyz',loc): o.setExpression('Placement.Base.'+k,str(v))
+ return o
+
+def cyl(name,r,h,loc,axis=(0,0,1)):
+ o=doc.addObject('Part::Cylinder',name);o.setExpression('Radius',str(r));o.setExpression('Height',str(h));o.Placement.Rotation=App.Rotation(App.Vector(0,0,1),App.Vector(*axis))
+ for k,v in zip('xyz',loc): o.setExpression('Placement.Base.'+k,str(v))
+ return o
+
+def fuse(name,items):
+ o=doc.addObject('Part::MultiFuse',name);o.Shapes=items;o.Refine=True;return o
+
+def cut(name,base,tools):
+ tool=fuse(name+'Tools',tools) if len(tools)>1 else tools[0]
+ o=doc.addObject('Part::Cut',name);o.Base=base;o.Tool=tool;o.Refine=True;return o
+
+def rounded_front(name,y,thick):
+ # Rounded XZ outline, four corner cylinders normal to the face.
+ w,h=P('Width'),P('Height');r='8 mm'
+ parts=[box(name+'A',[w+' - 16 mm',thick,h],['8 mm',y,'0 mm']),box(name+'B',[w,thick,h+' - 16 mm'],['0 mm',y,'8 mm'])]
+ for j,(x,z) in enumerate([('8 mm','8 mm'),(w+' - 8 mm','8 mm'),('8 mm',h+' - 8 mm'),(w+' - 8 mm',h+' - 8 mm')]):parts.append(cyl(name+'R'+str(j),r,thick,[x,y,z],(0,1,0)))
+ return fuse(name,parts)
+
+# Main carrier: open front and top; base, rear and two ventilated sides.
+w,d,h,t=map(P,['Width','Depth','Height','Wall'])
+raw=fuse('ChassisBlank',[
+ box('Floor',[w,d,t],['0 mm','0 mm','0 mm']),
+ box('Left',[t,d,h+' - '+t],['0 mm','0 mm','0 mm']),
+ box('Right',[t,d,h+' - '+t],[w+' - '+t,'0 mm','0 mm']),
+ box('Back',[w,t,h+' - '+t],['0 mm',d+' - '+t,'0 mm'])])
+vents=[]
+for n in range(3):
+ for j in range(5):
+  z=P('FirstPCB')+' + '+str(n)+' * '+P('Pitch')+' + '+str(14+j*6)+' mm'
+  vents.append(box('SideVent%d_%d'%(n,j),[w+' + 2 mm',d+' - 42 mm','3 mm'],['-1 mm','18 mm',z]))
+ # Large rear routing window: unmeasured, not an electrical connector interface.
+ vents.append(box('CableWindow%d'%n,['40 mm',t+' + 3 mm','18 mm'],[w+'/2 - 20 mm',d+' - '+t+' - 1 mm',P('FirstPCB')+' + '+str(n)+' * '+P('Pitch')]))
+# Rear mounting lands kept away from cable windows; bores are placeholders.
+for i,(x,z) in enumerate([('12 mm','12 mm'),(w+' - 12 mm','12 mm'),('12 mm',h+' - 16 mm'),(w+' - 12 mm',h+' - 16 mm')]):
+ vents.append(cyl('WallScrew%d'%i,P('MountDiameter')+'/2','10 mm',[x,d+' - 6 mm',z],(0,1,0)))
+chassis=cut('Chassis',raw,vents);chassis.Label='KONCEPT — větrané nosné tělo'
+
+# The proposed front exposes RCA on the left, knob on the right. The top half
+# of each tier admits air; exact cut-outs cannot be finalized from photos.
+front_blank=rounded_front('FrontBlank','-3.2 mm','3.2 mm')
+front_tools=[]
+for n in range(3):
+ z=P('FirstPCB')+' + '+str(n)+' * '+P('Pitch')
+ front_tools.append(box('RCAAccess%d'%n,['61 mm','6 mm','25 mm'],['13 mm','-4 mm',z+' - 3 mm']))
+ front_tools.append(cyl('KnobClearance%d'%n,P('KnobRadius')+' + 2 mm','6 mm',[P('SideGap')+' + '+P('KnobX'),'-4 mm',z+' + '+P('AxisHeight')],(0,1,0)))
+ for j in range(4):front_tools.append(box('FrontVent%d_%d'%(n,j),[w+' - 28 mm','6 mm','2.6 mm'],['14 mm','-4 mm',z+' + '+str(31+j*5)+' mm']))
+front=cut('Front',front_blank,front_tools);front.Label='KONCEPT — snímatelné čelo, RCA přístupné'
+
+# Flat lid with parallel vents.
+lid_blank=box('LidBlank',[w,d,t],['0 mm','0 mm',h+' - '+t])
+lid_tools=[]
+for j in range(17):lid_tools.append(box('TopVent%d'%j,[w+' - 28 mm','3 mm','6 mm'],['14 mm',str(18+j*9)+' mm',h+' - 4 mm']))
+lid=cut('Lid',lid_blank,lid_tools);lid.Label='KONCEPT — větraný horní díl'
+
+# Three open support frames. Bolt holes/posts and frame retainers intentionally
+# await the actual PCB. The concept must not be used to mount live boards.
+trays=[]
+for n in range(3):
+ z=P('FirstPCB')+' + '+str(n)+' * '+P('Pitch')+' - 8 mm'
+ blank=box('TrayBlank%d'%n,[w+' - 8 mm',P('PCBDepth')+' + 8 mm','3.2 mm'],['4 mm',P('FrontGap')+' - 4 mm',z])
+ opening=box('TrayOpening%d'%n,[w+' - 24 mm',P('PCBDepth')+' - 8 mm','6 mm'],['12 mm',P('FrontGap')+' + 4 mm',z+' - 1 mm'])
+ tray=cut('Tray%d'%(n+1),blank,[opening]);tray.Label='KONCEPT — nosný rámeček %d, uchycení doplnit'%(n+1);trays.append(tray)
+
+# Simplified electronics references; dimensions and positions are NOT a scan
+# or a measured copy. These are not printed or included in 3MF.
+refs=[]
+for n in range(3):
+ z=P('FirstPCB')+' + '+str(n)+' * '+P('Pitch')
+ pcb=box('PCB%d'%n,[P('PCBWidth'),P('PCBDepth'),'1.6 mm'],[P('SideGap'),P('FrontGap'),z]);pcb.Label='REFERENCE PCB %d — neměřená obálka'%(n+1);refs.append((pcb,(.68,.12,.08)))
+ sink=box('Heatsink%d'%n,[P('PCBWidth')+' - 32 mm',P('PCBDepth')+' - 55 mm',P('PCBHeight')+' - 14 mm'],[P('SideGap')+' + 16 mm',P('FrontGap')+' + 28 mm',z+' + 1.6 mm']);refs.append((sink,(.82,.58,.15)))
+ fan=cyl('Fan%d'%n,'25 mm','8 mm',[w+'/2',P('FrontGap')+' + '+P('PCBDepth')+'/2',z+' + '+P('PCBHeight')+' - 8 mm']);refs.append((fan,(.25,.29,.31)))
+ knob=cyl('Knob%d'%n,P('KnobRadius'),'18 mm',[P('SideGap')+' + '+P('KnobX'),'-17 mm',z+' + '+P('AxisHeight')],(0,1,0));refs.append((knob,(.10,.12,.14)))
+ for j in range(2):
+  rca=cyl('RCA%d_%d'%(n,j),'5 mm','18 mm',[P('SideGap')+' + '+str(14+j*20)+' mm','-2 mm',z+' + '+P('AxisHeight')],(0,1,0));refs.append((rca,(.78,.59,.25)))
+ terminal=box('Terminals%d'%n,[P('PCBWidth')+' - 12 mm','14 mm','18 mm'],[P('SideGap')+' + 6 mm',P('FrontGap')+' + '+P('PCBDepth')+' - 14 mm',z+' + 1.6 mm']);refs.append((terminal,(.15,.16,.17)))
+
+doc.recompute()
+parts=[('telo',chassis),('celo',front),('vrsek',lid)]+[('ramecek-%d'%(n+1),o) for n,o in enumerate(trays)]
+report={'status':'KONCEPT — NEVYRÁBĚT, čeká na měření a dokončení spojů','units':'mm','all_dimensions_unmeasured_design_placeholders':True,'printed_parts':{},'reference_objects':[o.Name for o,c in refs],'physical_test':False,'slicer_test':False,'incomplete_interfaces':['PCB mounting posts and holes','tray-to-chassis retainers','front and lid fasteners','rear cable standoff and strain relief','actual screw/anchor selection'],'source_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest()}
+for filename,o in parts:
+ assert o.Shape.isValid() and len(o.Shape.Solids)==1,(o.Name,len(o.Shape.Solids))
+ mesh=MeshPart.meshFromShape(Shape=o.Shape,LinearDeflection=.08,AngularDeflection=.15,Relative=False)
+ path=OUT/'stl'/(filename+'.stl');mesh.write(str(path));check=Mesh.Mesh(str(path))
+ assert check.isSolid() and check.countComponents()==1,filename
+ bb=o.Shape.BoundBox
+ report['printed_parts'][filename]={'object':o.Name,'bbox_mm':[bb.XLength,bb.YLength,bb.ZLength],'solid_count':1,'valid':True,'stl_closed':True,'components':1,'sha256':hashlib.sha256(path.read_bytes()).hexdigest()}
+report['part_collisions_mm3']={}
+for i,(na,a) in enumerate(parts):
+ for nb,b in parts[i+1:]:
+  vol=a.Shape.common(b.Shape).Volume
+  if vol>1e-6:report['part_collisions_mm3'][na+' / '+nb]=vol
+assert not report['part_collisions_mm3'],report['part_collisions_mm3']
+report['overall_proposed_enclosure_mm']=[float(sheet.Width.Value),float(sheet.Depth.Value)+3.2,float(sheet.Height.Value)]
+if App.GuiUp:
+ for o in doc.Objects:
+  if hasattr(o,'ViewObject'):o.ViewObject.Visibility=False
+ for name,o in parts:o.ViewObject.Visibility=True
+ for o,c in refs:o.ViewObject.ShapeColor=c;o.ViewObject.Visibility=True
+ chassis.ViewObject.ShapeColor=(.22,.26,.29);front.ViewObject.ShapeColor=(.88,.89,.87);lid.ViewObject.ShapeColor=(.22,.26,.29)
+ for o in trays:o.ViewObject.ShapeColor=(.38,.43,.46)
+doc.recompute();doc.saveAs(str(OUT/'kryt.FCStd'))
+(OUT/'kontrola-modelu.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
+print('KRYT_CONCEPT_OK',flush=True)

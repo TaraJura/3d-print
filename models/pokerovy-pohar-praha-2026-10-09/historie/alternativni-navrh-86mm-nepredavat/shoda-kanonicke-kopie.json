@@ -1,0 +1,31 @@
+{
+  "source": "/home/novakj/.codex/worktrees/410b/3d-print/models/pokerovy-pohar-praha-2026-10-09",
+  "canonical": "/home/novakj/3d-print/models/pokerovy-pohar-praha-2026-10-09/varianta-86mm-overena",
+  "matching_files": 22,
+  "all_sha256_equal": true,
+  "reason_for_variant_subfolder": "Existing canonical root concurrently receives a different 92 mm design; preserved all existing work, delivered complete independently verified 86 mm variant here.",
+  "sha256": {
+    "nahled.FCMacro": "b983d2601c544fb88775141b7c952bb525dcde4633ff9f719e5f92563531d8a2",
+    "pohar.FCMacro": "9884dcb232b2df3fd5ff58967e26ecfa74dcc5df469ee5604f36b46e77c9a65a",
+    "README.md": "bb20e1a90f6578d0f14a07ef468ac75ae949be6c6971ee48045cdee8f37d4f83",
+    "nahled-celni.png": "d839caef6fbd90ea977e6cff43f34e9fd16d5412ce54d863134bf76a7f19270a",
+    "pohar.FCStd": "aeaf3a5c3d25a486998a22fbcd862d5ac63bd8f119624bb83ac8496a2e8a62c1",
+    "nezavisly-audit.FCMacro": "ce1b8008ac7963c45259cc4c760a4a4d65ee7242d1a875521996401cffaafc59",
+    "nahled-cad.png": "2afe8da0ea3bce7539e2f194e87947da85c7c7f5c157ab9c6a98ea3f5fd344d3",
+    "kontrola-modelu.json": "5ec382281181a2ee699abf37798a60827193a2056114c7f5241974d2357ecee7",
+    "nahled-zadni.png": "93f64959ec685eb99c7377dff69e019193f94827ae09361f11c713e9f3bd4830",
+    "nezavisly-audit.json": "9ea76b02cb564120d3fc33382518fbae10c8c07cc9f618e1773843071ed7b909",
+    "rozlozeni/podlozka-01-kobra-x-zlaty-silk-projekt.3mf": "1f3481c6c8286d8920d36be6457a1aabcf5a71b1b755693fdbe20712293c2498",
+    "rozlozeni/pripravit-projekt.py": "7e21932d1e90ace615d693bb30d1d6e2bb4e622ceefa0859d609b64e5c4480bb",
+    "rozlozeni/podlozka-01-geometrie.3mf": "1307cc2b1e3a7790fcde0d0f2a5b06b6d89ae7f0720ceebf639162101b7d2ab6",
+    "rozlozeni/podlozka-01.png": "ad3b08fb94ffe96057bf1c335e51e487994a4d6a000ab930a2dbf334fddaf7db",
+    "rozlozeni/kontrola-rezani.json": "71b7e5f3a9d1f556984be56da88362e4276f1e7a68af7ffb4a9717f4e0865afd",
+    "rozlozeni/README.md": "fc6e20ddfe6e564c1688a1dc018f8721b8fb29cb8bd914dde1b8e0ff3d6f0a9b",
+    "rozlozeni/overit-drahy.py": "3829e45142c94bc0d8d5e6e0cf729b6b8324f6fb4648723fb3352e4a675a6300",
+    "rozlozeni/proces-kobra-x-silk-navrh.json": "41fca0f52a18d5a226083b78fc49468eb92e7d49a8756972f3848ea2f9f93ac8",
+    "rozlozeni/podlozka-01-vrstvy.png": "b2cf34ac194b1c0305ecd7cc2620cb71ab33bc8b170d3a17699cd64b92916ad9",
+    "rozlozeni/nahled-reliefu-drahy.png": "de674ed164f2789bb6032b211848686905bcb2df83b8a7b7a0df6d776cfe4b33",
+    "rozlozeni/filament-zlaty-silk-navrh.json": "b16c8280604b348331295ecda3e41cae336b29c5075ed11f4b1703c7025cd47c",
+    "stl/pohar.stl": "147d6d7c2a6fe670b96ac1d5dc825e0f54c2910d79173635f7951dc29f2af439"
+  }
+}

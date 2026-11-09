@@ -1,0 +1,331 @@
+{
+  "revision": "02",
+  "status": "PCB 78x108 specified; vertical envelope unmeasured; dimensional assembly prototype",
+  "parameters": [
+    {
+      "name": "PCBWidth",
+      "value_mm": 78,
+      "source": "UŽIVATEL — přesný požadavek"
+    },
+    {
+      "name": "PCBDepth",
+      "value_mm": 108,
+      "source": "UŽIVATEL — přesný požadavek"
+    },
+    {
+      "name": "PCBThickness",
+      "value_mm": 1.6,
+      "source": "NÁVRH — neměřeno"
+    },
+    {
+      "name": "ComponentHeight",
+      "value_mm": 38,
+      "source": "NEMĚŘENO — čeká na výšku, nepovažovat za minimum"
+    },
+    {
+      "name": "Wall",
+      "value_mm": 2.4,
+      "source": "NÁVRH"
+    },
+    {
+      "name": "BoardSide",
+      "value_mm": 5.2,
+      "source": "NÁVRH"
+    },
+    {
+      "name": "BoardFront",
+      "value_mm": 8,
+      "source": "NÁVRH — přesah konektorů ověřit"
+    },
+    {
+      "name": "RearGap",
+      "value_mm": 18,
+      "source": "NÁVRH — kabely neměřeny"
+    },
+    {
+      "name": "AirGap",
+      "value_mm": 8,
+      "source": "NÁVRH — chlazení neověřeno"
+    },
+    {
+      "name": "FirstPCB",
+      "value_mm": 12,
+      "source": "NÁVRH"
+    },
+    {
+      "name": "BoardSideClearance",
+      "value_mm": 0.4,
+      "source": "NÁVRH"
+    },
+    {
+      "name": "BoardSlotHeight",
+      "value_mm": 2.6,
+      "source": "NÁVRH"
+    },
+    {
+      "name": "PCBEndClearance",
+      "value_mm": 0.4,
+      "source": "NÁVRH"
+    },
+    {
+      "name": "FaceThickness",
+      "value_mm": 2.4,
+      "source": "NÁVRH"
+    },
+    {
+      "name": "FaceClearance",
+      "value_mm": 0.3,
+      "source": "NÁVRH — zkušební fit"
+    },
+    {
+      "name": "BackThickness",
+      "value_mm": 2.8,
+      "source": "NÁVRH"
+    },
+    {
+      "name": "StandOff",
+      "value_mm": 8,
+      "source": "NÁVRH — kabely neměřeny"
+    },
+    {
+      "name": "KnobWidth",
+      "value_mm": 12,
+      "source": "UŽIVATEL"
+    },
+    {
+      "name": "KnobOffset",
+      "value_mm": 15,
+      "source": "UŽIVATEL — osa/okraj nejisté"
+    },
+    {
+      "name": "RCAWidth",
+      "value_mm": 25,
+      "source": "UŽIVATEL — přibližně"
+    },
+    {
+      "name": "RCAOffset",
+      "value_mm": 10,
+      "source": "UŽIVATEL — přibližně"
+    },
+    {
+      "name": "ReportedGap",
+      "value_mm": 20,
+      "source": "UŽIVATEL — přibližně, řetězec se neuzavírá"
+    },
+    {
+      "name": "AxisHeight",
+      "value_mm": 9,
+      "source": "NEMĚŘENO — otevřené servisní výřezy"
+    },
+    {
+      "name": "RCALength",
+      "value_mm": 13,
+      "source": "NEMĚŘENO — pouze reference"
+    },
+    {
+      "name": "KnobLength",
+      "value_mm": 18,
+      "source": "NEMĚŘENO — pouze reference"
+    },
+    {
+      "name": "M3Clearance",
+      "value_mm": 3.4,
+      "source": "NÁVRH — spojovací materiál není potvrzen"
+    },
+    {
+      "name": "NutAF",
+      "value_mm": 5.8,
+      "source": "NÁVRH"
+    },
+    {
+      "name": "NutThickness",
+      "value_mm": 2.8,
+      "source": "NÁVRH"
+    }
+  ],
+  "exact_pcb_mm": [
+    78,
+    108
+  ],
+  "body_dimensions_mm": [
+    88.4,
+    134.0,
+    157.20000000000002
+  ],
+  "overall_including_spacers_and_lock_mm": [
+    88.4,
+    144.8,
+    173.50000000000003
+  ],
+  "part_collisions": [],
+  "pcb_collisions": [],
+  "parts": {
+    "telo": {
+      "object": "Body",
+      "valid": true,
+      "solids": 1,
+      "stl_closed": true,
+      "components": 1,
+      "print_bbox_mm": [
+        88.4,
+        157.20000000000005,
+        134.00000000000003
+      ],
+      "volume_mm3": 153553.9206864739,
+      "stl_sha256": "23bfcf867f8e035e39238ed42d1dc08b6239602001a223918ed228fefa9c4e9f",
+      "print_orientation": "Open rear rim on bed; print axis -Y; channels upright"
+    },
+    "celo": {
+      "object": "Front",
+      "valid": true,
+      "solids": 1,
+      "stl_closed": true,
+      "components": 1,
+      "print_bbox_mm": [
+        85.4,
+        154.8,
+        2.400000000000035
+      ],
+      "volume_mm3": 20673.64421525153,
+      "stl_sha256": "20537a9ffa5a9e114c9002f2314901318d0ac33ab8b83545248c23a06d967f74",
+      "print_orientation": "Outer face on bed, internal features upwards"
+    },
+    "zada": {
+      "object": "Rear",
+      "valid": true,
+      "solids": 1,
+      "stl_closed": true,
+      "components": 1,
+      "print_bbox_mm": [
+        88.4,
+        169.20000000000002,
+        20.40000000000009
+      ],
+      "volume_mm3": 34182.23073342454,
+      "stl_sha256": "29d73c27526858653be0b4c8cc540efb43d3d7a82b8d62dd4ff47f7a5cc71af0",
+      "print_orientation": "Outer face on bed, internal features upwards"
+    },
+    "pojistka-cela": {
+      "object": "TopLock",
+      "valid": true,
+      "solids": 1,
+      "stl_closed": true,
+      "components": 1,
+      "print_bbox_mm": [
+        70.4,
+        15.0,
+        2.8000000000000114
+      ],
+      "volume_mm3": 2931.378232247155,
+      "stl_sha256": "62af599f0c39de9770bc5d1bdba715d496814fed7d13a0bdd7913e7be63ecb77",
+      "print_orientation": "Flat strip"
+    },
+    "odstup-1": {
+      "object": "Spacer1",
+      "valid": true,
+      "solids": 1,
+      "stl_closed": true,
+      "components": 1,
+      "print_bbox_mm": [
+        14.996643242126275,
+        14.998321527154117,
+        8.0
+      ],
+      "volume_mm3": 1216.676002882255,
+      "stl_sha256": "831dc3723c99b3ecfbbd75b1dcb717d27de028cc275d9f85c9f194fd658aa269",
+      "print_orientation": "Ring flat"
+    },
+    "odstup-2": {
+      "object": "Spacer2",
+      "valid": true,
+      "solids": 1,
+      "stl_closed": true,
+      "components": 1,
+      "print_bbox_mm": [
+        14.996643242126275,
+        14.998321527154117,
+        8.0
+      ],
+      "volume_mm3": 1216.676002882255,
+      "stl_sha256": "831dc3723c99b3ecfbbd75b1dcb717d27de028cc275d9f85c9f194fd658aa269",
+      "print_orientation": "Ring flat"
+    },
+    "odstup-3": {
+      "object": "Spacer3",
+      "valid": true,
+      "solids": 1,
+      "stl_closed": true,
+      "components": 1,
+      "print_bbox_mm": [
+        14.996643242126275,
+        14.9983215271541,
+        8.0
+      ],
+      "volume_mm3": 1216.676002882255,
+      "stl_sha256": "831dc3723c99b3ecfbbd75b1dcb717d27de028cc275d9f85c9f194fd658aa269",
+      "print_orientation": "Ring flat"
+    }
+  },
+  "references": [
+    "PCB0",
+    "Heatsink0",
+    "Fan0",
+    "Knob0",
+    "RCA0_0",
+    "RCA0_1",
+    "PCB1",
+    "Heatsink1",
+    "Fan1",
+    "Knob1",
+    "RCA1_0",
+    "RCA1_1",
+    "PCB2",
+    "Heatsink2",
+    "Fan2",
+    "Knob2",
+    "RCA2_0",
+    "RCA2_1"
+  ],
+  "physical_fit_verified": false,
+  "thermal_verified": false,
+  "connector_vertical_axis_verified": false,
+  "source_sha256": "84e80cb12f306c9624721572ec2ee1672750f7df92289db0f4a8974a20a18eca",
+  "gui": {
+    "reopened": true,
+    "helper_geometry_hidden": true,
+    "visible_objects": [
+      "Body",
+      "Front",
+      "Rear",
+      "TopLock",
+      "Spacer1",
+      "Spacer2",
+      "Spacer3",
+      "PCB0",
+      "Heatsink0",
+      "Fan0",
+      "Knob0",
+      "RCA0_0",
+      "RCA0_1",
+      "PCB1",
+      "Heatsink1",
+      "Fan1",
+      "Knob1",
+      "RCA1_0",
+      "RCA1_1",
+      "PCB2",
+      "Heatsink2",
+      "Fan2",
+      "Knob2",
+      "RCA2_0",
+      "RCA2_1"
+    ],
+    "images": [
+      "nahled-zpredu.png",
+      "nahled-nasouvani-cela.png",
+      "nahled-vnitrek.png",
+      "nahled-zadni-viko.png",
+      "nahled-zezadu.png"
+    ]
+  }
+}

@@ -1,0 +1,63 @@
+# -*- coding: utf-8 -*-
+"""Uloží viditelnost 5 finálních tvarů a obnoví 2 skutečné CAD náhledy.
+Přepisuje jen test-tpu.FCStd a nahled-{cad,shora}.png vedle makra.
+"""
+from pathlib import Path
+import FreeCAD as App
+import FreeCADGui as Gui
+from PySide import QtCore
+OUT = Path(__file__).resolve().parent
+doc = App.openDocument(str(OUT/'test-tpu.FCStd'))
+names = ['Strip1','Strip2','Strip3','Ring1','Ring2']
+for obj in doc.Objects:
+    if obj.ViewObject:
+        obj.ViewObject.Visibility = obj.Name in names
+    if obj.Name in names:
+        obj.ViewObject.ShapeColor = (0.34,0.40,0.43)
+        obj.ViewObject.LineColor = (0.12,0.17,0.20)
+        obj.ViewObject.LineWidth = 1.0
+        obj.ViewObject.DisplayMode = 'Flat Lines'
+        obj.ViewObject.AngularDeflection = 8
+        obj.ViewObject.Deviation = 0.05
+doc.recompute()
+view = Gui.activeDocument().activeView()
+
+def camera():
+    eye = App.Vector(0.25,-0.85,1.15)
+    up = App.Vector(0,0,1)
+    view.setCameraType('Orthographic')
+    view.setCameraOrientation(App.Rotation(up.cross(eye),up,eye,'ZXY').Q)
+    view.fitAll()
+    view.redraw()
+    Gui.updateGui()
+
+def start():
+    Gui.getMainWindow().resize(1600,1250)
+    camera()
+    QtCore.QTimer.singleShot(1200,save_iso)
+
+def save_iso():
+    view.saveImage(str(OUT/'nahled-cad.png'),1600,1250,'White')
+    view.viewTop()
+    view.fitAll()
+    Gui.updateGui()
+    QtCore.QTimer.singleShot(1000,save_top)
+
+def save_top():
+    view.saveImage(str(OUT/'nahled-shora.png'),1400,1400,'White')
+    camera()
+    QtCore.QTimer.singleShot(900,finish)
+
+def finish():
+    doc.save()
+    fn = doc.FileName
+    App.closeDocument(doc.Name)
+    reopened = App.openDocument(fn)
+    visible = [o.Name for o in reopened.Objects if hasattr(o,'Shape') and o.ViewObject.Visibility]
+    assert visible==names,visible
+    assert all(reopened.getObject(n).Shape.isValid() for n in names)
+    print('TPU_RENDER_OK',visible,flush=True)
+    App.closeDocument(reopened.Name)
+    Gui.getMainWindow().close()
+
+QtCore.QTimer.singleShot(900,start)

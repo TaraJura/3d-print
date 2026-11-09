@@ -1,0 +1,71 @@
+{
+  "revision": "05",
+  "units": "mm",
+  "physical_part_count": 1,
+  "parts": [
+    {
+      "id": "pouzdro-zdobene",
+      "name": "Zdobené pouzdro na nůž — 1 kus",
+      "file": "stl/pouzdro-zdobene.stl",
+      "quantity": 1,
+      "sha256": "52272f11c1da5100c33756c3c9fe94aa64b06f5f66380c752142e7aab70269b5",
+      "bbox_mm": [
+        77.9999999,
+        33.799999137060546,
+        247.99999989999998
+      ],
+      "orientation": "Svisle ústím nahoru jako po montáži: uzavřený konec, spodek žebra a patka zadní desky na podložce.",
+      "supports": false,
+      "support_note": "Dutina a náběh jsou shora otevřené. Dolní plochy dekoru, límce a střechy obou vrutových otvorů mají 45°, jen čtyři přechody dolních křídel límce lokálně až cca 49,2° podle STL (asi 31 mm² nad 45,5°). Řez této varianty je bez nových ostrovů a bez podpor; kvalita těchto míst není fyzicky ověřená.",
+      "critical_z_mm": [
+        0.2,
+        1,
+        3,
+        16.0,
+        16.4,
+        17.0,
+        24.0,
+        36.0,
+        120.0,
+        204.0,
+        222.0,
+        233.8,
+        234.2,
+        241.0,
+        248.0
+      ],
+      "blade_path": {
+        "blade_half_xy_mm": [
+          22.5,
+          1.5
+        ],
+        "cavity_half_xy_mm": [
+          23.5,
+          2.2
+        ],
+        "centre_xy_mm": [
+          39.00000010000012,
+          9.800000099999957
+        ],
+        "floor_z_mm": 16.0,
+        "mouth_z_mm": 234.0,
+        "lead_in_start_z_mm": 222.0
+      },
+      "mount_holes": [
+        {
+          "x_mm": 71.00000010000012,
+          "z_mm": 241.0
+        },
+        {
+          "x_mm": 7.000000100000122,
+          "z_mm": 7.0
+        }
+      ],
+      "mount_hole_diameter_mm": 5.5,
+      "wall_plate_y_mm": [
+        29.800000099999956,
+        33.800000099999956
+      ]
+    }
+  ]
+}

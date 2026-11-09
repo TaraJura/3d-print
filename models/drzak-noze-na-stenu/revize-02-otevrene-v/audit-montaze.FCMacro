@@ -1,0 +1,103 @@
+# -*- coding: utf-8 -*-
+"""Independent read-only audit of V02; writes only audit-montaze.json."""
+from pathlib import Path
+import math,json,hashlib
+import FreeCAD as App
+import Part
+ROOT=Path(__file__).resolve().parent
+opened_sha256=hashlib.sha256((ROOT/'drzak.FCStd').read_bytes()).hexdigest()
+doc=App.openDocument(str(ROOT/'drzak.FCStd'))
+holder=doc.getObject('Holder').Shape.copy()
+checks=[];sample_results=[]
+def check(name,passed,detail=None):
+    checks.append({'check':name,'passed':bool(passed),'detail':detail})
+def overlap(a):return a.common(holder).Volume
+def inside(x,y,z):return holder.isInside(App.Vector(x,y,z),1e-7,True)
+check('valid_single_printed_solid',holder.isValid() and len(holder.Solids)==1,{'solids':len(holder.Solids),'volume_mm3':holder.Volume})
+bb=holder.BoundBox
+check('length_230_and_height_55',abs(bb.XLength-230)<1e-6 and abs(bb.YLength-55)<1e-6,{'installed_bbox_mm':[bb.XLength,bb.YLength,bb.ZLength]})
+# Inspect the analytic cylindrical root and the actual inside/outside boundary.
+root_faces=[];hole_faces=[]
+for f in holder.Faces:
+    surf=f.Surface
+    if hasattr(surf,'Radius') and hasattr(surf,'Axis') and hasattr(surf,'Center'):
+        if abs(surf.Radius-2)<1e-6 and abs(surf.Axis.x)>0.999:
+            root_faces.append({'radius':surf.Radius,'center':[surf.Center.x,surf.Center.y,surf.Center.z]})
+        if abs(surf.Radius-2.75)<1e-6 and abs(surf.Axis.z)>0.999:
+            hole_faces.append((round(surf.Center.x,6),round(surf.Center.y,6)))
+check('analytic_root_radius_2',len(root_faces)==1 and abs(root_faces[0]['center'][1]-(6+2*math.sqrt(2)))<1e-6 and abs(root_faces[0]['center'][2]-24)<1e-6,root_faces)
+contact_y=6+2*math.sqrt(2)-2
+check('rounded_root_bottom_contact',inside(115,contact_y-.01,24) and not inside(115,contact_y+.01,24),{'contact_y_mm':contact_y,'probe_offset_mm':.01})
+profile_failed=[]
+for i in range(69):
+    dz=-17+i*.5
+    floor=6+2*math.sqrt(2)-math.sqrt(4-dz*dz) if abs(dz)<=math.sqrt(2) else 6+abs(dz)
+    if not inside(115,floor-.01,24+dz) or inside(115,floor+.01,24+dz):profile_failed.append([dz,floor])
+check('continuous_V_profile_34mm_mouth',not profile_failed,{'boundary_samples':69,'failed_samples':profile_failed,'top_y_mm':23,'inner_mouth_z_mm':[7,41]})
+wall_checks=[]
+for sign in [-1,1]:
+    z0=24+sign*9
+    for d,expected in [(2.99,True),(3.01,False)]:
+        actual=inside(115,15-d/math.sqrt(2),z0+sign*d/math.sqrt(2))
+        wall_checks.append(actual==expected)
+check('normal_wall_thickness_3mm',all(wall_checks),{'probe_depths_mm':[2.99,3.01]})
+check('exactly_two_cylindrical_mount_holes',sorted(set(hole_faces))==[(35.,43.),(195.,43.)],{'centers_xy_mm':sorted(set(hole_faces)),'diameter_mm':5.5,'spacing_mm':160})
+for x in [35,195]:
+    hole=Part.makeCylinder(2.75,6,App.Vector(x,43,-1))
+    tool=Part.makeCylinder(5,60,App.Vector(x,43,4))
+    head=Part.makeCylinder(5,3,App.Vector(x,43,4))
+    check('mount_hole_through_x%d'%x,overlap(hole)<1e-7)
+    check('driver_10mm_clear_x%d'%x,overlap(tool)<1e-7,{'knife_removed':True})
+    check('proposed_head_10x3_clear_x%d'%x,overlap(head)<1e-7,{'actual_fastener_unknown':True})
+# Independent bisection measures the seating heights of separate rectangular
+# cross-section samples. These are not a single rigid whole-knife model.
+for thickness in [1,2,3,4,6,10,25]:
+    def sample(y):return Part.makeBox(200,45,thickness,App.Vector(15,y,24-thickness/2))
+    low,high=0.,30.
+    for _ in range(24):
+        mid=(low+high)/2
+        if overlap(sample(mid))>1e-8:low=mid
+        else:high=mid
+    half=thickness/2
+    expected=6+2*math.sqrt(2)-math.sqrt(4-half*half) if half<=math.sqrt(2) else 6+half
+    clearance=.05
+    start=high+clearance
+    worst=0.
+    for lift in range(41):worst=max(worst,overlap(sample(start+lift)))
+    detail={'thickness_mm':thickness,'measured_seating_bottom_y_mm':high,'analytic_bottom_y_mm':expected,
+            'tested_initial_bottom_y_mm':start,'added_clearance_mm':clearance,'lift_mm':40,'lift_step_mm':1,'maximum_collision_mm3':worst}
+    sample_results.append(detail)
+    check('independent_section_%gmm'%thickness,abs(high-expected)<.002 and worst<1e-7,detail)
+# Print envelope and a positive-area first-layer contact slice.
+printshape=holder.copy();printshape.rotate(App.Vector(),App.Vector(1,0,0),90)
+pbb=printshape.BoundBox
+check('print_envelope_260_cube',pbb.XLength<260 and pbb.YLength<260 and pbb.ZLength<260,
+      {'bbox_mm':[pbb.XLength,pbb.YLength,pbb.ZLength],'five_mm_brim_fits':pbb.XLength+10<260 and pbb.YLength+10<260})
+bed=Part.makeBox(250,.2,60,App.Vector(-10,0,-5))
+contact=holder.common(bed)
+check('nonzero_first_layer_contact',contact.Volume>100,{'first_0_2mm_intersection_volume_mm3':contact.Volume,'solids_in_contact_slab':len(contact.Solids)})
+illustrations=[doc.getObject(n) for n in ['IllustrativeBlade','IllustrativeHandle','IllustrativeBolster']]
+if all(illustrations):
+    illustrations += [o for o in doc.Objects if o.Name.startswith('IllustrativeRivet')]
+    ref=Part.makeCompound([o.Shape for o in illustrations]);rb=ref.BoundBox
+    check('illustrative_knife_valid_and_labelled',all(o.Shape.isValid() and len(o.Shape.Solids)==1 and 'ILUSTRACE' in o.Label for o in illustrations),{'objects':[o.Name for o in illustrations]})
+    check('illustrative_envelope_340x45x25',abs(rb.XLength-340)<1e-5 and abs(rb.YLength-45)<1e-5 and rb.ZLength<=25.00001,
+          {'dimensions_mm':[rb.XLength,rb.YLength,rb.ZLength],'x_range_mm':[rb.XMin,rb.XMax],'y_range_mm':[rb.YMin,rb.YMax],'design_reference_only':True})
+    check('illustrative_knife_seated_without_collision',overlap(ref)<1e-7,{'collision_mm3':overlap(ref),'distance_mm':ref.distToShape(holder)[0]})
+    worst=0.
+    for lift in range(41):
+        moved=ref.copy();moved.translate(App.Vector(0,lift,0));worst=max(worst,overlap(moved))
+    check('illustrative_knife_lifts_straight_up_40',worst<1e-7,{'maximum_collision_mm3':worst,'sampling_step_mm':1,'not_actual_knife_validation':True})
+else:
+    check('illustrative_knife_present_for_review',False)
+final_sha256=hashlib.sha256((ROOT/'drzak.FCStd').read_bytes()).hexdigest()
+check('document_unchanged_during_audit',opened_sha256==final_sha256)
+report={'revision':'02 — open V','document_sha256':hashlib.sha256((ROOT/'drzak.FCStd').read_bytes()).hexdigest(),
+ 'checks':checks,'passed':sum(c['passed'] for c in checks),'failed':sum(not c['passed'] for c in checks),
+ 'independent_section_samples':sample_results,
+ 'limitations':['Section samples are independent; their different seating heights do not prove fit of an unknown rigid whole knife.',
+ 'The knife profile, blade length/thickness, centre of gravity, actual screws and wall are unknown.',
+ 'Tip and overhanging edge remain uncovered. No print, knife stability, load capacity or physical fit was verified.']}
+(ROOT/'audit-montaze.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
+App.closeDocument(doc.Name)
+print('OPEN_V_INDEPENDENT_AUDIT '+json.dumps(report,ensure_ascii=False),flush=True)

@@ -1,0 +1,54 @@
+{
+  "status": "geometry-only; process, supports, slice and print unverified",
+  "printer": "Anycubic Kobra X 0.4 nozzle",
+  "bed_mm": [
+    260.0,
+    260.0,
+    260.0
+  ],
+  "parts": 1,
+  "stl": "/home/novakj/3d-print/models/drzak-krabicky-laskakit-rfid/stl/drzak.stl",
+  "stl_sha256": "7aa12e55f7feb787c1dff9e9a8806b92e455b5d9edc65a8e29a1c48a69b9c6df",
+  "stl_bounds_mm": {
+    "min": [
+      0.0,
+      -25.0,
+      0.0
+    ],
+    "max": [
+      238.0,
+      164.0,
+      80.0
+    ],
+    "size": [
+      238.0,
+      189.0,
+      80.0
+    ]
+  },
+  "mesh_vertices": 688,
+  "mesh_triangles": 1392,
+  "connected_components": 1,
+  "closed_manifold": true,
+  "plate": {
+    "file": "podlozka-01-geometrie.3mf",
+    "sha256": "b048b566333a2b62c5c18f0611ee5c3d92a228791684629252ed17ea9456f223",
+    "translation_mm": [
+      11.0,
+      60.5,
+      -0.0
+    ],
+    "placed_min_mm": [
+      11.0,
+      35.5,
+      0.0
+    ],
+    "placed_max_mm": [
+      249.0,
+      224.5,
+      80.0
+    ],
+    "edge_margin_mm": 11.0,
+    "preview": "podlozka-01.png"
+  }
+}

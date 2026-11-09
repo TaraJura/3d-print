@@ -1,0 +1,199 @@
+{
+  "stl": {
+    "sha256": "3f3b00c04879afd7ab53f27361b92b5946eeffc9974d577f1b59619fabdcbbe3",
+    "facets": 90804,
+    "bytes_ok": true,
+    "bbox_mm": [
+      19.115493774414062,
+      20.71549415588379,
+      200.0
+    ],
+    "all_edges_exactly_two_faces": true,
+    "consistent_winding": true,
+    "degenerate_faces": 0,
+    "signed_volume_mm3": 30258.38806632595,
+    "euler_characteristic": -4,
+    "connected_components": 1
+  },
+  "cad": {
+    "valid": true,
+    "solids": 1,
+    "bbox_mm": [
+      19.115494309189533,
+      20.718373757243405,
+      200.00000000000003
+    ],
+    "volume_mm3": 30258.24530378686
+  },
+  "midheight_section": {
+    "z_mm": 100,
+    "slot_parallel_x_mm": [
+      -1.0,
+      1.0
+    ],
+    "slot_clear_width_mm": 2.0,
+    "parallel_lip_y_intervals_mm": [
+      [
+        8.154777009165727,
+        9.166017803736125
+      ],
+      [
+        8.154777009165727,
+        9.166017803736118
+      ]
+    ],
+    "inner_radius_mm": 7.957747154594767,
+    "inner_diameter_mm": 15.915494309189533,
+    "circular_envelope_circumference_mm": 50.0,
+    "lip_fillet_radii_mm": [
+      0.3
+    ]
+  },
+  "mounting_checks": [
+    {
+      "name": "Lower",
+      "center_z_mm": 42.9272,
+      "tool_end_y_mm": [
+        0.0,
+        2.6999999999999993
+      ],
+      "front_wall_probes": [
+        {
+          "x_mm": -5,
+          "y_mm": 7.1901415301656435,
+          "z_mm": 42.9272,
+          "inside_front_wall": true
+        },
+        {
+          "x_mm": -3,
+          "y_mm": 8.227887652600316,
+          "z_mm": 42.9272,
+          "inside_front_wall": true
+        },
+        {
+          "x_mm": -2,
+          "y_mm": 8.526320145514871,
+          "z_mm": 42.9272,
+          "inside_front_wall": true
+        },
+        {
+          "x_mm": 2,
+          "y_mm": 8.526320145514871,
+          "z_mm": 42.9272,
+          "inside_front_wall": true
+        },
+        {
+          "x_mm": 3,
+          "y_mm": 8.227887652600316,
+          "z_mm": 42.9272,
+          "inside_front_wall": true
+        },
+        {
+          "x_mm": 5,
+          "y_mm": 7.1901415301656435,
+          "z_mm": 42.9272,
+          "inside_front_wall": true
+        }
+      ],
+      "no_unintended_front_opening": true
+    },
+    {
+      "name": "Upper",
+      "center_z_mm": 157.3989,
+      "tool_end_y_mm": [
+        0.0,
+        2.6999999999999993
+      ],
+      "front_wall_probes": [
+        {
+          "x_mm": -5,
+          "y_mm": 7.1901415301656435,
+          "z_mm": 157.3989,
+          "inside_front_wall": true
+        },
+        {
+          "x_mm": -3,
+          "y_mm": 8.227887652600316,
+          "z_mm": 157.3989,
+          "inside_front_wall": true
+        },
+        {
+          "x_mm": -2,
+          "y_mm": 8.526320145514871,
+          "z_mm": 157.3989,
+          "inside_front_wall": true
+        },
+        {
+          "x_mm": 2,
+          "y_mm": 8.526320145514871,
+          "z_mm": 157.3989,
+          "inside_front_wall": true
+        },
+        {
+          "x_mm": 3,
+          "y_mm": 8.227887652600316,
+          "z_mm": 157.3989,
+          "inside_front_wall": true
+        },
+        {
+          "x_mm": 5,
+          "y_mm": 7.1901415301656435,
+          "z_mm": 157.3989,
+          "inside_front_wall": true
+        }
+      ],
+      "no_unintended_front_opening": true
+    }
+  ],
+  "parametric_recompute_checks": [
+    {
+      "circumference_mm": 55,
+      "height_mm": 200,
+      "shape_valid": true,
+      "solids": 1,
+      "actual_height_mm": 200.00000000000003,
+      "actual_inner_circumference_mm": 54.99999999999999,
+      "fillet_state": [
+        "Up-to-date"
+      ]
+    },
+    {
+      "circumference_mm": 50,
+      "height_mm": 200,
+      "shape_valid": true,
+      "solids": 1,
+      "actual_height_mm": 200.00000000000003,
+      "actual_inner_circumference_mm": 50.0,
+      "fillet_state": [
+        "Up-to-date"
+      ]
+    },
+    {
+      "circumference_mm": 50,
+      "height_mm": 190,
+      "shape_valid": true,
+      "solids": 1,
+      "actual_height_mm": 190.0,
+      "actual_inner_circumference_mm": 50.0,
+      "fillet_state": [
+        "Up-to-date"
+      ]
+    },
+    {
+      "circumference_mm": 50,
+      "height_mm": 200,
+      "shape_valid": true,
+      "solids": 1,
+      "actual_height_mm": 200.00000000000003,
+      "actual_inner_circumference_mm": 50.0,
+      "fillet_state": [
+        "Up-to-date"
+      ]
+    }
+  ],
+  "limitations": [
+    "CAD and mesh checks only; no slicing or physical print verification.",
+    "Circumference is the circular inner envelope; front dispensing slot intentionally opens it.",
+    "Measurements are model dimensions, not physical bag or screw fit."
+  ]
+}

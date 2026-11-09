@@ -1,0 +1,64 @@
+# -*- coding: utf-8 -*-
+"""Render the actual concept CAD; overwrite preview PNGs and saved GUI state."""
+from pathlib import Path
+import json
+import FreeCAD as App
+import FreeCADGui as Gui
+import Part
+from PySide import QtCore
+from pivy import coin
+OUT=Path(__file__).resolve().parent
+doc=App.openDocument(str(OUT/'kryt.FCStd'))
+report=json.loads((OUT/'kontrola-modelu.json').read_text())
+parts=[doc.getObject(v['object']) for v in report['printed_parts'].values()]
+refs=[doc.getObject(n) for n in report['reference_objects']]
+view=Gui.activeDocument().activeView()
+
+def show(opened=False):
+ for o in doc.Objects:
+  if hasattr(o,'ViewObject'):o.ViewObject.Visibility=False
+ for o in parts+refs:
+  o.ViewObject.Visibility=True;o.ViewObject.DisplayMode='Flat Lines';o.ViewObject.LineWidth=1.0;o.ViewObject.LineColor=(.16,.19,.21)
+ doc.Chassis.ViewObject.ShapeColor=(.24,.28,.31)
+ doc.Front.ViewObject.ShapeColor=(.89,.90,.88)
+ doc.Lid.ViewObject.ShapeColor=(.24,.28,.31)
+ for o in parts:
+  if o.Name.startswith('Tray'):o.ViewObject.ShapeColor=(.40,.44,.47)
+ for o in refs:
+  if o.Name.startswith('PCB'):color=(.66,.14,.10)
+  elif o.Name.startswith('Heatsink'):color=(.86,.62,.22)
+  elif o.Name.startswith('RCA'):color=(.78,.61,.30)
+  elif o.Name.startswith('Fan'):color=(.30,.34,.37)
+  else:color=(.09,.11,.13)
+  o.ViewObject.ShapeColor=color
+ if opened:
+  doc.Front.ViewObject.Visibility=False;doc.Lid.ViewObject.Visibility=False
+
+def camera(eye):
+ eye=App.Vector(*eye);up=App.Vector(0,0,1);view.setCameraType('Orthographic')
+ rot=App.Rotation(up.cross(eye),up,eye,'ZXY')
+ bb=Part.makeCompound([o.Shape for o in parts+refs if o.ViewObject.Visibility]).BoundBox
+ corners=[App.Vector(x,y,z) for x in [bb.XMin,bb.XMax] for y in [bb.YMin,bb.YMax] for z in [bb.ZMin,bb.ZMax]]
+ q=[rot.inverted().multVec(v-bb.Center) for v in corners]
+ dx=max(v.x for v in q)-min(v.x for v in q);dy=max(v.y for v in q)-min(v.y for v in q)
+ view.getCameraOrientation();node=view.getCameraNode();node.orientation.setValue(rot.Q)
+ p=bb.Center+eye.normalize()*1000;node.position.setValue(p.x,p.y,p.z)
+ node.height.setValue(max(dy,dx/1.25)*1.17);node.nearDistance.setValue(1);node.farDistance.setValue(3000)
+ view.redraw();Gui.updateGui()
+
+def start():
+ Gui.getMainWindow().resize(1400,1100);show();camera((.95,-1.7,.95));QtCore.QTimer.singleShot(700,front)
+def front():
+ view.saveImage(str(OUT/'nahled-zpredu.png'),1500,1200,'White');show(True);camera((.8,-1.65,1.45));QtCore.QTimer.singleShot(600,inside)
+def inside():
+ view.saveImage(str(OUT/'nahled-vnitrek.png'),1500,1200,'White');show();camera((.9,1.5,.9));QtCore.QTimer.singleShot(600,rear)
+def rear():
+ view.saveImage(str(OUT/'nahled-zezadu.png'),1500,1200,'White');show();camera((.95,-1.7,.95));doc.save()
+ f=doc.FileName;n=doc.Name;App.closeDocument(n);d=App.openDocument(f);d.recompute()
+ visible=[o.Name for o in d.Objects if hasattr(o,'Shape') and o.ViewObject.Visibility]
+ assert set(visible)==set([o['object'] for o in report['printed_parts'].values()]+report['reference_objects']),visible
+ invalid=[o.Name for o in d.Objects if 'Invalid' in o.State];assert not invalid,invalid
+ report['gui_validation']={'saved_reopened':True,'invalid_objects':invalid,'visible_objects':visible,'images':['nahled-zpredu.png','nahled-vnitrek.png','nahled-zezadu.png']}
+ (OUT/'kontrola-modelu.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
+ print('KRYT_RENDER_OK',flush=True);Gui.getMainWindow().close()
+QtCore.QTimer.singleShot(800,start)

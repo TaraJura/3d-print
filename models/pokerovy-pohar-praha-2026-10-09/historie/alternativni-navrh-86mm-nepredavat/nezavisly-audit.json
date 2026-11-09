@@ -1,0 +1,59 @@
+{
+  "audit_scope": "Independent read-only BREP/STL check; no physical print or strength claim",
+  "source_sha256": {
+    "pohar.FCStd": "aeaf3a5c3d25a486998a22fbcd862d5ac63bd8f119624bb83ac8496a2e8a62c1",
+    "pohar.stl": "147d6d7c2a6fe670b96ac1d5dc825e0f54c2910d79173635f7951dc29f2af439",
+    "pohar.FCMacro": "9884dcb232b2df3fd5ff58967e26ecfa74dcc5df469ee5604f36b46e77c9a65a"
+  },
+  "shape_valid": true,
+  "shape_solids": 1,
+  "shape_closed": true,
+  "bounds_mm": [
+    58.0,
+    58.0,
+    86.0
+  ],
+  "z_min_mm": 0.0,
+  "cad_volume_mm3": 51751.244301405844,
+  "stl_closed": true,
+  "stl_components": 1,
+  "stl_facets": 17930,
+  "stl_volume_mm3": 51734.10546875,
+  "stl_volume_difference_percent": 0.03311772091126101,
+  "bottom_contact_area_mm2": 2289.0973355292317,
+  "bottom_contact_bounds_mm": [
+    58.0,
+    40.0
+  ],
+  "homogeneous_solid_center_of_mass_mm": [
+    0.0020146570290891013,
+    -0.19251815698231023,
+    25.328095923226954
+  ],
+  "homogeneous_solid_com_inside_footprint": true,
+  "homogeneous_solid_contact_margins_mm": [
+    28.99798534297091,
+    19.80748184301769
+  ],
+  "homogeneous_solid_min_tip_angle_degrees": 38.026686026037304,
+  "no_custom_python_proxy": true,
+  "custom_proxy_objects": [],
+  "python_type_objects": [],
+  "invalid_object_states": [],
+  "saved_visible_objects": [
+    "Pohar"
+  ],
+  "only_final_shape_visible": true,
+  "steep_downward_facet_area_above_bed_mm2": 70.81244873681626,
+  "overhang_assessment": "Cup cone 32.5 degrees from vertical; card planes 13 degrees. Short 0.55 mm relief overhangs and rounded card corners require sliced path inspection.",
+  "physical_print_verified": false,
+  "visual_review_2026_10_09": {
+    "method": "Independent visual inspection of real CAD PNG and sliced relief path PNG",
+    "cad_preview_sha256": "2afe8da0ea3bce7539e2f194e87947da85c7c7f5c157ab9c6a98ea3f5fd344d3",
+    "toolpath_preview_sha256": "de674ed164f2789bb6032b211848686905bcb2df83b8a7b7a0df6d776cfe4b33",
+    "readable": "POKER, VÍTĚZ, PRAHA, 9. 10. 2026, rear JIŘÍ/NOVÁK, both ace A and large spade/heart symbols",
+    "minor_note": "The lower small spade is partly intersected by the stem foot; both large suit motifs remain complete and readable.",
+    "material_color": "Single gold CAD presentation; this does not establish physical spool selection.",
+    "blocking_issue_found": false
+  }
+}

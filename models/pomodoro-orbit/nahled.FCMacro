@@ -1,0 +1,45 @@
+# -*- coding: utf-8 -*-
+"""Actual CAD previews. Only saves visibility/camera to orbit.FCStd and PNGs here."""
+from pathlib import Path
+import os
+import FreeCAD as App
+import FreeCADGui as Gui
+from PySide import QtCore
+from pivy import coin
+OUT=Path(__file__).resolve().parent
+App.ParamGet('User parameter:BaseApp/Preferences/Document').SetInt('CountBackupFiles',0)
+doc=App.openDocument(str(OUT/'orbit.FCStd'));doc.recompute()
+names=['Base','Rotor','Crown','Screw','Token1','Token2','Token3','Token4','ModeMedallion']
+parts=[doc.getObject(n) for n in names]
+original={o.Name:App.Placement(o.Placement) for o in parts}
+for o in doc.Objects:
+    if hasattr(o,'ViewObject'):o.ViewObject.Visibility=o in parts
+for o in parts:
+    gold=o.Name in ['Rotor','ModeMedallion','Token1','Token2','Token3','Token4']
+    c=(.83,.60,.23) if gold else (.13,.15,.18)
+    v=o.ViewObject;v.ShapeColor=c;v.LineColor=(.25,.18,.08) if gold else (.08,.09,.11)
+    v.DisplayMode='Flat Lines';v.LineWidth=.8
+    mat=v.ShapeMaterial;mat.DiffuseColor=c;mat.AmbientColor=c;mat.SpecularColor=(.8,.7,.5) if gold else (.36,.39,.43);mat.Shininess=65 if gold else 45;v.ShapeMaterial=mat
+view=Gui.activeDocument().activeView();view.setCameraType('Orthographic');Gui.getMainWindow().resize(1600,1200)
+def camera(eye,target,height):
+    up=App.Vector(0,0,1);e=App.Vector(*eye);rot=App.Rotation(up.cross(e),up,e,'ZXY')
+    n=view.getCameraNode();n.orientation.setValue(rot.Q)
+    pos=App.Vector(*target)+e.normalize()*700;n.position.setValue(pos.x,pos.y,pos.z);n.height.setValue(height);n.nearDistance.setValue(1);n.farDistance.setValue(2000);view.redraw();Gui.updateGui()
+def start():
+    camera((.6,-1.5,2.5),(0,0,8),130);doc.save();print('ORBIT_GUI_SAVED',flush=True);QtCore.QTimer.singleShot(1100,save_main)
+def save_main():
+    print('ORBIT_IMAGE_START',flush=True);view.saveImage(str(OUT/'nahled-cad.png'),1000,800,'White');print('ORBIT_IMAGE_DONE',flush=True)
+    camera((0,-.001,3),(0,0,6),125);QtCore.QTimer.singleShot(900,save_top)
+def save_top():
+    view.saveImage(str(OUT/'nahled-shora.png'),1600,1600,'White')
+    offsets={'Rotor':8,'Crown':23,'Screw':52,'Token1':36,'Token2':36,'Token3':36,'Token4':36,'ModeMedallion':65}
+    for name,dz in offsets.items():
+        o=doc.getObject(name);pl=App.Placement(original[name]);pl.Base.z+=dz;o.Placement=pl
+    camera((1.1,-1.7,1.3),(0,0,36),170);QtCore.QTimer.singleShot(1000,save_exploded)
+def save_exploded():
+    view.saveImage(str(OUT/'nahled-rozlozeny.png'),1600,1800,'White')
+    for o in parts:o.Placement=original[o.Name]
+    doc.recompute();camera((.6,-1.5,2.5),(0,0,8),130);doc.save()
+    assert [o.Name for o in doc.Objects if hasattr(o,'Shape') and o.ViewObject.Visibility]==[o.Name for o in doc.Objects if o in parts]
+    print('ORBIT_RENDER_OK',flush=True);QtCore.QTimer.singleShot(100,lambda:os._exit(0))
+QtCore.QTimer.singleShot(900,start)

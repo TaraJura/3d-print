@@ -1,0 +1,121 @@
+# -*- coding: utf-8 -*-
+"""Open V cradle V02. FreeCAD native sketches, expressions and booleans.
+Overwrites ONLY drzak.FCStd, stl/drzak-v.stl and the two JSON reports beside
+this macro. The former closed case is never modified. No printer operation.
+"""
+from pathlib import Path
+import json,hashlib,math
+import FreeCAD as App
+import Part,Sketcher,Mesh,MeshPart
+OUT=Path(__file__).resolve().parent; NAME='DrzakNozeOtevreneV02'
+if NAME in App.listDocuments():raise RuntimeError('Save and close the open document before regenerating.')
+App.ParamGet('User parameter:BaseApp/Preferences/Document').SetInt('CountBackupFiles',0)
+doc=App.newDocument(NAME);doc.Label='Otevřený V držák nože — revize 02'
+s=doc.addObject('Spreadsheet::Sheet','Parameters');s.Label='Rozměry v mm — zadání a návrhové volby'
+VALUES=[('KnifeLength',340,'Délka nože','ZADÁNÍ'),('KnifeHeight',45,'Výška nože','ZADÁNÍ'),('HandleThickness',25,'Maximální šířka rukojeti','ZADÁNÍ'),
+('Length',230,'Délka otevřeného žlabu','NÁVRH — kratší než nůž'),('Mouth',34,'Světlé rozevření V nahoře','NÁVRH'),('Wall',3,'Kolmá tloušťka stěny V','NÁVRH'),('RootRadius',2,'Vnitřní zaoblení dna','NÁVRH'),
+('TopY',23,'Výška horní hrany V','NÁVRH'),('CenterZ',24,'Osa nože od stěny','NÁVRH'),('OuterBottom',3,'Výška spodku profilu V','NÁVRH'),('FootWidth',4,'Šířka tiskové patky','NÁVRH'),('FootHeight',4,'Výška tiskové patky','NÁVRH'),
+('TabWidth',24,'Šířka montážních oušek','NÁVRH'),('TabHeight',55,'Výška montážních oušek','NÁVRH'),('TabDepth',4,'Tloušťka montážních oušek','NÁVRH'),('MountInset',35,'Osa vrutu od konce žlabu','NÁVRH'),('MountY',43,'Výška os vrutů','NÁVRH'),('MountHole',5.5,'Průchod pro vrut','NÁVRH — vruty a stěna neznámé'),('GussetWidth',10,'Šířka výztužných žeber','NÁVRH')]
+for cell,value in [('A1','Parametr'),('B1','Hodnota'),('C1','Původ')]:s.set(cell,value)
+for i,(a,v,label,source) in enumerate(VALUES,2):
+ s.set('A%d'%i,label);s.set('B%d'%i,str(v)+' mm');s.setAlias('B%d'%i,a);s.set('C%d'%i,source);s.setBackground('B%d'%i,(.83,.96,.88) if source=='ZADÁNÍ' else (1,.94,.78))
+DERIVED=[('ApexY','=TopY-Mouth/2'),('CircleY','=ApexY+RootRadius*sqrt(2)'),('TangentY','=ApexY+RootRadius/sqrt(2)'),('ContactY','=CircleY-RootRadius'),('OuterApexY','=ApexY-Wall*sqrt(2)'),('OuterHalf','=Mouth/2+Wall*sqrt(2)'),('MountSpacing','=Length-2*MountInset'),('OverhangReference','=(KnifeLength-Length)/2')]
+for i,(a,f) in enumerate(DERIVED,len(VALUES)+3):s.set('A%d'%i,a);s.set('B%d'%i,f);s.setAlias('B%d'%i,a);s.set('C%d'%i,'ODVOZENO')
+s.setColumnWidth('A',325);s.setColumnWidth('B',130);s.setColumnWidth('C',395);doc.recompute()
+P=lambda a:'Parameters.'+a
+def val(expr):return float(doc.getObject('Parameters').evalExpression(expr.replace('Parameters.','')).Value)
+def box(n,dims,pos):
+ o=doc.addObject('Part::Box',n)
+ for k,v in zip(['Length','Width','Height'],dims):o.setExpression(k,str(v))
+ for k,v in zip('xyz',pos):o.setExpression('Placement.Base.'+k,str(v))
+ return o
+def cyl(n,r,ht,pos,axis=(0,0,1)):
+ o=doc.addObject('Part::Cylinder',n);o.setExpression('Radius',str(r));o.setExpression('Height',str(ht));o.Placement.Rotation=App.Rotation(App.Vector(0,0,1),App.Vector(*axis))
+ for k,v in zip('xyz',pos):o.setExpression('Placement.Base.'+k,str(v))
+ return o
+def fuse(n,objs):
+ o=doc.addObject('Part::MultiFuse',n);o.Shapes=objs;o.Refine=True;return o
+def cut(n,base,tool):
+ o=doc.addObject('Part::Cut',n);o.Base=base;o.Tool=tool;o.Refine=True;return o
+def common(n,base,tool):
+ o=doc.addObject('Part::Common',n);o.Base=base;o.Tool=tool;o.Refine=True;return o
+def profile(n,points,length,x='0 mm'):
+ # Sketch local coordinates (-Z,Y); its plane normal is world +X.
+ sk=doc.addObject('Sketcher::SketchObject',n+'Sketch');sk.Placement.Rotation=App.Rotation(App.Vector(0,1,0),90);sk.setExpression('Placement.Base.x',x)
+ coords=[(-val(z),val(y)) for z,y in points]
+ for i,(u,v) in enumerate(coords):
+  u2,v2=coords[(i+1)%len(coords)];sk.addGeometry(Part.LineSegment(App.Vector(u,v,0),App.Vector(u2,v2,0)),False)
+ for i in range(len(coords)):sk.addConstraint(Sketcher.Constraint('Coincident',i,2,(i+1)%len(coords),1))
+ for i,((z,y),(u,v)) in enumerate(zip(points,coords)):
+  ci=sk.addConstraint(Sketcher.Constraint('DistanceX',i,1,u));sk.setExpression('Constraints[%d]'%ci,'-('+z+')')
+  ci=sk.addConstraint(Sketcher.Constraint('DistanceY',i,1,v));sk.setExpression('Constraints[%d]'%ci,y)
+ ex=doc.addObject('Part::Extrusion',n);ex.Base=sk;ex.Dir=App.Vector(1,0,0);ex.setExpression('LengthFwd',length);ex.Solid=True
+ return ex
+c,y,m,t=map(P,['CenterZ','TopY','Mouth','Wall'])
+outer=profile('OuterV',[(c+'-'+P('OuterHalf'),y),(c+'+'+P('OuterHalf'),y),(c+'+'+P('OuterBottom')+'-'+P('OuterApexY'),P('OuterBottom')),(c+'-'+P('OuterBottom')+'+'+P('OuterApexY'),P('OuterBottom'))],P('Length'))
+inner=profile('InnerTriangle',[(c,P('ApexY')),(c+'-'+m+'/2-2 mm',y+'+2 mm'),(c+'+'+m+'/2+2 mm',y+'+2 mm')],P('Length'))
+upper=box('RoundRootClip',[P('Length')+'+2 mm','100 mm','100 mm'],['-1 mm',P('TangentY'),'-20 mm'])
+inner_top=common('InnerAboveTangent',inner,upper)
+root=cyl('RoundRoot',P('RootRadius'),P('Length')+'+2 mm',['-1 mm',P('CircleY'),c],(1,0,0))
+rail=cut('OpenRail',outer,fuse('RoundedInside',[inner_top,root]))
+foot=box('ContinuousFoot',[P('Length'),P('FootHeight'),P('FootWidth')],['0 mm','0 mm',c+'-'+P('FootWidth')+'/2'])
+items=[rail,foot];holes=[]
+for i,x in enumerate([P('MountInset'),P('Length')+'-'+P('MountInset')]):
+ # Rear plates have rounded upper ends; flat lower ends contact the bed.
+ r=P('TabWidth')+'/2'
+ tab=fuse('MountTab%d'%i,[box('TabRect%d'%i,[P('TabWidth'),P('TabHeight')+'-'+r,P('TabDepth')],[x+'-'+r,'0 mm','0 mm']),cyl('TabRound%d'%i,r,P('TabDepth'),[x,P('TabHeight')+'-'+r,'0 mm'])])
+ items.append(tab)
+ # A rear gusset remains behind the inner V surface (Y+Z <= 30).
+ # Tiny 0.001mm coordinates avoid redundant zero-distance Sketch datums.
+ gusset=profile('Gusset%d'%i,[('0.001 mm','0.001 mm'),(c+'+3 mm','0.001 mm'),(c+'+3 mm',P('ApexY')+'-3 mm'),('3 mm',c+'+'+P('ApexY')+'-3 mm'),('0.001 mm',c+'+'+P('ApexY')+'-3 mm')],P('GussetWidth'),x+'-'+P('GussetWidth')+'/2')
+ items.append(gusset)
+ holes.append(cyl('MountHole%d'%i,P('MountHole')+'/2',P('TabDepth')+'+2 mm',[x,P('MountY'),'-1 mm']))
+holder=cut('Holder',fuse('BeforeMountHoles',items),fuse('MountHoles',holes));holder.Label='TISKNOUT 1× — otevřený V držák se dvěma montážními body'
+doc.recompute()
+assert holder.Shape.isValid() and len(holder.Shape.Solids)==1,(holder.Shape.isValid(),len(holder.Shape.Solids))
+assert not [o.Name for o in doc.Objects if 'Invalid' in o.State]
+# Check all three sketch types remain fully constrained and native.
+sketches=[o for o in doc.Objects if o.TypeId=='Sketcher::SketchObject']
+assert all(o.FullyConstrained for o in sketches),[(o.Name,o.FullyConstrained) for o in sketches]
+# A slim blade sample and a 25mm-wide handle sample find their own height
+# inside the V. These samples are independent; they DO NOT assert the fit of
+# the unknown rigid whole knife or its centre of gravity.
+samples=[]
+for thickness in [1,2,3,4,6,10,25]:
+ # Conservative rectangular sample clears the curved root and 45deg sides.
+ base=max(s.ContactY.Value+.1,s.ApexY.Value+thickness/2+.1)
+ if thickness<=2:base=s.ContactY.Value+.35
+ sh=Part.makeBox(200,45,thickness,App.Vector(15,base,s.CenterZ.Value-thickness/2))
+ v=sh.common(holder.Shape).Volume
+ assert v<1e-5,('section sample',thickness,base,v)
+ maxv=v
+ for step in range(1,41):
+  moved=sh.copy();moved.translate(App.Vector(0,step,0));maxv=max(maxv,moved.common(holder.Shape).Volume)
+ assert maxv<1e-5
+ samples.append({'rectangular_section_mm':thickness,'initial_bottom_y_mm':base,'lift_mm':40,'collision_mm3':maxv})
+# Exactly two through holes and straight screwdriver approach, knife removed.
+for x in [s.MountInset.Value,s.Length.Value-s.MountInset.Value]:
+ hole=Part.makeCylinder(s.MountHole.Value/2,6,App.Vector(x,s.MountY.Value,-1))
+ tool=Part.makeCylinder(5,60,App.Vector(x,s.MountY.Value,s.TabDepth.Value))
+ assert hole.common(holder.Shape).Volume<1e-5 and tool.common(holder.Shape).Volume<1e-5
+oldvolume=holder.Shape.Volume
+s.set('Length','240 mm');s.set('Mouth','36 mm');s.set('RootRadius','2.2 mm');doc.recompute()
+assert holder.Shape.isValid() and len(holder.Shape.Solids)==1 and abs(holder.Shape.BoundBox.XLength-240)<1e-6
+s.set('Length','230 mm');s.set('Mouth','34 mm');s.set('RootRadius','2 mm');doc.recompute()
+assert abs(holder.Shape.Volume-oldvolume)<1e-5
+# Print installed bottom down: +Y becomes print +Z, long axis stays X.
+shape=holder.Shape.copy();shape.rotate(App.Vector(),App.Vector(1,0,0),90)
+bb=shape.BoundBox;shape.translate(App.Vector(-bb.XMin,-bb.YMin,-bb.ZMin))
+mesh=MeshPart.meshFromShape(Shape=shape,LinearDeflection=.035,AngularDeflection=.10,Relative=False)
+(OUT/'stl').mkdir(exist_ok=True);path=OUT/'stl/drzak-v.stl';mesh.write(str(path));check=Mesh.Mesh(str(path))
+assert check.isSolid() and check.countComponents()==1
+bb=shape.BoundBox;bounds=[bb.XLength,bb.YLength,bb.ZLength];digest=hashlib.sha256(path.read_bytes()).hexdigest()
+record={'units':'mm','revision':'02 — otevřené V','user_dimensions_mm':{'length':340,'height':45,'max_handle_width':25},'parameters_mm':{a:v for a,v,_,_ in VALUES},'overall_assembled_mm':[holder.Shape.BoundBox.XLength,holder.Shape.BoundBox.YLength,holder.Shape.BoundBox.ZLength],'mouth_mm':s.Mouth.Value,'inner_root_y_mm':s.ContactY.Value,'rounded_channel_depth_mm':s.TopY.Value-s.ContactY.Value,'mount_spacing_mm':s.MountSpacing.Value,'reference_end_overhang_mm':s.OverhangReference.Value,'part':{'object':'Holder','valid':True,'solids':1,'volume_mm3':holder.Shape.Volume,'stl_closed':True,'stl_components':1,'stl_facets':check.CountFacets,'stl_sha256':digest,'bbox_print_mm':bounds},'fully_constrained_native_sketches':[o.Name for o in sketches],'section_lift_tests':samples,'parameter_test':{'length':240,'mouth':36,'root_radius':2.2,'valid':True,'restored':True},'physical_print_verified':False,'actual_knife_fit_verified':False,'centre_of_gravity_known':False,'tip_protected':False}
+manifest={'revision':'02','units':'mm','physical_part_count':1,'parts':[{'id':'drzak-v','name':'Otevřený V držák — 1 kus','file':'stl/drzak-v.stl','quantity':1,'sha256':digest,'bbox_mm':bounds,'orientation':'Spodní plochy patky, žeber a oušek na podložce; horní hrana V nahoru. Dlouhá osa X v rovině podložky.','supports':False,'support_note':'Souvislá patka + dvě žebra jsou na podložce; stěny V rostou pod 45°. Vodorovné otvory Ø5,5 mm mají krátký vrcholový most — ověřit dráhy.','critical_z_mm':[.2,3,4,6.8,8.8,23,40.2,43,45.8,55]}]}
+if App.GuiUp:
+ for o in doc.Objects:
+  if hasattr(o,'ViewObject'):o.ViewObject.Visibility=o==holder
+doc.saveAs(str(OUT/'drzak.FCStd'))
+(OUT/'kontrola-modelu.json').write_text(json.dumps(record,ensure_ascii=False,indent=2)+'\n')
+(OUT/'print-manifest.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n')
+print('OPEN_V_CAD_OK '+json.dumps(record,ensure_ascii=False),flush=True)

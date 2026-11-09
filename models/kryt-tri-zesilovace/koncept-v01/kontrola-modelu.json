@@ -1,0 +1,162 @@
+{
+  "status": "KONCEPT — NEVYRÁBĚT, čeká na měření a dokončení spojů",
+  "units": "mm",
+  "all_dimensions_unmeasured_design_placeholders": true,
+  "printed_parts": {
+    "telo": {
+      "object": "Chassis",
+      "bbox_mm": [
+        132.00000000000006,
+        186.00000000000006,
+        204.8
+      ],
+      "solid_count": 1,
+      "valid": true,
+      "stl_closed": true,
+      "components": 1,
+      "sha256": "728b1347ff72ef197fe1e7ca6a6b9befc2b9c2547d0659ba0d8e52f418fcca5e"
+    },
+    "celo": {
+      "object": "Front",
+      "bbox_mm": [
+        132.0,
+        3.2000000000000055,
+        208.0
+      ],
+      "solid_count": 1,
+      "valid": true,
+      "stl_closed": true,
+      "components": 1,
+      "sha256": "368de452d0c7d8c695483d3172da324abeb84c14d01687a2917182835720e3ad"
+    },
+    "vrsek": {
+      "object": "Lid",
+      "bbox_mm": [
+        132.0,
+        186.0,
+        3.1999999999999886
+      ],
+      "solid_count": 1,
+      "valid": true,
+      "stl_closed": true,
+      "components": 1,
+      "sha256": "1deb8b748f24574719cce511997a170a67f95710031cd757e06519226cb4b758"
+    },
+    "ramecek-1": {
+      "object": "Tray1",
+      "bbox_mm": [
+        124.0,
+        148.0,
+        3.1999999999999993
+      ],
+      "solid_count": 1,
+      "valid": true,
+      "stl_closed": true,
+      "components": 1,
+      "sha256": "337c03920753f3f0f6db20fd41e2295a66b1958a027ae0353297652425738082"
+    },
+    "ramecek-2": {
+      "object": "Tray2",
+      "bbox_mm": [
+        124.0,
+        148.0,
+        3.200000000000003
+      ],
+      "solid_count": 1,
+      "valid": true,
+      "stl_closed": true,
+      "components": 1,
+      "sha256": "63fc8981d7facf36ef6b161d595ecc3c9e792764f2a9b4ec3f5d095e4d848f6c"
+    },
+    "ramecek-3": {
+      "object": "Tray3",
+      "bbox_mm": [
+        124.0,
+        148.0,
+        3.1999999999999886
+      ],
+      "solid_count": 1,
+      "valid": true,
+      "stl_closed": true,
+      "components": 1,
+      "sha256": "4366d91e054f62bd7f482e6d71583f2f8ffde36a1c7255516b5455b6ad17c4c5"
+    }
+  },
+  "reference_objects": [
+    "PCB0",
+    "Heatsink0",
+    "Fan0",
+    "Knob0",
+    "RCA0_0",
+    "RCA0_1",
+    "Terminals0",
+    "PCB1",
+    "Heatsink1",
+    "Fan1",
+    "Knob1",
+    "RCA1_0",
+    "RCA1_1",
+    "Terminals1",
+    "PCB2",
+    "Heatsink2",
+    "Fan2",
+    "Knob2",
+    "RCA2_0",
+    "RCA2_1",
+    "Terminals2"
+  ],
+  "physical_test": false,
+  "slicer_test": false,
+  "incomplete_interfaces": [
+    "PCB mounting posts and holes",
+    "tray-to-chassis retainers",
+    "front and lid fasteners",
+    "rear cable standoff and strain relief",
+    "actual screw/anchor selection"
+  ],
+  "source_sha256": "f6cc83cbf17e2642fa9d6d5c9b8330c80186ce48b48ce55e29ba60c85b6c41ae",
+  "part_collisions_mm3": {},
+  "overall_proposed_enclosure_mm": [
+    132.0,
+    189.2,
+    208.0
+  ],
+  "gui_validation": {
+    "saved_reopened": true,
+    "invalid_objects": [],
+    "visible_objects": [
+      "Chassis",
+      "Front",
+      "Lid",
+      "Tray1",
+      "Tray2",
+      "Tray3",
+      "PCB0",
+      "Heatsink0",
+      "Fan0",
+      "Knob0",
+      "RCA0_0",
+      "RCA0_1",
+      "Terminals0",
+      "PCB1",
+      "Heatsink1",
+      "Fan1",
+      "Knob1",
+      "RCA1_0",
+      "RCA1_1",
+      "Terminals1",
+      "PCB2",
+      "Heatsink2",
+      "Fan2",
+      "Knob2",
+      "RCA2_0",
+      "RCA2_1",
+      "Terminals2"
+    ],
+    "images": [
+      "nahled-zpredu.png",
+      "nahled-vnitrek.png",
+      "nahled-zezadu.png"
+    ]
+  }
+}

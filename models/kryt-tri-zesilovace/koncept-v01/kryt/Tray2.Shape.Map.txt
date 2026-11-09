@@ -1,0 +1,104 @@
+BeginElementMap v1
+10 PostfixCount 25
+Edge
+Face
+Vertex
+;:H5f3,E
+;:G(Face5;K-1;:H5f3:4,F);CUT;:H5f4:1c,V
+;:G2(Face6;K-1;:H5f3:4,F);CUT;:H5f4:1d,V
+;:M;CUT;:H5f4:7,E
+;:G(Face5;K-2;:H5f3:4,F);CUT;:H5f4:1c,V
+;:G2(Face6;K-2;:H5f3:4,F);CUT;:H5f4:1d,V
+;:G(Face5;K-3;:H5f3:4,F);CUT;:H5f4:1c,V
+;:G2(Face6;K-3;:H5f3:4,F);CUT;:H5f4:1d,V
+;:G(Face5;K-4;:H5f3:4,F);CUT;:H5f4:1c,V
+;:G2(Face6;K-4;:H5f3:4,F);CUT;:H5f4:1d,V
+;:H5f3,F
+;:M;CUT;:H5f4:7,F
+;:G5(Face1;K-1;:H5f4:4,F);CUT;:H5f3:1d,E
+;:G6(Face2;K-1;:H5f4:4,F);CUT;:H5f3:1d,E
+;:G7(Face3;K-1;:H5f4:4,F);CUT;:H5f3:1d,E
+;:G8(Face4;K-1;:H5f4:4,F);CUT;:H5f3:1d,E
+;:M;CUT;:H5f3:7,F
+;:G5(Face1;K-2;:H5f4:4,F);CUT;:H5f3:1d,E
+;:G6(Face2;K-2;:H5f4:4,F);CUT;:H5f3:1d,E
+;:G7(Face3;K-2;:H5f4:4,F);CUT;:H5f3:1d,E
+;:G8(Face4;K-2;:H5f4:4,F);CUT;:H5f3:1d,E
+;:H5f3,V
+
+MapCount 1
+
+ElementMap 1 10 3
+
+Edge
+
+ChildCount 0
+
+NameCount 25
+0
+:1.1.4 0
+:1.2.4 0
+:1.3.4 0
+:1.4.4 0
+:1.9.4 0
+:1.5.4 0
+:1.a.4 0
+:1.c.4 0
+:1.6.4 0
+:2.6.17 0
+:2.6.16 0
+:2.6.18 0
+:2.6.15 0
+:1.b.4 0
+:1.7.4 0
+:1.8.4 0
+:2.5.12 0
+:2.5.11 0
+:2.5.13 0
+:2.5.10 0
+:1.5.7 0
+:1.1.7 0
+:1.7.7 0
+:1.3.7 0
+
+Face
+
+ChildCount 0
+
+NameCount 11
+0
+:2.1.e 0
+:2.3.e 0
+:2.6.14 0
+:2.4.e 0
+:2.5.14 0
+:2.2.e 0
+:2.3.f 0
+:2.2.f 0
+:2.4.f 0
+:2.1.f 0
+
+Vertex
+
+ChildCount 0
+
+NameCount 17
+0
+:3.1.19 0
+:3.2.19 0
+:3.3.19 0
+:3.4.19 0
+:3.6.19 0
+:3.5.19 0
+:3.7.19 0
+:1.5.b 0
+:1.1.6 0
+:1.7.d 0
+:1.3.9 0
+:3.8.19 0
+:1.5.a 0
+:1.1.5 0
+:1.7.c 0
+:1.3.8 0
+
+EndMap

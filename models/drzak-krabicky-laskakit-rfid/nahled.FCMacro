@@ -1,0 +1,151 @@
+# -*- coding: utf-8 -*-
+"""Uloží skutečné CAD náhledy a finální viditelnost ve FCStd.
+
+Spustit v GUI FreeCADu (lze pod Xvfb) až po drzak.FCMacro. Přepíše pět
+zdejší PNG, uloží FCStd a doplní kontrola-modelu.json. Schematická krabička
+je jen dočasná poloprůhledná referenční geometrie; není částí FCStd/STL.
+"""
+from pathlib import Path
+import json
+import FreeCAD as App
+import FreeCADGui as Gui
+import Part
+from PySide import QtCore
+
+OUT = Path(__file__).resolve().parent
+doc = App.openDocument(str(OUT / "drzak.FCStd"))
+doc.recompute()
+view = Gui.activeDocument().activeView()
+
+def holder_only():
+    for obj in doc.Objects:
+        if hasattr(obj, "ViewObject"):
+            obj.ViewObject.Visibility = obj.Name == "Holder"
+    holder = doc.Holder
+    holder.ViewObject.ShapeColor = (0.20, 0.49, 0.72)
+    holder.ViewObject.LineColor = (0.08, 0.19, 0.29)
+    holder.ViewObject.LineWidth = 1.4
+    holder.ViewObject.DisplayMode = "Flat Lines"
+
+def camera(eye):
+    eye = App.Vector(*eye)
+    up = App.Vector(0, 0, 1)
+    view.setCameraType("Orthographic")
+    view.setCameraOrientation(App.Rotation(up.cross(eye), up, eye, "ZXY").Q)
+    view.redraw()
+    Gui.updateGui()
+    view.fitAll()
+    view.redraw()
+    Gui.updateGui()
+    view.fitAll()
+
+def start():
+    Gui.getMainWindow().resize(1450, 1050)
+    holder_only()
+    camera((0.9, 1.25, 0.95))
+    QtCore.QTimer.singleShot(1100, save_iso)
+
+def save_iso():
+    view.saveImage(str(OUT / "nahled-drzak.png"), 1450, 1050, "White")
+    camera((0.16, -1.3, 0.92))
+    QtCore.QTimer.singleShot(900, save_wall)
+
+def save_wall():
+    view.saveImage(str(OUT / "nahled-uchyceni.png"), 1450, 1050, "White")
+    view.viewTop()
+    view.fitAll()
+    view.redraw()
+    Gui.updateGui()
+    QtCore.QTimer.singleShot(900, save_notches)
+
+def save_notches():
+    view.saveImage(str(OUT / "nahled-vyseky-pantu.png"), 1450, 1050, "White")
+    # Jen ilustrativní objem spodní části z Jiřího nominálních rozměrů.
+    # Víko ani jeho dosud neznámý nosný přesah tu nejsou znázorněné.
+    ghost = doc.addObject("Part::Feature", "NominalBoxPreview")
+    ghost.Label = "Pouze náhled: nominální spodní část krabičky"
+    ghost.Shape = Part.makeBox(220, 150, 42, App.Vector(9, 7, -12))
+    ghost.ViewObject.ShapeColor = (0.92, 0.70, 0.30)
+    ghost.ViewObject.LineColor = (0.55, 0.40, 0.17)
+    ghost.ViewObject.Transparency = 72
+    ghost.ViewObject.DisplayMode = "Flat Lines"
+    ghost.ViewObject.Visibility = True
+    camera((0.9, 1.25, 0.95))
+    QtCore.QTimer.singleShot(900, save_fit)
+
+def save_fit():
+    view.saveImage(str(OUT / "nahled-schematickeho-osazeni.png"), 1450, 1050, "White")
+    # Konzervativní 3mm obálka víka: návrhová ilustrace, nikoli měření.
+    lid = doc.addObject("Part::Feature", "AssumedLidPreview")
+    lid.Label = "Pouze náhled: předpokládaný 3mm přesah víka"
+    lid.Shape = Part.makeBox(226, 156, 3, App.Vector(6, 4, 30))
+    lid.ViewObject.ShapeColor = (0.90, 0.58, 0.23)
+    lid.ViewObject.LineColor = (0.55, 0.31, 0.12)
+    lid.ViewObject.Transparency = 65
+    lid.ViewObject.DisplayMode = "Flat Lines"
+    lid.ViewObject.Visibility = True
+    camera((0.9, 1.25, 0.95))
+    QtCore.QTimer.singleShot(900, save_lid)
+
+def save_lid():
+    view.saveImage(str(OUT / "nahled-osazeni-vika-navrh.png"), 1450, 1050, "White")
+    doc.removeObject("AssumedLidPreview")
+    doc.removeObject("NominalBoxPreview")
+    doc.recompute()
+    holder_only()
+    camera((0.9, 1.25, 0.95))
+    doc.save()
+    filename = doc.FileName
+    App.closeDocument(doc.Name)
+    reopened = App.openDocument(filename)
+    reopened.recompute()
+    assert reopened.Holder.Shape.isValid()
+    assert len(reopened.Holder.Shape.Solids) == 1
+    visible = [obj.Name for obj in reopened.Objects if hasattr(obj, "Shape")
+               and obj.ViewObject.Visibility]
+    assert visible == ["Holder"], visible
+    assert abs(reopened.Holder.Shape.BoundBox.XLength - 238) < 0.01
+    assert abs(reopened.Holder.Shape.BoundBox.YLength - 189) < 0.01
+    assert abs(reopened.Holder.Shape.BoundBox.ZLength - 80) < 0.01
+
+    sheet = reopened.Parameters
+    parameter_checks = []
+    for alias, cell, trial, expected in (
+        ("BoxLong", "B2", "224 mm", 242),
+        ("BoxShort", "B3", "154 mm", 193),
+        ("ClearanceEach", "B6", "1.5 mm", 239),
+        ("HoopHeight", "B5", "32 mm", 32),
+    ):
+        prior = sheet.getContents(cell)
+        sheet.set(cell, trial)
+        reopened.recompute()
+        assert reopened.Holder.Shape.isValid(), alias
+        assert len(reopened.Holder.Shape.Solids) == 1, alias
+        got = (reopened.LeftArm.Height.Value if alias == "HoopHeight" else
+               (reopened.Holder.Shape.BoundBox.YLength if alias == "BoxShort" else
+                reopened.Holder.Shape.BoundBox.XLength))
+        assert abs(got - expected) < 0.01, (alias, got, expected)
+        parameter_checks.append(alias)
+        sheet.set(cell, prior)
+        reopened.recompute()
+    assert abs(reopened.Holder.Shape.BoundBox.XLength - 238) < 0.01
+    assert abs(reopened.Holder.Shape.BoundBox.YLength - 189) < 0.01
+    reopened.save()
+    App.closeDocument(reopened.Name)
+    report_path = OUT / "kontrola-modelu.json"
+    report = json.loads(report_path.read_text())
+    report["gui_validation"] = {
+        "saved_and_reopened": True,
+        "only_visible_geometry": visible,
+        "parametric_recompute": parameter_checks,
+        "preview_images": ["nahled-drzak.png", "nahled-uchyceni.png",
+                           "nahled-vyseky-pantu.png", "nahled-schematickeho-osazeni.png",
+                           "nahled-osazeni-vika-navrh.png"],
+        "ghost_box_is_temporary": True,
+        "assumed_3mm_lid_overhang_preview_is_temporary": True,
+    }
+    report_path.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n")
+    print("RFID_HOLDER_PREVIEW_OK", flush=True)
+    Gui.getMainWindow().close()
+
+QtCore.QTimer.singleShot(800, start)

@@ -1,0 +1,104 @@
+{
+  "plate": 1,
+  "printer_bed_mm": [
+    260,
+    260,
+    260
+  ],
+  "physical_parts": 2,
+  "material_regions": 3,
+  "parts": [
+    {
+      "name": "telo-techtools",
+      "count": 1,
+      "physical_piece": "body",
+      "source_stl": "../stl/telo.stl",
+      "source_sha256": "fd7f99e6b0e5fd3b87b2785bed698c44148b005bfe1ec7f8fd32a58ce6f57197",
+      "triangle_count": 9176,
+      "source_bbox_mm": [
+        150.0,
+        110.0,
+        138.0
+      ],
+      "translation_mm": [
+        55.0,
+        10.0,
+        0.0
+      ],
+      "placed_min_xyz_mm": [
+        55.0,
+        10.0,
+        0.0
+      ],
+      "placed_max_xyz_mm": [
+        205.0,
+        120.0,
+        138.0
+      ],
+      "orientation": "Z as exported; body and lid bases at Z=0; lettering embedded in body wall"
+    },
+    {
+      "name": "napis-techtools-uctenky",
+      "count": 1,
+      "physical_piece": "body",
+      "source_stl": "../stl/napis.stl",
+      "source_sha256": "05283c1b078dc0b6f7c04822b4751f80efe592f53f194fb22f073c4cfcc631c9",
+      "triangle_count": 9100,
+      "source_bbox_mm": [
+        123.92819023132324,
+        0.8000000119209298,
+        37.97583770751953
+      ],
+      "translation_mm": [
+        55.0,
+        10.0,
+        0.0
+      ],
+      "placed_min_xyz_mm": [
+        68.0359058380127,
+        10.0,
+        63.0
+      ],
+      "placed_max_xyz_mm": [
+        191.96409606933594,
+        10.800000011920929,
+        100.97583770751953
+      ],
+      "orientation": "Z as exported; body and lid bases at Z=0; lettering embedded in body wall"
+    },
+    {
+      "name": "viko-se-sterbinou",
+      "count": 1,
+      "physical_piece": "lid",
+      "source_stl": "../stl/viko.stl",
+      "source_sha256": "02db047288cc4c61b004de277af3864e70e8c495c8d872b605c332b912895de4",
+      "triangle_count": 480,
+      "source_bbox_mm": [
+        156.0,
+        116.0,
+        11.199999809265137
+      ],
+      "translation_mm": [
+        52.0,
+        134.0,
+        0.0
+      ],
+      "placed_min_xyz_mm": [
+        52.0,
+        134.0,
+        0.0
+      ],
+      "placed_max_xyz_mm": [
+        208.0,
+        250.0,
+        11.199999809265137
+      ],
+      "orientation": "Z as exported; body and lid bases at Z=0; lettering embedded in body wall"
+    }
+  ],
+  "geometry_only_3mf": "podlozka-01-geometrie.3mf",
+  "geometry_only_sha256": "106a201ad9248ee1967082cf2fa89a292892a84805d44e791995318daceb6b2c",
+  "supports_required_by_design": false,
+  "print_orientation": "Body upright on its floor with inlaid front lettering; lid flat exterior face on bed, locating lip upward",
+  "no_machine_or_material_presets": true
+}

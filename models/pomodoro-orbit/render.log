@@ -1,0 +1,2 @@
+models/pomodoro-orbit/nahled.FCMacro:26: DeprecationWarning: builtin type SwigPyObject has no __module__ attribute
+  n=view.getCameraNode();n.orientation.setValue(rot.Q)

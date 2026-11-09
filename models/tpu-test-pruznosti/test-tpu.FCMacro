@@ -1,0 +1,157 @@
+# -*- coding: utf-8 -*-
+"""TPU: 3 ohybové pásky a 2 mačkací kroužky, mm, návrh 2026-10-24.
+
+Regenerace přepíše test-tpu.FCStd, stl/*.stl a kontrola-modelu.json
+JEN vedle tohoto makra. STL jsou lokálně v počátku; FCStd je rozložený.
+Uložte ruční změny před spuštěním. Náhled obnovuje nahled.FCMacro,
+tiskový projekt samostatný generátor v rozlozeni/. Žádný vlastní proxy.
+"""
+from pathlib import Path
+import json
+import FreeCAD as App
+import Part
+import Mesh
+import MeshPart
+
+OUT = Path(__file__).resolve().parent
+(OUT / 'stl').mkdir(exist_ok=True)
+doc = App.newDocument('TPUTestPruznosti')
+doc.Label = 'TPU 95A — 5 vzorků pružnosti'
+sheet = doc.addObject('Spreadsheet::Sheet', 'Parameters')
+sheet.Label = 'Parametry v mm — návrhové hodnoty'
+sheet.set('A1', 'Parametr')
+sheet.set('B1', 'Hodnota')
+sheet.set('C1', 'Původ')
+sheet.setStyle('A1:C1', 'bold', 'add')
+VALUES = [
+    ('StripLength', 'Délka pásku', 70),
+    ('StripWidth', 'Šířka pásku', 14),
+    ('Thin', 'Tloušťka pásku 1 / kroužku 1', 0.8),
+    ('Medium', 'Tloušťka pásku 2 / kroužku 2', 1.6),
+    ('Thick', 'Tloušťka pásku 3', 3.2),
+    ('RingDiameter', 'Vnější průměr kroužku', 32),
+    ('RingHeight', 'Výška kroužku', 12),
+    ('HoleDiameter', 'Průměr označovacího otvoru', 2.4),
+    ('StripPitch', 'Rozteč pásků v CAD náhledu', 20),
+    ('RingY', 'Y kroužků v CAD náhledu', 62),
+    ('RingPitch', 'Rozteč kroužků v CAD náhledu', 40),
+]
+for row, (alias, label, value) in enumerate(VALUES, 2):
+    sheet.set('A%d' % row, label)
+    sheet.set('B%d' % row, '%s mm' % value)
+    sheet.setAlias('B%d' % row, alias)
+    sheet.set('C%d' % row, 'Návrh; rozměry uživatel nezadával')
+    sheet.setBackground('B%d' % row, (1.0, 0.94, 0.76))
+sheet.setColumnWidth('A', 310)
+sheet.setColumnWidth('B', 130)
+sheet.setColumnWidth('C', 310)
+
+def setup(obj, expressions):
+    for key, value in expressions.items():
+        obj.setExpression(key, value)
+    return obj
+
+def cylinder(name, x, y, radius, height, z='0 mm'):
+    obj = doc.addObject('Part::Cylinder', name)
+    return setup(obj, {'Radius':radius, 'Height':height,
+                      'Placement.Base.x':x, 'Placement.Base.y':y,
+                      'Placement.Base.z':z})
+
+def fuse(name, shapes):
+    obj = doc.addObject('Part::MultiFuse', name)
+    obj.Shapes = shapes
+    obj.Refine = True
+    return obj
+
+def cut(name, base, tool):
+    obj = doc.addObject('Part::Cut', name)
+    obj.Base = base
+    obj.Tool = tool
+    obj.Refine = True
+    return obj
+
+finals = []
+W = 'Parameters.StripWidth'
+L = 'Parameters.StripLength'
+for i, (thickness, slug) in enumerate([('Thin','08'),('Medium','16'),('Thick','32')]):
+    p = 'Strip%d' % (i+1)
+    t = 'Parameters.' + thickness
+    core = setup(doc.addObject('Part::Box', p+'Core'), {
+        'Length': L+'-'+W, 'Width':W, 'Height':t,
+        'Placement.Base.x':W+'/2'})
+    left = cylinder(p+'EndLeft', W+'/2', W+'/2', W+'/2', t)
+    right = cylinder(p+'EndRight', L+'-'+W+'/2', W+'/2', W+'/2', t)
+    body = fuse(p+'Capsule', [core,left,right])
+    holes = []
+    for j in range(i+1):
+        holes.append(cylinder(p+'Mark%d' % (j+1), W+'/2',
+            '(%d/%d)*%s' % (j+1,i+2,W),
+            'Parameters.HoleDiameter/2', t+'+2 mm', '-1 mm'))
+    tool = holes[0] if len(holes)==1 else fuse(p+'Marks', holes)
+    obj = cut(p, body, tool)
+    setup(obj, {'Placement.Base.y':'%d*Parameters.StripPitch' % i})
+    obj.Label = 'P%d — pásek %s mm (%d otvor%s)' % (i+1, [0.8,1.6,3.2][i], i+1, '' if i==0 else 'y')
+    finals.append((obj, 'pasek-'+slug, [70,14,[0.8,1.6,3.2][i]]))
+
+for i,(thickness,slug) in enumerate([('Thin','08'),('Medium','16')]):
+    p = 'Ring%d' % (i+1)
+    r = 'Parameters.RingDiameter/2'
+    outer = cylinder(p+'Outer',r,r,r,'Parameters.RingHeight')
+    inner = cylinder(p+'Inner',r,r,r+'-Parameters.'+thickness,
+                     'Parameters.RingHeight+2 mm', '-1 mm')
+    obj = cut(p,outer,inner)
+    setup(obj, {'Placement.Base.x':'%d*Parameters.RingPitch' % i,
+                'Placement.Base.y':'Parameters.RingY'})
+    obj.Label = 'K%d — kroužek, stěna %s mm' % (i+1,[0.8,1.6][i])
+    finals.append((obj,'krouzek-'+slug,[32,32,12]))
+
+doc.recompute()
+reports = []
+all_mesh = Mesh.Mesh()
+for obj,stem,expected in finals:
+    shape = obj.Shape
+    assert not shape.isNull() and shape.isValid(), obj.Name
+    assert len(shape.Solids)==1, obj.Name
+    bb = shape.BoundBox
+    dims = [bb.XLength, bb.YLength, bb.ZLength]
+    assert all(abs(a-b)<1e-6 for a,b in zip(dims,expected)), (obj.Name,dims)
+    assert abs(bb.ZMin)<1e-8
+    placed_mesh = MeshPart.meshFromShape(Shape=shape, LinearDeflection=0.025,
+                                        AngularDeflection=0.12, Relative=False)
+    all_mesh.addMesh(placed_mesh)
+    local = shape.copy()
+    local.translate(App.Vector(-bb.XMin,-bb.YMin,-bb.ZMin))
+    mesh = MeshPart.meshFromShape(Shape=local,LinearDeflection=0.025,
+                                 AngularDeflection=0.12,Relative=False)
+    path = OUT/'stl'/(stem+'.stl')
+    mesh.write(str(path))
+    loaded = Mesh.Mesh(str(path))
+    assert loaded.isSolid() and loaded.countComponents()==1, stem
+    reports.append({'object':obj.Name,'stl':str(path.relative_to(OUT)),
+                    'dimensions_mm':dims,'valid':True,'solids':1,
+                    'volume_mm3':shape.Volume,'stl_closed':True,
+                    'stl_components':1,'facets':loaded.CountFacets,
+                    'cad_origin_mm':[bb.XMin,bb.YMin,bb.ZMin]})
+
+# Souhrnný STL je alternativní geometrie celé sady, neslévá její 5 kusů.
+all_mesh.write(str(OUT/'stl'/'tpu-test-cela-sada.stl'))
+check = Mesh.Mesh(str(OUT/'stl'/'tpu-test-cela-sada.stl'))
+assert check.isSolid() and check.countComponents()==5
+for i,(a,_,_) in enumerate(finals):
+    for b,_,_ in finals[i+1:]:
+        assert a.Shape.common(b.Shape).Volume<1e-8
+
+if App.GuiUp:
+    for obj in doc.Objects:
+        if obj.ViewObject:
+            obj.ViewObject.Visibility = obj in [o for o,_,_ in finals]
+doc.recompute()
+doc.saveAs(str(OUT/'test-tpu.FCStd'))
+(OUT/'kontrola-modelu.json').write_text(json.dumps({
+    'date':'2026-10-24','material_user_confirmed':'Alzament TPU 95A',
+    'dimensions_origin':'design_assumptions_mm',
+    'parts':reports,'physical_part_count':5,'assembled_stl_components':5,
+    'collisions':0,'physical_print_tested':False,
+    'shore_measurement':False,'support_needed_by_geometry':False,
+}, ensure_ascii=False,indent=2)+'\n')
+print('TPU_CAD_OK',len(finals),flush=True)

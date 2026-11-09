@@ -1,0 +1,397 @@
+{
+  "machine": "Anycubic Kobra X 0.4 nozzle",
+  "physical_parts": 1,
+  "plate": {
+    "number": 1,
+    "geometry": "podlozka-01-geometrie.3mf",
+    "geometry_sha256": "102d84f92025a90b2dd7e8df51b32a2a8ebfdf4ba680c0f1616d8b8fbed222b6",
+    "preview": "podlozka-01.png",
+    "physical_parts": 1,
+    "parts": [
+      {
+        "id": "organizer",
+        "name": "01_Organizer_elektroniky_na_zed",
+        "file": "../stl/organizer.stl",
+        "source_sha256": "98b65c30034a7e696545444dfee85b697ccf8d3a5b04def999bd9b65b0902bdb",
+        "translation_mm": [
+          7.0,
+          7.0,
+          -0.0
+        ],
+        "placed_min_mm": [
+          7.0,
+          7.0,
+          0.0
+        ],
+        "placed_max_mm": [
+          253.0,
+          253.0,
+          150.0
+        ],
+        "size_mm": [
+          246.0,
+          246.0,
+          150.0
+        ],
+        "triangle_count": 1260,
+        "supports": false,
+        "support_note": "Dnem na podlozce. Svisle steny, 45stupnove strisky otvoru a spojite zebrove vyztuhy; bez podpor.",
+        "critical_z_mm": [
+          4,
+          104,
+          113.25,
+          116,
+          117.94,
+          119.89,
+          133.25,
+          136,
+          137.94,
+          139.89,
+          150
+        ]
+      }
+    ],
+    "minimum_geometry_edge_margin_mm": 7.0,
+    "minimum_bbox_gap_mm": null
+  },
+  "project": "podlozka-01-kobra-x-pla-projekt.3mf",
+  "source_stl_sha256": "98b65c30034a7e696545444dfee85b697ccf8d3a5b04def999bd9b65b0902bdb",
+  "machine_profile_sha256": "baf80d3287e1e863fba29cdfd240b9b5ebc28bd87e1b4d03fc79e53f0009570a",
+  "process_sha256": "0cd2eac2450c37486a2896975443c2bec37e15c495f1d45ca655e018f12a1e7a",
+  "filament_sha256": "6141e020efb335dcb9fdeafaa2f9c1895908fa371d241ac141d8ac41c13e2c03",
+  "configured": {
+    "sha256": "634b45ad8956e9d36ca8372bdc807b333d50da62196284be16cf6a1c7d365a97",
+    "objects": [
+      {
+        "name": "01_Organizer_elektroniky_na_zed",
+        "preserved_geometry_and_placement": true,
+        "maximum_vertex_delta_mm": 3.8352050779622004e-06
+      }
+    ],
+    "physical_parts": 1,
+    "mesh_repairs": [
+      {
+        "edges_fixed": "0",
+        "degenerate_facets": "0",
+        "facets_removed": "0",
+        "facets_reversed": "0",
+        "backwards_edges": "0"
+      }
+    ],
+    "settings": {
+      "printer_model": "Anycubic Kobra X",
+      "printer_settings_id": "Anycubic Kobra X 0.4 nozzle",
+      "print_settings_id": "Organizer 0.24 mm 5 sten PLA navrh @Kobra X",
+      "filament_settings_id": [
+        "NAVRH Alzament PLA Basic @Kobra X 0.4"
+      ],
+      "nozzle_diameter": [
+        "0.4"
+      ],
+      "layer_height": "0.24",
+      "wall_loops": "5",
+      "sparse_infill_density": "25%",
+      "sparse_infill_pattern": "gyroid",
+      "enable_support": "0",
+      "support_on_build_plate_only": "0",
+      "brim_type": "outer_only",
+      "brim_width": "5",
+      "nozzle_temperature": [
+        "205"
+      ],
+      "nozzle_temperature_initial_layer": [
+        "215"
+      ],
+      "textured_plate_temp": [
+        "50"
+      ],
+      "outer_wall_speed": "50",
+      "inner_wall_speed": "75",
+      "filament_colour": [
+        "#677B88"
+      ],
+      "filament_max_volumetric_speed": [
+        "8"
+      ],
+      "enable_prime_tower": "0",
+      "initial_layer_print_height": "0.2",
+      "top_shell_layers": "5",
+      "bottom_shell_layers": "5"
+    },
+    "has_gcode": false
+  },
+  "delivered": {
+    "sha256": "1d6fce205104f4ee2678b40eb4de1a0d51ad57e26517684df44aadd755c916a3",
+    "objects": [
+      {
+        "name": "01_Organizer_elektroniky_na_zed",
+        "preserved_geometry_and_placement": true,
+        "maximum_vertex_delta_mm": 3.8352050779622004e-06
+      }
+    ],
+    "physical_parts": 1,
+    "mesh_repairs": [
+      {
+        "edges_fixed": "0",
+        "degenerate_facets": "0",
+        "facets_removed": "0",
+        "facets_reversed": "0",
+        "backwards_edges": "0"
+      }
+    ],
+    "settings": {
+      "printer_model": "Anycubic Kobra X",
+      "printer_settings_id": "Anycubic Kobra X 0.4 nozzle",
+      "print_settings_id": "Organizer 0.24 mm 5 sten PLA navrh @Kobra X",
+      "filament_settings_id": [
+        "NAVRH Alzament PLA Basic @Kobra X 0.4"
+      ],
+      "nozzle_diameter": [
+        "0.4"
+      ],
+      "layer_height": "0.24",
+      "wall_loops": "5",
+      "sparse_infill_density": "25%",
+      "sparse_infill_pattern": "gyroid",
+      "enable_support": "0",
+      "support_on_build_plate_only": "0",
+      "brim_type": "outer_only",
+      "brim_width": "5",
+      "nozzle_temperature": [
+        "205"
+      ],
+      "nozzle_temperature_initial_layer": [
+        "215"
+      ],
+      "textured_plate_temp": [
+        "50"
+      ],
+      "outer_wall_speed": "50",
+      "inner_wall_speed": "75",
+      "filament_colour": [
+        "#677B88"
+      ],
+      "filament_max_volumetric_speed": [
+        "8"
+      ],
+      "enable_prime_tower": "0",
+      "initial_layer_print_height": "0.2",
+      "top_shell_layers": "5",
+      "bottom_shell_layers": "5"
+    },
+    "has_gcode": true,
+    "gcode_bytes": 37131127,
+    "gcode_sha256": "b018a1a664dd508ac0f5add31bc5c5073e65e48380e2ea9509924dc9cc1aef6c",
+    "slice_metadata": {
+      "prediction": "158506",
+      "weight": "1066.92",
+      "outside": "false",
+      "support_used": "false"
+    },
+    "warnings": [
+      {
+        "msg": "not_support_traditional_timelapse",
+        "level": "1",
+        "error_code": "1000C003"
+      }
+    ]
+  },
+  "toolpath_audit": {
+    "physical_parts": 1,
+    "all_objects_on_first_layer": true,
+    "layers": 625,
+    "all_layers_have_extrusion": true,
+    "maximum_extrusion_z_mm": 149.96,
+    "roles_segments": {
+      "Brim": 379,
+      "Outer wall": 23252,
+      "Inner wall": 63515,
+      "Bottom surface": 1488,
+      "Internal solid infill": 14605,
+      "Sparse infill": 1098573,
+      "Internal Bridge": 3122,
+      "Gap infill": 3753,
+      "Top surface": 6917,
+      "Bridge": 84
+    },
+    "support_segments": 0,
+    "brim_generated": true,
+    "external_bridge_layers_mm": [
+      120.2,
+      140.12
+    ],
+    "maximum_external_bridge_stroke_mm": 5.5120000000000005,
+    "longest_external_bridge_strokes": [
+      {
+        "layer": 584,
+        "z_mm": 140.12,
+        "length_mm": 5.5120000000000005,
+        "from_xy": [
+          225.839,
+          247.119
+        ],
+        "to_xy": [
+          220.327,
+          247.119
+        ]
+      },
+      {
+        "layer": 584,
+        "z_mm": 140.12,
+        "length_mm": 5.5120000000000005,
+        "from_xy": [
+          225.673,
+          250.881
+        ],
+        "to_xy": [
+          220.161,
+          250.881
+        ]
+      },
+      {
+        "layer": 584,
+        "z_mm": 140.12,
+        "length_mm": 5.5120000000000005,
+        "from_xy": [
+          39.839,
+          247.119
+        ],
+        "to_xy": [
+          34.327,
+          247.119
+        ]
+      },
+      {
+        "layer": 584,
+        "z_mm": 140.12,
+        "length_mm": 5.5120000000000005,
+        "from_xy": [
+          39.673,
+          250.881
+        ],
+        "to_xy": [
+          34.161,
+          250.881
+        ]
+      },
+      {
+        "layer": 501,
+        "z_mm": 120.2,
+        "length_mm": 5.352000000000004,
+        "from_xy": [
+          39.759,
+          247.119
+        ],
+        "to_xy": [
+          34.407,
+          247.119
+        ]
+      },
+      {
+        "layer": 501,
+        "z_mm": 120.2,
+        "length_mm": 5.352000000000004,
+        "from_xy": [
+          39.593,
+          250.881
+        ],
+        "to_xy": [
+          34.241,
+          250.881
+        ]
+      },
+      {
+        "layer": 501,
+        "z_mm": 120.2,
+        "length_mm": 5.351999999999975,
+        "from_xy": [
+          225.759,
+          247.119
+        ],
+        "to_xy": [
+          220.407,
+          247.119
+        ]
+      },
+      {
+        "layer": 501,
+        "z_mm": 120.2,
+        "length_mm": 5.351999999999975,
+        "from_xy": [
+          225.593,
+          250.881
+        ],
+        "to_xy": [
+          220.241,
+          250.881
+        ]
+      }
+    ],
+    "bridge_note": "External Bridge roles close the 45 degree hole roofs; stroke length includes anchoring over existing material and is not free unsupported span.",
+    "deposition_island_test": {
+      "method": "Actual path graph: deposited strokes connect within 0.46 mm nominal width; every component must contact preceding-layer strokes within 0.71 mm (width plus 0.25 mm allowance). Does not certify full overhang support.",
+      "status": "incomplete_time_limit",
+      "time_limit_seconds": 45,
+      "completed_layers": 7,
+      "total_layers": 625,
+      "disconnected_new_islands": [],
+      "passed": false,
+      "maximum_components_per_layer": 1
+    },
+    "extrusion_min_xy_mm": [
+      2.558,
+      2.558
+    ],
+    "extrusion_max_xy_mm": [
+      257.442,
+      257.442
+    ],
+    "minimum_extrusion_edge_margin_mm": 2.5579999999999927,
+    "maximum_declared_bead_width_mm": 0.562736,
+    "conservative_bead_edge_margin_mm": 2.2766319999999927,
+    "maximum_commanded_extrusion_speed_mm_s": 80.0,
+    "maximum_commanded_volumetric_flow_mm3_s_segments_at_least_0_1mm": 8.009947343070351,
+    "maximum_raw_segment_flow_mm3_s": 8.009947343070351,
+    "flow_quantisation_note": "XY coordinates use 0.001 mm and E uses 0.00001 mm precision; raw flow of moves below 0.1 mm is dominated by rounding. Audited flow uses segments at least 0.1 mm.",
+    "preview": "podlozka-01-vrstvy.png",
+    "mount_detail_preview": "podlozka-01-uchyceni-vrstvy.png",
+    "selected_z_mm": [
+      0.2,
+      1.16,
+      3.8,
+      4.28,
+      49.88,
+      103.88,
+      104.12,
+      113.24,
+      116.12,
+      118.04,
+      119.96,
+      120.2,
+      133.4,
+      136.04,
+      137.96,
+      139.88,
+      140.12,
+      149.96
+    ],
+    "estimated_filament_g": 1066.92,
+    "estimated_printing_time": "1d 20h 1m 46s",
+    "first_layer_gcode_temperature_c": {
+      "bed": 50,
+      "nozzle": 215
+    },
+    "physical_print_verified": false
+  },
+  "cli_exit_codes": [
+    0,
+    0
+  ],
+  "cli_error_messages": [
+    "calc_exclude_triangles:Unable to create exclude triangles"
+  ],
+  "material_evidence": "docs/materialy.md; known purchased PLA Basic, actual loaded spool and remaining amount unverified",
+  "physical_spool_slot_verified": false,
+  "physical_print_verified": false,
+  "printer_io_performed": false
+}

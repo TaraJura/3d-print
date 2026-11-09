@@ -1,0 +1,301 @@
+{
+  "dimensions_mm": [
+    370.0,
+    180.0,
+    550.0
+  ],
+  "requested_sink_cm": [
+    37,
+    18
+  ],
+  "requested_cabinet_height_cm": 55,
+  "dimension_origin": "370/180 odvozeno ze zadání umyvadla, 550 zadáno pro kryt",
+  "assembly_count": 54,
+  "print_count": 54,
+  "native_recompute": true,
+  "width_370_380_370_test": true,
+  "closed_solid_exports": true,
+  "door_body_collision_angles_deg": [
+    0,
+    15,
+    30,
+    45,
+    60,
+    75,
+    90
+  ],
+  "door_body_collisions": [],
+  "hinge_circular_bore_mm": 4.6,
+  "hinge_pin_mm": 4,
+  "axial_gap_mm": 2,
+  "unknown": [
+    "Skutečné vyložení ventilů/hadic od zdi",
+    "Spodní rovina keramiky a mezera pod ní",
+    "Kotvy/podklad/šrouby",
+    "Prostor u WC",
+    "Lepidlo a pevnost spojů",
+    "Fyzický tisk a chod pantů"
+  ],
+  "parts": [
+    {
+      "id": "bok-segment",
+      "file": "stl/bok-segment.stl",
+      "count": 6,
+      "supports": false,
+      "support_note": "Vnější plochou na podložku; pantová pouzdra mají podložený kořen a otvor s 45° stropem ve směru +X sestavy / +Z tisku.",
+      "print_dimensions_mm": [
+        183.0,
+        176.5,
+        20.000000000000036
+      ],
+      "critical_z_mm": [
+        0.2,
+        10.000000000000018,
+        19.800000000000036
+      ],
+      "solid_count": 1,
+      "mesh_solid": true,
+      "volume_mm3": 141550.21438722202
+    },
+    {
+      "id": "dvere-dolni",
+      "file": "stl/dvere-dolni.stl",
+      "count": 1,
+      "supports": false,
+      "support_note": "Čelem na podložku; integrální pouzdro podepřeno blokem až k čelu; strop otvoru 45° ve směru -Y sestavy / +Z tisku.",
+      "print_dimensions_mm": [
+        174.5,
+        181.66666666666666,
+        12.5
+      ],
+      "critical_z_mm": [
+        0.2,
+        6.25,
+        12.3
+      ],
+      "solid_count": 1,
+      "mesh_solid": true,
+      "volume_mm3": 120396.44052694457
+    },
+    {
+      "id": "dvere-dolni-prave",
+      "file": "stl/dvere-dolni-prave.stl",
+      "count": 1,
+      "supports": false,
+      "support_note": "Čelem na podložku; zrcadlený pravý díl. Strop otvoru 45° ve směru -Y sestavy / +Z tisku.",
+      "print_dimensions_mm": [
+        174.5,
+        181.66666666666666,
+        12.5
+      ],
+      "critical_z_mm": [
+        0.2,
+        6.25,
+        12.3
+      ],
+      "solid_count": 1,
+      "mesh_solid": true,
+      "volume_mm3": 120396.44052694457
+    },
+    {
+      "id": "dvere-stredni",
+      "file": "stl/dvere-stredni.stl",
+      "count": 1,
+      "supports": false,
+      "support_note": "Čelem na podložku; integrální pouzdro podepřeno blokem až k čelu; strop otvoru 45° ve směru -Y sestavy / +Z tisku.",
+      "print_dimensions_mm": [
+        174.5,
+        181.66666666666666,
+        12.5
+      ],
+      "critical_z_mm": [
+        0.2,
+        6.25,
+        12.3
+      ],
+      "solid_count": 1,
+      "mesh_solid": true,
+      "volume_mm3": 120396.44052694457
+    },
+    {
+      "id": "dvere-stredni-prave",
+      "file": "stl/dvere-stredni-prave.stl",
+      "count": 1,
+      "supports": false,
+      "support_note": "Čelem na podložku; zrcadlený pravý díl. Strop otvoru 45° ve směru -Y sestavy / +Z tisku.",
+      "print_dimensions_mm": [
+        174.5,
+        181.66666666666666,
+        12.5
+      ],
+      "critical_z_mm": [
+        0.2,
+        6.25,
+        12.3
+      ],
+      "solid_count": 1,
+      "mesh_solid": true,
+      "volume_mm3": 120396.44052694457
+    },
+    {
+      "id": "dvere-horni",
+      "file": "stl/dvere-horni.stl",
+      "count": 1,
+      "supports": false,
+      "support_note": "Čelem na podložku; integrální pouzdro podepřeno blokem až k čelu; strop otvoru 45° ve směru -Y sestavy / +Z tisku.",
+      "print_dimensions_mm": [
+        174.5,
+        181.66666666666666,
+        12.5
+      ],
+      "critical_z_mm": [
+        0.2,
+        6.25,
+        12.3
+      ],
+      "solid_count": 1,
+      "mesh_solid": true,
+      "volume_mm3": 119994.31666728479
+    },
+    {
+      "id": "dvere-horni-prave",
+      "file": "stl/dvere-horni-prave.stl",
+      "count": 1,
+      "supports": false,
+      "support_note": "Čelem na podložku; zrcadlený pravý díl. Strop otvoru 45° ve směru -Y sestavy / +Z tisku.",
+      "print_dimensions_mm": [
+        174.5,
+        181.66666666666666,
+        12.5
+      ],
+      "critical_z_mm": [
+        0.2,
+        6.25,
+        12.3
+      ],
+      "solid_count": 1,
+      "mesh_solid": true,
+      "volume_mm3": 119994.31666728479
+    },
+    {
+      "id": "pricka-predni-polovina",
+      "file": "stl/pricka-predni-polovina.stl",
+      "count": 4,
+      "supports": false,
+      "support_note": "Na dolní ploše; hranol bez převisů.",
+      "print_dimensions_mm": [
+        181.0,
+        12.0,
+        12.0
+      ],
+      "critical_z_mm": [
+        0.2,
+        6.0,
+        11.8
+      ],
+      "solid_count": 1,
+      "mesh_solid": true,
+      "volume_mm3": 26064.0
+    },
+    {
+      "id": "pricka-zadni-polovina",
+      "file": "stl/pricka-zadni-polovina.stl",
+      "count": 4,
+      "supports": false,
+      "support_note": "Na dolní ploše; kotevní otvor má 45° špičku ve směru +Z.",
+      "print_dimensions_mm": [
+        181.0,
+        12.0,
+        12.0
+      ],
+      "critical_z_mm": [
+        0.2,
+        6.0,
+        11.8
+      ],
+      "solid_count": 1,
+      "mesh_solid": true,
+      "volume_mm3": 25757.21651736976
+    },
+    {
+      "id": "spojka-panelu",
+      "file": "stl/spojka-panelu.stl",
+      "count": 16,
+      "supports": false,
+      "support_note": "Plochou 20×80 mm na podložku, výška 4 mm.",
+      "print_dimensions_mm": [
+        80.0,
+        20.0,
+        4.000000000000018
+      ],
+      "critical_z_mm": [
+        0.2,
+        2.000000000000009,
+        3.8000000000000176
+      ],
+      "solid_count": 1,
+      "mesh_solid": true,
+      "volume_mm3": 6399.999999999998
+    },
+    {
+      "id": "spojka-pricky",
+      "file": "stl/spojka-pricky.stl",
+      "count": 4,
+      "supports": false,
+      "support_note": "Plochou 50×12 mm na podložku, výška 4 mm.",
+      "print_dimensions_mm": [
+        50.0,
+        12.0,
+        4.000000000000003
+      ],
+      "critical_z_mm": [
+        0.2,
+        2.0000000000000013,
+        3.8000000000000025
+      ],
+      "solid_count": 1,
+      "mesh_solid": true,
+      "volume_mm3": 2400.0
+    },
+    {
+      "id": "rohovy-uhelnik",
+      "file": "stl/rohovy-uhelnik.stl",
+      "count": 8,
+      "supports": false,
+      "support_note": "L půdorys na podložce, výška 12 mm, žádný převis.",
+      "print_dimensions_mm": [
+        24.0,
+        24.0,
+        12.0
+      ],
+      "critical_z_mm": [
+        0.2,
+        6.0,
+        11.8
+      ],
+      "solid_count": 1,
+      "mesh_solid": true,
+      "volume_mm3": 2112.0
+    },
+    {
+      "id": "cep-pantu",
+      "file": "stl/cep-pantu.stl",
+      "count": 6,
+      "supports": false,
+      "support_note": "Nastojato na Ø7 hlavě, osa Z; dřík Ø4 / délka 44, brim zajistí přilnavost.",
+      "print_dimensions_mm": [
+        7.0,
+        7.0,
+        46.0
+      ],
+      "critical_z_mm": [
+        0.2,
+        23.0,
+        45.8
+      ],
+      "solid_count": 1,
+      "mesh_solid": true,
+      "volume_mm3": 629.8893270447536
+    }
+  ]
+}

@@ -1,0 +1,114 @@
+# -*- coding: utf-8 -*-
+"""Independent audit of saved V03; does not save or modify the CAD document.
+Writes audit-montaze.json beside this script. Parameter tests are in memory.
+"""
+from pathlib import Path
+import math,json,hashlib
+import FreeCAD as App
+import Part
+ROOT=Path(__file__).resolve().parent
+opened_sha=hashlib.sha256((ROOT/'drzak.FCStd').read_bytes()).hexdigest()
+doc=App.openDocument(str(ROOT/'drzak.FCStd'))
+obj=doc.getObject('Holder');holder=obj.Shape.copy();s=doc.getObject('Parameters')
+checks=[]
+def check(n,passed,detail=None):checks.append({'check':n,'passed':bool(passed),'detail':detail})
+def overlap(sh):return sh.common(holder).Volume
+def inside(x,y,z):return holder.isInside(App.Vector(x,y,z),1e-7,True)
+def dims(bb):return [bb.XLength,bb.YLength,bb.ZLength]
+check('valid_single_solid',holder.isValid() and len(holder.Solids)==1,{'solids':len(holder.Solids),'volume_mm3':holder.Volume})
+check('holder_envelope',abs(holder.BoundBox.XLength-230)<1e-5 and abs(holder.BoundBox.YLength-60)<1e-5 and abs(holder.BoundBox.ZLength-42.3140692585)<1e-5,{'dimensions_mm':dims(holder.BoundBox)})
+sketches=[o for o in doc.Objects if o.TypeId=='Sketcher::SketchObject']
+check('native_fully_constrained_sketches',len(sketches)==22 and all(o.FullyConstrained for o in sketches),{'count':len(sketches)})
+check('no_python_proxy_dependency',not [o.Name for o in doc.Objects if 'Python' in o.TypeId])
+check('no_invalid_objects',not [o.Name for o in doc.Objects if 'Invalid' in o.State])
+# Probe the actual BRep bottom at Z24 without using generated report values.
+def contact_y(x):
+    low,high=4.01,45.
+    for _ in range(27):
+        mid=(low+high)/2
+        if inside(x,mid,24):low=mid
+        else:high=mid
+    return (low+high)/2
+b45,b145=contact_y(45),contact_y(145)
+check('blade_seat_rises_5mm_per_100mm_toward_tip',abs(b45-b145-5)<1e-5,{'station_x_mm':[45,145],'measured_inner_floor_y_mm':[b45,b145],'delta_y_mm':b45-b145})
+profile_checks=[]
+for x in [1,45,100,144,156,180,229]:
+    if x<145:
+        apex=8.753623682822687+(145-x)*.05;mouth=12.
+    else:
+        u=(x-155)/75
+        apex=25.69917419465329+u*(24.9727335937121-25.69917419465329)
+        mouth=26+u*(28.142857142857142-26)
+    # Rounded V floor at each cross-section and points along both straight sides.
+    expected_bottom=apex+2*math.sqrt(2)-2
+    root_ok=inside(x,expected_bottom-.01,24) and not inside(x,expected_bottom+.01,24)
+    side_ok=True
+    for sign in [-1,1]:
+        offset=mouth/3
+        for d,expected in [(2.99,True),(3.01,False)]:
+            side_ok &= inside(x,apex+offset-d/math.sqrt(2),24+sign*(offset+d/math.sqrt(2)))==expected
+        rimz=24+sign*mouth/2
+        side_ok &= inside(x,apex+mouth/2-.01,rimz)
+        side_ok &= not inside(x,apex+mouth/2+.01,rimz)
+    profile_checks.append({'x_mm':x,'root_ok':root_ok,'side_walls_3mm_ok':bool(side_ok),'mouth_mm':mouth})
+check('rounded_V_and_3mm_walls_at_seven_stations',all(v['root_ok'] and v['side_walls_3mm_ok'] for v in profile_checks),profile_checks)
+check('handle_mouth_widens_26_to_28_142857',abs(doc.HandleInner0.Geometry[0].StartPoint.x-doc.HandleInner0.Geometry[2].StartPoint.x)>0 and abs(s.HandleWidthAtEnd.Value+4-28.142857142857142)<1e-7,
+      {'start_mouth_mm':26,'end_mouth_mm':s.HandleWidthAtEnd.Value+4,'start_x_mm':155,'end_x_mm':230,'width22to25_is_design_assumption':True})
+gap=Part.makeBox(9.8,60,50,App.Vector(145.1,4.1,0))
+check('neck_gap_open_above_foot',overlap(gap)<1e-7,{'x_range_mm':[145.1,154.9],'minimum_y_mm':4.1})
+hole_centers=[]
+for face in holder.Faces:
+    surf=face.Surface
+    if hasattr(surf,'Radius') and hasattr(surf,'Axis') and hasattr(surf,'Center') and abs(surf.Radius-2.75)<1e-6 and abs(surf.Axis.z)>.999:
+        hole_centers.append((round(surf.Center.x,6),round(surf.Center.y,6)))
+check('exactly_two_mount_holes',sorted(set(hole_centers))==[(35.,48.),(195.,48.)],{'centers_xy_mm':sorted(set(hole_centers)),'diameter_mm':5.5})
+for x in [35,195]:
+    hole=Part.makeCylinder(2.75,6,App.Vector(x,48,-1))
+    head=Part.makeCylinder(5,3,App.Vector(x,48,4))
+    tool=Part.makeCylinder(5,60,App.Vector(x,48,4))
+    check('mount_hole_through_x%d'%x,overlap(hole)<1e-7)
+    check('provisional_head_and_driver_clear_x%d'%x,overlap(head)<1e-7 and overlap(tool)<1e-7,{'head_mm':[10,3],'driver_diameter_mm':10,'actual_fasteners_unknown':True,'knife_removed':True})
+refs=[doc.getObject(n) for n in ['IllustrativeBlade','IllustrativeHandle','IllustrativeNeck']]
+rigid=Part.makeCompound([o.Shape for o in refs])
+check('reference_solids_valid_and_labelled',all(o.Shape.isValid() and len(o.Shape.Solids)==1 and 'ILUSTRACE' in o.Label for o in refs))
+# A generic NURBS BoundBox may enclose its control polygon, not the surface.
+# Use OpenCASCADE's optimized analytic bounds and independently tessellate.
+bb_opt=rigid.optimalBoundingBox(False,False)
+vertices,triangles=rigid.tessellate(.003)
+mesh_bounds=[[min(getattr(v,axis) for v in vertices),max(getattr(v,axis) for v in vertices)] for axis in ['x','y','z']]
+mesh_dims=[high-low for low,high in mesh_bounds]
+check('reference_actual_envelope_340x45x25',all(abs(a-b)<.01 for a,b in zip(dims(bb_opt),[340,45,25])) and all(abs(a-b)<.02 for a,b in zip(mesh_dims,[340,45,25])),
+      {'generic_boundbox_mm':dims(rigid.BoundBox),'optimal_boundbox_mm':dims(bb_opt),'mesh_bounds_mm':mesh_bounds,'mesh_dimensions_mm':mesh_dims,'mesh_deflection_mm':.003,'mesh_triangles':len(triangles),'generic_boundbox_not_used_for_acceptance':True})
+check('handle_reference_length_105',abs(refs[1].Shape.optimalBoundingBox(False,False).XLength-105)<1e-6)
+check('whole_rigid_reference_clear',overlap(rigid)<1e-7,{'collision_mm3':overlap(rigid),'minimum_distance_mm':rigid.distToShape(holder)[0]})
+max_collision=0.
+for lift in range(61):
+    moved=rigid.copy();moved.translate(App.Vector(0,lift,0));max_collision=max(max_collision,overlap(moved))
+check('rigid_reference_straight_up_60mm',max_collision<1e-7,{'maximum_collision_mm3':max_collision,'sampling_step_mm':1,'actual_knife_fit_not_proven':True})
+for ref in refs[:2]:
+    moved=ref.Shape.copy();moved.translate(App.Vector(0,-.3,0))
+    check('reference_support_under_'+ref.Name,overlap(moved)>1e-7,{'downward_probe_mm':.3,'overlap_mm3':overlap(moved),'not_physical_load_validation':True})
+# In-memory native parameter perturbation; illustrative parts intentionally
+# stay static until the generation macro is re-run. Never save this document.
+initial_volume=obj.Shape.Volume
+for alias,value in [('BladeStationHeight',39),('HandleLength',108),('HandleRiseAssumed',18)]:s.set(alias,str(value)+' mm')
+doc.recompute()
+param_ok=obj.Shape.isValid() and len(obj.Shape.Solids)==1 and abs(s.HeelX.Value-142)<1e-7 and abs(s.TaperDrop.Value-6)<1e-7 and abs(obj.Shape.Volume-initial_volume)>1e-3
+check('native_parameter_change',param_ok,{'test_blade_station_height':39,'test_handle_length':108,'test_assumed_rise':18,'heel_x_mm':s.HeelX.Value,'taper_delta_mm':s.TaperDrop.Value})
+for alias,value in [('BladeStationHeight',40),('HandleLength',105),('HandleRiseAssumed',20)]:s.set(alias,str(value)+' mm')
+doc.recompute()
+check('native_parameters_restored',abs(obj.Shape.Volume-initial_volume)<1e-5 and obj.Shape.isValid())
+slab=Part.makeBox(250,.2,60,App.Vector(-10,0,-5));contact=holder.common(slab)
+check('first_layer_contact',contact.Volume>100 and len(contact.Solids)==1,{'intersection_volume_mm3':contact.Volume,'connected_solids':len(contact.Solids)})
+print_shape=holder.copy();print_shape.rotate(App.Vector(),App.Vector(1,0,0),90);pbb=print_shape.optimalBoundingBox(False,False)
+check('Kobra_X_envelope_with_brim',pbb.XLength+10<260 and pbb.YLength+10<260 and pbb.ZLength<260,{'dimensions_mm':dims(pbb),'brim_margin_mm_each_side':5})
+closed_sha=hashlib.sha256((ROOT/'drzak.FCStd').read_bytes()).hexdigest()
+check('document_unchanged_during_readonly_audit',opened_sha==closed_sha)
+report={'revision':'03','document_sha256':closed_sha,'checks':checks,'passed':sum(c['passed'] for c in checks),'failed':sum(not c['passed'] for c in checks),
+ 'limitations':['Full rigid reference is illustrative. Actual knife shape, blade thickness, handle section and centre of gravity remain unknown.',
+ '225mm blade length assumes the complete non-overlapping 340-105-10mm chain. The 20mm vertical handle offset is an uncertain interpretation.',
+ 'Only two blade heights are specified. A straight spine, interpolation and extrapolated outer 45mm of the support remain design assumptions.',
+ 'Mounting hardware, wall, print, physical fit, stability and load capacity are not verified; the tip remains exposed.']}
+(ROOT/'audit-montaze.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
+App.closeDocument(doc.Name)
+print('V03_INDEPENDENT_AUDIT '+json.dumps(report,ensure_ascii=False),flush=True)

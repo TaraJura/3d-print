@@ -1,0 +1,175 @@
+# -*- coding: utf-8 -*-
+"""ZAHRADA OBJEVU. FreeCAD 1.1.3, native features; no Python proxies.
+Regeneration overwrites only files in this macro directory: zahrada.FCStd,
+stl/, vizualni-geometrie/, manifest and audit JSON. Save/close manual edits first.
+All dimensions are design choices, not measured user dimensions.
+"""
+from pathlib import Path
+import math,json,hashlib
+import FreeCAD as App,Part,Sketcher,MeshPart
+OUT=Path(__file__).resolve().parent
+NAME='MontessoriZahrada'
+if NAME in App.listDocuments():raise RuntimeError('Nejprve ulozte a zavrete dokument Zahrada.')
+App.ParamGet('User parameter:BaseApp/Preferences/Document').SetInt('CountBackupFiles',0)
+doc=App.newDocument(NAME);doc.Label='ZAHRADA OBJEVU | Montessori inspirovany prototyp'
+sheet=doc.addObject('Spreadsheet::Sheet','Parameters');sheet.Label='Navrhove rozmery v mm'
+VALUES=[('BaseR',116),('BaseH',12),('Orbit',73),('SeatDepth',4),('Clearance',.55),('UnitH',12),('DotR',4),('DotDepth',1.2)]
+sheet.set('A1','Parametr');sheet.set('B1','mm');sheet.set('C1','Puvod')
+for row,(n,v) in enumerate(VALUES,2):
+ sheet.set('A%d'%row,n);sheet.set('B%d'%row,'%g mm'%v);sheet.setAlias('B%d'%row,n);sheet.set('C%d'%row,'NAVRH 14.10.2026')
+sheet.setColumnWidth('A',160);sheet.setColumnWidth('B',95);doc.recompute()
+def P(n):return 'Parameters.'+n
+def at(o,k,v):
+ if isinstance(v,str):o.setExpression(k,v)
+ elif '.' in k:setattr(o.Placement.Base,k.split('.')[-1],v)
+ else:setattr(o,k,v)
+def feat(n,shape):
+ o=doc.addObject('Part::Feature',n);o.Shape=shape;return o
+def cyl(n,r,h,z=0,x=0,y=0):
+ o=doc.addObject('Part::Cylinder',n)
+ for k,v in [('Radius',r),('Height',h),('Placement.Base.z',z),('Placement.Base.x',x),('Placement.Base.y',y)]:at(o,k,v)
+ return o
+def cone(n,r1,r2,h,z=0):
+ o=doc.addObject('Part::Cone',n)
+ for k,v in [('Radius1',r1),('Radius2',r2),('Height',h),('Placement.Base.z',z)]:at(o,k,v)
+ return o
+def fuse(n,objs):
+ o=doc.addObject('Part::MultiFuse',n);o.Shapes=objs;o.Refine=True;return o
+def cut(n,a,b):
+ o=doc.addObject('Part::Cut',n);o.Base=a;o.Tool=b;o.Refine=True;return o
+def extrude(n,base,h,z=0):
+ o=doc.addObject('Part::Extrusion',n);o.Base=base;o.DirMode='Custom';o.Dir=App.Vector(0,0,1);o.Solid=True;at(o,'LengthFwd',h);at(o,'Placement.Base.z',z);return o
+def offset(n,src,value):
+ o=doc.addObject('Part::Offset2D',n);o.Source=src;o.Join=0;at(o,'Value',value);return o
+def place_orbit(o,ang,z):
+ a=math.radians(ang)
+ at(o,'Placement.Base.x',P('Orbit')+'*%.12f'%math.cos(a));at(o,'Placement.Base.y',P('Orbit')+'*%.12f'%math.sin(a));at(o,'Placement.Base.z',z)
+def points_wire(s):
+ # Ordered sampling directly from CAD curves; not bounding-box proxies.
+ wire=s.Wires[0];pts=[]
+ for edge in wire.OrderedEdges:
+  vs=edge.discretize(Deflection=.008)
+  if pts and (vs[-1]-pts[-1]).Length<(vs[0]-pts[-1]).Length:vs.reverse()
+  pts.extend(vs if not pts else vs[1:])
+ return [[v.x,v.y] for v in pts]
+
+def rounded_profile(n,idx,angle):
+ sk=doc.addObject('Sketcher::SketchObject','Profile%d'%idx)
+ area=2000.;corner=6.
+ if n==0:
+  radius=math.sqrt(area/math.pi);sk.addGeometry(Part.Circle(App.Vector(),App.Vector(0,0,1),radius),False)
+ else:
+  radius=math.sqrt((area+n*corner*corner*(math.tan(math.pi/n)-math.pi/n))/(n/2*math.sin(2*math.pi/n)))
+  verts=[App.Vector(radius*math.cos(math.radians(angle)+2*math.pi*k/n),radius*math.sin(math.radians(angle)+2*math.pi*k/n),0) for k in range(n)]
+  trim=corner*math.tan(math.pi/n);arcs=[]
+  for k,v in enumerate(verts):
+   prev=verts[(k-1)%n];nxt=verts[(k+1)%n]
+   a=v+(prev-v).normalize()*trim;b=v+(nxt-v).normalize()*trim
+   mid=App.Vector(v).normalize()*(radius-corner/math.cos(math.pi/n)+corner)
+   arcs.append((a,mid,b))
+  for k,(a,mid,b) in enumerate(arcs):
+   sk.addGeometry(Part.Arc(a,mid,b),False);sk.addGeometry(Part.LineSegment(b,arcs[(k+1)%n][0]),False)
+ # Freeze contour for predictable saved recomputation; footprints edited in macro.
+ for k in range(sk.GeometryCount):sk.addConstraint(Sketcher.Constraint('Block',k))
+ sk.Label='%d — profil %.0f mm2, rohy R6'%(idx,area)
+ sk.addProperty('App::PropertyString','FootprintSource','Design');sk.FootprintSource='zahrada.FCMacro: rounded_profile; stejna plocha 2000 mm2'
+ return sk
+
+# Support-free lower and upper chamfers, broad flat contact.
+bottom=cone('BaseLowerBevel',P('BaseR')+'-1.5 mm',P('BaseR'),1.5)
+wall=cyl('BaseWall',P('BaseR'),P('BaseH')+'-3.5 mm',1.5)
+top=cone('BaseUpperBevel',P('BaseR'),P('BaseR')+'-2 mm',2,P('BaseH')+'-2 mm')
+blank=fuse('BaseBlank',[bottom,wall,top])
+angles=[-90,-18,54,126,198];polygons=[0,3,4,5,6]
+labels=['Kruh','Trojuhelnik','Ctverec','Petiuholnik','Sestiuhelnik']
+# Equal footprint areas prevent a trivial smaller-shape-in-bigger-hole solution.
+profiles=[];seats=[];pieces=[];planar=[]
+dots={1:[(0,0)],2:[(-7,-7),(7,7)],3:[(-8,-8),(0,0),(8,8)],4:[(-8,-8),(-8,8),(8,-8),(8,8)],5:[(-9,-9),(-9,9),(0,0),(9,-9),(9,9)]}
+for idx,(ang,n,label) in enumerate(zip(angles,polygons,labels),1):
+ # Triangle apex points inward; avoids crowding the outer board edge.
+ rotation=ang+180 if n else 0
+ profile=rounded_profile(n,idx,rotation);profiles.append(profile)
+ seatprofile=offset('SeatOutline%d'%idx,profile,P('Clearance'))
+ doc.recompute()
+ seat=extrude('SeatCut%d'%idx,seatprofile,P('SeatDepth')+'+1 mm');place_orbit(seat,ang,P('BaseH')+'-'+P('SeatDepth'));seats.append(seat)
+ body=extrude('StoneBody%d'%idx,profile,P('UnitH')+'*%d'%idx)
+ doc.recompute()
+ # Native fillet, only horizontal perimeter edges; radius 1 mm from source.
+ edges=[]
+ for j,e in enumerate(body.Shape.Edges,1):
+  if e.BoundBox.ZLength<1e-5:edges.append((j,1.,1.))
+ smooth=doc.addObject('Part::Fillet','StoneEdge%d'%idx);smooth.Base=body;smooth.Edges=edges
+ # Edge radius is deliberately fixed in native fillet edge tuples; controlled source constant.
+ tools=[]
+ for j,(x,y) in enumerate(dots[idx],1):
+  # Sphere cap R4, 1.2 mm deep: smoothly curved tactile recess, no raised islands.
+  sp=doc.addObject('Part::Sphere','Dot%d_%d'%(idx,j));at(sp,'Radius',P('DotR'));at(sp,'Placement.Base.x',x);at(sp,'Placement.Base.y',y);at(sp,'Placement.Base.z',P('UnitH')+'*%d+'%idx+P('DotR')+'-'+P('DotDepth'));tools.append(sp)
+ tool=tools[0] if len(tools)==1 else fuse('DotTools%d'%idx,tools)
+ piece=cut('Stone%d'%idx,smooth,tool);piece.Label='%02d — %s / %d dulku / %d mm'%(idx+1,label,idx,12*idx)
+ place_orbit(piece,ang,P('BaseH')+'-'+P('SeatDepth'));pieces.append(piece)
+ doc.recompute()
+ planar.append({'id':'Stone%d'%idx,'profile':points_wire(profile.Shape),'seat':points_wire(seatprofile.Shape),'area_mm2':Part.Face(profile.Shape.Wires[0]).Area,'clearance_mm':.55})
+# The central spiral is a recessed tracing path; the surrounding top remains flat.
+# It also marks the open construction area, without any separate spindle.
+spiral=[]
+for k in range(201):
+ t=k/200.;a=math.radians(-90)+t*math.pi*4.5;r=3+t*21
+ spiral.append(App.Vector(r*math.cos(a),r*math.sin(a),0))
+# A planar stroked line is generated analytically, then extruded as a native solid.
+left=[];right=[]
+for k,v in enumerate(spiral):
+ tangent=spiral[min(k+1,200)]-spiral[max(k-1,0)];normal=App.Vector(-tangent.y,tangent.x,0).normalize()*.7
+ left.append(v+normal);right.append(v-normal)
+path=left+list(reversed(right))+[left[0]]
+sp=feat('SpiralProfile',Part.Face(Part.makePolygon(path)))
+spiraltool=extrude('SpiralRecess',sp,1.2,P('BaseH')+'-.7 mm')
+# Fine perimeter channel and dot groups outside every seat are all recessed.
+ring=cut('RimGroove',cyl('RimGrooveOuter',110.5,1.1,P('BaseH')+'-.6 mm'),cyl('RimGrooveInner',109.7,1.3,P('BaseH')+'-.7 mm'))
+marktools=[]
+for idx,ang in enumerate(angles,1):
+ a=math.radians(ang);r=103
+ for j in range(idx):
+  dx=(j-(idx-1)/2)*4.8
+  x=r*math.cos(a)-dx*math.sin(a);y=r*math.sin(a)+dx*math.cos(a)
+  o=cyl('SeatCount%d_%d'%(idx,j+1),1.25,1.2,P('BaseH')+'-.7 mm',x,y);marktools.append(o)
+base=cut('Base',blank,fuse('BasePocketTools',seats+[spiraltool,ring]+marktools));base.Label='01 — zakladna / 5 sedel / hmatova spirala'
+final=[base]+pieces;doc.recompute()
+# Validate before exporting. Macro exits loudly rather than handing over partial shapes.
+audit={'design_date':'2026-10-14','status':'DIGITALNI PROTOTYP; fyzicky tisk a bezpecnost neovereny','age_assumption':'3–5 let, bez odpovedi uzivatele','parameters':dict(VALUES),'parts':[],'assembly_collisions':[]}
+for o in final:
+ s=o.Shape
+ if s.isNull() or not s.isValid() or len(s.Solids)!=1:raise RuntimeError('Neplatny dil '+o.Name)
+ bb=s.BoundBox
+ audit['parts'].append({'id':o.Name,'valid':s.isValid(),'solids':len(s.Solids),'volume_mm3':s.Volume,'bbox_mm':[bb.XLength,bb.YLength,bb.ZLength]})
+for i,a in enumerate(final):
+ for b in final[i+1:]:
+  vol=a.Shape.common(b.Shape).Volume
+  audit['assembly_collisions'].append({'a':a.Name,'b':b.Name,'volume_mm3':vol})
+  if vol>1e-5:raise RuntimeError('Kolize '+a.Name+' '+b.Name)
+# Exercise actual native dependencies and restore: clearance, seat depth, unit height.
+before=final[-1].Shape.Volume;origseat=seats[0].Shape.Volume
+sheet.set(sheet.getCellFromAlias('Clearance'),'0.70 mm');sheet.set(sheet.getCellFromAlias('UnitH'),'13 mm');doc.recompute()
+assert seats[0].Shape.Volume>origseat and final[-1].Shape.BoundBox.ZLength>64.9
+sheet.set(sheet.getCellFromAlias('Clearance'),'0.55 mm');sheet.set(sheet.getCellFromAlias('UnitH'),'12 mm');doc.recompute()
+assert abs(final[-1].Shape.Volume-before)<1e-4
+audit['bbox_method']='FreeCAD Shape.BoundBox: konzervativni CAD obalka; presna obalka v nezavisla-kontrola.json.'
+audit['parametric_test']={'clearance_mm':[.55,.7,.55],'unit_height_mm':[12,13,12],'restored':True}
+(OUT/'stl').mkdir(exist_ok=True);(OUT/'vizualni-geometrie').mkdir(exist_ok=True)
+manifest={'name':'Zahrada objevu','materials':{'1':{'name':'PLA Basic — svetla zakladna (barva navrh)','colour':'#EEE3CC'},'2':{'name':'PLA Basic — kameny (barva navrh)','colour':'#BD6650'}},'parts':[]}
+scene={'name':'ZAHRADA OBJEVU','description':'Skutecna CAD geometrie; navrhove barvy','parts':[]}
+for o in final:
+ mesh=MeshPart.meshFromShape(Shape=o.Shape,LinearDeflection=.06,AngularDeflection=.10,Relative=False)
+ assert mesh.isSolid(),o.Name
+ assembled=OUT/'vizualni-geometrie'/(o.Name+'.stl');mesh.write(str(assembled))
+ s=o.Shape.copy();s.translate(App.Vector(-o.Placement.Base.x,-o.Placement.Base.y,-s.BoundBox.ZMin))
+ m=MeshPart.meshFromShape(Shape=s,LinearDeflection=.06,AngularDeflection=.10,Relative=False);assert m.isSolid()
+ path=OUT/'stl'/(o.Name.lower()+'.stl');m.write(str(path))
+ manifest['parts'].append({'id':o.Name,'name':o.Label,'file':str(path.relative_to(OUT)),'plate':1 if o==base else 2,'count':1,'supports':False,'support_note':'Rovna zakladna, svisle steny, male zaoblene hrany a otevrene dulky.','critical_z_mm':[.2,1,8,11.4,12] if o==base else [.2,1,s.BoundBox.ZMax-1.2,s.BoundBox.ZMax-.2],'sha256':hashlib.sha256(path.read_bytes()).hexdigest(),'assembly_translation_mm':[o.Placement.Base.x,o.Placement.Base.y,o.Placement.Base.z]})
+ color=[.93,.89,.80] if o==base else [.74,.40,.31]
+ scene['parts'].append({'file':assembled.name,'name':o.Label,'id':o.Name,'color':color})
+for name,obj in [('kontrola-modelu.json',audit),('print-manifest.json',manifest),('planar-profiles.json',{'parts':planar}),('vizualni-geometrie/scene.json',scene)]:
+ (OUT/name).write_text(json.dumps(obj,ensure_ascii=False,indent=2)+'\n')
+if App.GuiUp:
+ for o in doc.Objects:o.ViewObject.Visibility=o in final
+ for o in final:o.ViewObject.ShapeColor=(.93,.89,.80) if o==base else (.74,.40,.31)
+doc.recompute();doc.saveAs(str(OUT/'zahrada.FCStd'));print('ZAHRADA_GENERATED_OK',flush=True)

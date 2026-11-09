@@ -1,0 +1,349 @@
+{
+  "revision": "03",
+  "source_manifest_sha256": "a8abfc0c3d05bc0863dfa7f54811ac1b64726bcd28ab770031d7f99803337ee8",
+  "physical_parts": 1,
+  "plates": [
+    {
+      "plate": {
+        "number": 1,
+        "geometry": "podlozka-01-geometrie.3mf",
+        "geometry_sha256": "d7fecb420b3786c65f0f42ba8438a890722b53e088c4ede87e2a82288dec09dd",
+        "preview": "podlozka-01.png",
+        "physical_parts": 1,
+        "parts": [
+          {
+            "id": "drzak-tvarovany",
+            "name": "01_drzak-tvarovany_01",
+            "file": "../stl/drzak-tvarovany.stl",
+            "source_sha256": "4bc49e5857ff18e83c351b267225b3ce64110e57ffb9f98e7c2124f1876d8fc5",
+            "translation_mm": [
+              7.999999999999994,
+              7.999999999999993,
+              -0.0
+            ],
+            "placed_min_mm": [
+              8.0,
+              8.0,
+              0.0
+            ],
+            "placed_max_mm": [
+              238.0,
+              50.314067840576165,
+              59.99626922607422
+            ],
+            "size_mm": [
+              230.0,
+              42.314067840576165,
+              59.99626922607422
+            ],
+            "triangle_count": 2340,
+            "supports": false,
+            "support_note": "Souvislá patka a svislé stojiny pod oběma sedly. StěnyV rostou45°;10mm přechod je shora otevřený. Ověřit návaznost tvarovaných sedel a vrcholy otvorůØ5,5mm.",
+            "critical_z_mm": [
+              0.2,
+              0.4,
+              0.6,
+              0.8,
+              1,
+              2,
+              3,
+              4,
+              5.8,
+              6,
+              8,
+              8.8,
+              10,
+              13,
+              15,
+              17,
+              20,
+              23,
+              25,
+              27,
+              30,
+              35,
+              38,
+              40,
+              43,
+              48,
+              50.8,
+              51,
+              59.996,
+              60
+            ]
+          }
+        ],
+        "minimum_geometry_edge_margin_mm": 8.0,
+        "minimum_bbox_gap_mm": null,
+        "colour": "#334451",
+        "material_name": "prototyp — barva návrhu",
+        "profile": {
+          "kind": "Basic",
+          "mvs": "8",
+          "nozzle": "205",
+          "initial_nozzle": "215",
+          "bed": "50"
+        },
+        "supports_enabled": false
+      },
+      "project": "podlozka-01-kobra-x-pla-projekt.3mf",
+      "configured": {
+        "sha256": "2fa76ed1035c41be734484e7b4a3453dd3073d658efd87d0bcf972d21ca1f8fa",
+        "objects": [
+          {
+            "name": "01_drzak-tvarovany_01",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 3.862939458088022e-06
+          }
+        ],
+        "physical_parts": 1,
+        "mesh_repairs": [
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          }
+        ],
+        "settings": {
+          "printer_model": "Anycubic Kobra X",
+          "printer_settings_id": "Anycubic Kobra X 0.4 nozzle",
+          "print_settings_id": "Tvarovaný držák nože — revize 03 0.20 mm Basic navrh @Kobra X",
+          "filament_settings_id": [
+            "NAVRH Alzament PLA Basic prototyp — barva návrhu @Kobra X 0.4"
+          ],
+          "nozzle_diameter": [
+            "0.4"
+          ],
+          "layer_height": "0.2",
+          "wall_loops": "4",
+          "sparse_infill_density": "15%",
+          "sparse_infill_pattern": "gyroid",
+          "enable_support": "0",
+          "support_on_build_plate_only": "0",
+          "support_type": "normal(auto)",
+          "support_style": "snug",
+          "support_threshold_angle": "30",
+          "support_top_z_distance": "0.2",
+          "support_bottom_z_distance": "0.2",
+          "support_object_xy_distance": "0.35",
+          "support_interface_top_layers": "2",
+          "independent_support_layer_height": "0",
+          "brim_type": "outer_only",
+          "brim_width": "3",
+          "nozzle_temperature": [
+            "205"
+          ],
+          "nozzle_temperature_initial_layer": [
+            "215"
+          ],
+          "textured_plate_temp": [
+            "50"
+          ],
+          "outer_wall_speed": "40",
+          "inner_wall_speed": "70",
+          "filament_colour": [
+            "#334451"
+          ],
+          "filament_max_volumetric_speed": [
+            "8"
+          ],
+          "enable_prime_tower": "0",
+          "initial_layer_print_height": "0.2",
+          "top_shell_layers": "5",
+          "bottom_shell_layers": "5",
+          "filter_out_gap_fill": "0",
+          "detect_narrow_internal_solid_infill": "1"
+        },
+        "has_gcode": false
+      },
+      "delivered": {
+        "sha256": "b55bf2d57dc594e33da300dd02fe0dfa529908cfcdbca4378aaec81f3e6402ac",
+        "objects": [
+          {
+            "name": "01_drzak-tvarovany_01",
+            "preserved_geometry_and_placement": true,
+            "maximum_vertex_delta_mm": 3.862939458088022e-06
+          }
+        ],
+        "physical_parts": 1,
+        "mesh_repairs": [
+          {
+            "edges_fixed": "0",
+            "degenerate_facets": "0",
+            "facets_removed": "0",
+            "facets_reversed": "0",
+            "backwards_edges": "0"
+          }
+        ],
+        "settings": {
+          "printer_model": "Anycubic Kobra X",
+          "printer_settings_id": "Anycubic Kobra X 0.4 nozzle",
+          "print_settings_id": "Tvarovaný držák nože — revize 03 0.20 mm Basic navrh @Kobra X",
+          "filament_settings_id": [
+            "NAVRH Alzament PLA Basic prototyp — barva návrhu @Kobra X 0.4"
+          ],
+          "nozzle_diameter": [
+            "0.4"
+          ],
+          "layer_height": "0.2",
+          "wall_loops": "4",
+          "sparse_infill_density": "15%",
+          "sparse_infill_pattern": "gyroid",
+          "enable_support": "0",
+          "support_on_build_plate_only": "0",
+          "support_type": "normal(auto)",
+          "support_style": "snug",
+          "support_threshold_angle": "30",
+          "support_top_z_distance": "0.2",
+          "support_bottom_z_distance": "0.2",
+          "support_object_xy_distance": "0.35",
+          "support_interface_top_layers": "2",
+          "independent_support_layer_height": "0",
+          "brim_type": "outer_only",
+          "brim_width": "3",
+          "nozzle_temperature": [
+            "205"
+          ],
+          "nozzle_temperature_initial_layer": [
+            "215"
+          ],
+          "textured_plate_temp": [
+            "50"
+          ],
+          "outer_wall_speed": "40",
+          "inner_wall_speed": "70",
+          "filament_colour": [
+            "#334451"
+          ],
+          "filament_max_volumetric_speed": [
+            "8"
+          ],
+          "enable_prime_tower": "0",
+          "initial_layer_print_height": "0.2",
+          "top_shell_layers": "5",
+          "bottom_shell_layers": "5",
+          "filter_out_gap_fill": "0",
+          "detect_narrow_internal_solid_infill": "1"
+        },
+        "has_gcode": true,
+        "gcode_bytes": 3778041,
+        "gcode_sha256": "d3a99967828c85637c0dd9bfcbba699aac78054436cfbaa2ed483984c09ab15c",
+        "slice_metadata": {
+          "prediction": "12050",
+          "weight": "54.32",
+          "outside": "false",
+          "support_used": "false"
+        },
+        "warnings": [
+          {
+            "msg": "not_support_traditional_timelapse",
+            "level": "1",
+            "error_code": "1000C003"
+          }
+        ]
+      },
+      "toolpath_audit": {
+        "physical_parts": 1,
+        "all_objects_on_first_layer": true,
+        "layers": 300,
+        "all_layers_have_extrusion": true,
+        "maximum_extrusion_z_mm": 60.0,
+        "roles_segments": {
+          "Brim": 967,
+          "Outer wall": 8154,
+          "Inner wall": 19365,
+          "Gap infill": 309,
+          "Bottom surface": 178,
+          "Internal solid infill": 35760,
+          "Sparse infill": 35129,
+          "Top surface": 2128,
+          "Internal Bridge": 506,
+          "Overhang wall": 36,
+          "Bridge": 6
+        },
+        "support_segments": 0,
+        "support_layers": [],
+        "support_bounds_xy_mm": null,
+        "brim_generated": true,
+        "deposition_island_test": {
+          "method": "Actual path graph using per-stroke G-code WIDTH: same-layer connection distance <= half the sum of stroke widths; every component must contact preceding-layer strokes within half the sum of widths plus 0.25 mm allowance. Support-only components may contact the second preceding layer within 0.4 mm Z spacing, accounting for the configured 0.2 mm support bottom gap; every such exception is recorded. Does not check deposition order within a layer and does not certify full overhang support.",
+          "disconnected_new_islands": [],
+          "configured_support_bottom_gap_contacts": [],
+          "passed": true,
+          "maximum_components_per_layer": 5
+        },
+        "extrusion_min_xy_mm": [
+          5.386,
+          8.356
+        ],
+        "extrusion_max_xy_mm": [
+          240.614,
+          52.928
+        ],
+        "minimum_extrusion_edge_margin_mm": 5.386,
+        "maximum_commanded_extrusion_speed_mm_s": 80.0,
+        "maximum_commanded_volumetric_flow_mm3_s_segments_at_least_0_1mm": 8.02172116859345,
+        "maximum_raw_segment_flow_mm3_s": 8.106885349119867,
+        "flow_quantisation_note": "XY coordinates use 0.001 mm and E uses 0.00001 mm precision; raw flow of moves below 0.1 mm is dominated by rounding. Audited flow uses segments at least 0.1 mm.",
+        "preview": "podlozka-01-vrstvy.png",
+        "detail_previews": [
+          "detail-01-01_drzak-tvarovany_01-drahy.png"
+        ],
+        "selected_z_mm": [
+          0.2,
+          0.4,
+          0.6,
+          0.8,
+          1.0,
+          2.0,
+          3.0,
+          4.0,
+          5.8,
+          6.0,
+          8.0,
+          8.8,
+          10.0,
+          13.0,
+          15.0,
+          17.0,
+          20.0,
+          23.0,
+          25.0,
+          27.0,
+          30.0,
+          35.0,
+          38.0,
+          40.0,
+          43.0,
+          48.0,
+          50.8,
+          51.0,
+          60.0
+        ],
+        "estimated_filament_g": 54.32,
+        "estimated_printing_time": "3h 20m 50s",
+        "first_layer_gcode_temperature_c": {
+          "bed": 50.0,
+          "nozzle": 215.0
+        },
+        "physical_print_verified": false
+      },
+      "machine_profile_sha256": "baf80d3287e1e863fba29cdfd240b9b5ebc28bd87e1b4d03fc79e53f0009570a",
+      "process_sha256": "d2aa074b084a0773a555ae25ade22771f4e72ba1115d0e6478d2c54f56ebd2e3",
+      "filament_sha256": "81bae1318a4d4b59fc254a71e7d27818415fa89ec9ec6996431d39445b0f6d97",
+      "cli_exit_codes": [
+        0,
+        0
+      ],
+      "cli_error_messages": [
+        "calc_exclude_triangles:Unable to create exclude triangles"
+      ],
+      "status": "Profiled open knife holder prototype; knife fit, stability and wall anchors not physically verified",
+      "physical_print_verified": false
+    }
+  ],
+  "printer_io": false,
+  "physical_print_verified": false
+}

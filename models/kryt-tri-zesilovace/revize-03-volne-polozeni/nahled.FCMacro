@@ -1,0 +1,87 @@
+# -*- coding: utf-8 -*-
+"""Actual CAD previews. Restores final assembly and saves GUI state only."""
+from pathlib import Path
+import json
+import FreeCAD as App
+import FreeCADGui as Gui
+import Part
+from PySide import QtCore
+from pivy import coin
+OUT=Path(__file__).resolve().parent
+doc=App.openDocument(str(OUT/'kryt.FCStd'))
+report=json.loads((OUT/'kontrola-modelu.json').read_text())
+parts=[doc.getObject(v['object']) for v in report['parts'].values()]
+refs=[doc.getObject(n) for n in report['references']]
+view=Gui.activeDocument().activeView()
+
+def show(mode='closed'):
+ doc.Front.Placement.Base.z=0;doc.TopLock.Placement.Base=App.Vector();doc.Rear.Placement.Base.y=0
+ doc.recompute()
+ for o in doc.Objects:
+  if hasattr(o,'ViewObject'):o.ViewObject.Visibility=False
+ for o in parts+refs:
+  o.ViewObject.Visibility=True;o.ViewObject.DisplayMode='Flat Lines';o.ViewObject.LineWidth=1;o.ViewObject.LineColor=(.16,.18,.20);o.ViewObject.Transparency=0
+ for o in parts:o.ViewObject.ShapeColor=(.24,.28,.31)
+ doc.Front.ViewObject.ShapeColor=(.87,.88,.85);doc.TopLock.ViewObject.ShapeColor=(.87,.88,.85)
+ for o in refs:
+  if o.Name.startswith('PCB'):color=(.70,.13,.09)
+  elif o.Name.startswith('Heatsink'):color=(.84,.60,.21)
+  elif o.Name.startswith('RCA'):color=(.79,.59,.27)
+  elif o.Name.startswith('Fan'):color=(.31,.35,.37)
+  elif o.Name.startswith('Capacitor'):color=(.15,.28,.28)
+  else:color=(.10,.12,.14)
+  o.ViewObject.ShapeColor=color
+ if mode=='supports':
+  for o in refs:o.ViewObject.Visibility=False
+  for o in [doc.Front,doc.TopLock,doc.Rear]+[o for o in parts if o.Name.startswith('Spacer')]:o.ViewObject.Visibility=False
+ elif mode=='detail':
+  for o in parts+refs:o.ViewObject.Visibility=False
+  clip=Part.makeBox(24,16,40,App.Vector(0,30,8))
+  for name,source,color in [('DetailSupport',doc.Body,(.24,.28,.31)),('DetailPCB',doc.PCB0,(.70,.13,.09)),('DetailCap',doc.getObject('Capacitor0L1'),(.15,.28,.28))]:
+   o=doc.getObject(name) or doc.addObject('Part::Feature',name)
+   o.Shape=source.Shape.common(clip);o.ViewObject.ShapeColor=color;o.ViewObject.DisplayMode='Flat Lines';o.ViewObject.LineColor=(.16,.18,.20);o.ViewObject.Visibility=True
+ elif mode=='slide':
+  for o in refs:o.ViewObject.Visibility=False
+  doc.Front.Placement.Base.z=55
+  doc.TopLock.Placement.Base=App.Vector(50,0,24)
+ elif mode=='inside':
+  doc.Front.ViewObject.Visibility=False;doc.TopLock.ViewObject.Visibility=False
+  doc.Body.ViewObject.Transparency=78
+ elif mode=='rearopen':
+  doc.Rear.Placement.Base.y=38
+  for o in parts:
+   if o.Name.startswith('Spacer'):o.ViewObject.Visibility=False
+ doc.recompute()
+
+def camera(eye):
+ eye=App.Vector(*eye);up=App.Vector(0,0,1);view.setCameraType('Orthographic')
+ rot=App.Rotation(up.cross(eye),up,eye,'ZXY')
+ bb=Part.makeCompound([o.Shape for o in doc.Objects if hasattr(o,'Shape') and o.ViewObject.Visibility and not o.Shape.isNull()]).BoundBox
+ ps=[rot.inverted().multVec(App.Vector(x,y,z)-bb.Center) for x in [bb.XMin,bb.XMax] for y in [bb.YMin,bb.YMax] for z in [bb.ZMin,bb.ZMax]]
+ dx=max(v.x for v in ps)-min(v.x for v in ps);dy=max(v.y for v in ps)-min(v.y for v in ps)
+ view.getCameraOrientation();node=view.getCameraNode();node.orientation.setValue(rot.Q)
+ q=bb.Center+eye.normalize()*1000;node.position.setValue(q.x,q.y,q.z);node.height.setValue(max(dy,dx/1.25)*1.18)
+ node.nearDistance.setValue(1);node.farDistance.setValue(3000);view.redraw();Gui.updateGui()
+steps=[('supports',(.8,1.7,1.0),'nahled-podpory.png'),('detail',(1.4,-1.5,.9),'detail-polozeni-pcb.png'),('closed',(1,-1.8,1),'nahled-zpredu.png'),('slide',(.85,-1.7,1.3),'nahled-nasouvani-cela.png'),('inside',(.8,-1.7,1.4),'nahled-vnitrek.png'),('rearopen',(.9,1.7,1.2),'nahled-zadni-viko.png'),('closed',(.9,1.7,.9),'nahled-zezadu.png')]
+i=0
+
+def start():
+ global i
+ Gui.getMainWindow().resize(1500,1200)
+ mode,eye,file=steps[i];show(mode);camera(eye);QtCore.QTimer.singleShot(700,save)
+def save():
+ global i
+ view.saveImage(str(OUT/steps[i][2]),1500,1200,'White');i+=1
+ if i<len(steps):start();return
+ show();
+ for name in ['DetailSupport','DetailPCB','DetailCap']:
+  if doc.getObject(name):doc.removeObject(name)
+ doc.recompute();camera((1,-1.8,1));doc.save();f=doc.FileName;n=doc.Name;App.closeDocument(n)
+ reopened=App.openDocument(f);reopened.recompute()
+ visible=[o.Name for o in reopened.Objects if hasattr(o,'Shape') and o.ViewObject.Visibility]
+ assert set(visible)==set([v['object'] for v in report['parts'].values()]+report['references'])
+ assert reopened.Front.Placement.Base.Length<1e-7 and reopened.TopLock.Placement.Base.Length<1e-7
+ report['gui']={'reopened':True,'helper_geometry_hidden':True,'visible_objects':visible,'images':[q[2] for q in steps]}
+ (OUT/'kontrola-modelu.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
+ print('V03_RENDER_OK',flush=True);Gui.getMainWindow().close()
+QtCore.QTimer.singleShot(700,start)

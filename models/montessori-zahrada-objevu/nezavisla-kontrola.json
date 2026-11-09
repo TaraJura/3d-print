@@ -1,0 +1,23 @@
+{
+  "geometry_report": "nezavisla-kontrola-geometrie.json",
+  "fit_report": "nezavisla-kontrola-fitu.json",
+  "geometry_summary": {
+    "part_count": 6,
+    "all_part_checks_passed": true,
+    "maximum_assembly_intersection_mm3": 0.0,
+    "source_files_unchanged_during_audit": true,
+    "physical_print_tested": false,
+    "toy_safety_certified": false
+  },
+  "fit_summary": {
+    "correct_fit_count": 5,
+    "correct_fits_fully_covered": 5,
+    "wrong_fit_count": 20,
+    "wrong_fits_excluded_for_sampled_polygons": 20,
+    "smallest_wrong_fit_bound_mm": 0.3610701,
+    "smallest_outside_area_found_mm2": 24.900767,
+    "physical_fit_tested": false,
+    "toy_safety_certified": false
+  },
+  "limits": "Vypocet a mesh kontrola; fyzicky fit, pevnost a bezpecnost nejsou overeny."
+}

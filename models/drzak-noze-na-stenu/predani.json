@@ -1,0 +1,46 @@
+{
+  "date_local": "2026-11-03",
+  "active_revision": "revize-05-zdobene-pouzdro",
+  "active_preview": "revize-05-zdobene-pouzdro/prehled-navrhu.png",
+  "historical_revision_04": "revize-04-zrcadlovy",
+  "historical_revision_03": "revize-03-tvarovany-dle-noze",
+  "historical_revision_02": "revize-02-otevrene-v",
+  "historical_revision_01": "historie/v01-uzavrene-pouzdro",
+  "legacy_root_artifacts_retained_for_old_links": true,
+  "active_physical_parts": 1,
+  "active_configured_plates": 1,
+  "independent_checks_passed": 48,
+  "ambiguous_handle_offset_is_assumption": false,
+  "physical_print_verified": false,
+  "measure_before_printing": "Tip to start of the wider handle: designed 210 mm, cavity allows at most 218 mm",
+  "preferred_print": {
+    "project": "revize-05-zdobene-pouzdro/rozlozeni/nalezato-s-podporami/pouzdro-nalezato-kobra-x-pla-projekt.3mf",
+    "project_sha256": "55d1a52927dc2e6c027d4d3eb88cf2b4acab0b72a6f5b5d197d1377d5ff63f32",
+    "gcode_sha256": "6e3cc660d6f286113685b242bf38c867c7ce29a911e6ffb647b4f09c0d0702bc",
+    "stl": "revize-05-zdobene-pouzdro/stl/pouzdro-zdobene-nalezato.stl",
+    "stl_sha256": "22f89b844e873d48f0f7ce678c2dde0c7b3aa6d60cad226e65c1eb0f1afcffcb",
+    "physical_print_verified": false
+  },
+  "user_reported_print_results": [
+    {
+      "recorded": "2026-11-03",
+      "origin": "Hlášení Jiřího předané koordinátorem",
+      "variant": "Ručně otočený tisk naležato bez podpor",
+      "report": "propadal na visícím přechodu",
+      "printed_gcode_sha256": null
+    },
+    {
+      "recorded": "2026-11-03",
+      "origin": "Hlášení Jiřího předané koordinátorem",
+      "variant": "Původní svislá varianta",
+      "report": "na výšku to nevyšlo",
+      "cause": "neznámá",
+      "printed_gcode_sha256": null
+    }
+  ],
+  "pre_existing_manifest_difference": {
+    "file": "rozlozeni/podlozka-01-geometrie.3mf",
+    "sha256_found": "e0d2d8cee2b953a14b9a46313f8a2458d263d79de520823f7e7fabc9f94c043b",
+    "note": "Hash se liší od starého manifestu už před touto úlohou. Soubor nebyl obnoven ani změněn."
+  }
+}

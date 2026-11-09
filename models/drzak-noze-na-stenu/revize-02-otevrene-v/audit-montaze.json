@@ -1,0 +1,379 @@
+{
+  "revision": "02 — open V",
+  "document_sha256": "cdfc70b3d9d00fb855ca9c043d9c92fab53af20f743f4048e71ea56652af0cc6",
+  "checks": [
+    {
+      "check": "valid_single_printed_solid",
+      "passed": true,
+      "detail": {
+        "solids": 1,
+        "volume_mm3": 54642.06068278998
+      }
+    },
+    {
+      "check": "length_230_and_height_55",
+      "passed": true,
+      "detail": {
+        "installed_bbox_mm": [
+          230.0,
+          55.0,
+          45.242640687119284
+        ]
+      }
+    },
+    {
+      "check": "analytic_root_radius_2",
+      "passed": true,
+      "detail": [
+        {
+          "radius": 2.0,
+          "center": [
+            -1.0,
+            8.82842712474619,
+            24.0
+          ]
+        }
+      ]
+    },
+    {
+      "check": "rounded_root_bottom_contact",
+      "passed": true,
+      "detail": {
+        "contact_y_mm": 6.82842712474619,
+        "probe_offset_mm": 0.01
+      }
+    },
+    {
+      "check": "continuous_V_profile_34mm_mouth",
+      "passed": true,
+      "detail": {
+        "boundary_samples": 69,
+        "failed_samples": [],
+        "top_y_mm": 23,
+        "inner_mouth_z_mm": [
+          7,
+          41
+        ]
+      }
+    },
+    {
+      "check": "normal_wall_thickness_3mm",
+      "passed": true,
+      "detail": {
+        "probe_depths_mm": [
+          2.99,
+          3.01
+        ]
+      }
+    },
+    {
+      "check": "exactly_two_cylindrical_mount_holes",
+      "passed": true,
+      "detail": {
+        "centers_xy_mm": [
+          [
+            35.0,
+            43.0
+          ],
+          [
+            195.0,
+            43.0
+          ]
+        ],
+        "diameter_mm": 5.5,
+        "spacing_mm": 160
+      }
+    },
+    {
+      "check": "mount_hole_through_x35",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "driver_10mm_clear_x35",
+      "passed": true,
+      "detail": {
+        "knife_removed": true
+      }
+    },
+    {
+      "check": "proposed_head_10x3_clear_x35",
+      "passed": true,
+      "detail": {
+        "actual_fastener_unknown": true
+      }
+    },
+    {
+      "check": "mount_hole_through_x195",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "driver_10mm_clear_x195",
+      "passed": true,
+      "detail": {
+        "knife_removed": true
+      }
+    },
+    {
+      "check": "proposed_head_10x3_clear_x195",
+      "passed": true,
+      "detail": {
+        "actual_fastener_unknown": true
+      }
+    },
+    {
+      "check": "independent_section_1mm",
+      "passed": true,
+      "detail": {
+        "thickness_mm": 1,
+        "measured_seating_bottom_y_mm": 6.891932487487793,
+        "analytic_bottom_y_mm": 6.891935451642482,
+        "tested_initial_bottom_y_mm": 6.941932487487793,
+        "added_clearance_mm": 0.05,
+        "lift_mm": 40,
+        "lift_step_mm": 1,
+        "maximum_collision_mm3": 0.0
+      }
+    },
+    {
+      "check": "independent_section_2mm",
+      "passed": true,
+      "detail": {
+        "thickness_mm": 2,
+        "measured_seating_bottom_y_mm": 7.0963722467422485,
+        "analytic_bottom_y_mm": 7.096376317177313,
+        "tested_initial_bottom_y_mm": 7.146372246742248,
+        "added_clearance_mm": 0.05,
+        "lift_mm": 40,
+        "lift_step_mm": 1,
+        "maximum_collision_mm3": 0.0
+      }
+    },
+    {
+      "check": "independent_section_3mm",
+      "passed": true,
+      "detail": {
+        "thickness_mm": 3,
+        "measured_seating_bottom_y_mm": 7.499991059303284,
+        "analytic_bottom_y_mm": 7.5,
+        "tested_initial_bottom_y_mm": 7.5499910593032835,
+        "added_clearance_mm": 0.05,
+        "lift_mm": 40,
+        "lift_step_mm": 1,
+        "maximum_collision_mm3": 0.0
+      }
+    },
+    {
+      "check": "independent_section_4mm",
+      "passed": true,
+      "detail": {
+        "thickness_mm": 4,
+        "measured_seating_bottom_y_mm": 7.9999905824661255,
+        "analytic_bottom_y_mm": 8.0,
+        "tested_initial_bottom_y_mm": 8.049990582466126,
+        "added_clearance_mm": 0.05,
+        "lift_mm": 40,
+        "lift_step_mm": 1,
+        "maximum_collision_mm3": 0.0
+      }
+    },
+    {
+      "check": "independent_section_6mm",
+      "passed": true,
+      "detail": {
+        "thickness_mm": 6,
+        "measured_seating_bottom_y_mm": 8.999991416931152,
+        "analytic_bottom_y_mm": 9.0,
+        "tested_initial_bottom_y_mm": 9.049991416931153,
+        "added_clearance_mm": 0.05,
+        "lift_mm": 40,
+        "lift_step_mm": 1,
+        "maximum_collision_mm3": 0.0
+      }
+    },
+    {
+      "check": "independent_section_10mm",
+      "passed": true,
+      "detail": {
+        "thickness_mm": 10,
+        "measured_seating_bottom_y_mm": 10.999991297721863,
+        "analytic_bottom_y_mm": 11.0,
+        "tested_initial_bottom_y_mm": 11.049991297721864,
+        "added_clearance_mm": 0.05,
+        "lift_mm": 40,
+        "lift_step_mm": 1,
+        "maximum_collision_mm3": 0.0
+      }
+    },
+    {
+      "check": "independent_section_25mm",
+      "passed": true,
+      "detail": {
+        "thickness_mm": 25,
+        "measured_seating_bottom_y_mm": 18.499991297721863,
+        "analytic_bottom_y_mm": 18.5,
+        "tested_initial_bottom_y_mm": 18.549991297721864,
+        "added_clearance_mm": 0.05,
+        "lift_mm": 40,
+        "lift_step_mm": 1,
+        "maximum_collision_mm3": 0.0
+      }
+    },
+    {
+      "check": "print_envelope_260_cube",
+      "passed": true,
+      "detail": {
+        "bbox_mm": [
+          230.0,
+          45.24264068711929,
+          55.0
+        ],
+        "five_mm_brim_fits": true
+      }
+    },
+    {
+      "check": "nonzero_first_layer_contact",
+      "passed": true,
+      "detail": {
+        "first_0_2mm_intersection_volume_mm3": 298.0199999999999,
+        "solids_in_contact_slab": 1
+      }
+    },
+    {
+      "check": "illustrative_knife_valid_and_labelled",
+      "passed": true,
+      "detail": {
+        "objects": [
+          "IllustrativeBlade",
+          "IllustrativeHandle",
+          "IllustrativeBolster",
+          "IllustrativeRivet0",
+          "IllustrativeRivet1",
+          "IllustrativeRivet2"
+        ]
+      }
+    },
+    {
+      "check": "illustrative_envelope_340x45x25",
+      "passed": true,
+      "detail": {
+        "dimensions_mm": [
+          340.0,
+          45.0,
+          25.0
+        ],
+        "x_range_mm": [
+          -55.0,
+          285.0
+        ],
+        "y_range_mm": [
+          7.1,
+          52.1
+        ],
+        "design_reference_only": true
+      }
+    },
+    {
+      "check": "illustrative_knife_seated_without_collision",
+      "passed": true,
+      "detail": {
+        "collision_mm3": 0.0,
+        "distance_mm": 0.0031373793977761246
+      }
+    },
+    {
+      "check": "illustrative_knife_lifts_straight_up_40",
+      "passed": true,
+      "detail": {
+        "maximum_collision_mm3": 0.0,
+        "sampling_step_mm": 1,
+        "not_actual_knife_validation": true
+      }
+    },
+    {
+      "check": "document_unchanged_during_audit",
+      "passed": true,
+      "detail": null
+    }
+  ],
+  "passed": 27,
+  "failed": 0,
+  "independent_section_samples": [
+    {
+      "thickness_mm": 1,
+      "measured_seating_bottom_y_mm": 6.891932487487793,
+      "analytic_bottom_y_mm": 6.891935451642482,
+      "tested_initial_bottom_y_mm": 6.941932487487793,
+      "added_clearance_mm": 0.05,
+      "lift_mm": 40,
+      "lift_step_mm": 1,
+      "maximum_collision_mm3": 0.0
+    },
+    {
+      "thickness_mm": 2,
+      "measured_seating_bottom_y_mm": 7.0963722467422485,
+      "analytic_bottom_y_mm": 7.096376317177313,
+      "tested_initial_bottom_y_mm": 7.146372246742248,
+      "added_clearance_mm": 0.05,
+      "lift_mm": 40,
+      "lift_step_mm": 1,
+      "maximum_collision_mm3": 0.0
+    },
+    {
+      "thickness_mm": 3,
+      "measured_seating_bottom_y_mm": 7.499991059303284,
+      "analytic_bottom_y_mm": 7.5,
+      "tested_initial_bottom_y_mm": 7.5499910593032835,
+      "added_clearance_mm": 0.05,
+      "lift_mm": 40,
+      "lift_step_mm": 1,
+      "maximum_collision_mm3": 0.0
+    },
+    {
+      "thickness_mm": 4,
+      "measured_seating_bottom_y_mm": 7.9999905824661255,
+      "analytic_bottom_y_mm": 8.0,
+      "tested_initial_bottom_y_mm": 8.049990582466126,
+      "added_clearance_mm": 0.05,
+      "lift_mm": 40,
+      "lift_step_mm": 1,
+      "maximum_collision_mm3": 0.0
+    },
+    {
+      "thickness_mm": 6,
+      "measured_seating_bottom_y_mm": 8.999991416931152,
+      "analytic_bottom_y_mm": 9.0,
+      "tested_initial_bottom_y_mm": 9.049991416931153,
+      "added_clearance_mm": 0.05,
+      "lift_mm": 40,
+      "lift_step_mm": 1,
+      "maximum_collision_mm3": 0.0
+    },
+    {
+      "thickness_mm": 10,
+      "measured_seating_bottom_y_mm": 10.999991297721863,
+      "analytic_bottom_y_mm": 11.0,
+      "tested_initial_bottom_y_mm": 11.049991297721864,
+      "added_clearance_mm": 0.05,
+      "lift_mm": 40,
+      "lift_step_mm": 1,
+      "maximum_collision_mm3": 0.0
+    },
+    {
+      "thickness_mm": 25,
+      "measured_seating_bottom_y_mm": 18.499991297721863,
+      "analytic_bottom_y_mm": 18.5,
+      "tested_initial_bottom_y_mm": 18.549991297721864,
+      "added_clearance_mm": 0.05,
+      "lift_mm": 40,
+      "lift_step_mm": 1,
+      "maximum_collision_mm3": 0.0
+    }
+  ],
+  "limitations": [
+    "Section samples are independent; their different seating heights do not prove fit of an unknown rigid whole knife.",
+    "The knife profile, blade length/thickness, centre of gravity, actual screws and wall are unknown.",
+    "Tip and overhanging edge remain uncovered. No print, knife stability, load capacity or physical fit was verified."
+  ]
+}

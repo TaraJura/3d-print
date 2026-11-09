@@ -1,0 +1,100 @@
+# -*- coding: utf-8 -*-
+"""Read-only audit reopened native CAD. Writes only own report, never FCStd."""
+import FreeCAD as App, Part
+import json, math, hashlib
+from pathlib import Path
+
+OUT = Path(__file__).resolve().parent
+src=OUT/'skrinka.FCStd'
+report={'audited_file':'skrinka.FCStd','sha256':hashlib.sha256(src.read_bytes()).hexdigest(),
+ 'source_macro_sha256':hashlib.sha256((OUT/'skrinka.FCMacro').read_bytes()).hexdigest(),
+ 'file_hash_note':'FCStd hash identifies the audit-opened snapshot; subsequent GUI visibility/camera saves may change archive hash without changing audited geometry.',
+ 'provenance':'Independent headless FreeCAD audit of saved and reopened native document; nominal CAD only.'}
+doc=App.openDocument(str(src))
+for o in doc.Objects:o.touch()
+doc.recompute()
+parts=[o for o in doc.Objects if o.TypeId=='App::Link']
+doors=[o for o in parts if o.Name.startswith(('Dvere','SpojDveri'))]
+body=[o for o in parts if o not in doors]
+left=[o for o in doors if o.Name.startswith('DvereLeve') or (o.Name.startswith('SpojDveri_') and o.Name[11]=='0')]
+right=[o for o in doors if o not in left]
+report['physical_parts']=len(parts)
+report['bill_count']=sum(p['count'] for p in json.loads((OUT/'dily.json').read_text())['parts'])
+report['invalid_parts']=[{'name':o.Name,'valid':o.Shape.isValid(),'solids':len(o.Shape.Solids)} for o in parts if o.Shape.isNull() or not o.Shape.isValid() or len(o.Shape.Solids)!=1]
+bb=Part.makeCompound([o.Shape for o in parts]).BoundBox
+report['closed_bounds_mm']=[bb.XMin,bb.XMax,bb.YMin,bb.YMax,bb.ZMin,bb.ZMax]
+report['closed_part_geometry_fingerprint']=[{'name':o.Name,'volume_mm3':round(o.Shape.Volume,6),'bounds_mm':[round(getattr(o.Shape.BoundBox,k),6) for k in ('XMin','XMax','YMin','YMax','ZMin','ZMax')]} for o in parts]
+def intersections(group1,group2=None):
+ result=[]
+ if group2 is None:pairs=((a,b) for i,a in enumerate(group1) for b in group1[i+1:])
+ else:pairs=((a,b) for a in group1 for b in group2)
+ for a,b in pairs:
+  if not a.Shape.BoundBox.intersect(b.Shape.BoundBox):continue
+  v=a.Shape.common(b.Shape).Volume
+  if v>0.001:result.append([a.Name,b.Name,v])
+ return result
+def boxes_touch(a,b,eps=1e-6):
+ return all(getattr(a,k+'Min')<=getattr(b,k+'Max')+eps and getattr(b,k+'Min')<=getattr(a,k+'Max')+eps for k in ('X','Y','Z'))
+report['all_closed_hard_collisions']=intersections(parts)
+print('AUDIT_STATIC',len(parts),len(report['all_closed_hard_collisions']),flush=True)
+
+# Inspect geometric contacts by native shape boolean. Includes butt joints and
+# connector contact faces. Contact does not attest adhesive strength.
+connectors=[o for o in parts if o.Name.startswith(('Spoj','Roh'))]
+contact=[]
+for a in connectors:
+ hits=[]
+ for b in parts:
+  if a is b or not boxes_touch(a.Shape.BoundBox,b.Shape.BoundBox):continue
+  if a.Shape.distToShape(b.Shape)[0]>1e-5:continue
+  area=0
+  for fa in a.Shape.Faces:
+   for fb in b.Shape.Faces:
+    if boxes_touch(fa.BoundBox,fb.BoundBox):area+=fa.common(fb).Area
+  if area>0.01:hits.append({'name':b.Name,'area_mm2':area})
+ contact.append({'name':a.Name,'contacts':hits})
+report['connector_contacts']=contact
+report['connectors_less_than_two_face_contacts']=[x for x in contact if len(x['contacts'])<2]
+
+# An identical printed side can be turned around Y by 180 degrees for right side.
+side=doc.getObject('SideTile').Shape.copy()
+side.rotate(App.Vector(0,0,0),App.Vector(0,1,0),180)
+side.translate(App.Vector(370,0,doc.getObject('SideTile').Shape.BoundBox.ZLength))
+rs=doc.getObject('RightSideTile').Shape
+report['right_side_same_part_rotate_y180_symmetric_difference_mm3']=side.cut(rs).Volume+rs.cut(side).Volume
+
+# Compare the actual transformed point to rotation around the measured hinge.
+report['ninety_degree_rotation']=[]
+for leftdoor,x,ang in [(doc.getObject('DvereLeve_1'),14,90),(doc.getObject('DverePrave_1'),356,-90)]:
+ before=leftdoor.Shape.copy()
+ doc.Parameters.set('B19','90 deg');doc.Parameters.set('B20','90 deg');doc.recompute()
+ expected=before.copy();expected.rotate(App.Vector(x,172,0),App.Vector(0,0,1),ang)
+ actual=leftdoor.Shape
+ report['ninety_degree_rotation'].append({'name':leftdoor.Name,'link_axis':list(leftdoor.LinkPlacement.Rotation.Axis),'link_angle_deg':leftdoor.LinkPlacement.Rotation.Angle*180/math.pi,'symmetric_difference_mm3':expected.cut(actual).Volume+actual.cut(expected).Volume})
+ doc.Parameters.set('B19','0 deg');doc.Parameters.set('B20','0 deg');doc.recompute()
+
+# Sweep both simultaneously at 5-degree increments and asymmetric combinations
+# to capture adjacent doors and links as well as body contact.
+report['door_sweep_hard_collisions']=[]
+for la,ra in [(a,a) for a in range(0,91,5)]+[(0,90),(90,0),(45,90),(90,45)]:
+ doc.Parameters.set('B19',f'{la} deg');doc.Parameters.set('B20',f'{ra} deg');doc.recompute()
+ errors=intersections(doors,body)+intersections(doors)
+ if errors:report['door_sweep_hard_collisions'].append({'left_deg':la,'right_deg':ra,'pairs':errors})
+print('AUDIT_SWEEP',len(report['door_sweep_hard_collisions']),flush=True)
+doc.Parameters.set('B19','0 deg');doc.Parameters.set('B20','0 deg');doc.recompute()
+
+# Measured minimum separation: shaft/bore and neighboring knuckle end faces.
+report['hinge_nominal_fit_mm']={'pin_diameter':4,'round_bore_diameter':4.6,'diametral_clearance':0.6,'radial_clearance':0.3,'axial_clearance_each_end':2,'shaft_length':44,'head_diameter':7}
+report['pin_overlaps']=[x for x in report['all_closed_hard_collisions'] if x[0].startswith('Cep') or x[1].startswith('Cep')]
+report['measured_shaft_to_bore_distances_mm']=[]
+for row in range(1,4):
+ for hand in ('L','P'):
+  pinlink=doc.getObject(f'Cep_{row}_{hand}')
+  shaft=doc.getObject('PinShaft').Shape.copy()
+  shaft.Placement=pinlink.LinkPlacement.multiply(shaft.Placement)
+  targets=[doc.getObject(('BokLevy_' if hand=='L' else 'BokPravy_')+str(row)),doc.getObject(('DvereLeve_' if hand=='L' else 'DverePrave_')+str(row))]
+  report['measured_shaft_to_bore_distances_mm'].append({'pin':pinlink.Name,'fixed_bore':shaft.distToShape(targets[0].Shape)[0],'door_bore':shaft.distToShape(targets[1].Shape)[0]})
+report['physical_assumptions']=['370/180 adopted from sink size; clearance against walls and ceramics needs measurement','Open back and top; sink support independent','Body adhesive connector strength and mounting anchors unverified','WC/room clearance for door swing unmeasured','3D-print fit, pin wear, adhesive resistance in damp bathroom and load capacity untested','No designed door catch or positive 90-degree physical opening stop; angle range describes CAD verification, not installed hardware']
+(OUT/'nezavisly-audit.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
+App.closeDocument(doc.Name)
+print('INDEPENDENT_AUDIT_OK',flush=True)

@@ -1,0 +1,478 @@
+{
+  "plate": {
+    "number": 1,
+    "geometry": "podlozka-01-geometrie.3mf",
+    "geometry_sha256": "50a4dbd198ed6052f69a402c236cedbac7368a556021346800b02fef6798e119",
+    "preview": "podlozka-01.png",
+    "physical_parts": 1,
+    "parts": [
+      {
+        "id": "pouzdro-zdobene",
+        "name": "01_pouzdro-zdobene_01",
+        "file": "../stl/pouzdro-zdobene.stl",
+        "source_sha256": "52272f11c1da5100c33756c3c9fe94aa64b06f5f66380c752142e7aab70269b5",
+        "translation_mm": [
+          90.99999994999999,
+          113.10000033146972,
+          -1.0000002248489182e-07
+        ],
+        "placed_min_mm": [
+          91.00000004999998,
+          113.10000043146971,
+          0.0
+        ],
+        "placed_max_mm": [
+          168.99999995,
+          146.89999956853026,
+          247.99999989999998
+        ],
+        "size_mm": [
+          77.9999999,
+          33.799999137060546,
+          247.99999989999998
+        ],
+        "triangle_count": 8396,
+        "supports": false,
+        "support_note": "Dutina a náběh jsou shora otevřené. Dolní plochy dekoru, límce a střechy obou vrutových otvorů mají 45°, jen čtyři přechody dolních křídel límce lokálně až cca 49,2° podle STL (asi 31 mm² nad 45,5°). Řez této varianty je bez nových ostrovů a bez podpor; kvalita těchto míst není fyzicky ověřená.",
+        "critical_z_mm": [
+          0.2,
+          0.4,
+          0.6,
+          0.8,
+          1,
+          2,
+          3,
+          4,
+          6,
+          8,
+          10,
+          16.0,
+          16.4,
+          17.0,
+          24.0,
+          36.0,
+          120.0,
+          204.0,
+          222.0,
+          233.8,
+          234.2,
+          241.0,
+          248.0
+        ],
+        "blade_path": {
+          "blade_half_xy_mm": [
+            22.5,
+            1.5
+          ],
+          "cavity_half_xy_mm": [
+            23.5,
+            2.2
+          ],
+          "centre_xy_mm": [
+            39.00000010000012,
+            9.800000099999957
+          ],
+          "floor_z_mm": 16.0,
+          "mouth_z_mm": 234.0,
+          "lead_in_start_z_mm": 222.0
+        },
+        "mount_holes": [
+          {
+            "x_mm": 71.00000010000012,
+            "z_mm": 241.0
+          },
+          {
+            "x_mm": 7.000000100000122,
+            "z_mm": 7.0
+          }
+        ],
+        "mount_hole_diameter_mm": 5.5,
+        "wall_plate_y_mm": [
+          29.800000099999956,
+          33.800000099999956
+        ]
+      }
+    ],
+    "minimum_geometry_edge_margin_mm": 91.00000004999998,
+    "minimum_bbox_gap_mm": null,
+    "colour": "#B3141D",
+    "material_name": "cervena",
+    "profile": {
+      "kind": "cervena",
+      "mvs": "8",
+      "nozzle": "205",
+      "initial_nozzle": "215",
+      "bed": "50"
+    },
+    "supports_enabled": false
+  },
+  "project": "podlozka-01-kobra-x-pla-projekt.3mf",
+  "configured": {
+    "sha256": "19d1ef6816dde7feca1e5df7f589f0516f4932eb99b21d774edf44dcfcf9f717",
+    "objects": [
+      {
+        "name": "01_pouzdro-zdobene_01",
+        "preserved_geometry_and_placement": true,
+        "maximum_vertex_delta_mm": 4.332666037498711e-06
+      }
+    ],
+    "physical_parts": 1,
+    "mesh_repairs": [
+      {
+        "edges_fixed": "0",
+        "degenerate_facets": "0",
+        "facets_removed": "0",
+        "facets_reversed": "0",
+        "backwards_edges": "0"
+      }
+    ],
+    "settings": {
+      "printer_model": "Anycubic Kobra X",
+      "printer_settings_id": "Anycubic Kobra X 0.4 nozzle",
+      "print_settings_id": "Zdobené pouzdro na nůž — revize 05 0.20 mm navrh @Kobra X",
+      "filament_settings_id": [
+        "NAVRH PLA cervena nekalibrovany @Kobra X 0.4"
+      ],
+      "nozzle_diameter": [
+        "0.4"
+      ],
+      "layer_height": "0.2",
+      "wall_loops": "4",
+      "sparse_infill_density": "15%",
+      "sparse_infill_pattern": "gyroid",
+      "enable_support": "0",
+      "support_on_build_plate_only": "0",
+      "support_type": "normal(auto)",
+      "support_style": "snug",
+      "support_threshold_angle": "30",
+      "support_top_z_distance": "0.2",
+      "support_bottom_z_distance": "0.2",
+      "support_object_xy_distance": "0.35",
+      "support_interface_top_layers": "2",
+      "independent_support_layer_height": "0",
+      "brim_type": "outer_only",
+      "brim_width": "8",
+      "seam_position": "back",
+      "nozzle_temperature": [
+        "205"
+      ],
+      "nozzle_temperature_initial_layer": [
+        "215"
+      ],
+      "textured_plate_temp": [
+        "50"
+      ],
+      "outer_wall_speed": "40",
+      "inner_wall_speed": "70",
+      "filament_colour": [
+        "#B3141D"
+      ],
+      "filament_max_volumetric_speed": [
+        "8"
+      ],
+      "enable_prime_tower": "0",
+      "initial_layer_print_height": "0.2",
+      "top_shell_layers": "5",
+      "bottom_shell_layers": "5",
+      "filter_out_gap_fill": "0",
+      "detect_narrow_internal_solid_infill": "1"
+    },
+    "has_gcode": false
+  },
+  "delivered": {
+    "sha256": "db2a8a1a438cf909530de85f0b264cc8427ed5da4bbfd6591d66397f0398f401",
+    "objects": [
+      {
+        "name": "01_pouzdro-zdobene_01",
+        "preserved_geometry_and_placement": true,
+        "maximum_vertex_delta_mm": 4.332666037498711e-06
+      }
+    ],
+    "physical_parts": 1,
+    "mesh_repairs": [
+      {
+        "edges_fixed": "0",
+        "degenerate_facets": "0",
+        "facets_removed": "0",
+        "facets_reversed": "0",
+        "backwards_edges": "0"
+      }
+    ],
+    "settings": {
+      "printer_model": "Anycubic Kobra X",
+      "printer_settings_id": "Anycubic Kobra X 0.4 nozzle",
+      "print_settings_id": "Zdobené pouzdro na nůž — revize 05 0.20 mm navrh @Kobra X",
+      "filament_settings_id": [
+        "NAVRH PLA cervena nekalibrovany @Kobra X 0.4"
+      ],
+      "nozzle_diameter": [
+        "0.4"
+      ],
+      "layer_height": "0.2",
+      "wall_loops": "4",
+      "sparse_infill_density": "15%",
+      "sparse_infill_pattern": "gyroid",
+      "enable_support": "0",
+      "support_on_build_plate_only": "0",
+      "support_type": "normal(auto)",
+      "support_style": "snug",
+      "support_threshold_angle": "30",
+      "support_top_z_distance": "0.2",
+      "support_bottom_z_distance": "0.2",
+      "support_object_xy_distance": "0.35",
+      "support_interface_top_layers": "2",
+      "independent_support_layer_height": "0",
+      "brim_type": "outer_only",
+      "brim_width": "8",
+      "seam_position": "back",
+      "nozzle_temperature": [
+        "205"
+      ],
+      "nozzle_temperature_initial_layer": [
+        "215"
+      ],
+      "textured_plate_temp": [
+        "50"
+      ],
+      "outer_wall_speed": "40",
+      "inner_wall_speed": "70",
+      "filament_colour": [
+        "#B3141D"
+      ],
+      "filament_max_volumetric_speed": [
+        "8"
+      ],
+      "enable_prime_tower": "0",
+      "initial_layer_print_height": "0.2",
+      "top_shell_layers": "5",
+      "bottom_shell_layers": "5",
+      "filter_out_gap_fill": "0",
+      "detect_narrow_internal_solid_infill": "1"
+    },
+    "has_gcode": true,
+    "gcode_bytes": 16239933,
+    "gcode_sha256": "6135c73bc1879f7cca1ef44d12be291283885737b1f669aca8b448bd016b2d66",
+    "slice_metadata": {
+      "prediction": "37597",
+      "weight": "160.35",
+      "outside": "false",
+      "support_used": "false"
+    },
+    "warnings": [
+      {
+        "msg": "not_support_traditional_timelapse",
+        "level": "1",
+        "error_code": "1000C003"
+      }
+    ]
+  },
+  "toolpath_audit": {
+    "physical_parts": 1,
+    "all_objects_on_first_layer": true,
+    "layers": 1240,
+    "functional_openings": {
+      "blade_rect_bed_mm": [
+        107.5000000500001,
+        121.40000043146968,
+        152.5000000500001,
+        124.40000043146968
+      ],
+      "cavity_rect_bed_mm": [
+        106.5000000500001,
+        120.70000043146968,
+        153.5000000500001,
+        125.10000043146968
+      ],
+      "last_layer_z_with_strokes_under_blade_mm": 16.0,
+      "layers_checked_floor_to_mouth": 1090,
+      "strokes_crossing_blade_rect_floor_to_mouth": 0,
+      "minimum_stroke_distance_to_blade_rect_mm": 0.9099995685303242,
+      "minimum_stroke_distance_to_cavity_rect_mm": 0.2099995685303213,
+      "mount_holes": [
+        {
+          "x_bed_mm": 162.0000000500001,
+          "z_mm": 241.0,
+          "layers_checked": 27,
+          "strokes_inside_inscribed_circle": 0,
+          "minimum_stroke_distance_mm": 0.11154134118220327
+        },
+        {
+          "x_bed_mm": 98.00000005000011,
+          "z_mm": 7.0,
+          "layers_checked": 27,
+          "strokes_inside_inscribed_circle": 0,
+          "minimum_stroke_distance_mm": 0.11154134118220327
+        }
+      ],
+      "method": "Centreline of every non-brim extrusion in the delivered G-code against the 45 x 3 mm blade rectangle, the cavity rectangle and each inscribed hole circle, layer by layer."
+    },
+    "role_ranges": {
+      "Brim": {
+        "strokes": 1677,
+        "z_min_mm": 0.2,
+        "z_max_mm": 0.2
+      },
+      "Outer wall": {
+        "strokes": 50739,
+        "z_min_mm": 0.2,
+        "z_max_mm": 248.0
+      },
+      "Inner wall": {
+        "strokes": 135567,
+        "z_min_mm": 0.2,
+        "z_max_mm": 247.8
+      },
+      "Gap infill": {
+        "strokes": 4688,
+        "z_min_mm": 0.2,
+        "z_max_mm": 247.8
+      },
+      "Bottom surface": {
+        "strokes": 143,
+        "z_min_mm": 0.2,
+        "z_max_mm": 0.2
+      },
+      "Internal solid infill": {
+        "strokes": 30447,
+        "z_min_mm": 0.4,
+        "z_max_mm": 246.6
+      },
+      "Sparse infill": {
+        "strokes": 189317,
+        "z_min_mm": 1.2,
+        "z_max_mm": 233.0
+      },
+      "Bridge": {
+        "strokes": 137,
+        "z_min_mm": 1.2,
+        "z_max_mm": 245.0
+      },
+      "Top surface": {
+        "strokes": 596,
+        "z_min_mm": 4.2,
+        "z_max_mm": 248.0
+      },
+      "Internal Bridge": {
+        "strokes": 647,
+        "z_min_mm": 15.2,
+        "z_max_mm": 233.2
+      }
+    },
+    "first_layer": {
+      "object_bbox_mm": [
+        [
+          91.35,
+          115.65
+        ],
+        [
+          168.65,
+          146.55
+        ]
+      ],
+      "brim_bbox_mm": [
+        [
+          83.815,
+          108.115
+        ],
+        [
+          176.185,
+          154.085
+        ]
+      ],
+      "brim_extent_mm": [
+        7.534999999999997,
+        7.535000000000011,
+        7.534999999999997,
+        7.534999999999997
+      ]
+    },
+    "all_layers_have_extrusion": true,
+    "maximum_extrusion_z_mm": 248.0,
+    "roles_segments": {
+      "Brim": 1677,
+      "Outer wall": 50739,
+      "Inner wall": 135567,
+      "Gap infill": 4688,
+      "Bottom surface": 143,
+      "Internal solid infill": 30447,
+      "Sparse infill": 189317,
+      "Bridge": 137,
+      "Top surface": 596,
+      "Internal Bridge": 647
+    },
+    "support_segments": 0,
+    "support_layers": [],
+    "support_bounds_xy_mm": null,
+    "brim_generated": true,
+    "deposition_island_test": {
+      "method": "Actual path graph using per-stroke G-code WIDTH: same-layer connection distance <= half the sum of stroke widths; every component must contact preceding-layer strokes within half the sum of widths plus 0.25 mm allowance. Support-only components may contact the second preceding layer within 0.4 mm Z spacing, accounting for the configured 0.2 mm support bottom gap; every such exception is recorded. Does not check deposition order within a layer and does not certify full overhang support.",
+      "disconnected_new_islands": [],
+      "configured_support_bottom_gap_contacts": [],
+      "passed": true,
+      "maximum_components_per_layer": 3
+    },
+    "extrusion_min_xy_mm": [
+      83.815,
+      108.115
+    ],
+    "extrusion_max_xy_mm": [
+      176.185,
+      154.085
+    ],
+    "minimum_extrusion_edge_margin_mm": 83.815,
+    "maximum_commanded_extrusion_speed_mm_s": 80.0,
+    "maximum_commanded_volumetric_flow_mm3_s_segments_at_least_0_1mm": 8.044573799377746,
+    "maximum_raw_segment_flow_mm3_s": 9.524430298631522,
+    "flow_quantisation_note": "XY coordinates use 0.001 mm and E uses 0.00001 mm precision; raw flow of moves below 0.1 mm is dominated by rounding. Audited flow uses segments at least 0.1 mm.",
+    "preview": "podlozka-01-vrstvy.png",
+    "detail_previews": [
+      "detail-01-01_pouzdro-zdobene_01-drahy.png"
+    ],
+    "selected_z_mm": [
+      0.2,
+      0.4,
+      0.6,
+      0.8,
+      1.0,
+      2.0,
+      3.0,
+      4.0,
+      6.0,
+      8.0,
+      10.0,
+      15.0,
+      16.0,
+      16.4,
+      17.0,
+      20.0,
+      24.0,
+      36.0,
+      120.0,
+      204.0,
+      222.0,
+      233.8,
+      234.2,
+      241.0,
+      248.0
+    ],
+    "estimated_filament_g": 160.35,
+    "estimated_printing_time": "10h 26m 37s",
+    "first_layer_gcode_temperature_c": {
+      "bed": 50.0,
+      "nozzle": 215.0
+    },
+    "physical_print_verified": false
+  },
+  "machine_profile_sha256": "baf80d3287e1e863fba29cdfd240b9b5ebc28bd87e1b4d03fc79e53f0009570a",
+  "process_sha256": "503e154a87afbe3c08525afad85d671729d517a08effcae79f9bd46386e47fd1",
+  "filament_sha256": "aec7f5a8c8bebcf08ebee0fbbce8c01edf5810cb179aee9aef8c8d878281cc1a",
+  "cli_exit_codes": [
+    0,
+    0
+  ],
+  "cli_error_messages": [
+    "calc_exclude_triangles:Unable to create exclude triangles"
+  ],
+  "status": "Ornamented wall scabbard prototype; knife fit, stability and wall anchors not physically verified",
+  "physical_print_verified": false
+}

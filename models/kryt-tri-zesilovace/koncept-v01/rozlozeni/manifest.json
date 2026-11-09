@@ -1,0 +1,342 @@
+{
+  "status": "KONCEPT-NEVYRABET",
+  "geometry_only": true,
+  "ready_to_print": false,
+  "dimensions_are_unmeasured_design_placeholders": true,
+  "printer_reference": "Anycubic Kobra X; bed envelope only, NO printer preset",
+  "printer_envelope_mm": [
+    260.0,
+    260.0,
+    260.0
+  ],
+  "minimum_required_edge_margin_mm": 5.0,
+  "plate_count": 6,
+  "total_physical_parts": 6,
+  "no_machine_material_or_process_presets": true,
+  "reference_electronics_included": false,
+  "slicing_performed": false,
+  "supports_configured": false,
+  "assembly_connectors_complete": false,
+  "physical_fit_verified": false,
+  "verification_scope": "Exact named STL inventory and hashes; one closed consistently oriented mesh per part; single build item and exact coordinates in each Core 3MF; plate bounds and numbered geometric previews. Not a self-intersection, strength, thermal, fit or slicing test.",
+  "parts": [
+    {
+      "plate": 1,
+      "part": "telo",
+      "count": 1,
+      "source_stl": "../stl/telo.stl",
+      "source_sha256": "728b1347ff72ef197fe1e7ca6a6b9befc2b9c2547d0659ba0d8e52f418fcca5e",
+      "source_bbox_mm": [
+        132.0,
+        186.0,
+        204.8000030517578
+      ],
+      "geometry_only_3mf": "podlozka-01-telo-KONCEPT-NEVYRABET.3mf",
+      "preview": "podlozka-01-telo-KONCEPT-NEVYRABET.png",
+      "mesh_check": {
+        "watertight_edges": true,
+        "consistent_winding": true,
+        "connected_shells": 1,
+        "signed_volume_mm3": 350890.13363483164,
+        "vertex_count": 952,
+        "triangle_count": 2048,
+        "self_intersections_tested": false
+      },
+      "orientation": "Exported XYZ orientation preserved",
+      "translation_after_rotation_mm": [
+        64.0,
+        37.0,
+        -0.0
+      ],
+      "placed_min_xyz_mm": [
+        64.0,
+        37.0,
+        0.0
+      ],
+      "placed_max_xyz_mm": [
+        196.0,
+        223.0,
+        204.8000030517578
+      ],
+      "placed_bbox_mm": [
+        132.0,
+        186.0,
+        204.8000030517578
+      ],
+      "edge_margins_left_front_right_back_mm": [
+        64.0,
+        37.0,
+        64.0,
+        37.0
+      ],
+      "minimum_edge_margin_mm": 37.0,
+      "height_clearance_mm": 55.19999694824219,
+      "geometry_only_sha256": "5530a1ac9124e013e47cb9650789917b5e9732e3526038d8f7869c856bd28efb"
+    },
+    {
+      "plate": 2,
+      "part": "celo",
+      "count": 1,
+      "source_stl": "../stl/celo.stl",
+      "source_sha256": "368de452d0c7d8c695483d3172da324abeb84c14d01687a2917182835720e3ad",
+      "source_bbox_mm": [
+        132.0,
+        3.2000000476837185,
+        208.0
+      ],
+      "geometry_only_3mf": "podlozka-02-celo-KONCEPT-NEVYRABET.3mf",
+      "preview": "podlozka-02-celo-KONCEPT-NEVYRABET.png",
+      "mesh_check": {
+        "watertight_edges": true,
+        "consistent_winding": true,
+        "connected_shells": 1,
+        "signed_volume_mm3": 58320.541069689556,
+        "vertex_count": 800,
+        "triangle_count": 1668,
+        "self_intersections_tested": false
+      },
+      "orientation": "Rotation X=source X, Y=source Z, Z=-source Y; thickness on print Z",
+      "translation_after_rotation_mm": [
+        64.0,
+        26.0,
+        2.6645352591003757e-15
+      ],
+      "placed_min_xyz_mm": [
+        64.0,
+        26.0,
+        0.0
+      ],
+      "placed_max_xyz_mm": [
+        196.0,
+        234.0,
+        3.2000000476837185
+      ],
+      "placed_bbox_mm": [
+        132.0,
+        208.0,
+        3.2000000476837185
+      ],
+      "edge_margins_left_front_right_back_mm": [
+        64.0,
+        26.0,
+        64.0,
+        26.0
+      ],
+      "minimum_edge_margin_mm": 26.0,
+      "height_clearance_mm": 256.7999999523163,
+      "geometry_only_sha256": "4f510cb403bc6dadc1715184fe9425966791e23cc59c92e4574ba1f779117eea"
+    },
+    {
+      "plate": 3,
+      "part": "vrsek",
+      "count": 1,
+      "source_stl": "../stl/vrsek.stl",
+      "source_sha256": "1deb8b748f24574719cce511997a170a67f95710031cd757e06519226cb4b758",
+      "source_bbox_mm": [
+        132.0,
+        186.0,
+        3.1999969482421875
+      ],
+      "geometry_only_3mf": "podlozka-03-vrsek-KONCEPT-NEVYRABET.3mf",
+      "preview": "podlozka-03-vrsek-KONCEPT-NEVYRABET.png",
+      "mesh_check": {
+        "watertight_edges": true,
+        "consistent_winding": true,
+        "connected_shells": 1,
+        "signed_volume_mm3": 61593.541259765625,
+        "vertex_count": 144,
+        "triangle_count": 352,
+        "self_intersections_tested": false
+      },
+      "orientation": "Exported XYZ orientation preserved",
+      "translation_after_rotation_mm": [
+        64.0,
+        37.0,
+        -204.8000030517578
+      ],
+      "placed_min_xyz_mm": [
+        64.0,
+        37.0,
+        0.0
+      ],
+      "placed_max_xyz_mm": [
+        196.0,
+        223.0,
+        3.1999969482421875
+      ],
+      "placed_bbox_mm": [
+        132.0,
+        186.0,
+        3.1999969482421875
+      ],
+      "edge_margins_left_front_right_back_mm": [
+        64.0,
+        37.0,
+        64.0,
+        37.0
+      ],
+      "minimum_edge_margin_mm": 37.0,
+      "height_clearance_mm": 256.8000030517578,
+      "geometry_only_sha256": "1133cfe73b51ccb85cc46617c9f606ebf59afb3902f27730305715b5b535bea0"
+    },
+    {
+      "plate": 4,
+      "part": "ramecek-1",
+      "count": 1,
+      "source_stl": "../stl/ramecek-1.stl",
+      "source_sha256": "337c03920753f3f0f6db20fd41e2295a66b1958a027ae0353297652425738082",
+      "source_bbox_mm": [
+        124.0,
+        148.0,
+        3.200000762939453
+      ],
+      "geometry_only_3mf": "podlozka-04-ramecek-1-KONCEPT-NEVYRABET.3mf",
+      "preview": "podlozka-04-ramecek-1-KONCEPT-NEVYRABET.png",
+      "mesh_check": {
+        "watertight_edges": true,
+        "consistent_winding": true,
+        "connected_shells": 1,
+        "signed_volume_mm3": 13107.203125000015,
+        "vertex_count": 16,
+        "triangle_count": 32,
+        "self_intersections_tested": false
+      },
+      "orientation": "Exported XYZ orientation preserved",
+      "translation_after_rotation_mm": [
+        64.0,
+        46.0,
+        -14.0
+      ],
+      "placed_min_xyz_mm": [
+        68.0,
+        56.0,
+        0.0
+      ],
+      "placed_max_xyz_mm": [
+        192.0,
+        204.0,
+        3.200000762939453
+      ],
+      "placed_bbox_mm": [
+        124.0,
+        148.0,
+        3.200000762939453
+      ],
+      "edge_margins_left_front_right_back_mm": [
+        68.0,
+        56.0,
+        68.0,
+        56.0
+      ],
+      "minimum_edge_margin_mm": 56.0,
+      "height_clearance_mm": 256.79999923706055,
+      "geometry_only_sha256": "5fb890f45fff1a986d8d6f68ad115f941a08640375554caa9a5443ab5ae20c55"
+    },
+    {
+      "plate": 5,
+      "part": "ramecek-2",
+      "count": 1,
+      "source_stl": "../stl/ramecek-2.stl",
+      "source_sha256": "63fc8981d7facf36ef6b161d595ecc3c9e792764f2a9b4ec3f5d095e4d848f6c",
+      "source_bbox_mm": [
+        124.0,
+        148.0,
+        3.1999969482421875
+      ],
+      "geometry_only_3mf": "podlozka-05-ramecek-2-KONCEPT-NEVYRABET.3mf",
+      "preview": "podlozka-05-ramecek-2-KONCEPT-NEVYRABET.png",
+      "mesh_check": {
+        "watertight_edges": true,
+        "consistent_winding": true,
+        "connected_shells": 1,
+        "signed_volume_mm3": 13107.1875,
+        "vertex_count": 16,
+        "triangle_count": 32,
+        "self_intersections_tested": false
+      },
+      "orientation": "Exported XYZ orientation preserved",
+      "translation_after_rotation_mm": [
+        64.0,
+        46.0,
+        -78.0
+      ],
+      "placed_min_xyz_mm": [
+        68.0,
+        56.0,
+        0.0
+      ],
+      "placed_max_xyz_mm": [
+        192.0,
+        204.0,
+        3.1999969482421875
+      ],
+      "placed_bbox_mm": [
+        124.0,
+        148.0,
+        3.1999969482421875
+      ],
+      "edge_margins_left_front_right_back_mm": [
+        68.0,
+        56.0,
+        68.0,
+        56.0
+      ],
+      "minimum_edge_margin_mm": 56.0,
+      "height_clearance_mm": 256.8000030517578,
+      "geometry_only_sha256": "dbdaa6e772a9cc39edb2370e050e948d82cfb639fa709b5b7396b329d5bd912d"
+    },
+    {
+      "plate": 6,
+      "part": "ramecek-3",
+      "count": 1,
+      "source_stl": "../stl/ramecek-3.stl",
+      "source_sha256": "4366d91e054f62bd7f482e6d71583f2f8ffde36a1c7255516b5455b6ad17c4c5",
+      "source_bbox_mm": [
+        124.0,
+        148.0,
+        3.1999969482421875
+      ],
+      "geometry_only_3mf": "podlozka-06-ramecek-3-KONCEPT-NEVYRABET.3mf",
+      "preview": "podlozka-06-ramecek-3-KONCEPT-NEVYRABET.png",
+      "mesh_check": {
+        "watertight_edges": true,
+        "consistent_winding": true,
+        "connected_shells": 1,
+        "signed_volume_mm3": 13107.1875,
+        "vertex_count": 16,
+        "triangle_count": 32,
+        "self_intersections_tested": false
+      },
+      "orientation": "Exported XYZ orientation preserved",
+      "translation_after_rotation_mm": [
+        64.0,
+        46.0,
+        -142.0
+      ],
+      "placed_min_xyz_mm": [
+        68.0,
+        56.0,
+        0.0
+      ],
+      "placed_max_xyz_mm": [
+        192.0,
+        204.0,
+        3.1999969482421875
+      ],
+      "placed_bbox_mm": [
+        124.0,
+        148.0,
+        3.1999969482421875
+      ],
+      "edge_margins_left_front_right_back_mm": [
+        68.0,
+        56.0,
+        68.0,
+        56.0
+      ],
+      "minimum_edge_margin_mm": 56.0,
+      "height_clearance_mm": 256.8000030517578,
+      "geometry_only_sha256": "456406a7e403fd2711ba9ccfa532eadc1039448ab261709158c01577b08b64ef"
+    }
+  ]
+}

@@ -1,0 +1,226 @@
+# -*- coding: utf-8 -*-
+"""TechTools receipt box, dimensions in mm. Run in FreeCAD 1.1.3.
+
+Overwrites only schranka.FCStd, stl/telo.stl, stl/napis.stl, stl/viko.stl and
+kontrola-modelu.json beside this macro. The body and lid use native FreeCAD
+boxes, cuts, fuses and spreadsheet expressions. Font outlines are embedded
+as standard Part geometry, so reopening the FCStd needs no custom proxy.
+All dimensions are design choices, not measurements supplied by Jiří.
+"""
+from pathlib import Path
+import hashlib
+import json
+import FreeCAD as App
+import Mesh
+import MeshPart
+import Part
+
+OUT = Path(__file__).resolve().parent
+FONT = "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
+NAME = "SchrankaNaUctenkyTechTools"
+App.ParamGet("User parameter:BaseApp/Preferences/Document").SetInt("CountBackupFiles", 0)
+if NAME in App.listDocuments():
+    raise RuntimeError("Dokument je otevřený; před regenerací uložte změny a zavřete jej.")
+
+VALUES = [
+    ("BodyWidth", "Vnější šířka těla", 150.0),
+    ("BodyDepth", "Vnější hloubka těla", 110.0),
+    ("BodyHeight", "Výška těla", 138.0),
+    ("Wall", "Tloušťka stěn", 3.2),
+    ("Floor", "Tloušťka dna", 3.6),
+    ("CapThickness", "Tloušťka desky víka", 3.2),
+    ("CapOverhang", "Přesah víka na každou stranu", 3.0),
+    ("FitClearance", "Vůle vložky víka na každou stranu", 0.65),
+    ("LipDepth", "Hloubka zasunuté obruby", 8.0),
+    ("LipWall", "Tloušťka obruby", 2.6),
+    ("SlotLength", "Celková délka vhazovací štěrbiny", 120.0),
+    ("SlotWidth", "Šířka vhazovací štěrbiny", 12.0),
+    ("LabelHeight", "Spodní hrana nápisu TechTools", 83.0),
+    ("SubtitleHeight", "Spodní hrana nápisu účtenky", 63.0),
+]
+doc = App.newDocument(NAME)
+doc.Label = "Schránka na účtenky TechTools — návrh"
+sheet = doc.addObject("Spreadsheet::Sheet", "Parameters")
+sheet.Label = "Parametry v mm — návrhové hodnoty"
+for cell, value in (("A1", "Parametr"), ("B1", "Hodnota"), ("C1", "Původ")):
+    sheet.set(cell, value)
+sheet.setStyle("A1:C1", "bold", "add")
+sheet.setBackground("A1:C1", (0.84, 0.9, 0.94))
+for row, (alias, label, value) in enumerate(VALUES, 2):
+    sheet.set("A%d" % row, label)
+    sheet.set("B%d" % row, "%g mm" % value)
+    sheet.setAlias("B%d" % row, alias)
+    sheet.set("C%d" % row, "NÁVRH — fyzický tisk a fit neověřeny")
+    sheet.setBackground("B%d" % row, (1.0, 0.94, 0.77))
+for row, alias, label, formula in [
+    (17, "InnerWidth", "Světlá šířka těla", "=BodyWidth - 2 * Wall"),
+    (18, "InnerDepth", "Světlá hloubka těla", "=BodyDepth - 2 * Wall"),
+    (19, "LidWidth", "Celková šířka víka", "=BodyWidth + 2 * CapOverhang"),
+    (20, "LidDepth", "Celková hloubka víka", "=BodyDepth + 2 * CapOverhang"),
+    (21, "LipWidth", "Vnější šířka obruby", "=InnerWidth - 2 * FitClearance"),
+    (22, "LipDepthXY", "Vnější hloubka obruby", "=InnerDepth - 2 * FitClearance"),
+]:
+    sheet.set("A%d" % row, label)
+    sheet.set("B%d" % row, formula)
+    sheet.setAlias("B%d" % row, alias)
+    sheet.set("C%d" % row, "ODVOZENO")
+sheet.set("A24", "Nápis TechTools účtenky: obrysy písma jsou uložené v FCStd; změnu textu nebo velikosti proveďte v makru.")
+sheet.mergeCells("A24:C24")
+sheet.setColumnWidth("A", 440)
+sheet.setColumnWidth("B", 120)
+sheet.setColumnWidth("C", 235)
+doc.recompute()
+
+def p(alias):
+    return "Parameters." + alias
+
+def expr(obj, prop, formula):
+    obj.setExpression(prop, formula)
+
+def box(name, label, dims, position):
+    obj = doc.addObject("Part::Box", name)
+    obj.Label = label
+    for prop, formula in zip(("Length", "Width", "Height"), dims):
+        expr(obj, prop, formula)
+    for axis, formula in zip("xyz", position):
+        expr(obj, "Placement.Base." + axis, formula)
+    return obj
+
+def cylinder(name, label, radius, height, position):
+    obj = doc.addObject("Part::Cylinder", name)
+    obj.Label = label
+    expr(obj, "Radius", radius)
+    expr(obj, "Height", height)
+    for axis, formula in zip("xyz", position):
+        expr(obj, "Placement.Base." + axis, formula)
+    return obj
+
+# Upright body: floor and side walls, fully open at the top.
+outer = box("BodyOuter", "Vnější objem těla", [p("BodyWidth"), p("BodyDepth"), p("BodyHeight")], ["0 mm"] * 3)
+inside = box("BodyCavity", "Otevřený vnitřek — nástroj", [p("InnerWidth"), p("InnerDepth"), p("BodyHeight")], [p("Wall"), p("Wall"), p("Floor")])
+shell = doc.addObject("Part::Cut", "BodyShell")
+shell.Label = "Tělo s otevřeným vrchem"
+shell.Base, shell.Tool, shell.Refine = outer, inside, True
+
+# Both words are separate black material regions, inset 0.8 mm into the
+# white front wall. They are cut out of Body so the colors never overlap.
+# Local text is in XY and extruded along +Z; rotating 90° about X turns its
+# extrusion toward -Y. Placement at Y=0.8 keeps the visible face flush at Y=0.
+def lettering(name, text, font_size, height_alias):
+    characters = Part.makeWireString(text, FONT, font_size, 0.0)
+    faces = []
+    for character in characters:
+        wires = []
+        for wire in character:
+            joined = Part.Compound(wire.Edges).connectEdgesToWires()
+            wires.extend(w for w in joined.Wires if w.isClosed())
+        if wires:
+            faces.extend(Part.makeFace(wires, "Part::FaceMakerBullseye").Faces)
+    if not faces:
+        raise RuntimeError("Nápis %s se nepodařilo převést na geometrii" % text)
+    letters = Part.makeCompound([face.extrude(App.Vector(0, 0, 0.8)) for face in faces])
+    bb = letters.BoundBox
+    result = doc.addObject("Part::Feature", name)
+    result.Label = "Barevná vložka nápisu %s — uložené obrysy" % text
+    result.Shape = letters
+    result.Placement.Rotation = App.Rotation(App.Vector(1, 0, 0), 90)
+    expr(result, "Placement.Base.x", p("BodyWidth") + " / 2 - %.9f mm" % ((bb.XMin + bb.XMax) / 2))
+    expr(result, "Placement.Base.y", "0.8 mm")
+    expr(result, "Placement.Base.z", p(height_alias) + " - %.9f mm" % bb.YMin)
+    return result
+
+label = lettering("TechToolsLettering", "TechTools", 18.0, "LabelHeight")
+subtitle = lettering("ReceiptsLettering", "účtenky", 14.0, "SubtitleHeight")
+lettering_region = doc.addObject("Part::Compound", "Lettering")
+lettering_region.Label = "BAREVNÁ OBLAST — černý nápis TechTools účtenky"
+lettering_region.Links = [label, subtitle]
+body = doc.addObject("Part::Cut", "Body")
+body.Label = "TISKNOUT — bílé tělo s kapsami pro černý nápis"
+body.Base = shell
+body.Tool = lettering_region
+body.Refine = True
+
+# Lid in its print orientation: visible flat top is on the bed; the locating
+# lip points up. In use, invert the lid and insert its lip into the body.
+cap = box("LidCap", "Plochá deska víka", [p("LidWidth"), p("LidDepth"), p("CapThickness")], ["0 mm"] * 3)
+lip_x = p("CapOverhang") + " + " + p("Wall") + " + " + p("FitClearance")
+lip_y = lip_x
+lip_outer = box("LipOuter", "Vnější obrys zasunuté obruby", [p("LipWidth"), p("LipDepthXY"), p("LipDepth")], [lip_x, lip_y, p("CapThickness")])
+lip_inner = box("LipInner", "Vnitřní otvor obruby — nástroj", [p("LipWidth") + " - 2 * " + p("LipWall"), p("LipDepthXY") + " - 2 * " + p("LipWall"), p("LipDepth") + " + 1 mm"], [lip_x + " + " + p("LipWall"), lip_y + " + " + p("LipWall"), p("CapThickness")])
+lip = doc.addObject("Part::Cut", "LidLip")
+lip.Label = "Zasouvací obruba víka"
+lip.Base, lip.Tool, lip.Refine = lip_outer, lip_inner, True
+lid_raw = doc.addObject("Part::Fuse", "LidBeforeSlot")
+lid_raw.Label = "Víko před vyříznutím štěrbiny"
+lid_raw.Base, lid_raw.Tool, lid_raw.Refine = cap, lip, True
+
+# Rounded-ended 120 x 12 mm through slot. The cutter reaches only the cap:
+# it is well inside the empty middle of the locating lip.
+slot_x0 = "(" + p("LidWidth") + " - " + p("SlotLength") + ") / 2"
+slot_y0 = "(" + p("LidDepth") + " - " + p("SlotWidth") + ") / 2"
+slot_rect = box("SlotMiddle", "Střed štěrbiny — nástroj", [p("SlotLength") + " - " + p("SlotWidth"), p("SlotWidth"), p("CapThickness") + " + 1 mm"], [slot_x0 + " + " + p("SlotWidth") + " / 2", slot_y0, "-0.5 mm"])
+slot_ends = []
+for i, sx in enumerate((slot_x0 + " + " + p("SlotWidth") + " / 2", slot_x0 + " + " + p("SlotLength") + " - " + p("SlotWidth") + " / 2"), 1):
+    slot_ends.append(cylinder("SlotEnd%d" % i, "Zaoblení štěrbiny %d — nástroj" % i, p("SlotWidth") + " / 2", p("CapThickness") + " + 1 mm", [sx, p("LidDepth") + " / 2", "-0.5 mm"]))
+slot_tool = doc.addObject("Part::MultiFuse", "SlotTool")
+slot_tool.Label = "Zaoblená vhazovací štěrbina — nástroj"
+slot_tool.Shapes = [slot_rect] + slot_ends
+slot_tool.Refine = True
+lid = doc.addObject("Part::Cut", "Lid")
+lid.Label = "TISKNOUT — snímatelné víko se štěrbinou"
+lid.Base, lid.Tool, lid.Refine = lid_raw, slot_tool, True
+
+doc.recompute()
+bad = [(obj.Name, str(obj.State)) for obj in doc.Objects if "Invalid" in obj.State]
+if bad:
+    raise RuntimeError("Neplatné objekty: %s" % bad)
+for name, obj in (("telo", body), ("viko", lid)):
+    if not obj.Shape.isValid() or len(obj.Shape.Solids) != 1:
+        raise RuntimeError("%s: neplatné těleso nebo počet solidů %d" % (name, len(obj.Shape.Solids)))
+if not lettering_region.Shape.isValid() or not lettering_region.Shape.Solids:
+    raise RuntimeError("Barevná oblast nápisu není platná")
+color_overlap = body.Shape.common(lettering_region.Shape).Volume
+if color_overlap > 1e-5:
+    raise RuntimeError("Bílé tělo a černý nápis se objemově překrývají: %g mm3" % color_overlap)
+if abs(body.Shape.Volume + lettering_region.Shape.Volume - shell.Shape.Volume) > 1e-4:
+    raise RuntimeError("Nápis nevyplňuje kapsy ve stěně těla")
+
+if App.GuiUp:
+    for obj in doc.Objects:
+        if hasattr(obj, "ViewObject"):
+            obj.ViewObject.Visibility = obj in (body, lettering_region, lid)
+    body.ViewObject.ShapeColor = (0.87, 0.89, 0.88)
+    lettering_region.ViewObject.ShapeColor = (0.14, 0.19, 0.21)
+    lid.ViewObject.ShapeColor = (0.87, 0.89, 0.88)
+
+stl_dir = OUT / "stl"
+stl_dir.mkdir(exist_ok=True)
+report = {"units": "mm", "status": "CAD a STL; fyzický tisk a fit neověřeny", "source": "Všechny rozměry jsou návrhové volby agenta; uživatel žádné nezadal", "parameters_mm": {alias: value for alias, _, value in VALUES}, "parts": {}, "color_overlap_mm3": color_overlap, "color_volume_partition_valid": True}
+for filename, obj in (("telo", body), ("napis", lettering_region), ("viko", lid)):
+    mesh = MeshPart.meshFromShape(Shape=obj.Shape, LinearDeflection=0.05, AngularDeflection=0.12, Relative=False)
+    path = stl_dir / (filename + ".stl")
+    mesh.write(str(path))
+    reloaded = Mesh.Mesh(str(path))
+    components = reloaded.countComponents()
+    if not reloaded.isSolid() or (filename != "napis" and components != 1) or (filename == "napis" and components < 2):
+        raise RuntimeError("STL %s nemá očekávané uzavřené komponenty: %d" % (filename, components))
+    bb = obj.Shape.BoundBox
+    report["parts"][filename] = {"bbox_mm": [bb.XLength, bb.YLength, bb.ZLength], "valid": obj.Shape.isValid(), "solids": len(obj.Shape.Solids), "volume_mm3": obj.Shape.Volume, "stl_facets": reloaded.CountFacets, "stl_closed": reloaded.isSolid(), "stl_components": components, "stl_sha256": hashlib.sha256(path.read_bytes()).hexdigest()}
+
+# Local fit geometry check in assembled orientation, without assuming a print fit.
+inner_width = float(sheet.InnerWidth.Value)
+inner_depth = float(sheet.InnerDepth.Value)
+lip_width = float(sheet.LipWidth.Value)
+lip_depth_xy = float(sheet.LipDepthXY.Value)
+clearance = float(sheet.FitClearance.Value)
+assert abs((inner_width - lip_width) / 2 - clearance) < 1e-7
+assert abs((inner_depth - lip_depth_xy) / 2 - clearance) < 1e-7
+assert float(sheet.SlotLength.Value) < lip_width - 2 * float(sheet.LipWall.Value)
+report["nominal_fit_clearance_per_side_mm"] = clearance
+report["slot_through_cap"] = True
+report["physical_print_verified"] = False
+report["physical_fit_verified"] = False
+
+doc.saveAs(str(OUT / "schranka.FCStd"))
+(OUT / "kontrola-modelu.json").write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+print("SCHRANKA_CAD_OK " + json.dumps(report, ensure_ascii=False), flush=True)

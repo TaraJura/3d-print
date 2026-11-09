@@ -1,0 +1,97 @@
+{
+  "revision": "03",
+  "parts": [
+    {
+      "id": "telo",
+      "file": "stl/telo.stl",
+      "object": "Body",
+      "quantity": 1,
+      "sha256": "89c1ac503775cf6a7e566c219b7825101ed76ce5de5ebae82ba6701e44975135",
+      "bbox_mm": [
+        88.4,
+        157.20000000000005,
+        134.00000000000003
+      ],
+      "orientation": "Open rear rim on bed; print axis -Y; open supports upright"
+    },
+    {
+      "id": "celo",
+      "file": "stl/celo.stl",
+      "object": "Front",
+      "quantity": 1,
+      "sha256": "20537a9ffa5a9e114c9002f2314901318d0ac33ab8b83545248c23a06d967f74",
+      "bbox_mm": [
+        85.4,
+        154.8,
+        2.400000000000035
+      ],
+      "orientation": "Outer face on bed, internal features upwards"
+    },
+    {
+      "id": "zada",
+      "file": "stl/zada.stl",
+      "object": "Rear",
+      "quantity": 1,
+      "sha256": "221f663fdd30dcc03b4abf8e0f988a7b5310ea3b950905881b3cf260fde7b23b",
+      "bbox_mm": [
+        88.4,
+        169.20000000000002,
+        20.40000000000009
+      ],
+      "orientation": "Outer face on bed, internal features upwards"
+    },
+    {
+      "id": "pojistka-cela",
+      "file": "stl/pojistka-cela.stl",
+      "object": "TopLock",
+      "quantity": 1,
+      "sha256": "62af599f0c39de9770bc5d1bdba715d496814fed7d13a0bdd7913e7be63ecb77",
+      "bbox_mm": [
+        70.4,
+        15.0,
+        2.8000000000000114
+      ],
+      "orientation": "Flat strip"
+    },
+    {
+      "id": "odstup-1",
+      "file": "stl/odstup-1.stl",
+      "object": "Spacer1",
+      "quantity": 1,
+      "sha256": "831dc3723c99b3ecfbbd75b1dcb717d27de028cc275d9f85c9f194fd658aa269",
+      "bbox_mm": [
+        14.996643242126275,
+        14.998321527154117,
+        8.0
+      ],
+      "orientation": "Ring flat"
+    },
+    {
+      "id": "odstup-2",
+      "file": "stl/odstup-2.stl",
+      "object": "Spacer2",
+      "quantity": 1,
+      "sha256": "831dc3723c99b3ecfbbd75b1dcb717d27de028cc275d9f85c9f194fd658aa269",
+      "bbox_mm": [
+        14.996643242126275,
+        14.998321527154117,
+        8.0
+      ],
+      "orientation": "Ring flat"
+    },
+    {
+      "id": "odstup-3",
+      "file": "stl/odstup-3.stl",
+      "object": "Spacer3",
+      "quantity": 1,
+      "sha256": "831dc3723c99b3ecfbbd75b1dcb717d27de028cc275d9f85c9f194fd658aa269",
+      "bbox_mm": [
+        14.996643242126275,
+        14.9983215271541,
+        8.0
+      ],
+      "orientation": "Ring flat"
+    }
+  ],
+  "status": "PLA dimensional prototype, not yet approved for operating electronics"
+}

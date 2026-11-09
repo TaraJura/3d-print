@@ -1,0 +1,168 @@
+# -*- coding: utf-8 -*-
+"""Independent saved-CAD/STL audit. Writes only kontrola-nezavisla.json.
+
+The parameter experiment changes only the in-memory document, restores its
+values and closes without saving. No physical or Shore test is performed.
+"""
+from pathlib import Path
+from collections import Counter
+import hashlib
+import json
+import math
+import traceback
+import FreeCAD as App
+import Part
+import Mesh
+
+OUT = Path(__file__).resolve().parent
+SOURCE = OUT / 'test-tpu.FCStd'
+REPORT = OUT / 'kontrola-nezavisla.json'
+PARTS = [('Strip1', 'pasek-08', 'Thin', 1),
+         ('Strip2', 'pasek-16', 'Medium', 2),
+         ('Strip3', 'pasek-32', 'Thick', 3),
+         ('Ring1', 'krouzek-08', 'Thin', 0),
+         ('Ring2', 'krouzek-16', 'Medium', 0)]
+BASE = dict(StripLength=70, StripWidth=14, Thin=0.8, Medium=1.6,
+            Thick=3.2, RingDiameter=32, RingHeight=12, HoleDiameter=2.4,
+            StripPitch=20, RingY=62, RingPitch=40)
+CELLS = {alias: 'B%d' % row for row, alias in enumerate(BASE, 2)}
+files = [SOURCE] + sorted((OUT / 'stl').glob('*.stl'))
+hashes_before = {p.name: hashlib.sha256(p.read_bytes()).hexdigest() for p in files}
+report = dict(audit_version=1, source_saved_by_audit=False,
+              physical_print_verified=False, shore_measurement=False,
+              artifact_sha256_before=hashes_before)
+doc = None
+
+def near(a, b, tol=1e-5):
+    assert abs(a-b) <= tol, (a, b, tol)
+
+def bounds(shape):
+    b = shape.BoundBox
+    return [b.XMin, b.XMax, b.YMin, b.YMax, b.ZMin, b.ZMax]
+
+def expected_geometry(name, p, thickness, holes):
+    t = p[thickness]
+    if holes:
+        y = (holes-1)*p['StripPitch']
+        box = [0, p['StripLength'], y, y+p['StripWidth'], 0, t]
+        area = ((p['StripLength']-p['StripWidth'])*p['StripWidth']
+                + math.pi*(p['StripWidth']/2)**2
+                - holes*math.pi*(p['HoleDiameter']/2)**2)
+        volume = area*t
+    else:
+        i = int(name[-1])-1
+        d, h = p['RingDiameter'], p['RingHeight']
+        x, y = i*p['RingPitch'], p['RingY']
+        box = [x, x+d, y, y+d, 0, h]
+        volume = math.pi*((d/2)**2-(d/2-t)**2)*h
+    return box, volume
+
+def inspect_geometry(p):
+    for alias, value in p.items():
+        near(float(getattr(doc.Parameters, alias)), value)
+    errors = {o.Name: list(o.State) for o in doc.Objects
+              if any('error' in state.lower() or 'invalid' in state.lower()
+                     for state in o.State)}
+    assert not errors, errors
+    found = []
+    for name, stem, thickness, holes in PARTS:
+        shape = doc.getObject(name).Shape
+        assert shape.isValid(), name
+        assert len(shape.Solids) == 1, (name, len(shape.Solids))
+        expected_bounds, expected_volume = expected_geometry(name, p, thickness, holes)
+        for a,b in zip(bounds(shape), expected_bounds): near(a,b)
+        near(shape.Volume, expected_volume)
+        assert shape.isClosed(), name
+        found.append(dict(object=name, valid=True, solid_count=1, closed=True,
+                          bounds_mm=bounds(shape), volume_mm3=shape.Volume,
+                          analytic_volume_mm3=expected_volume,
+                          marking_holes=holes, thickness_mm=p[thickness]))
+    distances = []
+    for i,(a, _, _, _) in enumerate(PARTS):
+        for b, _, _, _ in PARTS[i+1:]:
+            sa, sb = doc.getObject(a).Shape, doc.getObject(b).Shape
+            overlap = sa.common(sb).Volume
+            distance = sa.distToShape(sb)[0]
+            assert overlap < 1e-7, (a,b,overlap)
+            assert distance >= 2, (a,b,distance)
+            distances.append(dict(objects=[a,b], distance_mm=distance,
+                                  overlap_mm3=overlap))
+    return dict(parts=found, part_count=5, distances=distances,
+                minimum_gap_mm=min(d['distance_mm'] for d in distances),
+                object_errors=errors)
+
+def inspect_mesh(path, expected_bounds, expected_volume, components):
+    mesh = Mesh.Mesh(str(path))
+    assert mesh.isSolid(), path.name
+    assert mesh.countComponents() == components, path.name
+    # Curved extrema can fall between tessellation vertices. The generator
+    # uses 0.025 mm linear deflection; allow that plus binary-STL rounding.
+    for a,b in zip(bounds(mesh), expected_bounds): near(a,b,0.03)
+    near(mesh.Volume, expected_volume, expected_volume*0.001)
+    vertices, facets = mesh.Topology
+    edges, directions = Counter(), Counter()
+    degenerate = 0
+    for facet in facets:
+        if len(set(facet)) != 3: degenerate += 1
+        for a,b in zip(facet, facet[1:]+facet[:1]):
+            edge = tuple(sorted((a,b)))
+            edges[edge] += 1
+            directions[edge] += 1 if a < b else -1
+    bad_edges = sum(count != 2 for count in edges.values())
+    orientation_errors = sum(total != 0 for total in directions.values())
+    assert degenerate == 0 and bad_edges == 0 and orientation_errors == 0, path.name
+    return dict(file=str(path.relative_to(OUT)), closed=True,
+                components=components, facets=mesh.CountFacets,
+                bounds_mm=bounds(mesh), volume_mm3=mesh.Volume,
+                volume_error_fraction=(mesh.Volume-expected_volume)/expected_volume,
+                bounds_tolerance_mm=0.03, volume_tolerance_fraction=0.001,
+                edge_count=len(edges), nonmanifold_or_boundary_edges=bad_edges,
+                orientation_errors=orientation_errors, degenerate_triangles=degenerate)
+
+try:
+    doc = App.openDocument(str(SOURCE))
+    doc.recompute()
+    report['saved_cad'] = inspect_geometry(BASE)
+    originals = {alias: doc.Parameters.getContents(cell) for alias,cell in CELLS.items()}
+    original_shapes = {name: doc.getObject(name).Shape.copy() for name,_,_,_ in PARTS}
+    varied = dict(BASE, StripLength=76, StripWidth=15, Thin=1.0, Medium=1.8,
+                  Thick=3.6, RingDiameter=34, RingHeight=14, HoleDiameter=2.6,
+                  StripPitch=22, RingY=70, RingPitch=42)
+    for alias,value in varied.items():
+        doc.Parameters.set(CELLS[alias], '%s mm' % value)
+    doc.recompute()
+    report['parameter_experiment'] = inspect_geometry(varied)
+    report['parameter_experiment']['values_mm'] = varied
+    for alias,value in originals.items(): doc.Parameters.set(CELLS[alias], value)
+    doc.recompute()
+    restored = inspect_geometry(BASE)
+    differences = {}
+    for name,_,_,_ in PARTS:
+        a,b = original_shapes[name],doc.getObject(name).Shape
+        difference = a.cut(b).Volume + b.cut(a).Volume
+        assert difference < 1e-6, (name,difference)
+        differences[name] = difference
+    report['restored_in_memory'] = dict(passed=True, symmetric_difference_mm3=differences)
+    stls = []
+    for name,stem,thickness,holes in PARTS:
+        box,volume = expected_geometry(name,BASE,thickness,holes)
+        local_bounds = [0,box[1]-box[0],0,box[3]-box[2],0,box[5]-box[4]]
+        stls.append(inspect_mesh(OUT/'stl'/(stem+'.stl'),local_bounds,volume,1))
+    compound = Part.makeCompound([doc.getObject(name).Shape for name,_,_,_ in PARTS])
+    stls.append(inspect_mesh(OUT/'stl'/'tpu-test-cela-sada.stl',
+                             bounds(compound), compound.Volume, 5))
+    report['stls'] = stls
+    report['passed'] = True
+except Exception:
+    report['passed'] = False
+    report['failure'] = traceback.format_exc()
+finally:
+    if doc is not None: App.closeDocument(doc.Name)
+    report['artifact_sha256_after'] = {p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in files}
+    report['artifact_hashes_unchanged'] = hashes_before == report['artifact_sha256_after']
+    # A concurrent GUI-only save can alter the FCStd hash; it must be audited
+    # again once that save completes. This macro never writes model files.
+    report['passed'] = report.get('passed',False) and report['artifact_hashes_unchanged']
+    REPORT.write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
+    print('TPU_INDEPENDENT_AUDIT',json.dumps(dict(passed=report['passed'],
+          hashes_unchanged=report['artifact_hashes_unchanged'],failure=report.get('failure'))),flush=True)

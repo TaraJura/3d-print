@@ -1,0 +1,392 @@
+{
+  "plate": {
+    "number": 1,
+    "geometry": "podlozka-01-geometrie.3mf",
+    "geometry_sha256": "3b9039711aeb0046b9ef30f822e0a7601fb9c72283ff59eda39efb44370831f3",
+    "preview": "podlozka-01.png",
+    "physical_parts": 3,
+    "parts": [
+      {
+        "id": "Base",
+        "name": "Base_01",
+        "file": "../stl/base.stl",
+        "source_sha256": "5ed33c9819a4a8f72e27ae06d8e6ba6947be608ffcb347a848f493fa4673a0b5",
+        "translation_mm": [
+          84.0,
+          108.01851844787598,
+          -0.0
+        ],
+        "placed_min_mm": [
+          28.0,
+          52.03592491149902,
+          0.0
+        ],
+        "placed_max_mm": [
+          140.0,
+          164.00111198425293,
+          13.800000190734863
+        ],
+        "size_mm": [
+          112.0,
+          111.9651870727539,
+          13.800000190734863
+        ],
+        "triangle_count": 6176,
+        "supports": false,
+        "support_note": "Rovnou zakladnou dolu. Bez podpor.",
+        "critical_z_mm": [
+          0.2,
+          0.6,
+          1.2,
+          2.8,
+          13.400000190734863
+        ]
+      },
+      {
+        "id": "Crown",
+        "name": "Crown_01",
+        "file": "../stl/crown.stl",
+        "source_sha256": "8ab7ae8ced439e5537339f0908292ac4f12a26a1e4d3ae781a090c3c54c71c33",
+        "translation_mm": [
+          192.0,
+          93.02970695495605,
+          1.9073486612342094e-07
+        ],
+        "placed_min_mm": [
+          152.0,
+          52.03592491149902,
+          0.0
+        ],
+        "placed_max_mm": [
+          232.0,
+          134.0234889984131,
+          4.799999904632571
+        ],
+        "size_mm": [
+          80.0,
+          81.98756408691406,
+          4.799999904632571
+        ],
+        "triangle_count": 19300,
+        "supports": false,
+        "support_note": "Spodni plochou dolu; male slepe diry vodicich cepu mostuji3.8mm. Kapsy zhora.",
+        "critical_z_mm": [
+          0.2,
+          0.6,
+          1.2,
+          2.8,
+          4.399999904632571
+        ]
+      },
+      {
+        "id": "Screw",
+        "name": "Screw_01",
+        "file": "../stl/screw.stl",
+        "source_sha256": "7b6f1a988fcd7e084b43bbd31c85ab8c2a45bc259dce2760d9a7e9b51f059619",
+        "translation_mm": [
+          43.98148155212402,
+          191.98259353637695,
+          -9.536743306171047e-08
+        ],
+        "placed_min_mm": [
+          28.0,
+          176.00111198425293,
+          0.0
+        ],
+        "placed_max_mm": [
+          59.96296310424805,
+          207.96407508850098,
+          22.850000286102294
+        ],
+        "size_mm": [
+          31.962963104248047,
+          31.962963104248047,
+          22.850000286102294
+        ],
+        "triangle_count": 9686,
+        "supports": false,
+        "support_note": "Osou Z, koncem jadra na podlozce; 45stupnove boky zavitu a hlavice; kapsa nahoru.",
+        "critical_z_mm": [
+          0.2,
+          0.6,
+          1.2,
+          2.8,
+          22.450000286102295
+        ]
+      }
+    ],
+    "minimum_geometry_edge_margin_mm": 28.0,
+    "minimum_bbox_gap_mm": 12.0,
+    "colour": "#17191B",
+    "material_name": "cerna",
+    "profile": {
+      "kind": "Basic",
+      "mvs": "8",
+      "nozzle": "205",
+      "initial_nozzle": "215",
+      "bed": "50"
+    }
+  },
+  "project": "podlozka-01-kobra-x-pla-projekt.3mf",
+  "configured": {
+    "sha256": "df72b6330705a9a06fc1721ce23a2752bc88c7513c0c60e7e878fcfaeed59d6f",
+    "objects": [
+      {
+        "name": "Base_01",
+        "preserved_geometry_and_placement": true,
+        "maximum_vertex_delta_mm": 4.974121168288548e-07
+      },
+      {
+        "name": "Crown_01",
+        "preserved_geometry_and_placement": true,
+        "maximum_vertex_delta_mm": 9.504394427040097e-08
+      },
+      {
+        "name": "Screw_01",
+        "preserved_geometry_and_placement": true,
+        "maximum_vertex_delta_mm": 6.000000016825879e-07
+      }
+    ],
+    "physical_parts": 3,
+    "mesh_repairs": [
+      {
+        "edges_fixed": "0",
+        "degenerate_facets": "0",
+        "facets_removed": "0",
+        "facets_reversed": "0",
+        "backwards_edges": "0"
+      },
+      {
+        "edges_fixed": "0",
+        "degenerate_facets": "0",
+        "facets_removed": "0",
+        "facets_reversed": "0",
+        "backwards_edges": "0"
+      },
+      {
+        "edges_fixed": "0",
+        "degenerate_facets": "0",
+        "facets_removed": "0",
+        "facets_reversed": "0",
+        "backwards_edges": "0"
+      }
+    ],
+    "settings": {
+      "printer_model": "Anycubic Kobra X",
+      "printer_settings_id": "Anycubic Kobra X 0.4 nozzle",
+      "print_settings_id": "Pomodoro Orbit 0.16 mm Basic navrh @Kobra X",
+      "filament_settings_id": [
+        "NAVRH Alzament PLA Basic cerna @Kobra X 0.4"
+      ],
+      "nozzle_diameter": [
+        "0.4"
+      ],
+      "layer_height": "0.16",
+      "wall_loops": "3",
+      "sparse_infill_density": "20%",
+      "sparse_infill_pattern": "gyroid",
+      "enable_support": "0",
+      "support_on_build_plate_only": "0",
+      "brim_type": "outer_only",
+      "brim_width": "3",
+      "nozzle_temperature": [
+        "205"
+      ],
+      "nozzle_temperature_initial_layer": [
+        "215"
+      ],
+      "textured_plate_temp": [
+        "50"
+      ],
+      "outer_wall_speed": "40",
+      "inner_wall_speed": "70",
+      "filament_colour": [
+        "#17191B"
+      ],
+      "filament_max_volumetric_speed": [
+        "8"
+      ],
+      "enable_prime_tower": "0",
+      "initial_layer_print_height": "0.2",
+      "top_shell_layers": "5",
+      "bottom_shell_layers": "5"
+    },
+    "has_gcode": false
+  },
+  "delivered": {
+    "sha256": "a672754c7d79fb3a516b696d6ab0c8d9a97154fca02c88d1ba6c3ccb7b8cf813",
+    "objects": [
+      {
+        "name": "Base_01",
+        "preserved_geometry_and_placement": true,
+        "maximum_vertex_delta_mm": 4.974121168288548e-07
+      },
+      {
+        "name": "Crown_01",
+        "preserved_geometry_and_placement": true,
+        "maximum_vertex_delta_mm": 1.7536742902279912e-07
+      },
+      {
+        "name": "Screw_01",
+        "preserved_geometry_and_placement": true,
+        "maximum_vertex_delta_mm": 6.000000016825879e-07
+      }
+    ],
+    "physical_parts": 3,
+    "mesh_repairs": [
+      {
+        "edges_fixed": "0",
+        "degenerate_facets": "0",
+        "facets_removed": "0",
+        "facets_reversed": "0",
+        "backwards_edges": "0"
+      },
+      {
+        "edges_fixed": "0",
+        "degenerate_facets": "0",
+        "facets_removed": "0",
+        "facets_reversed": "0",
+        "backwards_edges": "0"
+      },
+      {
+        "edges_fixed": "0",
+        "degenerate_facets": "0",
+        "facets_removed": "0",
+        "facets_reversed": "0",
+        "backwards_edges": "0"
+      }
+    ],
+    "settings": {
+      "printer_model": "Anycubic Kobra X",
+      "printer_settings_id": "Anycubic Kobra X 0.4 nozzle",
+      "print_settings_id": "Pomodoro Orbit 0.16 mm Basic navrh @Kobra X",
+      "filament_settings_id": [
+        "NAVRH Alzament PLA Basic cerna @Kobra X 0.4"
+      ],
+      "nozzle_diameter": [
+        "0.4"
+      ],
+      "layer_height": "0.16",
+      "wall_loops": "3",
+      "sparse_infill_density": "20%",
+      "sparse_infill_pattern": "gyroid",
+      "enable_support": "0",
+      "support_on_build_plate_only": "0",
+      "brim_type": "outer_only",
+      "brim_width": "3",
+      "nozzle_temperature": [
+        "205"
+      ],
+      "nozzle_temperature_initial_layer": [
+        "215"
+      ],
+      "textured_plate_temp": [
+        "50"
+      ],
+      "outer_wall_speed": "40",
+      "inner_wall_speed": "70",
+      "filament_colour": [
+        "#17191B"
+      ],
+      "filament_max_volumetric_speed": [
+        "8"
+      ],
+      "enable_prime_tower": "0",
+      "initial_layer_print_height": "0.2",
+      "top_shell_layers": "5",
+      "bottom_shell_layers": "5"
+    },
+    "has_gcode": true,
+    "gcode_bytes": 13611268,
+    "gcode_sha256": "0078f9014a33e030468647ebc9a5e28a61819744547e468bf34fb12b8a2f6d48",
+    "slice_metadata": {
+      "prediction": "15900",
+      "weight": "62.23",
+      "outside": "false",
+      "support_used": "false"
+    },
+    "warnings": []
+  },
+  "toolpath_audit": {
+    "physical_parts": 3,
+    "all_objects_on_first_layer": true,
+    "layers": 143,
+    "all_layers_have_extrusion": true,
+    "maximum_extrusion_z_mm": 22.92,
+    "roles_segments": {
+      "Brim": 2026,
+      "Outer wall": 42561,
+      "Inner wall": 78837,
+      "Bottom surface": 1115,
+      "Gap infill": 1646,
+      "Internal solid infill": 50933,
+      "Sparse infill": 277135,
+      "Top surface": 1829,
+      "Bridge": 125,
+      "Internal Bridge": 3377,
+      "Overhang wall": 6
+    },
+    "support_segments": 0,
+    "brim_generated": true,
+    "deposition_island_test": {
+      "method": "Actual path graph: deposited strokes connect within 0.46 mm nominal width; every component must contact preceding-layer strokes within 0.71 mm (width plus 0.25 mm allowance). Does not certify full overhang support.",
+      "disconnected_new_islands": [],
+      "passed": true,
+      "maximum_components_per_layer": 12
+    },
+    "extrusion_min_xy_mm": [
+      26.787,
+      49.426
+    ],
+    "extrusion_max_xy_mm": [
+      234.613,
+      207.745
+    ],
+    "minimum_extrusion_edge_margin_mm": 25.387,
+    "maximum_commanded_extrusion_speed_mm_s": 80.0,
+    "maximum_commanded_volumetric_flow_mm3_s_segments_at_least_0_1mm": 7.6129784575545205,
+    "maximum_raw_segment_flow_mm3_s": 7.6129784575545205,
+    "flow_quantisation_note": "XY coordinates use 0.001 mm and E uses 0.00001 mm precision; raw flow of moves below 0.1 mm is dominated by rounding. Audited flow uses segments at least 0.1 mm.",
+    "preview": "podlozka-01-vrstvy.png",
+    "detail_previews": [
+      "detail-01-Base_01-drahy.png",
+      "detail-01-Crown_01-drahy.png",
+      "detail-01-Screw_01-drahy.png"
+    ],
+    "selected_z_mm": [
+      0.2,
+      0.52,
+      0.68,
+      1.0,
+      1.16,
+      1.96,
+      2.76,
+      4.04,
+      4.36,
+      5.96,
+      9.96,
+      13.48,
+      14.92,
+      20.04,
+      22.44,
+      22.92
+    ],
+    "estimated_filament_g": 62.23,
+    "estimated_printing_time": "4h 25m 0s",
+    "first_layer_gcode_temperature_c": {
+      "bed": 50.0,
+      "nozzle": 215.0
+    },
+    "physical_print_verified": false
+  },
+  "machine_profile_sha256": "baf80d3287e1e863fba29cdfd240b9b5ebc28bd87e1b4d03fc79e53f0009570a",
+  "process_sha256": "9a72cd151d3ac48f8c0b6d85cb6ff90f4410ae743c0a69d225e1b43bd47b1f80",
+  "filament_sha256": "45dea4cc2d54ff5735dae790cf9d8a80f4ff698c665b2d53dd3dd2856bb589d7",
+  "cli_exit_codes": [
+    0,
+    0
+  ],
+  "cli_error_messages": [
+    "calc_exclude_triangles:Unable to create exclude triangles"
+  ]
+}

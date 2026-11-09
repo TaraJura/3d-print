@@ -1,0 +1,272 @@
+# -*- coding: utf-8 -*-
+"""Černý modulární kryt rozvodů pod umyvadlem, skutečný FreeCAD, mm.
+
+Přepisuje pouze zdejší skrinka.FCStd, stl/*.stl, dily.json a kontrola-modelu.json.
+Používá standardní Part objekty, Spreadsheet a výrazy, bez vlastní Python třídy.
+PNG a podložky obnovují samostatné zdejší generátory. Lepení, fit a kotvení
+jsou návrh prototypu; umyvadlo není podpíráno skříňkou.
+"""
+from pathlib import Path
+import json, math
+import FreeCAD as App
+import Part, MeshPart
+
+OUT = Path(__file__).resolve().parent
+(OUT / 'stl').mkdir(exist_ok=True)
+doc = App.newDocument('SkrinkaPodUmyvadlo')
+doc.Label = 'Černá skříňka pod umyvadlo 370 × 180 × 550 mm – prototyp'
+s = doc.addObject('Spreadsheet::Sheet', 'Parameters')
+s.Label = 'Parametry – zadání a návrhové hodnoty'
+rows = [
+ ('CabinetWidth','Šířka podél zdi',370,'mm','Odvozeno ze zadané délky umyvadla 37 cm'),
+ ('CabinetDepth','Celková hloubka od zadní roviny',180,'mm','Odvozeno ze zadané šířky umyvadla 18 cm'),
+ ('CabinetHeight','Výška krytu',550,'mm','ZADÁNO Jiřím: 55 cm'),
+ ('PanelThickness','Tloušťka panelů',4,'mm','NÁVRH pro 3D tisk'),
+ ('SeamGap','Spára mezi výškovými segmenty',0.5,'mm','NÁVRH; skutečný fit neověřen'),
+ ('DoorGap','Obvodová a středová spára dvířek',2,'mm','NÁVRH'),
+ ('AxisInset','Osa pantu od vnějšího boku',14,'mm','NÁVRH; drží otevřené dveře uvnitř šířky'),
+ ('AxisSetback','Osa pantu za čelem',8,'mm','NÁVRH'),
+ ('BarrelRadius','Vnější poloměr pantového pouzdra',4.5,'mm','NÁVRH'),
+ ('BoreRadius','Poloměr kruhové části otvoru',2.3,'mm','NÁVRH: čep Ø4 / kruhový otvor Ø4,6'),
+ ('PinRadius','Poloměr čepu',2,'mm','NÁVRH; kluzný fit ověřit tiskem'),
+ ('KnuckleLength','Délka jednotlivých pouzder',12,'mm','NÁVRH'),
+ ('KnuckleOffset','Odsazení pevného horního pouzdra',8,'mm','NÁVRH: axiální mezery 2 mm'),
+ ('DoorEdge','Začátek plochy levých dvířek',20,'mm','NÁVRH: místo pro panty'),
+ ('RailSize','Hloubka a výška příček',12,'mm','NÁVRH; vnitřek bez polic'),
+ ('MountDiameter','Průměr kruhové části kotevních otvorů',5.5,'mm','NÁVRH; šrouby a podklad nejsou potvrzené'),
+ ('FingerRadius','Poloměr úchopu ve středové spáře',8,'mm','NÁVRH'),
+ ('LeftOpening','Otevření levých dveří',0,'deg','Upravit 0 až 90°; ověřena nominální CAD dráha'),
+ ('RightOpening','Otevření pravých dveří',0,'deg','Upravit 0 až 90°; prostor WC neznámý'),
+]
+s.set('A1','Parametr'); s.set('B1','Hodnota'); s.set('C1','Původ')
+s.setStyle('A1:C1','bold','add')
+for r,(alias,label,value,unit,origin) in enumerate(rows,2):
+ s.set('A'+str(r),label); s.set('B'+str(r),f'{value:g} {unit}')
+ s.setAlias('B'+str(r),alias); s.set('C'+str(r),origin)
+ s.setBackground('B'+str(r),(0.86,0.95,0.88) if r<5 else (1.,0.94,0.78))
+derived = [
+ ('SideTileHeight','Výška jednoho bočního segmentu','= (CabinetHeight - 2 * SeamGap) / 3'),
+ ('DoorTileHeight','Výška jednoho segmentu dvířek','= (CabinetHeight - 2 * DoorGap - 2 * SeamGap) / 3'),
+ ('HingeY','Osa pantu od zadní roviny','= CabinetDepth - AxisSetback'),
+ ('DoorWidth','Šířka plochy jedněch dvířek','= CabinetWidth / 2 - DoorGap / 2 - DoorEdge'),
+ ('RailHalf','Délka poloviny příčky','= (CabinetWidth - 2 * PanelThickness) / 2'),
+]
+for r,(alias,label,formula) in enumerate(derived,len(rows)+3):
+ s.set('A'+str(r),label); s.set('B'+str(r),formula);s.setAlias('B'+str(r),alias)
+ s.set('C'+str(r),'ODVOZENO')
+s.setColumnWidth('A',345);s.setColumnWidth('B',130);s.setColumnWidth('C',480)
+doc.recompute()
+
+def e(o,k,v): o.setExpression(k,v)
+def box(name,size,pos=('0 mm','0 mm','0 mm')):
+ o=doc.addObject('Part::Box',name)
+ for k,v in zip(('Length','Width','Height'),size):e(o,k,v)
+ for k,v in zip(('x','y','z'),pos):e(o,'Placement.Base.'+k,v)
+ return o
+def cylinder(name,radius,height,pos,axis='z'):
+ o=doc.addObject('Part::Cylinder',name);e(o,'Radius',radius);e(o,'Height',height)
+ for k,v in zip(('x','y','z'),pos):e(o,'Placement.Base.'+k,v)
+ if axis=='y':o.Placement.Rotation=App.Rotation(App.Vector(1,0,0),-90)
+ return o
+def fuse(name,items):
+ if len(items)==1:return items[0]
+ o=doc.addObject('Part::MultiFuse',name);o.Shapes=items;o.Refine=True;return o
+def cut(name,base,tool):
+ o=doc.addObject('Part::Cut',name);o.Base=base;o.Tool=tool;o.Refine=True;return o
+def mirror(name,source):
+ o=doc.addObject('Part::Mirroring',name);o.Source=source;o.Normal=App.Vector(1,0,0)
+ e(o,'Base.x','Parameters.CabinetWidth / 2');return o
+
+# Kruhový otvor doplněný čtvercem natočeným o 45°. Špička je ve směru
+# tiskového Z: za posledním kruhovým obloukem strop stoupá pod 45°.
+def bore(name,x,y,z,height,direction='x',radius='Parameters.BoreRadius'):
+ c=cylinder(name+'Circle',radius,height,(x,y,z))
+ q=box(name+'Roof',(radius+' * sqrt(2)',radius+' * sqrt(2)',height),
+       (x+' + '+radius+' * (sqrt(2)-1)' if direction=='x' else x,
+        y+' - '+radius if direction=='x' else y+' - '+radius+' * sqrt(2)',z))
+ q.Placement.Rotation=App.Rotation(App.Vector(0,0,1),45)
+ return fuse(name,[c,q])
+
+side=box('SidePanel',('Parameters.PanelThickness','Parameters.CabinetDepth - Parameters.PanelThickness','Parameters.SideTileHeight'))
+stile=box('RecessedSideReturn',('Parameters.DoorEdge','Parameters.PanelThickness','Parameters.SideTileHeight - 2 * Parameters.RailSize'),
+          ('0 mm','Parameters.HingeY - Parameters.BarrelRadius - Parameters.PanelThickness - 1.5 mm','Parameters.RailSize'))
+# Zapuštěná černá lišta zakrývá mezery vedle dveří při čelním pohledu.
+# Na koncích nechá místo příčkám/rohům. Mezery přes švy kryje otočená
+# přední spojka, která současně slepuje konce lišt obou segmentů.
+items=[side,stile];holes=[]
+for i,z in enumerate(('Parameters.SideTileHeight/2 - Parameters.KnuckleOffset - Parameters.KnuckleLength',
+                      'Parameters.SideTileHeight/2 + Parameters.KnuckleOffset')):
+ items.append(box('SideBridge'+str(i),('Parameters.AxisInset','2 * Parameters.BarrelRadius','Parameters.KnuckleLength'),
+                  ('0 mm','Parameters.HingeY - Parameters.BarrelRadius',z)))
+ items.append(cylinder('SideKnuckle'+str(i),'Parameters.BarrelRadius','Parameters.KnuckleLength',('Parameters.AxisInset','Parameters.HingeY',z)))
+ holes.append(bore('SideHole'+str(i),'Parameters.AxisInset','Parameters.HingeY',z+' - 1 mm','Parameters.KnuckleLength + 2 mm','x'))
+sidepart=cut('SideTile',fuse('SideSolid',items),fuse('SideHoles',holes))
+sidepart.Label='Bok – jeden ze tří segmentů, integrované pevné panty'
+rightside=mirror('RightSideTile',sidepart)
+
+doorparts=[];rightdoors=[]
+for row in range(3):
+ # Vlastní lokální Z jednotlivého segmentu dvířek. Osy všech šesti pantů
+ # zůstávají přesně společné s osami pouzder na bocích.
+ center=f'Parameters.SideTileHeight/2 + {row} * (Parameters.SideTileHeight + Parameters.SeamGap) - Parameters.DoorGap - {row} * (Parameters.DoorTileHeight + Parameters.SeamGap)'
+ z=center+' - Parameters.KnuckleLength/2'
+ p=box('DoorPanel'+str(row),('Parameters.DoorWidth','Parameters.PanelThickness','Parameters.DoorTileHeight'),
+       ('Parameters.DoorEdge','Parameters.CabinetDepth - Parameters.PanelThickness','0 mm'))
+ bridge=box('DoorBridge'+str(row),('Parameters.DoorEdge + 1 mm - Parameters.AxisInset + Parameters.BarrelRadius','Parameters.AxisSetback','Parameters.KnuckleLength'),
+       ('Parameters.AxisInset - Parameters.BarrelRadius','Parameters.HingeY',z))
+ barrel=cylinder('DoorKnuckle'+str(row),'Parameters.BarrelRadius','Parameters.KnuckleLength',('Parameters.AxisInset','Parameters.HingeY',z))
+ hole=bore('DoorHole'+str(row),'Parameters.AxisInset','Parameters.HingeY',z+' - 1 mm','Parameters.KnuckleLength + 2 mm','minus_y')
+ tools=[hole]
+ if row==2:
+  tools.append(cylinder('FingerNotch','Parameters.FingerRadius','Parameters.PanelThickness + 2 mm',
+      ('Parameters.CabinetWidth/2 - Parameters.DoorGap/2','Parameters.CabinetDepth - Parameters.PanelThickness - 1 mm','Parameters.DoorTileHeight - 65 mm'),'y'))
+ d=cut('DoorTile'+str(row),fuse('DoorSolid'+str(row),[p,bridge,barrel]),fuse('DoorTools'+str(row),tools))
+ d.Label=('Dvířka – dolní','Dvířka – prostřední','Dvířka – horní s úchopem')[row]
+ doorparts.append(d);rightdoors.append(mirror('RightDoorTile'+str(row),d))
+
+rail=box('PlainRail',('Parameters.RailHalf','Parameters.RailSize','Parameters.RailSize'),('Parameters.PanelThickness','0 mm','0 mm'))
+rearhole=cylinder('MountRound','Parameters.MountDiameter/2','Parameters.RailSize + 2 mm',('30 mm','-1 mm','Parameters.RailSize/2'),'y')
+roof=box('MountRoof',('Parameters.MountDiameter/sqrt(2)','Parameters.RailSize + 2 mm','Parameters.MountDiameter/sqrt(2)'),
+         ('30 mm - Parameters.MountDiameter/2','-1 mm','Parameters.RailSize/2 + Parameters.MountDiameter/2 * (sqrt(2)-1)'))
+roof.Placement.Rotation=App.Rotation(App.Vector(0,1,0),45)
+rear= cut('RearRail',rail,fuse('MountTool',[rearhole,roof]))
+rightrail=mirror('RightPlainRail',rail);rightrear=mirror('RightRearRail',rear)
+strip=box('PanelSplice',('4 mm','20 mm','80 mm'))
+railstrip=box('RailSplice',('50 mm','4 mm','Parameters.RailSize'))
+bracket=fuse('CornerBracket',[box('BracketLeg1',('4 mm','24 mm','Parameters.RailSize')),box('BracketLeg2',('24 mm','4 mm','Parameters.RailSize'))])
+pin=fuse('HingePin',[cylinder('PinShaft','Parameters.PinRadius','44 mm',('0 mm','0 mm','0 mm')),
+                       cylinder('PinHead','3.5 mm','2 mm',('0 mm','0 mm','44 mm'))])
+
+assembly=[];body=[];doorleft=[];doorright=[]
+def link(name,source,pos=('0 mm','0 mm','0 mm'),door=None):
+ o=doc.addObject('App::Link',name);o.setLink(source);o.LinkTransform=True;o.Label=name
+ for k,v in zip(('x','y','z'),pos):e(o,'LinkPlacement.Base.'+k,v)
+ if door:
+  right=door=='right'; a='-Parameters.RightOpening' if right else 'Parameters.LeftOpening'
+  x='(Parameters.CabinetWidth - Parameters.AxisInset)' if right else 'Parameters.AxisInset'
+  y='Parameters.HingeY'
+  e(o,'LinkPlacement.Base.x',f'{pos[0]} + {x}*(1-cos({a})) + {y}*sin({a})')
+  e(o,'LinkPlacement.Base.y',f'{pos[1]} + {y}*(1-cos({a})) - {x}*sin({a})')
+  o.LinkPlacement.Rotation=App.Rotation(App.Vector(0,0,1),0)
+  e(o,'LinkPlacement.Rotation.Angle',a)
+  (doorright if right else doorleft).append(o)
+ else:body.append(o)
+ assembly.append(o);return o
+
+for row in range(3):
+ z=f'{row} * (Parameters.SideTileHeight + Parameters.SeamGap)'
+ link('BokLevy_'+str(row+1),sidepart,('0 mm','0 mm',z))
+ link('BokPravy_'+str(row+1),rightside,('0 mm','0 mm',z))
+ dz=f'Parameters.DoorGap + {row} * (Parameters.DoorTileHeight + Parameters.SeamGap)'
+ link('DvereLeve_'+str(row+1),doorparts[row],('0 mm','0 mm',dz),'left')
+ link('DverePrave_'+str(row+1),rightdoors[row],('0 mm','0 mm',dz),'right')
+ for right in (False,True):
+  x='Parameters.CabinetWidth - Parameters.AxisInset' if right else 'Parameters.AxisInset'
+  link('Cep_'+str(row+1)+('_P' if right else '_L'),pin,(x,'Parameters.HingeY',z+' + Parameters.SideTileHeight/2 - 24 mm'))
+for top in (False,True):
+ z='Parameters.CabinetHeight - Parameters.RailSize' if top else '0 mm'
+ for front in (False,True):
+  y='Parameters.CabinetDepth - Parameters.PanelThickness - Parameters.RailSize' if front else '0 mm'
+  for right in (False,True):
+   source=(rightrail if right else rail) if front else (rightrear if right else rear)
+   link(f'Pricka_{int(top)}{int(front)}{int(right)}',source,('0 mm',y,z))
+  sy='Parameters.CabinetDepth - Parameters.PanelThickness - Parameters.RailSize - 4 mm' if front else 'Parameters.RailSize'
+  link(f'SpojPricky_{int(top)}{int(front)}',railstrip,('Parameters.CabinetWidth/2 - 25 mm',sy,z))
+  for right in (False,True):
+   x='Parameters.CabinetWidth - Parameters.PanelThickness' if right else 'Parameters.PanelThickness'
+   by='Parameters.CabinetDepth - Parameters.PanelThickness - Parameters.RailSize' if front else 'Parameters.RailSize'
+   o=link(f'Roh_{int(top)}{int(front)}{int(right)}',bracket,(x,by,z))
+   # L je souměrné při otočení; orientace určuje vnitřní roh.
+   angle=180 if (right and front) else (90 if right else (-90 if front else 0))
+   o.LinkPlacement.Rotation=App.Rotation(App.Vector(0,0,1),angle)
+for seam in (1,2):
+ z=f'{seam} * (Parameters.SideTileHeight + Parameters.SeamGap) - 40 mm - Parameters.SeamGap/2'
+ for right in (False,True):
+  for j,y in enumerate(('24 mm','130 mm')):
+   x='Parameters.CabinetWidth - Parameters.PanelThickness - 4 mm' if right else 'Parameters.PanelThickness'
+   if j==0:
+    link(f'SpojBoku_{seam}{int(right)}{j}',strip,(x,y,z))
+   else:
+    # Stejná fyzická spojka 80×20×4 otočená o90° kolem Z: černá
+    # maska švu za zapuštěnou lištou, mimo horní/dolní úhelníky.
+    sx='Parameters.CabinetWidth - Parameters.PanelThickness - 20 mm' if right else 'Parameters.PanelThickness'
+    mask=box(f'SideMaskSource_{seam}{int(right)}',('20 mm','4 mm','80 mm'),
+             (sx,'Parameters.HingeY - Parameters.BarrelRadius - Parameters.PanelThickness - 5.5 mm','0 mm'))
+    link(f'SpojBoku_{seam}{int(right)}{j}',mask,('0 mm','0 mm',z))
+ dz=f'Parameters.DoorGap + {seam} * (Parameters.DoorTileHeight + Parameters.SeamGap) - 40 mm - Parameters.SeamGap/2'
+ for right in (False,True):
+  for j,x in enumerate(('45 mm','140 mm')):
+   # Přímo nativní box: zrcadlení vnořeného App::Link by zahodilo
+   # transformaci zdroje v Part::Mirroring.
+   sx='Parameters.CabinetWidth - ('+x+') - 20 mm' if right else x
+   source=box(f'DoorSpliceSource_{seam}{int(right)}{j}',('20 mm','4 mm','80 mm'),
+              (sx,'Parameters.CabinetDepth - Parameters.PanelThickness - 4 mm','0 mm'))
+   link(f'SpojDveri_{seam}{int(right)}{j}',source,('0 mm','0 mm',dz),'right' if right else 'left')
+doc.recompute()
+
+unique=[sidepart]+doorparts+[rail,rear,strip,railstrip,bracket,pin]
+for o in unique:
+ assert not o.Shape.isNull() and o.Shape.isValid() and len(o.Shape.Solids)==1,(o.Name,o.Shape.isValid(),len(o.Shape.Solids))
+invalid=[o.Name for o in doc.Objects if 'Invalid' in o.State]
+assert not invalid,invalid
+bb=Part.makeCompound([o.Shape for o in assembly]).BoundBox
+assert abs(bb.XLength-370)<0.01 and abs(bb.YLength-180)<0.01 and abs(bb.ZLength-550)<0.01,bb
+
+# Skutečná dráha obou dveří v nominální sestavě; kontakty s dorazem
+# y=176 mohou být plošné, objemový průnik nesmí být přítomen.
+collision=[]
+for angle in (0,15,30,45,60,75,90):
+ s.set('B19',f'{angle} deg');s.set('B20',f'{angle} deg');doc.recompute()
+ for a in doorleft+doorright:
+  for b in body:
+   if a.Shape.BoundBox.intersect(b.Shape.BoundBox):
+    volume=a.Shape.common(b.Shape).Volume
+    if volume>0.01:collision.append([angle,a.Name,b.Name,volume])
+assert not collision,collision
+s.set('B19','0 deg');s.set('B20','0 deg');doc.recompute()
+
+# Ověření nativního přepočtu při změně hlavního parametru, pak návrat.
+s.set('B2','380 mm');doc.recompute()
+testbb=Part.makeCompound([o.Shape for o in assembly]).BoundBox
+assert abs(testbb.XLength-380)<0.01,testbb
+s.set('B2','370 mm');doc.recompute()
+
+parts=[]
+def export(o,id,count,rot,note):
+ shape=o.Shape.copy();shape.Placement=App.Placement(App.Vector(),rot).multiply(shape.Placement)
+ b=shape.BoundBox;shape.translate(App.Vector(-b.XMin,-b.YMin,-b.ZMin))
+ mesh=MeshPart.meshFromShape(Shape=shape,LinearDeflection=0.06,AngularDeflection=math.radians(12),Relative=False)
+ assert mesh.isSolid(),id
+ mesh.write(str(OUT/'stl'/f'{id}.stl'))
+ b=shape.BoundBox
+ parts.append({'id':id,'file':f'stl/{id}.stl','count':count,'supports':False,'support_note':note,
+               'print_dimensions_mm':[b.XLength,b.YLength,b.ZLength],'critical_z_mm':[0.2,b.ZLength/2,max(0.2,b.ZLength-0.2)],
+               'solid_count':len(shape.Solids),'mesh_solid':mesh.isSolid(),'volume_mm3':shape.Volume})
+export(sidepart,'bok-segment',6,App.Rotation(App.Vector(0,1,0),-90),'Vnější plochou na podložku; pantová pouzdra mají podložený kořen a otvor s 45° stropem ve směru +X sestavy / +Z tisku.')
+for row in range(3):
+ export(doorparts[row],('dvere-dolni','dvere-stredni','dvere-horni')[row],1,App.Rotation(App.Vector(1,0,0),-90),'Čelem na podložku; integrální pouzdro podepřeno blokem až k čelu; strop otvoru 45° ve směru -Y sestavy / +Z tisku.')
+ export(rightdoors[row],('dvere-dolni-prave','dvere-stredni-prave','dvere-horni-prave')[row],1,App.Rotation(App.Vector(1,0,0),-90),'Čelem na podložku; zrcadlený pravý díl. Strop otvoru 45° ve směru -Y sestavy / +Z tisku.')
+export(rail,'pricka-predni-polovina',4,App.Rotation(),'Na dolní ploše; hranol bez převisů.')
+export(rear,'pricka-zadni-polovina',4,App.Rotation(),'Na dolní ploše; kotevní otvor má 45° špičku ve směru +Z.')
+export(strip,'spojka-panelu',16,App.Rotation(App.Vector(0,1,0),-90),'Plochou 20×80 mm na podložku, výška 4 mm.')
+export(railstrip,'spojka-pricky',4,App.Rotation(App.Vector(1,0,0),90),'Plochou 50×12 mm na podložku, výška 4 mm.')
+export(bracket,'rohovy-uhelnik',8,App.Rotation(),'L půdorys na podložce, výška 12 mm, žádný převis.')
+# Čep na rozšířené hlavě, stojící – hlava nezvedá dřík nad podložku.
+export(pin,'cep-pantu',6,App.Rotation(App.Vector(1,0,0),180),'Nastojato na Ø7 hlavě, osa Z; dřík Ø4 / délka 44, brim zajistí přilnavost.')
+assert sum(p['count'] for p in parts)==54
+(OUT/'dily.json').write_text(json.dumps({'unit':'mm','physical_count':54,'parts':parts},ensure_ascii=False,indent=2)+'\n')
+report={'dimensions_mm':[bb.XLength,bb.YLength,bb.ZLength],'requested_sink_cm':[37,18],
+ 'requested_cabinet_height_cm':55,'dimension_origin':'370/180 odvozeno ze zadání umyvadla, 550 zadáno pro kryt',
+ 'assembly_count':len(assembly),'print_count':54,'native_recompute':True,'width_370_380_370_test':True,
+ 'closed_solid_exports':True,'door_body_collision_angles_deg':[0,15,30,45,60,75,90],'door_body_collisions':collision,
+ 'hinge_circular_bore_mm':4.6,'hinge_pin_mm':4,'axial_gap_mm':2,
+ 'unknown':['Skutečné vyložení ventilů/hadic od zdi','Spodní rovina keramiky a mezera pod ní','Kotvy/podklad/šrouby','Prostor u WC','Lepidlo a pevnost spojů','Fyzický tisk a chod pantů'],
+ 'parts':parts}
+(OUT/'kontrola-modelu.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
+if App.GuiUp:
+ for o in doc.Objects:
+  if hasattr(o,'ViewObject'):o.ViewObject.Visibility=o in assembly
+ for o in unique+[rightside]+rightdoors+[rightrail,rightrear]:
+  o.ViewObject.ShapeColor=(0.055,0.06,0.065);o.ViewObject.LineColor=(0.18,0.19,0.20)
+doc.recompute();doc.saveAs(str(OUT/'skrinka.FCStd'))
+print('SKRINKA_MODEL_OK',flush=True)

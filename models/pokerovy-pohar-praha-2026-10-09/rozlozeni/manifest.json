@@ -1,0 +1,53 @@
+{
+  "number": 1,
+  "geometry": "podlozka-01-geometrie.3mf",
+  "geometry_sha256": "7a25803e035af806699fabdd2cd9b72df78dd6b34ad0a7568f24aaacdc9b6bec",
+  "preview": "podlozka-01.png",
+  "physical_parts": 1,
+  "parts": [
+    {
+      "id": "pokerovy-pohar",
+      "name": "01_Pokerovy_pohar_Praha_2026_10_09",
+      "file": "../stl/pokerovy-pohar.stl",
+      "source_sha256": "b646ab976d75711fd0b13badd3a50cb7e9c3457e4a28617554c277472e84ac8f",
+      "translation_mm": [
+        130.0,
+        130.0,
+        -0.0
+      ],
+      "placed_min_mm": [
+        98.0,
+        100.00932502746582,
+        0.0
+      ],
+      "placed_max_mm": [
+        162.0,
+        159.99067497253418,
+        92.0
+      ],
+      "size_mm": [
+        64.0,
+        59.98134994506836,
+        92.0
+      ],
+      "triangle_count": 24684,
+      "supports": false,
+      "support_note": "Nastojato na podstavci; samonosna kuzelova miska. Reliéfy vyžadují kontrolu skutečných vrstev.",
+      "critical_z_mm": [
+        4,
+        9,
+        14,
+        19,
+        23,
+        46,
+        58,
+        65,
+        72,
+        80,
+        90
+      ]
+    }
+  ],
+  "minimum_geometry_edge_margin_mm": 98.0,
+  "minimum_bbox_gap_mm": null
+}

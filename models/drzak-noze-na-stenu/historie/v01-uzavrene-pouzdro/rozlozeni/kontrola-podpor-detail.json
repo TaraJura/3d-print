@@ -1,0 +1,462 @@
+{
+  "support_region_summary": [
+    {
+      "name": "01_vanicka-leva_01",
+      "support_required_by_cad_manifest": true,
+      "support_segments_near_part": 4522,
+      "support_z_range_mm": [
+        1.6,
+        33.6
+      ]
+    },
+    {
+      "name": "02_vanicka-prava_01",
+      "support_required_by_cad_manifest": true,
+      "support_segments_near_part": 4017,
+      "support_z_range_mm": [
+        0.2,
+        31.8
+      ]
+    },
+    {
+      "name": "03_kryt-levy_01",
+      "support_required_by_cad_manifest": false,
+      "support_segments_near_part": 0,
+      "support_z_range_mm": null
+    },
+    {
+      "name": "04_kryt-pravy_01",
+      "support_required_by_cad_manifest": true,
+      "support_segments_near_part": 568,
+      "support_z_range_mm": [
+        0.2,
+        1.4
+      ]
+    }
+  ],
+  "evidence": "Actual extruded G-code line segments at critical support interfaces; green=support, orange=bridge/overhang, dark=model",
+  "parts": [
+    {
+      "project": "podlozka-01-kobra-x-pla-projekt.3mf",
+      "gcode_sha256": "0d300e4b086c9dbe15878e1090c70c4863fd1928d7a858706014cfc9ddf030f1",
+      "preview": "podpory-01-levy-lem.png",
+      "layers": [
+        {
+          "z_mm": 3.0,
+          "region_xy_mm": [
+            [
+              7.0,
+              20.0
+            ],
+            [
+              191.0,
+              37.0
+            ]
+          ],
+          "roles_segments": {
+            "Support": 11,
+            "Inner wall": 13,
+            "Outer wall": 3,
+            "Gap infill": 1,
+            "Sparse infill": 124,
+            "Top surface": 46
+          }
+        },
+        {
+          "z_mm": 3.2,
+          "region_xy_mm": [
+            [
+              7.0,
+              20.0
+            ],
+            [
+              191.0,
+              37.0
+            ]
+          ],
+          "roles_segments": {
+            "Support": 13,
+            "Inner wall": 11,
+            "Outer wall": 5,
+            "Gap infill": 1,
+            "Sparse infill": 148
+          }
+        },
+        {
+          "z_mm": 3.4,
+          "region_xy_mm": [
+            [
+              7.0,
+              20.0
+            ],
+            [
+              191.0,
+              37.0
+            ]
+          ],
+          "roles_segments": {
+            "Support interface": 293,
+            "Support": 11,
+            "Inner wall": 11,
+            "Outer wall": 5,
+            "Gap infill": 1,
+            "Sparse infill": 148
+          }
+        },
+        {
+          "z_mm": 31.6,
+          "region_xy_mm": [
+            [
+              7.0,
+              20.0
+            ],
+            [
+              191.0,
+              37.0
+            ]
+          ],
+          "roles_segments": {
+            "Support interface": 293,
+            "Support": 11,
+            "Inner wall": 11,
+            "Outer wall": 5,
+            "Gap infill": 1,
+            "Sparse infill": 150
+          }
+        },
+        {
+          "z_mm": 31.8,
+          "region_xy_mm": [
+            [
+              7.0,
+              20.0
+            ],
+            [
+              191.0,
+              37.0
+            ]
+          ],
+          "roles_segments": {
+            "Support interface": 296,
+            "Support": 11,
+            "Inner wall": 11,
+            "Outer wall": 5,
+            "Gap infill": 1,
+            "Sparse infill": 125
+          }
+        },
+        {
+          "z_mm": 32.0,
+          "region_xy_mm": [
+            [
+              7.0,
+              20.0
+            ],
+            [
+              191.0,
+              37.0
+            ]
+          ],
+          "roles_segments": {
+            "Support": 16,
+            "Inner wall": 11,
+            "Outer wall": 5,
+            "Gap infill": 1,
+            "Sparse infill": 124
+          }
+        },
+        {
+          "z_mm": 32.2,
+          "region_xy_mm": [
+            [
+              7.0,
+              20.0
+            ],
+            [
+              191.0,
+              37.0
+            ]
+          ],
+          "roles_segments": {
+            "Support": 14,
+            "Gap infill": 1,
+            "Bridge": 39,
+            "Sparse infill": 125,
+            "Inner wall": 20,
+            "Overhang wall": 20,
+            "Outer wall": 12
+          }
+        },
+        {
+          "z_mm": 32.4,
+          "region_xy_mm": [
+            [
+              7.0,
+              20.0
+            ],
+            [
+              191.0,
+              37.0
+            ]
+          ],
+          "roles_segments": {
+            "Support": 14,
+            "Inner wall": 11,
+            "Outer wall": 5,
+            "Gap infill": 1,
+            "Sparse infill": 134,
+            "Internal solid infill": 667
+          }
+        }
+      ]
+    },
+    {
+      "project": "podlozka-01-kobra-x-pla-projekt.3mf",
+      "gcode_sha256": "0d300e4b086c9dbe15878e1090c70c4863fd1928d7a858706014cfc9ddf030f1",
+      "preview": "podpory-01-pravy-spoj.png",
+      "layers": [
+        {
+          "z_mm": 0.2,
+          "region_xy_mm": [
+            [
+              7.0,
+              109.0
+            ],
+            [
+              190.6999969482422,
+              201.0
+            ]
+          ],
+          "roles_segments": {
+            "Support": 14,
+            "Brim": 122,
+            "Outer wall": 114,
+            "Inner wall": 342,
+            "Bottom surface": 923,
+            "Gap infill": 13
+          }
+        },
+        {
+          "z_mm": 1.0,
+          "region_xy_mm": [
+            [
+              7.0,
+              109.0
+            ],
+            [
+              190.6999969482422,
+              201.0
+            ]
+          ],
+          "roles_segments": {
+            "Support interface": 155,
+            "Inner wall": 357,
+            "Outer wall": 118,
+            "Internal solid infill": 1087
+          }
+        },
+        {
+          "z_mm": 1.2,
+          "region_xy_mm": [
+            [
+              7.0,
+              109.0
+            ],
+            [
+              190.6999969482422,
+              201.0
+            ]
+          ],
+          "roles_segments": {
+            "Support interface": 168,
+            "Inner wall": 365,
+            "Outer wall": 116,
+            "Sparse infill": 7477
+          }
+        },
+        {
+          "z_mm": 1.6,
+          "region_xy_mm": [
+            [
+              7.0,
+              109.0
+            ],
+            [
+              190.6999969482422,
+              201.0
+            ]
+          ],
+          "roles_segments": {
+            "Inner wall": 342,
+            "Outer wall": 114,
+            "Sparse infill": 9804
+          }
+        },
+        {
+          "z_mm": 1.8,
+          "region_xy_mm": [
+            [
+              7.0,
+              109.0
+            ],
+            [
+              190.6999969482422,
+              201.0
+            ]
+          ],
+          "roles_segments": {
+            "Sparse infill": 8618,
+            "Bridge": 38,
+            "Inner wall": 380,
+            "Outer wall": 125,
+            "Overhang wall": 40
+          }
+        },
+        {
+          "z_mm": 3.0,
+          "region_xy_mm": [
+            [
+              7.0,
+              109.0
+            ],
+            [
+              190.6999969482422,
+              201.0
+            ]
+          ],
+          "roles_segments": {
+            "Outer wall": 120,
+            "Inner wall": 398,
+            "Gap infill": 70,
+            "Sparse infill": 405,
+            "Top surface": 1038
+          }
+        }
+      ]
+    },
+    {
+      "project": "podlozka-02-kobra-x-pla-projekt.3mf",
+      "gcode_sha256": "b1742c5fe10c92ed2b8a0b5d642e00b087fcfe12692d4efaa910e870471219d3",
+      "preview": "podpory-02-pravy-kryt.png",
+      "layers": [
+        {
+          "z_mm": 0.2,
+          "region_xy_mm": [
+            [
+              7.0,
+              87.0
+            ],
+            [
+              190.6999969482422,
+              157.0
+            ]
+          ],
+          "roles_segments": {
+            "Support": 16,
+            "Brim": 127,
+            "Outer wall": 178,
+            "Inner wall": 522,
+            "Bottom surface": 912,
+            "Gap infill": 21
+          }
+        },
+        {
+          "z_mm": 0.8,
+          "region_xy_mm": [
+            [
+              7.0,
+              87.0
+            ],
+            [
+              190.6999969482422,
+              157.0
+            ]
+          ],
+          "roles_segments": {
+            "Support": 58,
+            "Inner wall": 521,
+            "Outer wall": 180,
+            "Internal solid infill": 1074
+          }
+        },
+        {
+          "z_mm": 1.2,
+          "region_xy_mm": [
+            [
+              7.0,
+              87.0
+            ],
+            [
+              190.6999969482422,
+              157.0
+            ]
+          ],
+          "roles_segments": {
+            "Support interface": 124,
+            "Inner wall": 526,
+            "Outer wall": 180,
+            "Sparse infill": 5515
+          }
+        },
+        {
+          "z_mm": 1.4,
+          "region_xy_mm": [
+            [
+              7.0,
+              87.0
+            ],
+            [
+              190.6999969482422,
+              157.0
+            ]
+          ],
+          "roles_segments": {
+            "Support interface": 127,
+            "Inner wall": 526,
+            "Outer wall": 180,
+            "Sparse infill": 6413
+          }
+        },
+        {
+          "z_mm": 1.6,
+          "region_xy_mm": [
+            [
+              7.0,
+              87.0
+            ],
+            [
+              190.6999969482422,
+              157.0
+            ]
+          ],
+          "roles_segments": {
+            "Inner wall": 522,
+            "Outer wall": 178,
+            "Sparse infill": 7296
+          }
+        },
+        {
+          "z_mm": 1.8,
+          "region_xy_mm": [
+            [
+              7.0,
+              87.0
+            ],
+            [
+              190.6999969482422,
+              157.0
+            ]
+          ],
+          "roles_segments": {
+            "Sparse infill": 6424,
+            "Bridge": 19,
+            "Inner wall": 531,
+            "Outer wall": 183,
+            "Overhang wall": 20
+          }
+        }
+      ]
+    }
+  ],
+  "physical_removal_unverified": true
+}

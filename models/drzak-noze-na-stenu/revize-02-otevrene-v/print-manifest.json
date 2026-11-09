@@ -1,0 +1,34 @@
+{
+  "revision": "02",
+  "units": "mm",
+  "physical_part_count": 1,
+  "parts": [
+    {
+      "id": "drzak-v",
+      "name": "Otevřený V držák — 1 kus",
+      "file": "stl/drzak-v.stl",
+      "quantity": 1,
+      "sha256": "31d6c1ee2a026189888e43316bf2662243bf337c7a34b2c320620c8e78d375ac",
+      "bbox_mm": [
+        230.0,
+        45.24264068711929,
+        54.996270184009795
+      ],
+      "orientation": "Spodní plochy patky, žeber a oušek na podložce; horní hrana V nahoru. Dlouhá osa X v rovině podložky.",
+      "supports": false,
+      "support_note": "Souvislá patka + dvě žebra jsou na podložce; stěny V rostou pod 45°. Vodorovné otvory Ø5,5 mm mají krátký vrcholový most — ověřit dráhy.",
+      "critical_z_mm": [
+        0.2,
+        3,
+        4,
+        6.8,
+        8.8,
+        23,
+        40.2,
+        43,
+        45.8,
+        55
+      ]
+    }
+  ]
+}

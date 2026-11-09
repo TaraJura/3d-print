@@ -1,0 +1,59 @@
+{
+  "status": "actual local toolpaths audited; physical print and load unverified",
+  "project_sha256": "2dcea7b63b887008aa02f4efb39755544ccca5bc702a652a016e1db6a00b3db3",
+  "gcode_sha256": "bc67d1674495f9fb5fd424ae8b62f535207c18d2abd3694a84549ba9b7afda2e",
+  "parts": 1,
+  "layers": 400,
+  "max_extrusion_z_mm": 80.0,
+  "all_layers_have_extrusion": true,
+  "roles_segments": {
+    "Brim": 691,
+    "Outer wall": 5368,
+    "Inner wall": 15414,
+    "Bottom surface": 2545,
+    "Gap infill": 14,
+    "Internal solid infill": 15240,
+    "Sparse infill": 714678,
+    "Internal Bridge": 3296,
+    "Top surface": 1776,
+    "Overhang wall": 72,
+    "Bridge": 140
+  },
+  "brim_segments": 691,
+  "support_segments": 0,
+  "bridge_or_overhang_segments": 3508,
+  "bridge_or_overhang_layer_range": [
+    85,
+    395
+  ],
+  "support_layer_range": null,
+  "first_layer_bounds_xy_mm": [
+    6.558,
+    31.058,
+    253.442,
+    228.942
+  ],
+  "other_layers_bounds_xy_mm": [
+    11.21,
+    35.71,
+    248.79,
+    224.29
+  ],
+  "all_extrusion_bounds_xy_mm": [
+    6.558,
+    31.058,
+    253.442,
+    228.942
+  ],
+  "minimum_extrusion_edge_margin_mm": 6.557999999999993,
+  "warnings": [
+    {
+      "msg": "not_support_traditional_timelapse",
+      "level": "1",
+      "error_code": "1000C003"
+    }
+  ],
+  "first_layer_preview": "prvni-vrstva-01.png",
+  "critical_layers_preview": "kriticke-vrstvy-01.png",
+  "support_removal_and_horizontal_hole_fit": "not physically verified"
+}

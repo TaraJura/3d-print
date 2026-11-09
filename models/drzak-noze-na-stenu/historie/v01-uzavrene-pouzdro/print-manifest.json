@@ -1,0 +1,92 @@
+{
+  "units": "mm",
+  "physical_part_count": 4,
+  "parts": [
+    {
+      "id": "vanicka-leva",
+      "name": "vanicka-leva",
+      "file": "stl/vanicka-leva.stl",
+      "quantity": 1,
+      "sha256": "7846346b13beefc825070e31e707af45e7cc1cff4372f39a02261988d1d044b5",
+      "bbox_mm": [
+        182.0,
+        90.0,
+        41.699999999999996
+      ],
+      "orientation": "zadní plochou na podložce",
+      "supports": true,
+      "support_note": "Záchytný lem v Z=32–35 mm a přechody stupňového spoje; podpory přístupné z otevřené vaničky.",
+      "critical_z_mm": [
+        1.3,
+        1.6,
+        3,
+        32,
+        35,
+        39,
+        40.9
+      ]
+    },
+    {
+      "id": "vanicka-prava",
+      "name": "vanicka-prava",
+      "file": "stl/vanicka-prava.stl",
+      "quantity": 1,
+      "sha256": "150d27acc0631bc6934a2b955881e487956a45920574a0b557b9455b1ed57819",
+      "bbox_mm": [
+        181.7,
+        90.0,
+        41.699999999999996
+      ],
+      "orientation": "zadní plochou na podložce",
+      "supports": true,
+      "support_note": "Záchytný lem v Z=32–35 mm a přechody stupňového spoje; podpory přístupné z otevřené vaničky.",
+      "critical_z_mm": [
+        1.3,
+        1.6,
+        3,
+        32,
+        35,
+        39,
+        40.9
+      ]
+    },
+    {
+      "id": "kryt-levy",
+      "name": "kryt-levy",
+      "file": "stl/kryt-levy.stl",
+      "quantity": 1,
+      "sha256": "fc710eae721d02220729bf0837f3892b3b8f59976a420ddbc41d622a817c431a",
+      "bbox_mm": [
+        182.0,
+        68.0,
+        3.0000000000000213
+      ],
+      "orientation": "pohledovým čelem na podložce",
+      "supports": false,
+      "support_note": "Plochým pohledovým čelem dolů; všechny otvory svisle, bez podpor.",
+      "critical_z_mm": [
+        1.6,
+        3
+      ]
+    },
+    {
+      "id": "kryt-pravy",
+      "name": "kryt-pravy",
+      "file": "stl/kryt-pravy.stl",
+      "quantity": 1,
+      "sha256": "66d22efde4b1ceb546eec2d33854679d765370b359207c3d99920c15565b7d1a",
+      "bbox_mm": [
+        181.7,
+        68.0,
+        3.0000000000000213
+      ],
+      "orientation": "pohledovým čelem na podložce",
+      "supports": true,
+      "support_note": "Spodní přesah středového spoje je 1,6 mm nad podložkou.",
+      "critical_z_mm": [
+        1.6,
+        3
+      ]
+    }
+  ]
+}

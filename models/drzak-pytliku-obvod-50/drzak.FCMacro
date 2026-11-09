@@ -1,0 +1,112 @@
+# -*- coding: utf-8 -*-
+"""Parametrická rekonstrukce dodaného zásobníku, mm.
+Spouštět ve FreeCADu; přepisuje pouze zdejší drzak.FCStd, stl/*.stl a kontrola-modelu.json.
+Zadaná výška 200 a vnitřní obvod 50. Výstup není nastavený slicer projekt.
+"""
+from pathlib import Path
+import math, json, hashlib
+import FreeCAD as App
+import Part, MeshPart, Mesh
+OUT = Path(__file__).resolve().parent
+(OUT/'stl').mkdir(exist_ok=True)
+doc = App.newDocument('DrzakPytlikuObvod50')
+s = doc.addObject('Spreadsheet::Sheet','Parameters')
+s.Label = 'Parametry (mm)'
+parameters = [
+ ('InnerCircumference','Vnitřní obvod','50 mm','ZADÁNO: vnitřní obvod 5 cm'),
+ ('TotalHeight','Celková výška','200 mm','ZADÁNO: 20 cm'),
+ ('Wall','Stěna pláště a dno','1.6 mm','Zachováno ze vstupní geometrie'),
+ ('InnerRadius','Vnitřní poloměr','=InnerCircumference / (2 * pi)','Odvozeno z vnitřního obvodu'),
+ ('OuterRadius','Vnější poloměr','=InnerRadius + Wall','Odvozeno'),
+ ('RearDepth','Zadní dosah od osy','=OuterRadius + Wall','Návrh: plochá záda se zesíleným napojením'),
+ ('SlotWidth','Čistá šířka přední štěrbiny','2 mm','ZADÁNO: co nejužší drážka; návrhová čistá šířka 2 mm'),
+ ('SlotBottom','Spodní bod štěrbiny','11.7573 mm','Výška původního otvoru, přepočtená na 200 mm'),
+ ('MountDiameter','Montážní otvory','6.1 mm','Zachovaný průměr ze vstupu, skutečné šrouby neznámé'),
+ ('CounterboreDiameter','Vnitřní zahloubení','12 mm','Zachovaný průměr ze vstupu'),
+ ('MountLower','Dolní otvor nad dnem','42.9272 mm','Střed původního otvoru, přepočtený na 200 mm'),
+ ('MountUpper','Horní otvor nad dnem','157.3989 mm','Střed původního otvoru, přepočtený na 200 mm'),
+ ('BottomHoleDiameter','Otvor ve dně','=20 mm * InnerRadius / (30 mm)','Původní Ø20 zúžen v poměru dutiny'),
+]
+s.set('A1','Parametr');s.set('B1','Hodnota');s.set('C1','Původ')
+for row,(alias,label,value,note) in enumerate(parameters,2):
+ s.set('A'+str(row),label);s.set('B'+str(row),value);s.setAlias('B'+str(row),alias);s.set('C'+str(row),note)
+s.setColumnWidth('A',230);s.setColumnWidth('B',145);s.setColumnWidth('C',430)
+doc.recompute()
+def expr(obj,field,value): obj.setExpression(field,value)
+def cyl(name,r,h,base=(None,None,None),axis=None):
+ o=doc.addObject('Part::Cylinder',name);expr(o,'Radius',r);expr(o,'Height',h)
+ for key,value in zip('xyz',base):
+  if value is not None:expr(o,'Placement.Base.'+key,value)
+ if axis:o.Placement.Rotation=App.Rotation(App.Vector(0,0,1),App.Vector(*axis))
+ return o
+def box(name,l,w,h,base):
+ o=doc.addObject('Part::Box',name)
+ for field,value in zip(('Length','Width','Height'),(l,w,h)):expr(o,field,value)
+ for key,value in zip('xyz',base):expr(o,'Placement.Base.'+key,value)
+ return o
+def boolean(kind,name,a,b):
+ o=doc.addObject('Part::'+kind,name);o.Base=a;o.Tool=b;o.Refine=True;return o
+outer=cyl('OuterCylinder','Parameters.OuterRadius','Parameters.TotalHeight')
+rear=box('FlatRear','2 * Parameters.OuterRadius','Parameters.RearDepth','Parameters.TotalHeight',('-Parameters.OuterRadius','-Parameters.RearDepth','0 mm'))
+body=boolean('Fuse','OuterBody',outer,rear)
+inner=cyl('InnerCavity','Parameters.InnerRadius','Parameters.TotalHeight + 2 mm',('0 mm','0 mm','Parameters.Wall'))
+body=boolean('Cut','HollowBody',body,inner)
+# Top plane retains the measured 20 degree slope. Its highest point is exactly TotalHeight.
+top=box('TopPlaneTool','100 mm','100 mm','100 mm',('-50 mm','-Parameters.RearDepth - 20 mm','Parameters.TotalHeight + 20 mm * tan(20 deg)'))
+top.Placement.Rotation=App.Rotation(App.Vector(1,0,0),-20)
+body=boolean('Cut','SlopingRim',body,top)
+slot=box('FrontSlotTool','Parameters.SlotWidth','30 mm','Parameters.TotalHeight',('-Parameters.SlotWidth / 2','0 mm','Parameters.SlotBottom + Parameters.SlotWidth / 2'))
+cap=cyl('SlotRoundEnd','Parameters.SlotWidth / 2','30 mm',('0 mm','0 mm','Parameters.SlotBottom + Parameters.SlotWidth / 2'),(0,1,0))
+slot=boolean('Fuse','RoundedSlotTool',slot,cap)
+body=boolean('Cut','OpenFront',body,slot)
+# Round both lips of the long dispensing slot; a 2 mm parallel middle remains.
+doc.recompute()
+lip_edges=[]
+for idx,edge in enumerate(body.Shape.Edges,1):
+ b=edge.BoundBox
+ if b.ZLength>100 and b.YMin>5 and abs(abs(b.XMin)-1)<1e-5 and b.XLength<1e-5:
+  lip_edges.append((idx,0.30,0.30))
+assert len(lip_edges)==4, lip_edges
+lips=doc.addObject('Part::Fillet','RoundedLips');lips.Base=body;lips.Edges=lip_edges
+body=lips
+doc.recompute()
+assert body.Shape.isValid()
+floor=cyl('FloorHoleTool','Parameters.BottomHoleDiameter / 2','Parameters.Wall + 2 mm',('0 mm','0 mm','-1 mm'))
+body=boolean('Cut','FloorHole',body,floor)
+for tag,z in [('Lower','MountLower'),('Upper','MountUpper')]:
+ hole=cyl(tag+'MountTool','Parameters.MountDiameter / 2','Parameters.RearDepth + 1 mm',('0 mm','-Parameters.RearDepth - 1 mm','Parameters.'+z),(0,1,0))
+ body=boolean('Cut',tag+'Mount',body,hole)
+ # Leave a 1.7 mm web at the rear face, as measured in the original.
+ cb=cyl(tag+'CounterboreTool','Parameters.CounterboreDiameter / 2','Parameters.RearDepth + 1 mm',('0 mm','-Parameters.RearDepth + 1.7 mm','Parameters.'+z),(0,1,0))
+ body=boolean('Cut',tag+'Counterbore',body,cb)
+body.Label='Držák pytlíků – výška 200, vnitřní obvod 50 mm'
+doc.recompute()
+shape=body.Shape
+assert shape.isValid() and len(shape.Solids)==1 and shape.Volume>0
+bb=shape.BoundBox
+assert abs(bb.ZLength-200)<1e-6
+r=float(s.get('B5'));assert abs(2*math.pi*r-50)<1e-7
+mesh=MeshPart.meshFromShape(Shape=shape,LinearDeflection=0.002,AngularDeflection=0.03,Relative=False)
+assert mesh.isSolid()
+path=OUT/'stl/drzak-pytliku-obvod50-vyska200.stl'
+mesh.write(str(path))
+result={
+ 'date':'2026-10-17','source':'/home/novakj/Downloads/trash-bag-holder-d60-l200_g.3mf',
+ 'method':'Parametric reconstruction from measured mesh surfaces; solid rear corners replace relief cavities; retained 20 degree top slope, flat rear, original mounting diameters; scaled front and floor openings.',
+ 'user_inputs_mm':{'inner_circumference':50,'height':200},
+ 'nominal_inner_diameter_mm':2*r,'nominal_inner_circumference_mm':2*math.pi*r,
+ 'bounds_mm':{'x':bb.XLength,'y':bb.YLength,'z':bb.ZLength},
+ 'shape_valid':shape.isValid(),'solid_count':len(shape.Solids),'volume_mm3':shape.Volume,
+ 'mesh_solid':mesh.isSolid(),'mesh_facets':mesh.CountFacets,
+ 'wall_mm':1.6,'rear_web_mm':1.7,'slot_clear_width_mm':2.0,'slot_lip_radius_mm':0.3,'stl_sha256':hashlib.sha256(path.read_bytes()).hexdigest(),
+ 'limits':['No slicing or physical print test requested/performed.','Bag fit and mounting screws not physically measured.','Nominal circumference describes the circular envelope; the front is intentionally slotted.'],
+}
+(OUT/'kontrola-modelu.json').write_text(json.dumps(result,indent=2,ensure_ascii=False)+'\n')
+if App.GuiUp:
+ import FreeCADGui as Gui
+ for o in doc.Objects:
+  if hasattr(o,'ViewObject'):o.ViewObject.Visibility=False
+ body.ViewObject.Visibility=True;body.ViewObject.ShapeColor=(0.78,0.83,0.88)
+ Gui.activeDocument().activeView().viewAxonometric();Gui.activeDocument().activeView().fitAll()
+doc.recompute();doc.saveAs(str(OUT/'drzak.FCStd'))
+print(json.dumps(result,ensure_ascii=False))

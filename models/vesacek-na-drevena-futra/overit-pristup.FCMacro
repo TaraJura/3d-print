@@ -1,0 +1,40 @@
+# -*- coding: utf-8 -*-
+"""CAD kontrola odstupů nového mohutnějšího háku (neověřuje skutečný bit)."""
+from pathlib import Path
+import json
+import FreeCAD as App
+import Part
+
+OUT = Path(__file__).resolve().parent
+doc = App.openDocument(str(OUT / "vesacek.FCStd"))
+doc.recompute()
+main = doc.MainHook.Shape
+left = doc.LeftHook.Shape
+right = doc.RightHook.Shape
+boss = doc.ScrewBoss.Shape
+assert all(shape.isValid() for shape in (main, left, right, boss))
+
+# Referenční přímý dřík bitu Ø8 mm v ose vrutu, směrem od hlavy ven.
+# Konkrétní nástroj ani dosažitelnost skutečné hlavy nebyly změřeny.
+bit = Part.makeCylinder(4, 70, App.Vector(0, 9.5, 68), App.Vector(0, 1, 0))
+clearances = {
+    "to_illustrative_8mm_bit": main.distToShape(bit)[0],
+    "to_screw_boss": main.distToShape(boss)[0],
+    "to_left_side_hook": main.distToShape(left)[0],
+    "to_right_side_hook": main.distToShape(right)[0],
+}
+assert clearances["to_illustrative_8mm_bit"] > 1.0
+assert clearances["to_screw_boss"] > 0.5
+assert clearances["to_left_side_hook"] > 0.5
+assert clearances["to_right_side_hook"] > 0.5
+report = {
+    "status": "CAD vzdalenosti pro navrh 02; skutecny vrut, bit a futra nezmereny",
+    "clearances_mm": clearances,
+    "illustrative_bit_diameter_mm": 8,
+    "actual_screwdriver_access_verified": False,
+    "load_capacity_verified": False,
+}
+(OUT / "kontrola-pristupu.json").write_text(
+    json.dumps(report, ensure_ascii=False, indent=2) + "\n")
+print("VESACEK_CLEARANCE_OK", clearances, flush=True)
+App.closeDocument(doc.Name)

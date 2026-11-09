@@ -1,0 +1,26 @@
+# -*- coding: utf-8 -*-
+"""Non-destructive parameter test. Never saves modified CAD or STL."""
+from pathlib import Path
+import json
+import FreeCAD as App
+p=Path(__file__).resolve().parent
+d=App.openDocument(str(p/'kryt.FCStd'))
+s=d.Parameters
+parts=['Chassis','Front','Lid','Tray1','Tray2','Tray3']
+base=(float(s.Width.Value),float(s.Height.Value))
+s.set('B2','112 mm') # placeholder PCB width + 12
+s.set('B9','72 mm') # tier pitch + 8
+s.set('B4','42 mm') # component height + 4
+# force native expression propagation only, no macro proxies
+for o in d.Objects:o.touch()
+d.recompute()
+assert abs(float(s.Width.Value)-base[0]-12)<1e-7
+assert abs(float(s.Height.Value)-base[1]-20)<1e-7
+for name in parts:
+ o=d.getObject(name)
+ assert o.Shape.isValid() and len(o.Shape.Solids)==1,name
+invalid=[o.Name for o in d.Objects if 'Invalid' in o.State];assert not invalid,invalid
+r={'non_destructive':True,'tested_changes_mm':{'PCBWidth':112,'Pitch':72,'PCBHeight':42},'derived_width_height_mm':[float(s.Width.Value),float(s.Height.Value)],'native_recompute_ok':True,'valid_single_solid_parts':parts,'not_validated':'PCB fit, fastening, air flow, physical print'}
+(p/'kontrola-parametru.json').write_text(json.dumps(r,ensure_ascii=False,indent=2)+'\n')
+App.closeDocument(d.Name)
+print('KRYT_PARAMETER_CHECK_OK',flush=True)

@@ -1,0 +1,185 @@
+# -*- coding: utf-8 -*-
+"""PCB rests on open lower supports; front still slides down from above. Native FreeCAD.
+Writes ONLY beside this macro: kryt.FCStd, stl/*.stl, print-manifest.json,
+kontrola-modelu.json. Previous revisions are never modified. PCB 78x108 is user
+specified; connector estimates and unmeasured vertical envelope stay labelled.
+"""
+from pathlib import Path
+import json,hashlib,math
+import FreeCAD as App
+import Part,Mesh,MeshPart
+OUT=Path(__file__).resolve().parent
+NAME='TriZesilovaceV03'
+if NAME in App.listDocuments():raise RuntimeError('Save and close the existing document before regenerating')
+App.ParamGet('User parameter:BaseApp/Preferences/Document').SetInt('CountBackupFiles',0)
+doc=App.newDocument(NAME);doc.Label='Tři zesilovače 78 × 108 — volné položení PCB V03'
+s=doc.addObject('Spreadsheet::Sheet','Parameters');s.Label='Rozměry: zadání versus návrh'
+VALUES=[
+('PCBWidth',78,'Šířka PCB','UŽIVATEL — přesný požadavek'),('PCBDepth',108,'Délka PCB','UŽIVATEL — přesný požadavek'),
+('PCBThickness',1.6,'Tloušťka PCB','NÁVRH — neměřeno'),('ComponentHeight',38,'Osazení NAD horní plochou PCB','NEMĚŘENO — čeká na výšku, nepovažovat za minimum'),
+('Wall',2.4,'Stěna tunelu','NÁVRH'),('BoardSide',5.2,'Hrana PCB od boku krytu','NÁVRH'),('BoardFront',8,'Hrana PCB od čela krytu','NÁVRH — přesah konektorů ověřit'),
+('RearGap',18,'Rezerva pro zadní kabely','NÁVRH — kabely neměřeny'),('AirGap',8,'Svislá mezera nad osazením','NÁVRH — chlazení neověřeno'),('FirstPCB',12,'Spodní rovina první PCB','NÁVRH'),
+('BoardSideClearance',0.4,'Boční vůle PCB na každé straně','NÁVRH'),('SeatLipHeight',0.6,'Výška bočních a koncových dorazů od spodku PCB','NÁVRH — pod horní plochou PCB'),('PCBEndClearance',0.4,'Vůle zadního dorazu PCB','NÁVRH'),
+('FaceThickness',2.4,'Tloušťka čela','NÁVRH'),('FaceClearance',0.3,'Vůle čela na kontaktní stranu','NÁVRH — zkušební fit'),('BackThickness',2.8,'Zadní panel','NÁVRH'),('StandOff',8,'Odstup zad od stěny','NÁVRH — kabely neměřeny'),
+('KnobWidth',12,'Šířka ovladače','UŽIVATEL'),('KnobOffset',15,'Ovladač od hrany PCB','UŽIVATEL — osa/okraj nejisté'),('RCAWidth',25,'Šířka dvojice RCA','UŽIVATEL — přibližně'),('RCAOffset',10,'Dvojice RCA od hrany PCB','UŽIVATEL — přibližně'),('ReportedGap',20,'Hlášená mezera mezi ovladačem a RCA','UŽIVATEL — přibližně, řetězec se neuzavírá'),
+('AxisHeight',9,'Osy konektorů nad spodkem PCB','NEMĚŘENO — otevřené servisní výřezy'),('RCALength',13,'Přesah RCA před PCB','NEMĚŘENO — pouze reference'),('KnobLength',18,'Přesah knoflíku před PCB','NEMĚŘENO — pouze reference'),
+('SupportOverlap',1.2,'Šířka podpěry POD hranou PCB','NÁVRH — spodní hrana musí být volná'),('SupportThickness',1.6,'Tloušťka spodní podpěry','NÁVRH'),('PlacementLift',0.8,'Zkušební výška nad podporou před položením','NÁVRH — montážní trajektorie'),
+('M3Clearance',3.4,'Průchod pro navržený M3','NÁVRH — spojovací materiál není potvrzen'),('NutAF',5.8,'Vedení ploch matice M3','NÁVRH'),('NutThickness',2.8,'Kapsa tloušťky matice M3','NÁVRH')]
+for c,v in [('A1','Parametr'),('B1','Hodnota'),('C1','Původ')]:s.set(c,v)
+for row,(alias,v,label,source) in enumerate(VALUES,2):
+ s.set('A%d'%row,label);s.set('B%d'%row,str(v)+' mm');s.setAlias('B%d'%row,alias);s.set('C%d'%row,source)
+ s.setBackground('B%d'%row,(.82,.95,.87) if source.startswith('UŽIVATEL — přesný') else (1,.93,.76))
+DERIVED=[('Width','=PCBWidth+2*BoardSide'),('Depth','=BoardFront+PCBDepth+RearGap'),('Pitch','=PCBThickness+ComponentHeight+AirGap'),('Height','=FirstPCB+2*Pitch+PCBThickness+ComponentHeight+AirGap+Wall'),('GrooveStart','=1.2 mm'),('GrooveWidth','=FaceThickness+2*FaceClearance'),('FaceY','=GrooveStart+FaceClearance'),('BackY','=Depth'),('FullHeight','=Height+12 mm+3.2 mm')]
+for row,(a,f) in enumerate(DERIVED,len(VALUES)+3):s.set('A%d'%row,a);s.set('B%d'%row,f);s.setAlias('B%d'%row,a);s.set('C%d'%row,'ODVOZENO')
+s.setColumnWidth('A',340);s.setColumnWidth('B',130);s.setColumnWidth('C',460);doc.recompute()
+P=lambda n:'Parameters.'+n
+w,d,h,t=map(P,['Width','Depth','Height','Wall'])
+def box(name,dims,pos):
+ o=doc.addObject('Part::Box',name)
+ for k,v in zip(['Length','Width','Height'],dims):o.setExpression(k,str(v))
+ for k,v in zip('xyz',pos):o.setExpression('Placement.Base.'+k,str(v))
+ return o
+def cyl(name,r,l,pos,axis=(0,0,1)):
+ o=doc.addObject('Part::Cylinder',name);o.setExpression('Radius',str(r));o.setExpression('Height',str(l));o.Placement.Rotation=App.Rotation(App.Vector(0,0,1),App.Vector(*axis))
+ for k,v in zip('xyz',pos):o.setExpression('Placement.Base.'+k,str(v))
+ return o
+def fuse(name,objs):
+ o=doc.addObject('Part::MultiFuse',name);o.Shapes=objs;o.Refine=True;return o
+def cut(name,base,tools):
+ o=doc.addObject('Part::Cut',name);o.Base=base;o.Tool=fuse(name+'Tools',tools) if len(tools)>1 else tools[0];o.Refine=True;return o
+def window(name,x,z,ww,hh,y,depth,r=2):
+ # Rounded rectangle in XZ, extruded in Y. All dimensions and placement native.
+ a=[box(name+'A',[ww+' - %g mm'%(2*r),depth,hh],[x+' + %g mm'%r,y,z]),box(name+'B',[ww,depth,hh+' - %g mm'%(2*r)],[x,y,z+' + %g mm'%r])]
+ for i,(xx,zz) in enumerate([(x+' + %g mm'%r,z+' + %g mm'%r),(x+' + '+ww+' - %g mm'%r,z+' + %g mm'%r),(x+' + %g mm'%r,z+' + '+hh+' - %g mm'%r),(x+' + '+ww+' - %g mm'%r,z+' + '+hh+' - %g mm'%r)]):a.append(cyl(name+str(i),str(r)+' mm',depth,[xx,y,zz],(0,1,0)))
+ return fuse(name,a)
+
+shell=cut('Tunnel',box('ShellOutside',[w,d,h],['0 mm']*3),[box('ShellInside',[w+'-2*'+t,d+'+2 mm',h+'-2*'+t],[t,'-1 mm',t])])
+adds=[shell];tools=[]
+# Strong front guide posts; groove is open THROUGH the roof.
+for side,x in [('L','0 mm'),('R',w+'-5 mm')]:adds.append(box('FaceGuide'+side,['5 mm','7 mm',h],[x,'0 mm','0 mm']))
+tools.append(box('FaceTrack',[w+'-2.4 mm',P('GrooveWidth'),h+'+1 mm'],['1.2 mm',P('GrooveStart'),t]))
+# Open L-shaped supports. Nothing reaches over the PCB top or components.
+# Only the 1.2 mm underside edge strip touches the ledge; no top clearance strip.
+for n in range(3):
+ z=P('FirstPCB')+'+%d*'%n+P('Pitch')
+ for side in ('L','R'):
+  left=side=='L';bx=t if left else w+'-'+P('BoardSide')+'-'+P('SupportOverlap')
+  vx=t if left else w+'-'+P('BoardSide')+'+'+P('BoardSideClearance')
+  adds += [box('SupportLower%d%s'%(n,side),[P('BoardSide')+'+'+P('SupportOverlap')+'-'+t,d+'-'+P('BoardFront'),P('SupportThickness')],[bx,P('BoardFront'),z+'-'+P('SupportThickness')]),box('SeatSide%d%s'%(n,side),[P('BoardSide')+'-'+P('BoardSideClearance')+'-'+t,d+'-'+P('BoardFront'),P('SeatLipHeight')+'+'+P('SupportThickness')],[vx,P('BoardFront'),z+'-'+P('SupportThickness')])]
+  sx=P('BoardSide')+'-'+P('BoardSideClearance')+'-0.3 mm' if left else w+'-'+P('BoardSide')+'-2 mm'
+  adds.append(box('BoardStop%d%s'%(n,side),['2.7 mm','2 mm',P('SeatLipHeight')+'+'+P('SupportThickness')],[sx,P('BoardFront')+'-2 mm',z+'-'+P('SupportThickness')]))
+ # narrow side slots bridge only 2.6 mm in the rear-down printing orientation
+ for j in range(4):tools.append(box('SideVent%d_%d'%(n,j),[w+'+2 mm',P('PCBDepth')+'-18 mm','2.6 mm'],['-1 mm',P('BoardFront')+'+10 mm',z+'+12 mm+%d*('%j+P('ComponentHeight')+'-16 mm)/4']))
+# Roof slots: 3 mm bridges in print orientation.
+for j in range(9):tools.append(box('RoofVent%d'%j,['3 mm',P('PCBDepth')+'-22 mm',t+'+2 mm'],['15 mm+%d*('%j+w+'-30 mm)/9',P('BoardFront')+'+18 mm',h+'-'+t+'-1 mm']))
+# Rear M3 screw blocks, nuts enter from the inside rather than a sealed pocket.
+for i,(x,z) in enumerate([('7 mm','4.5 mm'),(w+'-7 mm','4.5 mm'),('7 mm',h+'-4.5 mm'),(w+'-7 mm',h+'-4.5 mm')]):
+ adds.append(box('RearBoss%d'%i,['10 mm','12 mm','9 mm'],[x+'-5 mm',d+'-12 mm',z+'-4.5 mm']))
+ tools.append(cyl('RearBolt%d'%i,P('M3Clearance')+'/2','14 mm',[x,d+'-13 mm',z],(0,1,0)))
+ nx=x+'-3.4 mm' if i%2==0 else w+'/2'
+ nw=w+'/2-('+x+')+3.4 mm' if i%2==0 else x+'-'+w+'/2+3.4 mm'
+ tools.append(box('RearNutEntry%d'%i,[nw,P('NutThickness'),P('NutAF')],[nx,d+'-6 mm',z+'-'+P('NutAF')+'/2']))
+# Upper retaining strip secures the front, one accessible M3 screw.
+adds.append(box('TopNutBoss',['10 mm','11 mm','7 mm'],[w+'/2-5 mm','5 mm',h+'-7 mm']))
+tools.append(cyl('TopBolt',P('M3Clearance')+'/2','10 mm',[w+'/2','10 mm',h+'-8 mm']))
+tools.append(box('TopNutEntry',[P('NutAF'),'12 mm',P('NutThickness')],[w+'/2-'+P('NutAF')+'/2','6.6 mm',h+'-5.5 mm']))
+body=cut('Body',fuse('BodyBeforeHoles',adds),tools);body.Label='01 — tělo, otevřené podpěry PCB a vodítka čela'
+# Face with generous rounded service openings: horizontal uncertainty does not
+# change the fixed PCB envelope. RCA x8..38; knob x49..72 relative to PCB.
+faceblank=box('FaceBlank',[w+'-3 mm',P('FaceThickness'),h+'-'+t],['1.5 mm',P('FaceY'),t])
+ft=[]
+for n in range(3):
+ z=P('FirstPCB')+'+%d*'%n+P('Pitch')
+ ft.append(window('RCAWindow%d'%n,P('BoardSide')+'+8 mm',z+'-1 mm','30 mm','22 mm','0 mm','6 mm',3))
+ ft.append(window('KnobWindow%d'%n,P('BoardSide')+'+49 mm',z+'-1 mm','23 mm','22 mm','0 mm','6 mm',3))
+ for j in range(3):ft.append(window('FrontVent%d_%d'%(n,j),'12 mm',z+'+25 mm+%d*4 mm'%j,w+'-24 mm','2 mm','0 mm','6 mm',.8))
+front=cut('Front',faceblank,ft);front.Label='02 — čelo zasouvané shora, tolerance konektorů'
+# Rear panel, bare-board rear stops and a lower fixing tab accessible below case.
+backitems=[box('BackBase',[w,P('BackThickness'),h],['0 mm',d,'0 mm']),window('LowerTab',w+'/2-10 mm','-12 mm','20 mm','20 mm',d,P('BackThickness'),3)]
+for n in range(3):
+ z=P('FirstPCB')+'+%d*'%n+P('Pitch')
+ for side,x in [('L',P('BoardSide')+'-0.2 mm'),('R',w+'-'+P('BoardSide')+'-2.8 mm')]:backitems.append(box('RearPCBStop%d%s'%(n,side),['3 mm',P('RearGap')+'-'+P('PCBEndClearance')+'+0.1 mm',P('SeatLipHeight')],[x,P('BoardFront')+'+'+P('PCBDepth')+'+'+P('PCBEndClearance'),z]))
+bt=[]
+for i,(x,z) in enumerate([('7 mm','4.5 mm'),(w+'-7 mm','4.5 mm'),('7 mm',h+'-4.5 mm'),(w+'-7 mm',h+'-4.5 mm')]):bt.append(cyl('BackBolt%d'%i,P('M3Clearance')+'/2','6 mm',[x,d+'-1 mm',z],(0,1,0)))
+for n in range(3):
+ z=P('FirstPCB')+'+%d*'%n+P('Pitch')
+ bt.append(window('CablePort%d'%n,w+'/2-17 mm',z+'+3 mm','34 mm','18 mm',d+'-1 mm','6 mm',3))
+ for j in [-1,1]:bt.append(box('TieSlot%d_%s'%(n,str(j).replace('-','m')),['2.8 mm','6 mm','8 mm'],[w+'/2+%d mm'% (j*23)+'-1.4 mm',d+'-1 mm',z+'+8 mm']))
+# Two keyholes, and a lower screw that locks the assembled box against lift.
+mounts=[(w+'/2-19 mm',h+'-12 mm'),(w+'/2+19 mm',h+'-12 mm'),(w+'/2','-6 mm')]
+for i,(x,z) in enumerate(mounts):
+ bt.append(cyl('WallShaft%d'%i,'2.6 mm','6 mm',[x,d+'-1 mm',z],(0,1,0)))
+ if i<2:
+  bt.append(cyl('WallHead%d'%i,'4.8 mm','6 mm',[x,d+'-1 mm',z+'-7 mm'],(0,1,0)))
+  bt.append(box('WallKeySlot%d'%i,['5.2 mm','6 mm','7 mm'],[x+'-2.6 mm',d+'-1 mm',z+'-7 mm']))
+rear=cut('Rear',fuse('RearBeforeHoles',backitems),bt);rear.Label='03 — zadní víko, dorazy a nástěnné uchycení'
+lockblank=box('TopLockBlank',[w+'-18 mm','15 mm','2.8 mm'],['9 mm','0 mm',h])
+lock=cut('TopLock',lockblank,[cyl('LockBolt',P('M3Clearance')+'/2','5 mm',[w+'/2','10 mm',h])]);lock.Label='04 — horní pojistka čela, 1× M3'
+spacers=[]
+for i,(x,z) in enumerate(mounts):
+ a=cyl('SpacerBlank%d'%i,'7.5 mm',P('StandOff'),[x,d+'+'+P('BackThickness'),z],(0,1,0))
+ b=cyl('SpacerHole%d'%i,'2.8 mm',P('StandOff')+'+2 mm',[x,d+'+'+P('BackThickness')+'-1 mm',z],(0,1,0))
+ o=cut('Spacer%d'%(i+1),a,[b]);o.Label='0%d — distanční kroužek na zeď'%(i+5);spacers.append(o)
+# References: exact XY PCB, all other shapes simplified and labelled.
+refs=[]
+for n in range(3):
+ z=P('FirstPCB')+'+%d*'%n+P('Pitch')
+ pcb=box('PCB%d'%n,[P('PCBWidth'),P('PCBDepth'),P('PCBThickness')],[P('BoardSide'),P('BoardFront'),z]);pcb.Label='REFERENCE PCB 78×108 — tloušťka neověřena';refs.append(pcb)
+ # Unmeasured capacitor references touch the two side edges of the PCB.
+ for side,cx in [('L',P('BoardSide')+'+4 mm'),('R',w+'-'+P('BoardSide')+'-4 mm')]:
+  for k in range(6):
+   cap=cyl('Capacitor%d%s%d'%(n,side,k),'4 mm',P('ComponentHeight')+'-8 mm',[cx,P('BoardFront')+'+14 mm+%d*16 mm'%k,z+'+'+P('PCBThickness')]);cap.Label='REFERENCE kondenzátoru u hrany — rozměry neměřeny';refs.append(cap)
+ sink=box('Heatsink%d'%n,[P('PCBWidth')+'-24 mm',P('PCBDepth')+'-40 mm',P('ComponentHeight')+'-12 mm'],[P('BoardSide')+'+12 mm',P('BoardFront')+'+20 mm',z+'+'+P('PCBThickness')]);refs.append(sink)
+ fan=cyl('Fan%d'%n,'20 mm','7 mm',[w+'/2',P('BoardFront')+'+'+P('PCBDepth')+'/2',z+'+'+P('PCBThickness')+'+'+P('ComponentHeight')+'-7 mm']);refs.append(fan)
+ knob=cyl('Knob%d'%n,P('KnobWidth')+'/2',P('KnobLength'),[P('BoardSide')+'+'+P('PCBWidth')+'-'+P('KnobOffset'),P('BoardFront')+'-'+P('KnobLength'),z+'+'+P('AxisHeight')],(0,1,0));refs.append(knob)
+ for j in range(2):refs.append(cyl('RCA%d_%d'%(n,j),'4.5 mm',P('RCALength'),[P('BoardSide')+'+'+P('RCAOffset')+'+4.5 mm+%d*('%j+P('RCAWidth')+'-9 mm)',P('BoardFront')+'-'+P('RCALength'),z+'+'+P('AxisHeight')],(0,1,0)))
+refs=[o for o in refs]
+doc.recompute()
+assert s.SeatLipHeight.Value < s.PCBThickness.Value, 'Seat lip must stay below the top PCB surface'
+parts=[('telo',body),('celo',front),('zada',rear),('pojistka-cela',lock)]+[('odstup-%d'%(i+1),o) for i,o in enumerate(spacers)]
+for o in doc.Objects:
+ if hasattr(o,'Shape') and not o.Shape.isNull() and not o.Shape.isValid():print('INVALID_NATIVE',o.Name,flush=True)
+if not body.Shape.isValid():
+ body.Refine=False;doc.recompute();print('UNREFINED_BODY',body.Shape.isValid(),flush=True)
+for name,o in parts:assert o.Shape.isValid() and len(o.Shape.Solids)==1,(name,len(o.Shape.Solids),o.Shape.isValid())
+invalid=[o.Name for o in doc.Objects if 'Invalid' in o.State];assert not invalid,invalid
+collisions=[]
+for i,(a,aa) in enumerate(parts):
+ for b,bb in parts[i+1:]:
+  v=aa.Shape.common(bb.Shape).Volume
+  if v>1e-5:collisions.append([a,b,v])
+assert not collisions,collisions
+pcb_collisions=[]
+for n in range(3):
+ for name,o in parts:
+  v=o.Shape.common(doc.getObject('PCB%d'%n).Shape).Volume
+  if v>1e-5:pcb_collisions.append([n,name,v])
+assert not pcb_collisions,pcb_collisions
+report={'revision':'03','status':'PCB 78x108 specified; vertical envelope unmeasured; dimensional assembly prototype','parameters':[{'name':a,'value_mm':v,'source':src} for a,v,l,src in VALUES],'exact_pcb_mm':[78,108],'body_dimensions_mm':[s.Width.Value,s.Depth.Value,s.Height.Value],'overall_including_spacers_and_lock_mm':[getattr(Part.makeCompound([o.Shape for _,o in parts]).BoundBox,k) for k in ['XLength','YLength','ZLength']], 'part_collisions':collisions,'pcb_collisions':pcb_collisions,'parts':{},'references':[o.Name for o in refs],'physical_fit_verified':False,'thermal_verified':False,'connector_vertical_axis_verified':False,'source_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest()}
+manifest={'revision':'03','parts':[],'status':'PLA dimensional prototype, not yet approved for operating electronics'}
+for name,o in parts:
+ shape=o.Shape.copy()
+ # Body prints on open rear edge. Front/rear flat; lock and spacer flat.
+ if name=='telo':rot=App.Rotation(App.Vector(1,0,0),90);note='Open rear rim on bed; print axis -Y; open supports upright'
+ elif name in ['celo','zada']:rot=App.Rotation(App.Vector(1,0,0),-90);note='Outer face on bed, internal features upwards'
+ elif name.startswith('odstup'):rot=App.Rotation(App.Vector(1,0,0),-90);note='Ring flat'
+ else:rot=App.Rotation();note='Flat strip'
+ # +90 about X maps y->z. Reverse body so largest y is on bed.
+ if name=='telo':rot=App.Rotation(App.Vector(1,0,0),-90)
+ shape.Placement=App.Placement(App.Vector(),rot).multiply(shape.Placement)
+ bb=shape.BoundBox;shape.translate(App.Vector(-bb.XMin,-bb.YMin,-bb.ZMin))
+ mesh=MeshPart.meshFromShape(Shape=shape,LinearDeflection=.06,AngularDeflection=.12,Relative=False)
+ path=OUT/'stl'/(name+'.stl');mesh.write(str(path));check=Mesh.Mesh(str(path));print('MESH',name,check.isSolid(),check.countComponents(),flush=True);assert check.isSolid() and check.countComponents()==1,name
+ b=shape.BoundBox;sha=hashlib.sha256(path.read_bytes()).hexdigest()
+ report['parts'][name]={'object':o.Name,'valid':True,'solids':1,'stl_closed':True,'components':1,'print_bbox_mm':[b.XLength,b.YLength,b.ZLength],'volume_mm3':o.Shape.Volume,'stl_sha256':sha,'print_orientation':note}
+ manifest['parts'].append({'id':name,'file':'stl/'+name+'.stl','object':o.Name,'quantity':1,'sha256':sha,'bbox_mm':[b.XLength,b.YLength,b.ZLength],'orientation':note})
+# Native parameters are saved; no external class needed to recompute.
+if App.GuiUp:
+ for o in doc.Objects:
+  if hasattr(o,'ViewObject'):o.ViewObject.Visibility=False
+ for name,o in parts:o.ViewObject.Visibility=True
+ for o in refs:o.ViewObject.Visibility=True
+doc.recompute();doc.saveAs(str(OUT/'kryt.FCStd'))
+(OUT/'kontrola-modelu.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
+(OUT/'print-manifest.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n')
+print('V03_GENERATED_OK',flush=True)

@@ -1,0 +1,599 @@
+{
+  "revision": "05",
+  "fcstd_sha256": "60896561b73ba786734fc74abd816cced1274a5c87541a244740688f988c6f35",
+  "stl_sha256": "52272f11c1da5100c33756c3c9fe94aa64b06f5f66380c752142e7aab70269b5",
+  "checks_total": 48,
+  "checks_passed": 48,
+  "checks_failed": [],
+  "results": [
+    {
+      "check": "doc_final_object",
+      "passed": true,
+      "type": "PartDesign::Body",
+      "tip": "MountHoles"
+    },
+    {
+      "check": "doc_no_python_proxy",
+      "passed": true,
+      "found": []
+    },
+    {
+      "check": "doc_sketches_fully_constrained",
+      "passed": true,
+      "count": 22
+    },
+    {
+      "check": "doc_sketches_driven_by_sheet",
+      "passed": true,
+      "expressions": 401
+    },
+    {
+      "check": "doc_saved_shows_only_final",
+      "passed": true,
+      "visible": [
+        "Scabbard"
+      ]
+    },
+    {
+      "check": "doc_no_temporary_render_objects",
+      "passed": true,
+      "found": []
+    },
+    {
+      "check": "solid_valid_single",
+      "passed": true,
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 174543.36448049272
+    },
+    {
+      "check": "overall_fits_printer_height",
+      "passed": true,
+      "overall_mm": [
+        78.0000002,
+        33.80000010000007,
+        248.00000020000004
+      ],
+      "x": [
+        -39.0000001,
+        39.0000001
+      ],
+      "y": [
+        -9.80000009999995,
+        24.000000000000117
+      ]
+    },
+    {
+      "check": "rear_is_wall_plane",
+      "passed": true,
+      "y_max": 24.000000000000117,
+      "wall_y": 24.0
+    },
+    {
+      "check": "rear_single_flat_face_with_two_holes",
+      "passed": true,
+      "faces": 1,
+      "wires": 3,
+      "area_mm2": 8609.285119214639
+    },
+    {
+      "check": "cavity_47_by_4_4_along_length_with_closed_outer_section",
+      "passed": true,
+      "samples": [
+        [
+          16.2,
+          47.0,
+          4.400000000000077
+        ],
+        [
+          41.9,
+          47.0,
+          4.400000000000077
+        ],
+        [
+          67.6,
+          47.0,
+          4.400000000000077
+        ],
+        [
+          93.3,
+          47.0,
+          4.400000000000077
+        ],
+        [
+          119.0,
+          47.0,
+          4.400000000000077
+        ],
+        [
+          144.7,
+          47.0,
+          4.400000000000077
+        ],
+        [
+          170.4,
+          47.0,
+          4.400000000000077
+        ],
+        [
+          196.1,
+          47.0,
+          4.400000000000077
+        ],
+        [
+          221.8,
+          47.0,
+          4.400000000000077
+        ]
+      ]
+    },
+    {
+      "check": "closed_end_centre_line",
+      "passed": true,
+      "solid_spans_z": [
+        [
+          0.0,
+          15.999999999999993
+        ]
+      ]
+    },
+    {
+      "check": "closed_end_solid_slab_under_cavity",
+      "passed": true,
+      "slab_z_mm": [
+        10.0,
+        16.0
+      ],
+      "missing_mm3": 0.0,
+      "tie_layer_missing_mm3": -5.684341886080802e-14
+    },
+    {
+      "check": "mouth_lead_in_opening",
+      "passed": true,
+      "opening_mm": [
+        51.399633333333334,
+        8.799633333333333
+      ],
+      "lead_in_length_mm": 12.0
+    },
+    {
+      "check": "cavity_length_chain",
+      "passed": true,
+      "cavity_length_mm": 218.0,
+      "chain": "200 + 10 + 8"
+    },
+    {
+      "check": "seated_blade_no_collision",
+      "passed": true,
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "seated_blade_fully_covered",
+      "passed": true,
+      "tip_z": 24.0,
+      "heel_z": 224.0,
+      "mouth_z": 234.0,
+      "depth_of_heel_below_mouth_mm": 10.0
+    },
+    {
+      "check": "tip_reserve_above_floor",
+      "passed": true,
+      "reserve_mm": 8.0
+    },
+    {
+      "check": "straight_sweep_free_to_past_the_mouth",
+      "passed": true,
+      "overlap_mm3": 0.0,
+      "swept_top_z": 474.0
+    },
+    {
+      "check": "stepped_motion_free_each_5mm",
+      "passed": true,
+      "max_overlap_mm3": 0.0
+    },
+    {
+      "check": "sweep_side_clearance_is_design_value",
+      "passed": true,
+      "minimum_distance_mm": 0.6999999999999318
+    },
+    {
+      "check": "tip_position_with_neck_stopped_at_mouth",
+      "passed": true,
+      "tip_reserve_if_heel_stops_at_mouth_mm": 18.0,
+      "note": "wider neck stops earlier; the blade is still fully covered and further from the floor"
+    },
+    {
+      "check": "negative_controls_collide",
+      "passed": true,
+      "overlap_mm3": {
+        "blade_47_2_wide": 118.950080046987,
+        "blade_4_6_thick": 1784.4545455350449,
+        "tip_8_1_deeper": 13.49999999999876
+      }
+    },
+    {
+      "check": "knife_path_free_of_collar_ears_and_heads",
+      "passed": true,
+      "spine_plus_x": {
+        "max_overlap_mm3": 0.0,
+        "behind_handle_to_wall_mm": 11.4999999,
+        "to_screw_head_mm": 10.806278005323053,
+        "to_ears_mm": 13.63042037192029,
+        "bbox_y": [
+          -12.5000001,
+          12.5000001
+        ],
+        "bbox_x": [
+          -22.5,
+          22.5000001
+        ]
+      },
+      "spine_minus_x": {
+        "max_overlap_mm3": 0.0,
+        "behind_handle_to_wall_mm": 11.4999999,
+        "to_screw_head_mm": 19.79284161151439,
+        "to_ears_mm": 13.63042037192029,
+        "bbox_y": [
+          -12.5000001,
+          12.5000001
+        ],
+        "bbox_x": [
+          -22.5000001,
+          22.5
+        ]
+      }
+    },
+    {
+      "check": "handle_gap_to_wall_9_5_to_11_5",
+      "passed": true,
+      "gap_mm": 11.4999999,
+      "blade_plane_from_wall_mm": 24.0
+    },
+    {
+      "check": "handle_is_the_stop_on_the_collar",
+      "passed": true,
+      "overlap_0_2mm_lower_mm3": 24.587144983430992,
+      "tip_reserve_at_stop_mm": 8.0
+    },
+    {
+      "check": "handle_above_collar_is_free",
+      "passed": true,
+      "handle_z": [
+        233.9999999981806,
+        339.00000000500114
+      ],
+      "ear_top_z": 248.00000010000002
+    },
+    {
+      "check": "minimum_wall_around_straight_cavity",
+      "passed": true,
+      "minimum_mm": 2.399999999999973,
+      "sections_each_1mm": 206
+    },
+    {
+      "check": "minimum_wall_around_lead_in",
+      "passed": true,
+      "minimum_mm": 3.864999999999954,
+      "sections_each_1mm": 12,
+      "note": "thinnest place is the lip between the lead-in and the rim top bevel at the mouth plane"
+    },
+    {
+      "check": "minimum_wall_at_cavity_floor_corners",
+      "passed": true,
+      "minimum_mm": 3.194365081389586
+    },
+    {
+      "check": "ornament_stays_outside_the_wall",
+      "passed": true,
+      "minimum_mm": 2.4000000000000066,
+      "by_feature": {
+        "EdgeRails": 2.4000000000000066,
+        "BandUpper": 2.400000000000034,
+        "BandLower": 2.4000000000000137,
+        "EmblemBase": 2.4000000000000155,
+        "EmblemRing": 3.6000000000000174,
+        "EmblemMoat": 3.5999999999999677,
+        "EmblemGem": 3.600000000000022,
+        "EmblemProngs": 3.600000000000019,
+        "ChapeBoss": 5.400000000000003,
+        "RimStud": 4.40000000000005
+      }
+    },
+    {
+      "check": "moat_removes_only_ring_step",
+      "passed": true,
+      "moat_y": [
+        -6.800000000000034,
+        -5.799999999999968
+      ],
+      "base_top_y": -5.8
+    },
+    {
+      "check": "relief_at_least_1_2mm",
+      "passed": true,
+      "relief_mm": {
+        "lemování": 1.2,
+        "pásy": 2.0,
+        "prstenec": 2.2,
+        "střed emblému": 3.2,
+        "horní límec nad čelem": 4.2
+      }
+    },
+    {
+      "check": "band_plateau_not_thin",
+      "passed": true,
+      "plateau_mm": 1.9657379002437407
+    },
+    {
+      "check": "two_screw_holes_through_and_clear",
+      "passed": true,
+      "holes": [
+        {
+          "x": 32.0,
+          "z": 241.0,
+          "shaft_overlap_mm3": 0.0,
+          "tool_overlap_mm3": 0.0,
+          "head_seat_volume_ratio": 0.9525543310977057,
+          "to_cavity_mm": 15.146530326650153
+        },
+        {
+          "x": -32.0,
+          "z": 7.0,
+          "shaft_overlap_mm3": 0.0,
+          "tool_overlap_mm3": 0.0,
+          "head_seat_volume_ratio": 0.9525543310973732,
+          "to_cavity_mm": 18.5031787722113
+        }
+      ],
+      "distance_between_mm": 242.59431155738173
+    },
+    {
+      "check": "tool_access_straight_from_room",
+      "passed": true,
+      "tool_diameter_mm": 11
+    },
+    {
+      "check": "heads_seat_on_plate",
+      "passed": true,
+      "head_diameter_mm": 10,
+      "ratios": [
+        0.9525543310977057,
+        0.9525543310973732
+      ]
+    },
+    {
+      "check": "holes_outside_cavity",
+      "passed": true,
+      "mm": [
+        15.146530326650153,
+        18.5031787722113
+      ]
+    },
+    {
+      "check": "cad_downward_faces_over_45_deg_only_at_rim_wings",
+      "passed": true,
+      "faces_over_45": [
+        {
+          "worst_deg": 48.237624376054136,
+          "area_mm2": 64.58345395593679,
+          "x": [
+            12.389061003511088,
+            32.15186823509272
+          ],
+          "y": [
+            -6.999999999999952,
+            4.105e-14
+          ],
+          "z": [
+            181.83305710499397,
+            203.3609679475257
+          ]
+        },
+        {
+          "worst_deg": 48.23762437605415,
+          "area_mm2": 72.93688169753973,
+          "x": [
+            12.389061003511088,
+            32.15186823509272
+          ],
+          "y": [
+            4.038e-14,
+            7.000000000000048
+          ],
+          "z": [
+            181.83305710499397,
+            203.3609679475257
+          ]
+        },
+        {
+          "worst_deg": 48.237624376053965,
+          "area_mm2": 64.58345469838102,
+          "x": [
+            -32.15186823509272,
+            -12.389061003511088
+          ],
+          "y": [
+            -6.999999999999953,
+            4.105e-14
+          ],
+          "z": [
+            181.83305710499397,
+            203.36096794752572
+          ]
+        },
+        {
+          "worst_deg": 48.23762437605398,
+          "area_mm2": 72.93688195687014,
+          "x": [
+            -32.15186823509272,
+            -12.389061003511088
+          ],
+          "y": [
+            4.038e-14,
+            7.000000000000048
+          ],
+          "z": [
+            181.83305710499397,
+            203.36096794752572
+          ]
+        }
+      ],
+      "note": "Warped transition of the rim wings, sampled on a grid. The exact local maximum comes from the STL facet scan. Not every face is within 45 deg.",
+      "worst_sampled_deg": 48.23762437605415
+    },
+    {
+      "check": "footprint_on_bed",
+      "passed": true,
+      "bed_contact_mm2": 938.7420938147886,
+      "footprint_bbox_mm": [
+        78.0,
+        31.599999999999994
+      ],
+      "height_to_depth": 7.848101272151902,
+      "height_to_width": 3.1794871820512824,
+      "centre_of_mass": [
+        1.9124610356789106e-08,
+        6.615774955658376,
+        116.43402622170514
+      ],
+      "static_tip_margin_deg": 6.960959479206556
+    },
+    {
+      "check": "stl_closed_manifold_single",
+      "passed": true,
+      "facets": 8396,
+      "components": 1
+    },
+    {
+      "check": "stl_self_intersection_flag_is_false_positive",
+      "passed": true,
+      "raw_mesh_api_flag": true,
+      "raw_records": 56,
+      "unique_pairs": 41,
+      "facets": 66,
+      "flagged_area_mm2": 1.2550389934767736,
+      "minimum_plane_separation_mm": 3.521141605922207e-05,
+      "warning": "The raw FreeCAD Mesh flag stays set. Each candidate pair is separated by the plane of one triangle in double precision; these are near-touching facets on the rim and chape wing transitions, not a real intersection."
+    },
+    {
+      "check": "stl_overhang_stays_under_50_deg",
+      "passed": true,
+      "worst_deg": 49.128305030013685,
+      "area_over_45_5_mm2": 30.567661206121556,
+      "area_over_48_mm2": 7.86547555658035
+    },
+    {
+      "check": "stl_matches_saved_cad",
+      "passed": true,
+      "vertices": 4196,
+      "max_vertex_distance_mm": 6.7444502993963655e-06,
+      "stl_volume_mm3": 174542.6875,
+      "cad_volume_mm3": 174543.36448049272
+    },
+    {
+      "check": "stl_translation_only_and_z_up",
+      "passed": true,
+      "bbox_mm": [
+        77.9999999,
+        33.799999137060546,
+        247.99999989999998
+      ],
+      "offset_mm": [
+        39.0000001,
+        9.80000009999995,
+        1.0000001421085471e-07
+      ]
+    },
+    {
+      "check": "parameters_drive_geometry",
+      "passed": true,
+      "blade_thickness_4_5": {
+        "valid": true,
+        "solids": 1,
+        "clean": true,
+        "volume_mm3": 177380.54030781327,
+        "sweep_overlap_mm3": 0.0,
+        "cavity_measured_mm": [
+          47.0,
+          5.900000000000023
+        ],
+        "y_max_mm": 24.000000000000057,
+        "mouth_z_mm": 234.0
+      },
+      "blade_length_190": {
+        "valid": true,
+        "solids": 1,
+        "clean": true,
+        "volume_mm3": 169642.04745447563,
+        "sweep_overlap_mm3": 0.0,
+        "cavity_measured_mm": [
+          47.0,
+          4.4000000000000234
+        ],
+        "y_max_mm": 24.000000000000053,
+        "mouth_z_mm": 224.0
+      },
+      "band_count_2": {
+        "valid": true,
+        "solids": 1,
+        "clean": true,
+        "volume_mm3": 173770.79463421367,
+        "sweep_overlap_mm3": 0.0,
+        "cavity_measured_mm": [
+          47.0,
+          4.4000000000000234
+        ],
+        "y_max_mm": 24.000000000000057,
+        "mouth_z_mm": 234.0
+      },
+      "axis_from_wall_22": {
+        "valid": true,
+        "solids": 1,
+        "clean": true,
+        "volume_mm3": 169231.36447565624,
+        "sweep_overlap_mm3": 0.0,
+        "cavity_measured_mm": [
+          47.0,
+          4.4000000000000234
+        ],
+        "y_max_mm": 22.000000000000057,
+        "mouth_z_mm": 234.0
+      }
+    },
+    {
+      "check": "parameters_restored_in_memory",
+      "passed": true,
+      "restored_mm3": 174543.36447935738,
+      "reference_mm3": 174543.36448049272
+    },
+    {
+      "check": "files_not_touched_by_audit",
+      "passed": true,
+      "fcstd": "60896561b73ba786734fc74abd816cced1274a5c87541a244740688f988c6f35",
+      "stl": "52272f11c1da5100c33756c3c9fe94aa64b06f5f66380c752142e7aab70269b5"
+    }
+  ],
+  "scope": "Digital checks of saved files only. Reference knife outline, neck and handle shape are illustrations.",
+  "physical_print_verified": false,
+  "real_knife_fit_verified": false,
+  "partial_recompute": {
+    "recomputed": [
+      "stl_self_intersection_flag_is_false_positive"
+    ],
+    "renamed_only": [
+      "cad_downward_faces_over_45_deg_only_at_rim_wings"
+    ],
+    "not_rerun": "All other results come from the full run on the same FCStd and STL hashes; geometry unchanged."
+  },
+  "warnings": [
+    {
+      "check": "stl_self_intersection_flag_is_false_positive",
+      "raw_mesh_api_flag": true,
+      "text": "The raw FreeCAD Mesh flag stays set. Each candidate pair is separated by the plane of one triangle in double precision; these are near-touching facets on the rim and chape wing transitions, not a real intersection."
+    },
+    {
+      "check": "stl_overhang_stays_under_50_deg",
+      "text": "Local overhang up to about 49.2 deg on STL facets at the rim wings; not every face is within 45 deg."
+    }
+  ]
+}

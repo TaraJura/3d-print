@@ -1,0 +1,2056 @@
+{
+  "source_manifest_sha256": "b285058715d40511f389ea8ef735b56c2a32afae5132af82ac62a952eac44a58",
+  "machine": "Anycubic Kobra X 0.4 nozzle",
+  "bed_mm": [
+    260.0,
+    260.0,
+    260.0
+  ],
+  "physical_parts": 54,
+  "type_counts": {
+    "bok-segment": 6,
+    "dvere-dolni": 1,
+    "dvere-dolni-prave": 1,
+    "dvere-stredni": 1,
+    "dvere-stredni-prave": 1,
+    "dvere-horni": 1,
+    "dvere-horni-prave": 1,
+    "pricka-predni-polovina": 4,
+    "pricka-zadni-polovina": 4,
+    "spojka-panelu": 16,
+    "spojka-pricky": 4,
+    "rohovy-uhelnik": 8,
+    "cep-pantu": 6
+  },
+  "plates": [
+    {
+      "number": 1,
+      "geometry": "podlozka-01-geometrie.3mf",
+      "geometry_sha256": "4f1b99303cb9e86181a16c13ae105c3c1f8008f35aad3c2584d1018decb530e3",
+      "preview": "podlozka-01.png",
+      "physical_parts": 12,
+      "parts": [
+        {
+          "id": "bok-segment",
+          "name": "bok-segment-01",
+          "file": "stl/bok-segment.stl",
+          "source_sha256": "1d4c936ffbe41b6a8fcb9af6900924977a238587cd0c00ac556141fce939fe21",
+          "translation_mm": [
+            8.5,
+            8.25,
+            -0.0
+          ],
+          "placed_min_mm": [
+            8.5,
+            8.25,
+            0.0
+          ],
+          "placed_max_mm": [
+            191.5,
+            184.75,
+            20.0
+          ],
+          "size_mm": [
+            183.0,
+            176.5,
+            20.0
+          ],
+          "triangle_count": 644,
+          "supports": false,
+          "support_note": "Vnější plochou na podložku; pantová pouzdra mají podložený kořen a otvor s 45° stropem ve směru +X sestavy / +Z tisku.",
+          "critical_z_mm": [
+            0.2,
+            4.2,
+            10.000000000000018,
+            14,
+            16,
+            17.2,
+            18.4,
+            19.800000000000036
+          ]
+        },
+        {
+          "id": "pricka-predni-polovina",
+          "name": "pricka-predni-polovina-01",
+          "file": "stl/pricka-predni-polovina.stl",
+          "source_sha256": "88341b811a158010e118d941b6099a0b18d6d02210ddeca827c1931484349741",
+          "translation_mm": [
+            8.5,
+            196.75,
+            -0.0
+          ],
+          "placed_min_mm": [
+            8.5,
+            196.75,
+            0.0
+          ],
+          "placed_max_mm": [
+            189.5,
+            208.75,
+            12.0
+          ],
+          "size_mm": [
+            181.0,
+            12.0,
+            12.0
+          ],
+          "triangle_count": 12,
+          "supports": false,
+          "support_note": "Na dolní ploše; hranol bez převisů.",
+          "critical_z_mm": [
+            0.2,
+            6.0,
+            11.8
+          ]
+        },
+        {
+          "id": "pricka-predni-polovina",
+          "name": "pricka-predni-polovina-02",
+          "file": "stl/pricka-predni-polovina.stl",
+          "source_sha256": "88341b811a158010e118d941b6099a0b18d6d02210ddeca827c1931484349741",
+          "translation_mm": [
+            8.5,
+            220.75,
+            -0.0
+          ],
+          "placed_min_mm": [
+            8.5,
+            220.75,
+            0.0
+          ],
+          "placed_max_mm": [
+            189.5,
+            232.75,
+            12.0
+          ],
+          "size_mm": [
+            181.0,
+            12.0,
+            12.0
+          ],
+          "triangle_count": 12,
+          "supports": false,
+          "support_note": "Na dolní ploše; hranol bez převisů.",
+          "critical_z_mm": [
+            0.2,
+            6.0,
+            11.8
+          ]
+        },
+        {
+          "id": "spojka-pricky",
+          "name": "spojka-pricky-01",
+          "file": "stl/spojka-pricky.stl",
+          "source_sha256": "4e7773173b2b19938c6d2468853c9110829e14a1ae310419129fb2ceaedcdc21",
+          "translation_mm": [
+            201.5,
+            196.75,
+            -0.0
+          ],
+          "placed_min_mm": [
+            201.5,
+            196.75,
+            0.0
+          ],
+          "placed_max_mm": [
+            251.5,
+            208.75,
+            4.0
+          ],
+          "size_mm": [
+            50.0,
+            12.0,
+            4.0
+          ],
+          "triangle_count": 12,
+          "supports": false,
+          "support_note": "Plochou 50×12 mm na podložku, výška 4 mm.",
+          "critical_z_mm": [
+            0.2,
+            2.0000000000000013,
+            3.8000000000000025
+          ]
+        },
+        {
+          "id": "spojka-pricky",
+          "name": "spojka-pricky-02",
+          "file": "stl/spojka-pricky.stl",
+          "source_sha256": "4e7773173b2b19938c6d2468853c9110829e14a1ae310419129fb2ceaedcdc21",
+          "translation_mm": [
+            201.5,
+            220.75,
+            -0.0
+          ],
+          "placed_min_mm": [
+            201.5,
+            220.75,
+            0.0
+          ],
+          "placed_max_mm": [
+            251.5,
+            232.75,
+            4.0
+          ],
+          "size_mm": [
+            50.0,
+            12.0,
+            4.0
+          ],
+          "triangle_count": 12,
+          "supports": false,
+          "support_note": "Plochou 50×12 mm na podložku, výška 4 mm.",
+          "critical_z_mm": [
+            0.2,
+            2.0000000000000013,
+            3.8000000000000025
+          ]
+        },
+        {
+          "id": "rohovy-uhelnik",
+          "name": "rohovy-uhelnik-01",
+          "file": "stl/rohovy-uhelnik.stl",
+          "source_sha256": "69b0e9a2d7e0fe478e5aa58702ea13565d0197ee2833d813d887a5762c76cab5",
+          "translation_mm": [
+            203.5,
+            8.25,
+            -0.0
+          ],
+          "placed_min_mm": [
+            203.5,
+            8.25,
+            0.0
+          ],
+          "placed_max_mm": [
+            227.5,
+            32.25,
+            12.0
+          ],
+          "size_mm": [
+            24.0,
+            24.0,
+            12.0
+          ],
+          "triangle_count": 20,
+          "supports": false,
+          "support_note": "L půdorys na podložce, výška 12 mm, žádný převis.",
+          "critical_z_mm": [
+            0.2,
+            6.0,
+            11.8
+          ]
+        },
+        {
+          "id": "cep-pantu",
+          "name": "cep-pantu-01",
+          "file": "stl/cep-pantu.stl",
+          "source_sha256": "8eed97f341cdf2c44e8a600939909b5899582f64237dab41517a77e69d27ce2c",
+          "translation_mm": [
+            239.5,
+            8.25,
+            4.440892098500626e-16
+          ],
+          "placed_min_mm": [
+            239.5,
+            8.25,
+            0.0
+          ],
+          "placed_max_mm": [
+            246.5,
+            15.25,
+            46.0
+          ],
+          "size_mm": [
+            7.0,
+            7.0,
+            46.0
+          ],
+          "triangle_count": 476,
+          "supports": false,
+          "support_note": "Nastojato na Ø7 hlavě, osa Z; dřík Ø4 / délka 44, brim pomáhá přilnavosti.",
+          "critical_z_mm": [
+            0.2,
+            23.0,
+            45.8
+          ]
+        },
+        {
+          "id": "cep-pantu",
+          "name": "cep-pantu-02",
+          "file": "stl/cep-pantu.stl",
+          "source_sha256": "8eed97f341cdf2c44e8a600939909b5899582f64237dab41517a77e69d27ce2c",
+          "translation_mm": [
+            8.5,
+            244.75,
+            4.440892098500626e-16
+          ],
+          "placed_min_mm": [
+            8.5,
+            244.75,
+            0.0
+          ],
+          "placed_max_mm": [
+            15.5,
+            251.75,
+            46.0
+          ],
+          "size_mm": [
+            7.0,
+            7.0,
+            46.0
+          ],
+          "triangle_count": 476,
+          "supports": false,
+          "support_note": "Nastojato na Ø7 hlavě, osa Z; dřík Ø4 / délka 44, brim pomáhá přilnavosti.",
+          "critical_z_mm": [
+            0.2,
+            23.0,
+            45.8
+          ]
+        },
+        {
+          "id": "cep-pantu",
+          "name": "cep-pantu-03",
+          "file": "stl/cep-pantu.stl",
+          "source_sha256": "8eed97f341cdf2c44e8a600939909b5899582f64237dab41517a77e69d27ce2c",
+          "translation_mm": [
+            27.5,
+            244.75,
+            4.440892098500626e-16
+          ],
+          "placed_min_mm": [
+            27.5,
+            244.75,
+            0.0
+          ],
+          "placed_max_mm": [
+            34.5,
+            251.75,
+            46.0
+          ],
+          "size_mm": [
+            7.0,
+            7.0,
+            46.0
+          ],
+          "triangle_count": 476,
+          "supports": false,
+          "support_note": "Nastojato na Ø7 hlavě, osa Z; dřík Ø4 / délka 44, brim pomáhá přilnavosti.",
+          "critical_z_mm": [
+            0.2,
+            23.0,
+            45.8
+          ]
+        },
+        {
+          "id": "cep-pantu",
+          "name": "cep-pantu-04",
+          "file": "stl/cep-pantu.stl",
+          "source_sha256": "8eed97f341cdf2c44e8a600939909b5899582f64237dab41517a77e69d27ce2c",
+          "translation_mm": [
+            46.5,
+            244.75,
+            4.440892098500626e-16
+          ],
+          "placed_min_mm": [
+            46.5,
+            244.75,
+            0.0
+          ],
+          "placed_max_mm": [
+            53.5,
+            251.75,
+            46.0
+          ],
+          "size_mm": [
+            7.0,
+            7.0,
+            46.0
+          ],
+          "triangle_count": 476,
+          "supports": false,
+          "support_note": "Nastojato na Ø7 hlavě, osa Z; dřík Ø4 / délka 44, brim pomáhá přilnavosti.",
+          "critical_z_mm": [
+            0.2,
+            23.0,
+            45.8
+          ]
+        },
+        {
+          "id": "cep-pantu",
+          "name": "cep-pantu-05",
+          "file": "stl/cep-pantu.stl",
+          "source_sha256": "8eed97f341cdf2c44e8a600939909b5899582f64237dab41517a77e69d27ce2c",
+          "translation_mm": [
+            65.5,
+            244.75,
+            4.440892098500626e-16
+          ],
+          "placed_min_mm": [
+            65.5,
+            244.75,
+            0.0
+          ],
+          "placed_max_mm": [
+            72.5,
+            251.75,
+            46.0
+          ],
+          "size_mm": [
+            7.0,
+            7.0,
+            46.0
+          ],
+          "triangle_count": 476,
+          "supports": false,
+          "support_note": "Nastojato na Ø7 hlavě, osa Z; dřík Ø4 / délka 44, brim pomáhá přilnavosti.",
+          "critical_z_mm": [
+            0.2,
+            23.0,
+            45.8
+          ]
+        },
+        {
+          "id": "cep-pantu",
+          "name": "cep-pantu-06",
+          "file": "stl/cep-pantu.stl",
+          "source_sha256": "8eed97f341cdf2c44e8a600939909b5899582f64237dab41517a77e69d27ce2c",
+          "translation_mm": [
+            84.5,
+            244.75,
+            4.440892098500626e-16
+          ],
+          "placed_min_mm": [
+            84.5,
+            244.75,
+            0.0
+          ],
+          "placed_max_mm": [
+            91.5,
+            251.75,
+            46.0
+          ],
+          "size_mm": [
+            7.0,
+            7.0,
+            46.0
+          ],
+          "triangle_count": 476,
+          "supports": false,
+          "support_note": "Nastojato na Ø7 hlavě, osa Z; dřík Ø4 / délka 44, brim pomáhá přilnavosti.",
+          "critical_z_mm": [
+            0.2,
+            23.0,
+            45.8
+          ]
+        }
+      ],
+      "minimum_geometry_edge_margin_mm": 8.25,
+      "minimum_bbox_gap_mm": 12.0
+    },
+    {
+      "number": 2,
+      "geometry": "podlozka-02-geometrie.3mf",
+      "geometry_sha256": "2218eaa640cb0fbc1ce2554b8e6d7ee9491158b798732eccba156fef8ff34d88",
+      "preview": "podlozka-02.png",
+      "physical_parts": 6,
+      "parts": [
+        {
+          "id": "bok-segment",
+          "name": "bok-segment-02",
+          "file": "stl/bok-segment.stl",
+          "source_sha256": "1d4c936ffbe41b6a8fcb9af6900924977a238587cd0c00ac556141fce939fe21",
+          "translation_mm": [
+            8.5,
+            17.75,
+            -0.0
+          ],
+          "placed_min_mm": [
+            8.5,
+            17.75,
+            0.0
+          ],
+          "placed_max_mm": [
+            191.5,
+            194.25,
+            20.0
+          ],
+          "size_mm": [
+            183.0,
+            176.5,
+            20.0
+          ],
+          "triangle_count": 644,
+          "supports": false,
+          "support_note": "Vnější plochou na podložku; pantová pouzdra mají podložený kořen a otvor s 45° stropem ve směru +X sestavy / +Z tisku.",
+          "critical_z_mm": [
+            0.2,
+            4.2,
+            10.000000000000018,
+            14,
+            16,
+            17.2,
+            18.4,
+            19.800000000000036
+          ]
+        },
+        {
+          "id": "pricka-predni-polovina",
+          "name": "pricka-predni-polovina-03",
+          "file": "stl/pricka-predni-polovina.stl",
+          "source_sha256": "88341b811a158010e118d941b6099a0b18d6d02210ddeca827c1931484349741",
+          "translation_mm": [
+            8.5,
+            206.25,
+            -0.0
+          ],
+          "placed_min_mm": [
+            8.5,
+            206.25,
+            0.0
+          ],
+          "placed_max_mm": [
+            189.5,
+            218.25,
+            12.0
+          ],
+          "size_mm": [
+            181.0,
+            12.0,
+            12.0
+          ],
+          "triangle_count": 12,
+          "supports": false,
+          "support_note": "Na dolní ploše; hranol bez převisů.",
+          "critical_z_mm": [
+            0.2,
+            6.0,
+            11.8
+          ]
+        },
+        {
+          "id": "pricka-predni-polovina",
+          "name": "pricka-predni-polovina-04",
+          "file": "stl/pricka-predni-polovina.stl",
+          "source_sha256": "88341b811a158010e118d941b6099a0b18d6d02210ddeca827c1931484349741",
+          "translation_mm": [
+            8.5,
+            230.25,
+            -0.0
+          ],
+          "placed_min_mm": [
+            8.5,
+            230.25,
+            0.0
+          ],
+          "placed_max_mm": [
+            189.5,
+            242.25,
+            12.0
+          ],
+          "size_mm": [
+            181.0,
+            12.0,
+            12.0
+          ],
+          "triangle_count": 12,
+          "supports": false,
+          "support_note": "Na dolní ploše; hranol bez převisů.",
+          "critical_z_mm": [
+            0.2,
+            6.0,
+            11.8
+          ]
+        },
+        {
+          "id": "spojka-pricky",
+          "name": "spojka-pricky-03",
+          "file": "stl/spojka-pricky.stl",
+          "source_sha256": "4e7773173b2b19938c6d2468853c9110829e14a1ae310419129fb2ceaedcdc21",
+          "translation_mm": [
+            201.5,
+            206.25,
+            -0.0
+          ],
+          "placed_min_mm": [
+            201.5,
+            206.25,
+            0.0
+          ],
+          "placed_max_mm": [
+            251.5,
+            218.25,
+            4.0
+          ],
+          "size_mm": [
+            50.0,
+            12.0,
+            4.0
+          ],
+          "triangle_count": 12,
+          "supports": false,
+          "support_note": "Plochou 50×12 mm na podložku, výška 4 mm.",
+          "critical_z_mm": [
+            0.2,
+            2.0000000000000013,
+            3.8000000000000025
+          ]
+        },
+        {
+          "id": "spojka-pricky",
+          "name": "spojka-pricky-04",
+          "file": "stl/spojka-pricky.stl",
+          "source_sha256": "4e7773173b2b19938c6d2468853c9110829e14a1ae310419129fb2ceaedcdc21",
+          "translation_mm": [
+            201.5,
+            230.25,
+            -0.0
+          ],
+          "placed_min_mm": [
+            201.5,
+            230.25,
+            0.0
+          ],
+          "placed_max_mm": [
+            251.5,
+            242.25,
+            4.0
+          ],
+          "size_mm": [
+            50.0,
+            12.0,
+            4.0
+          ],
+          "triangle_count": 12,
+          "supports": false,
+          "support_note": "Plochou 50×12 mm na podložku, výška 4 mm.",
+          "critical_z_mm": [
+            0.2,
+            2.0000000000000013,
+            3.8000000000000025
+          ]
+        },
+        {
+          "id": "rohovy-uhelnik",
+          "name": "rohovy-uhelnik-02",
+          "file": "stl/rohovy-uhelnik.stl",
+          "source_sha256": "69b0e9a2d7e0fe478e5aa58702ea13565d0197ee2833d813d887a5762c76cab5",
+          "translation_mm": [
+            203.5,
+            17.75,
+            -0.0
+          ],
+          "placed_min_mm": [
+            203.5,
+            17.75,
+            0.0
+          ],
+          "placed_max_mm": [
+            227.5,
+            41.75,
+            12.0
+          ],
+          "size_mm": [
+            24.0,
+            24.0,
+            12.0
+          ],
+          "triangle_count": 20,
+          "supports": false,
+          "support_note": "L půdorys na podložce, výška 12 mm, žádný převis.",
+          "critical_z_mm": [
+            0.2,
+            6.0,
+            11.8
+          ]
+        }
+      ],
+      "minimum_geometry_edge_margin_mm": 8.5,
+      "minimum_bbox_gap_mm": 12.0
+    },
+    {
+      "number": 3,
+      "geometry": "podlozka-03-geometrie.3mf",
+      "geometry_sha256": "0d12964e8167eaa7def45a421ef79f2233fb83e40fd45fc1890c742993daa970",
+      "preview": "podlozka-03.png",
+      "physical_parts": 4,
+      "parts": [
+        {
+          "id": "bok-segment",
+          "name": "bok-segment-03",
+          "file": "stl/bok-segment.stl",
+          "source_sha256": "1d4c936ffbe41b6a8fcb9af6900924977a238587cd0c00ac556141fce939fe21",
+          "translation_mm": [
+            20.5,
+            17.75,
+            -0.0
+          ],
+          "placed_min_mm": [
+            20.5,
+            17.75,
+            0.0
+          ],
+          "placed_max_mm": [
+            203.5,
+            194.25,
+            20.0
+          ],
+          "size_mm": [
+            183.0,
+            176.5,
+            20.0
+          ],
+          "triangle_count": 644,
+          "supports": false,
+          "support_note": "Vnější plochou na podložku; pantová pouzdra mají podložený kořen a otvor s 45° stropem ve směru +X sestavy / +Z tisku.",
+          "critical_z_mm": [
+            0.2,
+            4.2,
+            10.000000000000018,
+            14,
+            16,
+            17.2,
+            18.4,
+            19.800000000000036
+          ]
+        },
+        {
+          "id": "pricka-zadni-polovina",
+          "name": "pricka-zadni-polovina-01",
+          "file": "stl/pricka-zadni-polovina.stl",
+          "source_sha256": "601507d8fd831592ecfcfc4588fdedfafd277f952388f256a040bd4ce1750d6f",
+          "translation_mm": [
+            20.5,
+            206.25,
+            -0.0
+          ],
+          "placed_min_mm": [
+            20.5,
+            206.25,
+            0.0
+          ],
+          "placed_max_mm": [
+            201.5,
+            218.25,
+            12.0
+          ],
+          "size_mm": [
+            181.0,
+            12.0,
+            12.0
+          ],
+          "triangle_count": 180,
+          "supports": false,
+          "support_note": "Na dolní ploše; kotevní otvor má 45° špičku ve směru +Z.",
+          "critical_z_mm": [
+            0.2,
+            6.0,
+            11.8
+          ]
+        },
+        {
+          "id": "pricka-zadni-polovina",
+          "name": "pricka-zadni-polovina-02",
+          "file": "stl/pricka-zadni-polovina.stl",
+          "source_sha256": "601507d8fd831592ecfcfc4588fdedfafd277f952388f256a040bd4ce1750d6f",
+          "translation_mm": [
+            20.5,
+            230.25,
+            -0.0
+          ],
+          "placed_min_mm": [
+            20.5,
+            230.25,
+            0.0
+          ],
+          "placed_max_mm": [
+            201.5,
+            242.25,
+            12.0
+          ],
+          "size_mm": [
+            181.0,
+            12.0,
+            12.0
+          ],
+          "triangle_count": 180,
+          "supports": false,
+          "support_note": "Na dolní ploše; kotevní otvor má 45° špičku ve směru +Z.",
+          "critical_z_mm": [
+            0.2,
+            6.0,
+            11.8
+          ]
+        },
+        {
+          "id": "rohovy-uhelnik",
+          "name": "rohovy-uhelnik-03",
+          "file": "stl/rohovy-uhelnik.stl",
+          "source_sha256": "69b0e9a2d7e0fe478e5aa58702ea13565d0197ee2833d813d887a5762c76cab5",
+          "translation_mm": [
+            215.5,
+            17.75,
+            -0.0
+          ],
+          "placed_min_mm": [
+            215.5,
+            17.75,
+            0.0
+          ],
+          "placed_max_mm": [
+            239.5,
+            41.75,
+            12.0
+          ],
+          "size_mm": [
+            24.0,
+            24.0,
+            12.0
+          ],
+          "triangle_count": 20,
+          "supports": false,
+          "support_note": "L půdorys na podložce, výška 12 mm, žádný převis.",
+          "critical_z_mm": [
+            0.2,
+            6.0,
+            11.8
+          ]
+        }
+      ],
+      "minimum_geometry_edge_margin_mm": 17.75,
+      "minimum_bbox_gap_mm": 12.0
+    },
+    {
+      "number": 4,
+      "geometry": "podlozka-04-geometrie.3mf",
+      "geometry_sha256": "82a9c443dca0629b1a8decb70aa41d2b9b8f9b29617f2708f3e1a56b926ee257",
+      "preview": "podlozka-04.png",
+      "physical_parts": 4,
+      "parts": [
+        {
+          "id": "bok-segment",
+          "name": "bok-segment-04",
+          "file": "stl/bok-segment.stl",
+          "source_sha256": "1d4c936ffbe41b6a8fcb9af6900924977a238587cd0c00ac556141fce939fe21",
+          "translation_mm": [
+            20.5,
+            17.75,
+            -0.0
+          ],
+          "placed_min_mm": [
+            20.5,
+            17.75,
+            0.0
+          ],
+          "placed_max_mm": [
+            203.5,
+            194.25,
+            20.0
+          ],
+          "size_mm": [
+            183.0,
+            176.5,
+            20.0
+          ],
+          "triangle_count": 644,
+          "supports": false,
+          "support_note": "Vnější plochou na podložku; pantová pouzdra mají podložený kořen a otvor s 45° stropem ve směru +X sestavy / +Z tisku.",
+          "critical_z_mm": [
+            0.2,
+            4.2,
+            10.000000000000018,
+            14,
+            16,
+            17.2,
+            18.4,
+            19.800000000000036
+          ]
+        },
+        {
+          "id": "pricka-zadni-polovina",
+          "name": "pricka-zadni-polovina-03",
+          "file": "stl/pricka-zadni-polovina.stl",
+          "source_sha256": "601507d8fd831592ecfcfc4588fdedfafd277f952388f256a040bd4ce1750d6f",
+          "translation_mm": [
+            20.5,
+            206.25,
+            -0.0
+          ],
+          "placed_min_mm": [
+            20.5,
+            206.25,
+            0.0
+          ],
+          "placed_max_mm": [
+            201.5,
+            218.25,
+            12.0
+          ],
+          "size_mm": [
+            181.0,
+            12.0,
+            12.0
+          ],
+          "triangle_count": 180,
+          "supports": false,
+          "support_note": "Na dolní ploše; kotevní otvor má 45° špičku ve směru +Z.",
+          "critical_z_mm": [
+            0.2,
+            6.0,
+            11.8
+          ]
+        },
+        {
+          "id": "pricka-zadni-polovina",
+          "name": "pricka-zadni-polovina-04",
+          "file": "stl/pricka-zadni-polovina.stl",
+          "source_sha256": "601507d8fd831592ecfcfc4588fdedfafd277f952388f256a040bd4ce1750d6f",
+          "translation_mm": [
+            20.5,
+            230.25,
+            -0.0
+          ],
+          "placed_min_mm": [
+            20.5,
+            230.25,
+            0.0
+          ],
+          "placed_max_mm": [
+            201.5,
+            242.25,
+            12.0
+          ],
+          "size_mm": [
+            181.0,
+            12.0,
+            12.0
+          ],
+          "triangle_count": 180,
+          "supports": false,
+          "support_note": "Na dolní ploše; kotevní otvor má 45° špičku ve směru +Z.",
+          "critical_z_mm": [
+            0.2,
+            6.0,
+            11.8
+          ]
+        },
+        {
+          "id": "rohovy-uhelnik",
+          "name": "rohovy-uhelnik-04",
+          "file": "stl/rohovy-uhelnik.stl",
+          "source_sha256": "69b0e9a2d7e0fe478e5aa58702ea13565d0197ee2833d813d887a5762c76cab5",
+          "translation_mm": [
+            215.5,
+            17.75,
+            -0.0
+          ],
+          "placed_min_mm": [
+            215.5,
+            17.75,
+            0.0
+          ],
+          "placed_max_mm": [
+            239.5,
+            41.75,
+            12.0
+          ],
+          "size_mm": [
+            24.0,
+            24.0,
+            12.0
+          ],
+          "triangle_count": 20,
+          "supports": false,
+          "support_note": "L půdorys na podložce, výška 12 mm, žádný převis.",
+          "critical_z_mm": [
+            0.2,
+            6.0,
+            11.8
+          ]
+        }
+      ],
+      "minimum_geometry_edge_margin_mm": 17.75,
+      "minimum_bbox_gap_mm": 12.0
+    },
+    {
+      "number": 5,
+      "geometry": "podlozka-05-geometrie.3mf",
+      "geometry_sha256": "248ce30e1d0f1ef64c3922c01f4780adca631fc7dd634c954a20f86c42066b05",
+      "preview": "podlozka-05.png",
+      "physical_parts": 6,
+      "parts": [
+        {
+          "id": "bok-segment",
+          "name": "bok-segment-05",
+          "file": "stl/bok-segment.stl",
+          "source_sha256": "1d4c936ffbe41b6a8fcb9af6900924977a238587cd0c00ac556141fce939fe21",
+          "translation_mm": [
+            20.5,
+            9.75,
+            -0.0
+          ],
+          "placed_min_mm": [
+            20.5,
+            9.75,
+            0.0
+          ],
+          "placed_max_mm": [
+            203.5,
+            186.25,
+            20.0
+          ],
+          "size_mm": [
+            183.0,
+            176.5,
+            20.0
+          ],
+          "triangle_count": 644,
+          "supports": false,
+          "support_note": "Vnější plochou na podložku; pantová pouzdra mají podložený kořen a otvor s 45° stropem ve směru +X sestavy / +Z tisku.",
+          "critical_z_mm": [
+            0.2,
+            4.2,
+            10.000000000000018,
+            14,
+            16,
+            17.2,
+            18.4,
+            19.800000000000036
+          ]
+        },
+        {
+          "id": "spojka-panelu",
+          "name": "spojka-panelu-01",
+          "file": "stl/spojka-panelu.stl",
+          "source_sha256": "dcef25b9ceae15a16b965b5366d67033ec5cdebf73aeb2dc2bb54ec4f0addd4f",
+          "translation_mm": [
+            20.5,
+            198.25,
+            -0.0
+          ],
+          "placed_min_mm": [
+            20.5,
+            198.25,
+            0.0
+          ],
+          "placed_max_mm": [
+            100.5,
+            218.25,
+            4.0
+          ],
+          "size_mm": [
+            80.0,
+            20.0,
+            4.0
+          ],
+          "triangle_count": 12,
+          "supports": false,
+          "support_note": "Plochou 20×80 mm na podložku, výška 4 mm.",
+          "critical_z_mm": [
+            0.2,
+            2.000000000000009,
+            3.8000000000000176
+          ]
+        },
+        {
+          "id": "spojka-panelu",
+          "name": "spojka-panelu-02",
+          "file": "stl/spojka-panelu.stl",
+          "source_sha256": "dcef25b9ceae15a16b965b5366d67033ec5cdebf73aeb2dc2bb54ec4f0addd4f",
+          "translation_mm": [
+            112.5,
+            198.25,
+            -0.0
+          ],
+          "placed_min_mm": [
+            112.5,
+            198.25,
+            0.0
+          ],
+          "placed_max_mm": [
+            192.5,
+            218.25,
+            4.0
+          ],
+          "size_mm": [
+            80.0,
+            20.0,
+            4.0
+          ],
+          "triangle_count": 12,
+          "supports": false,
+          "support_note": "Plochou 20×80 mm na podložku, výška 4 mm.",
+          "critical_z_mm": [
+            0.2,
+            2.000000000000009,
+            3.8000000000000176
+          ]
+        },
+        {
+          "id": "spojka-panelu",
+          "name": "spojka-panelu-03",
+          "file": "stl/spojka-panelu.stl",
+          "source_sha256": "dcef25b9ceae15a16b965b5366d67033ec5cdebf73aeb2dc2bb54ec4f0addd4f",
+          "translation_mm": [
+            20.5,
+            230.25,
+            -0.0
+          ],
+          "placed_min_mm": [
+            20.5,
+            230.25,
+            0.0
+          ],
+          "placed_max_mm": [
+            100.5,
+            250.25,
+            4.0
+          ],
+          "size_mm": [
+            80.0,
+            20.0,
+            4.0
+          ],
+          "triangle_count": 12,
+          "supports": false,
+          "support_note": "Plochou 20×80 mm na podložku, výška 4 mm.",
+          "critical_z_mm": [
+            0.2,
+            2.000000000000009,
+            3.8000000000000176
+          ]
+        },
+        {
+          "id": "spojka-panelu",
+          "name": "spojka-panelu-04",
+          "file": "stl/spojka-panelu.stl",
+          "source_sha256": "dcef25b9ceae15a16b965b5366d67033ec5cdebf73aeb2dc2bb54ec4f0addd4f",
+          "translation_mm": [
+            112.5,
+            230.25,
+            -0.0
+          ],
+          "placed_min_mm": [
+            112.5,
+            230.25,
+            0.0
+          ],
+          "placed_max_mm": [
+            192.5,
+            250.25,
+            4.0
+          ],
+          "size_mm": [
+            80.0,
+            20.0,
+            4.0
+          ],
+          "triangle_count": 12,
+          "supports": false,
+          "support_note": "Plochou 20×80 mm na podložku, výška 4 mm.",
+          "critical_z_mm": [
+            0.2,
+            2.000000000000009,
+            3.8000000000000176
+          ]
+        },
+        {
+          "id": "rohovy-uhelnik",
+          "name": "rohovy-uhelnik-05",
+          "file": "stl/rohovy-uhelnik.stl",
+          "source_sha256": "69b0e9a2d7e0fe478e5aa58702ea13565d0197ee2833d813d887a5762c76cab5",
+          "translation_mm": [
+            215.5,
+            9.75,
+            -0.0
+          ],
+          "placed_min_mm": [
+            215.5,
+            9.75,
+            0.0
+          ],
+          "placed_max_mm": [
+            239.5,
+            33.75,
+            12.0
+          ],
+          "size_mm": [
+            24.0,
+            24.0,
+            12.0
+          ],
+          "triangle_count": 20,
+          "supports": false,
+          "support_note": "L půdorys na podložce, výška 12 mm, žádný převis.",
+          "critical_z_mm": [
+            0.2,
+            6.0,
+            11.8
+          ]
+        }
+      ],
+      "minimum_geometry_edge_margin_mm": 9.75,
+      "minimum_bbox_gap_mm": 12.0
+    },
+    {
+      "number": 6,
+      "geometry": "podlozka-06-geometrie.3mf",
+      "geometry_sha256": "22911ed40268adbbcf0a51d395a38295f3bdf329881c203547e32959f36ebd28",
+      "preview": "podlozka-06.png",
+      "physical_parts": 6,
+      "parts": [
+        {
+          "id": "bok-segment",
+          "name": "bok-segment-06",
+          "file": "stl/bok-segment.stl",
+          "source_sha256": "1d4c936ffbe41b6a8fcb9af6900924977a238587cd0c00ac556141fce939fe21",
+          "translation_mm": [
+            20.5,
+            9.75,
+            -0.0
+          ],
+          "placed_min_mm": [
+            20.5,
+            9.75,
+            0.0
+          ],
+          "placed_max_mm": [
+            203.5,
+            186.25,
+            20.0
+          ],
+          "size_mm": [
+            183.0,
+            176.5,
+            20.0
+          ],
+          "triangle_count": 644,
+          "supports": false,
+          "support_note": "Vnější plochou na podložku; pantová pouzdra mají podložený kořen a otvor s 45° stropem ve směru +X sestavy / +Z tisku.",
+          "critical_z_mm": [
+            0.2,
+            4.2,
+            10.000000000000018,
+            14,
+            16,
+            17.2,
+            18.4,
+            19.800000000000036
+          ]
+        },
+        {
+          "id": "spojka-panelu",
+          "name": "spojka-panelu-05",
+          "file": "stl/spojka-panelu.stl",
+          "source_sha256": "dcef25b9ceae15a16b965b5366d67033ec5cdebf73aeb2dc2bb54ec4f0addd4f",
+          "translation_mm": [
+            20.5,
+            198.25,
+            -0.0
+          ],
+          "placed_min_mm": [
+            20.5,
+            198.25,
+            0.0
+          ],
+          "placed_max_mm": [
+            100.5,
+            218.25,
+            4.0
+          ],
+          "size_mm": [
+            80.0,
+            20.0,
+            4.0
+          ],
+          "triangle_count": 12,
+          "supports": false,
+          "support_note": "Plochou 20×80 mm na podložku, výška 4 mm.",
+          "critical_z_mm": [
+            0.2,
+            2.000000000000009,
+            3.8000000000000176
+          ]
+        },
+        {
+          "id": "spojka-panelu",
+          "name": "spojka-panelu-06",
+          "file": "stl/spojka-panelu.stl",
+          "source_sha256": "dcef25b9ceae15a16b965b5366d67033ec5cdebf73aeb2dc2bb54ec4f0addd4f",
+          "translation_mm": [
+            112.5,
+            198.25,
+            -0.0
+          ],
+          "placed_min_mm": [
+            112.5,
+            198.25,
+            0.0
+          ],
+          "placed_max_mm": [
+            192.5,
+            218.25,
+            4.0
+          ],
+          "size_mm": [
+            80.0,
+            20.0,
+            4.0
+          ],
+          "triangle_count": 12,
+          "supports": false,
+          "support_note": "Plochou 20×80 mm na podložku, výška 4 mm.",
+          "critical_z_mm": [
+            0.2,
+            2.000000000000009,
+            3.8000000000000176
+          ]
+        },
+        {
+          "id": "spojka-panelu",
+          "name": "spojka-panelu-07",
+          "file": "stl/spojka-panelu.stl",
+          "source_sha256": "dcef25b9ceae15a16b965b5366d67033ec5cdebf73aeb2dc2bb54ec4f0addd4f",
+          "translation_mm": [
+            20.5,
+            230.25,
+            -0.0
+          ],
+          "placed_min_mm": [
+            20.5,
+            230.25,
+            0.0
+          ],
+          "placed_max_mm": [
+            100.5,
+            250.25,
+            4.0
+          ],
+          "size_mm": [
+            80.0,
+            20.0,
+            4.0
+          ],
+          "triangle_count": 12,
+          "supports": false,
+          "support_note": "Plochou 20×80 mm na podložku, výška 4 mm.",
+          "critical_z_mm": [
+            0.2,
+            2.000000000000009,
+            3.8000000000000176
+          ]
+        },
+        {
+          "id": "spojka-panelu",
+          "name": "spojka-panelu-08",
+          "file": "stl/spojka-panelu.stl",
+          "source_sha256": "dcef25b9ceae15a16b965b5366d67033ec5cdebf73aeb2dc2bb54ec4f0addd4f",
+          "translation_mm": [
+            112.5,
+            230.25,
+            -0.0
+          ],
+          "placed_min_mm": [
+            112.5,
+            230.25,
+            0.0
+          ],
+          "placed_max_mm": [
+            192.5,
+            250.25,
+            4.0
+          ],
+          "size_mm": [
+            80.0,
+            20.0,
+            4.0
+          ],
+          "triangle_count": 12,
+          "supports": false,
+          "support_note": "Plochou 20×80 mm na podložku, výška 4 mm.",
+          "critical_z_mm": [
+            0.2,
+            2.000000000000009,
+            3.8000000000000176
+          ]
+        },
+        {
+          "id": "rohovy-uhelnik",
+          "name": "rohovy-uhelnik-06",
+          "file": "stl/rohovy-uhelnik.stl",
+          "source_sha256": "69b0e9a2d7e0fe478e5aa58702ea13565d0197ee2833d813d887a5762c76cab5",
+          "translation_mm": [
+            215.5,
+            9.75,
+            -0.0
+          ],
+          "placed_min_mm": [
+            215.5,
+            9.75,
+            0.0
+          ],
+          "placed_max_mm": [
+            239.5,
+            33.75,
+            12.0
+          ],
+          "size_mm": [
+            24.0,
+            24.0,
+            12.0
+          ],
+          "triangle_count": 20,
+          "supports": false,
+          "support_note": "L půdorys na podložce, výška 12 mm, žádný převis.",
+          "critical_z_mm": [
+            0.2,
+            6.0,
+            11.8
+          ]
+        }
+      ],
+      "minimum_geometry_edge_margin_mm": 9.75,
+      "minimum_bbox_gap_mm": 12.0
+    },
+    {
+      "number": 7,
+      "geometry": "podlozka-07-geometrie.3mf",
+      "geometry_sha256": "5946dddfc2c21f3e8cbf34af96a631c526ec52f0373838d3e7b4855c5b6bd0ba",
+      "preview": "podlozka-07.png",
+      "physical_parts": 4,
+      "parts": [
+        {
+          "id": "dvere-dolni",
+          "name": "dvere-dolni-01",
+          "file": "stl/dvere-dolni.stl",
+          "source_sha256": "5d5416d43089b173dbb7da0975da70e60a614b78826f9d8279972e5bbb9bdc10",
+          "translation_mm": [
+            24.75,
+            23.166664123535156,
+            -0.0
+          ],
+          "placed_min_mm": [
+            24.75,
+            23.166664123535156,
+            0.0
+          ],
+          "placed_max_mm": [
+            199.25,
+            204.83333587646484,
+            12.5
+          ],
+          "size_mm": [
+            174.5,
+            181.6666717529297,
+            12.5
+          ],
+          "triangle_count": 324,
+          "supports": false,
+          "support_note": "Čelem na podložku; integrální pouzdro podepřeno blokem až k čelu; strop otvoru 45° ve směru -Y sestavy / +Z tisku.",
+          "critical_z_mm": [
+            0.2,
+            4.2,
+            6.25,
+            8,
+            10,
+            11.2,
+            12.2,
+            12.3
+          ]
+        },
+        {
+          "id": "spojka-panelu",
+          "name": "spojka-panelu-09",
+          "file": "stl/spojka-panelu.stl",
+          "source_sha256": "dcef25b9ceae15a16b965b5366d67033ec5cdebf73aeb2dc2bb54ec4f0addd4f",
+          "translation_mm": [
+            24.75,
+            216.83333587646484,
+            -0.0
+          ],
+          "placed_min_mm": [
+            24.75,
+            216.83333587646484,
+            0.0
+          ],
+          "placed_max_mm": [
+            104.75,
+            236.83333587646484,
+            4.0
+          ],
+          "size_mm": [
+            80.0,
+            20.0,
+            4.0
+          ],
+          "triangle_count": 12,
+          "supports": false,
+          "support_note": "Plochou 20×80 mm na podložku, výška 4 mm.",
+          "critical_z_mm": [
+            0.2,
+            2.000000000000009,
+            3.8000000000000176
+          ]
+        },
+        {
+          "id": "spojka-panelu",
+          "name": "spojka-panelu-10",
+          "file": "stl/spojka-panelu.stl",
+          "source_sha256": "dcef25b9ceae15a16b965b5366d67033ec5cdebf73aeb2dc2bb54ec4f0addd4f",
+          "translation_mm": [
+            116.75,
+            216.83333587646484,
+            -0.0
+          ],
+          "placed_min_mm": [
+            116.75,
+            216.83333587646484,
+            0.0
+          ],
+          "placed_max_mm": [
+            196.75,
+            236.83333587646484,
+            4.0
+          ],
+          "size_mm": [
+            80.0,
+            20.0,
+            4.0
+          ],
+          "triangle_count": 12,
+          "supports": false,
+          "support_note": "Plochou 20×80 mm na podložku, výška 4 mm.",
+          "critical_z_mm": [
+            0.2,
+            2.000000000000009,
+            3.8000000000000176
+          ]
+        },
+        {
+          "id": "rohovy-uhelnik",
+          "name": "rohovy-uhelnik-07",
+          "file": "stl/rohovy-uhelnik.stl",
+          "source_sha256": "69b0e9a2d7e0fe478e5aa58702ea13565d0197ee2833d813d887a5762c76cab5",
+          "translation_mm": [
+            211.25,
+            23.166664123535156,
+            -0.0
+          ],
+          "placed_min_mm": [
+            211.25,
+            23.166664123535156,
+            0.0
+          ],
+          "placed_max_mm": [
+            235.25,
+            47.166664123535156,
+            12.0
+          ],
+          "size_mm": [
+            24.0,
+            24.0,
+            12.0
+          ],
+          "triangle_count": 20,
+          "supports": false,
+          "support_note": "L půdorys na podložce, výška 12 mm, žádný převis.",
+          "critical_z_mm": [
+            0.2,
+            6.0,
+            11.8
+          ]
+        }
+      ],
+      "minimum_geometry_edge_margin_mm": 23.166664123535156,
+      "minimum_bbox_gap_mm": 12.0
+    },
+    {
+      "number": 8,
+      "geometry": "podlozka-08-geometrie.3mf",
+      "geometry_sha256": "3489bfbbb5db79b3b05a06e9f0cab842508cbe706a33593b43603000aa9a04a5",
+      "preview": "podlozka-08.png",
+      "physical_parts": 4,
+      "parts": [
+        {
+          "id": "dvere-dolni-prave",
+          "name": "dvere-dolni-prave-01",
+          "file": "stl/dvere-dolni-prave.stl",
+          "source_sha256": "b187661d0406b07c0464be2673d2f5c5f7f506453941749cd5f40395f60990cd",
+          "translation_mm": [
+            24.75,
+            23.166664123535156,
+            -0.0
+          ],
+          "placed_min_mm": [
+            24.75,
+            23.166664123535156,
+            0.0
+          ],
+          "placed_max_mm": [
+            199.25,
+            204.83333587646484,
+            12.5
+          ],
+          "size_mm": [
+            174.5,
+            181.6666717529297,
+            12.5
+          ],
+          "triangle_count": 324,
+          "supports": false,
+          "support_note": "Čelem na podložku; zrcadlený pravý díl. Strop otvoru 45° ve směru -Y sestavy / +Z tisku.",
+          "critical_z_mm": [
+            0.2,
+            4.2,
+            6.25,
+            8,
+            10,
+            11.2,
+            12.2,
+            12.3
+          ]
+        },
+        {
+          "id": "spojka-panelu",
+          "name": "spojka-panelu-11",
+          "file": "stl/spojka-panelu.stl",
+          "source_sha256": "dcef25b9ceae15a16b965b5366d67033ec5cdebf73aeb2dc2bb54ec4f0addd4f",
+          "translation_mm": [
+            24.75,
+            216.83333587646484,
+            -0.0
+          ],
+          "placed_min_mm": [
+            24.75,
+            216.83333587646484,
+            0.0
+          ],
+          "placed_max_mm": [
+            104.75,
+            236.83333587646484,
+            4.0
+          ],
+          "size_mm": [
+            80.0,
+            20.0,
+            4.0
+          ],
+          "triangle_count": 12,
+          "supports": false,
+          "support_note": "Plochou 20×80 mm na podložku, výška 4 mm.",
+          "critical_z_mm": [
+            0.2,
+            2.000000000000009,
+            3.8000000000000176
+          ]
+        },
+        {
+          "id": "spojka-panelu",
+          "name": "spojka-panelu-12",
+          "file": "stl/spojka-panelu.stl",
+          "source_sha256": "dcef25b9ceae15a16b965b5366d67033ec5cdebf73aeb2dc2bb54ec4f0addd4f",
+          "translation_mm": [
+            116.75,
+            216.83333587646484,
+            -0.0
+          ],
+          "placed_min_mm": [
+            116.75,
+            216.83333587646484,
+            0.0
+          ],
+          "placed_max_mm": [
+            196.75,
+            236.83333587646484,
+            4.0
+          ],
+          "size_mm": [
+            80.0,
+            20.0,
+            4.0
+          ],
+          "triangle_count": 12,
+          "supports": false,
+          "support_note": "Plochou 20×80 mm na podložku, výška 4 mm.",
+          "critical_z_mm": [
+            0.2,
+            2.000000000000009,
+            3.8000000000000176
+          ]
+        },
+        {
+          "id": "rohovy-uhelnik",
+          "name": "rohovy-uhelnik-08",
+          "file": "stl/rohovy-uhelnik.stl",
+          "source_sha256": "69b0e9a2d7e0fe478e5aa58702ea13565d0197ee2833d813d887a5762c76cab5",
+          "translation_mm": [
+            211.25,
+            23.166664123535156,
+            -0.0
+          ],
+          "placed_min_mm": [
+            211.25,
+            23.166664123535156,
+            0.0
+          ],
+          "placed_max_mm": [
+            235.25,
+            47.166664123535156,
+            12.0
+          ],
+          "size_mm": [
+            24.0,
+            24.0,
+            12.0
+          ],
+          "triangle_count": 20,
+          "supports": false,
+          "support_note": "L půdorys na podložce, výška 12 mm, žádný převis.",
+          "critical_z_mm": [
+            0.2,
+            6.0,
+            11.8
+          ]
+        }
+      ],
+      "minimum_geometry_edge_margin_mm": 23.166664123535156,
+      "minimum_bbox_gap_mm": 12.0
+    },
+    {
+      "number": 9,
+      "geometry": "podlozka-09-geometrie.3mf",
+      "geometry_sha256": "bd5f724fa8ca230a76a5ba9165bfffcb3d5d83e4d808a3ae5d2d546ae3289d35",
+      "preview": "podlozka-09.png",
+      "physical_parts": 3,
+      "parts": [
+        {
+          "id": "dvere-stredni",
+          "name": "dvere-stredni-01",
+          "file": "stl/dvere-stredni.stl",
+          "source_sha256": "a4491dab3adb3d62e77fff663f679406b2a112ae69d66de48113baa9bca90a59",
+          "translation_mm": [
+            42.75,
+            23.166664123535156,
+            -0.0
+          ],
+          "placed_min_mm": [
+            42.75,
+            23.166664123535156,
+            0.0
+          ],
+          "placed_max_mm": [
+            217.25,
+            204.83333587646484,
+            12.5
+          ],
+          "size_mm": [
+            174.5,
+            181.6666717529297,
+            12.5
+          ],
+          "triangle_count": 324,
+          "supports": false,
+          "support_note": "Čelem na podložku; integrální pouzdro podepřeno blokem až k čelu; strop otvoru 45° ve směru -Y sestavy / +Z tisku.",
+          "critical_z_mm": [
+            0.2,
+            4.2,
+            6.25,
+            8,
+            10,
+            11.2,
+            12.2,
+            12.3
+          ]
+        },
+        {
+          "id": "spojka-panelu",
+          "name": "spojka-panelu-13",
+          "file": "stl/spojka-panelu.stl",
+          "source_sha256": "dcef25b9ceae15a16b965b5366d67033ec5cdebf73aeb2dc2bb54ec4f0addd4f",
+          "translation_mm": [
+            42.75,
+            216.83333587646484,
+            -0.0
+          ],
+          "placed_min_mm": [
+            42.75,
+            216.83333587646484,
+            0.0
+          ],
+          "placed_max_mm": [
+            122.75,
+            236.83333587646484,
+            4.0
+          ],
+          "size_mm": [
+            80.0,
+            20.0,
+            4.0
+          ],
+          "triangle_count": 12,
+          "supports": false,
+          "support_note": "Plochou 20×80 mm na podložku, výška 4 mm.",
+          "critical_z_mm": [
+            0.2,
+            2.000000000000009,
+            3.8000000000000176
+          ]
+        },
+        {
+          "id": "spojka-panelu",
+          "name": "spojka-panelu-14",
+          "file": "stl/spojka-panelu.stl",
+          "source_sha256": "dcef25b9ceae15a16b965b5366d67033ec5cdebf73aeb2dc2bb54ec4f0addd4f",
+          "translation_mm": [
+            134.75,
+            216.83333587646484,
+            -0.0
+          ],
+          "placed_min_mm": [
+            134.75,
+            216.83333587646484,
+            0.0
+          ],
+          "placed_max_mm": [
+            214.75,
+            236.83333587646484,
+            4.0
+          ],
+          "size_mm": [
+            80.0,
+            20.0,
+            4.0
+          ],
+          "triangle_count": 12,
+          "supports": false,
+          "support_note": "Plochou 20×80 mm na podložku, výška 4 mm.",
+          "critical_z_mm": [
+            0.2,
+            2.000000000000009,
+            3.8000000000000176
+          ]
+        }
+      ],
+      "minimum_geometry_edge_margin_mm": 23.166664123535156,
+      "minimum_bbox_gap_mm": 12.0
+    },
+    {
+      "number": 10,
+      "geometry": "podlozka-10-geometrie.3mf",
+      "geometry_sha256": "2ab51bd20ba770da322c486dc8f8bff20586671932af5bdeca0d995de05976da",
+      "preview": "podlozka-10.png",
+      "physical_parts": 3,
+      "parts": [
+        {
+          "id": "dvere-stredni-prave",
+          "name": "dvere-stredni-prave-01",
+          "file": "stl/dvere-stredni-prave.stl",
+          "source_sha256": "65d50e216c90a6304b40a678c608c6a9ba2ca36de65cc1540fa9d81ef73ce6bb",
+          "translation_mm": [
+            42.75,
+            23.166664123535156,
+            -0.0
+          ],
+          "placed_min_mm": [
+            42.75,
+            23.166664123535156,
+            0.0
+          ],
+          "placed_max_mm": [
+            217.25,
+            204.83333587646484,
+            12.5
+          ],
+          "size_mm": [
+            174.5,
+            181.6666717529297,
+            12.5
+          ],
+          "triangle_count": 324,
+          "supports": false,
+          "support_note": "Čelem na podložku; zrcadlený pravý díl. Strop otvoru 45° ve směru -Y sestavy / +Z tisku.",
+          "critical_z_mm": [
+            0.2,
+            4.2,
+            6.25,
+            8,
+            10,
+            11.2,
+            12.2,
+            12.3
+          ]
+        },
+        {
+          "id": "spojka-panelu",
+          "name": "spojka-panelu-15",
+          "file": "stl/spojka-panelu.stl",
+          "source_sha256": "dcef25b9ceae15a16b965b5366d67033ec5cdebf73aeb2dc2bb54ec4f0addd4f",
+          "translation_mm": [
+            42.75,
+            216.83333587646484,
+            -0.0
+          ],
+          "placed_min_mm": [
+            42.75,
+            216.83333587646484,
+            0.0
+          ],
+          "placed_max_mm": [
+            122.75,
+            236.83333587646484,
+            4.0
+          ],
+          "size_mm": [
+            80.0,
+            20.0,
+            4.0
+          ],
+          "triangle_count": 12,
+          "supports": false,
+          "support_note": "Plochou 20×80 mm na podložku, výška 4 mm.",
+          "critical_z_mm": [
+            0.2,
+            2.000000000000009,
+            3.8000000000000176
+          ]
+        },
+        {
+          "id": "spojka-panelu",
+          "name": "spojka-panelu-16",
+          "file": "stl/spojka-panelu.stl",
+          "source_sha256": "dcef25b9ceae15a16b965b5366d67033ec5cdebf73aeb2dc2bb54ec4f0addd4f",
+          "translation_mm": [
+            134.75,
+            216.83333587646484,
+            -0.0
+          ],
+          "placed_min_mm": [
+            134.75,
+            216.83333587646484,
+            0.0
+          ],
+          "placed_max_mm": [
+            214.75,
+            236.83333587646484,
+            4.0
+          ],
+          "size_mm": [
+            80.0,
+            20.0,
+            4.0
+          ],
+          "triangle_count": 12,
+          "supports": false,
+          "support_note": "Plochou 20×80 mm na podložku, výška 4 mm.",
+          "critical_z_mm": [
+            0.2,
+            2.000000000000009,
+            3.8000000000000176
+          ]
+        }
+      ],
+      "minimum_geometry_edge_margin_mm": 23.166664123535156,
+      "minimum_bbox_gap_mm": 12.0
+    },
+    {
+      "number": 11,
+      "geometry": "podlozka-11-geometrie.3mf",
+      "geometry_sha256": "f55d082fe389baef85bf3bff5e8e9b9a69525e6a761168d40b60e969d37aeffb",
+      "preview": "podlozka-11.png",
+      "physical_parts": 1,
+      "parts": [
+        {
+          "id": "dvere-horni",
+          "name": "dvere-horni-01",
+          "file": "stl/dvere-horni.stl",
+          "source_sha256": "3ed11d7ded1543c5344e5fc72676a6abc3603be18002ac80454cf911bec5f25d",
+          "translation_mm": [
+            42.75,
+            39.166664123535156,
+            -0.0
+          ],
+          "placed_min_mm": [
+            42.75,
+            39.166664123535156,
+            0.0
+          ],
+          "placed_max_mm": [
+            217.25,
+            220.83333587646484,
+            12.5
+          ],
+          "size_mm": [
+            174.5,
+            181.6666717529297,
+            12.5
+          ],
+          "triangle_count": 448,
+          "supports": false,
+          "support_note": "Čelem na podložku; integrální pouzdro podepřeno blokem až k čelu; strop otvoru 45° ve směru -Y sestavy / +Z tisku.",
+          "critical_z_mm": [
+            0.2,
+            4.2,
+            6.25,
+            8,
+            10,
+            11.2,
+            12.2,
+            12.3
+          ]
+        }
+      ],
+      "minimum_geometry_edge_margin_mm": 39.166664123535156,
+      "minimum_bbox_gap_mm": null
+    },
+    {
+      "number": 12,
+      "geometry": "podlozka-12-geometrie.3mf",
+      "geometry_sha256": "3e6cdf6ab3f71283e5a6f21339ac9938436a2b28ca6269e0871cd9fb5ccc5f32",
+      "preview": "podlozka-12.png",
+      "physical_parts": 1,
+      "parts": [
+        {
+          "id": "dvere-horni-prave",
+          "name": "dvere-horni-prave-01",
+          "file": "stl/dvere-horni-prave.stl",
+          "source_sha256": "f80707e7fc3695c56961c26a91d8cfcef4ca47002e681b2f3dfdb011cff03ed1",
+          "translation_mm": [
+            42.75,
+            39.166664123535156,
+            -0.0
+          ],
+          "placed_min_mm": [
+            42.75,
+            39.166664123535156,
+            0.0
+          ],
+          "placed_max_mm": [
+            217.25,
+            220.83333587646484,
+            12.5
+          ],
+          "size_mm": [
+            174.5,
+            181.6666717529297,
+            12.5
+          ],
+          "triangle_count": 448,
+          "supports": false,
+          "support_note": "Čelem na podložku; zrcadlený pravý díl. Strop otvoru 45° ve směru -Y sestavy / +Z tisku.",
+          "critical_z_mm": [
+            0.2,
+            4.2,
+            6.25,
+            8,
+            10,
+            11.2,
+            12.2,
+            12.3
+          ]
+        }
+      ],
+      "minimum_geometry_edge_margin_mm": 39.166664123535156,
+      "minimum_bbox_gap_mm": null
+    }
+  ],
+  "physical_print_verified": false
+}

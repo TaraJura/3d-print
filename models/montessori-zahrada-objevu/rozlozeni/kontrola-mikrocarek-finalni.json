@@ -1,0 +1,35 @@
+{
+  "final_gcode_sha256": "ad37f6a2af36800ed6cc29fe48809acf455c1ec5f2479383fb922b98ca3c29d5",
+  "process": {
+    "detect_narrow_internal_solid_infill": "0",
+    "filter_out_gap_fill": "0",
+    "wall_loops": "4",
+    "sparse_infill_density": "20%",
+    "sparse_infill_pattern": "gyroid"
+  },
+  "checks": [
+    {
+      "original_xy": [
+        195.022,
+        210.768,
+        195.066,
+        210.615
+      ],
+      "original_stroke_found_in_final_gcode": false,
+      "matching_strokes": []
+    },
+    {
+      "original_xy": [
+        186.599,
+        216.816,
+        186.751,
+        216.808
+      ],
+      "original_stroke_found_in_final_gcode": false,
+      "matching_strokes": []
+    }
+  ],
+  "preview": "kriticka-vrstva-01-mikrovypln.png",
+  "both_original_microstrokes_removed": true,
+  "limitation": "Absence of the two identified strokes is not a certification of all deposition order or physical support. Full-layer graph and separate lower-edge checks are recorded independently."
+}

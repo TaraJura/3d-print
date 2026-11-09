@@ -1,0 +1,121 @@
+# -*- coding: utf-8 -*-
+"""Skutečné CAD náhledy věšáčku; přepíše čtyři zdejší PNG a uloží FCStd.
+
+První obrázek obsahuje pouze orientační CAD referenci dřevěného futra
+a hlavy vrutu. Tyto dva referenční objekty se do finálního modelu neukládají.
+"""
+from pathlib import Path
+import json
+import FreeCAD as App
+import FreeCADGui as Gui
+import Part
+from PySide import QtCore
+
+OUT = Path(__file__).resolve().parent
+doc = App.openDocument(str(OUT / "vesacek.FCStd"))
+doc.recompute()
+view = Gui.activeDocument().activeView()
+model = doc.Vesacek
+for obj in doc.Objects:
+    if hasattr(obj, "Shape") and obj.ViewObject is not None:
+        obj.ViewObject.Visibility = (obj == model)
+model.ViewObject.ShapeColor = (0.24, 0.49, 0.55)
+model.ViewObject.LineColor = (0.08, 0.17, 0.20)
+model.ViewObject.LineWidth = 1.1
+model.ViewObject.DisplayMode = "Flat Lines"
+
+def camera(direction):
+    eye = App.Vector(*direction)
+    up = App.Vector(0, 0, 1)
+    view.setCameraType("Orthographic")
+    view.setCameraOrientation(App.Rotation(up.cross(eye), up, eye, "ZXY").Q)
+    view.fitAll()
+    view.redraw()
+    Gui.updateGui()
+
+def start():
+    Gui.getMainWindow().resize(1600, 1200)
+    # Ilustrační nosná dřevěná plocha, 60 mm široká. Skutečná futra neznáme.
+    jamb = doc.addObject("Part::Feature", "IllustrativeJamb")
+    jamb.Label = "Reference pro náhled: futro 60 mm – neměřeno"
+    jamb.Shape = Part.makeBox(60, 7, 138, App.Vector(-30, -7, -26))
+    jamb.ViewObject.ShapeColor = (0.78, 0.62, 0.43)
+    jamb.ViewObject.LineColor = (0.48, 0.34, 0.20)
+    jamb.ViewObject.DisplayMode = "Flat Lines"
+    screw = doc.addObject("Part::Feature", "IllustrativeScrewHead")
+    screw.Label = "Reference pro náhled: jeden vrut – rozměr neměřen"
+    screw.Shape = Part.makeCone(2.25, 4.45, 2.3,
+                                App.Vector(0, 7.2, 68), App.Vector(0, 1, 0))
+    screw.ViewObject.ShapeColor = (0.73, 0.77, 0.78)
+    screw.ViewObject.LineColor = (0.27, 0.32, 0.34)
+    screw.ViewObject.DisplayMode = "Flat Lines"
+    doc.recompute()
+    camera((0.85, 1.45, 0.8))
+    QtCore.QTimer.singleShot(1200, save_context)
+
+def save_context():
+    view.saveImage(str(OUT / "nahled-na-futrech-cad.png"), 1600, 1200, "White")
+    doc.removeObject("IllustrativeScrewHead")
+    doc.removeObject("IllustrativeJamb")
+    doc.recompute()
+    camera((0.78, 1.4, 0.75))
+    QtCore.QTimer.singleShot(950, save_iso)
+
+def save_iso():
+    view.saveImage(str(OUT / "nahled-sikmy-cad.png"), 1600, 1200, "White")
+    camera((0.0, 1.0, 0.08))
+    QtCore.QTimer.singleShot(900, save_front)
+
+def save_front():
+    view.saveImage(str(OUT / "nahled-celni-cad.png"), 1400, 1200, "White")
+    camera((1.0, 0.62, 0.23))
+    QtCore.QTimer.singleShot(900, save_side)
+
+def save_side():
+    view.saveImage(str(OUT / "nahled-bocni-cad.png"), 1400, 1200, "White")
+    camera((0.78, 1.4, 0.75))
+    doc.save()
+    filename = doc.FileName
+    App.closeDocument(doc.Name)
+    reopened = App.openDocument(filename)
+    reopened.recompute()
+    assert reopened.Vesacek.Shape.isValid()
+    assert len(reopened.Vesacek.Shape.Solids) == 1
+    visible = [o.Name for o in reopened.Objects
+               if hasattr(o, "Shape") and o.ViewObject.Visibility]
+    assert visible == ["Vesacek"], visible
+    sheet = reopened.Parameters
+    original = sheet.getContents("B2")
+    sheet.set("B2", "46 mm")
+    reopened.recompute()
+    assert reopened.Vesacek.Shape.isValid()
+    assert abs(reopened.Vesacek.Shape.BoundBox.XLength - 46) < 0.02
+    sheet.set("B2", original)
+    reopened.recompute()
+    assert abs(reopened.Vesacek.Shape.BoundBox.XLength - 44) < 0.02
+    original_reach = sheet.getContents("B13")
+    sheet.set("B13", "52 mm")
+    reopened.recompute()
+    assert reopened.Vesacek.Shape.isValid()
+    assert abs(reopened.Vesacek.Shape.BoundBox.YLength - 60) < 0.02
+    sheet.set("B13", original_reach)
+    reopened.recompute()
+    assert abs(reopened.Vesacek.Shape.BoundBox.YLength - 58) < 0.02
+    reopened.save()
+    App.closeDocument(reopened.Name)
+    report_path = OUT / "kontrola-modelu.json"
+    report = json.loads(report_path.read_text())
+    report["gui_validation"] = {
+        "saved_and_reopened": True,
+        "only_visible_geometry": visible,
+        "parametric_plate_width_44_to_46_to_44": True,
+        "parametric_main_reach_50_to_52_to_50": True,
+        "previews": ["nahled-na-futrech-cad.png", "nahled-sikmy-cad.png",
+                     "nahled-celni-cad.png", "nahled-bocni-cad.png"],
+        "illustrative_jamb_and_screw_not_saved_in_model": True,
+    }
+    report_path.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n")
+    print("VESACEK_RENDER_OK", flush=True)
+    Gui.getMainWindow().close()
+
+QtCore.QTimer.singleShot(900, start)

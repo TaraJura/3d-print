@@ -1,0 +1,212 @@
+# -*- coding: utf-8 -*-
+"""Native FreeCAD 1.1.3 parametric wall knife case. Units: mm.
+Overwrites ONLY drzak.FCStd, stl/*.stl, kontrola-modelu.json and
+print-manifest.json beside this macro. Source settings are authoritative for
+regeneration; synchronize any spreadsheet changes back here first.
+No printer I/O. No Python proxy is required by the saved document.
+"""
+from pathlib import Path
+import json, hashlib
+import FreeCAD as App
+import Part, Mesh, MeshPart
+OUT=Path(__file__).resolve().parent
+NAME='DrzakNozeNaStenu'
+if NAME in App.listDocuments(): raise RuntimeError('Save and close the open document first.')
+App.ParamGet('User parameter:BaseApp/Preferences/Document').SetInt('CountBackupFiles',0)
+doc=App.newDocument(NAME)
+doc.Label='Nástěnné pouzdro na nůž — 340 × 45 × 25'
+s=doc.addObject('Spreadsheet::Sheet','Parameters')
+s.Label='Parametry v mm: zadání / návrh'
+VALUES=[
+('KnifeLength',340,'Celková délka nože','ZADÁNÍ'),
+('KnifeHeight',45,'Výška nože','ZADÁNÍ'),
+('HandleThickness',25,'Max. šířka rukojeti','ZADÁNÍ — tloušťka čepele neznámá'),
+('LengthClearance',6,'Celková podélná vůle','NÁVRH'),
+('HeightClearance',4,'Celková výšková vůle','NÁVRH'),
+('DepthClearance',4,'Celková hloubková vůle','NÁVRH'),
+('EndAllowance',7,'Konec od vnějšího okraje','NÁVRH'),
+('BackThickness',3,'Tloušťka zad','NÁVRH'),
+('FloorLevel',18,'Horní plocha dna','NÁVRH'),
+('FloorThickness',4,'Tloušťka dna','NÁVRH'),
+('RetainerHeight',8,'Pevný přední záchytný lem','NÁVRH'),
+('WallThickness',3,'Stěny a čelo','NÁVRH'),
+('SeamOverlap',4,'Délka stupňového přesahu','NÁVRH'),
+('SeamGap',0.3,'Vůle spojů','NÁVRH — tiskový fit neověřen'),
+('CoverGap',0.5,'Vůle krytu před lemem','NÁVRH'),
+('CoverLift',7,'Zdvih krytu před sejmutím','NÁVRH'),
+('CoverOverlap',4,'Překrytí čela a záchytného lemu','NÁVRH'),
+('StudShaft',4.2,'Průměr dříku čepu','NÁVRH'),
+('StudHead',8,'Průměr hlavy čepu','NÁVRH'),
+('KeySlot',4.8,'Šířka úzké části klíčové dírky','NÁVRH'),
+('KeyHead',8.6,'Průměr vstupní části klíčové dírky','NÁVRH'),
+('MountHole',5.5,'Průchod montážního vrutu','NÁVRH — vrut a stěna neznámé'),
+('CornerRadius',6,'Zaoblení vnějšího obrysu','NÁVRH')]
+for c,v in [('A1','Parametr'),('B1','Hodnota'),('C1','Původ')]:s.set(c,v)
+for row,(a,v,label,source) in enumerate(VALUES,2):
+ s.set('A%d'%row,label);s.set('B%d'%row,str(v)+' mm');s.setAlias('B%d'%row,a);s.set('C%d'%row,source)
+ s.setBackground('B%d'%row,(.82,.95,.87) if source.startswith('ZADÁNÍ') else (1,.94,.78))
+DERIVED=[('InnerLength','=KnifeLength+LengthClearance'),('InnerHeight','=KnifeHeight+HeightClearance'),('InnerDepth','=HandleThickness+DepthClearance'),
+('Width','=InnerLength+2*EndAllowance'),('HalfWidth','=Width/2'),('Height','=FloorLevel+InnerHeight+23 mm'),
+('LipZ','=BackThickness+InnerDepth'),('BodyDepth','=LipZ+WallThickness'),('CoverZ','=BodyDepth+CoverGap'),
+('CoverBottom','=FloorLevel+RetainerHeight-CoverOverlap'),('StudY','=Height-11 mm'),('RoofY','=Height-4 mm')]
+for row,(a,f) in enumerate(DERIVED,len(VALUES)+3):
+ s.set('A%d'%row,a);s.set('B%d'%row,f);s.setAlias('B%d'%row,a);s.set('C%d'%row,'ODVOZENO')
+s.setColumnWidth('A',340);s.setColumnWidth('B',120);s.setColumnWidth('C',410);doc.recompute()
+P=lambda a:'Parameters.'+a
+w,h,c,t,d=map(P,['Width','Height','HalfWidth','WallThickness','BodyDepth'])
+gap=P('SeamGap'); ov=P('SeamOverlap'); midlo=c+'-'+ov+'/2'; midhi=c+'+'+ov+'/2'
+def box(n,dims,pos):
+ o=doc.addObject('Part::Box',n)
+ for k,v in zip(['Length','Width','Height'],dims):o.setExpression(k,str(v))
+ for k,v in zip('xyz',pos):o.setExpression('Placement.Base.'+k,str(v))
+ return o
+def cyl(n,r,ht,pos):
+ o=doc.addObject('Part::Cylinder',n);o.setExpression('Radius',str(r));o.setExpression('Height',str(ht))
+ for k,v in zip('xyz',pos):o.setExpression('Placement.Base.'+k,str(v))
+ return o
+def fuse(n,objs):
+ o=doc.addObject('Part::MultiFuse',n);o.Shapes=objs;o.Refine=True;return o
+def cut(n,base,tools):
+ o=doc.addObject('Part::Cut',n);o.Base=base;o.Tool=fuse(n+'Tools',tools) if len(tools)>1 else tools[0];o.Refine=True;return o
+def common(n,base,mask):
+ o=doc.addObject('Part::Common',n);o.Base=base;o.Tool=mask;o.Refine=True;return o
+def rounded(n,x,y,ww,hh,z,th,r):
+ a=[box(n+'MiddleX',[ww+'-2*('+r+')',hh,th],[x+'+('+r+')',y,z]),box(n+'MiddleY',[ww,hh+'-2*('+r+')',th],[x,y+'+('+r+')',z])]
+ for i,(xx,yy) in enumerate([(x+'+('+r+')',y+'+('+r+')'),(x+'+('+ww+')-('+r+')',y+'+('+r+')'),(x+'+('+r+')',y+'+('+hh+')-('+r+')'),(x+'+('+ww+')-('+r+')',y+'+('+hh+')-('+r+')')]):a.append(cyl(n+'Round%d'%i,r,th,[xx,yy,z]))
+ return fuse(n,a)
+# Full shell is cut into stepped overlapping halves below. The front remains
+# open after removing the two covers. Its 8mm retaining lip is permanent.
+back=rounded('Back','0 mm','0 mm',w,h,'0 mm',P('BackThickness'),P('CornerRadius'))
+adds=[back,
+ box('Floor',[w+'-6 mm',P('FloorThickness'),d],['3 mm',P('FloorLevel')+'-'+P('FloorThickness'),'0 mm']),
+ box('Roof',[w+'-6 mm','4 mm',d],['3 mm',P('RoofY'),'0 mm']),
+ box('LeftEnd',['4 mm',P('RoofY')+'-'+P('FloorLevel')+'+'+P('FloorThickness'),d],['3 mm',P('FloorLevel')+'-'+P('FloorThickness'),'0 mm']),
+ box('RightEnd',['4 mm',P('RoofY')+'-'+P('FloorLevel')+'+'+P('FloorThickness'),d],[w+'-7 mm',P('FloorLevel')+'-'+P('FloorThickness'),'0 mm']),
+ box('Retainer',[w+'-6 mm',P('RetainerHeight'),t],['3 mm',P('FloorLevel'),P('LipZ')])]
+stud_x=[c+'*0.305555555556',c+'*0.694444444444',c+'*1.305555555556',c+'*1.694444444444']
+for i,x in enumerate(stud_x):
+ adds.append(cyl('StudPedestal%d'%i,'5 mm',d,[x,P('StudY'),'0 mm']))
+ # Cone underside of the mushroom head: approximately 45 degrees, no flat
+ # unsupported head disk. The pedestal is behind the removable cover.
+ adds.append(cyl('StudShaft%d'%i,P('StudShaft')+'/2',P('CoverZ')+'+'+t+'+0.5 mm',[x,P('StudY'),'0 mm']))
+ cone=doc.addObject('Part::Cone','StudCone%d'%i)
+ cone.setExpression('Radius1',P('StudShaft')+'/2');cone.setExpression('Radius2',P('StudHead')+'/2');cone.Height=1.9
+ for ax,f in zip('xyz',[x,P('StudY'),P('CoverZ')+'+'+t+'+0.5 mm']):cone.setExpression('Placement.Base.'+ax,f)
+ adds.append(cone)
+ adds.append(cyl('StudCap%d'%i,P('StudHead')+'/2','0.8 mm',[x,P('StudY'),P('CoverZ')+'+'+t+'+2.4 mm']))
+tools=[]
+mount_x=['22 mm',c+'-22 mm',c+'+22 mm',w+'-22 mm']
+for i,x in enumerate(mount_x): tools.append(cyl('WallHole%d'%i,P('MountHole')+'/2','5 mm',[x,P('StudY'),'-1 mm']))
+shell=cut('FullBody',fuse('ShellBeforeHoles',adds),tools)
+# Complementary lap masks. Every interior seam is backed by material from
+# the other half; the parts have 0.30 mm clearance and independent wall screws.
+leftmask=fuse('LeftMask',[
+ box('LMMain',[midlo,'120 mm','55 mm'],['0 mm','-10 mm','-1 mm']),
+ box('LMBack',[ov,'120 mm','1.3 mm'],[midlo,'-10 mm','0 mm']),
+ box('LMFloor',[ov,'1.7 mm',d],[midlo,P('FloorLevel')+'-'+P('FloorThickness'),'0 mm']),
+ box('LMRoof',[ov,'1.7 mm',d],[midlo,h+'-1.7 mm','0 mm']),
+ box('LMLip',[ov,P('RetainerHeight'), '1.3 mm'],[midlo,P('FloorLevel'),d+'-1.3 mm'])])
+rightmask=fuse('RightMask',[
+ box('RMMain',[w+'-('+midhi+'+'+gap+')','120 mm','55 mm'],[midhi+'+'+gap,'-10 mm','-1 mm']),
+ box('RMBackLower',[ov,P('FloorLevel')+'-'+P('FloorThickness')+'+10 mm-'+gap,P('BackThickness')+'-1.6 mm'],[midlo+'+'+gap,'-10 mm','1.6 mm']),
+ box('RMBackMiddle',[ov,h+'-1.7 mm-'+gap+'-('+P('FloorLevel')+'-'+P('FloorThickness')+'+2 mm)',P('BackThickness')+'-1.6 mm'],[midlo+'+'+gap,P('FloorLevel')+'-'+P('FloorThickness')+'+2 mm','1.6 mm']),
+ box('RMFloor',[ov,P('FloorThickness')+'-2 mm',d+'-1.6 mm'],[midlo+'+'+gap,P('FloorLevel')+'-'+P('FloorThickness')+'+2 mm','1.6 mm']),
+ box('RMRoof',[ov,'2 mm',d+'-3 mm'],[midlo+'+'+gap,P('RoofY'),'3 mm']),
+ box('RMLip',[ov,P('RetainerHeight'),'1.4 mm'],[midlo+'+'+gap,P('FloorLevel'),P('LipZ')])])
+left=common('BodyLeft',shell,leftmask);left.Label='01 — levá vanička, 2 vruty do stěny'
+right=common('BodyRight',shell,rightmask);right.Label='02 — pravá vanička, 2 vruty do stěny'
+# Full rounded front blank with keyholes: lift 7mm, then pull forwards.
+coverblank=rounded('CoverBlank','0 mm',P('CoverBottom'),w,h+'-'+P('CoverBottom'),P('CoverZ'),t,P('CornerRadius'))
+keytools=[]
+for i,x in enumerate(stud_x):
+ keytools.extend([cyl('KeyCircle%d'%i,P('KeyHead')+'/2',t+'+2 mm',[x,P('StudY')+'-'+P('CoverLift'),P('CoverZ')+'-1 mm']),
+ cyl('KeyTop%d'%i,P('KeySlot')+'/2',t+'+2 mm',[x,P('StudY'),P('CoverZ')+'-1 mm']),
+ box('KeyLink%d'%i,[P('KeySlot'),P('CoverLift'),t+'+2 mm'],[x+'-'+P('KeySlot')+'/2',P('StudY')+'-'+P('CoverLift'),P('CoverZ')+'-1 mm'])])
+coverfull=cut('FullCover',coverblank,keytools)
+# Front overlap is stepped in depth. Both pieces can move independently up;
+# remove the left face first, then the right, because of the seam overlap.
+lc_mask=fuse('LeftCoverMask',[
+ box('LCMain',[midlo,'120 mm','6 mm'],['0 mm','0 mm',P('CoverZ')+'-1 mm']),
+ box('LCOverlap',[ov,'120 mm','1.3 mm'],[midlo,'0 mm',P('CoverZ')+'+'+t+'-1.3 mm'])])
+rc_mask=fuse('RightCoverMask',[
+ box('RCMain',[w+'-('+midhi+'+'+gap+')','120 mm','6 mm'],[midhi+'+'+gap,'0 mm',P('CoverZ')+'-1 mm']),
+ box('RCOverlap',[ov,'120 mm','1.4 mm'],[midlo+'+'+gap,'0 mm',P('CoverZ')])])
+coverleft=common('CoverLeft',coverfull,lc_mask);coverleft.Label='03 — levý kryt: zvednout 7 mm a sejmout první'
+coverright=common('CoverRight',coverfull,rc_mask);coverright.Label='04 — pravý kryt: zvednout 7 mm a sejmout druhý'
+doc.recompute()
+parts=[('vanicka-leva',left),('vanicka-prava',right),('kryt-levy',coverleft),('kryt-pravy',coverright)]
+for name,o in parts:
+ assert o.Shape.isValid() and len(o.Shape.Solids)==1,(name,o.Shape.isValid(),len(o.Shape.Solids))
+bad=[o.Name for o in doc.Objects if 'Invalid' in o.State];assert not bad,bad
+collisions=[]
+for i,(an,a) in enumerate(parts):
+ for bn,b in parts[i+1:]:
+  v=a.Shape.common(b.Shape).Volume
+  if v>1e-5:collisions.append([an,bn,v])
+assert not collisions,collisions
+# The three known dimensions define a conservative rectangular reference;
+# handle width is used across its whole length as a DESIGN assumption.
+env=Part.makeBox(s.KnifeLength.Value,s.KnifeHeight.Value,s.HandleThickness.Value,App.Vector(s.EndAllowance.Value+s.LengthClearance.Value/2,s.FloorLevel.Value,s.BackThickness.Value+s.DepthClearance.Value/2))
+env_collisions={n:env.common(o.Shape).Volume for n,o in parts};assert max(env_collisions.values())<1e-5,env_collisions
+# Functional path: cover rises; then moves outward; each is removed in order.
+pathchecks=[]
+fixed=[left,right,coverright]
+for name,obj,obstacles in [('left',coverleft,[left,right,coverright]),('right',coverright,[left,right])]:
+ for lift in [i*.25 for i in range(29)]:
+  a=obj.Shape.copy();a.translate(App.Vector(0,lift,0))
+  for b in obstacles:
+   v=a.common(b.Shape).Volume;assert v<1e-5,('cover lift',name,lift,b.Name,v)
+ for fwd in [i*.25 for i in range(41)]:
+  a=obj.Shape.copy();a.translate(App.Vector(0,s.CoverLift.Value,fwd))
+  for b in obstacles:
+   v=a.common(b.Shape).Volume;assert v<1e-5,('cover pull',name,fwd,b.Name,v)
+ pathchecks.append({'part':name,'lift_mm':7,'sample_step_mm':.25,'pull_mm':10,'collisions':0})
+# With both covers removed: lift knife above 8mm lip, then pull straight out.
+knife_samples=0
+for lift in [i*.5 for i in range(19)]:
+ a=env.copy();a.translate(App.Vector(0,lift,0))
+ for b in [left,right]:assert a.common(b.Shape).Volume<1e-5,('knife lift',lift,b.Name)
+ knife_samples+=1
+for fwd in [i for i in range(51)]:
+ a=env.copy();a.translate(App.Vector(0,9,fwd))
+ for b in [left,right]:assert a.common(b.Shape).Volume<1e-5,('knife pull',fwd,b.Name)
+ knife_samples+=1
+# Parameter test: larger length/height/depth propagate through native nodes.
+old_vol=left.Shape.Volume
+for alias,new in [('KnifeLength',350),('KnifeHeight',47),('HandleThickness',27)]:s.set(alias,str(new)+' mm')
+doc.recompute()
+assert abs(s.Width.Value-370)<1e-7 and abs(s.Height.Value-92)<1e-7 and abs(s.InnerDepth.Value-31)<1e-7
+for _,o in parts:assert o.Shape.isValid() and len(o.Shape.Solids)==1
+assert left.Shape.Volume>old_vol
+for alias,value in [('KnifeLength',340),('KnifeHeight',45),('HandleThickness',25)]:s.set(alias,str(value)+' mm')
+doc.recompute();assert abs(left.Shape.Volume-old_vol)<1e-5
+# Exports use explicit print poses. Body backs on bed; cover fronts on bed.
+# The right cover's recessed seam tongue is above the bed and needs supports.
+stldir=OUT/'stl';stldir.mkdir(exist_ok=True)
+report={'units':'mm','user_dimensions_mm':[340,45,25], 'clear_envelope_mm':[346,49,29],
+ 'overall_mm':[s.Width.Value,s.Height.Value,s.CoverZ.Value+s.WallThickness.Value+3.2],
+ 'parameters_mm':{a:v for a,v,_,_ in VALUES},'parts':{},'assembly_collisions':collisions,
+ 'knife_envelope_collision_volumes_mm3':env_collisions,'cover_paths':pathchecks,
+ 'knife_removal':{'lift_mm':9,'forward_mm':50,'samples':knife_samples,'collisions':0},
+ 'native_parameter_test':{'knife_test_mm':[350,47,27],'assembly_width_mm':370,'height_mm':92,'inner_depth_mm':31,'restored':True},
+ 'physical_print_verified':False,'physical_fit_verified':False,'wall_mount_verified':False}
+manifest={'units':'mm','physical_part_count':4,'parts':[]}
+for i,(name,o) in enumerate(parts):
+ shape=o.Shape.copy()
+ if i>=2:shape.rotate(App.Vector(0,0,0),App.Vector(1,0,0),180)
+ bb=shape.BoundBox;shape.translate(App.Vector(-bb.XMin,-bb.YMin,-bb.ZMin))
+ mesh=MeshPart.meshFromShape(Shape=shape,LinearDeflection=.04,AngularDeflection=.12,Relative=False)
+ path=stldir/(name+'.stl');mesh.write(str(path));reloaded=Mesh.Mesh(str(path))
+ assert reloaded.isSolid() and reloaded.countComponents()==1,(name,reloaded.isSolid(),reloaded.countComponents())
+ bb=shape.BoundBox;bounds=[bb.XLength,bb.YLength,bb.ZLength];digest=hashlib.sha256(path.read_bytes()).hexdigest()
+ support=i<2 or i==3
+ note=('Záchytný lem v Z=32–35 mm a přechody stupňového spoje; podpory přístupné z otevřené vaničky.' if i<2 else ('Spodní přesah středového spoje je 1,6 mm nad podložkou.' if i==3 else 'Plochým pohledovým čelem dolů; všechny otvory svisle, bez podpor.'))
+ report['parts'][name]={'object':o.Name,'bbox_print_mm':bounds,'volume_mm3':o.Shape.Volume,'valid':True,'solids':1,'stl_closed':True,'stl_components':1,'stl_sha256':digest,'facets':reloaded.CountFacets,'print_min_z':bb.ZMin}
+ manifest['parts'].append({'id':name,'name':name,'file':'stl/'+name+'.stl','quantity':1,'sha256':digest,'bbox_mm':bounds,'orientation':'zadní plochou na podložce' if i<2 else 'pohledovým čelem na podložce','supports':support,'support_note':note,'critical_z_mm':[1.3,1.6,3,32,35,39,40.9] if i<2 else [1.6,3]})
+if App.GuiUp:
+ for o in doc.Objects:
+  if hasattr(o,'ViewObject'):o.ViewObject.Visibility=o in [p[1] for p in parts]
+doc.recompute();doc.saveAs(str(OUT/'drzak.FCStd'))
+(OUT/'kontrola-modelu.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
+(OUT/'print-manifest.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n')
+print('DRZAK_CAD_OK '+json.dumps(report,ensure_ascii=False),flush=True)

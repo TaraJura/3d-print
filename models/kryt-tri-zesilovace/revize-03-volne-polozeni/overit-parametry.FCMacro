@@ -1,0 +1,40 @@
+# -*- coding: utf-8 -*-
+"""Read-only CAD comparison and height-parameter recompute checks. No CAD saves."""
+from pathlib import Path
+import json,hashlib
+import FreeCAD as App
+import Part
+P=Path(__file__).resolve().parent
+cad=P/'kryt.FCStd';before=hashlib.sha256(cad.read_bytes()).hexdigest()
+doc=App.openDocument(str(cad));sheet=doc.Parameters
+names=['Body','Front','Rear','TopLock','Spacer1','Spacer2','Spacer3']
+base_volume=sum(doc.getObject(n).Shape.Volume for n in names)
+old=App.openDocument(str(P.parent/'revize-02-posuvne-celo/kryt.FCStd'))
+old_volume=sum(old.getObject(n).Shape.Volume for n in names)
+App.closeDocument(old.Name)
+# Identify the editable height cell by alias, rather than silently tying the
+# test to a spreadsheet row that may change in a later revision.
+cell=sheet.getCellFromAlias('ComponentHeight')
+scenarios=[]
+for height in [30,42]:
+ sheet.set(cell,str(height)+' mm');doc.recompute()
+ assert sheet.PCBWidth.Value==78 and sheet.PCBDepth.Value==108
+ states=[]
+ for n in names:
+  o=doc.getObject(n);assert o.Shape.isValid() and len(o.Shape.Solids)==1,n
+  states.append(n)
+ collisions=[]
+ for i,a in enumerate(names):
+  for b in names[i+1:]:
+   v=doc.getObject(a).Shape.common(doc.getObject(b).Shape).Volume
+   if v>1e-5:collisions.append([a,b,v])
+ assert not collisions,collisions
+ assert sheet.SeatLipHeight.Value < sheet.PCBThickness.Value
+ assert doc.getObject('SupportLower0L').Shape.BoundBox.ZMax == doc.PCB0.Shape.BoundBox.ZMin
+ assert doc.getObject('RailUpper0L') is None
+ scenarios.append({'component_height_mm':height,'body_height_mm':sheet.Height.Value,'valid_single_solids':states,'hard_collisions':collisions})
+App.closeDocument(doc.Name)
+assert hashlib.sha256(cad.read_bytes()).hexdigest()==before
+report={'cad_file_unchanged':True,'cad_sha256':before,'height_scenarios':scenarios,'v02_cad_material_volume_mm3':old_volume,'v03_cad_material_volume_mm3':base_volume,'cad_material_reduction_percent':100*(1-base_volume/old_volume),'scope':'Native recompute and CAD volumes; physical fit, thermal performance and print economy not proven by volume alone.'}
+(P/'kontrola-parametru.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
+print('V03_PARAMETERS_OK',flush=True)

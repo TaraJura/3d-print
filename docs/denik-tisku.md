@@ -282,3 +282,16 @@ Oba předané aktuální úplné 3MF mají vlastní **Alzament TPU95A Gray, 225/
 Pozdější přímé hlášení Jiřího: **šedé Alzament TPU95A dal do fyzického vstupu 3**, do **vstupu 4 právě dává zlaté Alzament PLA Silk**; dokončení zavedení zlata nepotvrzené. Pro přepážku je určen vstup 3. Logický filament 1 z projektu je při případném odesílání nutné správně přiřadit, samotné 3MF fyzický vstup neurčuje. Nový start ani správné softwarové mapování nebyly potvrzené. Kanonická zásoba v [materiálech](materialy.md) doplnila použití s původem hlášení, nikoli odhad spotřeby.
 
 Podávání, přilnavost, vlhkost a skutečný průtok zůstávají nevyšetřené; chuchvalce samy příčinu neurčují. Rozpor doporučených teplot desky zůstává zdokumentovaný. Tiskové parametry se neměnily naslepo, žádný další tisk ani ovládání zařízení neproběhly. Neproběhl commit ani push.
+
+
+## 24. 10. 2026 — TPU test zastaven na začátku, chyba 11833
+
+Jiří potvrdil pokus o tisk [sady TPU vzorků](../models/tpu-test-pruznosti/README.md) z Alzament TPU95A a zastavení hned na začátku. Dodaný screenshot Kobra X ukazuje Error11833 „Abnormal filament entanglement/jam detected“, úlohu `TPU-test-Alzament95A-plate1.gcode` a náhled pěti vzorků. Hash skutečně spuštěného souboru, aktuální vstup a přesná fáze nejsou doložené. [Evidence a cílená kontrola původního startu](../models/tpu-test-pruznosti/diagnostika/2026-10-24-zastaveni-11833/README.md). Příčina a oprava neověřeny, úspěšný výtisk nepotvrzen. Předané CAD/STL/3MF a profily zůstaly zachované; agent tiskárnu neovládal.
+
+Následný audit našel neprověřené rychlé záporné E pohyby při wipe v původním profilu. Samostatná [V02 bez wipe](../models/tpu-test-pruznosti/rozlozeni/revize-02-bez-wipe/README.md) je nařezaná, zachovává geometrii/start/teploty a explicitně omezuje retrakci i návrat0,8 mm na20 mm/s. Jde o odstranění konkrétního rizika v procesu; příčinná souvislost s11833 ani úspěšná fyzická oprava prokázány nejsou.
+
+## 3. 11. 2026 — pouzdro na nůž V05, dva neúspěšné tisky
+
+Hlášení Jiřího předané přes desktop Codex. Ručně otočený tisk [pouzdra V05](../models/drzak-noze-na-stenu/revize-05-zdobene-pouzdro/README.md) naležato bez podpor „propadal na visícím přechodu“. Původní svislá varianta: „na výšku to nevyšlo“, konkrétní příčina není známá. Který soubor a G-code se skutečně tiskly, není zaznamenané, hash se proto nepřiřazuje.
+
+Nová [varianta naležato s podporami](../models/drzak-noze-na-stenu/revize-05-zdobene-pouzdro/rozlozeni/nalezato-s-podporami/README.md) je jen digitálně nařezaná a zatím nebyla tištěna.

@@ -1,0 +1,58 @@
+{
+  "date": "2026-10-24",
+  "status": "digitally_verified_not_physically_printed",
+  "physical_part_count": 5,
+  "cad_audit_passed": true,
+  "slicer_local_reimport_and_slice": true,
+  "estimated_seconds": 4918,
+  "estimated_grams": 9.79,
+  "warnings": [
+    {
+      "msg": "bed_temperature_too_high_than_filament",
+      "level": "1",
+      "error_code": "1000C001"
+    },
+    {
+      "msg": "not_support_traditional_timelapse",
+      "level": "1",
+      "error_code": "1000C003"
+    }
+  ],
+  "files": [
+    {
+      "path": "test-tpu.FCStd",
+      "bytes": 58401,
+      "sha256": "0f18c663d016b5537b877f82b117d03a12d7a621f0cd3e1503db0cc173fb3f6b"
+    },
+    {
+      "path": "test-tpu.FCMacro",
+      "bytes": 6516,
+      "sha256": "58db84e23875f41c895c2211ebe469893e18c504a42a8d8bbb29dd08477610df"
+    },
+    {
+      "path": "nahled-cad.png",
+      "bytes": 34356,
+      "sha256": "afb28d337b7f9453aad394a68a21704d4513cf38845e411b3bd4e2ac7990ec59"
+    },
+    {
+      "path": "nahled-shora.png",
+      "bytes": 17865,
+      "sha256": "dbd1a8e910ba7a11d9e8fd41dc3f0c427e8f74e1c5543e18b9994ab8ee01c4c8"
+    },
+    {
+      "path": "stl/tpu-test-cela-sada.stl",
+      "bytes": 276084,
+      "sha256": "4c70fefad43f40bbeed7d780c17aa678c11087b14bbddc74b150755417f68a55"
+    },
+    {
+      "path": "rozlozeni/podlozka-01-kobra-x-alzament-tpu95a-projekt.3mf",
+      "bytes": 382034,
+      "sha256": "57802d559b4c5b03d0049fa4aed8fad02bbf53a10da04a3ba52c5afd1cf413bb"
+    },
+    {
+      "path": "rozlozeni/podlozka-01-geometrie.3mf",
+      "bytes": 61848,
+      "sha256": "36356a58054705f5f5cd4bf28bb2af6a49ffbbcb6468dfcf7bc2abb1cdb825b0"
+    }
+  ]
+}

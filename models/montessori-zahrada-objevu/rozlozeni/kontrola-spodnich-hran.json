@@ -1,0 +1,445 @@
+{
+  "method": "Sampled actual exterior extrusion paths in layers 2 through 8, spacing <=0.15 mm; same-object preceding exterior-wall strokes, actual G-code WIDTH values. Nominal circular-stroke footprint only, not proof of physical bonding or full overhang print quality.",
+  "plates": [
+    {
+      "project": "podlozka-01-kobra-x-pla-projekt.3mf",
+      "sha256": "1be70bfdc9c026d6f52357fa9afc4fd2e4128ca1fec4214f75614a88099aa081",
+      "gcode_sha256": "ad37f6a2af36800ed6cc29fe48809acf455c1ec5f2479383fb922b98ca3c29d5",
+      "checks": [
+        {
+          "object": "Base_01_id_0_copy_0",
+          "layer_one_based": 2,
+          "z_mm": 0.4,
+          "outer_wall_samples": 5034,
+          "sample_spacing_at_most_mm": 0.15,
+          "maximum_distance_to_previous_deposition_centerline_mm": 0.3538739723812883,
+          "minimum_nominal_stroke_overlap_mm": 0.10612602761871165,
+          "all_outer_samples_overlap_previous_nominal_strokes": true
+        },
+        {
+          "object": "Base_01_id_0_copy_0",
+          "layer_one_based": 3,
+          "z_mm": 0.6,
+          "outer_wall_samples": 5140,
+          "sample_spacing_at_most_mm": 0.15,
+          "maximum_distance_to_previous_deposition_centerline_mm": 0.21404116588254396,
+          "minimum_nominal_stroke_overlap_mm": 0.20595883411745602,
+          "all_outer_samples_overlap_previous_nominal_strokes": true
+        },
+        {
+          "object": "Base_01_id_0_copy_0",
+          "layer_one_based": 4,
+          "z_mm": 0.8,
+          "outer_wall_samples": 5160,
+          "sample_spacing_at_most_mm": 0.15,
+          "maximum_distance_to_previous_deposition_centerline_mm": 0.21359081221827528,
+          "minimum_nominal_stroke_overlap_mm": 0.2064091877817247,
+          "all_outer_samples_overlap_previous_nominal_strokes": true
+        },
+        {
+          "object": "Base_01_id_0_copy_0",
+          "layer_one_based": 5,
+          "z_mm": 1.0,
+          "outer_wall_samples": 5077,
+          "sample_spacing_at_most_mm": 0.15,
+          "maximum_distance_to_previous_deposition_centerline_mm": 0.20461817016487205,
+          "minimum_nominal_stroke_overlap_mm": 0.21538182983512794,
+          "all_outer_samples_overlap_previous_nominal_strokes": true
+        },
+        {
+          "object": "Base_01_id_0_copy_0",
+          "layer_one_based": 6,
+          "z_mm": 1.2,
+          "outer_wall_samples": 5138,
+          "sample_spacing_at_most_mm": 0.15,
+          "maximum_distance_to_previous_deposition_centerline_mm": 0.20455585499423873,
+          "minimum_nominal_stroke_overlap_mm": 0.21544414500576126,
+          "all_outer_samples_overlap_previous_nominal_strokes": true
+        },
+        {
+          "object": "Base_01_id_0_copy_0",
+          "layer_one_based": 7,
+          "z_mm": 1.4,
+          "outer_wall_samples": 5051,
+          "sample_spacing_at_most_mm": 0.15,
+          "maximum_distance_to_previous_deposition_centerline_mm": 0.20837381608742883,
+          "minimum_nominal_stroke_overlap_mm": 0.21162618391257115,
+          "all_outer_samples_overlap_previous_nominal_strokes": true
+        },
+        {
+          "object": "Base_01_id_0_copy_0",
+          "layer_one_based": 8,
+          "z_mm": 1.6,
+          "outer_wall_samples": 5006,
+          "sample_spacing_at_most_mm": 0.15,
+          "maximum_distance_to_previous_deposition_centerline_mm": 0.20919197086986782,
+          "minimum_nominal_stroke_overlap_mm": 0.21080802913013216,
+          "all_outer_samples_overlap_previous_nominal_strokes": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "project": "podlozka-02-kobra-x-pla-projekt.3mf",
+      "sha256": "044aabfee23a54d8c6e042351e7bbafcab796e6707a2b39097372584aca5205b",
+      "gcode_sha256": "d3ec2d1e689f779fcb38cd001be15ea54de3fd517ca1a1f443d2c5319e8389e5",
+      "checks": [
+        {
+          "object": "Stone1_01_id_3_copy_0",
+          "layer_one_based": 2,
+          "z_mm": 0.4,
+          "outer_wall_samples": 1257,
+          "sample_spacing_at_most_mm": 0.15,
+          "maximum_distance_to_previous_deposition_centerline_mm": 0.42751744233994393,
+          "minimum_nominal_stroke_overlap_mm": 0.03248255766005603,
+          "all_outer_samples_overlap_previous_nominal_strokes": true
+        },
+        {
+          "object": "Stone2_01_id_0_copy_0",
+          "layer_one_based": 2,
+          "z_mm": 0.4,
+          "outer_wall_samples": 1316,
+          "sample_spacing_at_most_mm": 0.15,
+          "maximum_distance_to_previous_deposition_centerline_mm": 0.43002867853013355,
+          "minimum_nominal_stroke_overlap_mm": 0.02997132146986642,
+          "all_outer_samples_overlap_previous_nominal_strokes": true
+        },
+        {
+          "object": "Stone3_01_id_4_copy_0",
+          "layer_one_based": 2,
+          "z_mm": 0.4,
+          "outer_wall_samples": 1234,
+          "sample_spacing_at_most_mm": 0.15,
+          "maximum_distance_to_previous_deposition_centerline_mm": 0.4282681844361772,
+          "minimum_nominal_stroke_overlap_mm": 0.03173181556382276,
+          "all_outer_samples_overlap_previous_nominal_strokes": true
+        },
+        {
+          "object": "Stone4_01_id_2_copy_0",
+          "layer_one_based": 2,
+          "z_mm": 0.4,
+          "outer_wall_samples": 1212,
+          "sample_spacing_at_most_mm": 0.15,
+          "maximum_distance_to_previous_deposition_centerline_mm": 0.43083638440637223,
+          "minimum_nominal_stroke_overlap_mm": 0.029163615593627734,
+          "all_outer_samples_overlap_previous_nominal_strokes": true
+        },
+        {
+          "object": "Stone5_01_id_1_copy_0",
+          "layer_one_based": 2,
+          "z_mm": 0.4,
+          "outer_wall_samples": 1195,
+          "sample_spacing_at_most_mm": 0.15,
+          "maximum_distance_to_previous_deposition_centerline_mm": 0.4294661053896079,
+          "minimum_nominal_stroke_overlap_mm": 0.030533894610392076,
+          "all_outer_samples_overlap_previous_nominal_strokes": true
+        },
+        {
+          "object": "Stone1_01_id_3_copy_0",
+          "layer_one_based": 3,
+          "z_mm": 0.6,
+          "outer_wall_samples": 1262,
+          "sample_spacing_at_most_mm": 0.15,
+          "maximum_distance_to_previous_deposition_centerline_mm": 0.16265871591347167,
+          "minimum_nominal_stroke_overlap_mm": 0.25734128408652834,
+          "all_outer_samples_overlap_previous_nominal_strokes": true
+        },
+        {
+          "object": "Stone2_01_id_0_copy_0",
+          "layer_one_based": 3,
+          "z_mm": 0.6,
+          "outer_wall_samples": 1309,
+          "sample_spacing_at_most_mm": 0.15,
+          "maximum_distance_to_previous_deposition_centerline_mm": 0.15952562281467386,
+          "minimum_nominal_stroke_overlap_mm": 0.2604743771853261,
+          "all_outer_samples_overlap_previous_nominal_strokes": true
+        },
+        {
+          "object": "Stone3_01_id_4_copy_0",
+          "layer_one_based": 3,
+          "z_mm": 0.6,
+          "outer_wall_samples": 1213,
+          "sample_spacing_at_most_mm": 0.15,
+          "maximum_distance_to_previous_deposition_centerline_mm": 0.1601572036219307,
+          "minimum_nominal_stroke_overlap_mm": 0.2598427963780693,
+          "all_outer_samples_overlap_previous_nominal_strokes": true
+        },
+        {
+          "object": "Stone4_01_id_2_copy_0",
+          "layer_one_based": 3,
+          "z_mm": 0.6,
+          "outer_wall_samples": 1197,
+          "sample_spacing_at_most_mm": 0.15,
+          "maximum_distance_to_previous_deposition_centerline_mm": 0.16317361962720014,
+          "minimum_nominal_stroke_overlap_mm": 0.2568263803727998,
+          "all_outer_samples_overlap_previous_nominal_strokes": true
+        },
+        {
+          "object": "Stone5_01_id_1_copy_0",
+          "layer_one_based": 3,
+          "z_mm": 0.6,
+          "outer_wall_samples": 1179,
+          "sample_spacing_at_most_mm": 0.15,
+          "maximum_distance_to_previous_deposition_centerline_mm": 0.1611032519483143,
+          "minimum_nominal_stroke_overlap_mm": 0.2588967480516857,
+          "all_outer_samples_overlap_previous_nominal_strokes": true
+        },
+        {
+          "object": "Stone1_01_id_3_copy_0",
+          "layer_one_based": 4,
+          "z_mm": 0.8,
+          "outer_wall_samples": 1260,
+          "sample_spacing_at_most_mm": 0.15,
+          "maximum_distance_to_previous_deposition_centerline_mm": 0.08872992730754135,
+          "minimum_nominal_stroke_overlap_mm": 0.3312700726924586,
+          "all_outer_samples_overlap_previous_nominal_strokes": true
+        },
+        {
+          "object": "Stone2_01_id_0_copy_0",
+          "layer_one_based": 4,
+          "z_mm": 0.8,
+          "outer_wall_samples": 1304,
+          "sample_spacing_at_most_mm": 0.15,
+          "maximum_distance_to_previous_deposition_centerline_mm": 0.09896051579557409,
+          "minimum_nominal_stroke_overlap_mm": 0.3210394842044259,
+          "all_outer_samples_overlap_previous_nominal_strokes": true
+        },
+        {
+          "object": "Stone3_01_id_4_copy_0",
+          "layer_one_based": 4,
+          "z_mm": 0.8,
+          "outer_wall_samples": 1218,
+          "sample_spacing_at_most_mm": 0.15,
+          "maximum_distance_to_previous_deposition_centerline_mm": 0.09835103682604615,
+          "minimum_nominal_stroke_overlap_mm": 0.32164896317395386,
+          "all_outer_samples_overlap_previous_nominal_strokes": true
+        },
+        {
+          "object": "Stone4_01_id_2_copy_0",
+          "layer_one_based": 4,
+          "z_mm": 0.8,
+          "outer_wall_samples": 1204,
+          "sample_spacing_at_most_mm": 0.15,
+          "maximum_distance_to_previous_deposition_centerline_mm": 0.09982972803433218,
+          "minimum_nominal_stroke_overlap_mm": 0.32017027196566783,
+          "all_outer_samples_overlap_previous_nominal_strokes": true
+        },
+        {
+          "object": "Stone5_01_id_1_copy_0",
+          "layer_one_based": 4,
+          "z_mm": 0.8,
+          "outer_wall_samples": 1176,
+          "sample_spacing_at_most_mm": 0.15,
+          "maximum_distance_to_previous_deposition_centerline_mm": 0.09636978601619306,
+          "minimum_nominal_stroke_overlap_mm": 0.3236302139838069,
+          "all_outer_samples_overlap_previous_nominal_strokes": true
+        },
+        {
+          "object": "Stone1_01_id_3_copy_0",
+          "layer_one_based": 5,
+          "z_mm": 1.0,
+          "outer_wall_samples": 1261,
+          "sample_spacing_at_most_mm": 0.15,
+          "maximum_distance_to_previous_deposition_centerline_mm": 0.05171586013795417,
+          "minimum_nominal_stroke_overlap_mm": 0.36828413986204583,
+          "all_outer_samples_overlap_previous_nominal_strokes": true
+        },
+        {
+          "object": "Stone2_01_id_0_copy_0",
+          "layer_one_based": 5,
+          "z_mm": 1.0,
+          "outer_wall_samples": 1296,
+          "sample_spacing_at_most_mm": 0.15,
+          "maximum_distance_to_previous_deposition_centerline_mm": 0.05076516605447761,
+          "minimum_nominal_stroke_overlap_mm": 0.36923483394552237,
+          "all_outer_samples_overlap_previous_nominal_strokes": true
+        },
+        {
+          "object": "Stone3_01_id_4_copy_0",
+          "layer_one_based": 5,
+          "z_mm": 1.0,
+          "outer_wall_samples": 1217,
+          "sample_spacing_at_most_mm": 0.15,
+          "maximum_distance_to_previous_deposition_centerline_mm": 0.0499284641369362,
+          "minimum_nominal_stroke_overlap_mm": 0.3700715358630638,
+          "all_outer_samples_overlap_previous_nominal_strokes": true
+        },
+        {
+          "object": "Stone4_01_id_2_copy_0",
+          "layer_one_based": 5,
+          "z_mm": 1.0,
+          "outer_wall_samples": 1196,
+          "sample_spacing_at_most_mm": 0.15,
+          "maximum_distance_to_previous_deposition_centerline_mm": 0.05046309291417019,
+          "minimum_nominal_stroke_overlap_mm": 0.3695369070858298,
+          "all_outer_samples_overlap_previous_nominal_strokes": true
+        },
+        {
+          "object": "Stone5_01_id_1_copy_0",
+          "layer_one_based": 5,
+          "z_mm": 1.0,
+          "outer_wall_samples": 1170,
+          "sample_spacing_at_most_mm": 0.15,
+          "maximum_distance_to_previous_deposition_centerline_mm": 0.048971090123172245,
+          "minimum_nominal_stroke_overlap_mm": 0.37102890987682774,
+          "all_outer_samples_overlap_previous_nominal_strokes": true
+        },
+        {
+          "object": "Stone1_01_id_3_copy_0",
+          "layer_one_based": 6,
+          "z_mm": 1.2,
+          "outer_wall_samples": 1260,
+          "sample_spacing_at_most_mm": 0.15,
+          "maximum_distance_to_previous_deposition_centerline_mm": 0.007921408162141657,
+          "minimum_nominal_stroke_overlap_mm": 0.41207859183785833,
+          "all_outer_samples_overlap_previous_nominal_strokes": true
+        },
+        {
+          "object": "Stone2_01_id_0_copy_0",
+          "layer_one_based": 6,
+          "z_mm": 1.2,
+          "outer_wall_samples": 1296,
+          "sample_spacing_at_most_mm": 0.15,
+          "maximum_distance_to_previous_deposition_centerline_mm": 0.013223378023427471,
+          "minimum_nominal_stroke_overlap_mm": 0.4067766219765725,
+          "all_outer_samples_overlap_previous_nominal_strokes": true
+        },
+        {
+          "object": "Stone3_01_id_4_copy_0",
+          "layer_one_based": 6,
+          "z_mm": 1.2,
+          "outer_wall_samples": 1215,
+          "sample_spacing_at_most_mm": 0.15,
+          "maximum_distance_to_previous_deposition_centerline_mm": 0.013416407864999246,
+          "minimum_nominal_stroke_overlap_mm": 0.4065835921350007,
+          "all_outer_samples_overlap_previous_nominal_strokes": true
+        },
+        {
+          "object": "Stone4_01_id_2_copy_0",
+          "layer_one_based": 6,
+          "z_mm": 1.2,
+          "outer_wall_samples": 1195,
+          "sample_spacing_at_most_mm": 0.15,
+          "maximum_distance_to_previous_deposition_centerline_mm": 0.012519688287296098,
+          "minimum_nominal_stroke_overlap_mm": 0.4074803117127039,
+          "all_outer_samples_overlap_previous_nominal_strokes": true
+        },
+        {
+          "object": "Stone5_01_id_1_copy_0",
+          "layer_one_based": 6,
+          "z_mm": 1.2,
+          "outer_wall_samples": 1166,
+          "sample_spacing_at_most_mm": 0.15,
+          "maximum_distance_to_previous_deposition_centerline_mm": 0.013157719977984622,
+          "minimum_nominal_stroke_overlap_mm": 0.4068422800220154,
+          "all_outer_samples_overlap_previous_nominal_strokes": true
+        },
+        {
+          "object": "Stone1_01_id_3_copy_0",
+          "layer_one_based": 7,
+          "z_mm": 1.4,
+          "outer_wall_samples": 1260,
+          "sample_spacing_at_most_mm": 0.15,
+          "maximum_distance_to_previous_deposition_centerline_mm": 0.0017627965361225815,
+          "minimum_nominal_stroke_overlap_mm": 0.4182372034638774,
+          "all_outer_samples_overlap_previous_nominal_strokes": true
+        },
+        {
+          "object": "Stone2_01_id_0_copy_0",
+          "layer_one_based": 7,
+          "z_mm": 1.4,
+          "outer_wall_samples": 1297,
+          "sample_spacing_at_most_mm": 0.15,
+          "maximum_distance_to_previous_deposition_centerline_mm": 0.008059417208970259,
+          "minimum_nominal_stroke_overlap_mm": 0.41194058279102974,
+          "all_outer_samples_overlap_previous_nominal_strokes": true
+        },
+        {
+          "object": "Stone3_01_id_4_copy_0",
+          "layer_one_based": 7,
+          "z_mm": 1.4,
+          "outer_wall_samples": 1215,
+          "sample_spacing_at_most_mm": 0.15,
+          "maximum_distance_to_previous_deposition_centerline_mm": 0.00748714715882644,
+          "minimum_nominal_stroke_overlap_mm": 0.41251285284117356,
+          "all_outer_samples_overlap_previous_nominal_strokes": true
+        },
+        {
+          "object": "Stone4_01_id_2_copy_0",
+          "layer_one_based": 7,
+          "z_mm": 1.4,
+          "outer_wall_samples": 1195,
+          "sample_spacing_at_most_mm": 0.15,
+          "maximum_distance_to_previous_deposition_centerline_mm": 0.007329363725677448,
+          "minimum_nominal_stroke_overlap_mm": 0.41267063627432254,
+          "all_outer_samples_overlap_previous_nominal_strokes": true
+        },
+        {
+          "object": "Stone5_01_id_1_copy_0",
+          "layer_one_based": 7,
+          "z_mm": 1.4,
+          "outer_wall_samples": 1166,
+          "sample_spacing_at_most_mm": 0.15,
+          "maximum_distance_to_previous_deposition_centerline_mm": 0.007824768652189236,
+          "minimum_nominal_stroke_overlap_mm": 0.41217523134781076,
+          "all_outer_samples_overlap_previous_nominal_strokes": true
+        },
+        {
+          "object": "Stone1_01_id_3_copy_0",
+          "layer_one_based": 8,
+          "z_mm": 1.6,
+          "outer_wall_samples": 1258,
+          "sample_spacing_at_most_mm": 0.15,
+          "maximum_distance_to_previous_deposition_centerline_mm": 0.0031241071913913716,
+          "minimum_nominal_stroke_overlap_mm": 0.4168758928086086,
+          "all_outer_samples_overlap_previous_nominal_strokes": true
+        },
+        {
+          "object": "Stone2_01_id_0_copy_0",
+          "layer_one_based": 8,
+          "z_mm": 1.6,
+          "outer_wall_samples": 1297,
+          "sample_spacing_at_most_mm": 0.15,
+          "maximum_distance_to_previous_deposition_centerline_mm": 0.007896750440321109,
+          "minimum_nominal_stroke_overlap_mm": 0.41210324955967886,
+          "all_outer_samples_overlap_previous_nominal_strokes": true
+        },
+        {
+          "object": "Stone3_01_id_4_copy_0",
+          "layer_one_based": 8,
+          "z_mm": 1.6,
+          "outer_wall_samples": 1215,
+          "sample_spacing_at_most_mm": 0.15,
+          "maximum_distance_to_previous_deposition_centerline_mm": 0.007452821799090119,
+          "minimum_nominal_stroke_overlap_mm": 0.41254717820090986,
+          "all_outer_samples_overlap_previous_nominal_strokes": true
+        },
+        {
+          "object": "Stone4_01_id_2_copy_0",
+          "layer_one_based": 8,
+          "z_mm": 1.6,
+          "outer_wall_samples": 1194,
+          "sample_spacing_at_most_mm": 0.15,
+          "maximum_distance_to_previous_deposition_centerline_mm": 0.007615773105868551,
+          "minimum_nominal_stroke_overlap_mm": 0.41238422689413146,
+          "all_outer_samples_overlap_previous_nominal_strokes": true
+        },
+        {
+          "object": "Stone5_01_id_1_copy_0",
+          "layer_one_based": 8,
+          "z_mm": 1.6,
+          "outer_wall_samples": 1166,
+          "sample_spacing_at_most_mm": 0.15,
+          "maximum_distance_to_previous_deposition_centerline_mm": 0.007806777514788476,
+          "minimum_nominal_stroke_overlap_mm": 0.4121932224852115,
+          "all_outer_samples_overlap_previous_nominal_strokes": true
+        }
+      ],
+      "passed": true
+    }
+  ],
+  "passed": true,
+  "resliced": false,
+  "printer_io": false,
+  "physical_print_verified": false
+}
